@@ -1,7 +1,8 @@
 import { readdirSync, statSync, readFileSync, writeFileSync } from "fs";
 import { join, dirname, relative, sep } from "path";
 
-const ROOT = "/home/praaneshnair/gitProjects/notes.compileartisan.dev";
+// Use current working directory instead of hardcoded path
+const ROOT = process.cwd();
 const ASSETS_DIR = "assets";
 const FONT_NAME = "perfect-dos-vga-437-win.ttf";
 

@@ -1,7 +1,8 @@
 import { readdirSync, statSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const ROOT = "/home/praaneshnair/gitProjects/notes.compileartisan.dev";
+// Use current working directory instead of hardcoded path
+const ROOT = process.cwd();
 const OUTPUT = "./index.html";
 
 const folders = readdirSync(ROOT).filter(name => {
