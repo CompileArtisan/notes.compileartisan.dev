@@ -1,0 +1,1776 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-01-16 Fri 12:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Security</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+/* General styles */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+#postamble, #preamble {
+margin-left: 280px;
+padding: 20px 40px;
+}
+h1, h2, h3 {
+font-family: 'Helvetica', sans-serif;
+}
+pre {
+background-color: #333;
+color: white;
+padding: 10px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+/* Styling code blocks */
+pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
+font-family: 'Courier New', monospace;
+background-color: #222;
+color: white;
+padding: 15px;
+font-size: 1.1em;
+border-radius: 0.5em;
+}
+code {
+font-size: 1em;
+}
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+
+.header {
+text-align: center;
+margin: 0px;
+background-color: #0000aa;
+color: #ffffff;
+padding: 5px 0;
+flex-shrink: 0;
+word-wrap: break-word;
+font-family: DOSVGA, monospace;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header a {
+color: #ffffff;
+text-decoration: none;
+font-size: 1.5em;
+white-space: nowrap;
+transition: all 0.3s ease;
+padding: 0px;
+}
+
+.header a:hover {
+color: #bababa;
+}
+
+@font-face {
+font-family: DOSVGA;
+src: url('../assets/perfect-dos-vga-437-win.ttf') format('truetype');
+}
+
+/* Table of Contents Sidebar */
+#table-of-contents {
+position: fixed;
+left: 0;
+top: 45px;
+width: 280px;
+height: calc(100vh - 45px);
+overflow-y: auto;
+background-color: #f8f8f8;
+border-right: 1px solid #ddd;
+padding: 30px 20px;
+box-sizing: border-box;
+z-index: 10;
+}
+
+#table-of-contents h2 {
+margin-top: 0;
+color: #0000aa;
+font-size: 1.1em;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+
+#table-of-contents ul {
+list-style-type: none;
+padding-left: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 15px;
+margin-top: 5px;
+}
+
+#table-of-contents li {
+margin: 8px 0;
+}
+
+#table-of-contents a {
+color: #555;
+text-decoration: none;
+display: block;
+padding: 5px 10px;
+border-radius: 4px;
+transition: all 0.2s ease;
+font-size: 0.95em;
+}
+
+#table-of-contents a:hover {
+color: #0000aa;
+background-color: #e8e8ff;
+}
+
+/* Main content area */
+#content {
+margin-left: 280px;
+margin-top: 45px;
+padding: 40px;
+background-color: #ffffff;
+min-height: calc(100vh - 45px);
+}
+table {
+border-collapse: collapse;
+margin: 1.5rem auto;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 1rem;
+background: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+border-radius: 10px;
+overflow: hidden; /* clips rounded corners */
+}
+
+/* Remove legacy borders from org export */
+table[border] {
+border: none;
+}
+
+/* Table cells */
+td {
+padding: 0.75rem 1.1rem;
+text-align: center;
+border: 1px solid #e5e7eb; /* light gray */
+font-weight: 500;
+color: #111827;
+}
+
+/* Align org-left cleanly (override if needed) */
+td.org-left {
+text-align: center;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+background-color: #f9fafb;
+}
+
+/* Hover effect */
+tbody tr:hover {
+background-color: #eef2ff;
+}
+
+/* Make letters stand out */
+td {
+letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 2px solid #0000aa;
+}
+
+#content {
+margin-left: 0;
+}
+
+body {
+font-size: 14px;
+padding: 10px;
+}
+h1 {
+font-size: 1.5em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+
+@media screen and (max-width: 480px) {
+body {
+font-size: 12px;
+padding: 5px;
+}
+h1 {
+font-size: 1.3em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+</style>
+<div class="header">
+<a href="../index.html">CompileArtisan</a>
+</div>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Computer Security</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2f46b50">1. Introduction</a>
+<ul>
+<li><a href="#org058df74">1.1. Types of Security</a>
+<ul>
+<li><a href="#orga85021c">1.1.1. Computer Security</a></li>
+<li><a href="#org553e13a">1.1.2. Network Security</a></li>
+<li><a href="#org8a7e6cc">1.1.3. Internet Security</a></li>
+</ul>
+</li>
+<li><a href="#org926c196">1.2. What is an information system?</a></li>
+</ul>
+</li>
+<li><a href="#org0d0d246">2. CIA Triad: What is Computer Security?</a>
+<ul>
+<li><a href="#orga30cb85">2.1. Confidentiality</a>
+<ul>
+<li><a href="#org40db61f">2.1.1. Data Confidentiality</a></li>
+<li><a href="#org5e97c9f">2.1.2. Privacy</a></li>
+</ul>
+</li>
+<li><a href="#org07fa0e5">2.2. Integrity</a>
+<ul>
+<li><a href="#orgf546aa2">2.2.1. Data Integrity</a></li>
+<li><a href="#orga2f9761">2.2.2. System Integrity</a></li>
+</ul>
+</li>
+<li><a href="#org2c3db27">2.3. Availability</a></li>
+</ul>
+</li>
+<li><a href="#org1facbd0">3. Three Aspects of Information Security</a>
+<ul>
+<li><a href="#orgf309fa0">3.1. Security Attack</a>
+<ul>
+<li><a href="#orge2b7542">3.1.1. Security Threat</a></li>
+<li><a href="#orgaef0618">3.1.2. Two types of Attacks</a></li>
+</ul>
+</li>
+<li><a href="#orgfb0cb3e">3.2. Security Service</a>
+<ul>
+<li><a href="#orgb42cb2a">3.2.1. Definitions by different standards</a></li>
+<li><a href="#orgfab3602">3.2.2. Notorization</a></li>
+</ul>
+</li>
+<li><a href="#orge06710b">3.3. Security Mechanism</a></li>
+</ul>
+</li>
+<li><a href="#org764cd54">4. OSI Security Architecture</a></li>
+<li><a href="#org8c5a9f4">5. Models for the Security of Network</a>
+<ul>
+<li><a href="#org40f294d">5.1. Model for Network Security</a></li>
+<li><a href="#orgc2f1599">5.2. Model for Network Access Security</a>
+<ul>
+<li><a href="#org74d879d">5.2.1. Types of attacks on access controls</a></li>
+<li><a href="#org753c4fe">5.2.2. Layered Security Tools/Devices</a></li>
+<li><a href="#org674b701">5.2.3. Zero-Day Attack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf5d3c0c">6. Malicious Program</a>
+<ul>
+<li><a href="#orgeb0412f">6.1. Host Dependent Malicious Programs</a>
+<ul>
+<li><a href="#org3760376">6.1.1. Virus</a></li>
+<li><a href="#orgc8703b1">6.1.2. Trojan Horse</a></li>
+<li><a href="#orge3c8234">6.1.3. Trapdoors/Backdoor</a></li>
+<li><a href="#org6bca205">6.1.4. Logic Bomb</a></li>
+</ul>
+</li>
+<li><a href="#org70ef5ba">6.2. Host independent Malicious Programs</a>
+<ul>
+<li><a href="#org401f963">6.2.1. Worms</a></li>
+<li><a href="#org1b6c9a8">6.2.2. Zombie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6b7ba90">7. Cryptography</a>
+<ul>
+<li><a href="#org684b886">7.1. Basic Terminology</a></li>
+<li><a href="#org58220d8">7.2. Types of Cryptography</a>
+<ul>
+<li><a href="#org385556e">7.2.1. Based on Encryption Techniques</a></li>
+<li><a href="#org6e7294a">7.2.2. Based on Number of Keys</a></li>
+<li><a href="#orgbb81f6d">7.2.3. Based on how plaintext is processed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2f46b50" class="outline-2">
+<h2 id="org2f46b50"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org058df74" class="outline-3">
+<h3 id="org058df74"><span class="section-number-3">1.1.</span> Types of Security</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orga85021c" class="outline-4">
+<h4 id="orga85021c"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>It is designed to protect data which is stored in a device with the help of
+tools.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org553e13a" class="outline-4">
+<h4 id="org553e13a"><span class="section-number-4">1.1.2.</span> Network Security</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>It is designed to protect data during transmission using LAN, WAN.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8a7e6cc" class="outline-4">
+<h4 id="org8a7e6cc"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>It is designed to protect data during their transmission over an
+interconnected network.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org926c196" class="outline-3">
+<h3 id="org926c196"><span class="section-number-3">1.2.</span> What is an information system?</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Any form of hardware or software used to store information.</li>
+<li>It consists of computing resources (processor, memory, RAM, etc), data,
+processes, software.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0d0d246" class="outline-2">
+<h2 id="org0d0d246"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>The protection provided to an automated information system in order to attain
+the applicable objectives of preserving the <b>confidentiality</b>, <b>integrity</b> and
+<b>availability</b> of information system resources.</li>
+</ul>
+</div>
+<div id="outline-container-orga30cb85" class="outline-3">
+<h3 id="orga30cb85"><span class="section-number-3">2.1.</span> Confidentiality</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Give authorization to access data.</li>
+<li>Confidentiality covers two concepts:</li>
+</ul>
+</div>
+<div id="outline-container-org40db61f" class="outline-4">
+<h4 id="org40db61f"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>Confidentiality tells us that if you have the authorization, you can access
+data.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e97c9f" class="outline-4">
+<h4 id="org5e97c9f"><span class="section-number-4">2.1.2.</span> Privacy</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>Privacy tells us that even if you are authorized, you may not be able to
+access all of the data.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org07fa0e5" class="outline-3">
+<h3 id="org07fa0e5"><span class="section-number-3">2.2.</span> Integrity</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>The data you store and the data you retrieve should be the same: it shouldn&rsquo;t
+be manipulated or destroyed in the process.</li>
+<li>Again, integrity covers two concepts:</li>
+</ul>
+</div>
+<div id="outline-container-orgf546aa2" class="outline-4">
+<h4 id="orgf546aa2"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga2f9761" class="outline-4">
+<h4 id="orga2f9761"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li>The information system should not be tamper-able.</li>
+<li>For example, an ATM machine should have system integrity. Data integrity
+should be ensured in the bank account.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2c3db27" class="outline-3">
+<h3 id="org2c3db27"><span class="section-number-3">2.3.</span> Availability</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>The data should be available without any hurdles.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1facbd0" class="outline-2">
+<h2 id="org1facbd0"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgf309fa0" class="outline-3">
+<h3 id="orgf309fa0"><span class="section-number-3">3.1.</span> Security Attack</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Actions which compromise on security information.</li>
+<li>It is an assualt on system security that derives from an intelligent threat.</li>
+<li>The basic two types of attacks are:</li>
+</ul>
+</div>
+<div id="outline-container-orge2b7542" class="outline-4">
+<h4 id="orge2b7542"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>It&rsquo;s a potential danger that might exploit vulnerability.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaef0618" class="outline-4">
+<h4 id="orgaef0618"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org4fa69fb"></a>Active Attack<br />
+<div class="outline-text-5" id="text-3-1-2-1">
+<ul class="org-ul">
+<li>An attacker tries to modify the content of the messages.</li>
+<li>The data stream is directly modified.</li>
+<li>This is a threat for System Integrity and Availability.</li>
+<li>You can&rsquo;t prevent an active attack. You get to know about it only after the
+content of the messages is modified.</li>
+<li>Examples include Password Tracking, Replay Attack and Viruses.</li>
+</ul>
+</div>
+</li>
+<li><a id="org776163b"></a>Passive Attack<br />
+<div class="outline-text-5" id="text-3-1-2-2">
+<ul class="org-ul">
+<li>An attacker observes the messages, and uses them for malicious purposes
+information.</li>
+<li>Here, the data stream is just monitored, not modified.</li>
+<li>This is a threat for Confidentiality.</li>
+<li>You can prevent and detect a passive attack. A passive attack becomes an
+active attack when data is modified.</li>
+<li>Examples include snooping, sniffing and eavesdropping.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgfb0cb3e" class="outline-3">
+<h3 id="orgfb0cb3e"><span class="section-number-3">3.2.</span> Security Service</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>It is intended to counter security attacks by using security mechanisms.</li>
+<li>It replicates functions normally associated with physical documents.</li>
+<li>Services are essentially the desired outcomes (essentially the CIA triad) of a
+protected system.</li>
+</ul>
+</div>
+<div id="outline-container-orgb42cb2a" class="outline-4">
+<h4 id="orgb42cb2a"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
+<div class="outline-text-4" id="text-3-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1eb40df"></a>X.800<br />
+<div class="outline-text-5" id="text-3-2-1-1">
+<ul class="org-ul">
+<li>It&rsquo;s a</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org4f2f5f5"></a>Authentication<br /></li>
+
+<li><a id="org1548134"></a>Access Control (Data Privacy)<br /></li>
+
+<li><a id="orgfe63754"></a>Confidentiality<br /></li>
+
+<li><a id="orgbb39e3e"></a>Data Integrity<br /></li>
+
+<li><a id="org90b033e"></a>Non-Repudiation (Rejection)<br />
+<div class="outline-text-6" id="text-3-2-1-1-5">
+<ul class="org-ul">
+<li>Protection against Denial of Service.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgfab3602" class="outline-4">
+<h4 id="orgfab3602"><span class="section-number-4">3.2.2.</span> Notorization</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>It&rsquo;s an official witness for signing a document. The person/body who does this
+is called a notary.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge06710b" class="outline-3">
+<h3 id="orge06710b"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>These are HOW to counter security attacks (detect one, or recover from one).</li>
+<li>They involve the tools/methods like cryptography or key-establishments.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org764cd54" class="outline-2">
+<h2 id="org764cd54"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>It&rsquo;s a standard framework of</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8c5a9f4" class="outline-2">
+<h2 id="org8c5a9f4"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+There are two models for security of networks
+</p>
+</div>
+<div id="outline-container-org40f294d" class="outline-3">
+<h3 id="org40f294d"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>The sender passes <b>secret information</b> (key) as an argument, and runs a
+<b>security-related transformation</b> (encryption) on the message.</li>
+<li>The output of this is an encrypted message.</li>
+<li>This encrypted message passes through an <b>information channel</b> which is open to
+anyone and absolutely any passive attack.</li>
+<li>The reciever passes <b>secret information</b> (key) as an argument, and runs a
+<b>security-related transformation</b> (decryption) on the encrypted message and gets
+back the original message.</li>
+<li><p>
+The keys and the information channel is provided by a <b>trusted third party</b>.
+</p>
+
+
+<div id="org4ba9faf" class="figure">
+<p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/network_security.png" alt="network_security.png" />
+</p>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2f1599" class="outline-3">
+<h3 id="orgc2f1599"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>This model requires to select an appropriate <b>gatekeeper function</b> to identify
+the user of an information system.</li>
+<li>The gatekeeper function is a security checkpoint which decides who can enter
+and what actions are allowed.</li>
+<li>Even after entry to the system, security continues to provide role-based
+<b>access control</b>, <b>file-permissions</b>, and <b>login</b>.</li>
+</ul>
+</div>
+<div id="outline-container-org74d879d" class="outline-4">
+<h4 id="org74d879d"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
+<div class="outline-text-4" id="text-5-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb2e47bf"></a>Brute-Force Attacks<br />
+<div class="outline-text-5" id="text-5-2-1-1">
+<ul class="org-ul">
+<li>You keep trying all combinations of characters in all possible lengths, until
+you actually crack the password.</li>
+</ul>
+</div>
+</li>
+<li><a id="org0802b76"></a>Dictionary Attacks<br />
+<div class="outline-text-5" id="text-5-2-1-2">
+<ul class="org-ul">
+<li>Guessing passwords from a predefined dictionary of common words, phrases and
+passwords,</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org753c4fe" class="outline-4">
+<h4 id="org753c4fe"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Firewall</th>
+<th scope="col" class="org-left">IPS</th>
+<th scope="col" class="org-left">IDS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">It&rsquo;s a network security device</td>
+<td class="org-left">Intrusion Prevention System</td>
+<td class="org-left">Intrusion Detection System</td>
+</tr>
+
+<tr>
+<td class="org-left">that filters incoming and</td>
+<td class="org-left">is a network security device</td>
+<td class="org-left">is a network security device</td>
+</tr>
+
+<tr>
+<td class="org-left">outgoing traffic based on IP</td>
+<td class="org-left">that detects, inspects</td>
+<td class="org-left">or software that monitors</td>
+</tr>
+
+<tr>
+<td class="org-left">address and port numbers.</td>
+<td class="org-left">the contents of the packets</td>
+<td class="org-left">traffic for malicious</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">and classifies traffic.</td>
+<td class="org-left">activity and alerts on</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">detection.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">This should be the first line</td>
+<td class="org-left">Should be placed after</td>
+<td class="org-left">Should be placed after</td>
+</tr>
+
+<tr>
+<td class="org-left">of defence.</td>
+<td class="org-left">firewall.</td>
+<td class="org-left">firewall.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Blocks traffic.</td>
+<td class="org-left">Prevents traffic when</td>
+<td class="org-left">Alerts on detection of</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">anomaly is detected.</td>
+<td class="org-left">anomaly.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org674b701" class="outline-4">
+<h4 id="org674b701"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<ul class="org-ul">
+<li>It&rsquo;s an attack that can happen at any point of time, without any prior signs.</li>
+<li>Zero-day attack happens when a malicious actor uses a zero-day attack to plant
+malware.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5d3c0c" class="outline-2">
+<h2 id="orgf5d3c0c"><span class="section-number-2">6.</span> Malicious Program</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgeb0412f" class="outline-3">
+<h3 id="orgeb0412f"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org3760376" class="outline-4">
+<h4 id="org3760376"><span class="section-number-4">6.1.1.</span> Virus</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<ul class="org-ul">
+<li>It&rsquo;s a malicious program that replicates itself and spread across the files of
+the same system.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc8703b1" class="outline-4">
+<h4 id="orgc8703b1"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<ul class="org-ul">
+<li>These are malware that are disguised as legitimate programs/softwares to trick
+the users into installing them.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge3c8234" class="outline-4">
+<h4 id="orge3c8234"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<ul class="org-ul">
+<li>Malware which enter using undocumented entry points.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6bca205" class="outline-4">
+<h4 id="org6bca205"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<ul class="org-ul">
+<li>Malware that remain inactive until some conditions are met.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org70ef5ba" class="outline-3">
+<h3 id="org70ef5ba"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org401f963" class="outline-4">
+<h4 id="org401f963"><span class="section-number-4">6.2.1.</span> Worms</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ul class="org-ul">
+<li>It&rsquo;s a malicious program that replicates itself (just like viruses), but they
+spread across different systems.</li>
+<li>The first worm in the world is called the <b>Morris Worm</b>, and was released in
+November 1988 by Robert Morris (Not Robert Worm).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1b6c9a8" class="outline-4">
+<h4 id="org1b6c9a8"><span class="section-number-4">6.2.2.</span> Zombie</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<ul class="org-ul">
+<li>It takes control of an entire system.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6b7ba90" class="outline-2">
+<h2 id="org6b7ba90"><span class="section-number-2">7.</span> Cryptography</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org684b886" class="outline-3">
+<h3 id="org684b886"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
+<div class="outline-text-3" id="text-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Word</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Plain Text</b></td>
+<td class="org-left">Original Message</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cipher Text</b></td>
+<td class="org-left">Encrypted Message</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cipher</b></td>
+<td class="org-left">Algorithm for encrypting</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Key</b></td>
+<td class="org-left">Secret Info, used in Cipher only known to sender and Reciever</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Encipher</b></td>
+<td class="org-left">Process of Encrypting</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Decipher</b></td>
+<td class="org-left">Process of Decrypting</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cryptography</b></td>
+<td class="org-left">Study of Encryption Principles/Methods</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cryptanalysis</b></td>
+<td class="org-left">Study of deciphering cipher text, without knowing the key</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cryptology</b></td>
+<td class="org-left">Field of both cryptography and cryptanalysis</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org58220d8" class="outline-3">
+<h3 id="org58220d8"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org385556e" class="outline-4">
+<h4 id="org385556e"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
+<div class="outline-text-4" id="text-7-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb0c5a9b"></a>Substitution<br />
+<ol class="org-ol">
+<li><a id="orgd2b5e48"></a>Classical Substitution Cipher<br />
+<div class="outline-text-6" id="text-7-2-1-1-1">
+<ul class="org-ul">
+<li>Every occurrence of a plain text symbol is replaced by a corresponding
+ciphertext character.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgd70ea07"></a>Ceaser/Shift Cipher<br />
+<div class="outline-text-7" id="text-7-2-1-1-1-1">
+<p>
+This is the earliest known subsitution cipher.
+\[ C_{1} = e(m_{1}) = m_{1} + k\mod(s) \]
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orga7c6431"></a>For example, let m = college, k = 3 and s = 26.<br />
+<div class="outline-text-8" id="text-7-2-1-1-1-1-1">
+<ul class="org-ul">
+<li>C<sub>1</sub>[1] = (position of &rsquo;c&rsquo;) + 3mod(26) = f</li>
+<li>C<sub>1</sub>[2] = (position of &rsquo;o&rsquo;) + 3mod(26) = r</li>
+<li>C<sub>1</sub>[3] = (position of &rsquo;l&rsquo;) + 3mod(26) = o</li>
+<li>C<sub>1</sub>[4] = (position of &rsquo;l&rsquo;) + 3mod(26) = o</li>
+<li>C<sub>1</sub>[5] = (position of &rsquo;e&rsquo;) + 3mod(26) = h</li>
+<li>C<sub>1</sub>[6] = (position of &rsquo;g&rsquo;) + 3mod(26) = j</li>
+<li>C<sub>1</sub>[7] = (position of &rsquo;e&rsquo;) + 3mod(26) = h</li>
+<li>Hence, C<sub>1</sub> = e(college) = froohjh</li>
+</ul>
+</div>
+</li>
+<li><a id="org7a739b4"></a>In general, for alphabets, Ceasar Cipher is given as<br />
+<div class="outline-text-8" id="text-7-2-1-1-1-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Encryption:</b></td>
+<td class="org-left">\(E(P) = (P+K)\mod(26)\)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Decryption:</b></td>
+<td class="org-left">\(D(C) = (C-K)\mod(26)\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="org056bdb5"></a>For example, Encrypt KHOOR with k=4<br />
+<div class="outline-text-8" id="text-7-2-1-1-1-1-3">
+<ul class="org-ul">
+<li>C<sub>1</sub>[1] = (position of &rsquo;K&rsquo;) + 4mod(26) = O</li>
+<li>C<sub>1</sub>[2] = (position of &rsquo;H&rsquo;) + 4mod(26) = L</li>
+<li>C<sub>1</sub>[3] = (position of &rsquo;O&rsquo;) + 4mod(26) = S</li>
+<li>C<sub>1</sub>[4] = (position of &rsquo;O&rsquo;) + 4mod(26) = S</li>
+<li>C<sub>1</sub>[5] = (position of &rsquo;R&rsquo;) + 4mod(26) = V</li>
+<li>Hence the string is OLSSV</li>
+</ul>
+</div>
+</li>
+<li><a id="org2ee16e9"></a>Decrypt Ciphertext ABC, k=3<br />
+<div class="outline-text-8" id="text-7-2-1-1-1-1-4">
+<ul class="org-ul">
+<li>A: \((0-3)\mod26 = -3\mod(26) = (-3+26)\mod(26) = 23\)</li>
+</ul>
+</div>
+</li>
+<li><a id="org2469ac3"></a>Cryptanalysis<br />
+<ol class="org-ol">
+<li><a id="orgaa97ff4"></a>Break the ciphertext WKLV using cryptanalysis<br />
+<div class="outline-text-9" id="text-7-2-1-1-1-1-5-1">
+<p>
+The program given below is a very simple Python Script to generate all possible
+plaintexts for a given ciphertext.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">breakCaesar</span>(x):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> k <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(26):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> c <span style="color: #51afef;">in</span> x.upper():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">shift</span> = (<span style="color: #c678dd;">ord</span>(c) - <span style="color: #c678dd;">ord</span>(<span style="color: #98be65;">'A'</span>) - k)%26 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">cipher_char</span> = <span style="color: #c678dd;">chr</span>(<span style="color: #c678dd;">ord</span>(<span style="color: #98be65;">'A'</span>)+shift)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(cipher_char, end=<span style="color: #98be65;">""</span>)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(end=<span style="color: #98be65;">", "</span>)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   
+breakCaesar(<span style="color: #98be65;">"WKLV"</span>)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">WKLV, VJKU, UIJT, THIS, SGHR, RFGQ, QEFP, PDEO, OCDN, NBCM, MABL, LZAK, KYZJ, JXYI, IWXH, HVWG, GUVF, FTUE, ESTD, DRSC, CQRB, BPQA, AOPZ, ZNOY, YMNX, XLMW,
+</pre>
+</div>
+
+<p>
+<b>Explanation</b>: For each alphabet, this is what&rsquo;s happening:
+</p>
+<ul class="org-ul">
+<li><code>ord(c) - ord('A')</code> is basically the difference between the ASCII value of the
+character in the string, and the ASCII value of the letter &rsquo;A&rsquo;. This
+difference is in the range 0-25. <code>ord(c) - ord('A')</code> is the value of \(C\) in
+\(D(C) = (C-K)\mod(26)\).</li>
+<li><code>- k</code> is doing the \((C-K)\) part in \(D(C) = (C-K)\mod(26)\).</li>
+<li><code>% 26</code> is doing the \(\mod(26)\) part in \(D(C) = (C-K)\mod(26)\).</li>
+<li>We add <code>ord('A')</code> to the shift so that we can convert this number back to ASCII.</li>
+<li>To convert the ASCII value back into a number, we have to typecast it into a
+character, by passing it into the <code>chr()</code> function.</li>
+</ul>
+</div>
+</li>
+<li><a id="org49ecd46"></a>Break the ciphertext GWTBS<br />
+<div class="outline-text-9" id="text-7-2-1-1-1-1-5-2">
+<div class="org-src-container">
+<pre class="src src-python">breakCaesar(<span style="color: #98be65;">"GWTBS"</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLIQH, UKHPG, TJGOF, SIFNE, RHEMD, QGDLC, PFCKB, OEBJA, NDAIZ, MCZHY, LBYGX, KAXFW, JZWEV, IYVDU, HXUCT,
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a id="orgbea252f"></a>Railfence Cipher<br />
+<div class="outline-text-7" id="text-7-2-1-1-1-2">
+<p>
+\[ \]
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">k</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">o</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">i</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">l</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">o</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">b</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org0b2ddbf"></a>Simple Substitution/ Monoalphabetic<br />
+<div class="outline-text-6" id="text-7-2-1-1-2">
+<ul class="org-ul">
+<li>Rather than shifting the alphabets, you shuffle the alphabets randomly.</li>
+<li>Every plain text letter maps to a random cipher text letter, hence there are
+26 keys.</li>
+<li>Given a ciphertext, there are \(26!\) possible plain texts.</li>
+<li>The relative <b>letter frequencies</b> never change.</li>
+</ul>
+</div>
+</li>
+<li><a id="org62e7c3e"></a>Polygram<br />
+<div class="outline-text-6" id="text-7-2-1-1-3">
+<ul class="org-ul">
+<li>A block of plain text symbols is replaced by a corresponding ciphertext block
+of characters.</li>
+<li>Sequence of two plain text characters are known as <b>digrams</b>, replaced by other
+digrams.</li>
+<li><p>
+For example, the word 
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">CO LL EG Ex
+</pre>
+</div>
+<p>
+This can become, say (random, just for example):
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">xy ab up ld
+</pre>
+</div></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org91f2b33"></a>Playfair Cipher<br />
+<ol class="org-ol">
+<li><a id="orgabe22ed"></a>Explanation<br />
+<div class="outline-text-8" id="text-7-2-1-1-3-1-1">
+<ul class="org-ul">
+<li>Make a \(5 \times 5\) matrix. In these 25 spaces, you&rsquo;ll have to fill all 26
+alphabets. To accommodate the extra alphabet, we merge I and J in one box, by
+convention.</li>
+<li>You start by filling the alphabets of the keyword given (without repetition).</li>
+<li>After you&rsquo;re done with that, start with the rest of the alphabet, and fill in
+the rest of the gaps in order without repetition.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org1049eb2"></a>Example we&rsquo;ll be using to learn the rules<br />
+<div class="outline-text-9" id="text-7-2-1-1-3-1-1-1">
+<ul class="org-ul">
+<li>keyword: CRYPTOGRAPHY CLASS SPRING</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">C</td>
+<td class="org-left">R</td>
+<td class="org-left">Y</td>
+<td class="org-left">P</td>
+<td class="org-left">T</td>
+</tr>
+
+<tr>
+<td class="org-left">O</td>
+<td class="org-left">G</td>
+<td class="org-left">A</td>
+<td class="org-left">H</td>
+<td class="org-left">L</td>
+</tr>
+
+<tr>
+<td class="org-left">S</td>
+<td class="org-left">I/J</td>
+<td class="org-left">N</td>
+<td class="org-left">B</td>
+<td class="org-left">D</td>
+</tr>
+
+<tr>
+<td class="org-left">E</td>
+<td class="org-left">F</td>
+<td class="org-left">K</td>
+<td class="org-left">M</td>
+<td class="org-left">Q</td>
+</tr>
+
+<tr>
+<td class="org-left">U</td>
+<td class="org-left">V</td>
+<td class="org-left">W</td>
+<td class="org-left">X</td>
+<td class="org-left">Z</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="orgcfcc359"></a>How to Encrypt a given plain text<br />
+<div class="outline-text-9" id="text-7-2-1-1-3-1-1-2">
+<ol class="org-ol">
+<li>If letters of a pair are both same, then add an x after the first letter and
+encrypt the new pair.
+<ul class="org-ul">
+<li><p>
+For example: If you have the word <code>H E L L O</code>, you&rsquo;d resolve it as:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">HE LX LO
+</pre>
+</div>
+<p>
+and not
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">HE LL O
+</pre>
+</div></li>
+</ul></li>
+<li>If letters appear on the same row, replace them with the letters to their
+immediate right with wrapping, according to the direction.
+<ul class="org-ul">
+<li><p>
+For example, consider one row of the matrix to be:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">O</td>
+<td class="org-left">G</td>
+<td class="org-left">A</td>
+<td class="org-left">H</td>
+<td class="org-left">L</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+For <code>HA</code>, the corresponding plain text could be <code>LH</code> or <code>AG</code>. In our course,
+we&rsquo;ll stick to <code>AG</code>.
+</p></li>
+</ul></li>
+
+<li>If letters appear on the same column, replace them with the letters
+immediately below, also with wrapping according to the direction.
+<ul class="org-ul">
+<li><p>
+For example, consider one column of the matrix to be:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Y</td>
+</tr>
+
+<tr>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-left">N</td>
+</tr>
+
+<tr>
+<td class="org-left">K</td>
+</tr>
+
+<tr>
+<td class="org-left">W</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>For <code>NK</code>, the corresponding plain text would be <code>KW</code>.</li>
+
+<li>For <code>YW</code>, the corresponding plain text would be <code>AY</code>.</li>
+</ul></li>
+</ul></li>
+
+<li>If letters are not on the same row/column, replace them with the letters on
+the same row respectively but add the other pair of corners of the rectangle,
+by the original pair.</li>
+</ol>
+</div>
+</li>
+<li><a id="orge99d352"></a>Demonstration of the plain text being encrypted<br />
+<div class="outline-text-9" id="text-7-2-1-1-3-1-1-3">
+<ul class="org-ul">
+<li>Consider the plain text &ldquo;Hello find the solution&rdquo;.</li>
+<li><p>
+This will be broken into:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">HE   LX   LO   FI   ND   TH   ES   OL   UT   IO   NZ
+</pre>
+</div></li>
+<li><p>
+And the encrypted text will look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">OQ   OZ   OG   IG   BS   PL   SO   GO   ZC   SG   DW             
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org97ac853"></a>Solving another Example<br />
+<div class="outline-text-8" id="text-7-2-1-1-3-1-2">
+<ul class="org-ul">
+<li><p>
+Keyword: KEYWORD
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">K</td>
+<td class="org-left">E</td>
+<td class="org-left">Y</td>
+<td class="org-left">W</td>
+<td class="org-left">O</td>
+</tr>
+
+<tr>
+<td class="org-left">R</td>
+<td class="org-left">D</td>
+<td class="org-left">A</td>
+<td class="org-left">B</td>
+<td class="org-left">C</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">G</td>
+<td class="org-left">H</td>
+<td class="org-left">I/J</td>
+<td class="org-left">L</td>
+</tr>
+
+<tr>
+<td class="org-left">M</td>
+<td class="org-left">N</td>
+<td class="org-left">P</td>
+<td class="org-left">Q</td>
+<td class="org-left">S</td>
+</tr>
+
+<tr>
+<td class="org-left">T</td>
+<td class="org-left">U</td>
+<td class="org-left">V</td>
+<td class="org-left">X</td>
+<td class="org-left">Z</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org07e800d"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
+<div class="outline-text-9" id="text-7-2-1-1-3-1-2-1">
+<ul class="org-ul">
+<li><p>
+This will be broken into:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">WH   YD   ON   TY   OU
+</pre>
+</div></li>
+<li><p>
+And the encrypted text will look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">KL   OR   KS   ZK   KZ
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+<li><a id="orgb33ff77"></a>Plain Text: <b>Come to the window</b><br />
+<div class="outline-text-9" id="text-7-2-1-1-3-1-2-2">
+<ul class="org-ul">
+<li><p>
+This will be broken into:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">CO   ME   TO   TH   EW   IN   DO   WX
+</pre>
+</div></li>
+<li><p>
+And the encrypted text will look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">OZ   NK   ZK   VF   YO   GQ   CE   BW
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a id="org9b6ff72"></a>Homophonic<br />
+<div class="outline-text-6" id="text-7-2-1-1-4">
+<ul class="org-ul">
+<li>If a letter \(x\) appears for \(y\%\) of all characters, we assign \(y\) number of
+symbols to represent it.</li>
+</ul>
+</div>
+</li>
+<li><a id="org6d69fb5"></a>Polyalphabetic<br /></li>
+</ol>
+</li>
+<li><a id="org693beb4"></a>Transposition<br /></li>
+
+<li><a id="org82015f2"></a>Product<br /></li>
+</ol>
+</div>
+<div id="outline-container-org6e7294a" class="outline-4">
+<h4 id="org6e7294a"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
+<div class="outline-text-4" id="text-7-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="org14fbaa0"></a>Single/Private Key<br />
+<div class="outline-text-5" id="text-7-2-2-1">
+<ul class="org-ul">
+<li>It&rsquo;s called <b>symmetric key encryption</b>.</li>
+</ul>
+</div>
+</li>
+<li><a id="org6f8a1b3"></a>Two-key or Public Key cryptography<br />
+<div class="outline-text-5" id="text-7-2-2-2">
+<ul class="org-ul">
+<li>It&rsquo;s called <b>assymmetric key encryption</b>.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgbb81f6d" class="outline-4">
+<h4 id="orgbb81f6d"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
+<div class="outline-text-4" id="text-7-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgac3ec81"></a>Block<br />
+<div class="outline-text-5" id="text-7-2-3-1">
+<ul class="org-ul">
+<li>Block Cipher transforms a fixed length of plaintext data into a block of
+ciphertext of the same length, with the help of a secret key.</li>
+<li>The most commonly used length of text (size of the block) is 64 bits.</li>
+<li>Two types are:
+<ul class="org-ul">
+<li>Transposition</li>
+<li>Substitution</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="org6193a69"></a>Stream<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
