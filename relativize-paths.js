@@ -54,6 +54,19 @@ function processHtmlFile(filePath) {
     console.log(`  Updated header link to: ${relativeRoot}`);
   }
 
+  // Replace file:// protocol image paths
+  // Matches: file:///home/praaneshnair/gitProjects/org-notes/...
+  const fileProtocolRegex = /file:\/\/\/home\/praaneshnair\/gitProjects\/org-notes\/([^"'\s)]+\.(png|jpg|jpeg|gif|svg|webp|bmp|ico))/gi;
+  content = content.replace(fileProtocolRegex, (match, capturedPath) => {
+    // The capturedPath is relative to org-notes directory
+    // We need to find where this file actually is in our project structure
+    const targetPath = join(ROOT, capturedPath);
+    const relativePath = getRelativePath(filePath, targetPath);
+    modified = true;
+    console.log(`  Updated file:// image path to: ${relativePath}`);
+    return relativePath;
+  });
+
   // Replace any other absolute paths that might reference the project root
   const absPathRegex = new RegExp(`/home/praaneshnair/gitProjects/notes\\.compileartisan\\.dev/([^"'\\s)]+)`, 'g');
   content = content.replace(absPathRegex, (match, capturedPath) => {
