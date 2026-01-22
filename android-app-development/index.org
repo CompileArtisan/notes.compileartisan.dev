@@ -1,0 +1,65 @@
+#+title: Mobile Application Development 
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+
+* Prelude
+- These notes don't include Android Studio tutorials as:
+  1. Graphical tutorials are a lot of effort
+  2. Android Studio keeps evolving so it's going to be different when you're
+     reading this.
+
+* How the App works
+
+** Activity
+- A Java Class that serves as a controller for a specific screen, is called an
+  activity.
+- Such a Java Class must ~extend Activity~ (basic [[https://developer.android.com/guide/components/activities/activity-lifecycle][activity lifecycle]] features
+  provided here) or ~extend AppCompatActivity~ (this is preferred because modern
+  Android features are backported to older versions too). ~AppCompatActivity~
+  extends ~FragmentActivity~ which extends ~ComponentActivity~ which extends
+  ~Activity~.
+- The screen that the app starts with, is controlled with the help of the
+  ~MainActivity.java~ file.
+
+
+** XML Files
+- All of the components of the UI of a particular screen is created using an XML
+  file or a group of XML files.
+- Such a component is called a *view*.
+- Each view will have an ~id~ (an integer), which can be accessed in a Java Class
+  as ~R.id.nameOfID~, where ~R~ is a ~final class~ created by Android at build time.
+
+
+* Basic Addition
+- This code follows from [[https://www.youtube.com/watch?v=4hEsnJPoP4s][this video]].
+
+#+begin_src java
+public class MainActivity extends AppCompatActivity {
+    // declare these variables
+    private EditText num1, num2;
+    private Button add;
+    private TextView result;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // some code already here, just add the below code
+
+        num1 = (EditText) findViewById(R.id.no1);
+        num2 = (EditText) findViewById(R.id.no2);
+        result = (TextView) findViewById(R.id.result);
+        add = (Button) findViewById(R.id.addButton);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                result.setText(String.valueOf(
+                        Integer.parseInt(num1.getText().toString())
+                        + Integer.parseInt(num2.getText().toString())
+                ));
+            }
+        });
+
+    }
+}
+
+#+end_src
+
