@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-19 Mon 19:48 -->
+<!-- 2026-01-23 Fri 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Security</title>
@@ -194,6 +194,15 @@
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="%TITLE%">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <style>
 /* General styles */
 body {
@@ -472,91 +481,91 @@ font-size: 1.3em;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge5c67d8">1. Introduction</a>
+<li><a href="#org222e32f">1. Introduction</a>
 <ul>
-<li><a href="#orgfcb98c9">1.1. Types of Security</a>
+<li><a href="#org0a1b52e">1.1. Types of Security</a>
 <ul>
-<li><a href="#org570c6db">1.1.1. Computer Security</a></li>
-<li><a href="#org00ae257">1.1.2. Network Security</a></li>
-<li><a href="#org76dc84f">1.1.3. Internet Security</a></li>
+<li><a href="#org0f8553e">1.1.1. Computer Security</a></li>
+<li><a href="#org93cdb5c">1.1.2. Network Security</a></li>
+<li><a href="#org38bc8dd">1.1.3. Internet Security</a></li>
 </ul>
 </li>
-<li><a href="#org196b75d">1.2. What is an information system?</a></li>
+<li><a href="#orgdf1eb65">1.2. What is an information system?</a></li>
 </ul>
 </li>
-<li><a href="#org3b465f0">2. CIA Triad: What is Computer Security?</a>
+<li><a href="#org08a21ea">2. CIA Triad: What is Computer Security?</a>
 <ul>
-<li><a href="#org89cc4cb">2.1. Confidentiality</a>
+<li><a href="#org07a0f23">2.1. Confidentiality</a>
 <ul>
-<li><a href="#orgcc15f3c">2.1.1. Data Confidentiality</a></li>
-<li><a href="#org050cedb">2.1.2. Privacy</a></li>
+<li><a href="#org2717f13">2.1.1. Data Confidentiality</a></li>
+<li><a href="#org43025d0">2.1.2. Privacy</a></li>
 </ul>
 </li>
-<li><a href="#org8f89eaf">2.2. Integrity</a>
+<li><a href="#org0edc09e">2.2. Integrity</a>
 <ul>
-<li><a href="#org5870f36">2.2.1. Data Integrity</a></li>
-<li><a href="#org26f64df">2.2.2. System Integrity</a></li>
+<li><a href="#orgc8adb2c">2.2.1. Data Integrity</a></li>
+<li><a href="#orgacc21e9">2.2.2. System Integrity</a></li>
 </ul>
 </li>
-<li><a href="#orga07ff2c">2.3. Availability</a></li>
+<li><a href="#org3c6d1af">2.3. Availability</a></li>
 </ul>
 </li>
-<li><a href="#orgbc0c5d7">3. Three Aspects of Information Security</a>
+<li><a href="#org8799bf4">3. Three Aspects of Information Security</a>
 <ul>
-<li><a href="#org43386cb">3.1. Security Attack</a>
+<li><a href="#orgabea441">3.1. Security Attack</a>
 <ul>
-<li><a href="#orgde4a702">3.1.1. Security Threat</a></li>
-<li><a href="#orgdc19e40">3.1.2. Two types of Attacks</a></li>
+<li><a href="#org9b38462">3.1.1. Security Threat</a></li>
+<li><a href="#orgc345a3b">3.1.2. Two types of Attacks</a></li>
 </ul>
 </li>
-<li><a href="#orgb59d4ae">3.2. Security Service</a>
+<li><a href="#org2025539">3.2. Security Service</a>
 <ul>
-<li><a href="#org705ee35">3.2.1. Definitions by different standards</a></li>
-<li><a href="#orgf37948c">3.2.2. Notorization</a></li>
+<li><a href="#orged42c08">3.2.1. Definitions by different standards</a></li>
+<li><a href="#orgd22e338">3.2.2. Notorization</a></li>
 </ul>
 </li>
-<li><a href="#orgbfdda4d">3.3. Security Mechanism</a></li>
+<li><a href="#org790e833">3.3. Security Mechanism</a></li>
 </ul>
 </li>
-<li><a href="#org5a7e64b">4. OSI Security Architecture</a></li>
-<li><a href="#orgb9eb607">5. Models for the Security of Network</a>
+<li><a href="#orga203a74">4. OSI Security Architecture</a></li>
+<li><a href="#org3061380">5. Models for the Security of Network</a>
 <ul>
-<li><a href="#orgeaf6b56">5.1. Model for Network Security</a></li>
-<li><a href="#orgd0d7ab8">5.2. Model for Network Access Security</a>
+<li><a href="#org1a87d24">5.1. Model for Network Security</a></li>
+<li><a href="#org1a76c7f">5.2. Model for Network Access Security</a>
 <ul>
-<li><a href="#org1ae81ed">5.2.1. Types of attacks on access controls</a></li>
-<li><a href="#org7a43749">5.2.2. Layered Security Tools/Devices</a></li>
-<li><a href="#org0819faa">5.2.3. Zero-Day Attack</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgbc6cc18">6. Malicious Program</a>
-<ul>
-<li><a href="#org50ad242">6.1. Host Dependent Malicious Programs</a>
-<ul>
-<li><a href="#org478f0d5">6.1.1. Virus</a></li>
-<li><a href="#org00e12ef">6.1.2. Trojan Horse</a></li>
-<li><a href="#orgfdb485c">6.1.3. Trapdoors/Backdoor</a></li>
-<li><a href="#org46c2080">6.1.4. Logic Bomb</a></li>
-</ul>
-</li>
-<li><a href="#org452ba90">6.2. Host independent Malicious Programs</a>
-<ul>
-<li><a href="#org1c4ca48">6.2.1. Worms</a></li>
-<li><a href="#orgc481d37">6.2.2. Zombie</a></li>
+<li><a href="#org8e239d6">5.2.1. Types of attacks on access controls</a></li>
+<li><a href="#orgfbd7c02">5.2.2. Layered Security Tools/Devices</a></li>
+<li><a href="#orgd0b1bff">5.2.3. Zero-Day Attack</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org33eec39">7. Cryptography</a>
+<li><a href="#org15aa253">6. Malicious Program</a>
 <ul>
-<li><a href="#orgff05279">7.1. Basic Terminology</a></li>
-<li><a href="#org6dafdbf">7.2. Types of Cryptography</a>
+<li><a href="#org38af92f">6.1. Host Dependent Malicious Programs</a>
 <ul>
-<li><a href="#org42dda35">7.2.1. Based on Encryption Techniques</a></li>
-<li><a href="#org2b8d3a5">7.2.2. Based on Number of Keys</a></li>
-<li><a href="#org958f23a">7.2.3. Based on how plaintext is processed</a></li>
+<li><a href="#org84d256f">6.1.1. Virus</a></li>
+<li><a href="#org1048206">6.1.2. Trojan Horse</a></li>
+<li><a href="#orge4e083b">6.1.3. Trapdoors/Backdoor</a></li>
+<li><a href="#org1da1a8e">6.1.4. Logic Bomb</a></li>
+</ul>
+</li>
+<li><a href="#org8d600b2">6.2. Host independent Malicious Programs</a>
+<ul>
+<li><a href="#org2103c98">6.2.1. Worms</a></li>
+<li><a href="#orgb4caedc">6.2.2. Zombie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org030d1cb">7. Cryptography</a>
+<ul>
+<li><a href="#org412f14a">7.1. Basic Terminology</a></li>
+<li><a href="#orgd96379c">7.2. Types of Cryptography</a>
+<ul>
+<li><a href="#orgf4c808a">7.2.1. Based on Encryption Techniques</a></li>
+<li><a href="#org6752845">7.2.2. Based on Number of Keys</a></li>
+<li><a href="#org117332f">7.2.3. Based on how plaintext is processed</a></li>
 </ul>
 </li>
 </ul>
@@ -564,16 +573,16 @@ font-size: 1.3em;
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5c67d8" class="outline-2">
-<h2 id="orge5c67d8"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org222e32f" class="outline-2">
+<h2 id="org222e32f"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfcb98c9" class="outline-3">
-<h3 id="orgfcb98c9"><span class="section-number-3">1.1.</span> Types of Security</h3>
+<div id="outline-container-org0a1b52e" class="outline-3">
+<h3 id="org0a1b52e"><span class="section-number-3">1.1.</span> Types of Security</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org570c6db" class="outline-4">
-<h4 id="org570c6db"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
+<div id="outline-container-org0f8553e" class="outline-4">
+<h4 id="org0f8553e"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>It is designed to protect data which is stored in a device with the help of
@@ -581,16 +590,16 @@ tools.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org00ae257" class="outline-4">
-<h4 id="org00ae257"><span class="section-number-4">1.1.2.</span> Network Security</h4>
+<div id="outline-container-org93cdb5c" class="outline-4">
+<h4 id="org93cdb5c"><span class="section-number-4">1.1.2.</span> Network Security</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>It is designed to protect data during transmission using LAN, WAN.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org76dc84f" class="outline-4">
-<h4 id="org76dc84f"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
+<div id="outline-container-org38bc8dd" class="outline-4">
+<h4 id="org38bc8dd"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>It is designed to protect data during their transmission over an
@@ -599,8 +608,8 @@ interconnected network.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org196b75d" class="outline-3">
-<h3 id="org196b75d"><span class="section-number-3">1.2.</span> What is an information system?</h3>
+<div id="outline-container-orgdf1eb65" class="outline-3">
+<h3 id="orgdf1eb65"><span class="section-number-3">1.2.</span> What is an information system?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Any form of hardware or software used to store information.</li>
@@ -610,8 +619,8 @@ processes, software.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org3b465f0" class="outline-2">
-<h2 id="org3b465f0"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
+<div id="outline-container-org08a21ea" class="outline-2">
+<h2 id="org08a21ea"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The protection provided to an automated information system in order to attain
@@ -619,16 +628,16 @@ the applicable objectives of preserving the <b>confidentiality</b>, <b>integrity
 <b>availability</b> of information system resources.</li>
 </ul>
 </div>
-<div id="outline-container-org89cc4cb" class="outline-3">
-<h3 id="org89cc4cb"><span class="section-number-3">2.1.</span> Confidentiality</h3>
+<div id="outline-container-org07a0f23" class="outline-3">
+<h3 id="org07a0f23"><span class="section-number-3">2.1.</span> Confidentiality</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Give authorization to access data.</li>
 <li>Confidentiality covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-orgcc15f3c" class="outline-4">
-<h4 id="orgcc15f3c"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
+<div id="outline-container-org2717f13" class="outline-4">
+<h4 id="org2717f13"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Confidentiality tells us that if you have the authorization, you can access
@@ -636,8 +645,8 @@ data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org050cedb" class="outline-4">
-<h4 id="org050cedb"><span class="section-number-4">2.1.2.</span> Privacy</h4>
+<div id="outline-container-org43025d0" class="outline-4">
+<h4 id="org43025d0"><span class="section-number-4">2.1.2.</span> Privacy</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Privacy tells us that even if you are authorized, you may not be able to
@@ -646,8 +655,8 @@ access all of the data.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8f89eaf" class="outline-3">
-<h3 id="org8f89eaf"><span class="section-number-3">2.2.</span> Integrity</h3>
+<div id="outline-container-org0edc09e" class="outline-3">
+<h3 id="org0edc09e"><span class="section-number-3">2.2.</span> Integrity</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>The data you store and the data you retrieve should be the same: it shouldn&rsquo;t
@@ -655,16 +664,16 @@ be manipulated or destroyed in the process.</li>
 <li>Again, integrity covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-org5870f36" class="outline-4">
-<h4 id="org5870f36"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
+<div id="outline-container-orgc8adb2c" class="outline-4">
+<h4 id="orgc8adb2c"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org26f64df" class="outline-4">
-<h4 id="org26f64df"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
+<div id="outline-container-orgacc21e9" class="outline-4">
+<h4 id="orgacc21e9"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>The information system should not be tamper-able.</li>
@@ -674,8 +683,8 @@ should be ensured in the bank account.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga07ff2c" class="outline-3">
-<h3 id="orga07ff2c"><span class="section-number-3">2.3.</span> Availability</h3>
+<div id="outline-container-org3c6d1af" class="outline-3">
+<h3 id="org3c6d1af"><span class="section-number-3">2.3.</span> Availability</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>The data should be available without any hurdles.</li>
@@ -683,12 +692,12 @@ should be ensured in the bank account.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbc0c5d7" class="outline-2">
-<h2 id="orgbc0c5d7"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
+<div id="outline-container-org8799bf4" class="outline-2">
+<h2 id="org8799bf4"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org43386cb" class="outline-3">
-<h3 id="org43386cb"><span class="section-number-3">3.1.</span> Security Attack</h3>
+<div id="outline-container-orgabea441" class="outline-3">
+<h3 id="orgabea441"><span class="section-number-3">3.1.</span> Security Attack</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Actions which compromise on security information.</li>
@@ -696,20 +705,20 @@ should be ensured in the bank account.</li>
 <li>The basic two types of attacks are:</li>
 </ul>
 </div>
-<div id="outline-container-orgde4a702" class="outline-4">
-<h4 id="orgde4a702"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
+<div id="outline-container-org9b38462" class="outline-4">
+<h4 id="org9b38462"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a potential danger that might exploit vulnerability.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc19e40" class="outline-4">
-<h4 id="orgdc19e40"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
+<div id="outline-container-orgc345a3b" class="outline-4">
+<h4 id="orgc345a3b"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgff7a0e8"></a>Active Attack<br />
+<li><a id="org84a9ea2"></a>Active Attack<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li>An attacker tries to modify the content of the messages.</li>
@@ -721,7 +730,7 @@ content of the messages is modified.</li>
 </ul>
 </div>
 </li>
-<li><a id="orge7d7445"></a>Passive Attack<br />
+<li><a id="orga8c6561"></a>Passive Attack<br />
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>An attacker observes the messages, and uses them for malicious purposes
@@ -737,8 +746,8 @@ active attack when data is modified.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb59d4ae" class="outline-3">
-<h3 id="orgb59d4ae"><span class="section-number-3">3.2.</span> Security Service</h3>
+<div id="outline-container-org2025539" class="outline-3">
+<h3 id="org2025539"><span class="section-number-3">3.2.</span> Security Service</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>It is intended to counter security attacks by using security mechanisms.</li>
@@ -747,27 +756,27 @@ active attack when data is modified.</li>
 protected system.</li>
 </ul>
 </div>
-<div id="outline-container-org705ee35" class="outline-4">
-<h4 id="org705ee35"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
+<div id="outline-container-orged42c08" class="outline-4">
+<h4 id="orged42c08"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
 <div class="outline-text-4" id="text-3-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org2b567a1"></a>X.800<br />
+<li><a id="orgc3dc3e0"></a>X.800<br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge68e384"></a>Authentication<br /></li>
+<li><a id="orge31d8bb"></a>Authentication<br /></li>
 
-<li><a id="org835bd9c"></a>Access Control (Data Privacy)<br /></li>
+<li><a id="org82b91d1"></a>Access Control (Data Privacy)<br /></li>
 
-<li><a id="org5d7c32a"></a>Confidentiality<br /></li>
+<li><a id="orge578141"></a>Confidentiality<br /></li>
 
-<li><a id="org65ef239"></a>Data Integrity<br /></li>
+<li><a id="org85cbbd7"></a>Data Integrity<br /></li>
 
-<li><a id="org9398f65"></a>Non-Repudiation (Rejection)<br />
+<li><a id="org89872de"></a>Non-Repudiation (Rejection)<br />
 <div class="outline-text-6" id="text-3-2-1-1-5">
 <ul class="org-ul">
 <li>Protection against Denial of Service.</li>
@@ -778,8 +787,8 @@ protected system.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgf37948c" class="outline-4">
-<h4 id="orgf37948c"><span class="section-number-4">3.2.2.</span> Notorization</h4>
+<div id="outline-container-orgd22e338" class="outline-4">
+<h4 id="orgd22e338"><span class="section-number-4">3.2.2.</span> Notorization</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s an official witness for signing a document. The person/body who does this
@@ -788,8 +797,8 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbfdda4d" class="outline-3">
-<h3 id="orgbfdda4d"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
+<div id="outline-container-org790e833" class="outline-3">
+<h3 id="org790e833"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>These are HOW to counter security attacks (detect one, or recover from one).</li>
@@ -798,23 +807,23 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5a7e64b" class="outline-2">
-<h2 id="org5a7e64b"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
+<div id="outline-container-orga203a74" class="outline-2">
+<h2 id="orga203a74"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>It&rsquo;s a standard framework of</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb9eb607" class="outline-2">
-<h2 id="orgb9eb607"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
+<div id="outline-container-org3061380" class="outline-2">
+<h2 id="org3061380"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are two models for security of networks
 </p>
 </div>
-<div id="outline-container-orgeaf6b56" class="outline-3">
-<h3 id="orgeaf6b56"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
+<div id="outline-container-org1a87d24" class="outline-3">
+<h3 id="org1a87d24"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>The sender passes <b>secret information</b> (key) as an argument, and runs a
@@ -830,15 +839,15 @@ The keys and the information channel is provided by a <b>trusted third party</b>
 </p>
 
 
-<div id="org1a7ce00" class="figure">
+<div id="org1b305c1" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/network_security.png" alt="network_security.png" />
 </p>
 </div></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd0d7ab8" class="outline-3">
-<h3 id="orgd0d7ab8"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
+<div id="outline-container-org1a76c7f" class="outline-3">
+<h3 id="org1a76c7f"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>This model requires to select an appropriate <b>gatekeeper function</b> to identify
@@ -849,12 +858,12 @@ and what actions are allowed.</li>
 <b>access control</b>, <b>file-permissions</b>, and <b>login</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org1ae81ed" class="outline-4">
-<h4 id="org1ae81ed"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
+<div id="outline-container-org8e239d6" class="outline-4">
+<h4 id="org8e239d6"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
 <div class="outline-text-4" id="text-5-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgcb0c718"></a>Brute-Force Attacks<br />
+<li><a id="orgaee6850"></a>Brute-Force Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-1">
 <ul class="org-ul">
 <li>You keep trying all combinations of characters in all possible lengths, until
@@ -862,7 +871,7 @@ you actually crack the password.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5ffc559"></a>Dictionary Attacks<br />
+<li><a id="orgb7d6f69"></a>Dictionary Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <ul class="org-ul">
 <li>Guessing passwords from a predefined dictionary of common words, phrases and
@@ -872,8 +881,8 @@ passwords,</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org7a43749" class="outline-4">
-<h4 id="org7a43749"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
+<div id="outline-container-orgfbd7c02" class="outline-4">
+<h4 id="orgfbd7c02"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -894,79 +903,28 @@ passwords,</li>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">It&rsquo;s a network security device</td>
-<td class="org-left">Intrusion Prevention System</td>
-<td class="org-left">Intrusion Detection System</td>
+<td class="org-left">It&rsquo;s a network security device that filters incoming and outgoing traffic based on IP address and port numbers.</td>
+<td class="org-left">Intrusion Prevention System is a network security device that detects, inspects the contents of the packets and classifies traffic.</td>
+<td class="org-left">Intrusion Detection System is a network security device or software that monitors traffic for malicious activity and alerts on detection.</td>
 </tr>
 
 <tr>
-<td class="org-left">that filters incoming and</td>
-<td class="org-left">is a network security device</td>
-<td class="org-left">is a network security device</td>
+<td class="org-left">This should be the first line of defence.</td>
+<td class="org-left">Should be placed after firewall.</td>
+<td class="org-left">Should be placed after firewall.</td>
 </tr>
 
-<tr>
-<td class="org-left">outgoing traffic based on IP</td>
-<td class="org-left">that detects, inspects</td>
-<td class="org-left">or software that monitors</td>
-</tr>
-
-<tr>
-<td class="org-left">address and port numbers.</td>
-<td class="org-left">the contents of the packets</td>
-<td class="org-left">traffic for malicious</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">and classifies traffic.</td>
-<td class="org-left">activity and alerts on</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">detection.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">This should be the first line</td>
-<td class="org-left">Should be placed after</td>
-<td class="org-left">Should be placed after</td>
-</tr>
-
-<tr>
-<td class="org-left">of defence.</td>
-<td class="org-left">firewall.</td>
-<td class="org-left">firewall.</td>
-</tr>
-</tbody>
-<tbody>
 <tr>
 <td class="org-left">Blocks traffic.</td>
-<td class="org-left">Prevents traffic when</td>
-<td class="org-left">Alerts on detection of</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">anomaly is detected.</td>
-<td class="org-left">anomaly.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Prevents traffic when anomaly is detected.</td>
+<td class="org-left">Alerts on detection of anomaly.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-org0819faa" class="outline-4">
-<h4 id="org0819faa"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
+<div id="outline-container-orgd0b1bff" class="outline-4">
+<h4 id="orgd0b1bff"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li>It&rsquo;s an attack that can happen at any point of time, without any prior signs.</li>
@@ -977,16 +935,16 @@ malware.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbc6cc18" class="outline-2">
-<h2 id="orgbc6cc18"><span class="section-number-2">6.</span> Malicious Program</h2>
+<div id="outline-container-org15aa253" class="outline-2">
+<h2 id="org15aa253"><span class="section-number-2">6.</span> Malicious Program</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org50ad242" class="outline-3">
-<h3 id="org50ad242"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
+<div id="outline-container-org38af92f" class="outline-3">
+<h3 id="org38af92f"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org478f0d5" class="outline-4">
-<h4 id="org478f0d5"><span class="section-number-4">6.1.1.</span> Virus</h4>
+<div id="outline-container-org84d256f" class="outline-4">
+<h4 id="org84d256f"><span class="section-number-4">6.1.1.</span> Virus</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself and spread across the files of
@@ -994,8 +952,8 @@ the same system.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org00e12ef" class="outline-4">
-<h4 id="org00e12ef"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
+<div id="outline-container-org1048206" class="outline-4">
+<h4 id="org1048206"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>These are malware that are disguised as legitimate programs/softwares to trick
@@ -1003,16 +961,16 @@ the users into installing them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfdb485c" class="outline-4">
-<h4 id="orgfdb485c"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
+<div id="outline-container-orge4e083b" class="outline-4">
+<h4 id="orge4e083b"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>Malware which enter using undocumented entry points.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org46c2080" class="outline-4">
-<h4 id="org46c2080"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
+<div id="outline-container-org1da1a8e" class="outline-4">
+<h4 id="org1da1a8e"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
 <div class="outline-text-4" id="text-6-1-4">
 <ul class="org-ul">
 <li>Malware that remain inactive until some conditions are met.</li>
@@ -1020,12 +978,12 @@ the users into installing them.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org452ba90" class="outline-3">
-<h3 id="org452ba90"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
+<div id="outline-container-org8d600b2" class="outline-3">
+<h3 id="org8d600b2"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-org1c4ca48" class="outline-4">
-<h4 id="org1c4ca48"><span class="section-number-4">6.2.1.</span> Worms</h4>
+<div id="outline-container-org2103c98" class="outline-4">
+<h4 id="org2103c98"><span class="section-number-4">6.2.1.</span> Worms</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself (just like viruses), but they
@@ -1035,8 +993,8 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc481d37" class="outline-4">
-<h4 id="orgc481d37"><span class="section-number-4">6.2.2.</span> Zombie</h4>
+<div id="outline-container-orgb4caedc" class="outline-4">
+<h4 id="orgb4caedc"><span class="section-number-4">6.2.2.</span> Zombie</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <ul class="org-ul">
 <li>It takes control of an entire system.</li>
@@ -1045,12 +1003,12 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org33eec39" class="outline-2">
-<h2 id="org33eec39"><span class="section-number-2">7.</span> Cryptography</h2>
+<div id="outline-container-org030d1cb" class="outline-2">
+<h2 id="org030d1cb"><span class="section-number-2">7.</span> Cryptography</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgff05279" class="outline-3">
-<h3 id="orgff05279"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
+<div id="outline-container-org412f14a" class="outline-3">
+<h3 id="org412f14a"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
 <div class="outline-text-3" id="text-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1115,18 +1073,18 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org6dafdbf" class="outline-3">
-<h3 id="org6dafdbf"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
+<div id="outline-container-orgd96379c" class="outline-3">
+<h3 id="orgd96379c"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
-<div id="outline-container-org42dda35" class="outline-4">
-<h4 id="org42dda35"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
+<div id="outline-container-orgf4c808a" class="outline-4">
+<h4 id="orgf4c808a"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
 <div class="outline-text-4" id="text-7-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga33ee10"></a>Substitution<br />
+<li><a id="org1abb93d"></a>Substitution<br />
 <ol class="org-ol">
-<li><a id="orga7b61da"></a>Classical Substitution Cipher<br />
+<li><a id="org40f3030"></a>Classical Substitution Cipher<br />
 <div class="outline-text-6" id="text-7-2-1-1-1">
 <ul class="org-ul">
 <li>Every occurrence of a plain text symbol is replaced by a corresponding
@@ -1134,7 +1092,7 @@ ciphertext character.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org303075a"></a>Ceaser/Shift Cipher<br />
+<li><a id="org776cd4f"></a>Ceaser/Shift Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-1-1">
 <p>
 This is the earliest known subsitution cipher.
@@ -1142,7 +1100,7 @@ This is the earliest known subsitution cipher.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org11632cf"></a>For example, let m = college, k = 3 and s = 26.<br />
+<li><a id="org1e108ad"></a>For example, let m = college, k = 3 and s = 26.<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-1">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;c&rsquo;) + 3mod(26) = f</li>
@@ -1156,7 +1114,7 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="orgfcf3602"></a>In general, for alphabets, Ceasar Cipher is given as<br />
+<li><a id="orgb28dcf6"></a>In general, for alphabets, Ceasar Cipher is given as<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1180,7 +1138,7 @@ This is the earliest known subsitution cipher.
 </table>
 </div>
 </li>
-<li><a id="orgccab1cb"></a>For example, Encrypt KHOOR with k=4<br />
+<li><a id="orgaaec37d"></a>For example, Encrypt KHOOR with k=4<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-3">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;K&rsquo;) + 4mod(26) = O</li>
@@ -1192,16 +1150,16 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="org8ad2eca"></a>Decrypt Ciphertext ABC, k=3<br />
+<li><a id="org1e4be73"></a>Decrypt Ciphertext ABC, k=3<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-4">
 <ul class="org-ul">
 <li>A: \((0-3)\mod26 = -3\mod(26) = (-3+26)\mod(26) = 23\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf2e9232"></a>Cryptanalysis<br />
+<li><a id="org9a56bd7"></a>Cryptanalysis<br />
 <ol class="org-ol">
-<li><a id="org7951070"></a>Break the ciphertext WKLV using cryptanalysis<br />
+<li><a id="org6843d7c"></a>Break the ciphertext WKLV using cryptanalysis<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-5-1">
 <p>
 The program given below is a very simple Python Script to generate all possible
@@ -1242,7 +1200,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgca55ab5"></a>Break the ciphertext GWTBS<br />
+<li><a id="org190a4c0"></a>Break the ciphertext GWTBS<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-5-2">
 <div class="org-src-container">
 <pre class="src src-python">breakCaesar(<span style="color: #98be65;">"GWTBS"</span>)
@@ -1259,112 +1217,9 @@ character, by passing it into the <code>chr()</code> function.</li>
 </li>
 </ol>
 </li>
-<li><a id="orge8c8805"></a>Railfence Cipher<br />
-<div class="outline-text-7" id="text-7-2-1-1-1-2">
-<p>
-\[ \]
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">n</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">k</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">.</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">o</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">i</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">e</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">b</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">t</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">l</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">_</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">o</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">_</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">b</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
 </ol>
 </li>
-<li><a id="org536b503"></a>Simple Substitution/ Monoalphabetic<br />
+<li><a id="org5eeb416"></a>Simple Substitution/ Monoalphabetic<br />
 <div class="outline-text-6" id="text-7-2-1-1-2">
 <ul class="org-ul">
 <li>Rather than shifting the alphabets, you shuffle the alphabets randomly.</li>
@@ -1375,7 +1230,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6b7939e"></a>Polygram<br />
+<li><a id="org0fc952d"></a>Polygram<br />
 <div class="outline-text-6" id="text-7-2-1-1-3">
 <ul class="org-ul">
 <li>A block of plain text symbols is replaced by a corresponding ciphertext block
@@ -1399,9 +1254,9 @@ This can become, say (random, just for example):
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgd4d6584"></a>Playfair Cipher<br />
+<li><a id="org67b542d"></a>Playfair Cipher<br />
 <ol class="org-ol">
-<li><a id="orgc7b8ed8"></a>Explanation<br />
+<li><a id="org25913b9"></a>Explanation<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-1">
 <ul class="org-ul">
 <li>Make a \(5 \times 5\) matrix. In these 25 spaces, you&rsquo;ll have to fill all 26
@@ -1413,7 +1268,7 @@ the rest of the gaps in order without repetition.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org062c4c6"></a>Example we&rsquo;ll be using to learn the rules<br />
+<li><a id="org62c6593"></a>Example we&rsquo;ll be using to learn the rules<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-1">
 <ul class="org-ul">
 <li>keyword: CRYPTOGRAPHY CLASS SPRING</li>
@@ -1477,7 +1332,7 @@ the rest of the gaps in order without repetition.</li>
 </table>
 </div>
 </li>
-<li><a id="org41d44bf"></a>How to Encrypt a given plain text<br />
+<li><a id="org772f29a"></a>How to Encrypt a given plain text<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-2">
 <ol class="org-ol">
 <li>If letters of a pair are both same, then add an x after the first letter and
@@ -1585,7 +1440,7 @@ by the original pair.</li>
 </ol>
 </div>
 </li>
-<li><a id="orga85e64b"></a>Demonstration of the plain text being encrypted<br />
+<li><a id="org5e55c26"></a>Demonstration of the plain text being encrypted<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-3">
 <ul class="org-ul">
 <li>Consider the plain text &ldquo;Hello find the solution&rdquo;.</li>
@@ -1608,7 +1463,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="orgdce095c"></a>Solving another Example<br />
+<li><a id="org3767c07"></a>Solving another Example<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-2">
 <ul class="org-ul">
 <li><p>
@@ -1674,7 +1529,7 @@ Keyword: KEYWORD
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgbbfab93"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
+<li><a id="org387008d"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-1">
 <ul class="org-ul">
 <li><p>
@@ -1694,7 +1549,7 @@ And the encrypted text will look like:
 </ul>
 </div>
 </li>
-<li><a id="org526f8f1"></a>Plain Text: <b>Come to the window</b><br />
+<li><a id="orga338a4e"></a>Plain Text: <b>Come to the window</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-2">
 <ul class="org-ul">
 <li><p>
@@ -1720,7 +1575,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="org16c1953"></a>Homophonic<br />
+<li><a id="org2b00643"></a>Homophonic<br />
 <div class="outline-text-6" id="text-7-2-1-1-4">
 <ul class="org-ul">
 <li>If a letter \(x\) appears for \(y\%\) of all characters, we assign \(y\) number of
@@ -1728,27 +1583,602 @@ symbols to represent it.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgaa94b56"></a>Polyalphabetic<br /></li>
+<li><a id="orgeaeb8e4"></a>Polyalphabetic<br />
+<div class="outline-text-6" id="text-7-2-1-1-5">
+<ul class="org-ul">
+<li>In Caesar cipher, the key was a single number.</li>
+<li>Polyalphabetic cipher uses a key to select which alphabet is used for each
+alphabet of the message.</li>
+<li>Once the key reaches the end it is repeated from the beginning to match the
+length of the plain text.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgfd0b9fd"></a>Vigenere Cipher<br />
+<ol class="org-ol">
+<li><a id="org381a6cd"></a>Encryption<br />
+<div class="outline-text-8" id="text-7-2-1-1-5-1-1">
+<ul class="org-ul">
+<li>This is one of the simplest polyalphabetic substitution cipher.</li>
+<li>It is effectively multiple caeser ciphers.</li>
+<li>\(K = K_{1} K_{2} K_{3}....K_{L}\), where \(L\) is the length of the key.</li>
+<li>The same plain text character is encrypted to different cipher text characters.</li>
+<li><p>
+Assume plain text to be &ldquo;WE ARE DISCOVERED SAVE YOURSELF&rdquo; and the key to be &ldquo;DECEPTIVE&rdquo;
+</p>
+
+<p>
+Making the alphabet-index mapping programmatically:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #c678dd;">print</span>(<span style="color: #98be65;">'|'</span>, end=<span style="color: #98be65;">''</span>)
+<span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(26):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(f<span style="color: #98be65;">'</span>{i}<span style="color: #98be65;"> - </span>{<span style="color: #c678dd;">chr</span>(<span style="color: #c678dd;">ord</span>(<span style="color: #98be65;">'</span>A<span style="color: #98be65;">')+i)} |'</span>, end=<span style="color: #98be65;">''</span>)
+
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">0 - A</td>
+<td class="org-left">1 - B</td>
+<td class="org-left">2 - C</td>
+<td class="org-left">3 - D</td>
+<td class="org-left">4 - E</td>
+<td class="org-left">5 - F</td>
+<td class="org-left">6 - G</td>
+<td class="org-left">7 - H</td>
+<td class="org-left">8 - I</td>
+<td class="org-left">9 - J</td>
+<td class="org-left">10 - K</td>
+<td class="org-left">11 - L</td>
+<td class="org-left">12 - M</td>
+<td class="org-left">13 - N</td>
+<td class="org-left">14 - O</td>
+<td class="org-left">15 - P</td>
+<td class="org-left">16 - Q</td>
+<td class="org-left">17 - R</td>
+<td class="org-left">18 - S</td>
+<td class="org-left">19 - T</td>
+<td class="org-left">20 - U</td>
+<td class="org-left">21 - V</td>
+<td class="org-left">22 - W</td>
+<td class="org-left">23 - X</td>
+<td class="org-left">24 - Y</td>
+<td class="org-left">25 - Z</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+We map each alphabet of the plain text to the key repeated as many times as
+required:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-txt">W E A R E D I S C O V E R E D S A V E Y O U R S E L F
+D E C E P T I V E D E C E P T I V E D E C E P T I V E
+_____________________________________________________
+Z I C V T W Q N G R Z G V T W A V Z H C Q Y G L M G J
+</pre>
+</div></li>
+
+<li>In Vigenere Cipher the length of the keyword can be found out as two identical
+sequences of plain text letters occur at a distance that is an integer
+multiple of the keyword length will generate identical cipher text sequences.</li>
+
+<li><p>
+Since the periodic nature of the keyword was the issue, Vigenere proposed an
+<b>autokey system</b>, in which a keyword is concatenated with the plain text to
+match the length of the plain text.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-txt">W E A R E D I S C O V E R E D S A V E Y O U R S E L F
+D E C E P T I V E W E A R E D I S C O V E R E D S A V 
+_____________________________________________________
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+<li><a id="org31d4d76"></a>Cryptanalysis<br />
+<ol class="org-ol">
+<li><a id="orgd2c3d92"></a>Example 1: Plain Text = &ldquo;acbxzcb&rdquo;, Cipher Text = &ldquo;bxbywdb&rdquo;<br />
+<div class="outline-text-9" id="text-7-2-1-1-5-1-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>0</code></td>
+<td class="org-left"><code>1</code></td>
+<td class="org-left"><code>2</code></td>
+<td class="org-left"><code>3</code></td>
+<td class="org-left"><code>4</code></td>
+<td class="org-left"><code>5</code></td>
+<td class="org-left"><code>6</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Plain Text</b> &rarr;</td>
+<td class="org-left">a</td>
+<td class="org-left">c</td>
+<td class="org-left">b</td>
+<td class="org-left">x</td>
+<td class="org-left">z</td>
+<td class="org-left">c</td>
+<td class="org-left">b</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cipher Text</b> &rarr;</td>
+<td class="org-left">b</td>
+<td class="org-left">x</td>
+<td class="org-left">b</td>
+<td class="org-left">y</td>
+<td class="org-left">w</td>
+<td class="org-left">d</td>
+<td class="org-left">b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
 </ol>
 </li>
-<li><a id="org1e122c3"></a>Transposition<br /></li>
+</ol>
+</li>
+<li><a id="org2b11f11"></a>Vennam Cipher (one-time pad)<br />
+<div class="outline-text-7" id="text-7-2-1-1-5-2">
+<ul class="org-ul">
+<li>You perform bitwise XOR on the ASCII value of the characters of the plain text
+and the key.</li>
+<li><p>
+Here is the XOR Table:
+</p>
 
-<li><a id="org1a9d63e"></a>Product<br /></li>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-right">A XOR B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+For example:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">String Given</th>
+<th scope="col" class="org-right">Char-by-char ASCII Value</th>
+<th scope="col" class="org-right">Char-by-char value in Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Plain text</b> &rarr;</td>
+<td class="org-left">CAT</td>
+<td class="org-right">676584</td>
+<td class="org-right">010000110100000101010100</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Key</b> &rarr;</td>
+<td class="org-left">DOG</td>
+<td class="org-right">687971</td>
+<td class="org-right">010001000100111101000111</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right"><b>Plain Text XOR Key</b> &rarr;</td>
+<td class="org-right">000001110000111000010011</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>One thing to note is that the key length has to be at least as long as the
+plain text.</li>
+
+<li>Theoretically, this cipher is impossible to decrypt because the key has to be
+purely random.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a id="orgb5a02c1"></a>Transposition / Permutation Cipher<br />
+<div class="outline-text-5" id="text-7-2-1-2">
+<ul class="org-ul">
+<li>This cipher hides the message by rearranging the letters of the plain text
+without changing the actual letters.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org3c28c68"></a>Railfence Cipher<br />
+<div class="outline-text-7" id="text-7-2-1-2-0-1">
+<ul class="org-ul">
+<li>Here you write message&rsquo;s letters diagonally over the rows, then read the
+message row-by-row.</li>
+<li><p>
+For example, plain text = &ldquo;meet me after the party&rdquo;, and the number of rows
+is 3.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">r</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">r</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">f</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">h</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">_</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">p</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">y</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>The cipher text would be &ldquo;m areretm fe h ateetpy&rdquo;</li>
+</ul>
+</div>
+</li>
+<li><a id="org1773ee1"></a>Columnar Transposition<br />
+<div class="outline-text-7" id="text-7-2-1-2-0-2">
+<ul class="org-ul">
+<li>Write the characters of the message in rows over a specified number of
+columns.</li>
+<li>The number of columns is the length of the key, and the key tells us the order
+in which the cipher text is written.</li>
+<li>The cipher text is essentially the columns of this table written in the order
+the key was mentioned.</li>
+<li><p>
+For example, key = 4312567 (meaning 7 columns), and the plain text is &ldquo;attack
+postponed until two am&rdquo;
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">4</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">5</th>
+<th scope="col" class="org-left">6</th>
+<th scope="col" class="org-left">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">t</td>
+<td class="org-left">t</td>
+<td class="org-left">a</td>
+<td class="org-left">c</td>
+<td class="org-left">k</td>
+<td class="org-left">p</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">s</td>
+<td class="org-left">t</td>
+<td class="org-left">p</td>
+<td class="org-left">o</td>
+<td class="org-left">n</td>
+<td class="org-left">e</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">u</td>
+<td class="org-left">n</td>
+<td class="org-left">t</td>
+<td class="org-left">i</td>
+<td class="org-left">l</td>
+<td class="org-left">t</td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">o</td>
+<td class="org-left">a</td>
+<td class="org-left">m</td>
+<td class="org-left">x</td>
+<td class="org-left">y</td>
+<td class="org-left">z</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
+</p></li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org86748d5"></a>Product<br /></li>
 </ol>
 </div>
-<div id="outline-container-org2b8d3a5" class="outline-4">
-<h4 id="org2b8d3a5"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
+<div id="outline-container-org6752845" class="outline-4">
+<h4 id="org6752845"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
 <div class="outline-text-4" id="text-7-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org2ec3a3d"></a>Single/Private Key<br />
+<li><a id="orge2459e6"></a>Single/Private Key<br />
 <div class="outline-text-5" id="text-7-2-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s called <b>symmetric key encryption</b>.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb996e56"></a>Two-key or Public Key cryptography<br />
+<li><a id="org71c76d9"></a>Two-key or Public Key cryptography<br />
 <div class="outline-text-5" id="text-7-2-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s called <b>assymmetric key encryption</b>.</li>
@@ -1757,12 +2187,12 @@ symbols to represent it.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org958f23a" class="outline-4">
-<h4 id="org958f23a"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
+<div id="outline-container-org117332f" class="outline-4">
+<h4 id="org117332f"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
 <div class="outline-text-4" id="text-7-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org48b3ef7"></a>Block<br />
+<li><a id="orgdad77af"></a>Block<br />
 <div class="outline-text-5" id="text-7-2-3-1">
 <ul class="org-ul">
 <li>Block Cipher transforms a fixed length of plaintext data into a block of
@@ -1776,7 +2206,7 @@ ciphertext of the same length, with the help of a secret key.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf567589"></a>Stream<br /></li>
+<li><a id="orgcb7f8bb"></a>Stream<br /></li>
 </ol>
 </div>
 </div>

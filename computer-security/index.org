@@ -153,22 +153,15 @@ There are two models for security of networks
 
 *** Layered Security Tools/Devices
 
-| Firewall                       | IPS                          | IDS                          |
-|--------------------------------+------------------------------+------------------------------|
-| It's a network security device | Intrusion Prevention System  | Intrusion Detection System   |
-| that filters incoming and      | is a network security device | is a network security device |
-| outgoing traffic based on IP   | that detects, inspects       | or software that monitors    |
-| address and port numbers.      | the contents of the packets  | traffic for malicious        |
-|                                | and classifies traffic.      | activity and alerts on       |
-|                                |                              | detection.                   |
-|--------------------------------+------------------------------+------------------------------|
-| This should be the first line  | Should be placed after       | Should be placed after       |
-| of defence.                    | firewall.                    | firewall.                    |
-|--------------------------------+------------------------------+------------------------------|
-| Blocks traffic.                | Prevents traffic when        | Alerts on detection of       |
-|                                | anomaly is detected.         | anomaly.                     |
-|--------------------------------+------------------------------+------------------------------|
-|                                |                              |                              |
+
+| Firewall                                                                                                        | IPS                                                                                                                                 | IDS                                                                                                                                       |
+|-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------|
+| It's a network security device that filters incoming and outgoing traffic based on IP address and port numbers. | Intrusion Prevention System is a network security device that detects, inspects the contents of the packets and classifies traffic. | Intrusion Detection System is a network security device or software that monitors traffic for malicious activity and alerts on detection. |
+| This should be the first line of defence.                                                                       | Should be placed after firewall.                                                                                                    | Should be placed after firewall.                                                                                                          |
+| Blocks traffic.                                                                                                 | Prevents traffic when anomaly is detected.                                                                                          | Alerts on detection of anomaly.                                                                                                           |
+
+
+
 
 *** Zero-Day Attack
 - It's an attack that can happen at any point of time, without any prior signs.
@@ -307,14 +300,6 @@ breakCaesar("GWTBS")
 #+begin_src
 GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLIQH, UKHPG, TJGOF, SIFNE, RHEMD, QGDLC, PFCKB, OEBJA, NDAIZ, MCZHY, LBYGX, KAXFW, JZWEV, IYVDU, HXUCT,
 #+end_src
-
-****** Railfence Cipher
-\[ \]
-| n |   |   |   |   |   | k |   |   |   |   |   | . |
-|   | o |   |   |   | i |   | e |   |   |   | b |   |
-|   |   | t |   | l |   |   |   | _ |   | o |   |   |
-|   |   |   | _ |   |   |   |   |   | b |   |   |   |
-
 
 
 
@@ -456,10 +441,130 @@ OZ   NK   ZK   VF   YO   GQ   CE   BW
   symbols to represent it.
 
 ***** Polyalphabetic
+- In Caesar cipher, the key was a single number.
+- Polyalphabetic cipher uses a key to select which alphabet is used for each
+  alphabet of the message.
+- Once the key reaches the end it is repeated from the beginning to match the
+  length of the plain text.
+
+****** Vigenere Cipher
+
+******* Encryption
+- This is one of the simplest polyalphabetic substitution cipher.
+- It is effectively multiple caeser ciphers.
+- $K = K_{1} K_{2} K_{3}....K_{L}$, where $L$ is the length of the key.
+- The same plain text character is encrypted to different cipher text characters.
+- Assume plain text to be "WE ARE DISCOVERED SAVE YOURSELF" and the key to be "DECEPTIVE"
+  
+  Making the alphabet-index mapping programmatically:
+  #+begin_src python :results output raw :exports both
+print('|', end='')
+for i in range(26):
+    print(f'{i} - {chr(ord('A')+i)} |', end='')
+
+  #+end_src
+
+  #+RESULTS:
+  | 0 - A | 1 - B | 2 - C | 3 - D | 4 - E | 5 - F | 6 - G | 7 - H | 8 - I | 9 - J | 10 - K | 11 - L | 12 - M | 13 - N | 14 - O | 15 - P | 16 - Q | 17 - R | 18 - S | 19 - T | 20 - U | 21 - V | 22 - W | 23 - X | 24 - Y | 25 - Z |
+
+- We map each alphabet of the plain text to the key repeated as many times as
+  required:
+  
+  #+begin_src txt
+W E A R E D I S C O V E R E D S A V E Y O U R S E L F
+D E C E P T I V E D E C E P T I V E D E C E P T I V E
+_____________________________________________________
+Z I C V T W Q N G R Z G V T W A V Z H C Q Y G L M G J
+  #+end_src
+  
+- In Vigenere Cipher the length of the keyword can be found out as two identical
+  sequences of plain text letters occur at a distance that is an integer
+  multiple of the keyword length will generate identical cipher text sequences.
+
+- Since the periodic nature of the keyword was the issue, Vigenere proposed an
+  *autokey system*, in which a keyword is concatenated with the plain text to
+  match the length of the plain text.
+  
+  #+begin_src txt
+W E A R E D I S C O V E R E D S A V E Y O U R S E L F
+D E C E P T I V E W E A R E D I S C O V E R E D S A V 
+_____________________________________________________
+  #+end_src
+
+
+******* Cryptanalysis
+
+******** Example 1: Plain Text = "acbxzcb", Cipher Text = "bxbywdb"
+
+|               | ~0~ | ~1~ | ~2~ | ~3~ | ~4~ | ~5~ | ~6~ |
+| *Plain Text* \rightarrow  | a | c | b | x | z | c | b |
+| *Cipher Text* \rightarrow | b | x | b | y | w | d | b |
 
 
 
-**** Transposition
+****** Vennam Cipher (one-time pad)
+- You perform bitwise XOR on the ASCII value of the characters of the plain text
+  and the key.
+- Here is the XOR Table:
+
+  | A | B | A XOR B |
+  |---+---+---------|
+  | 0 | 0 |       0 |
+  | 0 | 1 |       1 |
+  | 1 | 0 |       1 |
+  | 1 | 1 |       0 |
+  
+- For example:
+  |              | String Given | Char-by-char ASCII Value | Char-by-char value in Binary |
+  |--------------+--------------+--------------------------+------------------------------|
+  | *Plain text* \rightarrow | CAT          |                   676584 |     010000110100000101010100 |
+  | *Key* \rightarrow        | DOG          |                   687971 |     010001000100111101000111 |
+  |--------------+--------------+--------------------------+------------------------------|
+  |              |              |     *Plain Text XOR Key* \rightarrow |     000001110000111000010011 |
+
+- One thing to note is that the key length has to be at least as long as the
+  plain text.
+
+- Theoretically, this cipher is impossible to decrypt because the key has to be
+  purely random.
+
+  
+**** Transposition / Permutation Cipher
+- This cipher hides the message by rearranging the letters of the plain text
+  without changing the actual letters.
+
+****** Railfence Cipher
+- Here you write message's letters diagonally over the rows, then read the
+  message row-by-row.
+- For example, plain text = "meet me after the party", and the number of rows
+  is 3.
+
+  | m |   |   |   | _ |   |   |   | a |   |   |   | r |   |   |   | e |   |   |   | r |   |   |
+  |   | e |   | t |   | m |   | _ |   | f |   | e |   | _ |   | h |   | _ |   | a |   | t |   |
+  |   |   | e |   |   |   | e |   |   |   | t |   |   |   | t |   |   |   | p |   |   |   | y |
+  
+- The cipher text would be "m areretm fe h ateetpy"
+
+
+****** Columnar Transposition
+- Write the characters of the message in rows over a specified number of
+  columns.
+- The number of columns is the length of the key, and the key tells us the order
+  in which the cipher text is written.
+- The cipher text is essentially the columns of this table written in the order
+  the key was mentioned.
+- For example, key = 4312567 (meaning 7 columns), and the plain text is "attack
+  postponed until two am"
+
+  | 4 | 3 | 1 | 2 | 5 | 6 | 7 |
+  |---+---+---+---+---+---+---|
+  | a | t | t | a | c | k | p |
+  | o | s | t | p | o | n | e |
+  | d | u | n | t | i | l | t |
+  | w | o | a | m | x | y | z |
+
+  The cipher text would be "ttnaaptmtsuoaodwcoixknlypetz".
+
 
 **** Product
 
