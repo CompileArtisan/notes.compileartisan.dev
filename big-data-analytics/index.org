@@ -1,0 +1,345 @@
+#+title: Big Data Analytics
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+
+** What is Big Data?
+- Big Data involves datasets that are too large or complex for traditional data
+  processing application softwares.
+- It counts as too large, if the data is in Gigabytes, Terabytes, Petabytes or
+  maybe even Exabytes.
+- The future involves an unofficial data size called Brontobyte ($10^{27}$ bytes).
+
+** What is Big Data Analytics?
+- Process of uncovering *trends*, *patterns* and *correlations* in large datasets.
+- This is useful for risk management, and making better decisions.
+
+** Three V's (Currently there are a lot more V's)
+- These are core challenges involved with big data.
+- These were coined by *Doug Laney* in 2001, in a report for [[https://www.gartner.com/en/documents/2057415][Gartner]].
+
+*** Volume
+- The data itself is in larger units. 
+
+*** Velocity
+- This is the rate at which data is being generated.
+- This emphasizes on how close we are to real time processing of data.
+
+*** Variety
+
+**** Structured
+- Data with a fixed format.
+- For examples, spreadsheets and databases are structured data.
+- DBMS operations are very fast, and this is very scalable.
+
+**** Unstructured
+- Data with no fixed format.
+- For example, images, videos, text.
+- 80% of the data is unstructured.
+
+**** Semi-Structured
+- It might have a fixed format, but might contain unstructured data.
+- XML is a great example - it has a format (tags), but the content can be
+  unstructured. A simpler example would be an email (from, to, CC, BCC form a
+  structure, but the content can be anything).
+- It's often either data with labels, or data in the form of key-value pairs.
+
+*** Newer V's introduced in recent times
+
+**** Value
+- The ability to extract meaningful data.
+
+**** Veracity
+- Trustworthiness of data.
+  
+**** Validity
+- Is the data correct or appropriate for its intended use?
+
+**** Visualization
+- Putting data in a human-interpretable form.
+
+**** Variability
+- Changes in the nature of the data.
+
+**** Vulnerability
+- Compromises in system security.
+
+**** Viscosity
+- How easy/difficult it is to combine/transfer data.
+
+**** Volatility
+- How long data is valid for, and how long it should be stored.
+- This is the characteristics of data that deals with its *retention*.
+
+**** Virality
+- How far the existing data spreads around.
+
+** Human-Generated Data vs Machine-Generated Data
+- Examples of human-generated data are text messages, emails, documents.
+- Examples of machine-generated data are outputs of sensors or system logs.
+
+** Issues with Terminology related to Structure
+- HTML is often debated between considered unstructured or semi-structured.
+- This is because questions are being raised on whether the structure is
+  actually helping analytics or not.
+
+
+* Definition of Big Data
+- It's a *high-volume*, *high-velocity* and *high-variety* information assets that
+  demand *cost-effective*, *innovative* forms of information processing for *enhanced
+  insight* and *decision making*.
+  
+
+* Types of Data Analytics
+
+** Descriptive Analytics
+- Describe the data i.e. tell you *what* happened in the past.
+- This is done by summarizing the past data into a human-interpretable form (eg.
+  charts, graphs, etc).
+
+
+** Diagnostic Analytics
+- Understand *why* something happened in the past.
+- This is done using techniques like *drill-down*, *data-mining* and *data-discovery*.
+
+** Predictive Analytics
+- Predicts what's most likely to happen in the *future*.
+
+** Prescriptive Analytics
+- What *actions* to take to affect those outcomes.
+
+* Database Architectures
+Refer to [[https://www.tinybird.co/blog/oltp-vs-olap][OLTP vs OLAP: key differences, use cases, and architectures]].
+
+** OLTP
+- Stands for Online Transaction Processing.
+- This is essentially DBMS.
+
+** OLAP
+- Online Analytical Processing.
+- This is also alled data warehousing and these are ways to analyse the results
+  of OLTP.
+
+** RTAP
+- Real-time Analytics Processing.
+- It's also known as HTAP - Hybrid Transactional/ Analytical Processing
+
+* Change in Trend
+- Models have changed: previously the amount of people generating big-data was
+  less, and the consumers were high in number.
+- Now, everyone is both generating and consuming big data.
+
+* Size Matters
+
+** In Bits
+| Unit     | Number of Bits |
+|----------+----------------|
+| Bit      |              1 |
+| Byte     |              8 |
+| Kibibyte |           1024 |
+| Kilobyte |           1000 |
+| Mebibyte |         1024^2 |
+| Megabyte |         1000^2 |
+| Gibibyte |         1024^3 |
+| Gigabyte |         1000^3 |
+| Tebibyte |         1024^4 |
+| Terabyte |         1000^4 |
+
+** In General 
+
+| Unit        | Equivalent Number |
+|-------------+-------------------|
+| Thousand    | 10^3              |
+| Million     | 10^6              |
+| Billion     | 10^9              |
+| Trillion    | 10^{12}              |
+| Quadrillion | 10^{15}              |
+| Quintillion | 10^{18}              |
+
+As a function of time:
+- 1 Million Seconds is 12 days
+- 1 Billion Seconds is 31.7 years
+- 1 Trillion Seconds is 31.7 Thousand (31,700) years
+- 1 Quadrillion Seconds is 31.7 Million Years
+- 1 Quintillion Seconds is 31.7 Billion Years
+
+* Traditional Business Intelligence vs Big Data
+
+| Traditional Business Intelligence | Big Data          |
+|-----------------------------------+-------------------|
+| Move Data to Code                 | Move Code to Data |
+
+* Transaction Processing 
+- Ensures that DBMS operations happen as one single indivisible unit with the
+  help of ACID properties
+** Atomicity
+- Transaction either completely finishes, or doesn't happen at all. There's no
+  partially completed state.
+** Consistency 
+- Changes must reflect everywhere.
+- All integrity constraints must satisfy.
+** Isolation 
+- Two transactions shouldn't interfere with each other
+** Durability
+- Transactions must be permanent.
+
+
+* Challenges
+
+** Vertical and Horizontal Scaling
+- Vertical Scaling (scaling-up) is adding more CPUs, RAM to a single server.
+- Horizontal Scaling (scaling-out) is adding more servers altogether to
+  distribute the work load.
+
+** Security
+
+** Schema
+- Has to be dynamic.
+
+** Continuous Availability
+
+** Consistency
+
+** Partition Tolerent
+- This is regarding the partitions in a network.
+- Partition Tolerant tells us how we have to take care of hardware and software
+  failures involved in a Network.
+
+** Data Quality
+*** 3Cs
+- Completeness, Consistency, Cleanliness
+  
+* Brewer's CAP Theorem
+- A system that has consistency and partition tolerance, but compromises
+  availability is called a *CP* system. (note that it's compromised, not
+  non-existent).
+- A system that has availability and partition tolerance, but compromises
+  availability is called an *AP* system.
+- You can make a *CP* system or an *AP* system. 
+- The theorem says that partition tolerence is unavoidable, because we are
+  dealing with networks.
+- Departing from CAP theorem, if *P* was compromised, it would be a *CA* system.
+  There's no network involved and hence we're talking about your local system.
+- Refer to [[https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/][CAP Twelve Years Later: How the "Rules" Have Changed - InfoQ]].
+
+** Consistency
+- All reads receive the most recent write or an error.
+
+
+** Availability
+- All reads contain data, but it might not be the most recent.
+
+** Partition Tolerance
+- The system continues to be operate despite network failure.
+
+* BASE Theorem
+- BASE stands for Basically Available Soft-state Eventual-consistency
+  
+** Basically Available
+- If a particular node fails in a network, data on that will not be available.
+  But the entire data layer is still operational.
+  
+** Soft-state
+- The design principle in which the state of the system may change over a period
+  of time, even without any input, is called soft-state.
+- Maintaining strong consistency might be costly and could be impractical at
+  times. This is when soft-state is preferred.
+
+** Eventually Consistent
+- It's a guarantee that if the system will have consistent values applied at a
+  certain point of time.
+
+* NoSQL
+- It stands for *Not Only SQL*.
+
+** Sharding
+- Splitting a large dataset into smaller, more manageable pieces called "shards"
+  is called sharding.
+- These shards are distributed across multiple systems to improve scalability
+  and performance. (because this paves way for parallel processing).
+
+** Difference between SQL and NoSQL
+
+| SQL                               | NoSQL                              |
+|-----------------------------------+------------------------------------|
+| Follows ACID Properties           | Follows Brewer's CAP theorem       |
+| Standardized                      | Not Standardized                   |
+| No support for horizontal scaling | Has Support for horizontal scaling |
+
+* NewSQL
+- NewSQL is a mixture of both SQL and NoSQL
+
+# file:/home/praaneshnair/gitProjects/org-notes/big-data-analytics/mongodb.org
+
+* Hadoop
+- It's an open-source framework use to process enormous data sets.
+- Hadoop allows *distributed processing*, across a cluster of *commodity hardware*
+  (inexpensive, widely available hardware).
+- Hadoop was inspired by *Google File System* for distributed storage.
+- In 2007, Yahoo started using Hadoop on a 1000 node cluster. It was in 2008
+  Hadoop defeated supercomputers.
+
+** Hadoop Versions
+
+*** Hadoop 1.x
+These are the components of a node using Hadoop 1.x.
+**** HDFS
+- This is for reliable storage.
+- HDFS stands for *Hadoop Distributed File System*.
+  
+***** Blocks
+- This is the minimum amount of data that can be read or written. (64 MB or 128 MB).
+- By default there are 3 replicas of data (3 blocks, each placed in a different
+  rack).
+  - The first replica is placed on the local node
+  - The second replica is placed on a remote rack.
+  - The third replica is placed on the same remote rack as the second one
+- The client reads from the nearest replica.
+
+***** Rack
+- It's a collection of 40-50 data nodes using the same network switch.
+
+| Rack1  | Rack2  | Rack3 |
+|--------+--------+-------|
+| Block1 | ~_~      | ~_~     |
+| ~_~      | Block1 | ~_~     |
+| ~_~      | ~_~      | ~_~     |
+| ~_~      | Block1 | ~_~     |
+
+
+***** Rack Awareness
+- Choosing data node racks that are closest to each other is called rack
+  awareness.
+  
+***** Master/Slave Architecture - Node
+****** NameNode
+- Master of the system
+- Maintains and manages the blocks present on the Data Node.
+- These are up and running all the time.
+
+****** DataNode
+- Slaves whcih are deployed on each machine and provide the actual storage.
+- Responsible for serving read/write requests to the client.
+
+**** MapReduce
+- This is for cluster resource management and data processing.
+- It's also known as Hadoop's processing unit.
+
+*** Hadoop 2.x
+These are the components of a node using Hadoop 2.x.
+**** HDFS
+- Reliable Storage.
+
+**** Yarn
+- Cluster Resource Managment
+- Yarn stands for *Yet Another Resource Negotiator*.
+
+**** MapReduce
+- Data processing
+
+** Basic Hadoop Architecture
+- There is one *master node* and multiple *slave nodes*.
+
+** Challenges of Hadoop
+- Hadoop is meant for processing large and immutable datasets, not transactions
+  which are ACID-compliant.
