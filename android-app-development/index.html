@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-21 Wed 22:44 -->
+<!-- 2026-01-30 Fri 00:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobile Application Development</title>
@@ -220,6 +220,15 @@ padding: 20px 40px;
 h1, h2, h3 {
 font-family: 'Helvetica', sans-serif;
 }
+a {
+color: #0000aa;
+}
+a:hover {
+background-color: #0000aa;
+color: #ffffff;
+border-radius: 0.2em;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
 pre {
 background-color: #333;
 color: white;
@@ -238,7 +247,8 @@ font-size: 1.1em;
 border-radius: 0.5em;
 }
 code {
-font-size: 1em;
+font-size: 1.5em;
+padding: 0 0.5em;
 }
 img {
 max-width: 100%;
@@ -449,19 +459,42 @@ font-size: 1.3em;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd656b40">1. Prelude</a></li>
-<li><a href="#orgee71252">2. How the App works</a>
+<li><a href="#org3723de4">1. Prelude</a></li>
+<li><a href="#org8891593">2. Introduction to Android</a>
 <ul>
-<li><a href="#org94150dd">2.1. Activity</a></li>
-<li><a href="#org538f386">2.2. XML Files</a></li>
+<li><a href="#orge2b2f9a">2.1. User Interaction</a>
+<ul>
+<li><a href="#orga3cdb89">2.1.1. Touch Gestures</a></li>
+<li><a href="#org6239da7">2.1.2. Virtual Keyboard</a></li>
+<li><a href="#org3fe2e3e">2.1.3. External</a></li>
 </ul>
 </li>
-<li><a href="#orgcf34922">3. Basic Addition</a></li>
+<li><a href="#org7406349">2.2. Android Stack</a></li>
+<li><a href="#org53fb6b4">2.3. Android Application Components</a></li>
+</ul>
+</li>
+<li><a href="#org11bea04">3. How the App works</a>
+<ul>
+<li><a href="#org3e69d5e">3.1. Activity</a></li>
+<li><a href="#org46f61f3">3.2. XML Files</a>
+<ul>
+<li><a href="#org22483f9">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgda51a52">4. Basic Addition</a></li>
+<li><a href="#orgaf40124">5. <span class="todo TODO">TODO</span> Making UI using Java</a>
+<ul>
+<li><a href="#org23b7ff5">5.1. Creating a View using Java</a></li>
+<li><a href="#orgbf2f569">5.2. Creating a Layout using Java</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd656b40" class="outline-2">
-<h2 id="orgd656b40"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-org3723de4" class="outline-2">
+<h2 id="org3723de4"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>These notes don&rsquo;t include Android Studio tutorials as:
@@ -470,16 +503,152 @@ font-size: 1.3em;
 <li>Android Studio keeps evolving so it&rsquo;s going to be different when you&rsquo;re
 reading this.</li>
 </ol></li>
+<li>Unlike most of my other notes, these should be used as complementary material.
+I really don&rsquo;t think these notes can replace lectures or a course itself.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee71252" class="outline-2">
-<h2 id="orgee71252"><span class="section-number-2">2.</span> How the App works</h2>
+<div id="outline-container-org8891593" class="outline-2">
+<h2 id="org8891593"><span class="section-number-2">2.</span> Introduction to Android</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org94150dd" class="outline-3">
-<h3 id="org94150dd"><span class="section-number-3">2.1.</span> Activity</h3>
+<div id="outline-container-orge2b2f9a" class="outline-3">
+<h3 id="orge2b2f9a"><span class="section-number-3">2.1.</span> User Interaction</h3>
 <div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orga3cdb89" class="outline-4">
+<h4 id="orga3cdb89"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>Swiping</li>
+<li>Tapping</li>
+<li>Pinching</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6239da7" class="outline-4">
+<h4 id="org6239da7"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>Characters</li>
+<li>Numbers</li>
+<li>Emojis</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3fe2e3e" class="outline-4">
+<h4 id="org3fe2e3e"><span class="section-number-4">2.1.3.</span> External</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Bluetooth</li>
+<li>USB controllers</li>
+<li>Peripherals</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7406349" class="outline-3">
+<h3 id="org7406349"><span class="section-number-3">2.2.</span> Android Stack</h3>
+<div class="outline-text-3" id="text-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">System Apps <code>OR</code> User Apps</td>
+</tr>
+
+<tr>
+<td class="org-left">Java API Framework</td>
+</tr>
+
+<tr>
+<td class="org-left">Native C/C++ Runtime <code>OR</code> Android Runtime (ART)</td>
+</tr>
+
+<tr>
+<td class="org-left">Hardware Abstraction Layer</td>
+</tr>
+
+<tr>
+<td class="org-left">Linux Kernel</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Every layer in this stack, uses services of the layer below, to serve the
+layer above.</li>
+<li>The linux kernel is responsible for low-level memory management and security
+features.</li>
+<li>The kernel talks to the hardware directly, and hardware abstraction layer
+makes accessing hardware more abstract and standardized.</li>
+<li>Native C/C++ libraries (Android Native Development Kit, or NDK) or Android
+Runtime (ART), do all the backend work involved in an app. These include
+managing databases, graphics, web rendering engines, and in basic system
+functions too.</li>
+<li>The Java API Framework consists of premade classes which correspond to
+different parts of an app.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org53fb6b4" class="outline-3">
+<h3 id="org53fb6b4"><span class="section-number-3">2.3.</span> Android Application Components</h3>
+<div class="outline-text-3" id="text-2-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Component</th>
+<th scope="col" class="org-left">What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>Activity</code></td>
+<td class="org-left">A visible screen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Service</code></td>
+<td class="org-left">Background work</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Intent</code></td>
+<td class="org-left">A message/request</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>BroadcastReceiver</code></td>
+<td class="org-left">Event listener</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ContentProvider</code></td>
+<td class="org-left">Database interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org11bea04" class="outline-2">
+<h2 id="org11bea04"><span class="section-number-2">3.</span> How the App works</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org3e69d5e" class="outline-3">
+<h3 id="org3e69d5e"><span class="section-number-3">3.1.</span> Activity</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>A Java Class that serves as a controller for a specific screen, is called an
 activity.</li>
@@ -493,22 +662,94 @@ extends <code>FragmentActivity</code> which extends <code>ComponentActivity</cod
 </ul>
 </div>
 </div>
-<div id="outline-container-org538f386" class="outline-3">
-<h3 id="org538f386"><span class="section-number-3">2.2.</span> XML Files</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org46f61f3" class="outline-3">
+<h3 id="org46f61f3"><span class="section-number-3">3.2.</span> XML Files</h3>
+<div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>All of the components of the UI of a particular screen is created using an XML
 file or a group of XML files.</li>
 <li>Such a component is called a <b>view</b>.</li>
+<li>Examples of views include <code>TextView</code> (for displaying text), <code>EditText</code> (for taking
+text input), <code>RadioButton</code>, <code>Switch</code>, <code>SeekBar</code> (sliders), etc.</li>
 <li>Each view will have an <code>id</code> (an integer), which can be accessed in a Java Class
 as <code>R.id.nameOfID</code>, where <code>R</code> is a <code>final class</code> created by Android at build time.</li>
 </ul>
 </div>
+<div id="outline-container-org22483f9" class="outline-4">
+<h4 id="org22483f9"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties.
+</p>
+<div class="org-src-container">
+<pre class="src src-java">&lt;<span style="color: #ECBE7B;">TextView</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #dcaeea;">android</span>:id=<span style="color: #98be65;">"@+id/nameOfID"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:layout_width=<span style="color: #98be65;">"match_parent"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:layout_height=<span style="color: #98be65;">"wrap_content"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:background=<span style="color: #98be65;">"@color/myBackgroundColor"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:text=<span style="color: #98be65;">"@string/count_initial_value"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:textColor=<span style="color: #98be65;">"@color/#0000aa"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:textSize=<span style="color: #98be65;">"@dimen/count_text_size"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:gravity=<span style="color: #98be65;">"center"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:textAlignment=<span style="color: #98be65;">"center"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  android:textStyle=<span style="color: #98be65;">"bold"</span> 
+/&gt;
+</pre>
 </div>
 </div>
-<div id="outline-container-orgcf34922" class="outline-2">
-<h2 id="orgcf34922"><span class="section-number-2">3.</span> Basic Addition</h2>
-<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a id="org2c7a22e"></a><code>layout_width</code> or <code>layout_height</code><br />
+<div class="outline-text-5" id="text-3-2-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Value</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>wrap_content</code></td>
+<td class="org-left">Only as wide as the text</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>100dp</code></td>
+<td class="org-left">Fixed width</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0dp</code></td>
+<td class="org-left">Used with <code>layout_weight</code> or ConstraintLayout</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>match_constraint</code></td>
+<td class="org-left">ConstraintLayout only</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<code>dp</code> (density-independent pixels) are used for layout dimensions, while <code>sp</code>
+(scale-independent pixels) are used for text-sizes.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgda51a52" class="outline-2">
+<h2 id="orgda51a52"><span class="section-number-2">4.</span> Basic Addition</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This code follows from <a href="https://www.youtube.com/watch?v=4hEsnJPoP4s">this video</a>.</li>
 </ul>
@@ -542,6 +783,27 @@ as <code>R.id.nameOfID</code>, where <code>R</code> is a <code>final class</code
 }
 
 </pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf40124" class="outline-2">
+<h2 id="orgaf40124"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Making UI using Java</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org23b7ff5" class="outline-3">
+<h3 id="org23b7ff5"><span class="section-number-3">5.1.</span> Creating a View using Java</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+(yet to do)
+</p>
+</div>
+</div>
+<div id="outline-container-orgbf2f569" class="outline-3">
+<h3 id="orgbf2f569"><span class="section-number-3">5.2.</span> Creating a Layout using Java</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+(yet to do)
+</p>
 </div>
 </div>
 </div>

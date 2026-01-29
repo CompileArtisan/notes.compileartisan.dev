@@ -7,6 +7,59 @@
   1. Graphical tutorials are a lot of effort
   2. Android Studio keeps evolving so it's going to be different when you're
      reading this.
+- Unlike most of my other notes, these should be used as complementary material.
+  I really don't think these notes can replace lectures or a course itself.
+
+* Introduction to Android
+
+** User Interaction
+*** Touch Gestures
+- Swiping
+- Tapping
+- Pinching
+  
+*** Virtual Keyboard
+- Characters
+- Numbers
+- Emojis
+
+*** External
+- Bluetooth
+- USB controllers
+- Peripherals
+
+** Android Stack
+
+| System Apps ~OR~ User Apps                      |
+| Java API Framework                            |
+| Native C/C++ Runtime ~OR~ Android Runtime (ART) |
+| Hardware Abstraction Layer                    |
+| Linux Kernel                                  |
+
+- Every layer in this stack, uses services of the layer below, to serve the
+  layer above.
+- The linux kernel is responsible for low-level memory management and security
+  features.
+- The kernel talks to the hardware directly, and hardware abstraction layer
+  makes accessing hardware more abstract and standardized.
+- Native C/C++ libraries (Android Native Development Kit, or NDK) or Android
+  Runtime (ART), do all the backend work involved in an app. These include
+  managing databases, graphics, web rendering engines, and in basic system
+  functions too.
+- The Java API Framework consists of premade classes which correspond to
+  different parts of an app.
+
+  
+** Android Application Components
+
+| Component         | What it is         |
+|-------------------+--------------------|
+| ~Activity~          | A visible screen   |
+| ~Service~           | Background work    |
+| ~Intent~            | A message/request  |
+| ~BroadcastReceiver~ | Event listener     |
+| ~ContentProvider~   | Database interface |
+
 
 * How the App works
 
@@ -26,8 +79,39 @@
 - All of the components of the UI of a particular screen is created using an XML
   file or a group of XML files.
 - Such a component is called a *view*.
+- Examples of views include ~TextView~ (for displaying text), ~EditText~ (for taking
+  text input), ~RadioButton~, ~Switch~, ~SeekBar~ (sliders), etc.
 - Each view will have an ~id~ (an integer), which can be accessed in a Java Class
   as ~R.id.nameOfID~, where ~R~ is a ~final class~ created by Android at build time.
+
+*** ~<TextView/>~
+Let's arbitrarily take the ~<TextView/>~ view and study its properties.
+#+begin_src java
+<TextView
+       android:id="@+id/nameOfID"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/myBackgroundColor"
+       android:text="@string/count_initial_value"
+       android:textColor="@color/#0000aa"
+       android:textSize="@dimen/count_text_size"
+       android:gravity="center"
+       android:textAlignment="center"
+       android:textStyle="bold" 
+/>
+#+end_src
+
+**** ~layout_width~ or ~layout_height~
+
+| Value            | Meaning                                     |
+|------------------+---------------------------------------------|
+| ~wrap_content~     | Only as wide as the text                    |
+| ~100dp~            | Fixed width                                 |
+| ~0dp~              | Used with ~layout_weight~ or ConstraintLayout |
+| ~match_constraint~ | ConstraintLayout only                       |
+
+~dp~ (density-independent pixels) are used for layout dimensions, while ~sp~
+(scale-independent pixels) are used for text-sizes.
 
 
 * Basic Addition
@@ -63,3 +147,10 @@ public class MainActivity extends AppCompatActivity {
 
 #+end_src
 
+* TODO Making UI using Java
+
+** Creating a View using Java
+(yet to do)
+
+** Creating a Layout using Java
+(yet to do)
