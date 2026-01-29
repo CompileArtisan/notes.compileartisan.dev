@@ -1,0 +1,263 @@
+#+title: OpenCV
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+#+PROPERTY: header-args:python :eval never-export
+#+name: venv-python
+#+begin_src bash :results output none :exports none
+#!/usr/bin/env sh
+
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+uv venv .venv
+uv pip install opencv-python
+
+printf "%s\n" "$(pwd)/.venv/bin/python"
+#+end_src
+#+begin_src elisp :exports none
+(setq org-babel-python-command
+      (string-trim (org-babel-ref-resolve "venv-python")))
+      #+end_src
+
+      #+RESULTS:
+      : /home/praaneshnair/gitProjects/org-notes/opencv/.venv/bin/python
+
+
+[[https://olympus.mygreatlearning.com/courses/10906?pb_id=581][Greatlearning]]
+
+#+begin_src python :results output none :session opencv
+import numpy as np
+import cv2
+#+end_src
+
+
+* Writing an Image
+- ~cv2.imwrite()~ is used to write a numpy array into an image. 
+- One thing to note is that OpenCV uses BGR color format. 
+- For example, here's how you make a pixel of a $3 \times 3$ pixel red:
+  #+begin_src python :results output raw :wrap src :exports both :session opencv
+img = np.ones((3, 3, 3), dtype="uint8")
+print(img)
+img[1, 2] = (0, 0, 255) # (B, G, R)
+cv2.imwrite('color_img.png', img) 
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [[[1 1 1]
+    [1 1 1]
+    [1 1 1]]
+
+   [[1 1 1]
+    [1 1 1]
+    [1 1 1]]
+
+   [[1 1 1]
+    [1 1 1]
+    [1 1 1]]]
+  #+end_src
+
+
+* Reading an Image
+- ~cv2.imread()~ takes in the name of a file as an argument (and an optional
+  flag), and returns the equivalent NumPy array.
+- For example:
+#+begin_src python :results output raw :wrap src :exports both :session opencv
+image_read = cv2.imread('color_img.png')
+print(image_read)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+[[[  1   1   1]
+  [  1   1   1]
+  [  1   1   1]]
+
+ [[  1   1   1]
+  [  1   1   1]
+  [  0   0 255]]
+
+ [[  1   1   1]
+  [  1   1   1]
+  [  1   1   1]]]
+#+end_src
+
+
+** Flags
+OpenCV provides 3 flags which you can use (1, 0 or -1). 
+
+| Flag                                              | Value | What it does                                                                           |
+|---------------------------------------------------+-------+----------------------------------------------------------------------------------------|
+| ~cv2.imread('color_img.png', cv2.IMREAD_COLOR)~     |     1 | returns 3D NumPy array (doesn't contain transparency). This is also the default value. |
+| ~cv2.imread('color_img.png', cv2.IMREAD_GRAYSCALE)~ |     0 | returns 2D NumPy array (doesn't contain transparency or color either).                 |
+| ~cv2.imread('color_img.png', cv2.IMREAD_UNCHANGED)~ |    -1 | returns 3D or 4D NumPy array (contains transparency if original image had it)          |
+
+Here's a quick code to convert an image into black and white.
+#+begin_src python :results output raw :wrap src :session opencv
+cv2.imwrite(
+    'black_and_white.png',
+    cv2.imread('color_img.png', cv2.IMREAD_GRAYSCALE)
+)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+
+The function name is ~cv2.imread()~ and ~IMREAD_COLOR~ , ~IMREAD_GRAYSCALE~ and
+~IMREAD_UNCHANGED~ are global variables declared in the ~cv2~ package. By
+convention, variables written in all caps mean they're constants. One more thing
+to note is that the variable names are very well descriptive
+(~functionName_value~).
+
+* Displaying an Image - ~cv2.imgshow()~
+~cv2.imshow()~ creates a window and displays the array as an image.
+#+begin_src python :results none :session opencv
+
+cv2.imshow('Window Name Lol', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+#+end_src
+
+~cv2.waitKey(0)~ waits for keyboard input and returns the ASCII value of the key
+pressed.
+- ~0~ = wait forever 
+- ~1000~ = wait 1000ms (1 second) 
+
+* Resizing an Image
+** By Specifying a new dimension
+#+begin_src python :results output raw :wrap src :session opencv
+
+img = cv2.imread("color_img.png")
+resized = cv2.resize(img, (1000, 500))
+cv2.imwrite("resized.png", resized)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+file:/home/praaneshnair/gitProjects/org-notes/opencv/resized.png
+
+** By Scaling
+#+begin_src python :results output raw :wrap src :session opencv
+scaled = cv2.resize(img, (0, 0), fx=100, fy=100)
+cv2.imwrite("scaled.png", scaled)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+file:/home/praaneshnair/gitProjects/org-notes/opencv/scaled.png
+
+* Converting Image Color
+- You can convert image color from one color space to another, using the
+  ~cv2.cvtColor()~ function, which also returns a NumPy array just like
+  ~cv2.imread()~.
+- The function takes two parameters: the numpy array you want to convert, and
+  the cv2 constant that corresponds to the target color space.
+- For instance, the ~cv2.COLOR_BGR2GRAY~, constant is simply the integer 6. 
+  
+#+begin_src python :results output raw :wrap src :session opencv
+print(cv2.COLOR_BGR2GRAY)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+6
+#+end_src
+The usage of all of these will be explored next.  
+
+** ~cv2.COLOR_BGR2GRAY~
+
+#+begin_src python :results output raw :wrap src :session opencv
+img_mono = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
+cv2.imwrite("resized_mono.png", img_mono)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+file:/home/praaneshnair/gitProjects/org-notes/opencv/resized_mono.png
+
+Do note that the dimensions reduce:
+#+begin_src python :results output raw :wrap src :exports both :session opencv
+print(resized.shape)
+print(img_mono.shape)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+(500, 1000, 3)
+(500, 1000)
+#+end_src
+
+~img_mono.shape~ returns ~(500, 1000)~ only, demonstrating the lack of channels. If
+you do want channels, you'd have to read the saved image with color flag.
+
+#+begin_src python :results output raw :wrap src :exports both :session opencv
+with_channels = cv2.imread('resized_mono.png', cv2.IMREAD_COLOR)
+print(with_channels.shape)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+(500, 1000, 3)
+#+end_src
+
+This is still a monochrome image, but it has 3 channels.
+
+** ~cv2.BGR2GRGB~
+#+begin_src python :results output raw :wrap src :session opencv
+rgb_img = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
+cv2.imwrite("resized_rgb.png", rgb_img)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+file:/home/praaneshnair/gitProjects/org-notes/opencv/resized_rgb.png
+
+** ~cv2.RGB2BGR~
+The reverse also exists.
+#+begin_src python :results output raw :wrap src :session opencv
+bgr_img = cv2.cvtColor(rgb_img, cv2.COLOR_RGB2BGR)
+cv2.imwrite("resized_bgr.png", bgr_img)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+file:/home/praaneshnair/gitProjects/org-notes/opencv/resized_bgr.png
+
+* TODO Thresholding
+- Thresholding is where you convert a grayscale image into a purely black and
+  white image.
+- This means that every pixel will either be black, or be white, and not some
+  shade of gray.
+- If the pixel brightness is above a threshold value, you turn it into white,
+  else you turn it into black.
+
+  #+begin_src python :results output raw :wrap src :exports both :session opencv
+source = cv2.imread('resized.png', cv2.IMREAD_GRAYSCALE)
+retvalue, binary = cv2.threshold(source, 50, 255, cv2.THRESH_BINARY)
+cv2.imwrite("binary.png", binary)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  #+end_src
+
+* TODO Drawing
+Rectangle: ~cv2.rectangle()~
+
+* TODO Object Detection
+~cv2.CascadeClassifier()~
+
+draw rectangle around faces
