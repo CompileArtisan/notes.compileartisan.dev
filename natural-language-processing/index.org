@@ -1,0 +1,236 @@
+#+title: Natural Language Processing
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+
+** What is a Language Model?
+- Given a set of words, if it can predict the next word, it's called a *language
+  model*.
+- If the number of parameters is massive (probably billions), it's called a
+  *large language models.*
+
+** What is Natural Language Processing?
+- An automated system which is capable of processing and analyzing text data.
+$$ \text{Unstructured Language} \xrightarrow[\text{}]{\text{Natural Language Understanding}}  \text{Structured Language}$$
+$$ \text{Unstructured Language} \xleftarrow[\text{}]{\text{Natural Language Generation}}  \text{Structured Language}$$
+- An NLP task can be modelled as a general machine-learning problem:
+
+  \[ \text{Input Text} \rightarrow \text{Preprocessing} \rightarrow \text{Feature Extraction} \rightarrow \text{Training} \rightarrow \text{Testing}  \]
+
+** Change in Metrics
+- When the output is a label, you can use metrics like precision, recall and
+  accuracy.
+
+
+** Some Applications
+*** NLP Text Summarization
+
+| Extractive                                                           | Abstractive                                        |
+|----------------------------------------------------------------------+----------------------------------------------------|
+| The summary will contain exact sentences from the original document. | The summary will contain new, rephrased sentences. |
+
+*** Spam Detection
+- This is a simple classification problem.
+
+** Research Areas in NLP
+
+*** Multimodal NLP
+- The model can handle different data modalities like images, audio, sensor
+  data, etc.
+
+*** Large Scale Pre-trained LLMS
+- Make an open-domain LLM like ChatGPT, which can be used for anything.
+
+*** Explainable AI in NLP
+- Make it such that you're able to justify why exactly a model gave that answer,
+  and not treat it as a black box.
+
+*** Conversational AI and Dialogue Systems
+- Make a model that can talk like a human being.
+
+*** Zero-shot and few shot learning
+
+** Challenges of NLP
+
+*** Lexical Ambiguity
+This is when a single word can have multiple meanings. For example:
+#+begin_quote
+I found him at the bank
+#+end_quote
+Bank could mean
+- River Bank
+- Monetary Bank
+
+*** Language Ambiguity
+Lexical ambiguity was word level. Language ambiguity is structural level.
+#+begin_quote
+The man saw the bow with the binoculars
+#+end_quote
+Here's another example:
+
+#+begin_quote
+I made her duck
+#+end_quote
+This could mean:
+- I cooked duck for her
+- I cooked duck that belonged to her
+- I made her bend down (basically duck used as a verb)
+
+* Big Picture
+
+** Text Preprocessing
+
+*** Tokenization
+- This is the process of segmenting a string, into unique words called tokens.
+
+*** Sentence Segmentation
+- Deciding where the sentences begin and end. 
+
+*** Normalization
+- Standardizing text by converting it into a simpler and consistent format.
+- This simpler and consistent format has to strike a balance between making it
+  simpler for the model to work on, and not losing the actual meaning of the
+  text.
+- For example:
+
+**** Case Folding
+- One simpler, consistent format could be turning all of the text into the same
+  case (usually lower case).
+- This isn't preferred often because you lose more information.
+- An example could be "US" (which refers to the United States), but in lower
+  case it'd would be "us".
+
+**** Stemming
+- Stemming is essentially crude chopping of affixes.
+- For example, "automate", "automatic", "automation" are all converted to
+  "automat".
+- The resultant word doesn't have to be an actual dictionary word. It's an
+  abruptly formed piece of text.
+- "Stem" means the core meaning of a word, without anything unecessary attached.
+
+**** Lemmatization
+- Here, you convert it into the equivalent root word.
+- This is different from stemming because this root word isn't an abruptly
+  cut-off piece of text - it's an actual word from a dictionary.
+
+
+** Bag of Words
+- It's a dictionary that tells you how many unique words are present in each
+  piece of text.
+- It's a sparse dictionary as each piece of text need not contain all unique
+  words.
+- These may/may not contain stop-words or things like those.
+- For example, ~data_given = ['The quick brown fox', 'Fox news is the best']~
+  |             | best | brown | fox | is | news | quick | the |
+  |-------------+------+-------+-----+----+------+-------+-----|
+  | Sentence1 \rightarrow |    0 |     1 |   1 |  0 |    0 |     1 |   1 |
+  | Sentence2 \rightarrow |    1 |     0 |   1 |  1 |    1 |     0 |   1 |
+
+** TF-IDF
+- It stands for term frequency - inverse document frequency.
+
+$$TF(t,D) = \frac{D_{t}}{T}$$
+$$IDF(t) = \log(\frac{N}{\text{df}(D,t)})$$ where
+- $N$ is the total number of documents
+- $\text{df}(D,t)$ is the document frequency of the word $t$. It basically tells
+  us the number of documents in which the word $t$ has occurred.
+
+- Consider the following 3 documents:
+  - D1: "the cat sat on the mat"
+  - D2: "the dog sat on the log"
+  - D3: "the cat chased the dog"
+
+    |                      | the                 | cat                 | sat                 | on                  | mat                 | dog                 | log                 | chased              |
+    |----------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------|
+    | $TF(\text{word},D1)$ | $\frac{2}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 | $0$                 | $0$                 |
+    | $TF(\text{word},D2)$ | $\frac{2}{6}$       | $0$                 | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 |
+    | $TF(\text{word},D3)$ | $\frac{2}{6}$       | $\frac{1}{6}$       | $0$                 | $0$                 | $0$                 | $\frac{1}{6}$       | $0$                 | $\frac{1}{6}$       |
+    | $IDF(\text{word})$   | $\log(\frac{3}{3})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{1})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{1})$ | $\log(\frac{3}{1})$ |
+    
+
+  
+ 
+
+* Linguistic Analysis
+
+** Qualities of a Language
+- Ambiguous
+- Structured
+- Context Dependent
+
+** Morphemes
+- [[https://alic.sites.unlv.edu/chapter-12-1-morphemes/][Chapter 12.1: Morphemes – ALIC – Analyzing Language in Context]]
+- [[https://alic.sites.unlv.edu/chapter-12-2-types-of-morphemes/][Chapter 12.2: Types of Morphemes – ALIC – Analyzing Language in Context]]
+
+** Levels of Linguistic Analysis
+- These are the 3 types of patterns that a model should learn.
+- Traditionally, NLP meant explicit rules for the levels of linguistic analysis.
+- Now modern NLP (BERT, GPT) learn these patterns automatically.
+
+*** Morphology
+- This has to deal with the *structure of words*.
+- For this, we use tokenization, stemming and lemmatization.
+
+**** Inflectional Morphology
+- Slightly modify words for grammar, but not changing core category or part of
+  speech.
+
+**** Derivational Morphology
+- Creates new words with different meanings of part of speech by adding affixes
+- Eg. turning "happy" to "unhappy", or "sad" to "sadness"
+
+*** Syntax
+- This has to deal with the *structure of sentences*.
+- For this we use Parts-of-speech tagging (POS tagging).
+
+**** Constituency
+- They're a group of words that behave as single grammatical units within a
+  sentence.
+- This "group of words" could be a clause, a phrase or even a single word.
+
+**** CFG
+- Preterminals are terminal variables which directly correspond to a terminal.
+- Eg. /Noun/ \rightarrow amrita
+- These are usually what's used for POS tages.
+
+**** Parsing
+- There are two kinds of parsing.
+
+| Constituency Parsing                | Dependency Parsing                                      |
+|-------------------------------------+---------------------------------------------------------|
+| Builds a tree out of constituencies | Builds a directed graph out of grammatical dependencies |
+
+
+*** Semantics
+- *Lexicon* is the English term for Bag of Words.
+  
+**** Homonymy
+- It's the relation that holds between words which have the same form, with
+  unrelated meanings.
+- Eg. Bat (cricket bat) vs Bat (mammal)
+- Eg. Bank (river bank) vs Bank (financial bank)
+
+**** Homophones
+- Words with the same pronounciation but different spellings (aka. different
+  orthographic form).
+- Eg. Write vs Right
+- Eg. Piece vs Peace
+
+**** Homographs
+- Lexems with the same orthographic form (spelling) but different meanings. They
+  need not have the same pronounciation.
+- Eg. Live (live life) vs Live (live tv show).
+  
+**** Polysemy
+- It's how one word can mea 
+
+**** Synonymy
+- Relation between senses
+- Eg. Big plane and large plane mean the same, but Big sister and large sister
+  don't.
+
+**** Antonyms
+- Words that are opposite with respect to one of their features, elsewise being
+  similar in sense.
+- Eg. Hot and cold are opposites, but both talk about temperature.
+
