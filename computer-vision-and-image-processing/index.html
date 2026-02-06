@@ -1,0 +1,2002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-02-05 Thu 08:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Vision and Image Processing</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* General styles */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+#postamble, #preamble {
+margin-left: 280px;
+padding: 20px 40px;
+}
+h1, h2, h3 {
+font-family: 'Helvetica', sans-serif;
+}
+a {
+color: #0000aa;
+}
+a:hover {
+background-color: #0000aa;
+color: #ffffff;
+border-radius: 0.2em;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+pre {
+background-color: #333;
+color: white;
+padding: 10px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+/* Styling code blocks */
+pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
+font-family: 'Courier New', monospace;
+background-color: #222;
+color: white;
+padding: 15px;
+font-size: 1.1em;
+border-radius: 0.5em;
+}
+code {
+font-size: 1.5em;
+padding: 0 0.5em;
+}
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+
+.header {
+text-align: center;
+margin: 0px;
+background-color: #0000aa;
+color: #ffffff;
+padding: 5px 0;
+flex-shrink: 0;
+word-wrap: break-word;
+font-family: DOSVGA, monospace;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header a {
+color: #ffffff;
+text-decoration: none;
+font-size: 1.5em;
+white-space: nowrap;
+transition: all 0.3s ease;
+padding: 0px;
+}
+
+.header a:hover {
+color: #bababa;
+}
+
+@font-face {
+font-family: DOSVGA;
+src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
+}
+
+/* Table of Contents Sidebar */
+#table-of-contents {
+position: fixed;
+left: 0;
+top: 45px;
+width: 280px;
+height: calc(100vh - 45px);
+overflow-y: auto;
+background-color: #f8f8f8;
+border-right: 1px solid #ddd;
+padding: 30px 20px;
+box-sizing: border-box;
+z-index: 10;
+}
+
+#table-of-contents h2 {
+margin-top: 0;
+color: #0000aa;
+font-size: 1.1em;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+
+#table-of-contents ul {
+list-style-type: none;
+padding-left: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 15px;
+margin-top: 5px;
+}
+
+#table-of-contents li {
+margin: 8px 0;
+}
+
+#table-of-contents a {
+color: #555;
+text-decoration: none;
+display: block;
+padding: 5px 10px;
+border-radius: 4px;
+transition: all 0.2s ease;
+font-size: 0.95em;
+}
+
+#table-of-contents a:hover {
+color: #0000aa;
+background-color: #e8e8ff;
+}
+
+/* Main content area */
+#content {
+margin-left: 280px;
+margin-top: 45px;
+padding: 40px;
+background-color: #ffffff;
+min-height: calc(100vh - 45px);
+}
+table {
+border-collapse: collapse;
+margin: 1.5rem auto;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 1rem;
+background: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+border-radius: 10px;
+overflow: hidden; /* clips rounded corners */
+}
+
+/* Remove legacy borders from org export */
+table[border] {
+border: none;
+}
+
+/* Table cells */
+td {
+padding: 0.75rem 1.1rem;
+text-align: center;
+border: 1px solid #e5e7eb; /* light gray */
+font-weight: 500;
+color: #111827;
+}
+
+/* Align org-left cleanly (override if needed) */
+td.org-left {
+text-align: center;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+background-color: #f9fafb;
+}
+
+/* Hover effect */
+tbody tr:hover {
+background-color: #eef2ff;
+}
+
+/* Make letters stand out */
+td {
+letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 2px solid #0000aa;
+}
+pre.src {
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+width: 100vw;
+border-radius: 0;
+box-sizing: border-box;
+}
+
+#content {
+margin-left: 0;
+}
+
+body {
+font-size: 14px;
+padding: 10px;
+}
+h1 {
+font-size: 1.5em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+
+@media screen and (max-width: 480px) {
+body {
+font-size: 12px;
+padding: 5px;
+}
+h1 {
+font-size: 1.3em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+</style>
+<div class="header">
+<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+</div>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Computer Vision and Image Processing</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6e641ab">1. Introduction</a>
+<ul>
+<li><a href="#orga5ca52f">1.1. What is Computer Vision</a></li>
+<li><a href="#org4dde1af">1.2. What is Machine Vision</a></li>
+<li><a href="#org3286682">1.3. Machive Vision or Computer Vision</a></li>
+<li><a href="#org5934f63">1.4. What is Cognitive Vision</a></li>
+<li><a href="#org65d1010">1.5. Computer Vision or Cognitive Vision</a></li>
+</ul>
+</li>
+<li><a href="#org08763aa">2. Digital Image Processing</a>
+<ul>
+<li><a href="#org7d14d08">2.1. What is a Digital Image?</a></li>
+<li><a href="#org88ea381">2.2. Operations on Images</a>
+<ul>
+<li><a href="#org2ed2a90">2.2.1. Computer Vision</a></li>
+<li><a href="#org7f02d7a">2.2.2. Image Processing</a></li>
+<li><a href="#orgfb544d0">2.2.3. Computer Graphics</a></li>
+</ul>
+</li>
+<li><a href="#org2d0ac4c">2.3. Electromagnetic Spectrum</a></li>
+<li><a href="#orgc61eaf4">2.4. Abstract Image</a></li>
+<li><a href="#orgaccc955">2.5. Factors in Image Formation</a>
+<ul>
+<li><a href="#org59a9cd5">2.5.1. Geometry</a></li>
+<li><a href="#orgbc9f81b">2.5.2. Radiometry</a></li>
+<li><a href="#orgf3986e6">2.5.3. Photometry</a></li>
+<li><a href="#org5323ba4">2.5.4. Digitization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8034fa6">3. How Image Processing Typically Works</a>
+<ul>
+<li><a href="#orga6bfff5">3.1. Optics</a></li>
+<li><a href="#orgf8a3618">3.2. Aperture</a></li>
+<li><a href="#org022d59e">3.3. Shutter</a></li>
+<li><a href="#org5de76df">3.4. Sensor (CCD/ CMOS)</a>
+<ul>
+<li><a href="#orgb60a54e">3.4.1. Direction by Angles</a></li>
+<li><a href="#orge96e489">3.4.2. Photon Detection</a></li>
+<li><a href="#org4d92c25">3.4.3. Photon Energy to Radiant Power</a></li>
+<li><a href="#org7390032">3.4.4. Radiant Power to Irradiance</a></li>
+<li><a href="#org74aaaad">3.4.5. Irradiance to Radiance</a></li>
+<li><a href="#org4cfd03f">3.4.6. Radiance to Intensity</a></li>
+<li><a href="#orga636cb7">3.4.7. Intensity to Photon Count</a></li>
+<li><a href="#orgc83b003">3.4.8. Photon Count to Electron Count</a></li>
+<li><a href="#orgbefa368">3.4.9. Electron Count to Voltage</a></li>
+<li><a href="#org9955efb">3.4.10. Voltage to Analog Sensor Signal</a></li>
+</ul>
+</li>
+<li><a href="#org55316c3">3.5. Gain (ISO)</a></li>
+<li><a href="#orgab1cb90">3.6. A/D</a></li>
+<li><a href="#org5a8afc9">3.7. Bayers Filter</a>
+<ul>
+<li><a href="#org9602f1c">3.7.1. Types of Bayer Filters</a></li>
+<li><a href="#orgd13a2d7">3.7.2. Extracting RGB matrices from Bayer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#org413333b">3.8. Demosaicing / Debayering</a>
+<ul>
+<li><a href="#org1744fc2">3.8.1. Nearest Neighbour Interpolation</a></li>
+<li><a href="#org10c1ee0">3.8.2. Bilinear Interpolation</a></li>
+<li><a href="#org843b793">3.8.3. Gradient Based Interpolation</a></li>
+</ul>
+</li>
+<li><a href="#org35524e7">3.9. Sharpen</a>
+<ul>
+<li><a href="#org6916d67">3.9.1. Unsharp Masking</a></li>
+</ul>
+</li>
+<li><a href="#org9cf4229">3.10. White Balance</a></li>
+<li><a href="#orga43795b">3.11. Gamma/Curve Correction</a>
+<ul>
+<li><a href="#orge786c85">3.11.1. Non-Linear Device Response</a></li>
+<li><a href="#org5bb6434">3.11.2. How Gamma Correction Works</a></li>
+</ul>
+</li>
+<li><a href="#org760c4a9">3.12. Compress</a>
+<ul>
+<li><a href="#org5ac78fa">3.12.1. <code>.jpeg</code></a></li>
+<li><a href="#org8269d14">3.12.2. YCbCr</a></li>
+<li><a href="#org5d8fcf9">3.12.3. Quantization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf8198fa">4. Camera Calibration</a>
+<ul>
+<li><a href="#org4dffce6">4.1. Fundamental Problem</a></li>
+<li><a href="#org2265127">4.2. Essential Parameters</a>
+<ul>
+<li><a href="#orgb3b93b3">4.2.1. Intrinsics</a></li>
+<li><a href="#orgc1d2a0b">4.2.2. Extrinsics</a></li>
+<li><a href="#org24f6c76">4.2.3. How they all come together</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgccb5b36">5. Segmentation</a>
+<ul>
+<li><a href="#orgd94906e">5.1. Simplest form of Segmentation: Binary Segmentation</a></li>
+<li><a href="#orga032c30">5.2. Gestalt Theory of Perception</a>
+<ul>
+<li><a href="#orgbe45c0e">5.2.1. Proximity Principles</a></li>
+<li><a href="#org0e8d1b1">5.2.2. Similarity</a></li>
+<li><a href="#org2a08d15">5.2.3. Common Fate</a></li>
+<li><a href="#orgbf210ab">5.2.4. Common Region / Connectivity</a></li>
+<li><a href="#org3c057d5">5.2.5. Continuity Principle</a></li>
+<li><a href="#org807bfc4">5.2.6. Symmetry Principle</a></li>
+<li><a href="#org3ffb999">5.2.7. Illusory Contours - Illusions&rsquo; grouping</a></li>
+</ul>
+</li>
+<li><a href="#org6009ce6">5.3. Two approaches towards Segmentation</a>
+<ul>
+<li><a href="#orgfd318aa">5.3.1. Top Down</a></li>
+<li><a href="#orgc203b8b">5.3.2. Bottom Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6e641ab" class="outline-2">
+<h2 id="org6e641ab"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga5ca52f" class="outline-3">
+<h3 id="orga5ca52f"><span class="section-number-3">1.1.</span> What is Computer Vision</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Computer Vision is a field of computer science, that helps computers
+understand and identify objects and people in images and videos.</li>
+<li>It&rsquo;s a type of AI that automates tasks that mimic human capabilities (here,
+vision).</li>
+<li>The object of computer vision is to make computers see and interpret the world
+like humans and possibly even better than humans.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4dde1af" class="outline-3">
+<h3 id="org4dde1af"><span class="section-number-3">1.2.</span> What is Machine Vision</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>It&rsquo;s a branch of engineering that uses computer vision in industrial and
+practical applications.</li>
+<li>Machine Vision systems are designed to perform specific tasks like counting
+objects or inspecting for defects.</li>
+<li>Machine Vision is often used in controlled environments, and is more likely to
+be used for fast decisions. Eg. Currency Counting Machines.</li>
+<li>These systems are often rule-based, high-speed and very precise.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3286682" class="outline-3">
+<h3 id="org3286682"><span class="section-number-3">1.3.</span> Machive Vision or Computer Vision</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Robot Guidance in Manufacturing <b>- Machine Vision</b></li>
+<li>Automated Quality Control <b>- Machine Vision</b></li>
+<li>Inventory Tracking <b>- Machine Vision</b></li>
+<li>Facial Recognition <b>- Computer Vision</b></li>
+<li>Self-Driving Cars  <b>- Computer Vision</b></li>
+<li>Medical Imaging / X-Ray analysis  <b>- Computer Vision</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5934f63" class="outline-3">
+<h3 id="org5934f63"><span class="section-number-3">1.4.</span> What is Cognitive Vision</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>It can refer to CV systems that can adapt to changes in a visual environment,
+anticipate events and pursue goals.</li>
+<li>It can also refer to cognitive processes involved in visual perceptions like
+attention, memory and pattern recognition.</li>
+<li>It simulates human-like understanding and reasoning about visual information
+to achieve context-aware intelligent decision making.</li>
+<li>It mainly refers to cognitive processes involved in visual perception like
+attention, memory and pattern recognition.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65d1010" class="outline-3">
+<h3 id="org65d1010"><span class="section-number-3">1.5.</span> Computer Vision or Cognitive Vision</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Detecting a Pedestrian Crossing the road <b>- Computer Vision</b></li>
+<li>Reasons whether a Pedastrian is running in emergency, walking casually or
+looking at their phone, and adjust the driving response accordingly. <b>- Cognitive Vision</b></li>
+<li>Detecting a person leaving a bag unattended. <b>- Computer Vision</b></li>
+<li>Count people in specific areas to detect crowd density or movement patterns. <b>- Computer Vision</b></li>
+<li>Determine if the person leaving the bag is suspicious based on contextual
+reasoning. <b>- Cognitive Vision</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org08763aa" class="outline-2">
+<h2 id="org08763aa"><span class="section-number-2">2.</span> Digital Image Processing</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7d14d08" class="outline-3">
+<h3 id="org7d14d08"><span class="section-number-3">2.1.</span> What is a Digital Image?</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>It&rsquo;s a 2D array of numbers (each called a pixel).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88ea381" class="outline-3">
+<h3 id="org88ea381"><span class="section-number-3">2.2.</span> Operations on Images</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org2ed2a90" class="outline-4">
+<h4 id="org2ed2a90"><span class="section-number-4">2.2.1.</span> Computer Vision</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>Understanding Images</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f02d7a" class="outline-4">
+<h4 id="org7f02d7a"><span class="section-number-4">2.2.2.</span> Image Processing</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li>Manipulating Images</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfb544d0" class="outline-4">
+<h4 id="orgfb544d0"><span class="section-number-4">2.2.3.</span> Computer Graphics</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<ul class="org-ul">
+<li>Generating Images</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2d0ac4c" class="outline-3">
+<h3 id="org2d0ac4c"><span class="section-number-3">2.3.</span> Electromagnetic Spectrum</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>The human eye can see light with wavelengths from around 400 nm to 750 nm.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc61eaf4" class="outline-3">
+<h3 id="orgc61eaf4"><span class="section-number-3">2.4.</span> Abstract Image</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>An image can be represented by an image function \(f(x,y)\), where \(x\) and \(y\)
+represent the pixel location.</li>
+<li>\(f\) could mean anything like intensity, etc.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaccc955" class="outline-3">
+<h3 id="orgaccc955"><span class="section-number-3">2.5.</span> Factors in Image Formation</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org59a9cd5" class="outline-4">
+<h4 id="org59a9cd5"><span class="section-number-4">2.5.1.</span> Geometry</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<ul class="org-ul">
+<li>It&rsquo;s the mathematical study of shapes, sizes and spacial images.</li>
+<li>Relationship between points in the 3D world and their images.</li>
+<li>This is a challenge because cameras see the real 3D world, as a 2D image. It
+has to pick up 3-Dimensional features from the 2D image it has captured.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbc9f81b" class="outline-4">
+<h4 id="orgbc9f81b"><span class="section-number-4">2.5.2.</span> Radiometry</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<ul class="org-ul">
+<li>Total amount of light radiating off a surface.</li>
+<li>The term used here is &ldquo;radiance&rdquo;.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org9e4abbf"></a>Radiant Power/Flux ( &phi; )<br />
+<div class="outline-text-5" id="text-2-5-2-1">
+<ul class="org-ul">
+<li>Radiant Flux is the total <b>optical power</b> emitted from a source.</li>
+<li>It&rsquo;s measured in <b>watts</b>.</li>
+</ul>
+</div>
+</li>
+<li><a id="org6a268f5"></a>Radient Intensity (I)<br />
+<div class="outline-text-5" id="text-2-5-2-2">
+<ul class="org-ul">
+<li>Radiant Power &phi; per unit solid angle &Omega; from the source.</li>
+<li>Measured in \(\frac{W}{sr} \)</li>
+</ul>
+</div>
+</li>
+<li><a id="org38ce762"></a>Irradiance (E)<br />
+<div class="outline-text-5" id="text-2-5-2-3">
+<ul class="org-ul">
+<li>Radiant power &phi; incident on a surface area A.</li>
+<li>Expressed as \(\frac{\Omega}{A}\)</li>
+<li>It&rsquo;s measured in \(\frac{W}{m^{2}} \)</li>
+</ul>
+</div>
+</li>
+<li><a id="org9291f6b"></a>Radiance (L)<br />
+<div class="outline-text-5" id="text-2-5-2-4">
+<ul class="org-ul">
+<li>Radiant flux/power emitted or reflected from a surface A, per unit solid angle
+&Omega;.</li>
+</ul>
+<p>
+\[ L = \frac{d\phi}{\cos(\theta) dA d\Omega} \] Radiance is power \((d\phi)\) per unit area
+\((dA\cos(\theta))\), per unit direction \((d\Omega)\).
+</p>
+<ul class="org-ul">
+<li>Radiance effectively tells you how bright a surface looks in a specific
+direction.</li>
+</ul>
+</div>
+</li>
+<li><a id="org7ab1a9f"></a>Summary<br />
+<div class="outline-text-5" id="text-2-5-2-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Quantity</th>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Radiant Power</td>
+<td class="org-left">&phi;</td>
+<td class="org-left">\(W\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Radiant Intensity</td>
+<td class="org-left">I</td>
+<td class="org-left">\(\frac{W}{sr}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Irradiance</td>
+<td class="org-left">E</td>
+<td class="org-left">\(\frac{W}{m^{2}}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Radiance</td>
+<td class="org-left">L</td>
+<td class="org-left">\(\frac{W}{m^{2}Sr}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf3986e6" class="outline-4">
+<h4 id="orgf3986e6"><span class="section-number-4">2.5.3.</span> Photometry</h4>
+<div class="outline-text-4" id="text-2-5-3">
+<ul class="org-ul">
+<li>Amount of <b>visible</b> light radiating off a surface.</li>
+<li>The term used here is &ldquo;luminance&rdquo;.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgbcc3e33"></a>Luminance Flux &phi;<br />
+<div class="outline-text-5" id="text-2-5-3-1">
+<ul class="org-ul">
+<li>Total <b>visible power</b> emitted from a source.</li>
+<li>It&rsquo;s measured in <b>lumens</b> (the light-equivalent of energy).</li>
+</ul>
+</div>
+</li>
+<li><a id="orgc5f2644"></a>Luminance Intensity (I)<br />
+<div class="outline-text-5" id="text-2-5-3-2">
+<ul class="org-ul">
+<li>Total <b>visible power</b> per unit solid angle &Omega; from the source.</li>
+<li>Measured in \(\frac{lm}{Sr} \)</li>
+</ul>
+</div>
+</li>
+<li><a id="org620bcfe"></a>Illuminance (E)<br />
+<div class="outline-text-5" id="text-2-5-3-3">
+<ul class="org-ul">
+<li>Luminance power &phi; incident on a surface area A.</li>
+<li>Expressed as \(\frac{\Omega}{A}\)</li>
+<li>It&rsquo;s measured in \(\frac{lm}{m^{2}} \)</li>
+</ul>
+</div>
+</li>
+<li><a id="orgabf71f0"></a>Luminance (L)<br />
+<div class="outline-text-5" id="text-2-5-3-4">
+<ul class="org-ul">
+<li>Luminance flux/power emitted or reflected from a surface A, per unit solid angle
+&Omega;.</li>
+</ul>
+<p>
+\[ L = \frac{d\phi}{\cos(\theta) dA d\Omega}  \]
+</p>
+</div>
+</li>
+<li><a id="org842c502"></a>Summary<br />
+<div class="outline-text-5" id="text-2-5-3-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Quantity</th>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Luminance Power</td>
+<td class="org-left">&phi;</td>
+<td class="org-left">\(lm\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Luminance Intensity</td>
+<td class="org-left">I</td>
+<td class="org-left">\(\frac{lm}{sr}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Illuminance</td>
+<td class="org-left">E</td>
+<td class="org-left">\(\frac{lm}{m^{2}}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Luminance</td>
+<td class="org-left">L</td>
+<td class="org-left">\(\frac{lm}{m^{2}Sr}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="org5ce2370"></a>For example, a point source emits a total radiant power of &phi; = 12W uniformly in all directions. Find its radiant intensity.<br />
+<div class="outline-text-5" id="text-2-5-3-6">
+<ul class="org-ul">
+<li>Total solid angle for a sphere
+\[\Omega = 4 \pi \text{sr}\]</li>
+<li>Radiant intensity
+\[ l = \frac{\phi}{4\pi} \]
+<ul class="org-ul">
+<li>\(l = \frac{\phi}{4\pi}\)</li>
+</ul></li>
+<li>Emission into a Hemisphere
+<ul class="org-ul">
+<li>Solid Angle &Omega; = 2 &pi; sr</li>
+<li>Radiant intensity
+\[ l = \frac{\phi}{2\pi} \]</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="org840b4ed"></a>A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.<br />
+<div class="outline-text-5" id="text-2-5-3-7">
+<ul class="org-ul">
+<li>Luminance flux \(L = 900 lm  \)</li>
+<li>Illuminance = \(\frac{\Omega}{A}\) = \(\frac{900}{1.5 \times 1.5}\) = \(\frac{900}{2.25}\) = \(400 \frac{lm}{m^{2}}\)</li>
+</ul>
+</div>
+</li>
+<li><a id="orga7c494b"></a>A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.<br />
+<div class="outline-text-5" id="text-2-5-3-8">
+<ul class="org-ul">
+<li>\(\text{Luminance Intensity} = 20\frac{lm}{Sr}\)</li>
+<li>\(\text{Area} = 0.2 \times 0.1 = 0.02 m^{2}\)</li>
+<li>\(\text{Luminance} = \frac{\text{Luminance Intensity}}{\text{Area} \times \cos(\theta)} = \frac{20}{0.02 \times \cos(0)} = 1000 \frac{W}{Sr.m^{2}}\)</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org5323ba4" class="outline-4">
+<h4 id="org5323ba4"><span class="section-number-4">2.5.4.</span> Digitization</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org8034fa6" class="outline-2">
+<h2 id="org8034fa6"><span class="section-number-2">3.</span> How Image Processing Typically Works</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>This is the sequence.</li>
+</ul>
+</div>
+<div id="outline-container-orga6bfff5" class="outline-3">
+<h3 id="orga6bfff5"><span class="section-number-3">3.1.</span> Optics</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>First light falls on the object.</li>
+<li>The intensity of light source is inversely proportional to the distance
+between the source and the reflecting surface.
+\[I \prop \frac{1}{d}\]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf8a3618" class="outline-3">
+<h3 id="orgf8a3618"><span class="section-number-3">3.2.</span> Aperture</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>This adjusts how much light enters the camera.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org022d59e" class="outline-3">
+<h3 id="org022d59e"><span class="section-number-3">3.3.</span> Shutter</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>This adjusts how long the light can enter the camera.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5de76df" class="outline-3">
+<h3 id="org5de76df"><span class="section-number-3">3.4.</span> Sensor (CCD/ CMOS)</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>The image capturing system (Charged-Couple Device or Complementary
+Metal-Oxide Semiconductor) captures an image which is in the form of analog
+electrical signals.</li>
+</ul>
+<p>
+\[ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}\]
+</p>
+</div>
+<div id="outline-container-orgb60a54e" class="outline-4">
+<h4 id="orgb60a54e"><span class="section-number-4">3.4.1.</span> Direction by Angles</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<ul class="org-ul">
+<li>E(&theta;, &phi;) = Irradiance due to source in direction (&theta;<sub>i</sub>, &phi;{i})</li>
+<li>L(&theta;, &phi;) = Radiance of surface in direction (&theta;<sub>r</sub>, &phi;<sub>r</sub>)</li>
+<li><p>
+<b>Bidirectional Reflectance Distribution Function</b> (BRDF) is the ratio of
+reflected radiance to incoming irradiance.
+</p>
+
+<p>
+\[ BRDF = f(\theta_{i}, \phi_{i}, \theta_{r}, \phi_{r}) = \frac{L(\theta_{i}, \phi_{i})}{E(\theta_{r}, \phi_{r})} \]
+</p></li>
+<li><b>BRDF</b> (\(f\)) gives you directional distribution while <b>albedo</b> (&rho;) tells you how
+much incoming light a surface reflects, relative to how much it recieves.</li>
+<li>\(f = \frac{\rho}{\pi}\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge96e489" class="outline-4">
+<h4 id="orge96e489"><span class="section-number-4">3.4.2.</span> Photon Detection</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<p>
+\[ E = h \times f \]
+or
+\[ E = h \times \frac{c}{\lambda} \]
+where:
+</p>
+<ul class="org-ul">
+<li>\(E\) is the energy of a photon</li>
+<li>\(h\) is \(6.626 \times 10^{-34}J.s\) (Plank&rsquo;s Constant)</li>
+<li>\(f\) is the frequency of the electromagnetic radiation.</li>
+<li>\(c\) is \(3 \times 10^{8} ms^{-1\) (speed of light)</li>
+<li>\(\lambda\) is the wavelength</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4d92c25" class="outline-4">
+<h4 id="org4d92c25"><span class="section-number-4">3.4.3.</span> Photon Energy to Radiant Power</h4>
+<div class="outline-text-4" id="text-3-4-3">
+<p>
+\[\phi = NE_{photon}\]
+where:
+</p>
+<ul class="org-ul">
+<li>\(\phi\) is the radiant power</li>
+<li>\(N\) is the number of photons per second</li>
+<li>\(E_{photon}\) is the energy of a photon</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7390032" class="outline-4">
+<h4 id="org7390032"><span class="section-number-4">3.4.4.</span> Radiant Power to Irradiance</h4>
+<div class="outline-text-4" id="text-3-4-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org74aaaad" class="outline-4">
+<h4 id="org74aaaad"><span class="section-number-4">3.4.5.</span> Irradiance to Radiance</h4>
+<div class="outline-text-4" id="text-3-4-5">
+<ul class="org-ul">
+<li>Irradiance is converted to radiance with the help of BRDF.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4cfd03f" class="outline-4">
+<h4 id="org4cfd03f"><span class="section-number-4">3.4.6.</span> Radiance to Intensity</h4>
+</div>
+
+<div id="outline-container-orga636cb7" class="outline-4">
+<h4 id="orga636cb7"><span class="section-number-4">3.4.7.</span> Intensity to Photon Count</h4>
+</div>
+
+<div id="outline-container-orgc83b003" class="outline-4">
+<h4 id="orgc83b003"><span class="section-number-4">3.4.8.</span> Photon Count to Electron Count</h4>
+</div>
+
+<div id="outline-container-orgbefa368" class="outline-4">
+<h4 id="orgbefa368"><span class="section-number-4">3.4.9.</span> Electron Count to Voltage</h4>
+</div>
+
+<div id="outline-container-org9955efb" class="outline-4">
+<h4 id="org9955efb"><span class="section-number-4">3.4.10.</span> Voltage to Analog Sensor Signal</h4>
+</div>
+</div>
+<div id="outline-container-org55316c3" class="outline-3">
+<h3 id="org55316c3"><span class="section-number-3">3.5.</span> Gain (ISO)</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>This amplifies the signal to combat low-light.</li>
+<li>ISO stands for <b>International Organization for Standardization</b>.</li>
+<li><p>
+An ISO number is something that represents sensitivity to light as a numerical
+value.
+\[ \text{ISO} \propto \text{Higher Sensitivity} \]
+</p>
+
+<p>
+Higher sensitivity to light, basically means it can capture light better.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgab1cb90" class="outline-3">
+<h3 id="orgab1cb90"><span class="section-number-3">3.6.</span> A/D</h3>
+</div>
+
+<div id="outline-container-org5a8afc9" class="outline-3">
+<h3 id="org5a8afc9"><span class="section-number-3">3.7.</span> Bayers Filter</h3>
+<div class="outline-text-3" id="text-3-7">
+<ul class="org-ul">
+<li>The camera sensor is covered with a filter array that separates light into
+red, green and blue. Each pixel will estimate only one color. A photo-diode
+can capture only one color at a time.</li>
+<li>The bayers filter arranges color filters in a repeating \(2 \times 2\) matrix:
+\[ \begin{bmatrix} R & G\\ G & B \end{bmatrix}\]
+There is more green because human eyes are more sensitive to green (because
+it&rsquo;s in the middle of the spectrum).</li>
+<li>For example, a \(3 \times 3\) matrix with bayers filter applied:
+\[ \begin{bmatrix} R & G & R\\ G & B & G\\ R & G & R\end{bmatrix}\]</li>
+<li>The concept is that from the first row of bayers filter, you
+remove one among red and blue, and then from the second row you remove the
+other. Green stays in both the rows.</li>
+</ul>
+</div>
+<div id="outline-container-org9602f1c" class="outline-4">
+<h4 id="org9602f1c"><span class="section-number-4">3.7.1.</span> Types of Bayer Filters</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<ul class="org-ul">
+<li>There are different types of bayers filter (most commonly RGGB aka R-G-R
+pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.</li>
+<li>If the matrix has G on the top left corner, it&rsquo;s a GRBG pattern.</li>
+<li>Likewise if the matrix has R on the top left corner, it&rsquo;s RGGB pattern.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd13a2d7" class="outline-4">
+<h4 id="orgd13a2d7"><span class="section-number-4">3.7.2.</span> Extracting RGB matrices from Bayer Pattern</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+In our example, we&rsquo;ll use a sample GRBG matrix.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #dcaeea;">GRBG</span> = [
+<span style="color: #3dea43364a63;"> </span>   [100, 180, 110],   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span><span style="color: #3dea43364a63;"> </span>   [60, 120, 65],     <span style="color: #5B6268;"># </span><span style="color: #5B6268;">B G B
+</span><span style="color: #3dea43364a63;"> </span>   [105, 170, 115]    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span>]
+<span style="color: #dcaeea;">R</span> = [[0 <span style="color: #51afef;">for</span> _ <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[i]))] <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))]
+<span style="color: #dcaeea;">G</span> = [[0 <span style="color: #51afef;">for</span> _ <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[i]))] <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))]
+<span style="color: #dcaeea;">B</span> = [[0 <span style="color: #51afef;">for</span> _ <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[i]))] <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))]
+
+<span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG)):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> j <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[i])):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> i%2==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> j%2!=0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   R[i][j] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   G[i][j] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> j%2!=0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   G[i][j] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   B[i][j] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   
+             
+<span style="color: #c678dd;">print</span>(R)
+<span style="color: #c678dd;">print</span>(G)
+<span style="color: #c678dd;">print</span>(B)
+    
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">[[0, 180, 0], [0, 0, 0], [0, 170, 0]]
+[[100, 0, 110], [0, 120, 0], [105, 0, 115]]
+[[0, 0, 0], [60, 0, 65], [0, 0, 0]]
+</pre>
+</div>
+
+<p>
+A more Pythonic way would be:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">GRBG</span> = [
+<span style="color: #3dea43364a63;"> </span>   [100, 180, 110],   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span><span style="color: #3dea43364a63;"> </span>   [60, 120, 65],     <span style="color: #5B6268;"># </span><span style="color: #5B6268;">B G B
+</span><span style="color: #3dea43364a63;"> </span>   [105, 170, 115]    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span>]
+
+<span style="color: #dcaeea;">R</span> = [
+<span style="color: #3dea43364a63;"> </span>   [GRBG[x][i] <span style="color: #51afef;">if</span> i%2!=0 <span style="color: #51afef;">else</span> 0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[x]))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> x%2==0 <span style="color: #51afef;">else</span> [0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> x <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))
+]
+
+
+<span style="color: #dcaeea;">G</span> = [
+<span style="color: #3dea43364a63;"> </span>   [GRBG[x][i] <span style="color: #51afef;">if</span> i%2==0 <span style="color: #51afef;">else</span> 0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[x]))] <span style="color: #51afef;">if</span> x%2==0
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span> [GRBG[x][i] <span style="color: #51afef;">if</span> i%2!=0 <span style="color: #51afef;">else</span> 0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[x]))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> x <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))
+]
+
+<span style="color: #dcaeea;">B</span> = [
+<span style="color: #3dea43364a63;"> </span>   [0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[x]))] <span style="color: #51afef;">if</span> x%2==0
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span> [GRBG[x][i] <span style="color: #51afef;">if</span> i%2==0 <span style="color: #51afef;">else</span> 0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[x]))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> x <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))
+]
+
+<span style="color: #c678dd;">print</span>(R)
+<span style="color: #c678dd;">print</span>(G)
+<span style="color: #c678dd;">print</span>(B)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">[[0, 180, 0], [0, 0, 0], [0, 170, 0]]
+[[100, 0, 110], [0, 120, 0], [105, 0, 115]]
+[[0, 0, 0], [60, 0, 65], [0, 0, 0]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org413333b" class="outline-3">
+<h3 id="org413333b"><span class="section-number-3">3.8.</span> Demosaicing / Debayering</h3>
+<div class="outline-text-3" id="text-3-8">
+<ul class="org-ul">
+<li>This is an algorithm to generate the full RGB image, from a Bayers Image (each
+pixel has only one color component as of now).</li>
+<li>Now since we&rsquo;ve lost the other 2 colors, for each pixel the missing
+information is estimated by looking at that information in it&rsquo;s neighbouring
+pixels.</li>
+<li>This is called interpolation.</li>
+<li>For instance, a red pixels gets estimated green and blue values from its
+neighbouring green and blue pixels. There are other ways for this
+interpolation though.</li>
+</ul>
+</div>
+<div id="outline-container-org1744fc2" class="outline-4">
+<h4 id="org1744fc2"><span class="section-number-4">3.8.1.</span> Nearest Neighbour Interpolation</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<ul class="org-ul">
+<li>Here, we copy the missing values from the neighbouring pixel of the same
+color.</li>
+<li>For example, say we have a \(2 \times 2\) Bayer pattern:
+\[ \begin{bmatrix} G=120 & R=200\\ B=100 & G=130\end{bmatrix}\]</li>
+<li>The full image would be:
+\[ \begin{bmatrix} (200, 120, 100) & (200, 120, 100)\\ (200, 120, 100) & (200, 130, 100)\end{bmatrix}\]</li>
+<li>As you can tell, in the name of picking neighbour, you go row-by-row and pick
+the first occurence of the color.</li>
+<li>The advantage is that this is fast and simple.</li>
+<li>The issue is that it produces blocky and low-quality images.</li>
+<li><p>
+Here&rsquo;s how the code would look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">GRBG</span> = [
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   [100, 180, 110],   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   [60, 120, 65],     <span style="color: #5B6268;"># </span><span style="color: #5B6268;">B G B
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   [105, 170, 115]    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">G R G
+</span><span style="color: #3dea43364a63;"> </span>   ]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">RGB</span> = [[[0,0,0] <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[j]))] <span style="color: #51afef;">for</span> j <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG)):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> j <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(GRBG[i])):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> i%2==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> j%2!=0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][0] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][1] = GRBG[i-1][j] 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][2] = GRBG[i-1][j-1] <span style="color: #51afef;">if</span> j&gt;0 <span style="color: #51afef;">else</span> GRGB[i-1][j+1] 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][1] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][2] = GRBG[i-1][j] <span style="color: #51afef;">if</span> i&gt;0 <span style="color: #51afef;">else</span> GRBG[i+1][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][0] = GRBG[i][j-1] <span style="color: #51afef;">if</span> j&gt;0 <span style="color: #51afef;">else</span> GRBG[i][j+1]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> j%2!=0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][1] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][2] = GRBG[i][j-1] <span style="color: #51afef;">if</span> j&gt;0 <span style="color: #51afef;">else</span> GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][0] = GRBG[i-1][j] <span style="color: #51afef;">if</span> i&gt;0 <span style="color: #51afef;">else</span> GRBG[i+1][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][2] = GRBG[i][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][1] = GRBG[i-1][j] <span style="color: #51afef;">if</span> i&gt;0 <span style="color: #51afef;">else</span> GRBG[i+1][j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   RGB[i][j][0] = GRBG[i-1][j-1] <span style="color: #51afef;">if</span> j&gt;0 <span style="color: #51afef;">else</span> GRBG[i-1][j+1]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> row <span style="color: #51afef;">in</span> RGB:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(row)
+     
+main()
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  [[180, 100, 60], [180, 170, 105], [180, 110, 65]]
+  [[180, 100, 60], [180, 120, 60], [180, 110, 65]]
+  [[170, 105, 60], [170, 120, 60], [170, 115, 65]]
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org10c1ee0" class="outline-4">
+<h4 id="org10c1ee0"><span class="section-number-4">3.8.2.</span> Bilinear Interpolation</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<ul class="org-ul">
+<li>You consider all of the neighbours, and take the average.</li>
+<li>The weights depend on the distance of each neighbour.</li>
+<li>For example, consider this \(3 \times 3\) Bayers image.
+\[ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}\]
+For pixel (1,1):
+<ul class="org-ul">
+<li>\(R = \frac{(180+170)}{2} = 175\)</li>
+<li>\(G = 120\) (Given)</li>
+<li>\(B = \frac{(60+65)}{2} = 62.5\)</li>
+</ul></li>
+<li>Whlie this is smoother than nearest neighbour, it still does produce blurry
+images.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org843b793" class="outline-4">
+<h4 id="org843b793"><span class="section-number-4">3.8.3.</span> Gradient Based Interpolation</h4>
+<div class="outline-text-4" id="text-3-8-3">
+<ul class="org-ul">
+<li>Instead of taking average of all neighbours, you take the average along one
+direction (horizontal or vertical).</li>
+<li>You pick the direction which has the smaller gradient of that color.</li>
+<li>For example, consider this \(3 \times 3\) Bayers image.
+\[ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}\]</li>
+<li>You do gradient interpolation for only green.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org35524e7" class="outline-3">
+<h3 id="org35524e7"><span class="section-number-3">3.9.</span> Sharpen</h3>
+<div class="outline-text-3" id="text-3-9">
+</div>
+<div id="outline-container-org6916d67" class="outline-4">
+<h4 id="org6916d67"><span class="section-number-4">3.9.1.</span> Unsharp Masking</h4>
+<div class="outline-text-4" id="text-3-9-1">
+<ul class="org-ul">
+<li>Blur the image using a Gaussian filter</li>
+<li>Subtract the blurred image from the original to create a mask</li>
+<li>Add the mask back to the original image.</li>
+</ul>
+
+
+<p>
+\[I_{sharpened} = I_{original} + k \cdot (I_{original} - I_{blurred})\]
+where \(k\) is the sharpening factor.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9cf4229" class="outline-3">
+<h3 id="org9cf4229"><span class="section-number-3">3.10.</span> White Balance</h3>
+<div class="outline-text-3" id="text-3-10">
+<ul class="org-ul">
+<li>Different light sources create different color casts on the sensor output.</li>
+<li>White light sources (neutral color temperature) show accurate colors, while
+warmer colors create a reddish tone and cooler colors create a blueish tone.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga43795b" class="outline-3">
+<h3 id="orga43795b"><span class="section-number-3">3.11.</span> Gamma/Curve Correction</h3>
+<div class="outline-text-3" id="text-3-11">
+<ul class="org-ul">
+<li>This is used to adjusts the brightness and darkness of images to match how
+humans see.</li>
+<li>This is a nonlinear method used in luminance encoding and decoding, to appear
+realistic.</li>
+<li>Pure brightness adjustments change the brightness value of every single pixel,
+while gamma correction affects only the mid-tone colors (pure black and pure
+white is unaffected).</li>
+<li><b>Higher</b> the value of gamma, <b>darker</b> the midtones appear to be.</li>
+<li>The value of gamma is used as:
+\[ \text{New Value} = \text{Input Pixel Intensity}^{\gamma} \]</li>
+</ul>
+</div>
+<div id="outline-container-orge786c85" class="outline-4">
+<h4 id="orge786c85"><span class="section-number-4">3.11.1.</span> Non-Linear Device Response</h4>
+<div class="outline-text-4" id="text-3-11-1">
+<ul class="org-ul">
+<li>All device follow a power-law response:
+\[L = V^{\gamma}\]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5bb6434" class="outline-4">
+<h4 id="org5bb6434"><span class="section-number-4">3.11.2.</span> How Gamma Correction Works</h4>
+<div class="outline-text-4" id="text-3-11-2">
+</div>
+<ol class="org-ol">
+<li><a id="org2b77171"></a>Inverse Gamma (Gamma Encoding)<br />
+<div class="outline-text-5" id="text-3-11-2-1">
+<ul class="org-ul">
+<li>Before transmission, we apply inverse value of gamma:
+\[V = L^{\frac{1}{\gamma}}\]</li>
+</ul>
+</div>
+</li>
+<li><a id="orgcdd9af5"></a>Gamma Decoding<br />
+<div class="outline-text-5" id="text-3-11-2-2">
+<ul class="org-ul">
+<li>When the image is displayed, we substitute \(V = L^{\frac{1}{\gamma}}\), in the above
+equation.
+\[L = (L^{\frac{1}{\gamma}})^{\gamma}\]</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org760c4a9" class="outline-3">
+<h3 id="org760c4a9"><span class="section-number-3">3.12.</span> Compress</h3>
+<div class="outline-text-3" id="text-3-12">
+</div>
+<div id="outline-container-org5ac78fa" class="outline-4">
+<h4 id="org5ac78fa"><span class="section-number-4">3.12.1.</span> <code>.jpeg</code></h4>
+<div class="outline-text-4" id="text-3-12-1">
+<ul class="org-ul">
+<li>JPEG stands for <b>Joint Photographic Experts Group</b>, and this is a <b>lossy decomposition</b>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8269d14" class="outline-4">
+<h4 id="org8269d14"><span class="section-number-4">3.12.2.</span> YCbCr</h4>
+<div class="outline-text-4" id="text-3-12-2">
+<ul class="org-ul">
+<li>Chrominance reduction is the process of reducing the amount of color in the
+image.</li>
+<li>We basically concert RBG into YCbCr, and here we don&rsquo;t have to store a color
+value for some pixels.</li>
+<li>This works because the human brain perceives brightness better than color, so
+we keep brightness untouched, but downsample color values.</li>
+<li>In YCbCr format, each pixel will have a tuple <code>(Y, Cb, Cr)</code> instead of <code>(R, G,
+  B)</code>.
+<ul class="org-ul">
+<li>\(Y = 0.299R + 0.587G + 0.114B\) (brightness, i.e. the grayscale information)</li>
+<li>\(Cb = 128 - 0.1687R - 0.3313G + 0.5B\) (chrominance for blue-difference)</li>
+<li>\(Cr = 128 + 0.5R - 0.4187G - 0.0813B\) (chrominance for red-difference)</li>
+</ul></li>
+<li>Previously you&rsquo;d have a matrix for R, one for G and one for B. All of these
+matrices are of the same size.</li>
+<li>Now, we&rsquo;d have a matrix for Y, one for Cb and one for Cr, but Cb and Cr are
+smaller in size.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5d8fcf9" class="outline-4">
+<h4 id="org5d8fcf9"><span class="section-number-4">3.12.3.</span> Quantization</h4>
+<div class="outline-text-4" id="text-3-12-3">
+<ul class="org-ul">
+<li>This is later <b>sampled spacially</b> into pixels.</li>
+<li>The analog intensity values are converted into digital discrete values with
+the help of an Analog-to-Digital Converter (ADC), so that it can be digitally
+manipulated. This process is called <b>quantization</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf8198fa" class="outline-2">
+<h2 id="orgf8198fa"><span class="section-number-2">4.</span> Camera Calibration</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>It&rsquo;s the process of estimating camera parameters.</li>
+</ul>
+</div>
+<div id="outline-container-org4dffce6" class="outline-3">
+<h3 id="org4dffce6"><span class="section-number-3">4.1.</span> Fundamental Problem</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+A real camera is not an ideal pinhole camera. The principle is same but the
+difference is that, a real camera has:
+</p>
+<ul class="org-ul">
+<li>Unknown focal length</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2265127" class="outline-3">
+<h3 id="org2265127"><span class="section-number-3">4.2.</span> Essential Parameters</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgb3b93b3" class="outline-4">
+<h4 id="orgb3b93b3"><span class="section-number-4">4.2.1.</span> Intrinsics</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>These are the parameters inside the camera.</li>
+<li><p>
+All of the intrinsics are defined by the <b>camera matrix</b> (\(K\)).
+</p>
+
+<p>
+\[K =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix}\]
+</p>
+
+<p>
+where
+</p>
+<ul class="org-ul">
+<li>\((f_{x},f_{y})\) are the coordinates of the focal point of the lens.</li>
+<li>\((c_{x},c_{y})\) are the coordinates of optic center.</li>
+</ul></li>
+<li>The parameters between camera frame and image frame are intrinsics.</li>
+<li>Intrinsic parameters are calibrated only once, and that is during the making
+of the camera. In some cameras, the intrinsic parameters are stored in the
+firmware itself, while in others, the user will have to explicitly calibrate.</li>
+<li>The 3 intrinsic parameters are:
+<ul class="org-ul">
+<li><b>Focal Length</b></li>
+<li><b>Optic Center</b></li>
+<li><b>Radial Distortion</b></li>
+</ul></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org08dfa43"></a>Radial Distortion<br /></li>
+
+
+<li><a id="orgd44883c"></a>Tangential Distortion<br />
+<div class="outline-text-5" id="text-4-2-1-2">
+<ul class="org-ul">
+<li>This occurs when the lens and the image plan are not parallel.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgc1d2a0b" class="outline-4">
+<h4 id="orgc1d2a0b"><span class="section-number-4">4.2.2.</span> Extrinsics</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<ul class="org-ul">
+<li>These define camera position (translation) and orientation (Rotation matrix).</li>
+<li>The parameters between camera frame and world frame.</li>
+<li>Extrinsic parameters are constantly calibrated because every image needs a
+separate calibration, because the camera could be at different angles.</li>
+<li>All of the extrinsic parameters are given by the <b>homogeneous transformation
+matrix</b>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org24f6c76" class="outline-4">
+<h4 id="org24f6c76"><span class="section-number-4">4.2.3.</span> How they all come together</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+\[ \begin{bmatrix} u \\ v\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} \]
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgccb5b36" class="outline-2">
+<h2 id="orgccb5b36"><span class="section-number-2">5.</span> Segmentation</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Image segmentation is the task of finding group of pixels that &ldquo;go together&rdquo;.</li>
+</ul>
+</div>
+<div id="outline-container-orgd94906e" class="outline-3">
+<h3 id="orgd94906e"><span class="section-number-3">5.1.</span> Simplest form of Segmentation: Binary Segmentation</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Having a fixed threshold for all pixels.</li>
+<li>Say, 0-125 is black and 125-255 is white.</li>
+<li>This way though, you&rsquo;re losing a lot of information.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga032c30" class="outline-3">
+<h3 id="orga032c30"><span class="section-number-3">5.2.</span> Gestalt Theory of Perception</h3>
+<div class="outline-text-3" id="text-5-2">
+<blockquote>
+<p>
+The mind perceives objects as unified wholes (Gestalts) rather than just collections of parts
+</p>
+</blockquote>
+</div>
+<div id="outline-container-orgbe45c0e" class="outline-4">
+<h4 id="orgbe45c0e"><span class="section-number-4">5.2.1.</span> Proximity Principles</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+Here, we perceive 4 objects.
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">obj    obj     obj       obj
+</pre>
+</div>
+
+<p>
+But here we perceive two objects, because we group based on distance.
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">obj obj      obj obj
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0e8d1b1" class="outline-4">
+<h4 id="org0e8d1b1"><span class="section-number-4">5.2.2.</span> Similarity</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+Here, we perceive 4 objects.
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">obj1    obj2     obj3      obj4
+</pre>
+</div>
+
+<p>
+But here we perceive two objects, because we group based on how similar they
+are.
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">obj1    obj1     obj2      obj2
+</pre>
+</div>
+
+
+<p>
+Here also, it&rsquo;s two objects, but it&rsquo;s because of proximity principles. If it was
+similarity principle, you&rsquo;d perceive them as 3 objects.
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">obj1 obj2      obj2 obj3
+</pre>
+</div>
+<p>
+It&rsquo;s a human tendancy to pick proximity over similarity.
+</p>
+</div>
+</div>
+<div id="outline-container-org2a08d15" class="outline-4">
+<h4 id="org2a08d15"><span class="section-number-4">5.2.3.</span> Common Fate</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<ul class="org-ul">
+<li>You group based on what action the objects are performing.</li>
+<li>For example, three moving objects would be grouped together, and all the other
+stationary objects would be grouped together too.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbf210ab" class="outline-4">
+<h4 id="orgbf210ab"><span class="section-number-4">5.2.4.</span> Common Region / Connectivity</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<ul class="org-ul">
+<li>If you draw a boundary around some objects, you perceive them as one group.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3c057d5" class="outline-4">
+<h4 id="org3c057d5"><span class="section-number-4">5.2.5.</span> Continuity Principle</h4>
+<div class="outline-text-4" id="text-5-2-5">
+<ul class="org-ul">
+<li>Our eyes naturally folow smooth paths, even if the path are constituted by
+separate parts.</li>
+<li>This way, these separate entities are perceived to be a part of one big curve.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org807bfc4" class="outline-4">
+<h4 id="org807bfc4"><span class="section-number-4">5.2.6.</span> Symmetry Principle</h4>
+<div class="outline-text-4" id="text-5-2-6">
+<ul class="org-ul">
+<li>Two symmetrical objects are perceived to be a group.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3ffb999" class="outline-4">
+<h4 id="org3ffb999"><span class="section-number-4">5.2.7.</span> Illusory Contours - Illusions&rsquo; grouping</h4>
+<div class="outline-text-4" id="text-5-2-7">
+<ul class="org-ul">
+<li>Our brains fill in missing parts of an image.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6009ce6" class="outline-3">
+<h3 id="org6009ce6"><span class="section-number-3">5.3.</span> Two approaches towards Segmentation</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-orgfd318aa" class="outline-4">
+<h4 id="orgfd318aa"><span class="section-number-4">5.3.1.</span> Top Down</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<ul class="org-ul">
+<li>Here, you already have prior knowledge about objects and you use this to
+perform segmentation.</li>
+<li>To provide the prior knowledge, a human being must be involved.</li>
+<li>Moreover, it&rsquo;s computationally more expensive.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgd80818c"></a>Active Contours - Snake<br />
+<div class="outline-text-5" id="text-5-3-1-1">
+<ul class="org-ul">
+<li>You segment using <b>curves</b>, not pixels.</li>
+<li>It&rsquo;s like a rubber band of arbitrary shape, that goes close to the target
+contour.</li>
+<li>You use energy to minimize:
+\[E = E_{Internal} + E_{Image} + E_{External}\]
+<ul class="org-ul">
+<li>Internal Energy &rarr; Smoothness</li>
+<li>Image energy &rarr; attracts curve to edges</li>
+<li>External forces &rarr; User constraints</li>
+</ul></li>
+<li>You use this when the object shape is simple, and the edges are strong and
+well defined.</li>
+<li>Active contours are also useful for deformable boundaries, like the boundaries
+of your lips when you speak, or a car based on the angle you&rsquo;re viewing it in.</li>
+</ul>
+</div>
+</li>
+<li><a id="org2753d91"></a>Intelligent Scissors<br />
+<div class="outline-text-5" id="text-5-3-1-2">
+<ul class="org-ul">
+<li>The user has to click some points around the boundaries, using which the
+algorithm finds a curve that follows strong boundaries.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgc203b8b" class="outline-4">
+<h4 id="orgc203b8b"><span class="section-number-4">5.3.2.</span> Bottom Up</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li>Uses only image evidence, where you group pixels based on similarity.</li>
+<li>This is data-driven.</li>
+<li>In top-down, you first have information ready, then you go for the boundaries.</li>
+<li>In bottom-up, you first go for the boundaries, then you try to gather
+information from this.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org2734d41"></a>Clustering Based Segmentation<br />
+<div class="outline-text-5" id="text-5-3-2-1">
+<ul class="org-ul">
+<li>The disadvantages are that a cluster doesn&rsquo;t necessarily mean an object.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgdbac0a6"></a>K-Means<br />
+<ol class="org-ol">
+<li><a id="org2e3d88a"></a>Example: <code>Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]</code>, <code>k = 2</code>, <code>Random Centroids = [(1,1), (5, 5)]</code><br />
+<div class="outline-text-7" id="text-5-3-2-1-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Distance from Centroid 1</th>
+<th scope="col" class="org-left">Distance from Centroid 2</th>
+<th scope="col" class="org-right">Assigned Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\((1,1)\)</td>
+<td class="org-left">\(\sqrt{(1-1)^{2} + (1-1)^{2}}\) = \(0\)</td>
+<td class="org-left">\(\sqrt{(1-5)^{2} + (1-5)^{2}}\) = \(4\sqrt{2}\)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">\((1,2)\)</td>
+<td class="org-left">\(\sqrt{(1-1)^{2} + (2-1)^{2}}\) = \(1\)</td>
+<td class="org-left">\(\sqrt{(1-5)^{2} + (2-5)^{2}}\) = \(5\)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">\((1,2)\)</td>
+<td class="org-left">\(\sqrt{(1-1)^{2} + (2-1)^{2}}\) = \(1\)</td>
+<td class="org-left">\(\sqrt{(1-5)^{2} + (2-5)^{2}}\) = \(5\)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">\((2,1)\)</td>
+<td class="org-left">\(\sqrt{(2-1)^{2} + (1-1)^{2}}\) = \(1\)</td>
+<td class="org-left">\(\sqrt{(2-5)^{2} + (1-5)^{2}}\) = \(5\)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">\((4,4)\)</td>
+<td class="org-left">\(\sqrt{(4-1)^{2} + (4-1)^{2}}\) = \(3\sqrt{2}\)</td>
+<td class="org-left">\(\sqrt{(4-5)^{2} + (4-5)^{2}}\) = \(\sqrt{2}\)</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">\((5,6)\)</td>
+<td class="org-left">\(\sqrt{(5-1)^{2} + (6-1)^{2}}\) = \(\sqrt{41}\)</td>
+<td class="org-left">\(\sqrt{(5-5)^{2} + (6-5)^{2}}\) = \(1\)</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">\((7,7)\)</td>
+<td class="org-left">\(\sqrt{(7-1)^{2} + (7-1)^{2}}\) = \(6\sqrt{2}\)</td>
+<td class="org-left">\(\sqrt{(7-5)^{2} + (7-5)^{2}}\) = \(2\sqrt{2}\)</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">\((8,9)\)</td>
+<td class="org-left">\(\sqrt{(8-1)^{2} + (9-1)^{2}}\) = \(\sqrt{113}\)</td>
+<td class="org-left">\(\sqrt{(8-5)^{2} + (9-5)^{2}}\) = \(\sqrt{17}\)</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">\((9,8)\)</td>
+<td class="org-left">\(\sqrt{(9-1)^{2} + (8-1)^{2}}\) = \(\sqrt{113}\)</td>
+<td class="org-left">\(\sqrt{(9-5)^{2} + (8-5)^{2}}\) = \(\sqrt{17}\)</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Cluster 1</th>
+<th scope="col" class="org-left">Cluster 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\((1,1)\)</td>
+<td class="org-left">\((4,4)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\((1,2)\)</td>
+<td class="org-left">\((5,6)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\((1,2)\)</td>
+<td class="org-left">\((7,7)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\((2,1)\)</td>
+<td class="org-left">\((8,9)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\((9,8)\)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Average</b></td>
+<td class="org-left">\(()\)</td>
+<td class="org-left">\(()\)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Now we repeat the same procedure with the new centroids. We keep doing this till
+the average of the points is the same point as the cluster centroid.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Distance from Centroid 1</th>
+<th scope="col" class="org-left">Distance from Centroid 2</th>
+<th scope="col" class="org-right">Assigned Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\((1,1)\)</td>
+<td class="org-left">\(\sqrt{(1-1)^{2} + (1-1)^{2}}\) = \(0\)</td>
+<td class="org-left">\(\sqrt{(1-5)^{2} + (1-5)^{2}}\) = \(4\sqrt{2}\)</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="org58b4a07"></a>Disadvantage<br />
+<div class="outline-text-7" id="text-5-3-2-1-1-2">
+<ul class="org-ul">
+<li>The issue is that you need to find the right value of \(k\).</li>
+<li>You also need to initialize the centroids with the right values.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org9ace590"></a>Mean Shift Segmentation (Hill Climb)<br />
+<div class="outline-text-6" id="text-5-3-2-1-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
