@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-24 Sat 22:33 -->
+<!-- 2026-02-07 Sat 17:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OpenCV</title>
@@ -198,7 +198,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:title" content="%TITLE%">
+<meta property="og:title" content="Notes - CompileArtisan">
 <meta property="og:description" content="Notes from CompileArtisan">
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,6 +220,15 @@ padding: 20px 40px;
 h1, h2, h3 {
 font-family: 'Helvetica', sans-serif;
 }
+a {
+color: #0000aa;
+}
+a:hover {
+background-color: #0000aa;
+color: #ffffff;
+border-radius: 0.2em;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
 pre {
 background-color: #333;
 color: white;
@@ -238,7 +247,8 @@ font-size: 1.1em;
 border-radius: 0.5em;
 }
 code {
-font-size: 1em;
+font-size: 1.5em;
+padding: 0 0.5em;
 }
 img {
 max-width: 100%;
@@ -306,6 +316,22 @@ padding-bottom: 10px;
 margin-bottom: 15px;
 }
 
+/* Search box styles */
+#toc-search {
+width: 100%;
+padding: 8px 12px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 0.9em;
+box-sizing: border-box;
+}
+
+#toc-search:focus {
+outline: none;
+border-color: #0000aa;
+}
+
 #table-of-contents ul {
 list-style-type: none;
 padding-left: 0;
@@ -336,6 +362,19 @@ color: #0000aa;
 background-color: #e8e8ff;
 }
 
+/* Active TOC link (scroll spy) */
+#table-of-contents a.active {
+color: #0000aa;
+background-color: #e8e8ff;
+font-weight: bold;
+border-left: 3px solid #0000aa;
+}
+
+/* Hidden items during search */
+#table-of-contents li.hidden {
+display: none;
+}
+
 /* Main content area */
 #content {
 margin-left: 280px;
@@ -352,39 +391,33 @@ font-size: 1rem;
 background: #ffffff;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 border-radius: 10px;
-overflow: hidden; /* clips rounded corners */
+overflow: hidden;
 }
 
-/* Remove legacy borders from org export */
 table[border] {
 border: none;
 }
 
-/* Table cells */
 td {
 padding: 0.75rem 1.1rem;
 text-align: center;
-border: 1px solid #e5e7eb; /* light gray */
+border: 1px solid #e5e7eb;
 font-weight: 500;
 color: #111827;
 }
 
-/* Align org-left cleanly (override if needed) */
 td.org-left {
 text-align: center;
 }
 
-/* Zebra striping */
 tbody tr:nth-child(even) {
 background-color: #f9fafb;
 }
 
-/* Hover effect */
 tbody tr:hover {
 background-color: #eef2ff;
 }
 
-/* Make letters stand out */
 td {
 letter-spacing: 0.05em;
 }
@@ -442,6 +475,109 @@ font-size: 1.3em;
 <a href="https://compileartisan.pages.dev/">CompileArtisan</a>
 </div>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+<script>
   window.MathJax = {
     tex: {
       ams: {
@@ -481,29 +617,29 @@ font-size: 1.3em;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3ba9a84">1. Writing an Image</a></li>
-<li><a href="#org544f325">2. Reading an Image</a>
+<li><a href="#org130d076">1. Writing an Image</a></li>
+<li><a href="#org4795faa">2. Reading an Image</a>
 <ul>
-<li><a href="#org42d1799">2.1. Flags</a></li>
+<li><a href="#org826478a">2.1. Flags</a></li>
 </ul>
 </li>
-<li><a href="#org2b6365b">3. Displaying an Image - <code>cv2.imgshow()</code></a></li>
-<li><a href="#org1dbaf0e">4. Resizing an Image</a>
+<li><a href="#org4d8f91d">3. Displaying an Image - <code>cv2.imgshow()</code></a></li>
+<li><a href="#org83ee614">4. Resizing an Image</a>
 <ul>
-<li><a href="#org36863c0">4.1. By Specifying a new dimension</a></li>
-<li><a href="#org415d4b9">4.2. By Scaling</a></li>
+<li><a href="#org9d216db">4.1. By Specifying a new dimension</a></li>
+<li><a href="#orgfea8716">4.2. By Scaling</a></li>
 </ul>
 </li>
-<li><a href="#org8440f22">5. Converting Image Color</a>
+<li><a href="#org4b81663">5. Converting Image Color</a>
 <ul>
-<li><a href="#orgbcab811">5.1. <code>cv2.COLOR_BGR2GRAY</code></a></li>
-<li><a href="#org0afcfd1">5.2. <code>cv2.BGR2GRGB</code></a></li>
-<li><a href="#orga8215bd">5.3. <code>cv2.RGB2BGR</code></a></li>
+<li><a href="#org75fe792">5.1. <code>cv2.COLOR_BGR2GRAY</code></a></li>
+<li><a href="#org5713ab4">5.2. <code>cv2.BGR2GRGB</code></a></li>
+<li><a href="#orga2bcd15">5.3. <code>cv2.RGB2BGR</code></a></li>
 </ul>
 </li>
-<li><a href="#org19a04a8">6. <span class="todo TODO">TODO</span> Thresholding</a></li>
-<li><a href="#orge1b03ed">7. <span class="todo TODO">TODO</span> Drawing</a></li>
-<li><a href="#org146b32f">8. <span class="todo TODO">TODO</span> Object Detection</a></li>
+<li><a href="#org6ffdda6">6. <span class="todo TODO">TODO</span> Thresholding</a></li>
+<li><a href="#orgab32304">7. <span class="todo TODO">TODO</span> Drawing</a></li>
+<li><a href="#org368e7e9">8. <span class="todo TODO">TODO</span> Object Detection</a></li>
 </ul>
 </div>
 </div>
@@ -516,8 +652,8 @@ font-size: 1.3em;
 <span style="color: #51afef;">import</span> cv2
 </pre>
 </div>
-<div id="outline-container-org3ba9a84" class="outline-2">
-<h2 id="org3ba9a84"><span class="section-number-2">1.</span> Writing an Image</h2>
+<div id="outline-container-org130d076" class="outline-2">
+<h2 id="org130d076"><span class="section-number-2">1.</span> Writing an Image</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><code>cv2.imwrite()</code> is used to write a numpy array into an image.</li>
@@ -550,8 +686,8 @@ For example, here&rsquo;s how you make a pixel of a \(3 \times 3\) pixel red:
 </ul>
 </div>
 </div>
-<div id="outline-container-org544f325" class="outline-2">
-<h2 id="org544f325"><span class="section-number-2">2.</span> Reading an Image</h2>
+<div id="outline-container-org4795faa" class="outline-2">
+<h2 id="org4795faa"><span class="section-number-2">2.</span> Reading an Image</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>cv2.imread()</code> takes in the name of a file as an argument (and an optional
@@ -579,8 +715,8 @@ flag), and returns the equivalent NumPy array.</li>
 </pre>
 </div>
 </div>
-<div id="outline-container-org42d1799" class="outline-3">
-<h3 id="org42d1799"><span class="section-number-3">2.1.</span> Flags</h3>
+<div id="outline-container-org826478a" class="outline-3">
+<h3 id="org826478a"><span class="section-number-3">2.1.</span> Flags</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 OpenCV provides 3 flags which you can use (1, 0 or -1). 
@@ -646,8 +782,8 @@ to note is that the variable names are very well descriptive
 </div>
 </div>
 </div>
-<div id="outline-container-org2b6365b" class="outline-2">
-<h2 id="org2b6365b"><span class="section-number-2">3.</span> Displaying an Image - <code>cv2.imgshow()</code></h2>
+<div id="outline-container-org4d8f91d" class="outline-2">
+<h2 id="org4d8f91d"><span class="section-number-2">3.</span> Displaying an Image - <code>cv2.imgshow()</code></h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <code>cv2.imshow()</code> creates a window and displays the array as an image.
@@ -670,12 +806,12 @@ pressed.
 </ul>
 </div>
 </div>
-<div id="outline-container-org1dbaf0e" class="outline-2">
-<h2 id="org1dbaf0e"><span class="section-number-2">4.</span> Resizing an Image</h2>
+<div id="outline-container-org83ee614" class="outline-2">
+<h2 id="org83ee614"><span class="section-number-2">4.</span> Resizing an Image</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org36863c0" class="outline-3">
-<h3 id="org36863c0"><span class="section-number-3">4.1.</span> By Specifying a new dimension</h3>
+<div id="outline-container-org9d216db" class="outline-3">
+<h3 id="org9d216db"><span class="section-number-3">4.1.</span> By Specifying a new dimension</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -686,14 +822,14 @@ cv2.imwrite(<span style="color: #98be65;">"resized.png"</span>, resized)
 </div>
 
 
-<div id="org6eab392" class="figure">
+<div id="orgb7cb9c2" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/opencv/resized.png" alt="resized.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org415d4b9" class="outline-3">
-<h3 id="org415d4b9"><span class="section-number-3">4.2.</span> By Scaling</h3>
+<div id="outline-container-orgfea8716" class="outline-3">
+<h3 id="orgfea8716"><span class="section-number-3">4.2.</span> By Scaling</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">scaled</span> = cv2.resize(img, (0, 0), fx=100, fy=100)
@@ -702,15 +838,15 @@ cv2.imwrite(<span style="color: #98be65;">"scaled.png"</span>, scaled)
 </div>
 
 
-<div id="orga065a20" class="figure">
+<div id="org3c03931" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/opencv/scaled.png" alt="scaled.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org8440f22" class="outline-2">
-<h2 id="org8440f22"><span class="section-number-2">5.</span> Converting Image Color</h2>
+<div id="outline-container-org4b81663" class="outline-2">
+<h2 id="org4b81663"><span class="section-number-2">5.</span> Converting Image Color</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>You can convert image color from one color space to another, using the
@@ -729,8 +865,8 @@ the cv2 constant that corresponds to the target color space.</li>
 The usage of all of these will be explored next.  
 </p>
 </div>
-<div id="outline-container-orgbcab811" class="outline-3">
-<h3 id="orgbcab811"><span class="section-number-3">5.1.</span> <code>cv2.COLOR_BGR2GRAY</code></h3>
+<div id="outline-container-org75fe792" class="outline-3">
+<h3 id="org75fe792"><span class="section-number-3">5.1.</span> <code>cv2.COLOR_BGR2GRAY</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">img_mono</span> = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
@@ -739,7 +875,7 @@ cv2.imwrite(<span style="color: #98be65;">"resized_mono.png"</span>, img_mono)
 </div>
 
 
-<div id="org73e1f40" class="figure">
+<div id="orgb421a3a" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/opencv/resized_mono.png" alt="resized_mono.png" />
 </p>
 </div>
@@ -782,8 +918,8 @@ This is still a monochrome image, but it has 3 channels.
 </p>
 </div>
 </div>
-<div id="outline-container-org0afcfd1" class="outline-3">
-<h3 id="org0afcfd1"><span class="section-number-3">5.2.</span> <code>cv2.BGR2GRGB</code></h3>
+<div id="outline-container-org5713ab4" class="outline-3">
+<h3 id="org5713ab4"><span class="section-number-3">5.2.</span> <code>cv2.BGR2GRGB</code></h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">rgb_img</span> = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
@@ -793,14 +929,14 @@ cv2.imwrite(<span style="color: #98be65;">"resized_rgb.png"</span>, rgb_img)
 </div>
 
 
-<div id="orgbeeb9c3" class="figure">
+<div id="org70b588a" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/opencv/resized_rgb.png" alt="resized_rgb.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orga8215bd" class="outline-3">
-<h3 id="orga8215bd"><span class="section-number-3">5.3.</span> <code>cv2.RGB2BGR</code></h3>
+<div id="outline-container-orga2bcd15" class="outline-3">
+<h3 id="orga2bcd15"><span class="section-number-3">5.3.</span> <code>cv2.RGB2BGR</code></h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 The reverse also exists.
@@ -812,15 +948,15 @@ cv2.imwrite(<span style="color: #98be65;">"resized_bgr.png"</span>, bgr_img)
 </div>
 
 
-<div id="orgf80d258" class="figure">
+<div id="org0afa7b3" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/opencv/resized_bgr.png" alt="resized_bgr.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org19a04a8" class="outline-2">
-<h2 id="org19a04a8"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> Thresholding</h2>
+<div id="outline-container-org6ffdda6" class="outline-2">
+<h2 id="org6ffdda6"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> Thresholding</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Thresholding is where you convert a grayscale image into a purely black and
@@ -846,16 +982,16 @@ cv2.imwrite(<span style="color: #98be65;">"binary.png"</span>, binary)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge1b03ed" class="outline-2">
-<h2 id="orge1b03ed"><span class="section-number-2">7.</span> <span class="todo TODO">TODO</span> Drawing</h2>
+<div id="outline-container-orgab32304" class="outline-2">
+<h2 id="orgab32304"><span class="section-number-2">7.</span> <span class="todo TODO">TODO</span> Drawing</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Rectangle: <code>cv2.rectangle()</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org146b32f" class="outline-2">
-<h2 id="org146b32f"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> Object Detection</h2>
+<div id="outline-container-org368e7e9" class="outline-2">
+<h2 id="org368e7e9"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> Object Detection</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 <code>cv2.CascadeClassifier()</code>

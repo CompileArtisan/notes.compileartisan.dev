@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-30 Fri 00:10 -->
+<!-- 2026-02-07 Sat 17:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobile Application Development</title>
@@ -198,7 +198,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:title" content="%TITLE%">
+<meta property="og:title" content="Notes - CompileArtisan">
 <meta property="og:description" content="Notes from CompileArtisan">
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,6 +316,22 @@ padding-bottom: 10px;
 margin-bottom: 15px;
 }
 
+/* Search box styles */
+#toc-search {
+width: 100%;
+padding: 8px 12px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 0.9em;
+box-sizing: border-box;
+}
+
+#toc-search:focus {
+outline: none;
+border-color: #0000aa;
+}
+
 #table-of-contents ul {
 list-style-type: none;
 padding-left: 0;
@@ -346,6 +362,19 @@ color: #0000aa;
 background-color: #e8e8ff;
 }
 
+/* Active TOC link (scroll spy) */
+#table-of-contents a.active {
+color: #0000aa;
+background-color: #e8e8ff;
+font-weight: bold;
+border-left: 3px solid #0000aa;
+}
+
+/* Hidden items during search */
+#table-of-contents li.hidden {
+display: none;
+}
+
 /* Main content area */
 #content {
 margin-left: 280px;
@@ -362,39 +391,33 @@ font-size: 1rem;
 background: #ffffff;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 border-radius: 10px;
-overflow: hidden; /* clips rounded corners */
+overflow: hidden;
 }
 
-/* Remove legacy borders from org export */
 table[border] {
 border: none;
 }
 
-/* Table cells */
 td {
 padding: 0.75rem 1.1rem;
 text-align: center;
-border: 1px solid #e5e7eb; /* light gray */
+border: 1px solid #e5e7eb;
 font-weight: 500;
 color: #111827;
 }
 
-/* Align org-left cleanly (override if needed) */
 td.org-left {
 text-align: center;
 }
 
-/* Zebra striping */
 tbody tr:nth-child(even) {
 background-color: #f9fafb;
 }
 
-/* Hover effect */
 tbody tr:hover {
 background-color: #eef2ff;
 }
 
-/* Make letters stand out */
 td {
 letter-spacing: 0.05em;
 }
@@ -451,6 +474,109 @@ font-size: 1.3em;
 <div class="header">
 <a href="https://compileartisan.pages.dev/">CompileArtisan</a>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -459,42 +585,42 @@ font-size: 1.3em;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3723de4">1. Prelude</a></li>
-<li><a href="#org8891593">2. Introduction to Android</a>
+<li><a href="#orgbe98fbe">1. Prelude</a></li>
+<li><a href="#org3000d5e">2. Introduction to Android</a>
 <ul>
-<li><a href="#orge2b2f9a">2.1. User Interaction</a>
+<li><a href="#org7f90d8f">2.1. User Interaction</a>
 <ul>
-<li><a href="#orga3cdb89">2.1.1. Touch Gestures</a></li>
-<li><a href="#org6239da7">2.1.2. Virtual Keyboard</a></li>
-<li><a href="#org3fe2e3e">2.1.3. External</a></li>
+<li><a href="#org79a3c21">2.1.1. Touch Gestures</a></li>
+<li><a href="#org546add6">2.1.2. Virtual Keyboard</a></li>
+<li><a href="#orgea48799">2.1.3. External</a></li>
 </ul>
 </li>
-<li><a href="#org7406349">2.2. Android Stack</a></li>
-<li><a href="#org53fb6b4">2.3. Android Application Components</a></li>
+<li><a href="#orgdf0518f">2.2. Android Stack</a></li>
+<li><a href="#orged55d6c">2.3. Android Application Components</a></li>
 </ul>
 </li>
-<li><a href="#org11bea04">3. How the App works</a>
+<li><a href="#org57179dd">3. How the App works</a>
 <ul>
-<li><a href="#org3e69d5e">3.1. Activity</a></li>
-<li><a href="#org46f61f3">3.2. XML Files</a>
+<li><a href="#orge667150">3.1. Activity</a></li>
+<li><a href="#orgd146b81">3.2. XML Files</a>
 <ul>
-<li><a href="#org22483f9">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
+<li><a href="#org07466af">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgda51a52">4. Basic Addition</a></li>
-<li><a href="#orgaf40124">5. <span class="todo TODO">TODO</span> Making UI using Java</a>
+<li><a href="#org8e8dcc1">4. Basic Addition</a></li>
+<li><a href="#orgf48d5e1">5. <span class="todo TODO">TODO</span> Making UI using Java</a>
 <ul>
-<li><a href="#org23b7ff5">5.1. Creating a View using Java</a></li>
-<li><a href="#orgbf2f569">5.2. Creating a Layout using Java</a></li>
+<li><a href="#org20b0b2d">5.1. Creating a View using Java</a></li>
+<li><a href="#org74c5811">5.2. Creating a Layout using Java</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3723de4" class="outline-2">
-<h2 id="org3723de4"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-orgbe98fbe" class="outline-2">
+<h2 id="orgbe98fbe"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>These notes don&rsquo;t include Android Studio tutorials as:
@@ -508,16 +634,16 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org8891593" class="outline-2">
-<h2 id="org8891593"><span class="section-number-2">2.</span> Introduction to Android</h2>
+<div id="outline-container-org3000d5e" class="outline-2">
+<h2 id="org3000d5e"><span class="section-number-2">2.</span> Introduction to Android</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge2b2f9a" class="outline-3">
-<h3 id="orge2b2f9a"><span class="section-number-3">2.1.</span> User Interaction</h3>
+<div id="outline-container-org7f90d8f" class="outline-3">
+<h3 id="org7f90d8f"><span class="section-number-3">2.1.</span> User Interaction</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orga3cdb89" class="outline-4">
-<h4 id="orga3cdb89"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
+<div id="outline-container-org79a3c21" class="outline-4">
+<h4 id="org79a3c21"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Swiping</li>
@@ -526,8 +652,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org6239da7" class="outline-4">
-<h4 id="org6239da7"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
+<div id="outline-container-org546add6" class="outline-4">
+<h4 id="org546add6"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Characters</li>
@@ -536,8 +662,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org3fe2e3e" class="outline-4">
-<h4 id="org3fe2e3e"><span class="section-number-4">2.1.3.</span> External</h4>
+<div id="outline-container-orgea48799" class="outline-4">
+<h4 id="orgea48799"><span class="section-number-4">2.1.3.</span> External</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Bluetooth</li>
@@ -547,8 +673,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </div>
 </div>
 </div>
-<div id="outline-container-org7406349" class="outline-3">
-<h3 id="org7406349"><span class="section-number-3">2.2.</span> Android Stack</h3>
+<div id="outline-container-orgdf0518f" class="outline-3">
+<h3 id="orgdf0518f"><span class="section-number-3">2.2.</span> Android Stack</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -595,8 +721,8 @@ different parts of an app.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org53fb6b4" class="outline-3">
-<h3 id="org53fb6b4"><span class="section-number-3">2.3.</span> Android Application Components</h3>
+<div id="outline-container-orged55d6c" class="outline-3">
+<h3 id="orged55d6c"><span class="section-number-3">2.3.</span> Android Application Components</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -642,12 +768,12 @@ different parts of an app.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org11bea04" class="outline-2">
-<h2 id="org11bea04"><span class="section-number-2">3.</span> How the App works</h2>
+<div id="outline-container-org57179dd" class="outline-2">
+<h2 id="org57179dd"><span class="section-number-2">3.</span> How the App works</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3e69d5e" class="outline-3">
-<h3 id="org3e69d5e"><span class="section-number-3">3.1.</span> Activity</h3>
+<div id="outline-container-orge667150" class="outline-3">
+<h3 id="orge667150"><span class="section-number-3">3.1.</span> Activity</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>A Java Class that serves as a controller for a specific screen, is called an
@@ -662,8 +788,8 @@ extends <code>FragmentActivity</code> which extends <code>ComponentActivity</cod
 </ul>
 </div>
 </div>
-<div id="outline-container-org46f61f3" class="outline-3">
-<h3 id="org46f61f3"><span class="section-number-3">3.2.</span> XML Files</h3>
+<div id="outline-container-orgd146b81" class="outline-3">
+<h3 id="orgd146b81"><span class="section-number-3">3.2.</span> XML Files</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>All of the components of the UI of a particular screen is created using an XML
@@ -675,8 +801,8 @@ text input), <code>RadioButton</code>, <code>Switch</code>, <code>SeekBar</code>
 as <code>R.id.nameOfID</code>, where <code>R</code> is a <code>final class</code> created by Android at build time.</li>
 </ul>
 </div>
-<div id="outline-container-org22483f9" class="outline-4">
-<h4 id="org22483f9"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
+<div id="outline-container-org07466af" class="outline-4">
+<h4 id="org07466af"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties.
@@ -698,7 +824,7 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org2c7a22e"></a><code>layout_width</code> or <code>layout_height</code><br />
+<li><a id="orge5735d8"></a><code>layout_width</code> or <code>layout_height</code><br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -747,8 +873,8 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 </div>
-<div id="outline-container-orgda51a52" class="outline-2">
-<h2 id="orgda51a52"><span class="section-number-2">4.</span> Basic Addition</h2>
+<div id="outline-container-org8e8dcc1" class="outline-2">
+<h2 id="org8e8dcc1"><span class="section-number-2">4.</span> Basic Addition</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This code follows from <a href="https://www.youtube.com/watch?v=4hEsnJPoP4s">this video</a>.</li>
@@ -786,20 +912,20 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf40124" class="outline-2">
-<h2 id="orgaf40124"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Making UI using Java</h2>
+<div id="outline-container-orgf48d5e1" class="outline-2">
+<h2 id="orgf48d5e1"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Making UI using Java</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org23b7ff5" class="outline-3">
-<h3 id="org23b7ff5"><span class="section-number-3">5.1.</span> Creating a View using Java</h3>
+<div id="outline-container-org20b0b2d" class="outline-3">
+<h3 id="org20b0b2d"><span class="section-number-3">5.1.</span> Creating a View using Java</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 (yet to do)
 </p>
 </div>
 </div>
-<div id="outline-container-orgbf2f569" class="outline-3">
-<h3 id="orgbf2f569"><span class="section-number-3">5.2.</span> Creating a Layout using Java</h3>
+<div id="outline-container-org74c5811" class="outline-3">
+<h3 id="org74c5811"><span class="section-number-3">5.2.</span> Creating a Layout using Java</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 (yet to do)

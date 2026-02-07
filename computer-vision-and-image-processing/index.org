@@ -1,0 +1,717 @@
+#+title: Computer Vision and Image Processing
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+** What is Computer Vision
+- Computer Vision is a field of computer science, that helps computers
+  understand and identify objects and people in images and videos.
+- It's a type of AI that automates tasks that mimic human capabilities (here,
+  vision).
+- The object of computer vision is to make computers see and interpret the world
+  like humans and possibly even better than humans.
+  
+** What is Machine Vision
+- It's a branch of engineering that uses computer vision in industrial and
+  practical applications.
+- Machine Vision systems are designed to perform specific tasks like counting
+  objects or inspecting for defects.
+- Machine Vision is often used in controlled environments, and is more likely to
+  be used for fast decisions. Eg. Currency Counting Machines.
+- These systems are often rule-based, high-speed and very precise.
+
+** Machive Vision or Computer Vision
+- Robot Guidance in Manufacturing *- Machine Vision*
+- Automated Quality Control *- Machine Vision*
+- Inventory Tracking *- Machine Vision*
+- Facial Recognition *- Computer Vision*
+- Self-Driving Cars  *- Computer Vision*
+- Medical Imaging / X-Ray analysis  *- Computer Vision*
+
+** What is Cognitive Vision
+- It can refer to CV systems that can adapt to changes in a visual environment,
+  anticipate events and pursue goals.
+- It can also refer to cognitive processes involved in visual perceptions like
+  attention, memory and pattern recognition.
+- It simulates human-like understanding and reasoning about visual information
+  to achieve context-aware intelligent decision making.
+- It mainly refers to cognitive processes involved in visual perception like
+  attention, memory and pattern recognition.
+
+** Computer Vision or Cognitive Vision
+  
+- Detecting a Pedestrian Crossing the road *- Computer Vision*
+- Reasons whether a Pedastrian is running in emergency, walking casually or
+  looking at their phone, and adjust the driving response accordingly. *- Cognitive Vision*
+- Detecting a person leaving a bag unattended. *- Computer Vision*
+- Count people in specific areas to detect crowd density or movement patterns. *- Computer Vision*
+- Determine if the person leaving the bag is suspicious based on contextual
+  reasoning. *- Cognitive Vision*
+- Enhancing an Image - *Computer Vision*
+
+  
+** Why Computer Vision is Challenging
+
+*** Many-to-one Mapping
+- A picture is a 2D representation of a 3D world.
+- There's no way to retrieve the information lost during this process.
+
+
+*** Computationally Expensive
+- A $1920 \times 1080$ image has $1920 \times 1080 \times 3$ values (which is 6220800).
+- Image processing requires a lot of operations on each of these values.
+  
+
+*** We don't understand the recognition problem
+- We don't understand how human beings recognize.
+- We lack a proper mathematical model or a universally correct representation.
+
+* Digital Image Processing
+
+** What is a Digital Image?
+- It's a 2D array of numbers (each called a pixel).
+
+** Operations on Images
+
+*** Computer Vision
+- Understanding Images
+
+*** Image Processing
+- Manipulating Images
+
+*** Computer Graphics
+- Generating Images
+
+** Electromagnetic Spectrum
+- The human eye can see light with wavelengths from around 400 nm to 750 nm.
+
+** Abstract Image
+- An image can be represented by an image function $f(x,y)$, where $x$ and $y$
+  represent the pixel location.
+- $f$ could mean anything like intensity, etc.
+
+** Factors in Image Formation
+
+*** Geometry
+- It's the mathematical study of shapes, sizes and spacial images.
+- Relationship between points in the 3D world and their images.
+- This is a challenge because cameras see the real 3D world, as a 2D image. It
+  has to pick up 3-Dimensional features from the 2D image it has captured.
+
+*** Radiometry
+- Total amount of light radiating off a surface.
+- The term used here is "radiance".
+
+**** Radiant Power/Flux ( \phi )
+- Radiant Flux is the total *optical power* emitted from a source.
+- It's measured in *watts*.
+
+**** Radient Intensity (I)
+- Radiant Power \phi per unit solid angle \Omega from the source.
+- Measured in \(\frac{W}{sr} \)
+
+**** Irradiance (E)
+- Radiant power \phi incident on a surface area A.
+- Expressed as \(\frac{\Omega}{A}\)
+- It's measured in \(\frac{W}{m^{2}} \)
+
+**** Radiance (L)
+- Radiant flux/power emitted or reflected from a surface A, per unit solid angle
+  \Omega.
+\[ L = \frac{d\phi}{\cos(\theta) dA d\Omega} \] Radiance is power $(d\phi)$ per unit area
+$(dA\cos(\theta))$, per unit direction $(d\Omega)$.
+- Radiance effectively tells you how bright a surface looks in a specific
+  direction.
+
+
+**** Summary
+
+| Quantity          | Symbol | Units            |
+|-------------------+--------+------------------|
+| Radiant Power     | \phi      | $W$              |
+| Radiant Intensity | I      | $\frac{W}{sr}$   |
+| Irradiance        | E      | $\frac{W}{m^{2}}$   |
+| Radiance          | L      | $\frac{W}{m^{2}Sr}$ |
+
+*** Photometry
+- Amount of *visible* light radiating off a surface.
+- The term used here is "luminance".
+
+**** Luminance Flux \phi
+- Total *visible power* emitted from a source.
+- It's measured in *lumens* (the light-equivalent of energy).
+
+**** Luminance Intensity (I)
+- Total *visible power* per unit solid angle \Omega from the source.
+- Measured in \(\frac{lm}{Sr} \)
+
+**** Illuminance (E)
+- Luminance power \phi incident on a surface area A.
+- Expressed as \(\frac{\Omega}{A}\)
+- It's measured in \(\frac{lm}{m^{2}} \)
+
+**** Luminance (L)
+- Luminance flux/power emitted or reflected from a surface A, per unit solid angle
+  \Omega.
+\[ L = \frac{d\phi}{\cos(\theta) dA d\Omega}  \]
+
+
+**** Summary
+
+| Quantity            | Symbol | Units             |
+|---------------------+--------+-------------------|
+| Luminance Power     | \phi      | $lm$              |
+| Luminance Intensity | I      | $\frac{lm}{sr}$   |
+| Illuminance         | E      | $\frac{lm}{m^{2}}$   |
+| Luminance           | L      | $\frac{lm}{m^{2}Sr}$ |
+
+
+**** For example, a point source emits a total radiant power of \phi = 12W uniformly in all directions. Find its radiant intensity.
+- Total solid angle for a sphere
+  $$\Omega = 4 \pi \text{sr}$$
+- Radiant intensity
+  \[ l = \frac{\phi}{4\pi} \]
+  - $l = \frac{\phi}{4\pi}$
+- Emission into a Hemisphere
+  - Solid Angle \Omega = 2 \pi sr
+  - Radiant intensity
+    \[ l = \frac{\phi}{2\pi} \]
+
+**** A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.
+- Luminance flux \(L = 900 lm  \)
+- Illuminance = \(\frac{\Omega}{A}\) = $\frac{900}{1.5 \times 1.5}$ = $\frac{900}{2.25}$ = $400 \frac{lm}{m^{2}}$
+
+
+**** A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.
+
+- $\text{Luminance Intensity} = 20\frac{lm}{Sr}$
+- $\text{Area} = 0.2 \times 0.1 = 0.02 m^{2}$
+- $\text{Luminance} = \frac{\text{Luminance Intensity}}{\text{Area} \times \cos(\theta)} = \frac{20}{0.02 \times \cos(0)} = 1000 \frac{W}{Sr.m^{2}}$
+
+
+*** Digitization
+
+* How Image Processing Typically Works
+- This is the sequence.
+
+** Optics
+- First light falls on the object.
+- The intensity of light source is inversely proportional to the distance
+  between the source and the reflecting surface.
+  $$I \propto \frac{1}{d}$$
+
+** Aperture
+- This adjusts how much light enters the camera.
+
+** Shutter
+- This adjusts how long the light can enter the camera.
+
+** Sensor (CCD/ CMOS)
+- The image capturing system (Charged-Couple Device or Complementary
+  Metal-Oxide Semiconductor) captures an image which is in the form of analog
+  electrical signals.
+$$ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}$$
+
+*** Direction by Angles
+- E(\theta, \phi) = Irradiance due to source in direction (\theta_{i}, \phi{i})
+- L(\theta, \phi) = Radiance of surface in direction (\theta_{r}, \phi_{r})
+- *Bidirectional Reflectance Distribution Function* (BRDF) is the ratio of
+  reflected radiance to incoming irradiance.
+
+  \[ BRDF = f(\theta_{i}, \phi_{i}, \theta_{r}, \phi_{r}) = \frac{L(\theta_{i}, \phi_{i})}{E(\theta_{r}, \phi_{r})} \]
+- *BRDF* ($f$) gives you directional distribution while *albedo* (\rho) tells you how
+  much incoming light a surface reflects, relative to how much it recieves.
+- $f = \frac{\rho}{\pi}$
+
+*** Photon Detection
+\[ E = h \times f \]
+or
+\[ E = h \times \frac{c}{\lambda} \]
+where:
+- $E$ is the energy of a photon
+- $h$ is $6.626 \times 10^{-34}J.s$ (Plank's Constant)
+- $f$ is the frequency of the electromagnetic radiation.
+- $c$ is $3 \times 10^{8} ms^{-1$ (speed of light)
+- $\lambda$ is the wavelength
+
+*** Photon Energy to Radiant Power
+$$\phi = NE_{photon}$$
+where:
+- $\phi$ is the radiant power
+- $N$ is the number of photons per second
+- $E_{photon}$ is the energy of a photon
+  
+*** Radiant Power to Irradiance
+- 
+
+
+*** Irradiance to Radiance
+- Irradiance is converted to radiance with the help of BRDF.
+
+*** Radiance to Intensity
+
+*** Intensity to Photon Count
+
+*** Photon Count to Electron Count
+
+*** Electron Count to Voltage
+
+*** Voltage to Analog Sensor Signal
+
+** Gain (ISO)
+- This amplifies the signal to combat low-light.
+- ISO stands for *International Organization for Standardization*.
+- An ISO number is something that represents sensitivity to light as a numerical
+  value.
+  \[ \text{ISO} \propto \text{Higher Sensitivity} \]
+
+  Higher sensitivity to light, basically means it can capture light better.
+
+** A/D
+
+** Bayers Filter
+- The camera sensor is covered with a filter array that separates light into
+  red, green and blue. Each pixel will estimate only one color. A photo-diode
+  can capture only one color at a time.
+- The bayers filter arranges color filters in a repeating $2 \times 2$ matrix:
+  $$ \begin{bmatrix} R & G\\ G & B \end{bmatrix}$$
+  There is more green because human eyes are more sensitive to green (because
+  it's in the middle of the spectrum).
+- For example, a $3 \times 3$ matrix with bayers filter applied:
+  $$ \begin{bmatrix} R & G & R\\ G & B & G\\ R & G & R\end{bmatrix}$$
+- The concept is that from the first row of bayers filter, you
+  remove one among red and blue, and then from the second row you remove the
+  other. Green stays in both the rows.
+*** Types of Bayer Filters
+- There are different types of bayers filter (most commonly RGGB aka R-G-R
+  pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.
+- If the matrix has G on the top left corner, it's a GRBG pattern. 
+- Likewise if the matrix has R on the top left corner, it's RGGB pattern.
+  
+*** Extracting RGB matrices from Bayer Pattern
+In our example, we'll use a sample GRBG matrix.
+
+#+begin_src python :results output raw :wrap src :exports both
+
+GRBG = [
+    [100, 180, 110],   # G R G
+    [60, 120, 65],     # B G B
+    [105, 170, 115]    # G R G
+]
+R = [[0 for _ in range(len(GRBG[i]))] for i in range(len(GRBG))]
+G = [[0 for _ in range(len(GRBG[i]))] for i in range(len(GRBG))]
+B = [[0 for _ in range(len(GRBG[i]))] for i in range(len(GRBG))]
+
+for i in range(len(GRBG)):
+    for j in range(len(GRBG[i])):
+        if i%2==0:
+            if j%2!=0:
+                R[i][j] = GRBG[i][j]
+            else:
+                G[i][j] = GRBG[i][j]
+        else:
+            if j%2!=0:
+                G[i][j] = GRBG[i][j]
+            else:
+                B[i][j] = GRBG[i][j]
+                
+
+print(R)
+print(G)
+print(B)
+    
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+[[0, 180, 0], [0, 0, 0], [0, 170, 0]]
+[[100, 0, 110], [0, 120, 0], [105, 0, 115]]
+[[0, 0, 0], [60, 0, 65], [0, 0, 0]]
+#+end_src
+
+A more Pythonic way would be:
+
+#+begin_src python :results output raw :wrap src :exports both
+GRBG = [
+    [100, 180, 110],   # G R G
+    [60, 120, 65],     # B G B
+    [105, 170, 115]    # G R G
+]
+
+R = [
+    [GRBG[x][i] if i%2!=0 else 0 for i in range(len(GRBG[x]))]
+    if x%2==0 else [0 for i in range(len(GRBG))]
+    for x in range(len(GRBG))
+]
+
+
+G = [
+    [GRBG[x][i] if i%2==0 else 0 for i in range(len(GRBG[x]))] if x%2==0
+    else [GRBG[x][i] if i%2!=0 else 0 for i in range(len(GRBG[x]))]
+    for x in range(len(GRBG))
+]
+
+B = [
+    [0 for i in range(len(GRBG[x]))] if x%2==0
+    else [GRBG[x][i] if i%2==0 else 0 for i in range(len(GRBG[x]))]
+    for x in range(len(GRBG))
+]
+
+print(R)
+print(G)
+print(B)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+[[0, 180, 0], [0, 0, 0], [0, 170, 0]]
+[[100, 0, 110], [0, 120, 0], [105, 0, 115]]
+[[0, 0, 0], [60, 0, 65], [0, 0, 0]]
+#+end_src
+
+
+** Demosaicing / Debayering
+- This is an algorithm to generate the full RGB image, from a Bayers Image (each
+  pixel has only one color component as of now).
+- Now since we've lost the other 2 colors, for each pixel the missing
+  information is estimated by looking at that information in it's neighbouring
+  pixels.
+- This is called interpolation.
+- For instance, a red pixels gets estimated green and blue values from its
+  neighbouring green and blue pixels. There are other ways for this
+  interpolation though.
+
+*** Nearest Neighbour Interpolation
+- Here, we copy the missing values from the neighbouring pixel of the same
+  color.
+- For example, say we have a $2 \times 2$ Bayer pattern:
+  $$ \begin{bmatrix} G=120 & R=200\\ B=100 & G=130\end{bmatrix}$$
+- The full image would be:
+  $$ \begin{bmatrix} (200, 120, 100) & (200, 120, 100)\\ (200, 120, 100) & (200, 130, 100)\end{bmatrix}$$
+- As you can tell, in the name of picking neighbour, you go row-by-row and pick
+  the first occurence of the color.
+- The advantage is that this is fast and simple. 
+- The issue is that it produces blocky and low-quality images.
+- Here's how the code would look like:
+  #+begin_src python :results output raw :wrap src :exports both
+def main():
+    GRBG = [
+        [100, 180, 110],   # G R G
+        [60, 120, 65],     # B G B
+        [105, 170, 115]    # G R G
+    ]
+    RGB = [[[0,0,0] for i in range(len(GRBG[j]))] for j in range(len(GRBG))]
+    for i in range(len(GRBG)):
+        for j in range(len(GRBG[i])):
+            if i%2==0:
+                if j%2!=0:
+                    RGB[i][j][0] = GRBG[i][j]
+                    RGB[i][j][1] = GRBG[i-1][j] 
+                    RGB[i][j][2] = GRBG[i-1][j-1] if j>0 else GRGB[i-1][j+1] 
+                else:
+                    RGB[i][j][1] = GRBG[i][j]
+                    RGB[i][j][2] = GRBG[i-1][j] if i>0 else GRBG[i+1][j]
+                    RGB[i][j][0] = GRBG[i][j-1] if j>0 else GRBG[i][j+1]
+            else:
+                if j%2!=0:
+                    RGB[i][j][1] = GRBG[i][j]
+                    RGB[i][j][2] = GRBG[i][j-1] if j>0 else GRBG[i][j]
+                    RGB[i][j][0] = GRBG[i-1][j] if i>0 else GRBG[i+1][j]
+                else:
+                    RGB[i][j][2] = GRBG[i][j]
+                    RGB[i][j][1] = GRBG[i-1][j] if i>0 else GRBG[i+1][j]
+                    RGB[i][j][0] = GRBG[i-1][j-1] if j>0 else GRBG[i-1][j+1]
+    for row in RGB:
+        print(row)
+
+main()
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [[180, 100, 60], [180, 170, 105], [180, 110, 65]]
+  [[180, 100, 60], [180, 120, 60], [180, 110, 65]]
+  [[170, 105, 60], [170, 120, 60], [170, 115, 65]]
+  #+end_src
+  
+
+*** Bilinear Interpolation
+- You consider all of the neighbours, and take the average. 
+- The weights depend on the distance of each neighbour.
+- For example, consider this $3 \times 3$ Bayers image.
+  $$ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}$$
+  For pixel (1,1):
+  - $R = \frac{(180+170)}{2} = 175$
+  - $G = 120$ (Given)
+  - $B = \frac{(60+65)}{2} = 62.5$
+- Whlie this is smoother than nearest neighbour, it still does produce blurry
+  images.
+
+
+*** Gradient Based Interpolation
+- Instead of taking average of all neighbours, you take the average along one
+  direction (horizontal or vertical).
+- You pick the direction which has the smaller gradient of that color.
+- For example, consider this $3 \times 3$ Bayers image.
+  $$ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}$$
+- You do gradient interpolation for only green.
+  
+
+** Sharpen
+
+*** Unsharp Masking 
+- Blur the image using a Gaussian filter
+- Subtract the blurred image from the original to create a mask
+- Add the mask back to the original image.
+
+  
+$$I_{sharpened} = I_{original} + k \cdot (I_{original} - I_{blurred})$$
+where $k$ is the sharpening factor.
+
+
+** White Balance
+- Different light sources create different color casts on the sensor output.
+- White light sources (neutral color temperature) show accurate colors, while
+  warmer colors create a reddish tone and cooler colors create a blueish tone.
+
+
+** Gamma/Curve Correction
+- This is used to adjusts the brightness and darkness of images to match how
+  humans see.
+- This is a nonlinear method used in luminance encoding and decoding, to appear
+  realistic.
+- Pure brightness adjustments change the brightness value of every single pixel,
+  while gamma correction affects only the mid-tone colors (pure black and pure
+  white is unaffected).
+- *Higher* the value of gamma, *darker* the midtones appear to be.
+- The value of gamma is used as:
+  \[ \text{New Value} = \text{Input Pixel Intensity}^{\gamma} \]
+
+*** Non-Linear Device Response
+- All device follow a power-law response:
+  $$L = V^{\gamma}$$
+
+*** How Gamma Correction Works
+**** Inverse Gamma (Gamma Encoding)
+- Before transmission, we apply inverse value of gamma:
+  $$V = L^{\frac{1}{\gamma}}$$
+  
+**** Gamma Decoding
+- When the image is displayed, we substitute $V = L^{\frac{1}{\gamma}}$, in the above
+  equation.
+  $$L = (L^{\frac{1}{\gamma}})^{\gamma}$$
+
+** Compress
+*** ~.jpeg~
+- JPEG stands for *Joint Photographic Experts Group*, and this is a *lossy decomposition*.
+
+*** YCbCr
+- Chrominance reduction is the process of reducing the amount of color in the
+  image.
+- We basically concert RBG into YCbCr, and here we don't have to store a color
+  value for some pixels.
+- This works because the human brain perceives brightness better than color, so
+  we keep brightness untouched, but downsample color values.
+- In YCbCr format, each pixel will have a tuple ~(Y, Cb, Cr)~ instead of ~(R, G,
+  B)~.
+  - $Y = 0.299R + 0.587G + 0.114B$ (brightness, i.e. the grayscale information)
+  - $Cb = 128 - 0.1687R - 0.3313G + 0.5B$ (chrominance for blue-difference)
+  - $Cr = 128 + 0.5R - 0.4187G - 0.0813B$ (chrominance for red-difference)
+- Previously you'd have a matrix for R, one for G and one for B. All of these
+  matrices are of the same size.
+- Now, we'd have a matrix for Y, one for Cb and one for Cr, but Cb and Cr are
+  smaller in size.
+
+*** Quantization
+- This is later *sampled spacially* into pixels.
+- The analog intensity values are converted into digital discrete values with
+  the help of an Analog-to-Digital Converter (ADC), so that it can be digitally
+  manipulated. This process is called *quantization*.
+
+
+
+* Camera Calibration
+- It's the process of estimating camera parameters.
+
+** Fundamental Problem
+A real camera is not an ideal pinhole camera. The principle is same but the
+difference is that, a real camera has:
+- Unknown focal length
+
+** Essential Parameters
+
+*** Intrinsics
+- These are the parameters inside the camera.
+- All of the intrinsics are defined by the *camera matrix* ($K$).
+  
+  $$K =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix}$$
+
+  where
+  - $(f_{x},f_{y})$ are the coordinates of the focal point of the lens.
+  - $(c_{x},c_{y})$ are the coordinates of optic center.
+- The parameters between camera frame and image frame are intrinsics.
+- Intrinsic parameters are calibrated only once, and that is during the making
+  of the camera. In some cameras, the intrinsic parameters are stored in the
+  firmware itself, while in others, the user will have to explicitly calibrate.
+- The 3 intrinsic parameters are:
+  - *Focal Length*
+  - *Optic Center*
+  - *Radial Distortion*
+
+**** Radial Distortion
+
+
+**** Tangential Distortion
+- This occurs when the lens and the image plan are not parallel.
+  
+  
+*** Extrinsics
+- These define camera position (translation) and orientation (Rotation matrix).
+- The parameters between camera frame and world frame.
+- Extrinsic parameters are constantly calibrated because every image needs a
+  separate calibration, because the camera could be at different angles.
+- All of the extrinsic parameters are given by the *homogeneous transformation
+  matrix*.
+
+*** How they all come together
+
+
+ \[ \begin{bmatrix} u \\ v\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} \]
+
+* Segmentation
+- Image segmentation is the task of finding group of pixels that "go together".
+
+** Simplest form of Segmentation: Binary Segmentation
+- Having a fixed threshold for all pixels.
+- Say, 0-125 is black and 125-255 is white.
+- This way though, you're losing a lot of information.
+
+** Gestalt Theory of Perception
+#+begin_quote
+The mind perceives objects as unified wholes (Gestalts) rather than just collections of parts
+#+end_quote
+
+*** Proximity Principles
+Here, we perceive 4 objects.
+#+begin_src txt
+obj    obj     obj       obj
+#+end_src
+
+But here we perceive two objects, because we group based on distance.
+#+begin_src txt
+obj obj      obj obj
+#+end_src
+
+*** Similarity
+Here, we perceive 4 objects.
+#+begin_src txt
+obj1    obj2     obj3      obj4
+#+end_src
+
+But here we perceive two objects, because we group based on how similar they
+are.
+#+begin_src txt
+obj1    obj1     obj2      obj2
+#+end_src
+
+
+Here also, it's two objects, but it's because of proximity principles. If it was
+similarity principle, you'd perceive them as 3 objects.
+#+begin_src txt
+obj1 obj2      obj2 obj3
+#+end_src
+It's a human tendancy to pick proximity over similarity.
+
+*** Common Fate
+- You group based on what action the objects are performing.
+- For example, three moving objects would be grouped together, and all the other
+  stationary objects would be grouped together too.
+
+*** Common Region / Connectivity
+- If you draw a boundary around some objects, you perceive them as one group.
+
+*** Continuity Principle
+- Our eyes naturally folow smooth paths, even if the path are constituted by
+  separate parts.
+- This way, these separate entities are perceived to be a part of one big curve.
+
+*** Symmetry Principle
+- Two symmetrical objects are perceived to be a group.
+
+*** Illusory Contours - Illusions' grouping
+- Our brains fill in missing parts of an image.
+
+** Two approaches towards Segmentation
+
+*** Top Down
+- Here, you already have prior knowledge about objects and you use this to
+  perform segmentation.
+- To provide the prior knowledge, a human being must be involved.
+- Moreover, it's computationally more expensive.
+
+**** Active Contours - Snake
+- You segment using *curves*, not pixels.
+- It's like a rubber band of arbitrary shape, that goes close to the target
+  contour.
+- You use energy to minimize:
+  $$E = E_{Internal} + E_{Image} + E_{External}$$
+  - Internal Energy \rightarrow Smoothness
+  - Image energy \rightarrow attracts curve to edges
+  - External forces \rightarrow User constraints
+- You use this when the object shape is simple, and the edges are strong and
+  well defined.
+- Active contours are also useful for deformable boundaries, like the boundaries
+  of your lips when you speak, or a car based on the angle you're viewing it in.
+  
+
+**** Intelligent Scissors
+- The user has to click some points around the boundaries, using which the
+  algorithm finds a curve that follows strong boundaries.
+
+*** Bottom Up
+- Uses only image evidence, where you group pixels based on similarity.
+- This is data-driven.
+- In top-down, you first have information ready, then you go for the boundaries.
+- In bottom-up, you first go for the boundaries, then you try to gather
+  information from this.
+
+**** Clustering Based Segmentation
+- The disadvantages are that a cluster doesn't necessarily mean an object.
+
+***** K-Means
+****** Example: ~Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]~, ~k = 2~, ~Random Centroids = [(1,1), (5, 5)]~
+
+|         | Distance from Centroid 1                | Distance from Centroid 2               | Assigned Cluster |
+|---------+-----------------------------------------+----------------------------------------+------------------|
+| $(1,1)$ | $\sqrt{(1-1)^{2} + (1-1)^{2}}$ = $0$          | $\sqrt{(1-5)^{2} + (1-5)^{2}}$ = $4\sqrt{2}$ |                1 |
+| $(1,2)$ | $\sqrt{(1-1)^{2} + (2-1)^{2}}$ = $1$          | $\sqrt{(1-5)^{2} + (2-5)^{2}}$ = $5$         |                1 |
+| $(1,2)$ | $\sqrt{(1-1)^{2} + (2-1)^{2}}$ = $1$          | $\sqrt{(1-5)^{2} + (2-5)^{2}}$ = $5$         |                1 |
+| $(2,1)$ | $\sqrt{(2-1)^{2} + (1-1)^{2}}$ = $1$          | $\sqrt{(2-5)^{2} + (1-5)^{2}}$ = $5$         |                1 |
+| $(4,4)$ | $\sqrt{(4-1)^{2} + (4-1)^{2}}$ = $3\sqrt{2}$  | $\sqrt{(4-5)^{2} + (4-5)^{2}}$ = $\sqrt{2}$  |                2 |
+| $(5,6)$ | $\sqrt{(5-1)^{2} + (6-1)^{2}}$ = $\sqrt{41}$  | $\sqrt{(5-5)^{2} + (6-5)^{2}}$ = $1$         |                2 |
+| $(7,7)$ | $\sqrt{(7-1)^{2} + (7-1)^{2}}$ = $6\sqrt{2}$  | $\sqrt{(7-5)^{2} + (7-5)^{2}}$ = $2\sqrt{2}$ |                2 |
+| $(8,9)$ | $\sqrt{(8-1)^{2} + (9-1)^{2}}$ = $\sqrt{113}$ | $\sqrt{(8-5)^{2} + (9-5)^{2}}$ = $\sqrt{17}$ |                2 |
+| $(9,8)$ | $\sqrt{(9-1)^{2} + (8-1)^{2}}$ = $\sqrt{113}$ | $\sqrt{(9-5)^{2} + (8-5)^{2}}$ = $\sqrt{17}$ |                2 |
+
+|         | Cluster 1 | Cluster 2 |
+|---------+-----------+-----------|
+|         | $(1,1)$   | $(4,4)$   |
+|         | $(1,2)$   | $(5,6)$   |
+|         | $(1,2)$   | $(7,7)$   |
+|         | $(2,1)$   | $(8,9)$   |
+|         |           | $(9,8)$   |
+| *Average* | $()$      | $()$      |
+
+Now we repeat the same procedure with the new centroids. We keep doing this till
+the average of the points is the same point as the cluster centroid.
+
+|         | Distance from Centroid 1                | Distance from Centroid 2               | Assigned Cluster |
+|---------+-----------------------------------------+----------------------------------------+------------------|
+| $(1,1)$ | $\sqrt{(1-1)^{2} + (1-1)^{2}}$ = $0$          | $\sqrt{(1-5)^{2} + (1-5)^{2}}$ = $4\sqrt{2}$ |                1 |
+
+****** Disadvantage
+- The issue is that you need to find the right value of $k$.
+- You also need to initialize the centroids with the right values.
+  
+***** Mean Shift Segmentation (Hill Climb)
+- 
