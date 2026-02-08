@@ -250,22 +250,9 @@ where:
 - $N$ is the number of photons per second
 - $E_{photon}$ is the energy of a photon
   
-*** Radiant Power to Irradiance
-- 
 
-
-*** Irradiance to Radiance
-- Irradiance is converted to radiance with the help of BRDF.
-
-*** Radiance to Intensity
-
-*** Intensity to Photon Count
-
-*** Photon Count to Electron Count
-
-*** Electron Count to Voltage
-
-*** Voltage to Analog Sensor Signal
+*** Summary of Light to Electrical Signal
+\[ \text{Photon Energy} \xrightarrow[\text{}]{\phi = NE_{photon}}  \text{Radiant power} \xrightarrow[\text{}]{E = \frac{\phi}{A}} \text{Irradiance}  \xrightarrow[\text{}]{L = \text{BRDF} \times E} \text{Radiance} \xrightarrow[\text{}]{I = L \times A \cos(\theta)}  \text{Intensity} \rightarrow \text{Sensor Signal}\]
 
 ** Gain (ISO)
 - This amplifies the signal to combat low-light.
