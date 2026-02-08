@@ -225,9 +225,12 @@ $$ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signa
   outgoing (reflected) radiance to incoming irradiance.
 
   \[ BRDF = f(\theta_{i}, \phi_{i}, \theta_{r}, \phi_{r}) = \frac{L(\theta_{r}, \phi_{r})}{E(\theta_{i}, \phi_{i})} \]
-- *BRDF* ($f$) gives you directional distribution while *albedo* (\rho) tells you how
-  much incoming light a surface reflects, relative to how much it recieves.
-- $f = \frac{\rho}{\pi}$
+- *BRDF* ($f$) gives you directional distribution while *albedo* (\rho) tells you the fraction of incoming light that gets reflected.
+  - If $\rho = 1$, all incoming light is reflected off.
+  - If $\rho = 0$, all incoming light is absorbed.
+
+- $\text{BRDF} = f = \frac{\rho}{\pi}$, so albedo $\rho$ is calculated as
+$$\rho = \text{BRDF} \times \pi$$
 
 *** Photon Detection
 \[ E = h \times f \]
