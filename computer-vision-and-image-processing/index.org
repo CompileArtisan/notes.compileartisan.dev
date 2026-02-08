@@ -19,7 +19,7 @@
   be used for fast decisions. Eg. Currency Counting Machines.
 - These systems are often rule-based, high-speed and very precise.
 
-** Machive Vision or Computer Vision
+** Machine Vision or Computer Vision
 - Robot Guidance in Manufacturing *- Machine Vision*
 - Automated Quality Control *- Machine Vision*
 - Inventory Tracking *- Machine Vision*
@@ -254,6 +254,7 @@ where:
 *** Summary of Light to Electrical Signal
 \[ \text{Photon Energy} \xrightarrow[\text{}]{\phi = NE_{photon}}  \text{Radiant power} \xrightarrow[\text{}]{E = \frac{\phi}{A}} \text{Irradiance}  \xrightarrow[\text{}]{L = \text{BRDF} \times E} \text{Radiance} \xrightarrow[\text{}]{I = L \times A \cos(\theta)}  \text{Intensity} \rightarrow \text{Sensor Signal}\]
 
+
 ** Gain (ISO)
 - This amplifies the signal to combat low-light.
 - ISO stands for *International Organization for Standardization*.
@@ -266,6 +267,8 @@ where:
 ** A/D
 
 ** Bayers Filter
+- Instead of having 3 sensors (each for one color), Kodak found a way to use one
+  sensor for all 3 colors.
 - The camera sensor is covered with a filter array that separates light into
   red, green and blue. Each pixel will estimate only one color. A photo-diode
   can capture only one color at a time.
@@ -449,9 +452,19 @@ main()
 - Instead of taking average of all neighbours, you take the average along one
   direction (horizontal or vertical).
 - You pick the direction which has the smaller gradient of that color.
+- If both directions have the same gradient, just do bilinear interpolation
+  (take average in both directions).
 - For example, consider this $3 \times 3$ Bayers image.
   $$ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}$$
-- You do gradient interpolation for only green.
+  For pixel (1,1):
+  - Horizontal Gradient = 140−160 = 20,
+  - Vertical Gradient = 150−130 =20
+  - Since the gradients are equal, take the average of the vertical and horizontal.
+neighbors:
+G=140+160+150+130/ 4=145
+- You do gradient interpolation for only green. For red and blue, you take the
+  average of the neighbors along diagonals, or take the average of the
+  neighbors along the same vertical and horizontal line.
   
 
 ** Sharpen
@@ -473,30 +486,36 @@ where $k$ is the sharpening factor.
 
 
 ** Gamma/Curve Correction
-- This is used to adjusts the brightness and darkness of images to match how
-  humans see.
-- This is a nonlinear method used in luminance encoding and decoding, to appear
-  realistic.
+- Ideally, the graph between light signals input to a monitor, and the output
+  light intensity should be linear.
+- But in real world, this graph is exponential in case of a monitor.
+ | Ideal Case                                                                                               | What a Monitor Perceives                                                                             |
+ |----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------|
+ | file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/expectation_gamma.png | file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/reality_gamma.png |
+- So if we send linear signals to the monitor, it'll mess up the mid-tone colors
+  and intensities (non-linear output).
+- Gamma correction is where we send the monitor, the inverse of this non-linear
+  output.
+  file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/gamma_correction.png
 - Pure brightness adjustments change the brightness value of every single pixel,
   while gamma correction affects only the mid-tone colors (pure black and pure
   white is unaffected).
-- *Higher* the value of gamma, *darker* the midtones appear to be.
-- The value of gamma is used as:
-  \[ \text{New Value} = \text{Input Pixel Intensity}^{\gamma} \]
-
-*** Non-Linear Device Response
 - All device follow a power-law response:
   $$L = V^{\gamma}$$
+  - $V$ is input signal voltage or pixel value
+  - $L$ is the luminance
 
-*** How Gamma Correction Works
-**** Inverse Gamma (Gamma Encoding)
+- *Higher* the value of gamma, *darker* the midtones appear to be.
+
+*** Inverse Gamma (Gamma Encoding)
 - Before transmission, we apply inverse value of gamma:
   $$V = L^{\frac{1}{\gamma}}$$
   
-**** Gamma Decoding
+*** Gamma Decoding
 - When the image is displayed, we substitute $V = L^{\frac{1}{\gamma}}$, in the above
-  equation.
-  $$L = (L^{\frac{1}{\gamma}})^{\gamma}$$
+  equation. $$L = (L^{\frac{1}{\gamma}})^{\gamma}$$ So the monitor did the ~messing up mid-tones~
+  function on this /inverse/ signal we created, and hence it ends up displaying
+  the original luminance.
 
 ** Compress
 *** ~.jpeg~
