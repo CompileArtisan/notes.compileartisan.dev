@@ -195,9 +195,10 @@ $(dA\cos(\theta))$, per unit direction $(d\Omega)$.
 
 ** Optics
 - First light falls on the object.
-- The intensity of light source is inversely proportional to the distance
-  between the source and the reflecting surface.
-  $$I \propto \frac{1}{d}$$
+- The intensity of light source is inversely proportional to the square of the
+  distance between the source and the reflecting surface. $$I \propto \frac{1}{d^{2}}$$
+  This is called the *intensity square law*. This intensity is not luminance or
+  radiance intensity. It's for the rest of the quantities.
 
 ** Aperture
 - This adjusts how much light enters the camera.
@@ -212,12 +213,18 @@ $(dA\cos(\theta))$, per unit direction $(d\Omega)$.
 $$ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}$$
 
 *** Direction by Angles
-- E(\theta, \phi) = Irradiance due to source in direction (\theta_{i}, \phi{i})
-- L(\theta, \phi) = Radiance of surface in direction (\theta_{r}, \phi_{r})
+- The angle of a ray in a 3D plane is represented by two angles: 
+  - $\theta$ is the angle made by the ray with $Z$ axis. It's called the *zenith angle*.
+  - $\phi$ is the angle made by the ray's projection in $XY$ plane with $X$
+    axis. It's called the *azimuth angle*.
+- E(\theta, \phi) = Irradiance due to source in direction (\theta_{i}, \phi_{i}). $i$ denotes that
+  it's for the incoming light.
+- L(\theta, \phi) = Radiance of surface in direction (\theta_{r}, \phi_{r}). $r$ denotes that it's for
+  the reflected light.
 - *Bidirectional Reflectance Distribution Function* (BRDF) is the ratio of
-  reflected radiance to incoming irradiance.
+  outgoing (reflected) radiance to incoming irradiance.
 
-  \[ BRDF = f(\theta_{i}, \phi_{i}, \theta_{r}, \phi_{r}) = \frac{L(\theta_{i}, \phi_{i})}{E(\theta_{r}, \phi_{r})} \]
+  \[ BRDF = f(\theta_{i}, \phi_{i}, \theta_{r}, \phi_{r}) = \frac{L(\theta_{r}, \phi_{r})}{E(\theta_{i}, \phi_{i})} \]
 - *BRDF* ($f$) gives you directional distribution while *albedo* (\rho) tells you how
   much incoming light a surface reflects, relative to how much it recieves.
 - $f = \frac{\rho}{\pi}$
@@ -230,7 +237,7 @@ where:
 - $E$ is the energy of a photon
 - $h$ is $6.626 \times 10^{-34}J.s$ (Plank's Constant)
 - $f$ is the frequency of the electromagnetic radiation.
-- $c$ is $3 \times 10^{8} ms^{-1$ (speed of light)
+- $c$ is $3 \times 10^{8} ms^{-1}$ (speed of light)
 - $\lambda$ is the wavelength
 
 *** Photon Energy to Radiant Power
