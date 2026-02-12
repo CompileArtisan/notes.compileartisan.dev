@@ -21,6 +21,9 @@
   processes, software.
 
 
+** Who is an intruder?
+Anyone who tries to get unauthorized access of an information system.
+
 * CIA Triad: What is Computer Security? 
 - The protection provided to an automated information system in order to attain
   the applicable objectives of preserving the *confidentiality*, *integrity* and
@@ -59,7 +62,6 @@
 ** Security Attack
 - Actions which compromise on security information.
 - It is an assualt on system security that derives from an intelligent threat.
-- The basic two types of attacks are:
 
 *** Security Threat
 - It's a potential danger that might exploit vulnerability.
@@ -70,9 +72,12 @@
 - An attacker tries to modify the content of the messages.
 - The data stream is directly modified. 
 - This is a threat for System Integrity and Availability.
-- You can't prevent an active attack. You get to know about it only after the
-  content of the messages is modified.
-- Examples include Password Tracking, Replay Attack and Viruses.
+- You can't prevent an active attack. You (the victim) get to know about it only
+  after the content of the messages is modified.
+- Here, the result is an actual damaged system. 
+- Examples include Denial of Service (make a resource unavailable to everyone by
+  spamming traffic and requests and slowing it down), Password Tracking, Replay
+  Attack and Viruses.
 
 
 **** Passive Attack
@@ -81,8 +86,17 @@
 - Here, the data stream is just monitored, not modified.
 - This is a threat for Confidentiality.
 - You can prevent and detect a passive attack. A passive attack becomes an
-  active attack when data is modified.
-- Examples include snooping, sniffing and eavesdropping.
+  active attack when data is modified. 
+- You (the victim) won't get to know if the attack happened.
+- The result is not a damaged system. 
+- Examples include snooping and sniffing. Eavesdropping is a generalized term
+  that means listening to/intercepting communication. Sniffing is a type of
+  eavesdropping.
+  
+  | Term     | Meaning                                      |
+  |----------+----------------------------------------------|
+  | Sniffing | Using software (sniffers) to capture packets |
+  | Snooping | Observing screens, keystrokes, or files      |
 
 ** Security Service
 - It is intended to counter security attacks by using security mechanisms.
@@ -193,6 +207,7 @@ There are two models for security of networks
 
 *** Zombie
 - It takes control of an entire system.
+- Zombies replicate too.
 
 * Cryptography
 
@@ -253,6 +268,73 @@ This is the earliest known subsitution cipher.
 
 ******* Decrypt Ciphertext ABC, k=3
 - A: $(0-3)\mod26 = -3\mod(26) = (-3+26)\mod(26) = 23$
+
+
+******* Code for Encryption
+#+begin_src python :results output raw :wrap src :exports both
+def encrypt(plaintext: str, k: int, alphabet_size: int):
+    encrypted_text = ""
+    start = None
+    for c in plaintext:
+        if ord(c)>=ord('A') and ord(c)<=ord('Z'):
+            start = ord('A')
+            diff = 0
+        elif ord(c)>=ord('a') and ord(c)<=ord('z'):
+            start = ord('a')
+            diff = 0
+        elif ord(c)>=ord('0') and ord(c)<=ord('9'):
+            start = ord('0')
+            diff = 16
+            
+        if c!=' ':
+            encrypted_text += chr(start+(ord(c)-start+k)%(alphabet_size - diff))
+        else:
+            encrypted_text += ' '
+    print(encrypted_text)
+    
+encrypt("Hello World3!", 2, 26) 
+
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+Jgnnq Yqtnf57
+#+end_src
+
+******* Code for Decryption
+#+begin_src python :results output raw :wrap src :exports both
+def decrypt(plaintext: str, k: int, alphabet_size: int):
+    decrypted_text = ""
+    
+    for c in plaintext:
+        if ord(c)>=ord('A') and ord(c)<=ord('Z'):
+            decrypted_text += chr(ord('A')+(ord(c)-ord('A')-k)%alphabet_size)
+        elif ord(c)>=ord('a') and ord(c)<=ord('z'):
+            decrypted_text += chr(ord('a')+(ord(c)-ord('a')-k)%alphabet_size)
+        elif c == ' ':
+            decrypted_text += ' '
+        elif ord(c)>=ord('0') and ord(c)<=ord('9'):
+            decrypted_text += chr(ord('0')+(ord(c)-ord('0')-k)%10)
+    print(decrypted_text)
+    
+decrypt("Jgnnq Yqtnf5", 2, 26) 
+
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+Hello World3
+#+end_src
+
+The logic for encryption and decryption is pretty simple:
+- You iterate through the characters of the text (say each character is ~c~)
+- ~ord(c)-ord('A')~ finds the alphabetic position (0-25)
+- Add/Subtract Shift value on this alphabetic position and take modulo alphabet
+  size. This value is again between 0 and 25.
+- Add the above value to the ASCII value of ~A~, and convert it back into a
+  character.
 
 
 ******* Cryptanalysis
@@ -436,6 +518,131 @@ OZ   NK   ZK   VF   YO   GQ   CE   BW
 
 
 
+******* Code for Encryption
+#+begin_src python :results output raw :wrap src :exports both
+def encrypt(plaintext: str, keyword: str):
+    visited = {}
+    matrix = [[0]*5 for i in range(5)]
+    i = 0
+    j = 0
+    for c in keyword:
+        if c not in visited:
+            matrix[i][j] = c
+            visited[c] = (i,j)
+            if j==4:
+                i += 1
+                j = 0
+            else:
+                j += 1
+    for x in range(26):
+        if chr(ord('A')+x) not in visited:
+            visited[chr(ord('A')+x)] = (i,j)
+            if chr(ord('A')+x)=='J':
+                continue
+            matrix[i][j] = chr(ord('A')+x)
+            if j==4:
+                i += 1
+                j = 0
+            else:
+                j += 1
+    if len(plaintext)%2!=0:
+        plaintext += 'X'
+    for i in range(1, len(plaintext), 2):
+        ch1_i = visited[plaintext[i-1]][0]
+        ch1_j = visited[plaintext[i-1]][1]
+        ch2_i = visited[plaintext[i]][0]
+        ch2_j = visited[plaintext[i]][1]
+
+        if ch1_j == ch2_j:
+            print(matrix[ch1_i][(ch1_j + 1)%5], end='')
+            print(matrix[ch2_i][(ch2_j + 1)%5], end='')
+        elif ch1_i == ch2_i:
+            print(matrix[(ch1_j + 1)%5][ch1_i], end='')
+            print(matrix[(ch2_j + 1)%5][ch2_i], end='')
+        else:
+            print(matrix[ch1_i][ch2_j], end='')
+            print(matrix[ch2_i][ch1_j], end='')
+            
+        
+        
+        
+encrypt('WHYDONTYOU','KEYWORD')
+#+end_src
+
+#+RESULTS:
+#+begin_src
+YIEAESVKEZ
+#+end_src
+
+******* Code for Decryption
+
+#+begin_src python :results output raw :wrap src :exports both
+
+def decrypt(ciphertext: str, keyword: str):
+    visited = {}
+    matrix = [[0]*5 for i in range(5)]
+    i = 0
+    j = 0
+    for c in keyword:
+        if c not in visited:
+            matrix[i][j] = c
+            visited[c] = (i,j)
+            if j==4:
+                i += 1
+                j = 0
+            else:
+                j += 1
+    for x in range(26):
+        if chr(ord('A')+x) not in visited:
+            visited[chr(ord('A')+x)] = (i,j)
+            if chr(ord('A')+x)=='J':
+                continue
+            matrix[i][j] = chr(ord('A')+x)
+            if j==4:
+                i += 1
+                j = 0
+            else:
+                j += 1
+    for i in range(1, len(ciphertext), 2):
+        ch1_i = visited[ciphertext[i-1]][0]
+        ch1_j = visited[ciphertext[i-1]][1]
+        ch2_i = visited[ciphertext[i]][0]
+        ch2_j = visited[ciphertext[i]][1]
+
+        if ch1_j == ch2_j:
+            print(matrix[ch1_i][(ch1_j + 1)%5], end='')
+            print(matrix[ch2_i][(ch2_j + 1)%5], end='')
+        elif ch1_i == ch2_i:
+            print(matrix[(ch1_j - 1)%5][ch1_i], end='')
+            print(matrix[(ch2_j - 1)%5][ch2_i], end='')
+        else:
+            print(matrix[ch1_i][ch2_j], end='')
+            print(matrix[ch2_i][ch1_j], end='')
+
+decrypt('YIEAESVKEZ', 'KEYWORD')
+            
+#+end_src
+
+#+RESULTS:
+#+begin_src
+WHYDONTYOU
+#+end_src
+
+Some things to note in this code are:
+- To go through the matrix, maintain separate variables for row and column. If
+  the row exceeds 4, reset row to zero, and increase the column value by 1.
+- ~visited[c]~ stores the matrix coordinates (~i~ and ~j~) of the character ~c~. In
+  other words, the position of a character in the matrix can be obtained as
+  ~(visited[c][0], visited[c][1])~.
+- Make sure that the plaintext is of even length. If not, pad it with a
+  character.
+- Once you actually have the matrix, you iterate having a skip value of 2, to pick two characters at a time:
+  - If both characters are in the same row, move both forward (modulo 5 of
+    coures) by 1 unit. Hence the column is modified.
+  - If both characters are in the same column, move both downwards by 1 unit.
+    Hence the row is modified.
+  - If it is neither of the cases, you swap the columns of both characters.
+
 ***** Homophonic
 - If a letter $x$ appears for $y\%$ of all characters, we assign $y$ number of
   symbols to represent it.
@@ -492,6 +699,34 @@ _____________________________________________________
   #+end_src
 
 
+******* Code 
+
+#+begin_src python :results output raw :wrap src :exports both
+def encrypt(plaintext: str, key: str):
+    j = 0
+    for i in range(len(plaintext)):
+        print(chr(ord('A') + (ord(list(plaintext)[i]) + ord(list(key)[j]) - 2*ord('A'))%26), end='')
+        j = (j+1)%len(key)
+
+
+def decrypt(ciphertext: str, key: str):
+    j = 0
+    for i in range(len(ciphertext)):
+        print(chr(ord('A') + (ord(list(ciphertext)[i]) - ord(list(key)[j]) - 2*ord('A'))%26), end='')
+        j = (j+1)%len(key)
+
+        
+encrypt('WEAREDISCOVEREDSAVEYOURSELF', 'DECEPTIVEDECEPTIVEDECEPTIVE')
+print()
+decrypt('ZICVTWQNGRZGVTWAVZHCQYGLMGJ', 'DECEPTIVEDECEPTIVEDECEPTIVE')
+#+end_src
+
+#+RESULTS:
+#+begin_src
+ZICVTWQNGRZGVTWAVZHCQYGLMGJ
+WEAREDISCOVEREDSAVEYOURSELF
+#+end_src
+
 ******* Cryptanalysis
 
 ******** Example 1: Plain Text = "acbxzcb", Cipher Text = "bxbywdb"
@@ -502,7 +737,7 @@ _____________________________________________________
 
 
 
-****** Vennam Cipher (one-time pad)
+****** Vernam Cipher (one-time pad)
 - You perform bitwise XOR on the ASCII value of the characters of the plain text
   and the key.
 - Here is the XOR Table:
@@ -529,6 +764,35 @@ _____________________________________________________
   purely random.
 
   
+******* Code
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+
+def encrypt(plaintext: str, key: str):
+    cipher = []
+    if len(plaintext) != len(key):
+        return False
+    for i in range(len(plaintext)):
+        cipher.append(chr(ord(plaintext[i]) ^ ord(key[i])))
+    return cipher
+
+
+for x in encrypt('CAT', 'DOG'):
+    print(ord(x), end=' ')
+
+print()
+
+# decryption
+print(encrypt(encrypt('CAT', 'DOG'), 'DOG'))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+7 14 19 
+['C', 'A', 'T']
+#+end_src
+
 **** Transposition / Permutation Cipher
 - This cipher hides the message by rearranging the letters of the plain text
   without changing the actual letters.
@@ -539,12 +803,49 @@ _____________________________________________________
 - For example, plain text = "meet me after the party", and the number of rows
   is 3.
 
-  | m |   |   |   | _ |   |   |   | a |   |   |   | r |   |   |   | e |   |   |   | r |   |   |
-  |   | e |   | t |   | m |   | _ |   | f |   | e |   | _ |   | h |   | _ |   | a |   | t |   |
-  |   |   | e |   |   |   | e |   |   |   | t |   |   |   | t |   |   |   | p |   |   |   | y |
+  | m |   |   | t |   |   | a |   |   | e |   |   | h |   |   | a |   |   | y |
+  |   | e |   |   | m |   |   | f |   |   | r |   |   | e |   |   | r |   |   |
+  |   |   | e |   |   | e |   |   | t |   |   | t |   |   | p |   |   | t |   |
   
-- The cipher text would be "m areretm fe h ateetpy"
+- The cipher text would be "mtahayemfrereettpt"
 
+
+******* Code
+
+#+begin_src python :results output raw :wrap src :exports both
+def encrypt(plaintext: str, rails: int):
+    cleaned = plaintext.replace(" ", "")
+    cipher = ""
+    for i in range(rails):
+        for j in range(i, len(cleaned), rails):
+            cipher += cleaned[j]
+    print(cipher)
+    
+encrypt("meet me after the party", 3)
+
+
+def decrypt(ciphertext,key):
+    n = len(ciphertext)
+    plaintext = [''] * n
+    idx = 0
+
+    for i in range(key):
+        for j in range(i, n, key):
+            plaintext[j] = ciphertext[idx]
+            idx += 1
+    print(''.join(plaintext))
+            
+        
+
+decrypt("mtaehayemfrereettpt", 3)
+    
+#+end_src
+
+#+RESULTS:
+#+begin_src
+mtaehayemfrereettpt
+meetmeaftertheparty
+#+end_src
 
 ****** Columnar Transposition
 - Write the characters of the message in rows over a specified number of
@@ -587,3 +888,275 @@ _____________________________________________________
   - Substitution
 
 **** Stream
+
+* Number Theory
+
+** Basic Properties
+
+*** Commutative
+$$a + b = b + a$$
+
+*** Associative
+$$a + (b+c) = (a+b)+c$$
+Same applies to multiplication too.
+
+*** Distributive
+$$a \times (b+c) = ab + ac$$
+
+** Division
+- When we say $a | b$ (a divides b), we're doing $\frac{b}{a}$.
+- $b$ is the dividend and $a$ is the divisor.
+
+** Prime Numbers
+
+*** Fundamental Theorem of Arithmetic
+#+begin_quote
+Every positive integer is uniquely a product of prime numbers.
+#+end_quote
+
+*** GCD
+For example, the GCD for 24598 and 7895 would be:
+
+*Prime factorization of 24798*
+| /2/   | 24598 |
+| /7/   | 12299 |
+| /7/   |  1757 |
+| /251/ |   251 |
+| 1   |     1 |
+
+*Prime factorization of 7895*
+| /5/    | 7895 |
+| /1579/ | 1579 |
+| 1    |    1 |
+
+The answer is *1*.
+
+
+*** Euclidean Algorithm
+$$divident = quotient \times divisor + remainder$$
+
+For example, the GCD of 49 and 63 would be:
+
+| q |  a |  b |  r |
+|---+----+----+----|
+| 1 | 49 | 63 | 14 |
+| 4 | 63 | 14 |  7 |
+| 2 | 14 |  7 |  0 |
+
+
+*** Modular Arithmetic Operations
+**** Standard Rules
+$$[a\mod(n) + (b\mod(n))] \mod(n) = (a+b)\mod(n)$$
+$$[a\mod(n) - (b\mod(n))] \mod(n) = (a-b)\mod(n)$$
+$$[a\mod(n) \times (b\mod(n))] \mod(n) = (a \times b)\mod(n)$$
+
+*Note*: The notation of modulo $m$ is $Z_{m}$
+
+**** Inferences
+Some inferences you can make out from this is:
+- $(a-b)\mod(n) = 0$ is the same as $a\mod(n) = b\mod(n)$.
+
+*** Addition Modulo $n$ table
+- We construct a table where each value is $(row + col) \mod (n)$
+- For example, let $n=7$:
+
+  | $(row + col)\mod(7)$ | *0* | *1* | *2* | *3* | *4* | *5* | *6* |
+  | *0*                    |   |   |   |   |   |   |   |
+  | *1*                    |   |   |   |   |   |   |   |
+  | *2*                    |   |   |   |   |   |   |   |
+  | *3*                    |   |   |   |   |   |   |   |
+  | *4*                    |   |   |   |   |   |   |   |
+  | *5*                    |   |   |   |   |   |   |   |
+  | *6*                    |   |   |   |   |   |   |   |
+
+*** Inverses
+**** Additive Inverse
+$$-a + a\mod(m) = 0$$
+
+**** Multiplicative Inverse
+$a \times \frac{1}{a}\mod(m) = 1$
+- The multiplicative inverse of $a\mod(m)$ is $x$ such that $a\cdot x\mod(m) = 1$.
+*Note*:
+- Multiplicative inverse of $a \mod(n)$ is represented as $a^{-1} \mod(n)$
+- Multiplicative inverse exists for $a \mod(n)$ if $GCD(a,n) = 1$.
+- For example, $2^{-1} \mod(7) = 4$, i.e. $2 \times 4 \mod(7) = 1$
+  - Hence 4 is the multiplicative inverse of $2\mod(7)$.
+  - Also, 2 is the multiplicative inverse of $4\mod(7)$.
+
+***** Extended Euclidean Algorithm
+- Consider this example of finding multiplicative inverse of $356\mod(45)$ or
+  $356$ in $Z_{45}$ (different ways of asking the same thing):
+
+  $$u = u_{0} - q \cdot u_{1}$$ And in the below table, always initialize $u_{0}$ and $u_{1}$
+  to be 1 and 0 respectively.
+
+ | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
+ |-----+-----+-----+-----+------+------+-----|
+ |   7 | 356 |  45 |  41 |    1 |    0 |   1 |
+ |   1 |  45 |  41 |   4 |    0 |    1 |  -1 |
+ |  10 |  41 |   4 |   1 |    1 |   -1 |  11 |
+ |   4 |   4 |   1 |   0 |   -1 |   ~11~ |     |
+
+ The value of $u_{1}$ in the row where $r$ becomes 0, is the multiplicative inverse.
+
+- In the above table, you always carry the value of $a$ and $m$ from the top
+  right element, but you calculate $q$ and $r$.
+
+- Check if $2^{-1}\mod(10)$ exists:
+  - Can't be found because $GCD(2, 10) = 2 \ne 1$
+  - Hence multiplicative inverse doesn't exist
+    
+- Find the multiplicative inverse of $9\mod(10)$:
+  
+ | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
+ |-----+-----+-----+-----+------+------+-----|
+ |   0 |   9 |  10 |   9 |    1 |    0 |   1 |
+ |   1 |  10 |   9 |   1 |    0 |    1 |  -1 |
+ |   9 |   9 |   1 |   0 |    1 |   ~-1~ |     |
+
+ The multiplicative inverse is -1. So it's $-1\mod(10) = (-1+10)\mod(10) = 9$
+ So the final multiplicative inverse is 9.
+
+***** Multiplicative Inverse Pair
+
+- In general, if we have $a \cdot x \mod(m) = 1$, then $(a,x)$ is a multiplicative inverse pair.
+- When we're asked to find *multiplicative inverse pair* of, say $Z_{10}$, we have to
+  find the pairs of numbers which are multiplicative inverses of each other.
+
+  | $1\cdot x \mod(10)$ | $x=1$ |
+  | $2\cdot x \mod(10)$ | $x=1$ |
+
+ 
+ 
+
+*** Equivruence Class
+- A equivruence/residual class is a set of integers that are equivalent to each
+  others modulo $n$.
+
+  $a \equiv b\mod(n)$
+
+- For example: $12 \equiv 18\mod(15)$
+  - $12\mod(15) = 12$ and $18\mod(15) = 3$
+  - Since $3 \neq 15$, $12 \equiv 18\mod(15)$ is not a valid equivruence class.
+    
+- Another example: $4 \equiv -18\mod(11)$
+  - $4\mod(11) = 4$ and $-18\mod(11) = 4$
+  - Since $4 = 4$, $4 \equiv -18\mod(11)$ is a valid equivruence class.
+    
+- Another example: $4^{-1} \equiv 2\mod(7)$ (this is not multiplicative inverse)
+  - $\frac{1}{4} = 2\mod(7)$
+  - $\frac{1}{4} \times 4 = (2 \times 4)\mod(7)$
+  - $1 = 8\mod(7)$
+  - This becomes your new equivruence class.
+
+  
+** Euler's Totient/Phi Function
+- $Z_{m}^{*}$ is the set of numbers, that are relatively prime or coprime with $m$ in
+  $Z_{m}$. 
+- $Z_{m}$ is the set of numbers from $0$ to $m-1$.
+- For example, $m=14$
+  - $Z_{m}$ = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+  - $Z_{m}^{*}$ = {0, 1, 3, 5, 7, 9, 11, 13}
+- *Euler's Totient function* is denoted by $\phi(n)$, and it is the number of
+  elements in $Z_{m}^{*}$.
+  $$\phi(n) = |Z_{m}^{*}|$$
+
+*** Conditions for $\phi(P)$
+1. $\phi(p) = p-1$, if $p$ is a prime number.
+2. $\phi(p) = \phi(m \times n) = \phi(m) \times \phi(n)$, if $m$ and $n$ are coprime.
+3. $\phi(m) = \phi(p^{e}) = p^{e} - p^{e-1}$, if $p$ is prime.
+
+*** Examples
+
+**** $\phi(27)$
+- $\phi(3^{3}) = 3^{3} - 3^{2} = 18$
+
+**** $\phi(630)$
+- $\phi(630) = \phi(63 \times 10)$
+- $\phi(630) = \phi(63) \times \phi(10) = (63 - 7) \times (\phi(2)\times\phi(5))$
+- $\phi(630) = 56 \times 1$
+- $\phi(630) = 56$
+  
+** Fast Exponentiation Algorithm
+#+begin_quote
+Squaring and selective multiplication method.
+#+end_quote
+
+*** Steps
+**** Convert the number $B$ into binary. Represent $B$ as a sum of unique powers of 2.
+Eg. $B = 11$
+- $B$ in binary is ~1011~.
+- So $B = 8 + 2 + 1$
+
+**** $A^{i}\mod(C)$ such that $i \le B$
+
+
+**** Find $A^{C}\mod(C)$,
+
+*** Examples
+
+**** $11^{13}\mod(53)$
+- Step 1:
+  - $13 = 8 + 4 + 1$
+- Step 2: 
+  - $11^{1}\mod(13) = 11\mod(53) = 11$
+  - $11^{2}\mod(13) = (11^{1}\mod(53) \times 11^{1}\mod(53))\mod(53) = 121\mod(53) = 15$
+  - $11^{4}\mod(13) = (11^{2}\mod(53) \times 11^{2}\mod(53))\mod(53) = 225\mod(53) = 13$
+  - $11^{8}\mod(13) = (11^{4}\mod(53) \times 11^{4}\mod(53))\mod(53) = 169\mod(53) = 10$
+- Step 3:
+  - $11^{(8 + 4 + 1)}\mod(53) = (11^{8}\mod(53) \times 11^{4}\mod(53) \times 11^{1}\mod(53))\mod(53)$
+  - $11^{(13)}\mod(53) = (10 \times 13 \times 11)\mod(53)$
+  - $11^{(13)}\mod(53) = (1430)\mod(53)$
+  - $11^{(13)}\mod(53) = 52$
+- Hence $11^{(13)}\mod(53) = 52$
+
+  
+
+** Fermat's Little Theorem
+#+begin_quote
+$a^{p-1} \equiv 1\mod(p)$, if
+- $a$ is an integer, $p$ is a prime number
+- $p \nmid a$ ($p$ doesn't divide $a$)
+#+end_quote
+
+For example, verifying Fermat's little theorem for $p = 31$ and $a = 3$.
+- $3^{(31-1)}\mod(31)$
+
+*** Examples
+**** Find $3^{-1}\mod(31)$ using Fermat's Little Theorem
+- By Fermat's little theorem, $3^{30} \equiv 1\mod(31)$
+- On dividing by 3, you get  $3^{29} \equiv \frac{1}{3}\mod(31)$
+- 
+
+
+**** TODO Compute  $3^{-592} \mod(1831)$ using Fermat's Little Theorem
+
+
+** Euler's Theorem
+#+begin_quote
+$a^{\phi(n)} \equiv 1\mod(n)$, if
+- $a$ and $n$ are coprime numbers
+- $\phi(n)$ is the Euler's Phi Function
+#+end_quote
+
+*** Examples
+
+**** Find $6^{24} \mod(35)$ using Euler's Theorem
+- gcd(6,35) = 1, hence they are coprime
+- $\phi(35) = \phi(5) \times \phi(7) = 4 \times 6 = 24$
+- Hence $6^{24} \mod(35) \equiv 1\mod(35)$
+
+**** Find $71^{-1}\mod(100)$ using Euler's Theorem
+- gcd(71, 100) = 1, hence they are coprime
+- $\phi(100) = \phi(5^{2} \times 2^{2}) = 20 \times 2 = 40$
+- $71^{40} \mod 100 = 1$
+- Find: $71^{39} \mod 100$
+- $71^{1} \mod 100 = 71$
+- $71^{2} \mod 100 = 41$
+- $71^{4} \mod 100 = 81$
+- $71^{8} \mod 100 = 61$
+- $71^{16} \mod 100 = 21$
+- $71^{32} \mod 100 = 41$
+- $71^{32+4+2+1} \mod 100 = 41\times81\times41\times71 \mod 100$
+
+**** Find $8^{-1} \mod(77)$
