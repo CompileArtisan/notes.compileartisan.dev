@@ -1,0 +1,642 @@
+#+title: NLP Walkthrough
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+#+PROPERTY: header-args:python :eval never-export
+
+* Introduction to Pandas
+
+#+begin_src elisp :exports none
+(setq org-babel-python-command "/home/praaneshnair/gitProjects/org-notes/natural-language-processing/assignments/lab1/.venv/bin/python3")
+#+end_src
+
+#+RESULTS:
+: /home/praaneshnair/gitProjects/org-notes/natural-language-processing/assignments/lab1/.venv/bin/python3
+
+
+#+begin_src python :results output :session labb
+import pandas as pd
+import sys
+import random
+#+end_src
+
+#+RESULTS:
+
+
+** Load the given CSV file containing text and label columns into a Pandas DataFrame.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df = pd.read_csv("reviews_dataset.csv")
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Display the first three records of the dataset and print the total number of rows and columns.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(type(df.head(3)))
+print(df.head(3))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+<class 'pandas.core.frame.DataFrame'>
+                                          text     label
+0  This product is amazing and works perfectly  Positive
+1     Terrible experience, would not recommend  Negative
+2                   It's okay, nothing special   Neutral
+#+end_src
+
+If you don't give any parameter to ~df.head()~, it returns the first 5 records by
+default (0, 1, 2, 3, 4).
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(type(df.shape))
+print(df.shape)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+<class 'tuple'>
+(100, 2)
+#+end_src
+
+This returns a tuple containing number of rows and number of columns.
+** Print the column names and data types of each column.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(type(df.columns))
+print(df.columns)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+<class 'pandas.core.indexes.base.Index'>
+Index(['text', 'label'], dtype='object')
+#+end_src
+
+So to actually get the column names you could do:
+#+begin_src python :results output raw :wrap src :exports both :session labb
+for name in df.columns:
+    print(name)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+text
+label
+#+end_src
+
+** Check whether the dataset contains any missing values and display the count of missing values per column.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+
+print(df.isnull())
+print(type(df.isnull()))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+     text  label
+0   False  False
+1   False  False
+2   False  False
+3   False  False
+4   False  False
+..    ...    ...
+95  False  False
+96  False  False
+97  False  False
+98  False  False
+99  False  False
+
+[100 rows x 2 columns]
+<class 'pandas.core.frame.DataFrame'>
+#+end_src
+
+- ~df.isnull()~ returns a Pandas DataFrame, which returns ~True~ (for NaN value) or
+  ~False~ for each record and label.
+- You can call the ~sum()~ method on this DataFrame
+- ~dataframe.sum()~ takes an optional parameter ~axis~. The default value ~0~ is the
+  sum across columns, and if you give ~sum(axis=1)~, it takes the sum across rows.
+  #+begin_src python :results output raw :wrap src :exports both :session labb
+print(df.isnull().sum())
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  text     0
+  label    0
+  dtype: int64
+  #+end_src
+- This is basically the sum of all boolean values of the column ~text~, and the
+  sum of all boolean values of the column ~label~. In Python, boolean values are
+  subclasses of integers, hence ~True~ is the same as the number ~1~ and ~False~ is
+  the same as the number ~0~. That's how the ~sum()~ function is able to work.
+
+
+** Find the number of unique labels present in the dataset.
+
+~df.label~ or ~df['label']~ returns a Pandas Series (1 Dimensional), corresponding
+to the column ~label~.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df.label) # or print(df['label'])
+print(type(df.label))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+0     Positive
+1     Negative
+2      Neutral
+3     Positive
+4     Negative
+        ...   
+95     Neutral
+96    Positive
+97    Negative
+98     Neutral
+99    Positive
+Name: label, Length: 100, dtype: object
+<class 'pandas.core.series.Series'>
+#+end_src
+
+The ~.unique()~ method returns a Numpy Array consisting of all the unique values
+in the Series.
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df['label'].unique())
+print(type(df['label'].unique()))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+['Positive' 'Negative' 'Neutral']
+<class 'numpy.ndarray'>
+#+end_src
+
+To find the count of unique values, you could either find length of ~.unique()~:
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(len(df['label'].unique()))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+3
+#+end_src
+
+
+Or you could use the ~.nunique()~ method:
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df['label'].nunique())
+#+end_src
+
+#+RESULTS:
+#+begin_src
+3
+#+end_src
+
+
+
+** Display the count of records for each label.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df["label"].value_counts())
+#+end_src
+
+#+RESULTS:
+#+begin_src
+label
+Positive    35
+Negative    33
+Neutral     32
+Name: count, dtype: int64
+#+end_src
+
+
+** Filter and display all rows where the label is "Negative".
+The ~df['label'] == "Negative"~ return a Pandas Series of boolean values (same
+size as ~df~), where ~True~ means the record satisfies the condition.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(type(df['label'] == "Negative"))
+print(df['label'] == "Negative")
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+<class 'pandas.core.series.Series'>
+0     False
+1      True
+2     False
+3     False
+4      True
+      ...  
+95    False
+96    False
+97     True
+98    False
+99    False
+Name: label, Length: 100, dtype: bool
+#+end_src
+
+You can index a Pandas DataFrame by a list/Series of boolean values. The list
+should be of the same size as the DataFrame, and the boolean values tell you if
+that record should be there in the returned DataFrame or not.
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df[[True if i%25==0 else False for i in range(100)]]) # Gives only records 0, 25, 50, 75.
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label
+0   This product is amazing and works perfectly  Positive
+25                  Failed to meet expectations  Negative
+50                  Passable but not impressive   Neutral
+75                Superb engineering and design  Positive
+#+end_src
+
+So you can use the ~df['label'] == 'Negative'~ Series to index the Pandas DataFrame.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df[df['label'] == 'Negative'])
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                        text     label
+1   Terrible experience, would not recommend  Negative
+4             Worst product I've ever bought  Negative
+7               Disappointing and overpriced  Negative
+10                   Complete waste of money  Negative
+13         Poor quality, broke after one use  Negative
+16                  Not worth the investment  Negative
+19              Subpar quality, very unhappy  Negative
+22                 Horrible customer service  Negative
+25               Failed to meet expectations  Negative
+28     Completely dissatisfied with purchase  Negative
+31                 Awful, regret buying this  Negative
+34   Disastrous purchase, avoid at all costs  Negative
+37            Unacceptable quality standards  Negative
+40             Rubbish, total disappointment  Negative
+43                 Defective and poorly made  Negative
+46                 Appalling quality control  Negative
+49  Dreadful experience from start to finish  Negative
+52            Unpleasant surprise, very poor  Negative
+55      Horrible quality, fell apart quickly  Negative
+58             Pathetic excuse for a product  Negative
+61              Miserable failure of product  Negative
+64     Ghastly quality, returned immediately  Negative
+67                   Atrocious build quality  Negative
+70                   Abysmal product quality  Negative
+73              Lamentable purchase decision  Negative
+76             Woeful performance throughout  Negative
+79             Disgraceful quality for price  Negative
+82               Regrettable purchase choice  Negative
+85            Unfortunate experience overall  Negative
+88                  Frustrating to use daily  Negative
+91                  Terrible build materials  Negative
+94           Disappointing performance noted  Negative
+97                       Poor design choices  Negative
+#+end_src
+
+** Create a new column that stores the number of characters present in each text.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df["char_count"] = df["text"].apply(len)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Create another column that stores the number of words in each text.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df["word_count"] = df["text"].apply(lambda x: len(x.split()))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+
+** Convert all text entries to lowercase and store the result in a new column without modifying the original text column.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df["text_lower"] = df["text"].apply(lambda x: x.lower())
+print(df)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label  char_count  word_count                                   text_lower
+0   This product is amazing and works perfectly  Positive          43           7  this product is amazing and works perfectly
+1      Terrible experience, would not recommend  Negative          40           5     terrible experience, would not recommend
+2                    It's okay, nothing special   Neutral          26           4                   it's okay, nothing special
+3        Absolutely love it, best purchase ever  Positive          38           6       absolutely love it, best purchase ever
+4                Worst product I've ever bought  Negative          30           5               worst product i've ever bought
+..                                          ...       ...         ...         ...                                          ...
+95                    Standard expectations met   Neutral          25           3                    standard expectations met
+96                  Impressive results achieved  Positive          27           3                  impressive results achieved
+97                          Poor design choices  Negative          19           3                          poor design choices
+98              Adequate functionality provided   Neutral          31           3              adequate functionality provided
+99                  Exceptional value delivered  Positive          27           3                  exceptional value delivered
+
+[100 rows x 5 columns]
+#+end_src
+
+
+** Standardize the label column by converting all labels to lowercase.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df["label"] = df["label"].apply(lambda x: x.lower())
+print(df)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label  char_count  word_count                                   text_lower
+0   This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly
+1      Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend
+2                    It's okay, nothing special   neutral          26           4                   it's okay, nothing special
+3        Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever
+4                Worst product I've ever bought  negative          30           5               worst product i've ever bought
+..                                          ...       ...         ...         ...                                          ...
+95                    Standard expectations met   neutral          25           3                    standard expectations met
+96                  Impressive results achieved  positive          27           3                  impressive results achieved
+97                          Poor design choices  negative          19           3                          poor design choices
+98              Adequate functionality provided   neutral          31           3              adequate functionality provided
+99                  Exceptional value delivered  positive          27           3                  exceptional value delivered
+
+[100 rows x 5 columns]
+#+end_src
+
+
+** Create a new column in which the labels are encoded as follows: positive → 1, neutral → 0, negative → −1.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+label_encoding = {"positive": 1, "neutral": 0, "negative": -1}
+df["label_encoded"] = df["label"].map(label_encoding)
+print(df.head(3))
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                          text     label  char_count  word_count                                   text_lower  label_encoded
+0  This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+1     Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend             -1
+2                   It's okay, nothing special   neutral          26           4                   it's okay, nothing special              0
+#+end_src
+
+** Sort the DataFrame in descending order based on the char count column.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df_sorted = df.sort_values('char_count', ascending=False)
+print(df_sorted)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label  char_count  word_count                                   text_lower  label_encoded
+0   This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+1      Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend             -1
+49     Dreadful experience from start to finish  negative          40           6     dreadful experience from start to finish             -1
+34      Disastrous purchase, avoid at all costs  negative          39           6      disastrous purchase, avoid at all costs             -1
+3        Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever              1
+..                                          ...       ...         ...         ...                                          ...            ...
+38                         Fine for basic needs   neutral          20           4                         fine for basic needs              0
+42                         Perfect in every way  positive          20           4                         perfect in every way              1
+97                          Poor design choices  negative          19           3                          poor design choices             -1
+56                            So-so performance   neutral          17           2                            so-so performance              0
+53                             Mediocre at best   neutral          16           3                             mediocre at best              0
+
+[100 rows x 6 columns]
+#+end_src
+
+** Display the top three longest text entries based on word count.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df.sort_values('char_count', ascending=False))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label  char_count  word_count                                   text_lower  label_encoded
+0   This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+1      Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend             -1
+49     Dreadful experience from start to finish  negative          40           6     dreadful experience from start to finish             -1
+34      Disastrous purchase, avoid at all costs  negative          39           6      disastrous purchase, avoid at all costs             -1
+3        Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever              1
+..                                          ...       ...         ...         ...                                          ...            ...
+38                         Fine for basic needs   neutral          20           4                         fine for basic needs              0
+42                         Perfect in every way  positive          20           4                         perfect in every way              1
+97                          Poor design choices  negative          19           3                          poor design choices             -1
+56                            So-so performance   neutral          17           2                            so-so performance              0
+53                             Mediocre at best   neutral          16           3                             mediocre at best              0
+
+[100 rows x 6 columns]
+#+end_src
+
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df.sort_values('char_count', ascending=False)['text'].head(3))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+0     This product is amazing and works perfectly
+1        Terrible experience, would not recommend
+49       Dreadful experience from start to finish
+Name: text, dtype: object
+#+end_src
+
+** Filter and display all texts that contain more than six words and belong to the "positive" label.
+Creating word count
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df['word_count'] = df['text'].apply(lambda x: x.split()).apply(len)
+print(df)
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                           text     label  char_count  word_count                                   text_lower  label_encoded
+0   This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+1      Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend             -1
+2                    It's okay, nothing special   neutral          26           4                   it's okay, nothing special              0
+3        Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever              1
+4                Worst product I've ever bought  negative          30           5               worst product i've ever bought             -1
+..                                          ...       ...         ...         ...                                          ...            ...
+95                    Standard expectations met   neutral          25           3                    standard expectations met              0
+96                  Impressive results achieved  positive          27           3                  impressive results achieved              1
+97                          Poor design choices  negative          19           3                          poor design choices             -1
+98              Adequate functionality provided   neutral          31           3              adequate functionality provided              0
+99                  Exceptional value delivered  positive          27           3                  exceptional value delivered              1
+
+[100 rows x 6 columns]
+#+end_src
+
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df[(df['word_count']>6) & (df['label'] == 'positive')])
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                          text     label  char_count                                   text_lower  label_encoded  word_count
+0  This product is amazing and works perfectly  positive          43  this product is amazing and works perfectly              1           7
+#+end_src
+
+In Pandas, you use bitwise operators, and you ensure that the expressions are
+wrapped in brackets.
+
+** Group the data by label and compute the average word count for each group.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+avg_word_count = df.groupby('label')['word_count'].mean()
+print(avg_word_count)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+label
+negative    3.878788
+neutral     3.562500
+positive    3.885714
+Name: word_count, dtype: float64
+#+end_src
+
+** Identify the label that has the highest average word count.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+label_max_avg = avg_word_count.idxmax()
+print(f"Highest average: {label_max_avg}")
+#+end_src
+
+#+RESULTS:
+#+begin_src
+Highest average: positive
+#+end_src
+
+** Count the number of text entries with fewer than five words for each label.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+short_texts = df[df['word_count'] < 5].groupby('label').size()
+print(short_texts)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+label
+negative    26
+neutral     28
+positive    31
+dtype: int64
+#+end_src
+
+** Change the DataFrame index to start from 1 instead of 0.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df.index = range(1, len(df) + 1)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Rename the columns text to review_text and label to sentiment.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df = df.rename(columns={'text': 'review_text', 'label': 'sentiment'})
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Update the sentiment of a specific record (given index) from "neutral" to "positive".
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df.loc[5, 'sentiment'] = 'positive'
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Create a new DataFrame that contains only the rows with positive sentiment.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+print(df[df['sentiment'] == 'positive'])
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                     review_text sentiment  char_count  word_count                                   text_lower  label_encoded
+1    This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+4         Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever              1
+5                 Worst product I've ever bought  positive          30           5               worst product i've ever bought             -1
+7          Outstanding service and great quality  positive          37           5        outstanding service and great quality              1
+10                  Exceeded all my expectations  positive          28           4                 exceeded all my expectations              1
+13                  Highly recommend to everyone  positive          28           4                 highly recommend to everyone              1
+16             Fantastic results, very satisfied  positive          33           4            fantastic results, very satisfied              1
+18                          Good value for money  positive          20           4                         good value for money              1
+19         Incredible performance and durability  positive          37           4        incredible performance and durability              1
+22               Exceptional product, five stars  positive          31           4              exceptional product, five stars              1
+25              Best in class, truly outstanding  positive          32           5             best in class, truly outstanding              1
+28                  Wonderful experience overall  positive          28           3                 wonderful experience overall              1
+31               Superb craftsmanship and design  positive          31           4              superb craftsmanship and design              1
+34           Brilliant product, works flawlessly  positive          35           4          brilliant product, works flawlessly              1
+37                  Marvelous quality and finish  positive          28           4                 marvelous quality and finish              1
+40                 Exemplary service and product  positive          29           4                exemplary service and product              1
+43                          Perfect in every way  positive          20           4                         perfect in every way              1
+46                Stellar performance throughout  positive          30           3               stellar performance throughout              1
+49                    Magnificent product design  positive          26           3                   magnificent product design              1
+52                     Supreme quality and value  positive          25           4                    supreme quality and value              1
+55                 Phenomenal results every time  positive          29           4                phenomenal results every time              1
+58             Remarkable innovation and quality  positive          33           4            remarkable innovation and quality              1
+61                 Exquisite attention to detail  positive          29           4                exquisite attention to detail              1
+64            Glorious product, highly effective  positive          34           4           glorious product, highly effective              1
+67                Splendid craftsmanship evident  positive          30           3               splendid craftsmanship evident              1
+70              Delightful experience using this  positive          32           4             delightful experience using this              1
+73                      Fabulous innovation here  positive          24           3                     fabulous innovation here              1
+76                 Superb engineering and design  positive          29           4                superb engineering and design              1
+79              Gorgeous aesthetics and function  positive          32           4             gorgeous aesthetics and function              1
+82              Wonderful addition to collection  positive          32           4             wonderful addition to collection              1
+85                   Excellent durability tested  positive          27           3                  excellent durability tested              1
+88                     Amazing value proposition  positive          25           3                    amazing value proposition              1
+91                       Premium quality evident  positive          23           3                      premium quality evident              1
+94                  Outstanding innovation shown  positive          28           3                 outstanding innovation shown              1
+97                   Impressive results achieved  positive          27           3                  impressive results achieved              1
+100                  Exceptional value delivered  positive          27           3                  exceptional value delivered              1
+#+end_src
+
+** Save the cleaned and updated DataFrame to a new CSV file.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df.to_csv('cleaned_reviews.csv', index=False)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+** Reload the saved file and verify that the changes are correctly reflected.
+#+begin_src python :results output raw :wrap src :exports both :session labb
+df_reloaded = pd.read_csv('cleaned_reviews.csv')
+print(df_reloaded.head())
+print(df_reloaded.dtypes)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+                                   review_text sentiment  char_count  word_count                                   text_lower  label_encoded
+0  This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly              1
+1     Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend             -1
+2                   It's okay, nothing special   neutral          26           4                   it's okay, nothing special              0
+3       Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever              1
+4               Worst product I've ever bought  positive          30           5               worst product i've ever bought             -1
+review_text      object
+sentiment        object
+char_count        int64
+word_count        int64
+text_lower       object
+label_encoded     int64
+dtype: object
+#+end_src
