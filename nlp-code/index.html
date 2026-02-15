@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-15 Sun 20:12 -->
+<!-- 2026-02-16 Mon 04:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NLP Walkthrough</title>
@@ -585,39 +585,39 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9baabfc">1. Introduction to Pandas</a>
+<li><a href="#org2763f30">1. Introduction to Pandas</a>
 <ul>
-<li><a href="#orgb35207a">1.1. Load the given CSV file containing text and label columns into a Pandas DataFrame.</a></li>
-<li><a href="#orga3344c6">1.2. Display the first three records of the dataset and print the total number of rows and columns.</a></li>
-<li><a href="#orgf3e8296">1.3. Print the column names and data types of each column.</a></li>
-<li><a href="#org1d45d64">1.4. Check whether the dataset contains any missing values and display the count of missing values per column.</a></li>
-<li><a href="#org52b988a">1.5. Find the number of unique labels present in the dataset.</a></li>
-<li><a href="#org005df3f">1.6. Display the count of records for each label.</a></li>
-<li><a href="#orgbdffcf1">1.7. Filter and display all rows where the label is &ldquo;Negative&rdquo;.</a></li>
-<li><a href="#org573f4fb">1.8. Create a new column that stores the number of characters present in each text.</a></li>
-<li><a href="#org0b7a660">1.9. Create another column that stores the number of words in each text.</a></li>
-<li><a href="#orgc516396">1.10. Convert all text entries to lowercase and store the result in a new column without modifying the original text column.</a></li>
-<li><a href="#orge626c7c">1.11. Standardize the label column by converting all labels to lowercase.</a></li>
-<li><a href="#org79ee6ec">1.12. Create a new column in which the labels are encoded as follows: positive → 1, neutral → 0, negative → −1.</a></li>
-<li><a href="#orgd2d8b9d">1.13. Sort the DataFrame in descending order based on the char count column.</a></li>
-<li><a href="#orgd62643e">1.14. Display the top three longest text entries based on word count.</a></li>
-<li><a href="#orgcb32bd8">1.15. Filter and display all texts that contain more than six words and belong to the &ldquo;positive&rdquo; label.</a></li>
-<li><a href="#org5b1496b">1.16. Group the data by label and compute the average word count for each group.</a></li>
-<li><a href="#orgd7deeb2">1.17. Identify the label that has the highest average word count.</a></li>
-<li><a href="#orgff4a5b0">1.18. Count the number of text entries with fewer than five words for each label.</a></li>
-<li><a href="#org90fbb11">1.19. Change the DataFrame index to start from 1 instead of 0.</a></li>
-<li><a href="#org1d06821">1.20. Rename the columns text to review<sub>text</sub> and label to sentiment.</a></li>
-<li><a href="#orga2af466">1.21. Update the sentiment of a specific record (given index) from &ldquo;neutral&rdquo; to &ldquo;positive&rdquo;.</a></li>
-<li><a href="#org01af716">1.22. Create a new DataFrame that contains only the rows with positive sentiment.</a></li>
-<li><a href="#orge5f36b4">1.23. Save the cleaned and updated DataFrame to a new CSV file.</a></li>
-<li><a href="#org2bbbfc9">1.24. Reload the saved file and verify that the changes are correctly reflected.</a></li>
+<li><a href="#org5a1f217">1.1. Load the given CSV file containing text and label columns into a Pandas DataFrame.</a></li>
+<li><a href="#org3031094">1.2. Display the first three records of the dataset and print the total number of rows and columns.</a></li>
+<li><a href="#org83aa333">1.3. Print the column names and data types of each column.</a></li>
+<li><a href="#org9ea02f7">1.4. Check whether the dataset contains any missing values and display the count of missing values per column.</a></li>
+<li><a href="#org42cdf4f">1.5. Find the number of unique labels present in the dataset.</a></li>
+<li><a href="#org7ab8f37">1.6. Display the count of records for each label.</a></li>
+<li><a href="#org1861c8a">1.7. Filter and display all rows where the label is &ldquo;Negative&rdquo;.</a></li>
+<li><a href="#orgc7e392c">1.8. Create a new column that stores the number of characters present in each text.</a></li>
+<li><a href="#orgc12ad34">1.9. Create another column that stores the number of words in each text.</a></li>
+<li><a href="#orgd053825">1.10. Convert all text entries to lowercase and store the result in a new column without modifying the original text column.</a></li>
+<li><a href="#orgfad0e60">1.11. Standardize the label column by converting all labels to lowercase.</a></li>
+<li><a href="#org2f3f186">1.12. Create a new column in which the labels are encoded as follows: positive → 1, neutral → 0, negative → −1.</a></li>
+<li><a href="#org1965db7">1.13. Sort the DataFrame in descending order based on the char count column.</a></li>
+<li><a href="#org3d91a92">1.14. Display the top three longest text entries based on word count.</a></li>
+<li><a href="#org7625bf0">1.15. Filter and display all texts that contain more than six words and belong to the &ldquo;positive&rdquo; label.</a></li>
+<li><a href="#orgbea932c">1.16. Group the data by label and compute the average word count for each group.</a></li>
+<li><a href="#org086e609">1.17. Identify the label that has the highest average word count.</a></li>
+<li><a href="#org9a5f202">1.18. Count the number of text entries with fewer than five words for each label.</a></li>
+<li><a href="#org3f1ec56">1.19. Change the DataFrame index to start from 1 instead of 0.</a></li>
+<li><a href="#orgd4b1fad">1.20. Rename the columns text to review<sub>text</sub> and label to sentiment.</a></li>
+<li><a href="#orgf9bb5bc">1.21. Update the sentiment of a specific record (given index) from &ldquo;neutral&rdquo; to &ldquo;positive&rdquo;.</a></li>
+<li><a href="#org10416df">1.22. Create a new DataFrame that contains only the rows with positive sentiment.</a></li>
+<li><a href="#orgedadcd2">1.23. Save the cleaned and updated DataFrame to a new CSV file.</a></li>
+<li><a href="#org2de2e03">1.24. Reload the saved file and verify that the changes are correctly reflected.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9baabfc" class="outline-2">
-<h2 id="org9baabfc"><span class="section-number-2">1.</span> Introduction to Pandas</h2>
+<div id="outline-container-org2763f30" class="outline-2">
+<h2 id="org2763f30"><span class="section-number-2">1.</span> Introduction to Pandas</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">import</span> pandas <span style="color: #51afef;">as</span> pd
@@ -626,8 +626,8 @@ updateActiveLink();
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb35207a" class="outline-3">
-<h3 id="orgb35207a"><span class="section-number-3">1.1.</span> Load the given CSV file containing text and label columns into a Pandas DataFrame.</h3>
+<div id="outline-container-org5a1f217" class="outline-3">
+<h3 id="org5a1f217"><span class="section-number-3">1.1.</span> Load the given CSV file containing text and label columns into a Pandas DataFrame.</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span> = pd.read_csv(<span style="color: #98be65;">"reviews_dataset.csv"</span>)
@@ -641,8 +641,8 @@ updateActiveLink();
 </div>
 </div>
 </div>
-<div id="outline-container-orga3344c6" class="outline-3">
-<h3 id="orga3344c6"><span class="section-number-3">1.2.</span> Display the first three records of the dataset and print the total number of rows and columns.</h3>
+<div id="outline-container-org3031094" class="outline-3">
+<h3 id="org3031094"><span class="section-number-3">1.2.</span> Display the first three records of the dataset and print the total number of rows and columns.</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(<span style="color: #c678dd;">type</span>(df.head(3)))
@@ -681,8 +681,8 @@ This returns a tuple containing number of rows and number of columns.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf3e8296" class="outline-3">
-<h3 id="orgf3e8296"><span class="section-number-3">1.3.</span> Print the column names and data types of each column.</h3>
+<div id="outline-container-org83aa333" class="outline-3">
+<h3 id="org83aa333"><span class="section-number-3">1.3.</span> Print the column names and data types of each column.</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(<span style="color: #c678dd;">type</span>(df.columns))
@@ -710,10 +710,26 @@ So to actually get the column names you could do:
 label
 </pre>
 </div>
+
+
+<p>
+This is how you access first row of the column &rsquo;text&rsquo;.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #c678dd;">print</span>(df.at[0, <span style="color: #98be65;">'text'</span>])
+<span style="color: #c678dd;">print</span>(<span style="color: #c678dd;">type</span>(df.at[0, <span style="color: #98be65;">'text'</span>]))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">This product is amazing and works perfectly
+&lt;class 'str'&gt;
+</pre>
 </div>
 </div>
-<div id="outline-container-org1d45d64" class="outline-3">
-<h3 id="org1d45d64"><span class="section-number-3">1.4.</span> Check whether the dataset contains any missing values and display the count of missing values per column.</h3>
+</div>
+<div id="outline-container-org9ea02f7" class="outline-3">
+<h3 id="org9ea02f7"><span class="section-number-3">1.4.</span> Check whether the dataset contains any missing values and display the count of missing values per column.</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -767,8 +783,8 @@ the same as the number <code>0</code>. That&rsquo;s how the <code>sum()</code> f
 </ul>
 </div>
 </div>
-<div id="outline-container-org52b988a" class="outline-3">
-<h3 id="org52b988a"><span class="section-number-3">1.5.</span> Find the number of unique labels present in the dataset.</h3>
+<div id="outline-container-org42cdf4f" class="outline-3">
+<h3 id="org42cdf4f"><span class="section-number-3">1.5.</span> Find the number of unique labels present in the dataset.</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 <code>df.label</code> or <code>df['label']</code> returns a Pandas Series (1 Dimensional), corresponding
@@ -843,8 +859,8 @@ Or you could use the <code>.nunique()</code> method:
 </div>
 </div>
 </div>
-<div id="outline-container-org005df3f" class="outline-3">
-<h3 id="org005df3f"><span class="section-number-3">1.6.</span> Display the count of records for each label.</h3>
+<div id="outline-container-org7ab8f37" class="outline-3">
+<h3 id="org7ab8f37"><span class="section-number-3">1.6.</span> Display the count of records for each label.</h3>
 <div class="outline-text-3" id="text-1-6">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(df[<span style="color: #98be65;">"label"</span>].value_counts())
@@ -859,14 +875,29 @@ Neutral     32
 Name: count, dtype: int64
 </pre>
 </div>
+
+<p>
+And to get the number of unique values you could do this too:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #c678dd;">print</span>(<span style="color: #c678dd;">len</span>(df[<span style="color: #98be65;">"label"</span>].value_counts()))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">3
+</pre>
 </div>
 </div>
-<div id="outline-container-orgbdffcf1" class="outline-3">
-<h3 id="orgbdffcf1"><span class="section-number-3">1.7.</span> Filter and display all rows where the label is &ldquo;Negative&rdquo;.</h3>
+</div>
+<div id="outline-container-org1861c8a" class="outline-3">
+<h3 id="org1861c8a"><span class="section-number-3">1.7.</span> Filter and display all rows where the label is &ldquo;Negative&rdquo;.</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
-The <code>df['label'] == "Negative"</code> return a Pandas Series of boolean values (same
-size as <code>df</code>), where <code>True</code> means the record satisfies the condition.
+Now that we have the unique values of a column using <code>.unique</code> or <code>.value_counts()</code>,
+we can now use this to evaluate a boolean expression. The <code>df['label'] ==
+"Negative"</code> line returns a Pandas Series of boolean values (same size as <code>df</code>),
+where <code>True</code> means the record satisfies the condition.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(<span style="color: #c678dd;">type</span>(df[<span style="color: #98be65;">'label'</span>] == <span style="color: #98be65;">"Negative"</span>))
@@ -961,38 +992,62 @@ So you can use the <code>df['label'] == 'Negative'</code> Series to index the Pa
 </div>
 </div>
 </div>
-<div id="outline-container-org573f4fb" class="outline-3">
-<h3 id="org573f4fb"><span class="section-number-3">1.8.</span> Create a new column that stores the number of characters present in each text.</h3>
+<div id="outline-container-orgc7e392c" class="outline-3">
+<h3 id="orgc7e392c"><span class="section-number-3">1.8.</span> Create a new column that stores the number of characters present in each text.</h3>
 <div class="outline-text-3" id="text-1-8">
+<p>
+The <code>.apply()</code> of a Pandas Series, takes in each element of the series and passes
+it to the function. The parameter of <code>.apply()</code> is the name of the function.
+</p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"char_count"</span>] = df[<span style="color: #98be65;">"text"</span>].<span style="color: #c678dd;">apply</span>(<span style="color: #c678dd;">len</span>)
+<span style="color: #c678dd;">print</span>(df.head())
 
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">
+<pre class="src src-nil">                                          text     label  char_count
+0  This product is amazing and works perfectly  Positive          43
+1     Terrible experience, would not recommend  Negative          40
+2                   It's okay, nothing special   Neutral          26
+3       Absolutely love it, best purchase ever  Positive          38
+4               Worst product I've ever bought  Negative          30
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0b7a660" class="outline-3">
-<h3 id="org0b7a660"><span class="section-number-3">1.9.</span> Create another column that stores the number of words in each text.</h3>
+<div id="outline-container-orgc12ad34" class="outline-3">
+<h3 id="orgc12ad34"><span class="section-number-3">1.9.</span> Create another column that stores the number of words in each text.</h3>
 <div class="outline-text-3" id="text-1-9">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"word_count"</span>] = df[<span style="color: #98be65;">"text"</span>].<span style="color: #c678dd;">apply</span>(<span style="color: #51afef;">lambda</span> x: <span style="color: #c678dd;">len</span>(x.split()))
+<span style="color: #c678dd;">print</span>(df)
 
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">
+<pre class="src src-nil">                                           text     label  char_count  word_count
+0   This product is amazing and works perfectly  Positive          43           7
+1      Terrible experience, would not recommend  Negative          40           5
+2                    It's okay, nothing special   Neutral          26           4
+3        Absolutely love it, best purchase ever  Positive          38           6
+4                Worst product I've ever bought  Negative          30           5
+..                                          ...       ...         ...         ...
+95                    Standard expectations met   Neutral          25           3
+96                  Impressive results achieved  Positive          27           3
+97                          Poor design choices  Negative          19           3
+98              Adequate functionality provided   Neutral          31           3
+99                  Exceptional value delivered  Positive          27           3
+
+[100 rows x 4 columns]
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc516396" class="outline-3">
-<h3 id="orgc516396"><span class="section-number-3">1.10.</span> Convert all text entries to lowercase and store the result in a new column without modifying the original text column.</h3>
+<div id="outline-container-orgd053825" class="outline-3">
+<h3 id="orgd053825"><span class="section-number-3">1.10.</span> Convert all text entries to lowercase and store the result in a new column without modifying the original text column.</h3>
 <div class="outline-text-3" id="text-1-10">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"text_lower"</span>] = df[<span style="color: #98be65;">"text"</span>].<span style="color: #c678dd;">apply</span>(<span style="color: #51afef;">lambda</span> x: x.lower())
@@ -1000,55 +1055,83 @@ So you can use the <code>df['label'] == 'Negative'</code> Series to index the Pa
 </pre>
 </div>
 
-<div class="org-src-container">
-<pre class="src src-nil">                                           text     label  char_count  word_count                                   text_lower
-0   This product is amazing and works perfectly  Positive          43           7  this product is amazing and works perfectly
-1      Terrible experience, would not recommend  Negative          40           5     terrible experience, would not recommend
-2                    It's okay, nothing special   Neutral          26           4                   it's okay, nothing special
-3        Absolutely love it, best purchase ever  Positive          38           6       absolutely love it, best purchase ever
-4                Worst product I've ever bought  Negative          30           5               worst product i've ever bought
-..                                          ...       ...         ...         ...                                          ...
-95                    Standard expectations met   Neutral          25           3                    standard expectations met
-96                  Impressive results achieved  Positive          27           3                  impressive results achieved
-97                          Poor design choices  Negative          19           3                          poor design choices
-98              Adequate functionality provided   Neutral          31           3              adequate functionality provided
-99                  Exceptional value delivered  Positive          27           3                  exceptional value delivered
 
-[100 rows x 5 columns]
+<p>
+Although Pandas has inbuild vectorized operations written in C. These are way
+faster:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"char_count"</span>] = df[<span style="color: #98be65;">"text"</span>].<span style="color: #c678dd;">str</span>.<span style="color: #c678dd;">len</span>()
+<span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"word_count"</span>] = df[<span style="color: #98be65;">"text"</span>].<span style="color: #c678dd;">str</span>.split().<span style="color: #c678dd;">str</span>.<span style="color: #c678dd;">len</span>()
+<span style="color: #c678dd;">print</span>(df)
+
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-nil">                                           text     label  char_count  word_count
+0   This product is amazing and works perfectly  positive          43           7
+1      Terrible experience, would not recommend  negative          40           5
+2                    It's okay, nothing special   neutral          26           4
+3        Absolutely love it, best purchase ever  positive          38           6
+4                Worst product I've ever bought  negative          30           5
+..                                          ...       ...         ...         ...
+95                    Standard expectations met   neutral          25           3
+96                  Impressive results achieved  positive          27           3
+97                          Poor design choices  negative          19           3
+98              Adequate functionality provided   neutral          31           3
+99                  Exceptional value delivered  positive          27           3
+
+[100 rows x 4 columns]
+</pre>
+</div>
+
+<p>
+<code>.str.split()</code> returns a Series where each element is a list of strings. Calling
+<code>.str.len()</code> on this Series, gives the length of the array (hence the number of
+strings in each list).
+</p>
 </div>
 </div>
-<div id="outline-container-orge626c7c" class="outline-3">
-<h3 id="orge626c7c"><span class="section-number-3">1.11.</span> Standardize the label column by converting all labels to lowercase.</h3>
+<div id="outline-container-orgfad0e60" class="outline-3">
+<h3 id="orgfad0e60"><span class="section-number-3">1.11.</span> Standardize the label column by converting all labels to lowercase.</h3>
 <div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"label"</span>] = df[<span style="color: #98be65;">"label"</span>].<span style="color: #c678dd;">apply</span>(<span style="color: #51afef;">lambda</span> x: x.lower())
+</pre>
+</div>
+
+<p>
+Once again, the faster way would be:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">df</span>[<span style="color: #98be65;">"label"</span>] = df[<span style="color: #98be65;">"label"</span>].<span style="color: #c678dd;">str</span>.lower()
 <span style="color: #c678dd;">print</span>(df)
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">                                           text     label  char_count  word_count                                   text_lower
-0   This product is amazing and works perfectly  positive          43           7  this product is amazing and works perfectly
-1      Terrible experience, would not recommend  negative          40           5     terrible experience, would not recommend
-2                    It's okay, nothing special   neutral          26           4                   it's okay, nothing special
-3        Absolutely love it, best purchase ever  positive          38           6       absolutely love it, best purchase ever
-4                Worst product I've ever bought  negative          30           5               worst product i've ever bought
-..                                          ...       ...         ...         ...                                          ...
-95                    Standard expectations met   neutral          25           3                    standard expectations met
-96                  Impressive results achieved  positive          27           3                  impressive results achieved
-97                          Poor design choices  negative          19           3                          poor design choices
-98              Adequate functionality provided   neutral          31           3              adequate functionality provided
-99                  Exceptional value delivered  positive          27           3                  exceptional value delivered
+<pre class="src src-nil">                                           text     label  char_count  word_count
+0   This product is amazing and works perfectly  positive          43           7
+1      Terrible experience, would not recommend  negative          40           5
+2                    It's okay, nothing special   neutral          26           4
+3        Absolutely love it, best purchase ever  positive          38           6
+4                Worst product I've ever bought  negative          30           5
+..                                          ...       ...         ...         ...
+95                    Standard expectations met   neutral          25           3
+96                  Impressive results achieved  positive          27           3
+97                          Poor design choices  negative          19           3
+98              Adequate functionality provided   neutral          31           3
+99                  Exceptional value delivered  positive          27           3
 
-[100 rows x 5 columns]
+[100 rows x 4 columns]
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org79ee6ec" class="outline-3">
-<h3 id="org79ee6ec"><span class="section-number-3">1.12.</span> Create a new column in which the labels are encoded as follows: positive → 1, neutral → 0, negative → −1.</h3>
+<div id="outline-container-org2f3f186" class="outline-3">
+<h3 id="org2f3f186"><span class="section-number-3">1.12.</span> Create a new column in which the labels are encoded as follows: positive → 1, neutral → 0, negative → −1.</h3>
 <div class="outline-text-3" id="text-1-12">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">label_encoding</span> = {<span style="color: #98be65;">"positive"</span>: 1, <span style="color: #98be65;">"neutral"</span>: 0, <span style="color: #98be65;">"negative"</span>: -1}
@@ -1066,8 +1149,8 @@ So you can use the <code>df['label'] == 'Negative'</code> Series to index the Pa
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2d8b9d" class="outline-3">
-<h3 id="orgd2d8b9d"><span class="section-number-3">1.13.</span> Sort the DataFrame in descending order based on the char count column.</h3>
+<div id="outline-container-org1965db7" class="outline-3">
+<h3 id="org1965db7"><span class="section-number-3">1.13.</span> Sort the DataFrame in descending order based on the char count column.</h3>
 <div class="outline-text-3" id="text-1-13">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df_sorted</span> = df.sort_values(<span style="color: #98be65;">'char_count'</span>, ascending=<span style="color: #a9a1e1;">False</span>)
@@ -1094,8 +1177,8 @@ So you can use the <code>df['label'] == 'Negative'</code> Series to index the Pa
 </div>
 </div>
 </div>
-<div id="outline-container-orgd62643e" class="outline-3">
-<h3 id="orgd62643e"><span class="section-number-3">1.14.</span> Display the top three longest text entries based on word count.</h3>
+<div id="outline-container-org3d91a92" class="outline-3">
+<h3 id="org3d91a92"><span class="section-number-3">1.14.</span> Display the top three longest text entries based on word count.</h3>
 <div class="outline-text-3" id="text-1-14">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(df.sort_values(<span style="color: #98be65;">'char_count'</span>, ascending=<span style="color: #a9a1e1;">False</span>))
@@ -1137,8 +1220,8 @@ Name: text, dtype: object
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb32bd8" class="outline-3">
-<h3 id="orgcb32bd8"><span class="section-number-3">1.15.</span> Filter and display all texts that contain more than six words and belong to the &ldquo;positive&rdquo; label.</h3>
+<div id="outline-container-org7625bf0" class="outline-3">
+<h3 id="org7625bf0"><span class="section-number-3">1.15.</span> Filter and display all texts that contain more than six words and belong to the &ldquo;positive&rdquo; label.</h3>
 <div class="outline-text-3" id="text-1-15">
 <p>
 Creating word count
@@ -1185,8 +1268,8 @@ wrapped in brackets.
 </p>
 </div>
 </div>
-<div id="outline-container-org5b1496b" class="outline-3">
-<h3 id="org5b1496b"><span class="section-number-3">1.16.</span> Group the data by label and compute the average word count for each group.</h3>
+<div id="outline-container-orgbea932c" class="outline-3">
+<h3 id="orgbea932c"><span class="section-number-3">1.16.</span> Group the data by label and compute the average word count for each group.</h3>
 <div class="outline-text-3" id="text-1-16">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">avg_word_count</span> = df.groupby(<span style="color: #98be65;">'label'</span>)[<span style="color: #98be65;">'word_count'</span>].mean()
@@ -1205,8 +1288,8 @@ Name: word_count, dtype: float64
 </div>
 </div>
 </div>
-<div id="outline-container-orgd7deeb2" class="outline-3">
-<h3 id="orgd7deeb2"><span class="section-number-3">1.17.</span> Identify the label that has the highest average word count.</h3>
+<div id="outline-container-org086e609" class="outline-3">
+<h3 id="org086e609"><span class="section-number-3">1.17.</span> Identify the label that has the highest average word count.</h3>
 <div class="outline-text-3" id="text-1-17">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">label_max_avg</span> = avg_word_count.idxmax()
@@ -1220,8 +1303,8 @@ Name: word_count, dtype: float64
 </div>
 </div>
 </div>
-<div id="outline-container-orgff4a5b0" class="outline-3">
-<h3 id="orgff4a5b0"><span class="section-number-3">1.18.</span> Count the number of text entries with fewer than five words for each label.</h3>
+<div id="outline-container-org9a5f202" class="outline-3">
+<h3 id="org9a5f202"><span class="section-number-3">1.18.</span> Count the number of text entries with fewer than five words for each label.</h3>
 <div class="outline-text-3" id="text-1-18">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">short_texts</span> = df[df[<span style="color: #98be65;">'word_count'</span>] &lt; 5].groupby(<span style="color: #98be65;">'label'</span>).size()
@@ -1240,8 +1323,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-org90fbb11" class="outline-3">
-<h3 id="org90fbb11"><span class="section-number-3">1.19.</span> Change the DataFrame index to start from 1 instead of 0.</h3>
+<div id="outline-container-org3f1ec56" class="outline-3">
+<h3 id="org3f1ec56"><span class="section-number-3">1.19.</span> Change the DataFrame index to start from 1 instead of 0.</h3>
 <div class="outline-text-3" id="text-1-19">
 <div class="org-src-container">
 <pre class="src src-python">df.<span style="color: #dcaeea;">index</span> = <span style="color: #c678dd;">range</span>(1, <span style="color: #c678dd;">len</span>(df) + 1)
@@ -1255,8 +1338,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-org1d06821" class="outline-3">
-<h3 id="org1d06821"><span class="section-number-3">1.20.</span> Rename the columns text to review<sub>text</sub> and label to sentiment.</h3>
+<div id="outline-container-orgd4b1fad" class="outline-3">
+<h3 id="orgd4b1fad"><span class="section-number-3">1.20.</span> Rename the columns text to review<sub>text</sub> and label to sentiment.</h3>
 <div class="outline-text-3" id="text-1-20">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df</span> = df.rename(columns={<span style="color: #98be65;">'text'</span>: <span style="color: #98be65;">'review_text'</span>, <span style="color: #98be65;">'label'</span>: <span style="color: #98be65;">'sentiment'</span>})
@@ -1270,8 +1353,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-orga2af466" class="outline-3">
-<h3 id="orga2af466"><span class="section-number-3">1.21.</span> Update the sentiment of a specific record (given index) from &ldquo;neutral&rdquo; to &ldquo;positive&rdquo;.</h3>
+<div id="outline-container-orgf9bb5bc" class="outline-3">
+<h3 id="orgf9bb5bc"><span class="section-number-3">1.21.</span> Update the sentiment of a specific record (given index) from &ldquo;neutral&rdquo; to &ldquo;positive&rdquo;.</h3>
 <div class="outline-text-3" id="text-1-21">
 <div class="org-src-container">
 <pre class="src src-python">df.<span style="color: #dcaeea;">loc</span>[5, <span style="color: #98be65;">'sentiment'</span>] = <span style="color: #98be65;">'positive'</span>
@@ -1285,8 +1368,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-org01af716" class="outline-3">
-<h3 id="org01af716"><span class="section-number-3">1.22.</span> Create a new DataFrame that contains only the rows with positive sentiment.</h3>
+<div id="outline-container-org10416df" class="outline-3">
+<h3 id="org10416df"><span class="section-number-3">1.22.</span> Create a new DataFrame that contains only the rows with positive sentiment.</h3>
 <div class="outline-text-3" id="text-1-22">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #c678dd;">print</span>(df[df[<span style="color: #98be65;">'sentiment'</span>] == <span style="color: #98be65;">'positive'</span>])
@@ -1336,8 +1419,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-orge5f36b4" class="outline-3">
-<h3 id="orge5f36b4"><span class="section-number-3">1.23.</span> Save the cleaned and updated DataFrame to a new CSV file.</h3>
+<div id="outline-container-orgedadcd2" class="outline-3">
+<h3 id="orgedadcd2"><span class="section-number-3">1.23.</span> Save the cleaned and updated DataFrame to a new CSV file.</h3>
 <div class="outline-text-3" id="text-1-23">
 <div class="org-src-container">
 <pre class="src src-python">df.to_csv(<span style="color: #98be65;">'cleaned_reviews.csv'</span>, index=<span style="color: #a9a1e1;">False</span>)
@@ -1351,8 +1434,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div id="outline-container-org2bbbfc9" class="outline-3">
-<h3 id="org2bbbfc9"><span class="section-number-3">1.24.</span> Reload the saved file and verify that the changes are correctly reflected.</h3>
+<div id="outline-container-org2de2e03" class="outline-3">
+<h3 id="org2de2e03"><span class="section-number-3">1.24.</span> Reload the saved file and verify that the changes are correctly reflected.</h3>
 <div class="outline-text-3" id="text-1-24">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #dcaeea;">df_reloaded</span> = pd.read_csv(<span style="color: #98be65;">'cleaned_reviews.csv'</span>)
