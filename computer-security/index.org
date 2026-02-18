@@ -643,6 +643,39 @@ Some things to note in this code are:
     Hence the row is modified.
   - If it is neither of the cases, you swap the columns of both characters.
 
+****** Hill Cipher
+Consider the Example: Plaintext = ~CODE~, Key =   $\begin{bmatrix} 3 & 3 \\ 2 & 5  \end{bmatrix}$
+******* Encryption
+$$\text{Cipher Text} = \begin{bmatrix} \text{Key} \end{bmatrix} \times \text{Plain Text} \mod(26)$$
+- Plaintext:
+  #+begin_src txt
+CO   DE
+  #+end_src
+  In numeric indices:
+  $$\begin{bmatrix} 2  \\ 14  \end{bmatrix} \text{ and }   \begin{bmatrix} 3 \\ 4  \end{bmatrix}$$
+- CipherText:
+  $$ \begin{bmatrix} 3 & 3 \\ 2 & 5  \end{bmatrix} \times    \begin{bmatrix} 2  \\ 14  \end{bmatrix} \mod(26) = \begin{bmatrix} 22\\ 22 \end{bmatrix}$$
+  $$ \begin{bmatrix} 3 & 3 \\ 2 & 5  \end{bmatrix} \times    \begin{bmatrix} 3  \\ 4  \end{bmatrix} \mod(26) = \begin{bmatrix} 21 \\ 0 \end{bmatrix}$$
+- In alphabetic form:
+  #+begin_src txt
+WW   VA
+  #+end_src
+  
+******* Decryption
+$$\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text{Cipher Text} \mod(26)$$
+
+- $[\frac{1}{\det{k}} \times \text{adj}(k) ] \times \text{(Cipher Text)} \mod(26)$
+- $[9^{-1} \times \text{adj}(k) ] \times \text{(Cipher Text)} \mod(26)$
+- $[9^{-1} \times  \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} ] \times \text{(Cipher Text)} \mod(26)$
+- $[ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} 9^{-1} \mod(26)] \times \text{(Cipher Text)} \mod(26)$
+Refer to [[*Extended Euclidean Algorithm][Extended Euclidean Algorithm]]
+
+Also, $\text{adj}(k)$ is given as the transpose of the cofactor matrix.
+
+******* Examples
+******** Plaintext = ~ZR~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
+- Ciphertext = ~LD~
+******** Ciphertext = ~JD~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
 ***** Homophonic
 - If a letter $x$ appears for $y\%$ of all characters, we assign $y$ number of
   symbols to represent it.
@@ -1160,3 +1193,4 @@ $a^{\phi(n)} \equiv 1\mod(n)$, if
 - $71^{32+4+2+1} \mod 100 = 41\times81\times41\times71 \mod 100$
 
 **** Find $8^{-1} \mod(77)$
+
