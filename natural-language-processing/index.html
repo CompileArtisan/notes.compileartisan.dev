@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-07 Sat 17:11 -->
+<!-- 2026-02-23 Mon 08:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Natural Language Processing</title>
@@ -617,56 +617,68 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org63bc9f0">1. Introduction</a>
+<li><a href="#org03b4400">1. Introduction</a>
 <ul>
-<li><a href="#orgddc3e98">1.1. What is a Language Model?</a></li>
-<li><a href="#orgfbc2ecc">1.2. What is Natural Language Processing?</a></li>
-<li><a href="#org063742e">1.3. Change in Metrics</a></li>
-<li><a href="#orgf26fd1d">1.4. Some Applications</a>
+<li><a href="#org4ddd205">1.1. What is a Language Model?</a></li>
+<li><a href="#org8dda7f9">1.2. What is Natural Language Processing?</a></li>
+<li><a href="#org84b9c8f">1.3. Change in Metrics</a></li>
+<li><a href="#org803dda0">1.4. Some Applications</a>
 <ul>
-<li><a href="#orgb1be5c4">1.4.1. NLP Text Summarization</a></li>
-<li><a href="#orgaf26d4c">1.4.2. Spam Detection</a></li>
+<li><a href="#org8780db1">1.4.1. NLP Text Summarization</a></li>
+<li><a href="#org3459ad7">1.4.2. Spam Detection</a></li>
 </ul>
 </li>
-<li><a href="#org68e3d35">1.5. Research Areas in NLP</a>
+<li><a href="#org65ccc79">1.5. Research Areas in NLP</a>
 <ul>
-<li><a href="#org183ac6e">1.5.1. Multimodal NLP</a></li>
-<li><a href="#orge299f1a">1.5.2. Large Scale Pre-trained LLMS</a></li>
-<li><a href="#org13afd73">1.5.3. Explainable AI in NLP</a></li>
-<li><a href="#org7c6a58b">1.5.4. Conversational AI and Dialogue Systems</a></li>
-<li><a href="#orgb70ba11">1.5.5. Zero-shot and few shot learning</a></li>
+<li><a href="#orge1f75d9">1.5.1. Multimodal NLP</a></li>
+<li><a href="#org4505501">1.5.2. Large Scale Pre-trained LLMS</a></li>
+<li><a href="#org97351eb">1.5.3. Explainable AI in NLP</a></li>
+<li><a href="#orgb4d1a5e">1.5.4. Conversational AI and Dialogue Systems</a></li>
+<li><a href="#orgd234199">1.5.5. Zero-shot and few shot learning</a></li>
 </ul>
 </li>
-<li><a href="#org93e6a51">1.6. Challenges of NLP</a>
+<li><a href="#org10cbfb0">1.6. Challenges of NLP</a>
 <ul>
-<li><a href="#org493c92c">1.6.1. Lexical Ambiguity</a></li>
-<li><a href="#org857a40e">1.6.2. Language Ambiguity</a></li>
+<li><a href="#orga9007d4">1.6.1. Lexical Ambiguity</a></li>
+<li><a href="#orgbf69e65">1.6.2. Language Ambiguity</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd7c3b8f">2. Big Picture</a>
+<li><a href="#orgbab471f">2. Big Picture</a>
 <ul>
-<li><a href="#orgf5fb617">2.1. Text Preprocessing</a>
+<li><a href="#orga91f821">2.1. Text Preprocessing</a>
 <ul>
-<li><a href="#org93dbfb6">2.1.1. Tokenization</a></li>
-<li><a href="#org7b1c15b">2.1.2. Sentence Segmentation</a></li>
-<li><a href="#org1f89431">2.1.3. Normalization</a></li>
+<li><a href="#org980b611">2.1.1. Tokenization</a></li>
+<li><a href="#orgf3dff16">2.1.2. Sentence Segmentation</a></li>
+<li><a href="#orgce27ee9">2.1.3. Normalization</a></li>
 </ul>
 </li>
-<li><a href="#org291acfc">2.2. Bag of Words</a></li>
-<li><a href="#orgf0a2a63">2.3. TF-IDF</a></li>
+<li><a href="#orgdf0d07c">2.2. Bag of Words</a></li>
+<li><a href="#orgce795bf">2.3. TF-IDF</a></li>
 </ul>
 </li>
-<li><a href="#orgb847be8">3. Linguistic Analysis</a>
+<li><a href="#org2de0f07">3. Linguistic Analysis</a>
 <ul>
-<li><a href="#org643f291">3.1. Qualities of a Language</a></li>
-<li><a href="#org6e0fbd6">3.2. Morphemes</a></li>
-<li><a href="#org0826362">3.3. Levels of Linguistic Analysis</a>
+<li><a href="#orgfec03bd">3.1. Qualities of a Language</a></li>
+<li><a href="#org91f5d00">3.2. Morphemes</a></li>
+<li><a href="#org3d2e99a">3.3. Levels of Linguistic Analysis</a>
 <ul>
-<li><a href="#orgbed502d">3.3.1. Morphology</a></li>
-<li><a href="#org10d18e0">3.3.2. Syntax</a></li>
-<li><a href="#orgaa046e8">3.3.3. Semantics</a></li>
+<li><a href="#orgcfd8651">3.3.1. Morphology</a></li>
+<li><a href="#orgffa1ee4">3.3.2. Syntax</a></li>
+<li><a href="#org1c65bf0">3.3.3. Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8637ab4">4. Language Modelling</a>
+<ul>
+<li><a href="#org89414a7">4.1. Bayes Theorem</a></li>
+<li><a href="#org71e3908">4.2. Markov Assumption</a></li>
+<li><a href="#orgc4eef40">4.3. N-Gram models</a>
+<ul>
+<li><a href="#org4518452">4.3.1. Example:</a></li>
+<li><a href="#org29f57c3">4.3.2. POS Tagging</a></li>
 </ul>
 </li>
 </ul>
@@ -674,12 +686,12 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-org63bc9f0" class="outline-2">
-<h2 id="org63bc9f0"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org03b4400" class="outline-2">
+<h2 id="org03b4400"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgddc3e98" class="outline-3">
-<h3 id="orgddc3e98"><span class="section-number-3">1.1.</span> What is a Language Model?</h3>
+<div id="outline-container-org4ddd205" class="outline-3">
+<h3 id="org4ddd205"><span class="section-number-3">1.1.</span> What is a Language Model?</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Given a set of words, if it can predict the next word, it&rsquo;s called a <b>language
@@ -689,8 +701,8 @@ model</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfbc2ecc" class="outline-3">
-<h3 id="orgfbc2ecc"><span class="section-number-3">1.2.</span> What is Natural Language Processing?</h3>
+<div id="outline-container-org8dda7f9" class="outline-3">
+<h3 id="org8dda7f9"><span class="section-number-3">1.2.</span> What is Natural Language Processing?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>An automated system which is capable of processing and analyzing text data.</li>
@@ -710,8 +722,8 @@ An NLP task can be modelled as a general machine-learning problem:
 </ul>
 </div>
 </div>
-<div id="outline-container-org063742e" class="outline-3">
-<h3 id="org063742e"><span class="section-number-3">1.3.</span> Change in Metrics</h3>
+<div id="outline-container-org84b9c8f" class="outline-3">
+<h3 id="org84b9c8f"><span class="section-number-3">1.3.</span> Change in Metrics</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>When the output is a label, you can use metrics like precision, recall and
@@ -719,12 +731,12 @@ accuracy.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf26fd1d" class="outline-3">
-<h3 id="orgf26fd1d"><span class="section-number-3">1.4.</span> Some Applications</h3>
+<div id="outline-container-org803dda0" class="outline-3">
+<h3 id="org803dda0"><span class="section-number-3">1.4.</span> Some Applications</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgb1be5c4" class="outline-4">
-<h4 id="orgb1be5c4"><span class="section-number-4">1.4.1.</span> NLP Text Summarization</h4>
+<div id="outline-container-org8780db1" class="outline-4">
+<h4 id="org8780db1"><span class="section-number-4">1.4.1.</span> NLP Text Summarization</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -749,8 +761,8 @@ accuracy.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-orgaf26d4c" class="outline-4">
-<h4 id="orgaf26d4c"><span class="section-number-4">1.4.2.</span> Spam Detection</h4>
+<div id="outline-container-org3459ad7" class="outline-4">
+<h4 id="org3459ad7"><span class="section-number-4">1.4.2.</span> Spam Detection</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>This is a simple classification problem.</li>
@@ -758,12 +770,12 @@ accuracy.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org68e3d35" class="outline-3">
-<h3 id="org68e3d35"><span class="section-number-3">1.5.</span> Research Areas in NLP</h3>
+<div id="outline-container-org65ccc79" class="outline-3">
+<h3 id="org65ccc79"><span class="section-number-3">1.5.</span> Research Areas in NLP</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org183ac6e" class="outline-4">
-<h4 id="org183ac6e"><span class="section-number-4">1.5.1.</span> Multimodal NLP</h4>
+<div id="outline-container-orge1f75d9" class="outline-4">
+<h4 id="orge1f75d9"><span class="section-number-4">1.5.1.</span> Multimodal NLP</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
 <li>The model can handle different data modalities like images, audio, sensor
@@ -771,16 +783,16 @@ data, etc.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge299f1a" class="outline-4">
-<h4 id="orge299f1a"><span class="section-number-4">1.5.2.</span> Large Scale Pre-trained LLMS</h4>
+<div id="outline-container-org4505501" class="outline-4">
+<h4 id="org4505501"><span class="section-number-4">1.5.2.</span> Large Scale Pre-trained LLMS</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <ul class="org-ul">
 <li>Make an open-domain LLM like ChatGPT, which can be used for anything.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org13afd73" class="outline-4">
-<h4 id="org13afd73"><span class="section-number-4">1.5.3.</span> Explainable AI in NLP</h4>
+<div id="outline-container-org97351eb" class="outline-4">
+<h4 id="org97351eb"><span class="section-number-4">1.5.3.</span> Explainable AI in NLP</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <ul class="org-ul">
 <li>Make it such that you&rsquo;re able to justify why exactly a model gave that answer,
@@ -788,24 +800,24 @@ and not treat it as a black box.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7c6a58b" class="outline-4">
-<h4 id="org7c6a58b"><span class="section-number-4">1.5.4.</span> Conversational AI and Dialogue Systems</h4>
+<div id="outline-container-orgb4d1a5e" class="outline-4">
+<h4 id="orgb4d1a5e"><span class="section-number-4">1.5.4.</span> Conversational AI and Dialogue Systems</h4>
 <div class="outline-text-4" id="text-1-5-4">
 <ul class="org-ul">
 <li>Make a model that can talk like a human being.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb70ba11" class="outline-4">
-<h4 id="orgb70ba11"><span class="section-number-4">1.5.5.</span> Zero-shot and few shot learning</h4>
+<div id="outline-container-orgd234199" class="outline-4">
+<h4 id="orgd234199"><span class="section-number-4">1.5.5.</span> Zero-shot and few shot learning</h4>
 </div>
 </div>
-<div id="outline-container-org93e6a51" class="outline-3">
-<h3 id="org93e6a51"><span class="section-number-3">1.6.</span> Challenges of NLP</h3>
+<div id="outline-container-org10cbfb0" class="outline-3">
+<h3 id="org10cbfb0"><span class="section-number-3">1.6.</span> Challenges of NLP</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org493c92c" class="outline-4">
-<h4 id="org493c92c"><span class="section-number-4">1.6.1.</span> Lexical Ambiguity</h4>
+<div id="outline-container-orga9007d4" class="outline-4">
+<h4 id="orga9007d4"><span class="section-number-4">1.6.1.</span> Lexical Ambiguity</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 This is when a single word can have multiple meanings. For example:
@@ -824,8 +836,8 @@ Bank could mean
 </ul>
 </div>
 </div>
-<div id="outline-container-org857a40e" class="outline-4">
-<h4 id="org857a40e"><span class="section-number-4">1.6.2.</span> Language Ambiguity</h4>
+<div id="outline-container-orgbf69e65" class="outline-4">
+<h4 id="orgbf69e65"><span class="section-number-4">1.6.2.</span> Language Ambiguity</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 Lexical ambiguity was word level. Language ambiguity is structural level.
@@ -856,32 +868,32 @@ This could mean:
 </div>
 </div>
 </div>
-<div id="outline-container-orgd7c3b8f" class="outline-2">
-<h2 id="orgd7c3b8f"><span class="section-number-2">2.</span> Big Picture</h2>
+<div id="outline-container-orgbab471f" class="outline-2">
+<h2 id="orgbab471f"><span class="section-number-2">2.</span> Big Picture</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf5fb617" class="outline-3">
-<h3 id="orgf5fb617"><span class="section-number-3">2.1.</span> Text Preprocessing</h3>
+<div id="outline-container-orga91f821" class="outline-3">
+<h3 id="orga91f821"><span class="section-number-3">2.1.</span> Text Preprocessing</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org93dbfb6" class="outline-4">
-<h4 id="org93dbfb6"><span class="section-number-4">2.1.1.</span> Tokenization</h4>
+<div id="outline-container-org980b611" class="outline-4">
+<h4 id="org980b611"><span class="section-number-4">2.1.1.</span> Tokenization</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>This is the process of segmenting a string, into unique words called tokens.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7b1c15b" class="outline-4">
-<h4 id="org7b1c15b"><span class="section-number-4">2.1.2.</span> Sentence Segmentation</h4>
+<div id="outline-container-orgf3dff16" class="outline-4">
+<h4 id="orgf3dff16"><span class="section-number-4">2.1.2.</span> Sentence Segmentation</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Deciding where the sentences begin and end.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f89431" class="outline-4">
-<h4 id="org1f89431"><span class="section-number-4">2.1.3.</span> Normalization</h4>
+<div id="outline-container-orgce27ee9" class="outline-4">
+<h4 id="orgce27ee9"><span class="section-number-4">2.1.3.</span> Normalization</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Standardizing text by converting it into a simpler and consistent format.</li>
@@ -892,7 +904,7 @@ text.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org6b41dce"></a>Case Folding<br />
+<li><a id="org8c6ba78"></a>Case Folding<br />
 <div class="outline-text-5" id="text-2-1-3-1">
 <ul class="org-ul">
 <li>One simpler, consistent format could be turning all of the text into the same
@@ -903,7 +915,7 @@ case it&rsquo;d would be &ldquo;us&rdquo;.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgaa4ec19"></a>Stemming<br />
+<li><a id="orga7de921"></a>Stemming<br />
 <div class="outline-text-5" id="text-2-1-3-2">
 <ul class="org-ul">
 <li>Stemming is essentially crude chopping of affixes.</li>
@@ -915,7 +927,7 @@ abruptly formed piece of text.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb99ef1b"></a>Lemmatization<br />
+<li><a id="org6e65905"></a>Lemmatization<br />
 <div class="outline-text-5" id="text-2-1-3-3">
 <ul class="org-ul">
 <li>Here, you convert it into the equivalent root word.</li>
@@ -927,8 +939,8 @@ cut-off piece of text - it&rsquo;s an actual word from a dictionary.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org291acfc" class="outline-3">
-<h3 id="org291acfc"><span class="section-number-3">2.2.</span> Bag of Words</h3>
+<div id="outline-container-orgdf0d07c" class="outline-3">
+<h3 id="orgdf0d07c"><span class="section-number-3">2.2.</span> Bag of Words</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s a dictionary that tells you how many unique words are present in each
@@ -998,8 +1010,8 @@ For example, <code>data_given = ['The quick brown fox', 'Fox news is the best']<
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf0a2a63" class="outline-3">
-<h3 id="orgf0a2a63"><span class="section-number-3">2.3.</span> TF-IDF</h3>
+<div id="outline-container-orgce795bf" class="outline-3">
+<h3 id="orgce795bf"><span class="section-number-3">2.3.</span> TF-IDF</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>It stands for term frequency - inverse document frequency.</li>
@@ -1112,12 +1124,12 @@ D3: &ldquo;the cat chased the dog&rdquo;
 </div>
 </div>
 </div>
-<div id="outline-container-orgb847be8" class="outline-2">
-<h2 id="orgb847be8"><span class="section-number-2">3.</span> Linguistic Analysis</h2>
+<div id="outline-container-org2de0f07" class="outline-2">
+<h2 id="org2de0f07"><span class="section-number-2">3.</span> Linguistic Analysis</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org643f291" class="outline-3">
-<h3 id="org643f291"><span class="section-number-3">3.1.</span> Qualities of a Language</h3>
+<div id="outline-container-orgfec03bd" class="outline-3">
+<h3 id="orgfec03bd"><span class="section-number-3">3.1.</span> Qualities of a Language</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Ambiguous</li>
@@ -1126,8 +1138,8 @@ D3: &ldquo;the cat chased the dog&rdquo;
 </ul>
 </div>
 </div>
-<div id="outline-container-org6e0fbd6" class="outline-3">
-<h3 id="org6e0fbd6"><span class="section-number-3">3.2.</span> Morphemes</h3>
+<div id="outline-container-org91f5d00" class="outline-3">
+<h3 id="org91f5d00"><span class="section-number-3">3.2.</span> Morphemes</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><a href="https://alic.sites.unlv.edu/chapter-12-1-morphemes/">Chapter 12.1: Morphemes – ALIC – Analyzing Language in Context</a></li>
@@ -1135,8 +1147,8 @@ D3: &ldquo;the cat chased the dog&rdquo;
 </ul>
 </div>
 </div>
-<div id="outline-container-org0826362" class="outline-3">
-<h3 id="org0826362"><span class="section-number-3">3.3.</span> Levels of Linguistic Analysis</h3>
+<div id="outline-container-org3d2e99a" class="outline-3">
+<h3 id="org3d2e99a"><span class="section-number-3">3.3.</span> Levels of Linguistic Analysis</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>These are the 3 types of patterns that a model should learn.</li>
@@ -1144,8 +1156,8 @@ D3: &ldquo;the cat chased the dog&rdquo;
 <li>Now modern NLP (BERT, GPT) learn these patterns automatically.</li>
 </ul>
 </div>
-<div id="outline-container-orgbed502d" class="outline-4">
-<h4 id="orgbed502d"><span class="section-number-4">3.3.1.</span> Morphology</h4>
+<div id="outline-container-orgcfd8651" class="outline-4">
+<h4 id="orgcfd8651"><span class="section-number-4">3.3.1.</span> Morphology</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <ul class="org-ul">
 <li>This has to deal with the <b>structure of words</b>.</li>
@@ -1153,7 +1165,7 @@ D3: &ldquo;the cat chased the dog&rdquo;
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge6e466c"></a>Inflectional Morphology<br />
+<li><a id="orgeaeac7a"></a>Inflectional Morphology<br />
 <div class="outline-text-5" id="text-3-3-1-1">
 <ul class="org-ul">
 <li>Slightly modify words for grammar, but not changing core category or part of
@@ -1161,7 +1173,7 @@ speech.</li>
 </ul>
 </div>
 </li>
-<li><a id="org29ba469"></a>Derivational Morphology<br />
+<li><a id="orgde6c04d"></a>Derivational Morphology<br />
 <div class="outline-text-5" id="text-3-3-1-2">
 <ul class="org-ul">
 <li>Creates new words with different meanings of part of speech by adding affixes</li>
@@ -1171,8 +1183,8 @@ speech.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org10d18e0" class="outline-4">
-<h4 id="org10d18e0"><span class="section-number-4">3.3.2.</span> Syntax</h4>
+<div id="outline-container-orgffa1ee4" class="outline-4">
+<h4 id="orgffa1ee4"><span class="section-number-4">3.3.2.</span> Syntax</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>This has to deal with the <b>structure of sentences</b>.</li>
@@ -1180,7 +1192,7 @@ speech.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgef2ff36"></a>Constituency<br />
+<li><a id="orgb0b54ff"></a>Constituency<br />
 <div class="outline-text-5" id="text-3-3-2-1">
 <ul class="org-ul">
 <li>They&rsquo;re a group of words that behave as single grammatical units within a
@@ -1189,7 +1201,7 @@ sentence.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc1518c2"></a>CFG<br />
+<li><a id="org4196a51"></a>CFG<br />
 <div class="outline-text-5" id="text-3-3-2-2">
 <ul class="org-ul">
 <li>Preterminals are terminal variables which directly correspond to a terminal.</li>
@@ -1198,7 +1210,7 @@ sentence.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgfe1ae88"></a>Parsing<br />
+<li><a id="org3a37a39"></a>Parsing<br />
 <div class="outline-text-5" id="text-3-3-2-3">
 <ul class="org-ul">
 <li>There are two kinds of parsing.</li>
@@ -1229,15 +1241,17 @@ sentence.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgaa046e8" class="outline-4">
-<h4 id="orgaa046e8"><span class="section-number-4">3.3.3.</span> Semantics</h4>
+<div id="outline-container-org1c65bf0" class="outline-4">
+<h4 id="org1c65bf0"><span class="section-number-4">3.3.3.</span> Semantics</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <ul class="org-ul">
 <li><b>Lexicon</b> is the English term for Bag of Words.</li>
+<li><b>Lexeme</b> is a pair of an orthographic form (spelling), phonological form
+(pronounciation).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8eefcf2"></a>Homonymy<br />
+<li><a id="org6ca716d"></a>Homonymy<br />
 <div class="outline-text-5" id="text-3-3-3-1">
 <ul class="org-ul">
 <li>It&rsquo;s the relation that holds between words which have the same form, with
@@ -1247,7 +1261,7 @@ unrelated meanings.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga548bad"></a>Homophones<br />
+<li><a id="org7542f1d"></a>Homophones<br />
 <div class="outline-text-5" id="text-3-3-3-2">
 <ul class="org-ul">
 <li>Words with the same pronounciation but different spellings (aka. different
@@ -1257,7 +1271,7 @@ orthographic form).</li>
 </ul>
 </div>
 </li>
-<li><a id="org6fb432d"></a>Homographs<br />
+<li><a id="orgeb85691"></a>Homographs<br />
 <div class="outline-text-5" id="text-3-3-3-3">
 <ul class="org-ul">
 <li>Lexems with the same orthographic form (spelling) but different meanings. They
@@ -1266,28 +1280,208 @@ need not have the same pronounciation.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3bc0468"></a>Polysemy<br />
+<li><a id="orgb56d0ea"></a>Polysemy<br />
 <div class="outline-text-5" id="text-3-3-3-4">
 <ul class="org-ul">
-<li>It&rsquo;s how one word can mea</li>
+<li>It&rsquo;s how two lexemes can have</li>
 </ul>
 </div>
 </li>
-<li><a id="org853dfe6"></a>Synonymy<br />
+<li><a id="org3aa67fb"></a>Synonymy<br />
 <div class="outline-text-5" id="text-3-3-3-5">
 <ul class="org-ul">
-<li>Relation between senses</li>
-<li>Eg. Big plane and large plane mean the same, but Big sister and large sister
-don&rsquo;t.</li>
+<li>Relation between senses (synonyms)</li>
+<li>But an exception could be &ldquo;big&rdquo; and &ldquo;large&rdquo;. Big plane and large plane mean
+the same, but Big sister and large sister don&rsquo;t.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3900f58"></a>Antonyms<br />
+<li><a id="orgf5e430a"></a>Antonyms<br />
 <div class="outline-text-5" id="text-3-3-3-6">
 <ul class="org-ul">
 <li>Words that are opposite with respect to one of their features, elsewise being
 similar in sense.</li>
 <li>Eg. Hot and cold are opposites, but both talk about temperature.</li>
+</ul>
+</div>
+</li>
+<li><a id="org894ba48"></a>Hyponymy and Hypernymy<br />
+<div class="outline-text-5" id="text-3-3-3-7">
+<ul class="org-ul">
+<li>Car is a subclass (hyponym) of vehicle</li>
+<li>Vehicle is a superclass (supernym) of car.</li>
+</ul>
+</div>
+</li>
+<li><a id="org3f1683b"></a>Meronym and Holonym<br />
+<div class="outline-text-5" id="text-3-3-3-8">
+<ul class="org-ul">
+<li>Wheel is a part (meronym) of car.</li>
+<li>Car has a part (holonym) called wheel.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org8637ab4" class="outline-2">
+<h2 id="org8637ab4"><span class="section-number-2">4.</span> Language Modelling</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org89414a7" class="outline-3">
+<h3 id="org89414a7"><span class="section-number-3">4.1.</span> Bayes Theorem</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+\[ P(A | B) = \frac{P{(A,B)}}{P(B)} \]
+</p>
+
+<p>
+For example
+</p>
+
+
+<p>
+\[ P(\text{office} | \text{about fifteen minutes from}) = \frac{P{(\text{office}, \text{about fifteen minutes from})}}{P(\text{about fifteen minutes from})} \]
+</p>
+
+<p>
+where \(P(\text{office}, \text{about fifteen minutes from})\) is 
+</p>
+</div>
+</div>
+<div id="outline-container-org71e3908" class="outline-3">
+<h3 id="org71e3908"><span class="section-number-3">4.2.</span> Markov Assumption</h3>
+</div>
+
+<div id="outline-container-orgc4eef40" class="outline-3">
+<h3 id="orgc4eef40"><span class="section-number-3">4.3.</span> N-Gram models</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>It&rsquo;s a statistical language model that predicts the probability of a word in a
+sequence based on the preceding &rsquo;N-1&rsquo; words.</li>
+<li>It assumes the next word depends only on the previous \(n-1\) words.</li>
+</ul>
+</div>
+<div id="outline-container-org4518452" class="outline-4">
+<h4 id="org4518452"><span class="section-number-4">4.3.1.</span> Example:</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li><p>
+Say we have 3 strings in our corpus:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #c678dd;">s</span>&gt;<span style="text-decoration: underline;">I am here</span>&lt;/<span style="color: #c678dd;">s</span>&gt;
+&lt;<span style="color: #c678dd;">s</span>&gt;<span style="text-decoration: underline;">who am I</span>&lt;/<span style="color: #c678dd;">s</span>&gt;
+&lt;<span style="color: #c678dd;">s</span>&gt;<span style="text-decoration: underline;">I would like to know</span>&lt;/<span style="color: #c678dd;">s</span>&gt;
+</pre>
+</div></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgf452326"></a>Unigrams<br />
+<div class="outline-text-5" id="text-4-3-1-1">
+<ul class="org-ul">
+<li>P(<code>&lt;s&gt;</code>) = \(\frac{3}{14}\)</li>
+<li>P(<code>&lt;/s&gt;</code>) = \(\frac{3}{14}\)</li>
+<li>P(I) = \(\frac{3}{14}\)</li>
+<li>P(am) = \(\frac{1}{7}\)</li>
+<li>P(Sam) = \(\frac{1}{7}\)</li>
+<li>P(fly) = \(\frac{1}{14}\)</li>
+</ul>
+
+
+<p>
+\[\text{Perplexity} \propto \frac{1}{\text{Model Performance}}\] Lower the perplexity,
+better the model.
+</p>
+</div>
+</li>
+<li><a id="org58584a6"></a>Bigrams<br />
+<div class="outline-text-5" id="text-4-3-1-2">
+<ul class="org-ul">
+<li>Examples of bigrams here are <code>I am</code>, <code>am here</code>, <code>who am</code>, <code>am I</code>, etc.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>P(I| <code>&lt;s&gt;</code>) = \(\frac{2}{3}\)</li>
+<li>P(am | I) = \(\frac{2}{3}\)</li>
+<li>P(Sam | am) = \(\frac{1}{2}\)</li>
+<li>P(<code>&lt;/s&gt;</code> | Sam) = \(\frac{1}{2}\)</li>
+<li>P(Sam | <code>&lt;s&gt;</code>) = \(\frac{1}{3}\)</li>
+<li>P(I | Sam) = \(\frac{1}{2}\)</li>
+<li>P(am | I) = \(\frac{1}{3}\)</li>
+<li>P(<code>&lt;/s&gt;</code> | am) = \(\frac{1}{2}\)</li>
+<li>P(fly | I) = \(\frac{1}{3}\)</li>
+<li>P(<code>&lt;/s&gt;</code> | fly) = \(\frac{1}{1}\)</li>
+</ul>
+</div>
+</li>
+<li><a id="orga8767be"></a>Smoothing<br />
+<ol class="org-ol">
+<li><a id="orgb051af0"></a>Add 1<br /></li>
+
+<li><a id="orgb33ae3d"></a>Add k<br /></li>
+</ol>
+</li>
+<li><a id="orgbce736a"></a>Backoff and Interpolation<br /></li>
+</ol>
+</div>
+<div id="outline-container-org29f57c3" class="outline-4">
+<h4 id="org29f57c3"><span class="section-number-4">4.3.2.</span> POS Tagging</h4>
+<div class="outline-text-4" id="text-4-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="orge22fed4"></a>Suppose you want to use a HMM tagger to tag the phrase, &ldquo;the beautiful lady&rdquo; where we have the following probabilities<br />
+<div class="outline-text-5" id="text-4-3-2-1">
+<ul class="org-ul">
+<li>\(p(\text{the}|\text{det}) = 0.3\)</li>
+<li>\(p(\text{the}|\text{noun}) = 0.1\)</li>
+<li>\(p(\text{beautiful}|\text{noun}) = 0.01\)</li>
+<li>\(p(\text{beautiful}|\text{adj}) = 0.07\)</li>
+<li>\(p(\text{beautiful}|\text{verb}) = 0.001\)</li>
+<li>\(p(\text{lady}|\text{noun}) = 0.08\)</li>
+<li>\(p(\text{lady}|\text{verb}) = 0.01\)</li>
+<li>\(p(\text{verb}|\text{det}) = 0.00001\)</li>
+<li>\(p(\text{noun}|\text{det}) = 0.5\)</li>
+<li>\(p(\text{adj}|\text{det}) = 0.4\)</li>
+<li>\(p(\text{noun}|\text{noun}) = 0.2\)</li>
+<li>\(p(\text{adj}|\text{noun}) = 0.002\)</li>
+<li>\(p(\text{noun}|\text{adj}) = 0.2\)</li>
+<li>\(p(\text{noun}|\text{verb}) = 0.3\)</li>
+<li>\(p(\text{verb}|\text{noun}) = 0.3\)</li>
+<li>\(p(\text{verb}|\text{adj}) = 0.001\)</li>
+<li>\(p(\text{verb}|\text{verb}) = 0.1\)</li>
+</ul>
+
+
+
+
+
+<p>
+Work out in details the steps of the Viterbi algorithm. Assume all other
+conditional probabilities, not mentioned, to be zero. Also, assume that all tags
+have the same probabilities to appear in the beginning of a sentence.
+</p>
+
+<p>
+We contruct a graph (looks exactly like a neural network), where
+</p>
+<ul class="org-ul">
+<li>Each layer is dedicated to one word of the sentence</li>
+<li>Each node of the layer, is a possibility of what part of speech that word
+could have.</li>
+</ul>
+
+<p>
+Here&rsquo;s how you calculate the probability of a state/node in the graph:
+</p>
+<ul class="org-ul">
+<li>For the first word:
+\(P(t_{i}) \times P(\text{Current Word} | t_{i})\)</li>
+<li>For the second word onwards:
+\(P(t_{i}) \times P(t_{i} | t_{i-1})\)</li>
 </ul>
 </div>
 </li>
