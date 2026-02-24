@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-07 Sat 17:08 -->
+<!-- 2026-02-25 Wed 00:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobile Application Development</title>
@@ -585,42 +585,38 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbe98fbe">1. Prelude</a></li>
-<li><a href="#org3000d5e">2. Introduction to Android</a>
+<li><a href="#org7c1f04e">1. Prelude</a></li>
+<li><a href="#org73f4aec">2. Introduction to Android</a>
 <ul>
-<li><a href="#org7f90d8f">2.1. User Interaction</a>
+<li><a href="#org9e36d28">2.1. User Interaction</a>
 <ul>
-<li><a href="#org79a3c21">2.1.1. Touch Gestures</a></li>
-<li><a href="#org546add6">2.1.2. Virtual Keyboard</a></li>
-<li><a href="#orgea48799">2.1.3. External</a></li>
+<li><a href="#orgd00ae88">2.1.1. Touch Gestures</a></li>
+<li><a href="#org011b085">2.1.2. Virtual Keyboard</a></li>
+<li><a href="#org7c7bdd4">2.1.3. External</a></li>
 </ul>
 </li>
-<li><a href="#orgdf0518f">2.2. Android Stack</a></li>
-<li><a href="#orged55d6c">2.3. Android Application Components</a></li>
+<li><a href="#orgd94d5f4">2.2. Android Stack</a></li>
+<li><a href="#orgcfce835">2.3. Android Application Components</a></li>
 </ul>
 </li>
-<li><a href="#org57179dd">3. How the App works</a>
+<li><a href="#org711542c">3. How the App works</a>
 <ul>
-<li><a href="#orge667150">3.1. Activity</a></li>
-<li><a href="#orgd146b81">3.2. XML Files</a>
+<li><a href="#org0fc2394">3.1. Activity</a></li>
+<li><a href="#orgcf002a3">3.2. XML Files</a>
 <ul>
-<li><a href="#org07466af">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
+<li><a href="#orgd167095">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8e8dcc1">4. Basic Addition</a></li>
-<li><a href="#orgf48d5e1">5. <span class="todo TODO">TODO</span> Making UI using Java</a>
-<ul>
-<li><a href="#org20b0b2d">5.1. Creating a View using Java</a></li>
-<li><a href="#org74c5811">5.2. Creating a Layout using Java</a></li>
-</ul>
-</li>
+<li><a href="#orgfecda80">4. Basic Addition</a></li>
+<li><a href="#orgf116f41">5. Scroll View</a></li>
+<li><a href="#org66db874">6. Rerouting to a different screen using Intent</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbe98fbe" class="outline-2">
-<h2 id="orgbe98fbe"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-org7c1f04e" class="outline-2">
+<h2 id="org7c1f04e"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>These notes don&rsquo;t include Android Studio tutorials as:
@@ -634,16 +630,16 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org3000d5e" class="outline-2">
-<h2 id="org3000d5e"><span class="section-number-2">2.</span> Introduction to Android</h2>
+<div id="outline-container-org73f4aec" class="outline-2">
+<h2 id="org73f4aec"><span class="section-number-2">2.</span> Introduction to Android</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7f90d8f" class="outline-3">
-<h3 id="org7f90d8f"><span class="section-number-3">2.1.</span> User Interaction</h3>
+<div id="outline-container-org9e36d28" class="outline-3">
+<h3 id="org9e36d28"><span class="section-number-3">2.1.</span> User Interaction</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org79a3c21" class="outline-4">
-<h4 id="org79a3c21"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
+<div id="outline-container-orgd00ae88" class="outline-4">
+<h4 id="orgd00ae88"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Swiping</li>
@@ -652,8 +648,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org546add6" class="outline-4">
-<h4 id="org546add6"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
+<div id="outline-container-org011b085" class="outline-4">
+<h4 id="org011b085"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Characters</li>
@@ -662,8 +658,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-orgea48799" class="outline-4">
-<h4 id="orgea48799"><span class="section-number-4">2.1.3.</span> External</h4>
+<div id="outline-container-org7c7bdd4" class="outline-4">
+<h4 id="org7c7bdd4"><span class="section-number-4">2.1.3.</span> External</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Bluetooth</li>
@@ -673,8 +669,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </div>
 </div>
 </div>
-<div id="outline-container-orgdf0518f" class="outline-3">
-<h3 id="orgdf0518f"><span class="section-number-3">2.2.</span> Android Stack</h3>
+<div id="outline-container-orgd94d5f4" class="outline-3">
+<h3 id="orgd94d5f4"><span class="section-number-3">2.2.</span> Android Stack</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -721,8 +717,8 @@ different parts of an app.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orged55d6c" class="outline-3">
-<h3 id="orged55d6c"><span class="section-number-3">2.3.</span> Android Application Components</h3>
+<div id="outline-container-orgcfce835" class="outline-3">
+<h3 id="orgcfce835"><span class="section-number-3">2.3.</span> Android Application Components</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -756,24 +752,24 @@ different parts of an app.</li>
 
 <tr>
 <td class="org-left"><code>BroadcastReceiver</code></td>
-<td class="org-left">Event listener</td>
+<td class="org-left">Listens to system level broadcast messages (like &ldquo;battery low&rdquo;)</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>ContentProvider</code></td>
-<td class="org-left">Database interface</td>
+<td class="org-left">Data Management</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="outline-container-org57179dd" class="outline-2">
-<h2 id="org57179dd"><span class="section-number-2">3.</span> How the App works</h2>
+<div id="outline-container-org711542c" class="outline-2">
+<h2 id="org711542c"><span class="section-number-2">3.</span> How the App works</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge667150" class="outline-3">
-<h3 id="orge667150"><span class="section-number-3">3.1.</span> Activity</h3>
+<div id="outline-container-org0fc2394" class="outline-3">
+<h3 id="org0fc2394"><span class="section-number-3">3.1.</span> Activity</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>A Java Class that serves as a controller for a specific screen, is called an
@@ -788,8 +784,8 @@ extends <code>FragmentActivity</code> which extends <code>ComponentActivity</cod
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd146b81" class="outline-3">
-<h3 id="orgd146b81"><span class="section-number-3">3.2.</span> XML Files</h3>
+<div id="outline-container-orgcf002a3" class="outline-3">
+<h3 id="orgcf002a3"><span class="section-number-3">3.2.</span> XML Files</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>All of the components of the UI of a particular screen is created using an XML
@@ -799,10 +795,20 @@ file or a group of XML files.</li>
 text input), <code>RadioButton</code>, <code>Switch</code>, <code>SeekBar</code> (sliders), etc.</li>
 <li>Each view will have an <code>id</code> (an integer), which can be accessed in a Java Class
 as <code>R.id.nameOfID</code>, where <code>R</code> is a <code>final class</code> created by Android at build time.</li>
+<li><p>
+An activity is connected to the XML layout because of a line that looks like:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">setContentView(R.layout.<span style="color: #ECBE7B;">activity_main</span>);
+</pre>
+</div>
+<p>
+where <code>activity_main.xml</code> is the name of the xml file.
+</p></li>
 </ul>
 </div>
-<div id="outline-container-org07466af" class="outline-4">
-<h4 id="org07466af"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
+<div id="outline-container-orgd167095" class="outline-4">
+<h4 id="orgd167095"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties.
@@ -824,7 +830,7 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="orge5735d8"></a><code>layout_width</code> or <code>layout_height</code><br />
+<li><a id="org4688eb2"></a><code>layout_width</code> or <code>layout_height</code><br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -873,13 +879,82 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 </div>
-<div id="outline-container-org8e8dcc1" class="outline-2">
-<h2 id="org8e8dcc1"><span class="section-number-2">4.</span> Basic Addition</h2>
+<div id="outline-container-orgfecda80" class="outline-2">
+<h2 id="orgfecda80"><span class="section-number-2">4.</span> Basic Addition</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This code follows from <a href="https://www.youtube.com/watch?v=4hEsnJPoP4s">this video</a>.</li>
+<li><p>
+First declare private variables in the <code>MainActivity</code> class:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">EditText</span> <span style="color: #dcaeea;">num1</span>, <span style="color: #dcaeea;">num2</span>;
+<span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">Button</span> <span style="color: #dcaeea;">add</span>;
+<span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">TextView</span> <span style="color: #dcaeea;">result</span>;
+</pre>
+</div>
+<p>
+Make sure you do <code>alt + enter</code> when your mouse is over the <code>EditText</code>, <code>Button</code> or
+<code>TextView</code> datatype, to resolve all imports.
+</p></li>
+<li><p>
+Next, in the end of <code>onCreate()</code> function, get all of views using their IDs
+<code>R.id.idName</code>, and then assign them to the private variables you created:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">num1 = (<span style="color: #ECBE7B;">EditText</span>) findViewById(R.id.no1);
+num2 = (<span style="color: #ECBE7B;">EditText</span>) findViewById(R.id.no2);
+result = (<span style="color: #ECBE7B;">TextView</span>) findViewById(R.id.result);
+add = (<span style="color: #ECBE7B;">Button</span>) findViewById(R.id.addButton);
+</pre>
+</div>
+<p>
+Before assigning, make sure you appropriately typecast the View.
+</p></li>
+<li><p>
+To the button object <code>add</code>, use the <code>setOnClickListener()</code> method as
+<code>add.setOnClickListener();</code>. Inside, add a parameter that starts from <code>new View</code>
+and just pick the first suggestion (it&rsquo;s most likely what we need). So the
+function will look like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">addButton.setOnClickListener(<span style="color: #51afef;">new</span> <span style="color: #a9a1e1;">View</span>.<span style="color: #ECBE7B;">OnClickListener</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">onClick</span>(<span style="color: #ECBE7B;">View</span> <span style="color: #dcaeea;">v</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">here is where we do the logic
+</span><span style="color: #3dea43364a63;"> </span>   }
+});
+
+</pre>
+</div></li>
+<li><p>
+Use the <code>setText</code> method on the <code>result</code> TextView. It can only take a String, so
+typecast whatever you want to show using <code>String.valueOf()</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-java">add.setOnClickListener(<span style="color: #51afef;">new</span> <span style="color: #a9a1e1;">View</span>.<span style="color: #ECBE7B;">OnClickListener</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">onClick</span>(<span style="color: #ECBE7B;">View</span> <span style="color: #dcaeea;">v</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   result.setText(String.valueOf(
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   Integer.parseInt(num1.getText().toString())
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   + Integer.parseInt(num2.getText().toString())
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   ));
+<span style="color: #3dea43364a63;"> </span>   }
+});
+
+</pre>
+</div>
+<p>
+Just try typing whatever is inside, all you need to do is tab your way through.
+</p></li>
 </ul>
 
+
+
+<ul class="org-ul">
+<li><p>
+The complete app looks like this:
+</p>
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">MainActivity</span> <span style="color: #51afef;">extends</span> <span style="color: #ECBE7B;">AppCompatActivity</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">declare these variables
@@ -907,30 +982,55 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
      
 <span style="color: #3dea43364a63;"> </span>   }
 }
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf116f41" class="outline-2">
+<h2 id="orgf116f41"><span class="section-number-2">5.</span> Scroll View</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>When you use scroll view, drag and drop a linear layout into the component
+tree, and then put whatever you want in there.</li>
+<li>Drag and drop only into the component tree (bottom left corner, basically
+under palette), because all Views should be under the linear layout.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org66db874" class="outline-2">
+<h2 id="org66db874"><span class="section-number-2">6.</span> Rerouting to a different screen using Intent</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Right click on the <code>app</code> and create a new activity (android studio will
+automatically create and link the XML file).</li>
+<li><p>
+Trigger the new activity by setting onClick parameter as the name of a
+function <code>doSomething()</code>, which is a void function defined in <code>MainActivity</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">doSomething</span>(<span style="color: #ECBE7B;">View</span> <span style="color: #dcaeea;">view</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Intent</span>(<span style="color: #51afef;">this</span>, Next.<span style="color: #51afef;">class</span>);
+<span style="color: #3dea43364a63;"> </span>   intent.putExtra(<span style="color: #98be65;">"answer"</span>, String.valueOf(Integer.parseInt(someInput.getText().toString()) +100));
+<span style="color: #3dea43364a63;"> </span>   startActivity(intent);
+}
 
 </pre>
 </div>
-</div>
-</div>
-<div id="outline-container-orgf48d5e1" class="outline-2">
-<h2 id="orgf48d5e1"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Making UI using Java</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org20b0b2d" class="outline-3">
-<h3 id="org20b0b2d"><span class="section-number-3">5.1.</span> Creating a View using Java</h3>
-<div class="outline-text-3" id="text-5-1">
 <p>
-(yet to do)
+where <code>someInput</code> is the id of an <code>EditText</code> object.
+</p></li>
+<li><p>
+And in the new activity&rsquo;s <code>onCreate()</code> function:
 </p>
-</div>
-</div>
-<div id="outline-container-org74c5811" class="outline-3">
-<h3 id="org74c5811"><span class="section-number-3">5.2.</span> Creating a Layout using Java</h3>
-<div class="outline-text-3" id="text-5-2">
-<p>
-(yet to do)
-</p>
-</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span> = getIntent();
+textView = (<span style="color: #ECBE7B;">TextView</span>) findViewById(R.id.textView);
+textView.setText(String.valueOf(intent.getStringExtra(<span style="color: #98be65;">"answer"</span>)));
+
+</pre>
+</div></li>
+</ul>
 </div>
 </div>
 </div>

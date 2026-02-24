@@ -52,13 +52,13 @@
   
 ** Android Application Components
 
-| Component         | What it is         |
-|-------------------+--------------------|
-| ~Activity~          | A visible screen   |
-| ~Service~           | Background work    |
-| ~Intent~            | A message/request  |
-| ~BroadcastReceiver~ | Event listener     |
-| ~ContentProvider~   | Database interface |
+| Component         | What it is                                                      |
+|-------------------+-----------------------------------------------------------------|
+| ~Activity~          | A visible screen                                                |
+| ~Service~           | Background work                                                 |
+| ~Intent~            | A message/request                                               |
+| ~BroadcastReceiver~ | Listens to system level broadcast messages (like "battery low") |
+| ~ContentProvider~   | Data Management                                                 |
 
 
 * How the App works
@@ -83,6 +83,11 @@
   text input), ~RadioButton~, ~Switch~, ~SeekBar~ (sliders), etc.
 - Each view will have an ~id~ (an integer), which can be accessed in a Java Class
   as ~R.id.nameOfID~, where ~R~ is a ~final class~ created by Android at build time.
+- An activity is connected to the XML layout because of a line that looks like:
+  #+begin_src java
+setContentView(R.layout.activity_main);
+  #+end_src
+  where ~activity_main.xml~ is the name of the xml file.
 
 *** ~<TextView/>~
 Let's arbitrarily take the ~<TextView/>~ view and study its properties.
@@ -116,8 +121,56 @@ Let's arbitrarily take the ~<TextView/>~ view and study its properties.
 
 * Basic Addition
 - This code follows from [[https://www.youtube.com/watch?v=4hEsnJPoP4s][this video]].
+- First declare private variables in the ~MainActivity~ class:
+  #+begin_src java
+private EditText num1, num2;
+private Button add;
+private TextView result;
+  #+end_src
+  Make sure you do ~alt + enter~ when your mouse is over the ~EditText~, ~Button~ or
+  ~TextView~ datatype, to resolve all imports.
+- Next, in the end of ~onCreate()~ function, get all of views using their IDs
+  ~R.id.idName~, and then assign them to the private variables you created:
+  #+begin_src java
+num1 = (EditText) findViewById(R.id.no1);
+num2 = (EditText) findViewById(R.id.no2);
+result = (TextView) findViewById(R.id.result);
+add = (Button) findViewById(R.id.addButton);
+  #+end_src
+  Before assigning, make sure you appropriately typecast the View.
+- To the button object ~add~, use the ~setOnClickListener()~ method as
+  ~add.setOnClickListener();~. Inside, add a parameter that starts from ~new View~
+  and just pick the first suggestion (it's most likely what we need). So the
+  function will look like this:
+  #+begin_src java
+addButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // here is where we do the logic
+    }
+});
 
-#+begin_src java
+  #+end_src
+- Use the ~setText~ method on the ~result~ TextView. It can only take a String, so
+  typecast whatever you want to show using ~String.valueOf()~.
+  #+begin_src java
+add.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        result.setText(String.valueOf(
+                Integer.parseInt(num1.getText().toString())
+                + Integer.parseInt(num2.getText().toString())
+        ));
+    }
+});
+
+  #+end_src
+ Just try typing whatever is inside, all you need to do is tab your way through.
+  
+  
+  
+- The complete app looks like this:
+  #+begin_src java
 public class MainActivity extends AppCompatActivity {
     // declare these variables
     private EditText num1, num2;
@@ -144,13 +197,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+  #+end_src
 
-#+end_src
+* Scroll View
+- When you use scroll view, drag and drop a linear layout into the component
+  tree, and then put whatever you want in there.
+- Drag and drop only into the component tree (bottom left corner, basically
+  under palette), because all Views should be under the linear layout.
 
-* TODO Making UI using Java
+* Rerouting to a different screen using Intent
+- Right click on the ~app~ and create a new activity (android studio will
+  automatically create and link the XML file).
+- Trigger the new activity by setting onClick parameter as the name of a
+  function ~doSomething()~, which is a void function defined in ~MainActivity~.
+  #+begin_src java
+public void doSomething(View view){
+    Intent intent = new Intent(this, Next.class);
+    intent.putExtra("answer", String.valueOf(Integer.parseInt(someInput.getText().toString()) +100));
+    startActivity(intent);
+}
 
-** Creating a View using Java
-(yet to do)
+  #+end_src
+  where ~someInput~ is the id of an ~EditText~ object.
+- And in the new activity's ~onCreate()~ function:
+  #+begin_src java
+Intent intent = getIntent();
+textView = (TextView) findViewById(R.id.textView);
+textView.setText(String.valueOf(intent.getStringExtra("answer")));
 
-** Creating a Layout using Java
-(yet to do)
+  #+end_src
