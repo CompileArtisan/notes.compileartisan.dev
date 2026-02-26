@@ -199,12 +199,6 @@ public class MainActivity extends AppCompatActivity {
 }
   #+end_src
 
-* Scroll View
-- When you use scroll view, drag and drop a linear layout into the component
-  tree, and then put whatever you want in there.
-- Drag and drop only into the component tree (bottom left corner, basically
-  under palette), because all Views should be under the linear layout.
-
 * Rerouting to a different screen using Intent
 - Right click on the ~app~ and create a new activity (android studio will
   automatically create and link the XML file).
@@ -226,3 +220,82 @@ textView = (TextView) findViewById(R.id.textView);
 textView.setText(String.valueOf(intent.getStringExtra("answer")));
 
   #+end_src
+  
+* Scroll View
+- When you use scroll view, drag and drop a linear layout into the component
+  tree, and then put whatever you want in there.
+- Drag and drop only into the component tree (bottom left corner, basically
+  under palette), because all Views should be under the linear layout.
+
+* Spinner
+- Just add Spinner into the XML, and then in the ~onCreate()~ function:
+  #+begin_src java
+List<String> spinnerList = new ArrayList<>();
+spinnerList.add("Item 1");
+spinnerList.add("Item 2");
+spinnerList.add("Item 3");
+spinnerList.add("Item 4");
+
+Spinner spinner = findViewById(R.id.spinner);
+
+ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+spinner.setAdapter(adapter);
+  #+end_src
+
+* Feedback app
+
+** RatingBar
+- You get the rating as:
+  #+begin_src java
+float rating = ratingBar.getRating();
+  #+end_src
+** Radio Button
+- Given:
+  #+begin_src java
+difficulty = findViewById(R.id.difficulty);
+  #+end_src
+  then the selected radio button is obtained through the id (int):
+  #+begin_src java
+int selectedId = difficulty.getCheckedRadioButtonId();
+  #+end_src
+** CheckBox
+#+begin_src java
+recommendCheckBox = findViewById(R.id.recommend);
+#+end_src
+You check if it's checked or not by the boolean return value:
+#+begin_src java
+boolean recommend = recommendCheckBox.isChecked();
+#+end_src
+** Making a WebSearch Button
+#+begin_src java
+Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+intent.putExtra(SearchManager.QUERY, topic);
+startActivity(intent);
+#+end_src
+** Solving Data Loss after Screen Rotation
+*** What happens when screen rotates
+#+begin_src java
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // the below line is what you add
+        outState.putString("topic", feedbackTopic.getText().toString());
+    }
+#+end_src
+When you rotate the screen, the state of an activity is destroyed. This is the
+function that's called just before the activity is destroyed.
+
+*** What happens after screen rotates
+#+begin_src java
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // the below line is what you add
+        feedbackTopic.setText(savedInstanceState.getString("topic"));
+    }
+
+#+end_src
+This is the function that is called when the activity is recreated after the
+screen rotates.
+
