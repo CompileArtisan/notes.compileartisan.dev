@@ -676,6 +676,9 @@ Also, $\text{adj}(k)$ is given as the transpose of the cofactor matrix.
 ******** Plaintext = ~ZR~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
 - Ciphertext = ~LD~
 ******** Ciphertext = ~JD~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
+******** $\text{Key} = \begin{bmatrix} 3 & 10 & 20 \\ 20 & 9 & 17 \\ 9 & 4 & 17  \end{bmatrix}$, $\text{Cipher Text = ZRHDCF}$
+- $\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text{Cipher Text} \mod(26)$
+- 
 ***** Homophonic
 - If a letter $x$ appears for $y\%$ of all characters, we assign $y$ number of
   symbols to represent it.
@@ -909,6 +912,130 @@ meetmeaftertheparty
 
 **** Two-key or Public Key cryptography
 - It's called *assymmetric key encryption*.
+- Public key is used to encrypt the message and private key is used to decrypt.
+- Public key for Party b is denoted as $KU_{b}$
+  $$C = E(\text{KB}_{B}, M)$$
+- Private key for Party b is denoted as $KR_{b}$.
+  $$M = D(\text{KU}_{B},E(\text{KR}_{B}, M))$$
+
+***** Encryption/Decryption
+- If you know the private key, you automatically get the public key too. But
+  knowing the public key doesn't give you the public key at all.
+- Not all algorithms support all the 3 applications. It may have one or two of
+  the applications.
+  
+| Algorithm      | Encryption/Decryption | Digital Signature | Key Exchange |
+|----------------+-----------------------+-------------------+--------------|
+| RSA            | Yes                   | Yes               | Yes          |
+| Elliptic Curve | Yes                   | Yes               | Yes          |
+| Diffie-Hellman | No                    | No                | Yes          |
+| DSS            | No                    | Yes               | No           |
+
+
+***** Security of Public key algorithms
+- Brute force is always possible, so make sure you:
+  - Use a very large key
+  - At the same time, consider the security/performance trade-off.
+- Due to public/private key relationships, the number of bits in the key should
+  be much larger the symmetric crypto keys.
+
+***** RSA (Rivest Shamir Adelman) Algorithm
+- This is the model widely used Public Key Cryptography (PKC).
+- To encrypt a message there is no need to exchange a secret key separately.
+
+****** Key Generation
+- Select $p$, $q$, where $p$ and $q$ are prime.
+- Calculate $n = p \times q$
+- Select integer $e$, such that $\text{gcd}(\phi(n), e) = 1; 1 < e < \phi(n)$
+- Calculate $d = e^{-1}\mod(\phi(n))$
+- Public Key $\text{KU} = {e,n}$
+- Private Key $\text{KR} = {d,n}$
+
+
+****** Encryption
+******* Rules
+- Plaintext $M < n$
+- Ciphertext $C = M^{d}\mod(n)$
+******* Examples
+******** Example 1
+- $p=3$, $q=11$
+- $n=p \times q = 3 \times 11 = 33$
+- $\phi(n) = \phi(33) = \phi(3 \times 11) = 2 \times 10 = 20$
+  - Verification of \phi(33): $Z_{33}^{*}$ = (all the numbers from 1 to 33, coprime with
+    $33$) = [1,2,4,5,7,8,10,13,14,16,17,19,20,23,25,26,28,29,31,32]
+- Consider $e=7$ (because it satisifies the GCD criteria):
+- $d = e^{-1} \mod(20)$
+  - $d = 7^{-1} \mod(20)$
+  
+ | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
+ |-----+-----+-----+-----+------+------+-----|
+ |   0 |   7 |  20 |   6 |    1 |    0 |   1 |
+ 
+******** Example 2
+
+****** Decryption
+- Ciphertext = $C$
+- Plaintext = $M = C^{d}\mod(n)$
+
+****** Attacks against RSA
+
+******* Brute Force
+
+
+******* Mathematical Attakcs
+- Factor n
+- Calculate \phi(n)
+
+******* Timings Attack
+- Use the running time of the algorithm to determine the key
+
+***** ElGamal Encryption Algorithm
+- It's also a public-key cryptosystem like RSA.
+- It's based on the difficulty of finding discrete logarithm. 
+
+****** Algorithm
+- Select a large prime $q$.
+- Select $x$ to be a member of the group $Z_{q}^{*}$
+- Select $g$ such that $y = g^{x} \mod(q)$
+  - Public key: $(g,y,q)$
+  - Private Key: $x$
+  
+****** Encryption
+- Select a random number $r$ from $Z_{q}^{*}$
+- $c_{1} = g^{r} \mod(q)$
+  - $c_{1}$ carries the random exponent information required to compute the shared secret
+  - $g$ is called the primitive root.
+- $c_{2} = (p \cdot y^{r}) \mod(q)$
+  - $c_{2}$ contains the encrypted message, and hence this is the only cipher text
+    involved.
+
+****** Decryption
+- $P = [C_{2} (C_{1}^{x})^{-1}]\mod(q)$
+- Encrypted message along with shared secret is needed for decryption.
+- Use [[*Discrete Logarithm][Discrete Logarithm]]
+
+  
+
+
+****** Examples
+
+******* Encrypt a message $m$ having value 10 using a public key $9$, where a random number generated is $3$ and primitive root $11$ and a prime number $23$
+- Given:
+  - $p=10$
+  - $y=9$
+  - $g=11$
+  - $q=23$
+  - $r=3$
+- Encryption: 
+  - $c_{1} = 11^{3} \mod(23) = 20$
+  - $c_{2} = (10 \cdot 9^{3}) \mod(23) = 160 \mod(23) = 22$
+  - Cipher text $C = (20, 22)$
+- Decryption:
+  - $20^{6} = 16\mod(23)$
+  - Plaintext = $10$
+
+******* $q = 23$, $g = 7$, $x = 9$, $r = 3$, $m = 20$
+- 
 
 *** Based on how plaintext is processed
 
@@ -1194,3 +1321,4 @@ $a^{\phi(n)} \equiv 1\mod(n)$, if
 
 **** Find $8^{-1} \mod(77)$
 
+** Discrete Logarithm
