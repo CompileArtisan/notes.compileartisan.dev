@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-04 Wed 12:36 -->
+<!-- 2026-03-04 Wed 13:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Probability</title>
@@ -617,70 +617,71 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3bc0c66">1. Basics of Probability</a>
+<li><a href="#org2c61ca2">1. Basics of Probability</a>
 <ul>
-<li><a href="#orgbd178d1">1.1. First Order Logic</a>
+<li><a href="#orgbd743a6">1.1. First Order Logic</a>
 <ul>
-<li><a href="#org139b728">1.1.1. Affirming the Consequent</a></li>
-<li><a href="#org99c9cc3">1.1.2. Standard Laws</a></li>
+<li><a href="#org2730775">1.1.1. Affirming the Consequent</a></li>
+<li><a href="#orgaf94fe9">1.1.2. Standard Laws</a></li>
 </ul>
 </li>
-<li><a href="#orgac399a1">1.2. Basic Probability</a>
+<li><a href="#orgaf30440">1.2. Basic Probability</a>
 <ul>
-<li><a href="#orgc5e346b">1.2.1. Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</a></li>
-<li><a href="#orgf17bf89">1.2.2. A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</a></li>
-<li><a href="#orgfc7ef20">1.2.3. An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</a></li>
-<li><a href="#org6161e87">1.2.4. A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</a></li>
-<li><a href="#orgd74ce02">1.2.5. A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</a></li>
-<li><a href="#org94f411a">1.2.6. An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</a></li>
-<li><a href="#orgf2a44d4">1.2.7. There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</a></li>
+<li><a href="#org5797430">1.2.1. Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</a></li>
+<li><a href="#orgbd3759b">1.2.2. A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</a></li>
+<li><a href="#org9ad115a">1.2.3. An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</a></li>
+<li><a href="#org69cbd63">1.2.4. A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</a></li>
+<li><a href="#orgf28dbf4">1.2.5. A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</a></li>
+<li><a href="#org212ca3b">1.2.6. An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</a></li>
+<li><a href="#org2c40f5f">1.2.7. There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</a></li>
 </ul>
 </li>
-<li><a href="#org20def55">1.3. Frequentest Approach to find Probability</a></li>
-<li><a href="#org913e6df">1.4. Joint Probability</a></li>
-<li><a href="#org1b6628f">1.5. Marginal Probability</a></li>
-<li><a href="#orga245e17">1.6. Conditional Probability</a></li>
-<li><a href="#org3cc99f4">1.7. Bayes Theorem</a>
+<li><a href="#orgf974f8d">1.3. Frequentest Approach to find Probability</a></li>
+<li><a href="#org014c1b6">1.4. Joint Probability</a></li>
+<li><a href="#orgf434b9e">1.5. Marginal Probability</a></li>
+<li><a href="#org979506c">1.6. Conditional Probability</a></li>
+<li><a href="#org6ee8953">1.7. Chain Rule</a></li>
+<li><a href="#org298a684">1.8. Bayes Theorem</a>
 <ul>
-<li><a href="#org25882cc">1.7.1. Why do we need Bayes Theorem</a></li>
-<li><a href="#org4538481">1.7.2. Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</a></li>
-<li><a href="#orgcae3203">1.7.3. Same Question But Expanded</a></li>
+<li><a href="#org9e1f4bc">1.8.1. Why do we need Bayes Theorem</a></li>
+<li><a href="#org170a291">1.8.2. Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</a></li>
+<li><a href="#org3140d3d">1.8.3. Same Question But Expanded</a></li>
 </ul>
 </li>
-<li><a href="#orgc84162b">1.8. Independent Random Variables</a></li>
-<li><a href="#org79398c8">1.9. Chain Rule</a></li>
+<li><a href="#orgf48e489">1.9. Independent Random Variables</a></li>
+<li><a href="#org0b41966">1.10. Chain Rule</a></li>
 </ul>
 </li>
-<li><a href="#orga99f103">2. Graphs to Model Probability</a>
+<li><a href="#orge193125">2. Graphs to Model Probability</a>
 <ul>
-<li><a href="#orgee5c0eb">2.1. Associative Relations</a></li>
-<li><a href="#org92c1ee3">2.2. Causal Relation</a></li>
-<li><a href="#org6fcd3a3">2.3. Strongly Connected Graphs</a></li>
+<li><a href="#org8bbfac4">2.1. Associative Relations</a></li>
+<li><a href="#orge2b621b">2.2. Causal Relation</a></li>
+<li><a href="#org1db9f8b">2.3. Strongly Connected Graphs</a></li>
 </ul>
 </li>
-<li><a href="#org0c07bf7">3. Bayesian Network</a>
+<li><a href="#orge3762f2">3. Bayesian Network</a>
 <ul>
-<li><a href="#orga3f41df">3.1. General Naive Bayes Model</a></li>
-<li><a href="#org0afbb95">3.2. What a Bayesian Network is</a></li>
-<li><a href="#orge0441e0">3.3. D-Seperation</a>
+<li><a href="#org0d4dd56">3.1. General Naive Bayes Model</a></li>
+<li><a href="#orgb1a8360">3.2. What a Bayesian Network is</a></li>
+<li><a href="#org9c22744">3.3. D-Seperation</a>
 <ul>
-<li><a href="#org3b7a621">3.3.1. Serial Connection</a></li>
-<li><a href="#org9fec24c">3.3.2. Divergent Connection</a></li>
-<li><a href="#org4107bab">3.3.3. Convergent Connection</a></li>
+<li><a href="#orgb4c3a0c">3.3.1. Serial Connection</a></li>
+<li><a href="#org9383a9d">3.3.2. Divergent Connection</a></li>
+<li><a href="#orgb9839ad">3.3.3. Convergent Connection</a></li>
 </ul>
 </li>
-<li><a href="#orgf6ade10">3.4. Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</a></li>
-<li><a href="#orgd00ee7a">3.5. Question</a></li>
-<li><a href="#orgef3590b">3.6. Question</a></li>
-<li><a href="#org38ff789">3.7. Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</a>
+<li><a href="#orgea77236">3.4. Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</a></li>
+<li><a href="#org312c8b9">3.5. Question</a></li>
+<li><a href="#orge9bc79f">3.6. Question</a></li>
+<li><a href="#org4d1174b">3.7. Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</a>
 <ul>
-<li><a href="#orgc5914f2">3.7.1. Using Permutations and Combinations</a></li>
+<li><a href="#org885ba1b">3.7.1. Using Permutations and Combinations</a></li>
 </ul>
 </li>
-<li><a href="#org5ed4b4f">3.8. Common Causes of Error in Bayesian Networks</a>
+<li><a href="#orgbdd2ddd">3.8. Common Causes of Error in Bayesian Networks</a>
 <ul>
-<li><a href="#org5e41e04">3.8.1. Zero Probabilities</a></li>
-<li><a href="#org11ae841">3.8.2. Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</a></li>
+<li><a href="#org149d5de">3.8.1. Zero Probabilities</a></li>
+<li><a href="#orgda9ea8b">3.8.2. Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</a></li>
 </ul>
 </li>
 </ul>
@@ -688,16 +689,16 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-org3bc0c66" class="outline-2">
-<h2 id="org3bc0c66"><span class="section-number-2">1.</span> Basics of Probability</h2>
+<div id="outline-container-org2c61ca2" class="outline-2">
+<h2 id="org2c61ca2"><span class="section-number-2">1.</span> Basics of Probability</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgbd178d1" class="outline-3">
-<h3 id="orgbd178d1"><span class="section-number-3">1.1.</span> First Order Logic</h3>
+<div id="outline-container-orgbd743a6" class="outline-3">
+<h3 id="orgbd743a6"><span class="section-number-3">1.1.</span> First Order Logic</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org139b728" class="outline-4">
-<h4 id="org139b728"><span class="section-number-4">1.1.1.</span> Affirming the Consequent</h4>
+<div id="outline-container-org2730775" class="outline-4">
+<h4 id="org2730775"><span class="section-number-4">1.1.1.</span> Affirming the Consequent</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li><code>If P then Q</code> is given as <code>P</code> &rarr; <code>Q</code></li>
@@ -771,8 +772,8 @@ If it&rsquo;s raining, the ground is wet.
 </ul>
 </div>
 </div>
-<div id="outline-container-org99c9cc3" class="outline-4">
-<h4 id="org99c9cc3"><span class="section-number-4">1.1.2.</span> Standard Laws</h4>
+<div id="outline-container-orgaf94fe9" class="outline-4">
+<h4 id="orgaf94fe9"><span class="section-number-4">1.1.2.</span> Standard Laws</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li><b>Implication Elimination:</b> a &rarr; b is the same as ~a &or; b</li>
@@ -781,28 +782,28 @@ If it&rsquo;s raining, the ground is wet.
 </div>
 </div>
 </div>
-<div id="outline-container-orgac399a1" class="outline-3">
-<h3 id="orgac399a1"><span class="section-number-3">1.2.</span> Basic Probability</h3>
+<div id="outline-container-orgaf30440" class="outline-3">
+<h3 id="orgaf30440"><span class="section-number-3">1.2.</span> Basic Probability</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgc5e346b" class="outline-4">
-<h4 id="orgc5e346b"><span class="section-number-4">1.2.1.</span> Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</h4>
+<div id="outline-container-org5797430" class="outline-4">
+<h4 id="org5797430"><span class="section-number-4">1.2.1.</span> Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>\(\frac{1}{8!} \)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf17bf89" class="outline-4">
-<h4 id="orgf17bf89"><span class="section-number-4">1.2.2.</span> A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</h4>
+<div id="outline-container-orgbd3759b" class="outline-4">
+<h4 id="orgbd3759b"><span class="section-number-4">1.2.2.</span> A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 \(P(red) = \frac{4}{10} \times \frac{4}{10} \times \frac{4}{10}\)
 </p>
 </div>
 </div>
-<div id="outline-container-orgfc7ef20" class="outline-4">
-<h4 id="orgfc7ef20"><span class="section-number-4">1.2.3.</span> An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</h4>
+<div id="outline-container-org9ad115a" class="outline-4">
+<h4 id="org9ad115a"><span class="section-number-4">1.2.3.</span> An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li>\(\text{Probability that only one is white} = \frac{\text{(Number of ways to pick a white ball)} \times \text{(Number of ways to pick non-white ball)}}{\text{Total number of ways to pick 2 balls}}\)</li>
@@ -810,8 +811,8 @@ If it&rsquo;s raining, the ground is wet.
 </ul>
 </div>
 </div>
-<div id="outline-container-org6161e87" class="outline-4">
-<h4 id="org6161e87"><span class="section-number-4">1.2.4.</span> A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</h4>
+<div id="outline-container-org69cbd63" class="outline-4">
+<h4 id="org69cbd63"><span class="section-number-4">1.2.4.</span> A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
 <li><p>
@@ -882,8 +883,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd74ce02" class="outline-4">
-<h4 id="orgd74ce02"><span class="section-number-4">1.2.5.</span> A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</h4>
+<div id="outline-container-orgf28dbf4" class="outline-4">
+<h4 id="orgf28dbf4"><span class="section-number-4">1.2.5.</span> A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -929,8 +930,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-org94f411a" class="outline-4">
-<h4 id="org94f411a"><span class="section-number-4">1.2.6.</span> An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</h4>
+<div id="outline-container-org212ca3b" class="outline-4">
+<h4 id="org212ca3b"><span class="section-number-4">1.2.6.</span> An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1062,8 +1063,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf2a44d4" class="outline-4">
-<h4 id="orgf2a44d4"><span class="section-number-4">1.2.7.</span> There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</h4>
+<div id="outline-container-org2c40f5f" class="outline-4">
+<h4 id="org2c40f5f"><span class="section-number-4">1.2.7.</span> There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1100,8 +1101,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </div>
 </div>
 </div>
-<div id="outline-container-org20def55" class="outline-3">
-<h3 id="org20def55"><span class="section-number-3">1.3.</span> Frequentest Approach to find Probability</h3>
+<div id="outline-container-orgf974f8d" class="outline-3">
+<h3 id="orgf974f8d"><span class="section-number-3">1.3.</span> Frequentest Approach to find Probability</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Essentially, you conduct a large number of experiments and you calculate the
@@ -1111,8 +1112,8 @@ probabilities of the events calculated will be accurate.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org913e6df" class="outline-3">
-<h3 id="org913e6df"><span class="section-number-3">1.4.</span> Joint Probability</h3>
+<div id="outline-container-org014c1b6" class="outline-3">
+<h3 id="org014c1b6"><span class="section-number-3">1.4.</span> Joint Probability</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Joint probability is the probability of two events happening together.</li>
@@ -1126,8 +1127,8 @@ in New York.</li>
 <img src="joint-probability-distribution.png" alt="">
 </div>
 </div>
-<div id="outline-container-org1b6628f" class="outline-3">
-<h3 id="org1b6628f"><span class="section-number-3">1.5.</span> Marginal Probability</h3>
+<div id="outline-container-orgf434b9e" class="outline-3">
+<h3 id="orgf434b9e"><span class="section-number-3">1.5.</span> Marginal Probability</h3>
 <div class="outline-text-3" id="text-1-5">
 <img src="marginal-probability.png" alt="">
 
@@ -1211,8 +1212,8 @@ To find P(B=Yes):
 </table>
 </div>
 </div>
-<div id="outline-container-orga245e17" class="outline-3">
-<h3 id="orga245e17"><span class="section-number-3">1.6.</span> Conditional Probability</h3>
+<div id="outline-container-org979506c" class="outline-3">
+<h3 id="org979506c"><span class="section-number-3">1.6.</span> Conditional Probability</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Joint probability would be &ldquo;what&rsquo;s the probability of selling a T-shirt in New
@@ -1231,7 +1232,7 @@ where \(P(A,B)\) is the probabilty of getting a T-shirt from New York.
 all probabilties is 1. In conditional probability, the total sample space is
 just \(P(B)\).</li>
 <li>Now, since \(P(A|B) = \frac{P(A,B)}{P(B)}\):
-\[P(A,B) = P(A|B) \times P(B)\]
+\[P(A,B) = P(B) \times P(A | B)\]
 <ul class="org-ul">
 <li>The probability of finding one cell among the entire matrix is joint
 probability.</li>
@@ -1241,23 +1242,38 @@ probability.</li>
 matrix is called marginal probability. So in a way, it&rsquo;s the probability of
 finding that column from the entire matrix.</li>
 <li>So the probability of finding one cell among the entire matrix (joint), can
-be found be first finding that cell from that column (conditional), and then
-finding that column from the entire matrix (marginal).</li>
+be found be first finding that column from the entire matrix (marginal), and
+then finding that cell from that column (conditional)</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3cc99f4" class="outline-3">
-<h3 id="org3cc99f4"><span class="section-number-3">1.7.</span> Bayes Theorem</h3>
+<div id="outline-container-org6ee8953" class="outline-3">
+<h3 id="org6ee8953"><span class="section-number-3">1.7.</span> Chain Rule</h3>
 <div class="outline-text-3" id="text-1-7">
+<p>
+\[P(A, B, C, D) = P(A) \times  P(B|A) \times  P(C|A,B) \times  P(D|A,B,C)\]
+</p>
+<ul class="org-ul">
+<li>The sample space is not just the column \(B\), but it&rsquo;s columns \(B\), \(C\) and
+\(D\).</li>
+<li>So we find the column from the matrix and the cell from the column \(A\).</li>
+<li>Then we find \(C\) from both columns \(A\) and \(B\).</li>
+<li>Then we find \(D\) from columns \(A\), \(B\) and \(C\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org298a684" class="outline-3">
+<h3 id="org298a684"><span class="section-number-3">1.8.</span> Bayes Theorem</h3>
+<div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li>This is used to find joint probability of two events X and Y
 \[ P(X|Y) = \frac{P(Y|X)*P(X)}{P(Y)} \]</li>
 </ul>
 </div>
-<div id="outline-container-org25882cc" class="outline-4">
-<h4 id="org25882cc"><span class="section-number-4">1.7.1.</span> Why do we need Bayes Theorem</h4>
-<div class="outline-text-4" id="text-1-7-1">
+<div id="outline-container-org9e1f4bc" class="outline-4">
+<h4 id="org9e1f4bc"><span class="section-number-4">1.8.1.</span> Why do we need Bayes Theorem</h4>
+<div class="outline-text-4" id="text-1-8-1">
 <ul class="org-ul">
 <li>For example:
 <ul class="org-ul">
@@ -1335,9 +1351,9 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4538481" class="outline-4">
-<h4 id="org4538481"><span class="section-number-4">1.7.2.</span> Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</h4>
-<div class="outline-text-4" id="text-1-7-2">
+<div id="outline-container-org170a291" class="outline-4">
+<h4 id="org170a291"><span class="section-number-4">1.8.2.</span> Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</h4>
+<div class="outline-text-4" id="text-1-8-2">
 <ul class="org-ul">
 <li>Given:
 <ul class="org-ul">
@@ -1351,9 +1367,9 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcae3203" class="outline-4">
-<h4 id="orgcae3203"><span class="section-number-4">1.7.3.</span> Same Question But Expanded</h4>
-<div class="outline-text-4" id="text-1-7-3">
+<div id="outline-container-org3140d3d" class="outline-4">
+<h4 id="org3140d3d"><span class="section-number-4">1.8.3.</span> Same Question But Expanded</h4>
+<div class="outline-text-4" id="text-1-8-3">
 <ul class="org-ul">
 <li>P[A|C] = 0.95 (If you have cancer, probability test says positive = 95%)</li>
 <li>P[A<sup>c</sup>|C<sup>c</sup>] = 0.95 (If you don&rsquo;t have cancer, probability test says negative =
@@ -1371,9 +1387,9 @@ disease!</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc84162b" class="outline-3">
-<h3 id="orgc84162b"><span class="section-number-3">1.8.</span> Independent Random Variables</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-orgf48e489" class="outline-3">
+<h3 id="orgf48e489"><span class="section-number-3">1.9.</span> Independent Random Variables</h3>
+<div class="outline-text-3" id="text-1-9">
 <ul class="org-ul">
 <li>Assume we have two disjoint sets X and Y
 <ul class="org-ul">
@@ -1385,9 +1401,9 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org79398c8" class="outline-3">
-<h3 id="org79398c8"><span class="section-number-3">1.9.</span> Chain Rule</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-org0b41966" class="outline-3">
+<h3 id="org0b41966"><span class="section-number-3">1.10.</span> Chain Rule</h3>
+<div class="outline-text-3" id="text-1-10">
 <p>
 \[P(A, B, C, D, ...) = P(A)*P(B|A)*P(C|A,B)*P(D|A,B,C)\]
 This is always true
@@ -1395,8 +1411,8 @@ This is always true
 </div>
 </div>
 </div>
-<div id="outline-container-orga99f103" class="outline-2">
-<h2 id="orga99f103"><span class="section-number-2">2.</span> Graphs to Model Probability</h2>
+<div id="outline-container-orge193125" class="outline-2">
+<h2 id="orge193125"><span class="section-number-2">2.</span> Graphs to Model Probability</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Here we work with graphs, where nodes are events, and edges tell you if these
@@ -1404,8 +1420,8 @@ events are dependent or independent of each other.</li>
 <li>The probability values that a node can take are called <b>attributes</b>.</li>
 </ul>
 </div>
-<div id="outline-container-orgee5c0eb" class="outline-3">
-<h3 id="orgee5c0eb"><span class="section-number-3">2.1.</span> Associative Relations</h3>
+<div id="outline-container-org8bbfac4" class="outline-3">
+<h3 id="org8bbfac4"><span class="section-number-3">2.1.</span> Associative Relations</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>In a graph, associative relations are represented by undirected edges. This
@@ -1419,8 +1435,8 @@ means that two nodes are related, but follow no meaningful relation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org92c1ee3" class="outline-3">
-<h3 id="org92c1ee3"><span class="section-number-3">2.2.</span> Causal Relation</h3>
+<div id="outline-container-orge2b621b" class="outline-3">
+<h3 id="orge2b621b"><span class="section-number-3">2.2.</span> Causal Relation</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>A directed edge between two nodes, which signifies one event likely to cause
@@ -1433,8 +1449,8 @@ the other.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6fcd3a3" class="outline-3">
-<h3 id="org6fcd3a3"><span class="section-number-3">2.3.</span> Strongly Connected Graphs</h3>
+<div id="outline-container-org1db9f8b" class="outline-3">
+<h3 id="org1db9f8b"><span class="section-number-3">2.3.</span> Strongly Connected Graphs</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>A directed graph where any node can be reached from any other node.</li>
@@ -1443,12 +1459,12 @@ the other.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0c07bf7" class="outline-2">
-<h2 id="org0c07bf7"><span class="section-number-2">3.</span> Bayesian Network</h2>
+<div id="outline-container-orge3762f2" class="outline-2">
+<h2 id="orge3762f2"><span class="section-number-2">3.</span> Bayesian Network</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga3f41df" class="outline-3">
-<h3 id="orga3f41df"><span class="section-number-3">3.1.</span> General Naive Bayes Model</h3>
+<div id="outline-container-org0d4dd56" class="outline-3">
+<h3 id="org0d4dd56"><span class="section-number-3">3.1.</span> General Naive Bayes Model</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Bayes Theorem on machine learning is:
@@ -1466,8 +1482,8 @@ total probability of the observed features across all possible classes.
 </ul>
 </div>
 </div>
-<div id="outline-container-org0afbb95" class="outline-3">
-<h3 id="org0afbb95"><span class="section-number-3">3.2.</span> What a Bayesian Network is</h3>
+<div id="outline-container-orgb1a8360" class="outline-3">
+<h3 id="orgb1a8360"><span class="section-number-3">3.2.</span> What a Bayesian Network is</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>It&rsquo;s a skeleton data structure that attaches local probability models.</li>
@@ -1497,12 +1513,12 @@ Here&rsquo;s an example
 </p>
 </div>
 </div>
-<div id="outline-container-orge0441e0" class="outline-3">
-<h3 id="orge0441e0"><span class="section-number-3">3.3.</span> D-Seperation</h3>
+<div id="outline-container-org9c22744" class="outline-3">
+<h3 id="org9c22744"><span class="section-number-3">3.3.</span> D-Seperation</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org3b7a621" class="outline-4">
-<h4 id="org3b7a621"><span class="section-number-4">3.3.1.</span> Serial Connection</h4>
+<div id="outline-container-orgb4c3a0c" class="outline-4">
+<h4 id="orgb4c3a0c"><span class="section-number-4">3.3.1.</span> Serial Connection</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <ul class="org-ul">
 <li>Say you have a causal chain <b>A</b> &rarr; <b>B</b> &rarr; <b>C</b></li>
@@ -1516,8 +1532,8 @@ path is blocked.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9fec24c" class="outline-4">
-<h4 id="org9fec24c"><span class="section-number-4">3.3.2.</span> Divergent Connection</h4>
+<div id="outline-container-org9383a9d" class="outline-4">
+<h4 id="org9383a9d"><span class="section-number-4">3.3.2.</span> Divergent Connection</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>Say you have a network <b>A</b> &larr; <b>B</b> &rarr; <b>C</b>
@@ -1531,8 +1547,8 @@ blocked.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4107bab" class="outline-4">
-<h4 id="org4107bab"><span class="section-number-4">3.3.3.</span> Convergent Connection</h4>
+<div id="outline-container-orgb9839ad" class="outline-4">
+<h4 id="orgb9839ad"><span class="section-number-4">3.3.3.</span> Convergent Connection</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <ul class="org-ul">
 <li>Say you have a network <b>A</b> &rarr; <b>B</b> &larr; <b>C</b></li>
@@ -1553,8 +1569,8 @@ called <b>observing it</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf6ade10" class="outline-3">
-<h3 id="orgf6ade10"><span class="section-number-3">3.4.</span> Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</h3>
+<div id="outline-container-orgea77236" class="outline-3">
+<h3 id="orgea77236"><span class="section-number-3">3.4.</span> Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</h3>
 <div class="outline-text-3" id="text-3-4">
 <img src="satScore.png" alt="">
 
@@ -1566,8 +1582,8 @@ called <b>observing it</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd00ee7a" class="outline-3">
-<h3 id="orgd00ee7a"><span class="section-number-3">3.5.</span> Question</h3>
+<div id="outline-container-org312c8b9" class="outline-3">
+<h3 id="org312c8b9"><span class="section-number-3">3.5.</span> Question</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>If
@@ -1590,8 +1606,8 @@ hence you can remove it)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgef3590b" class="outline-3">
-<h3 id="orgef3590b"><span class="section-number-3">3.6.</span> Question</h3>
+<div id="outline-container-orge9bc79f" class="outline-3">
+<h3 id="orge9bc79f"><span class="section-number-3">3.6.</span> Question</h3>
 <div class="outline-text-3" id="text-3-6">
 <img src="salmon.png" alt="">
 
@@ -1617,12 +1633,12 @@ And now expand the denominator.
 </p>
 </div>
 </div>
-<div id="outline-container-org38ff789" class="outline-3">
-<h3 id="org38ff789"><span class="section-number-3">3.7.</span> Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</h3>
+<div id="outline-container-org4d1174b" class="outline-3">
+<h3 id="org4d1174b"><span class="section-number-3">3.7.</span> Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</h3>
 <div class="outline-text-3" id="text-3-7">
 </div>
-<div id="outline-container-orgc5914f2" class="outline-4">
-<h4 id="orgc5914f2"><span class="section-number-4">3.7.1.</span> Using Permutations and Combinations</h4>
+<div id="outline-container-org885ba1b" class="outline-4">
+<h4 id="org885ba1b"><span class="section-number-4">3.7.1.</span> Using Permutations and Combinations</h4>
 <div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
 <li>Let \(x\) be the number of events you get H, and \(y\) be the number of events
@@ -1630,7 +1646,7 @@ you get T.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8d2dbe2"></a>Position 0 after ten coin tosses<br />
+<li><a id="org5016e67"></a>Position 0 after ten coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-1">
 <ul class="org-ul">
 <li>Given \(x+y=10\) and \(x-y=0\)</li>
@@ -1640,7 +1656,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="org77ad1cb"></a>Position 5 after ten coin tosses<br />
+<li><a id="orga1e1dc9"></a>Position 5 after ten coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-2">
 <ul class="org-ul">
 <li>Given \(x+y=10\) and \(x-y=5\)</li>
@@ -1649,7 +1665,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="org89c6d0a"></a>Position 10 after twenty coin tosses<br />
+<li><a id="orgf9f56ba"></a>Position 10 after twenty coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-3">
 <ul class="org-ul">
 <li>Given \(x+y=20\) and \(x-y=10\)</li>
@@ -1659,7 +1675,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="org2db2020"></a>Position -5 after fifteen coin tosse<br />
+<li><a id="org2a9995a"></a>Position -5 after fifteen coin tosse<br />
 <div class="outline-text-5" id="text-3-7-1-4">
 <ul class="org-ul">
 <li>Given \(x+y=15\) and \(x-y=-5\)</li>
@@ -1672,20 +1688,20 @@ you get T.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org5ed4b4f" class="outline-3">
-<h3 id="org5ed4b4f"><span class="section-number-3">3.8.</span> Common Causes of Error in Bayesian Networks</h3>
+<div id="outline-container-orgbdd2ddd" class="outline-3">
+<h3 id="orgbdd2ddd"><span class="section-number-3">3.8.</span> Common Causes of Error in Bayesian Networks</h3>
 <div class="outline-text-3" id="text-3-8">
 </div>
-<div id="outline-container-org5e41e04" class="outline-4">
-<h4 id="org5e41e04"><span class="section-number-4">3.8.1.</span> Zero Probabilities</h4>
+<div id="outline-container-org149d5de" class="outline-4">
+<h4 id="org149d5de"><span class="section-number-4">3.8.1.</span> Zero Probabilities</h4>
 <div class="outline-text-4" id="text-3-8-1">
 <ul class="org-ul">
 <li>Probabilities with value <b>zero</b> can break the network</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org11ae841" class="outline-4">
-<h4 id="org11ae841"><span class="section-number-4">3.8.2.</span> Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</h4>
+<div id="outline-container-orgda9ea8b" class="outline-4">
+<h4 id="orgda9ea8b"><span class="section-number-4">3.8.2.</span> Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</h4>
 <div class="outline-text-4" id="text-3-8-2">
 <ul class="org-ul">
 <li>In a Bayesian Network, independencies are modeled as blocking paths (found

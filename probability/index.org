@@ -235,7 +235,7 @@ To find P(B=Yes):
   all probabilties is 1. In conditional probability, the total sample space is
   just $P(B)$.
 - Now, since $P(A|B) = \frac{P(A,B)}{P(B)}$:
-  $$P(A,B) = P(A|B) \times P(B)$$
+  $$P(A,B) = P(B) \times P(A | B)$$
   - The probability of finding one cell among the entire matrix is joint
     probability.
   - The probability of finding one cell among a column of cells is conditional
@@ -244,10 +244,18 @@ To find P(B=Yes):
     matrix is called marginal probability. So in a way, it's the probability of
     finding that column from the entire matrix.
   - So the probability of finding one cell among the entire matrix (joint), can
-    be found be first finding that cell from that column (conditional), and then
-    finding that column from the entire matrix (marginal).
+    be found be first finding that column from the entire matrix (marginal), and
+    then finding that cell from that column (conditional)
 
  
+** Chain Rule
+$$P(A, B, C, D) = P(A) \times  P(B|A) \times  P(C|A,B) \times  P(D|A,B,C)$$
+- The sample space is not just the column $B$, but it's columns $B$, $C$ and
+  $D$.
+- So we find the column from the matrix and the cell from the column $A$.
+- Then we find $C$ from both columns $A$ and $B$.
+- Then we find $D$ from columns $A$, $B$ and $C$.
+
 ** Bayes Theorem
 - This is used to find joint probability of two events X and Y
   \[ P(X|Y) = \frac{P(Y|X)*P(X)}{P(Y)} \]
