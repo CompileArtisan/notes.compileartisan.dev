@@ -246,6 +246,7 @@ $$IDF(t) = \log(\frac{N}{\text{df}(D,t)})$$ where
 
 
 * Language Modelling
+- Check out the basics of probability [[https://notes.compileartisan.dev/probability/][here]].
 
 ** Bayes Theorem
 
@@ -256,9 +257,19 @@ For example
 
 \[ P(\text{office} | \text{about fifteen minutes from}) = \frac{P{(\text{office}, \text{about fifteen minutes from})}}{P(\text{about fifteen minutes from})} \]
 
-where $P(\text{office}, \text{about fifteen minutes from})$ is 
+where $P(\text{about fifteen minutes from}) = P(\text{about}) \times P(\text{fifteen} | \text{about}) \times P(\text{minutes} | \text{about fifteen}) \times P(\text{from} | \text{about fifteen minutes})$
 
-** Markov Assumption
+** Markov Assumption to solve Data Sparsity
+\[ P(\text{office} | \text{about fifteen minutes from}) = \frac{\text{about fifteen minutes from office}}{\text{about fifteen minutes from}} \]
+- Language is infinitely large.
+- It's astronomically improbable to find this exact sequence of words in the
+  dataset.
+- Markov's assumption is that the future only depends on the very recent past,
+  and not the entire past.
+- All in all, to find the next word, we only need a couple of previous words.
+  You don't every single word before it.
+- The name of this model is *N-gram*.
+
 
 ** N-Gram models
 - It's a statistical language model that predicts the probability of a word in a
@@ -274,40 +285,80 @@ where $P(\text{office}, \text{about fifteen minutes from})$ is
   #+end_src
 
 **** Unigrams
-- P(~<s>~) = $\frac{3}{14}$
-- P(~</s>~) = $\frac{3}{14}$
-- P(I) = $\frac{3}{14}$
-- P(am) = $\frac{1}{7}$
-- P(Sam) = $\frac{1}{7}$
-- P(fly) = $\frac{1}{14}$
+- $P(\text{<s>}) = \frac{3}{17}$
+- $P(\text{</s>}) = \frac{3}{17}$
+- $P(\text{I}) = \frac{3}{17}$
+- $P(\text{am}) = \frac{2}{17}$
+- $P(\text{here}) = \frac{1}{17}$
+- $P(\text{who}) = \frac{1}{17}$
+- $P(\text{would}) = \frac{1}{17}$
+- $P(\text{like}) = \frac{1}{17}$
+- $P(\text{to}) = \frac{1}{17}$
+- $P(\text{know}) = \frac{1}{17}$
 
 
 $$\text{Perplexity} \propto \frac{1}{\text{Model Performance}}$$ Lower the perplexity,
 better the model.
 
 **** Bigrams
+$$P(w_{i} | w_{i-1}) = \frac{count(w_{i-1}, w_{i})}{count(w_{i-1})}$$
   
 - Examples of bigrams here are ~I am~, ~am here~, ~who am~, ~am I~, etc.
 
 
-- P(I| ~<s>~) = $\frac{2}{3}$
-- P(am | I) = $\frac{2}{3}$
-- P(Sam | am) = $\frac{1}{2}$
-- P(~</s>~ | Sam) = $\frac{1}{2}$
-- P(Sam | ~<s>~) = $\frac{1}{3}$
-- P(I | Sam) = $\frac{1}{2}$
-- P(am | I) = $\frac{1}{3}$
-- P(~</s>~ | am) = $\frac{1}{2}$
-- P(fly | I) = $\frac{1}{3}$
-- P(~</s>~ | fly) = $\frac{1}{1}$
+- $P(\text{I} \mid \text{<s>}) = \frac{count(\text{<s>}, \text{I})}{count(\text{<s>})} = \frac{2}{3}$
+- $P(\text{who} \mid \text{<s>}) = \frac{count(\text{<s>}, \text{who})}{count(\text{<s>})} = \frac{1}{3}$
+- $P(\text{am} \mid \text{I}) = \frac{count(\text{I}, \text{am})}{count(\text{I})} = \frac{1}{3}$
+- $P(\text{would} \mid \text{I}) = \frac{count(\text{I}, \text{would})}{count(\text{I})} = \frac{1}{3}$
+- $P(\text{</s>} \mid \text{I}) = \frac{count(\text{I}, \text{</s>})}{count(\text{I})} = \frac{1}{3}$
+- $P(\text{here} \mid \text{am}) = \frac{count(\text{am}, \text{here})}{count(\text{am})} = \frac{1}{2}$
+- $P(\text{I} \mid \text{am}) = \frac{count(\text{am}, \text{I})}{count(\text{am})} = \frac{1}{2}$
+- $P(\text{</s>} \mid \text{here}) = \frac{count(\text{here}, \text{</s>})}{count(\text{here})} = 1$
+- $P(\text{am} \mid \text{who}) = \frac{count(\text{who}, \text{am})}{count(\text{who})} = 1$
+- $P(\text{like} \mid \text{would}) = \frac{count(\text{would}, \text{like})}{count(\text{would})} = 1$
+- $P(\text{to} \mid \text{like}) = \frac{count(\text{like}, \text{to})}{count(\text{like})} = 1$
+- $P(\text{know} \mid \text{to}) = \frac{count(\text{to}, \text{know})}{count(\text{to})} = 1$
+- $P(\text{</s>} \mid \text{know}) = \frac{count(\text{know}, \text{</s>})}{count(\text{know})} = 1$
 
 
+Calculating the probability of the sentence ~<s>I am here</s>~:
+$$= P(\text{I} \mid \text{<s>}) \times P(\text{am} \mid \text{I})\times P(\text{here} \mid \text{am})\times P(\text{</s>} \mid \text{here})$$
+$$= \frac{2}{3} \times \frac{1}{3} \times \frac{1}{2} \times 1 $$
+$$= \frac{1}{9}$$
+
+
+The issue with this is that for larger sentences, this final probability would
+be too small to be precise enough. Sometimes the numbers get so small that it
+gets rounded off to zero. This is called *floating point underflow*.
+
+For this you take log on both sides. The multiplication on the RHS hence turns
+into addition.
+$$log(p_{1} \times p_{2} \times p_{3} \times p_{4}) = log(p_{1}) + log(p_{2}) + log(p_{3}) + log(p_{4})$$
+Working in log space solves underflow and moreover addition is
+faster than multiplication.
+
+**** Trigram
+- $P(\text{am} \mid \text{<s>}, \text{I}) = \frac{count(\text{<s>}, \text{I}, \text{am})}{count(\text{<s>}, \text{I})} = \frac{1}{2}$
+
+  
+*** Fixing Zero Probabilities
+- The probability of N-gram is basically S$\frac{count(\text{new word} \mid \text{last n-1 words})}{count(\text{last n-1 words})}$
+- If there is no sentence with the new word, then the numerator becomes 0,
+  leading to zero probabilities.
 
 **** Smoothing
 
-***** Add 1
+***** Add 1 (Laplacian Smoothing)
+- To every single word in the vocabulary, you assume that the count is 1 more
+  than what it actually is.
+- The probability of n-gram is now $\frac{count(\text{new word} \mid \text{last
+  n-1 words}) + 1}{count(\text{last n-1 words}) + v}$, where v is the size of
+  the vocabulary.
 
 ***** Add k
+- The probability of n-gram is $\frac{count(\text{new word} \mid \text{last n-1
+  words}) + k}{count(\text{last n-1 words}) + k\v}$, where v is the size of the
+  vocabulary.
 
 **** Backoff and Interpolation
 
@@ -333,21 +384,83 @@ better the model.
 - $p(\text{verb}|\text{adj}) = 0.001$
 - $p(\text{verb}|\text{verb}) = 0.1$
 
-
-
-
-
 Work out in details the steps of the Viterbi algorithm. Assume all other
 conditional probabilities, not mentioned, to be zero. Also, assume that all tags
 have the same probabilities to appear in the beginning of a sentence.
 
-We contruct a graph (looks exactly like a neural network), where
+We contruct a graph (looks exactly like a neural network, and it's called the
+*trellis diagram*), where
 - Each layer is dedicated to one word of the sentence
 - Each node of the layer, is a possibility of what part of speech that word
   could have.
 
 Here's how you calculate the probability of a state/node in the graph:
-- For the first word:
-  $P(t_{i}) \times P(\text{Current Word} | t_{i})$
-- For the second word onwards:
-  $P(t_{i}) \times P(t_{i} | t_{i-1})$
+- For each and every node in a layer, you calculate $P(\text{Word} | \text{POS Tag}) \times P(\text{Largest Node in each of previous layers})$
+- For the nodes in the first layer, you don't need the backtracking part.
+
+* Word Embeddings
+- Word embedding is a natural language processing technique that converts words
+  into dense numerical vectors, capturing their semantic meanings and
+  relationships.
+
+  |         | *King* | *Queen* | *Women* | *Princess* |
+  | *Royalty* | 0.99 |  0.99 |       |          |
+  | *Age*     | 0.99 |   0.2 |       |          |
+  | *..*      |  0.8 |       |       |          |
+  | *..*      |  0.2 |       |       |          |
+  |         |      |       |       |          |
+  
+** Word to Vec
+
+*** Continuous Bag of Words (CBoW)
+- You have a window of words and you're trying to predict the middle word.
+- The middle word is called the *focus word*, and the surrounding words are called *context words*.
+- Good on large corpora
+
+*** Skip-Gram
+- Given the middle word, you predict the surrounding words.
+
+* Evaluation Metrics
+
+** Confusion Matrix
+- This is used when the outcome is a /classification/ among fixed classes.
+- Matrix where:
+  - rows signify Ground truth (Row1: +, Row2: -)
+  - columns signify predicted output (Column1: +, Column2: -)
+- If row and column have same sign, it means the model has predicted correctly (it's a *true output*).
+- If row and column have opposite signs, it means the model has predicted incorrectly (it's a *false output*).
+  
+  |          | Predicted +    | Predicted -    |
+  | Actual + | *True Positive*  | *False Negative* |
+  | Actual - | *False Positive* | *True Negative*  |
+
+- Here are things you can derive from the confusion matrix:
+
+  |          | Predicted +    | Predicted -               |                    |
+  | Actual + | *True Positive*  | *False Negative*            | Sensitivity/Recall |
+  | Actual - | *False Positive* | *True Negative*             | Specificity        |
+  |          | Precision      | Negative Predictive Value | Accuracy           |
+
+  - \( \textbf{Sensitivity / Recall} = \frac{\textbf{Diag. Element of Row 0}}{\textbf{Row 0}} = \frac{TP}{TP+FN} \)
+  - \( \textbf{Specificity} = \frac{\textbf{Diag. Element of Row 1}}{\textbf{Row 1}} = \frac{TN}{FP+TN} \)
+  - \( \textbf{Precision} =  \frac{\textbf{Diag. Element of Column 0}}{\textbf{Column 0}} = \frac{TP}{TP+FP} \)
+  - \( \textbf{Negative Predictive Value} = \frac{\textbf{Diag. Element of Column 1}}{\textbf{Column 1}}  = \frac{TN}{FN+TN} \)
+  - \( \textbf{Accuracy} = \frac{\textbf{Diagonal Elements}}{\textbf{All Elements}} = \frac{TP+TN}{TP+FN+FP+TN} \)
+
+
+Here are some other formulae that can be derived:
+\[\text{F}_{\beta} = \frac{(1 + \beta^2) \times \text{Precision} \times \text{Recall}}{\beta^2 \times \text{Precision} + \text{Recall}} \]
+
+- The more the value of \(\beta\), the more emphasis recall gets (hence, more true positives captured).
+\[  R^{2} = \frac{MSE}{variance} \]
+
+
+** Why Accuracy is bad
+- Accuracy is a bad metric because it fails to measure performance in case of
+  class imbalance.
+- The calculated value of accuracy 
+
+** ROUGE
+- Recall-Oriented Understudy for Gisting Evaluation metrics measures recall, and
+  here it's the overlap of n-grams and word sequences, between generated text
+  and reference summaries.

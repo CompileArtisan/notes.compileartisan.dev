@@ -111,7 +111,7 @@
 
 **** Irradiance (E)
 - Radiant power \phi incident on a surface area A.
-- Expressed as \(\frac{\Omega}{A}\)
+- Expressed as \(\frac{\phi}{A}\)
 - It's measured in \(\frac{W}{m^{2}} \)
 
 **** Radiance (L)
@@ -457,11 +457,11 @@ main()
 - For example, consider this $3 \times 3$ Bayers image.
   $$ \begin{bmatrix} G=100 & R=180 & G=110\\ B=60 & G=120 & B=65\\ G=105 & R=170 & G=115\end{bmatrix}$$
   For pixel (1,1):
-  - Horizontal Gradient = 140−160 = 20,
-  - Vertical Gradient = 150−130 =20
-  - Since the gradients are equal, take the average of the vertical and horizontal.
+  - Vertical Gradient = 180 - 170 = 10,
+  - Horizontal Gradient = 65 - 60 = 5
+  
+- If the gradients are equal, take the average of the vertical and horizontal.
 neighbors:
-G=140+160+150+130/ 4=145
 - You do gradient interpolation for only green. For red and blue, you take the
   average of the neighbors along diagonals, or take the average of the
   neighbors along the same vertical and horizontal line.
@@ -575,10 +575,12 @@ difference is that, a real camera has:
   - *Radial Distortion*
 
 **** Radial Distortion
-
+- This occurs when the lens is not spherical.
+- The image will look like the middle of the image is bulged.
 
 **** Tangential Distortion
-- This occurs when the lens and the image plan are not parallel.
+- This occurs when the lens and the image plane are not parallel.
+- It'll look like the image is tilted.
   
   
 *** Extrinsics
@@ -592,7 +594,7 @@ difference is that, a real camera has:
 *** How they all come together
 
 
- \[ \begin{bmatrix} u \\ v\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} \]
+ \[ \begin{bmatrix} u \\ v \\ 1\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix} \]
 
 * Segmentation
 - Image segmentation is the task of finding group of pixels that "go together".
@@ -731,3 +733,216 @@ the average of the points is the same point as the cluster centroid.
   
 ***** Mean Shift Segmentation (Hill Climb)
 - 
+
+***** Graph Based Segmentation
+- You denote an image as a graph, where 
+  - Each pixel is a vertex
+  - and an edge between vertices is the similarity/affinity between them (larger
+    the weight, more the similarity).
+
+****** Measuring Affinity
+- Pixel Dissimilarity:
+$$s(f_{i}, f_{j}) = \sqrt{\Sigma (f_{ik} - f_{jk})^{2}}$$
+
+****** Graph Cut
+- Cut $(V_{A},V_{B})$ is a partition of vertices $V$ of a graph into two disjoint
+  subsets $V_{A}$ and $V_{B}$. 
+- The fact that they are disjoint subsets indicate that they are dissimilar
+  groups (hence being segmented).
+  
+****** Min-Cut
+- *Min-Cut* algorithm is where you cut the graph only the pair of vertices have
+  *low affinity*. The issue is that there's a tendancy to cut small, isolated
+  segments.
+- For this, we use something called $assoc()$ (association).
+  $$assoc(V_{A},V) = \Sigma_{u \supset A, v } w(u, v)$$
+  It's the sum of weights of all edges starting from A
+
+****** Normalized Cut
+- The value of a normalized cut ranges from 0 to 2 (lower the number, better the
+  cut).
+- A cut is better (tending towards 0) when there's little connection between the
+  segments, and strong internal connection within the segments.
+- So you cut an edge when it has a smaller weight.
+- Example:
+  - A = (1,2) = 5
+  - B = (3,4) = 5
+  - C = (1,3) = 1
+  - D = (2,3) = 1
+  - E = (2,4) = 1
+  - Cutting cost = $Cut(A,B) = 1+1+1 = 3$ (because you can cut these)
+  - $assoc(A{1,2},V) = 5 + 1 + 1 + 1 = 8$
+  - $assoc(B{3,4},V) = 5 + 1 + 1 + 1 = 8$
+
+**** Edge Based Segmentation
+- Here, you separate an object based on edges.
+
+***** Edges
+- An edge is a rapid change in image intensity within a small region.  
+- It can also be defined as a set of conencted pixels that forms a boundary between two disjoint regions. 
+- There are three types of edges:
+  - Horizontal
+  - Vertical
+  - Diagonal
+
+***** Edge Detection
+- It's a method of segmenting an image into regions of discontinuity.
+****** Using Convolution
+- For edge detection, you have to run a kernel across the image, before which
+  you'll have to pad the image with zeroes.
+ [[https://www.geeksforgeeks.org/computer-vision/what-is-edge-detection-in-image-processing/][What is Edge Detection in Image Processing? - GeeksforGeeks]] 
+- You use convolution to extract features.
+******* Different Mask/Kernels
+
+  $$ \begin{bmatrix} -1 & -1 & -1\\ G & B & G\\ R & G & R\end{bmatrix}$$
+****** Edge Detection Operators
+******* Gradient
+- They are based on first-order derivative.
+- The first derivative of the intensity of a pixel, tells you how fast intensity
+  changes in space.
+- We can't compute derivatives because the we're not working on a curve.
+  - We're working on a *matrix*. We have discrete values and each value is one
+    pixel.
+  - So we approximate the derivative by finding how much the intensity changes
+    across 3 pixels.
+  - If the difference between the first pixel and the 3rd pixel is high, then
+    the pixel in the middle is an edge.
+  - 
+- Examples: Sobel, Prewitt, Robert
+******** Sobel
+- For detecting Vertical Edges, you use horizontal matrix.
+  $$ \text{Horizontal or X axis} =  \begin{bmatrix} -1 & 0 & 1\\ -2 & 0 & 2\\ -1 & 0 & 1  \end{bmatrix}$$
+  For example:
+    $$ \begin{bmatrix} 10 & 9 & 9 & 4 & 0 \\ 0 & 6 & 6 & 2 & 2 \\ 5 & 9 & 8 & 4 & 3 \\ 7 & 5 & 5 & 4 & 3 \\ 8 & 10 & 8 & 5 & 0  \end{bmatrix}$$
+    and the kernel is
+$$\begin{bmatrix} -1 & 0 & 1\\ -2 & 0 & 2\\ -1 & 0 & 1  \end{bmatrix}$$
+To get a resultant $5 \times 5$ matrix, you'll have to left pad the matrix:
+    $$ \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 \\0 & 10 & 9 & 9 & 4 & 0 & 0 \\0 & 0 & 6 & 6 & 2 & 2 & 0 \\0 & 5 & 9 & 8 & 4 & 3 & 0 \\0 & 7 & 5 & 5 & 4 & 3 & 0 \\0 & 8 & 10 & 8 & 5 & 0 & 0 \\  0 & 0 & 0 & 0 & 0 & 0 & 0   \end{bmatrix}$$
+On performing convolution:
+$$ \text{X-Gradient} = \begin{bmatrix} 24 & 4 & -14 & -22 & -10 \\ 30 & 14 & -18 & -22 & -12 \\ 29 & 10 & -15 & -16 & -14 \\ 29 & -1 & -12 & -17 & -17 \\ 25 & -2 & -11 & -18 & -14  \end{bmatrix}$$
+- Similarly, for detecting Horizontal Edges, you use vertical matrix.
+  $$ \text{Vertical or Y axis} =  \begin{bmatrix} 1 & 2 & 1\\ 0 & 0 & 0\\ -1 & -2 & -1  \end{bmatrix}$$
+  $$ \text{Y-Gradient} =  \begin{bmatrix} -6 & -18 & -20 & -12 & -6 \\ 10 & 6 & 2 & -2 & -6 \\ -13 & -4 & 1 & -4 & -4 \\ -7 & -5 & -2 & 1 & 5 \\ 19 & 22 & 19 & 16 & 10  \end{bmatrix}$$
+- After finding $\text{X-Gradient}$ and $\text{Y-Gradient}$, you find 
+  - *Gradient Magnitude:*
+
+  - *Gradient Orientation:*
+- *Edge thresholding*:
+  - *Standard*: If the value of the pixel is greater than the average, assign ~1~,
+    else assign ~0~. The path along the ~1~'s trace the edge.
+  - *Hysteris Based*:
+******* Gaussian
+- Examples, Canny, Laplacian
+
+* Feature Extraction
+- A feature is a piece of information relevant for solving a computational task.
+- You do feature extraction to compare the similarity of two images: extract the
+  /features/ of both the images, and then compare the features not the image
+  itself.
+- So you're given with two images of the same object: both images have different
+  scale, intensity and orientation. What you'll be comparing in both images are
+  things which don't depend on the scale, intensity and orientation, and these
+  are called features.
+
+** Main Components of Feature Detection and Matching
+
+*** Detection
+- This is where you identify the *interest point* or *blob*.
+**** Interest Point
+- The interest point is the point at which the direction of the boundary of the
+  object changes abruptly. For example, in a square, every corner would be an
+  interest point.
+- There are many algorithms to detect the interest point:
+  - Based on the brightness of an image
+  - Based on boundary extraction
+**** Blob
+- Instead of using a single point, you use a collection/plane of interest points
+  called a *blob* (essentially, a sub-image).
+- There are many algorithms to detect a blob too:
+
+*** Description
+- The local appearance of the surroundings of the interest point is described
+  such that it's invariant to transformations like scale, intensity, etc.
+- You have to find something called the *feature descriptor vector*.
+- There are many algorithms used for *feature descriptors*, like *Scale Invariant
+  Feature Transform* (SIFT), *SURF*, *Binary Robust Invariant Scalable Keypoints*
+  (BRISK).
+
+*** Matching
+- This is establishing correspondence between two points.
+
+** SIFT 
+- This can both select the interest point, and give the descriptor vector.
+
+*** Detecting Interest Points/ Blobs
+**** Laplacian of Gaussian (LoG)
+- We use and image processing operator called *Normalized Laplacian of Gaussian*
+  (NLoG) to find edges and blobs.
+- Given an $I(x,y)$, you perform convolution $G(x,y,\sigma)$ where \sigma is the bluring
+  factor. 
+- Gaussian smoothing is henceforth given as: $$I(x,y) \ast G(x, y, \sigma)$$ This blurs
+  the image, and higher the bluring factor \sigma, the more the image blurs and the
+  more fine details you can detect.
+- Now, a bright blob on a dark background looks like a bird's eye view of a
+  hill.
+- Similarly, a dark blob on a bright background looks like a bird's eye view of
+  a valley.
+- To quantify this mathematically, you pass this product as a parameter to the
+  Laplacian function $\nabla^{2}$, and this measures the curvature. 
+- The center of a valley is positive curvature, and the center of a hill is
+  negative curvature.
+- The final LoG looks like:
+  $$\nabla^{2} (I(x,y) \ast G(x, y, \sigma))$$
+
+  
+**** Difference of Gaussian (DoG)
+- Since laplacian is an expensive operation, SIFT uses DoG.
+- You find Gaussian for both images, and then take the difference.
+
+*** Finding the Descriptor
+
+*** Matching
+
+** How SIFT is used in places?
+
+*** How SIFT is used in Image registration or alignment
+
+*** How SIFT is used in Object Recognition
+
+*** How SIFT is used in Image Stitching
+
+*** SIFT vs YOLO
+
+** Program for SIFT
+#+begin_src python
+import numpy as np
+import cv2
+#+end_src
+
+*** Load the image in grayscale
+#+begin_src python
+img = cv2.imread('/content/aicte.jpg', cv2.IMREAD_GRAYSCALE)
+#+end_src
+
+*** Initialize the SIFT detector
+#+begin_src python
+sift = cv2.SIFT_create()
+#+end_src
+
+*** Detect Keypoints and Compute Descriptors
+#+begin_src python
+keypoints, descriptors = sift.detectAndCompute(img, None)
+#+end_src
+
+*** Extract values for the first keypoint found
+#+begin_src python
+if descriptors is not None:
+    first_descriptor = descriptors[0]
+    print(f"total keypoints: {len(keypoints)}")
+    print(f"descriptor shape: {first_descriptor.shape} ")
+    print(f"128 values of the first descriptor: {first_descriptor[:128]}")
+
+#+end_src
+
+#+RESULTS:
+

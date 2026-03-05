@@ -1037,6 +1037,45 @@ meetmeaftertheparty
 ******* $q = 23$, $g = 7$, $x = 9$, $r = 3$, $m = 20$
 - 
 
+***** Diffie Hellman 
+- This is used for key-exchange where both the parties jointly establish a
+  shared secret over an unsecured channel.
+  
+- Both parties agree on a generator $g$ (an integer) and a large prime number $p$, both of which are known to the public
+- They possess their own private keys $a$ and $b$ respectively. Only they know
+  about this.
+
+  | Alice | Public   | Bob |
+  |-------+----------+-----|
+  | $a$   | $p$, $g$ | $b$ |
+  
+- Now calculate the public key:
+
+  | Alice | Public                             | Bob |
+  |-------+------------------------------------+-----|
+  | $a$   | $p$, $g$                           | $b$ |
+  |       | $A = g^{b} \mod(p)$, $B = g^{a} \mod(p)$ |     |
+
+- Now we exchange public keys:
+  
+  | Alice            | Public                             | Bob              |
+  |------------------+------------------------------------+------------------|
+  | $a$              | $p$, $g$                           | $b$              |
+  |                  | $A = g^{a} \mod(p)$, $B = g^{b} \mod(p)$ |                  |
+  | $B = g^{b} \mod(p)$ |                                    | $A = g^{a} \mod(p)$ |
+
+- Calculate shared secret key:
+  
+  | Alice                        | Public                             | Bob                          |
+  |------------------------------+------------------------------------+------------------------------|
+  | $a$                          | $p$, $g$                           | $b$                          |
+  |                              | $A = g^{a} \mod(p)$, $B = g^{b} \mod(p)$ |                              |
+  | $B = g^{b} \mod(p)$             |                                    | $A = g^{a} \mod(p)$             |
+  | $\text{Secret Key} = K = B^{a}$ |                                    | $\text{Secret Key} = K = A^{b}$ |
+  
+
+****** Perform Diffie Hellman Key exchange using a prime number 13, and a generator of prime number 6, where person 1 has a private key 5, and person 2 has a private key 4. Calculate the shared secret among person 1 and 2.
+
 *** Based on how plaintext is processed
 
 **** Block
@@ -1066,6 +1105,10 @@ $$a \times (b+c) = ab + ac$$
 ** Division
 - When we say $a | b$ (a divides b), we're doing $\frac{b}{a}$.
 - $b$ is the dividend and $a$ is the divisor.
+- Divident is the number that is getting split up.
+- Divisor is the number that does the dividing/splitting.
+- $\text{Divisor}|\text{Divident}$ implies that the remainder of this division
+  process is 0. (Obvious facts, but I still chose to put them here).
 
 ** Prime Numbers
 
@@ -1075,6 +1118,32 @@ Every positive integer is uniquely a product of prime numbers.
 #+end_quote
 
 *** GCD
+**** What it is
+- Greatest common divisor is the largest number that divides both numbers.
+- Consider this example:
+  $$8  = 2 \times 2 \times 2$$
+  $$32 = 2 \times 2 \times 2 \times 2 \times 2$$
+- GCD tells us how many 2's you can take such that both numbers definitely have.
+  The limiting factor is the smaller number (8) and hence:
+  #+begin_quote
+When you have two numbers:
+$$\text{num1} = x^{a} \times y^{b} \times z^{c}$$
+$$\text{num2} = x^{p} \times y^{q} \times z^{r}$$
+- The GCD of $\text{num1}$ and $\text{num2}$ is $\text{min}(a,p) \times \text{min}(b,q) \times \text{min}(c,r) \times \text{. . .}$
+  #+end_quote
+- For LCM, it would be $\text{max}(a,p) \times \text{max}(b,q) \times \text{max}(c,r) \times
+  \text{. . .}$, because you need the smallest number that the numbers themselves can completely fit themselves in. 
+- Consider a Venn diagram, where each circle is $\text{num1}$ and $\text{num2}$.
+  The contents inside a circle are all the primes that number contains. For
+  example the contents of the number 24 would be 2, 2, 2 and 3, since $24 = 2^{3} \times
+  3$
+  - GCD is the intersection of primes and it's the common part in the venn
+    diagram. Hence you take the minimum of the powers.
+  - LCM is the union of primes and it's both the numbers taken together as a
+    whole.
+  
+
+**** How to find
 For example, the GCD for 24598 and 7895 would be:
 
 *Prime factorization of 24798*
@@ -1090,7 +1159,6 @@ For example, the GCD for 24598 and 7895 would be:
 | 1    |    1 |
 
 The answer is *1*.
-
 
 *** Euclidean Algorithm
 $$divident = quotient \times divisor + remainder$$
@@ -1129,13 +1197,25 @@ Some inferences you can make out from this is:
   | *5*                    |   |   |   |   |   |   |   |
   | *6*                    |   |   |   |   |   |   |   |
 
+*** Congruence
+$$a \equiv b \mod(n)$$
+- This means that $a\mod(n) = b\mod(n)$.
+- When you do $a \div n$ and $b \div n$, you get the same remainder.
+
+
 *** Inverses
 **** Additive Inverse
 $$-a + a\mod(m) = 0$$
 
 **** Multiplicative Inverse
-$a \times \frac{1}{a}\mod(m) = 1$
-- The multiplicative inverse of $a\mod(m)$ is $x$ such that $a\cdot x\mod(m) = 1$.
+- Normal multiplicative inverse of $a$ is a number such that if you multiply $a$
+  with it, you get 1. $$a \times x = 1$$ and the value of $x = a^{-1}$.
+
+- In modulo arithmetic:
+  $$a \times x \equiv 1 \mod(m) $$
+  
+
+- The multiplicative inverse of $a\mod(m)$ is $x$ such that $a\cdot x\mod(m) = 1\mod(m) = 1$.
 *Note*:
 - Multiplicative inverse of $a \mod(n)$ is represented as $a^{-1} \mod(n)$
 - Multiplicative inverse exists for $a \mod(n)$ if $GCD(a,n) = 1$.
