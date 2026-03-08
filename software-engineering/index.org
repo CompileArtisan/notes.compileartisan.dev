@@ -240,27 +240,60 @@ Scrum artifacts are information the team and stakeholders use to detail
 - the product being developed
 - the actions to produce it, and
 - the actions performed during the project
-  
+ 
 
-| Product Backlog                          | Sprint Backlog                                                   | Increment                                                           |
-|------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
-| List of requirements of build in product | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
+| Product Backlog                                                    | Sprint Backlog                                                   | Increment                                                           |
+|--------------------------------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
+| List of requirements of build in product aka. list of user stories | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
+
+***** Epics
+- They represent a big-picture vision
+
+***** User Stories
+- It's a requirement expressed in end-user POV
+- These break epics down into actionable tasks.
+- These include functional user stories (eg. can I save my order and come back
+  to it?) and non-functional user stories (these are technical implementations
+  of the functions like "can I place an order at ANY time?")
+- They comprise of 3 elements: card, conversation and confirmation
+
+****** Card
+- User stories are printed on physical cards.
+- The front tells us:
+  - Who the primary stakeholder is (*As a* some role)
+  - What effect does the story have (*I want* to do something)
+  - What business value does this effect give the stakeholder (*so that* I can get some benefit)
+- The back gives us *acceptance criteria* (the test cases which prove that the feature works as intended).
+  
+****** Conversation
+  
+****** Confirmation
+
+
+
+***** Story Points
+- They help quantify the complexity of a user story
+- The numbers used are often part of the fibonacci sequence
+- Larger the number, higher the complexity and the need to be broken down into
+  smaller user stories.
+
+
 
 **** Events
 
 ***** Backlog Grooming/Optimization
 - The product owner optimizes the product backlog using feedback they get from
   users and development team.
+- A good backlog should be *DEEP*: 
+  - *Detailed Appropriately* (amount of detail used to describe them \propto how soon they're going to be delivered)
+  - *Estimated* (estimation of work needed to deliver \propto how soon they're going to be delivered)
+  - *Emergent* (backlog adapts to customer needs)
+  - *Prioritized* (backlog items are ranked according to business value)
 
 ***** Sprint Planning
 - To make the sprint backlog, the development team conducts this meeting.
 - Specific user stores are added to the sprint backlog, from the product
   backlog.
-
-***** Sprint
-- The time taken to finish an increment
-- It's typically two weeks long
-- The more complex the work is, the more shorter the sprint should be.
 
 ***** Daily Scrum/ Standup
 - It's a meeting of about 15 minutes every day to make sure everyone is on the
@@ -270,11 +303,26 @@ Scrum artifacts are information the team and stakeholders use to detail
   - What do I plan to do today?
   - Are there any obstacles?
    
+***** Sprint
+- The time taken to finish an increment
+- It's typically two weeks long
+- The more complex the work is, the more shorter the sprint should be.
+
+***** Sprint Review
+- At the end of a sprint, the team showcases the increment to the stakeholders
+  and teammates.
+- The product owner can chose if they want to release the increment or not.
+- For a 1 month long sprint, a sprint review should take not more than 4 hours.
+
+***** Sprint Retrospective
+- The team comes together to discuss what went well, what didn't, and how things
+  can be improved.
 
 **** Roles
 
-| Product Owner                                                                                 | Scrum Master                                               | Development Team                                   |
-|-----------------------------------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------|
-| Client. They build the product backlog and perform backlog grooming.                          | Coaches the team on scrum principles                       | Delivers a shippable increment during every /sprint/ |
-| They are an individual not a group. Else the development team would be getting mixed guidance | They understand the work and help in improving efficiency. | They train each other and are self-organizing.     |
+| Product Owner                                                                                                                           | Scrum Master                                               | Development Team                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------|
+| Client. They build the product backlog, perform backlog grooming and can also choose to release sprint increment or not                 | Coaches the team on scrum principles                       | Delivers a shippable increment during every /sprint/ |
+| They are an individual not a group. Else the development team would be getting mixed guidance                                           | They understand the work and help in improving efficiency. | They train each other and are self-organizing.     |
+| They work with stakeholders and customers to make epics, then they work with the development team to break them down into user stories. |                                                            |                                                    |
  
