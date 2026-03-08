@@ -3,6 +3,11 @@
 
 * Introduction
 
+Software acts as both a product and a vehicle for delivering a product.
+- *As a Product*: It manages, displays, and transmits information.
+- *As a Vehicle*: It acts as a platform for other software (like an Operating
+  System), controls other programs, or helps build new tools.
+
 ** Fundamental Definition of Software
 You can define a software as
 - *Instructions* that provide desired features, functions and performance.
@@ -21,9 +26,10 @@ You can define a software as
 ** Failure Models of Hardware and Software
 
 *** Hardware
-- Hardware is a physical system element, which starts with high failure rate,
-  and then has a constantly low failure rate, and then later on again has a high
-  failure rate due to wear-and-tear.
+- Hardware is a physical system element, which starts with high failure rate
+  (infant mortality), and then has a constantly low failure rate (steady state),
+  and then later on again has a high failure rate due to wear-and-tear (wear
+  out).
 - The picture that depicts this is called the *bathtub curve*.
   file:/home/praaneshnair/gitProjects/org-notes/software-engineering/bathtub_curve.png
 - When hardware components wear out, you can replace them with spare parts, but
@@ -100,8 +106,8 @@ The last layer is what matters the most in engineering.
   anticipation, not adaptation.
 - The organizational structure is linear.
 - Clients and customers are involved all the time.
-- Issues are handled by the entire team, and the scrum master facilitates all
-  effort estimations.
+- Issues escalate to managers, and they are also the people who provides
+  estimates.
   
 
 *** Waterfall
@@ -130,6 +136,7 @@ The last layer is what matters the most in engineering.
 **** What it is
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/v-process.png
 - Extends waterfall model by adding a testing phase.
+- It emphasizes verification and validation.
 - Testing is done in parallel to development.
 - This ensures that the product meets the specifications.
 - Each phase has specific deliverables, and the resources are well utilized.
@@ -153,6 +160,7 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/incremental.p
 **** When to use
 - You have a large project that can be broken into modules
 - Resources can be added gradually.
+- Complexity is high but no uncertainty.
 
 *** Rapid Application Development
 
@@ -160,13 +168,26 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/incremental.p
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
 - Even here, you need well defined requirements.
 
-*** Evolutionary Process Models
+*** Prototypic / Evolutionary Process Models
 
 **** What it is
 - Prototypic
 - It's the same waterfall model, but in a loop.
+- You do it when requirements are not well understood.
 
-** Spiral Model
+**** Disadvantages
+- To impress stakeholders, the prototype is often held together haphazardly,
+  which means you haven't considered overall software quality.
+
+*** Spiral Model
+- It's evolutionary model, but risk analysis is introduced.
+- Instead of being a loop, you move that line in a spiral shape.
+- This is better for large scale projects.
+- Each iteration includes
+  - Planning
+  - Risk analysis
+  - Engineering
+  - Evaluation
 
 ** Agile Method
 - These are for small-scale process.
@@ -175,21 +196,35 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
 - This model favors adaptation.
 - Clients don't get involved that much, and customers don't get involved at all
   after the execution starts.
-- Issues escalate to managers, and they are also the people who provides
-  estimates.
+- Issues are handled by the entire team, and the scrum master facilitates all
+  effort estimations.
 - Refer to [[*Prescriptive/ Traditional][traditional approach]] to compare.
 
-*** What it is
-- A way to prioritize the product itself over the procedure of making it.
-- In traditional project management, the *project manager* takes ownership, while
-  here *every team member* takes ownership.
-- It also allows for constant feedback.
-- There are only a limited quantity of resources in the case of agile
-  methodology.
-\[ \text{Customer experience} >  \text{contract negotiation} \]
-\[  \text{Developer experience} >  \text{rigid processes & tools}\]
-\[  \text{Working software} >  \text{internal reporting/artifacts}\]
-\[  \text{Responding to change} >  \text{sticking to a plan}\]
+*** 4 values of Agile
+These are 4 values to focus on quality.
+- $\text{People and Interactions} >  \text{rigid processes and tools}$
+- $\text{Working software} >  \text{Documentation}$
+- $\text{Customer collaboration} >  \text{contract negotiation}$
+- $\text{Responding to change} >  \text{sticking to a plan}$
+
+*** 12 Principles
+The 12 principles articulated in the Agile Manifesto emphasize creating a work
+environment that focuses on the customer:
+- Satisfying customers through early and continuous delivery of valuable work.
+- Breaking big work down into smaller tasks that can be completed quickly.
+- Recognizing that the best work emerges from self-organized teams.
+- Providing motivated individuals with the environment and support they need and
+  trusting them to get the job done.
+- Creating processes that promote sustainable efforts.
+- Maintaining a constant pace for completed work.
+- Welcoming changing requirements, even late in a project.
+- Assembling the project team and business owners on a daily basis throughout
+  the project.
+- Having the team reflect at regular intervals on how to become more effective,
+  then tuning and adjusting behavior accordingly.
+- Measuring progress by the amount of completed work.
+- Continually seeking excellence.
+- Harnessing change for a competitive advantage
 
 *** Agile Scrum Methodology
 - Scrum is a lightweight framework of Agile Project Management
@@ -200,15 +235,46 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
 - Inspection
 - Adaptation
 
-**** Roles
-
-| Product Owner | Scrum Master                         | Development Team                                   |
-|---------------+--------------------------------------+----------------------------------------------------|
-| Client        | Coaches the team on scrum principles | Delivers a shippable increment during every /sprint/ |
-
 **** Scrum Artifacts
+Scrum artifacts are information the team and stakeholders use to detail
+- the product being developed
+- the actions to produce it, and
+- the actions performed during the project
+  
 
 | Product Backlog                          | Sprint Backlog                                                   | Increment                                                           |
 |------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
 | List of requirements of build in product | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
 
+**** Events
+
+***** Backlog Grooming/Optimization
+- The product owner optimizes the product backlog using feedback they get from
+  users and development team.
+
+***** Sprint Planning
+- To make the sprint backlog, the development team conducts this meeting.
+- Specific user stores are added to the sprint backlog, from the product
+  backlog.
+
+***** Sprint
+- The time taken to finish an increment
+- It's typically two weeks long
+- The more complex the work is, the more shorter the sprint should be.
+
+***** Daily Scrum/ Standup
+- It's a meeting of about 15 minutes every day to make sure everyone is on the
+  same page.
+- The common questions are:
+  - What did I do yesterday?
+  - What do I plan to do today?
+  - Are there any obstacles?
+   
+
+**** Roles
+
+| Product Owner                                                                                 | Scrum Master                                               | Development Team                                   |
+|-----------------------------------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------|
+| Client. They build the product backlog and perform backlog grooming.                          | Coaches the team on scrum principles                       | Delivers a shippable increment during every /sprint/ |
+| They are an individual not a group. Else the development team would be getting mixed guidance | They understand the work and help in improving efficiency. | They train each other and are self-organizing.     |
+ 
