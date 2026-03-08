@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-08 Sun 15:28 -->
+<!-- 2026-03-08 Sun 18:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Software Engineering</title>
@@ -617,68 +617,43 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1445899">1. Introduction</a>
+<li><a href="#orgeae9203">1. Introduction</a>
 <ul>
-<li><a href="#orge2cde7f">1.1. Fundamental Definition of Software</a></li>
-<li><a href="#orgee7a239">1.2. Types of Software Applications</a></li>
-<li><a href="#org46aa4fe">1.3. Failure Models of Hardware and Software</a>
+<li><a href="#org09b4cf0">1.1. Fundamental Definition of Software</a></li>
+<li><a href="#orgb158dfe">1.2. Types of Software Applications</a></li>
+<li><a href="#orgc4cc1e1">1.3. Failure Models of Hardware and Software</a>
 <ul>
-<li><a href="#org08ebffa">1.3.1. Hardware</a></li>
-<li><a href="#orgf6fe289">1.3.2. Software</a></li>
+<li><a href="#org3dd91c2">1.3.1. Hardware</a></li>
+<li><a href="#orgffe8fd8">1.3.2. Software</a></li>
 </ul>
 </li>
-<li><a href="#org254b0a0">1.4. Legacy Software</a>
+<li><a href="#orgd24e184">1.4. Legacy Software</a>
 <ul>
-<li><a href="#org74be248">1.4.1. What are they and why are they unchanged?</a></li>
-<li><a href="#org50cbe07">1.4.2. When will you need to change them?</a></li>
+<li><a href="#org3158fbd">1.4.1. What are they and why are they unchanged?</a></li>
+<li><a href="#orge134766">1.4.2. When will you need to change them?</a></li>
 </ul>
 </li>
+<li><a href="#orgfb840fe">1.5. Newer Categories of Software</a></li>
+<li><a href="#orgf261259">1.6. IEEE&rsquo;s Definition of Software Engineering</a></li>
+<li><a href="#orge9e6daa">1.7. Layers of technology</a></li>
 </ul>
 </li>
-<li><a href="#org5862368">2. Process</a></li>
-<li><a href="#org8a66396">3. Evolutionary Models</a>
+<li><a href="#org2327f6d">2. Process Models</a>
 <ul>
-<li><a href="#orgdd6c8dc">3.1. Waterfall</a>
+<li><a href="#orgfdacca8">2.1. Prescriptive/ Traditional</a>
 <ul>
-<li><a href="#org8118e74">3.1.1. What it is</a></li>
-<li><a href="#orgef794e4">3.1.2. When to use</a></li>
-<li><a href="#orged5586d">3.1.3. Disadvantages</a></li>
+<li><a href="#org1b4ebe6">2.1.1. Waterfall</a></li>
+<li><a href="#orgfbd357a">2.1.2. V-Process</a></li>
+<li><a href="#orgb20e6c4">2.1.3. Incremental</a></li>
+<li><a href="#orgc9eef2e">2.1.4. Rapid Application Development</a></li>
+<li><a href="#orgef0c100">2.1.5. Evolutionary Process Models</a></li>
 </ul>
 </li>
-<li><a href="#org9426730">3.2. V-Process</a>
+<li><a href="#orgf3535e8">2.2. Spiral Model</a></li>
+<li><a href="#orgc97fa8f">2.3. Agile Method</a>
 <ul>
-<li><a href="#org9603a53">3.2.1. What it is</a></li>
-<li><a href="#org0b4a3e0">3.2.2. When to use</a></li>
-</ul>
-</li>
-<li><a href="#orge33c799">3.3. Incremental</a>
-<ul>
-<li><a href="#org95866f3">3.3.1. What it is</a></li>
-<li><a href="#org6c2fb4d">3.3.2. Advantages</a></li>
-<li><a href="#org0284233">3.3.3. When to use</a></li>
-</ul>
-</li>
-<li><a href="#orgd4f98ad">3.4. Rapid Application Development</a>
-<ul>
-<li><a href="#org400a334">3.4.1. What it is</a></li>
-</ul>
-</li>
-<li><a href="#orga6ed9a8">3.5. Evolutionary Process Models</a>
-<ul>
-<li><a href="#org78c51f0">3.5.1. What it is</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgb343940">4. Spiral Model</a></li>
-<li><a href="#org7b410fa">5. Agile Method</a>
-<ul>
-<li><a href="#orgd7d18e8">5.1. What it is</a></li>
-<li><a href="#org20fc719">5.2. Agile Scrum Methodology</a>
-<ul>
-<li><a href="#orged2404e">5.2.1. Three Pillars</a></li>
-<li><a href="#org5522f81">5.2.2. Roles</a></li>
-<li><a href="#orgbc9c8b8">5.2.3. Scrum Artifacts</a></li>
+<li><a href="#org98a5382">2.3.1. What it is</a></li>
+<li><a href="#org00e4b25">2.3.2. Agile Scrum Methodology</a></li>
 </ul>
 </li>
 </ul>
@@ -686,12 +661,12 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-org1445899" class="outline-2">
-<h2 id="org1445899"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgeae9203" class="outline-2">
+<h2 id="orgeae9203"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge2cde7f" class="outline-3">
-<h3 id="orge2cde7f"><span class="section-number-3">1.1.</span> Fundamental Definition of Software</h3>
+<div id="outline-container-org09b4cf0" class="outline-3">
+<h3 id="org09b4cf0"><span class="section-number-3">1.1.</span> Fundamental Definition of Software</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 You can define a software as
@@ -703,8 +678,8 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee7a239" class="outline-3">
-<h3 id="orgee7a239"><span class="section-number-3">1.2.</span> Types of Software Applications</h3>
+<div id="outline-container-orgb158dfe" class="outline-3">
+<h3 id="orgb158dfe"><span class="section-number-3">1.2.</span> Types of Software Applications</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><b>System Software</b></li>
@@ -717,12 +692,12 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-org46aa4fe" class="outline-3">
-<h3 id="org46aa4fe"><span class="section-number-3">1.3.</span> Failure Models of Hardware and Software</h3>
+<div id="outline-container-orgc4cc1e1" class="outline-3">
+<h3 id="orgc4cc1e1"><span class="section-number-3">1.3.</span> Failure Models of Hardware and Software</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org08ebffa" class="outline-4">
-<h4 id="org08ebffa"><span class="section-number-4">1.3.1.</span> Hardware</h4>
+<div id="outline-container-org3dd91c2" class="outline-4">
+<h4 id="org3dd91c2"><span class="section-number-4">1.3.1.</span> Hardware</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Hardware is a physical system element, which starts with high failure rate,
@@ -735,8 +710,8 @@ that doesn&rsquo;t change the failure rate overall.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf6fe289" class="outline-4">
-<h4 id="orgf6fe289"><span class="section-number-4">1.3.2.</span> Software</h4>
+<div id="outline-container-orgffe8fd8" class="outline-4">
+<h4 id="orgffe8fd8"><span class="section-number-4">1.3.2.</span> Software</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Software can&rsquo;t wear out because it&rsquo;s a logical construct, not a physical
@@ -754,12 +729,12 @@ design or process.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org254b0a0" class="outline-3">
-<h3 id="org254b0a0"><span class="section-number-3">1.4.</span> Legacy Software</h3>
+<div id="outline-container-orgd24e184" class="outline-3">
+<h3 id="orgd24e184"><span class="section-number-3">1.4.</span> Legacy Software</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org74be248" class="outline-4">
-<h4 id="org74be248"><span class="section-number-4">1.4.1.</span> What are they and why are they unchanged?</h4>
+<div id="outline-container-org3158fbd" class="outline-4">
+<h4 id="org3158fbd"><span class="section-number-4">1.4.1.</span> What are they and why are they unchanged?</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>These are software developed decades ago, but are still used because they&rsquo;re
@@ -771,8 +746,8 @@ history/documentation</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org50cbe07" class="outline-4">
-<h4 id="org50cbe07"><span class="section-number-4">1.4.2.</span> When will you need to change them?</h4>
+<div id="outline-container-orge134766" class="outline-4">
+<h4 id="orge134766"><span class="section-number-4">1.4.2.</span> When will you need to change them?</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>Software must be adapted to meet new <b>computing needs</b>.</li>
@@ -782,33 +757,119 @@ history/documentation</b>.</li>
 </div>
 </div>
 </div>
+<div id="outline-container-orgfb840fe" class="outline-3">
+<h3 id="orgfb840fe"><span class="section-number-3">1.5.</span> Newer Categories of Software</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><b>Ubiquitous Computing</b>: The concept of wireless networks</li>
+<li><b>Netsourcing</b>: Using the internet as a computing engine</li>
+<li><b>Open Source</b>: Source Code open to the computing community.</li>
+</ul>
 </div>
-<div id="outline-container-org5862368" class="outline-2">
-<h2 id="org5862368"><span class="section-number-2">2.</span> Process</h2>
-<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf261259" class="outline-3">
+<h3 id="orgf261259"><span class="section-number-3">1.6.</span> IEEE&rsquo;s Definition of Software Engineering</h3>
+<div class="outline-text-3" id="text-1-6">
+<blockquote>
+<p>
+The application of a
+</p>
+<ul class="org-ul">
+<li>Systematic</li>
+<li>Disciplined</li>
+<li>Quantifiable</li>
+</ul>
+<p>
+approach to the
+</p>
+<ul class="org-ul">
+<li>Development</li>
+<li>Operation and</li>
+<li>Maintenance</li>
+</ul>
+<p>
+of software.
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-orge9e6daa" class="outline-3">
+<h3 id="orge9e6daa"><span class="section-number-3">1.7.</span> Layers of technology</h3>
+<div class="outline-text-3" id="text-1-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Tools:</b></td>
+<td class="org-left">What you use. Eg. Compilers, Database, programming languages, IDEs, etc</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Methods:</b></td>
+<td class="org-left">These include the things which make up a  workflow. Eg. Communication, Design Modeling, Testing</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Process:</b></td>
+<td class="org-left">This is a way of managing objectives and outcomes</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Quality Focus:</b></td>
+<td class="org-left">What matters the most in your app. Eg. Banks need correctness.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The last layer is what matters the most in engineering.
+</p>
+
 <ul class="org-ul">
 <li>A process is a collection of:
 <ul class="org-ul">
 <li><b>Activity:</b> what you do to achieve a <b>broad objective</b>. (a phase)</li>
 <li><b>Action:</b> set of tasks</li>
-<li><b>Task:</b></li>
+<li><b>Task:</b> Focuses on a small and well-defined objective that produces a tangible
+outcome.</li>
 </ul></li>
 <li>Processes hold everything together in any model.</li>
-<li>Netsource is a company that uses the web as a computing engine.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8a66396" class="outline-2">
-<h2 id="org8a66396"><span class="section-number-2">3.</span> Evolutionary Models</h2>
-<div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgdd6c8dc" class="outline-3">
-<h3 id="orgdd6c8dc"><span class="section-number-3">3.1.</span> Waterfall</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org2327f6d" class="outline-2">
+<h2 id="org2327f6d"><span class="section-number-2">2.</span> Process Models</h2>
+<div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org8118e74" class="outline-4">
-<h4 id="org8118e74"><span class="section-number-4">3.1.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-orgfdacca8" class="outline-3">
+<h3 id="orgfdacca8"><span class="section-number-3">2.1.</span> Prescriptive/ Traditional</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>These are for large-scale projects.</li>
+<li>You prescribe a set of processes and workflows for projects. You focus on the
+process over the product.</li>
+<li>All requirements are clearly defined before implementation. This model favours
+anticipation, not adaptation.</li>
+<li>The organizational structure is linear.</li>
+<li>Clients and customers are involved all the time.</li>
+<li>Issues are handled by the entire team, and the scrum master facilitates all
+effort estimations.</li>
+</ul>
+</div>
+<div id="outline-container-org1b4ebe6" class="outline-4">
+<h4 id="org1b4ebe6"><span class="section-number-4">2.1.1.</span> Waterfall</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1f4cb78"></a>What it is<br />
+<div class="outline-text-5" id="text-2-1-1-1">
 <p>
 \[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
 </p>
@@ -821,120 +882,131 @@ history/documentation</b>.</li>
 <li>Deployment is giving the final product</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orgef794e4" class="outline-4">
-<h4 id="orgef794e4"><span class="section-number-4">3.1.2.</span> When to use</h4>
-<div class="outline-text-4" id="text-3-1-2">
+</li>
+<li><a id="org797c311"></a>When to use<br />
+<div class="outline-text-5" id="text-2-1-1-2">
 <ul class="org-ul">
 <li>When requirements are stable and unlikely to change</li>
 <li>When resources are available throughout.</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orged5586d" class="outline-4">
-<h4 id="orged5586d"><span class="section-number-4">3.1.3.</span> Disadvantages</h4>
-<div class="outline-text-4" id="text-3-1-3">
+</li>
+<li><a id="orgaebf282"></a>Disadvantages<br />
+<div class="outline-text-5" id="text-2-1-1-3">
 <ul class="org-ul">
 <li>You have to finish a phase to move to the next one.</li>
 <li>You can&rsquo;t go back a phase.</li>
 <li>You get an actual product only at the end of everything.</li>
 </ul>
 </div>
+</li>
+</ol>
 </div>
+<div id="outline-container-orgfbd357a" class="outline-4">
+<h4 id="orgfbd357a"><span class="section-number-4">2.1.2.</span> V-Process</h4>
+<div class="outline-text-4" id="text-2-1-2">
 </div>
-<div id="outline-container-org9426730" class="outline-3">
-<h3 id="org9426730"><span class="section-number-3">3.2.</span> V-Process</h3>
-<div class="outline-text-3" id="text-3-2">
-</div>
-<div id="outline-container-org9603a53" class="outline-4">
-<h4 id="org9603a53"><span class="section-number-4">3.2.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<ol class="org-ol">
+<li><a id="org2ebe503"></a>What it is<br />
+<div class="outline-text-5" id="text-2-1-2-1">
 <ul class="org-ul">
 <li>Extends waterfall model by adding a testing phase.</li>
 <li>Testing is done in parallel to development.</li>
 <li>This ensures that the product meets the specifications.</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org0b4a3e0" class="outline-4">
-<h4 id="org0b4a3e0"><span class="section-number-4">3.2.2.</span> When to use</h4>
-<div class="outline-text-4" id="text-3-2-2">
+</li>
+<li><a id="orga6bab1a"></a>When to use<br />
+<div class="outline-text-5" id="text-2-1-2-2">
 <ul class="org-ul">
 <li>Requirements are clear and fixed.</li>
 <li>But you also need early defect detection.</li>
 </ul>
 </div>
+</li>
+</ol>
 </div>
+<div id="outline-container-orgb20e6c4" class="outline-4">
+<h4 id="orgb20e6c4"><span class="section-number-4">2.1.3.</span> Incremental</h4>
+<div class="outline-text-4" id="text-2-1-3">
 </div>
-<div id="outline-container-orge33c799" class="outline-3">
-<h3 id="orge33c799"><span class="section-number-3">3.3.</span> Incremental</h3>
-<div class="outline-text-3" id="text-3-3">
-</div>
-<div id="outline-container-org95866f3" class="outline-4">
-<h4 id="org95866f3"><span class="section-number-4">3.3.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-3-3-1">
+<ol class="org-ol">
+<li><a id="org5c00251"></a>What it is<br />
+<div class="outline-text-5" id="text-2-1-3-1">
 <ul class="org-ul">
 <li>Applies linear sequences in a staggered fashion</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org6c2fb4d" class="outline-4">
-<h4 id="org6c2fb4d"><span class="section-number-4">3.3.2.</span> Advantages</h4>
-<div class="outline-text-4" id="text-3-3-2">
+</li>
+<li><a id="orge960a53"></a>Advantages<br />
+<div class="outline-text-5" id="text-2-1-3-2">
 <ul class="org-ul">
 <li>Users get working functionality early, even if the complete system isn&rsquo;t
 ready. This provides value sooner and allows for feedback.</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org0284233" class="outline-4">
-<h4 id="org0284233"><span class="section-number-4">3.3.3.</span> When to use</h4>
-<div class="outline-text-4" id="text-3-3-3">
+</li>
+<li><a id="org661d3fd"></a>When to use<br />
+<div class="outline-text-5" id="text-2-1-3-3">
 <ul class="org-ul">
 <li>You have a large project that can be broken into modules</li>
 <li>Resources can be added gradually.</li>
 </ul>
 </div>
+</li>
+</ol>
 </div>
+<div id="outline-container-orgc9eef2e" class="outline-4">
+<h4 id="orgc9eef2e"><span class="section-number-4">2.1.4.</span> Rapid Application Development</h4>
+<div class="outline-text-4" id="text-2-1-4">
 </div>
-<div id="outline-container-orgd4f98ad" class="outline-3">
-<h3 id="orgd4f98ad"><span class="section-number-3">3.4.</span> Rapid Application Development</h3>
-<div class="outline-text-3" id="text-3-4">
-</div>
-<div id="outline-container-org400a334" class="outline-4">
-<h4 id="org400a334"><span class="section-number-4">3.4.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<ol class="org-ol">
+<li><a id="org6d1b73f"></a>What it is<br />
+<div class="outline-text-5" id="text-2-1-4-1">
 <ul class="org-ul">
 <li>Even here, you need well defined requirements.</li>
 </ul>
 </div>
+</li>
+</ol>
 </div>
+<div id="outline-container-orgef0c100" class="outline-4">
+<h4 id="orgef0c100"><span class="section-number-4">2.1.5.</span> Evolutionary Process Models</h4>
+<div class="outline-text-4" id="text-2-1-5">
 </div>
-<div id="outline-container-orga6ed9a8" class="outline-3">
-<h3 id="orga6ed9a8"><span class="section-number-3">3.5.</span> Evolutionary Process Models</h3>
-<div class="outline-text-3" id="text-3-5">
-</div>
-<div id="outline-container-org78c51f0" class="outline-4">
-<h4 id="org78c51f0"><span class="section-number-4">3.5.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-3-5-1">
+<ol class="org-ol">
+<li><a id="org91097bc"></a>What it is<br />
+<div class="outline-text-5" id="text-2-1-5-1">
 <ul class="org-ul">
 <li>Prototypic</li>
 </ul>
 </div>
+</li>
+</ol>
 </div>
 </div>
-</div>
-<div id="outline-container-orgb343940" class="outline-2">
-<h2 id="orgb343940"><span class="section-number-2">4.</span> Spiral Model</h2>
+<div id="outline-container-orgf3535e8" class="outline-3">
+<h3 id="orgf3535e8"><span class="section-number-3">2.2.</span> Spiral Model</h3>
 </div>
 
-<div id="outline-container-org7b410fa" class="outline-2">
-<h2 id="org7b410fa"><span class="section-number-2">5.</span> Agile Method</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgc97fa8f" class="outline-3">
+<h3 id="orgc97fa8f"><span class="section-number-3">2.3.</span> Agile Method</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>These are for small-scale process.</li>
+<li>The whole premise is that you prioritize human outcomes over rigid system.</li>
+<li>The organizational structure is iterative, not linear.</li>
+<li>This model favors adaptation.</li>
+<li>Clients don&rsquo;t get involved that much, and customers don&rsquo;t get involved at all
+after the execution starts.</li>
+<li>Issues escalate to managers, and they are also the people who provides
+estimates.</li>
+<li>Refer to <a href="#orgfdacca8">traditional approach</a> to compare.</li>
+</ul>
 </div>
-<div id="outline-container-orgd7d18e8" class="outline-3">
-<h3 id="orgd7d18e8"><span class="section-number-3">5.1.</span> What it is</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org98a5382" class="outline-4">
+<h4 id="org98a5382"><span class="section-number-4">2.3.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
 <li>A way to prioritize the product itself over the procedure of making it.</li>
 <li>In traditional project management, the <b>project manager</b> takes ownership, while
@@ -942,7 +1014,6 @@ here <b>every team member</b> takes ownership.</li>
 <li>It also allows for constant feedback.</li>
 <li>There are only a limited quantity of resources in the case of agile
 methodology.</li>
-<li>The whole premise is that you prioritize human outcomes over rigid system.</li>
 </ul>
 <p>
 \[ \text{Customer experience} >  \text{contract negotiation} \]
@@ -952,27 +1023,26 @@ methodology.</li>
 </p>
 </div>
 </div>
-<div id="outline-container-org20fc719" class="outline-3">
-<h3 id="org20fc719"><span class="section-number-3">5.2.</span> Agile Scrum Methodology</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-org00e4b25" class="outline-4">
+<h4 id="org00e4b25"><span class="section-number-4">2.3.2.</span> Agile Scrum Methodology</h4>
+<div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
 <li>Scrum is a lightweight framework of Agile Project Management</li>
 <li>A sprint in Agile is the time-boxed period to complete an increment.</li>
 </ul>
 </div>
-<div id="outline-container-orged2404e" class="outline-4">
-<h4 id="orged2404e"><span class="section-number-4">5.2.1.</span> Three Pillars</h4>
-<div class="outline-text-4" id="text-5-2-1">
+<ol class="org-ol">
+<li><a id="org30af0e3"></a>Three Pillars<br />
+<div class="outline-text-5" id="text-2-3-2-1">
 <ul class="org-ul">
 <li>Transparency</li>
 <li>Inspection</li>
 <li>Adaptation</li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org5522f81" class="outline-4">
-<h4 id="org5522f81"><span class="section-number-4">5.2.2.</span> Roles</h4>
-<div class="outline-text-4" id="text-5-2-2">
+</li>
+<li><a id="org7b9841c"></a>Roles<br />
+<div class="outline-text-5" id="text-2-3-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -999,10 +1069,9 @@ methodology.</li>
 </tbody>
 </table>
 </div>
-</div>
-<div id="outline-container-orgbc9c8b8" class="outline-4">
-<h4 id="orgbc9c8b8"><span class="section-number-4">5.2.3.</span> Scrum Artifacts</h4>
-<div class="outline-text-4" id="text-5-2-3">
+</li>
+<li><a id="org1600160"></a>Scrum Artifacts<br />
+<div class="outline-text-5" id="text-2-3-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1029,6 +1098,8 @@ methodology.</li>
 </tbody>
 </table>
 </div>
+</li>
+</ol>
 </div>
 </div>
 </div>

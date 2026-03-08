@@ -55,19 +55,57 @@ You can define a software as
 - They must be enhanced to implement new *business requirements*.
 - They must be extended to make it *interoperable with modern systems*.
 
-* Process
+** Newer Categories of Software
+- *Ubiquitous Computing*: The concept of wireless networks
+- *Netsourcing*: Using the internet as a computing engine
+- *Open Source*: Source Code open to the computing community.
+
+** IEEE's Definition of Software Engineering
+#+begin_quote
+The application of a
+- Systematic
+- Disciplined
+- Quantifiable
+approach to the
+- Development
+- Operation and
+- Maintenance
+of software.
+#+end_quote
+
+** Layers of technology
+
+| *Tools:*         | What you use. Eg. Compilers, Database, programming languages, IDEs, etc                         |
+| *Methods:*       | These include the things which make up a  workflow. Eg. Communication, Design Modeling, Testing |
+| *Process:*       | This is a way of managing objectives and outcomes                                               |
+| *Quality Focus:* | What matters the most in your app. Eg. Banks need correctness.                                  |
+
+The last layer is what matters the most in engineering.
+
 - A process is a collection of:
   - *Activity:* what you do to achieve a *broad objective*. (a phase)
   - *Action:* set of tasks
-  - *Task:*
+  - *Task:* Focuses on a small and well-defined objective that produces a tangible
+    outcome.
 - Processes hold everything together in any model.
-- Netsource is a company that uses the web as a computing engine.
 
 
-* Evolutionary Models
+* Process Models
 
-** Waterfall
-*** What it is
+** Prescriptive/ Traditional 
+- These are for large-scale projects.
+- You prescribe a set of processes and workflows for projects. You focus on the
+  process over the product.
+- All requirements are clearly defined before implementation. This model favours
+  anticipation, not adaptation.
+- The organizational structure is linear.
+- Clients and customers are involved all the time.
+- Issues are handled by the entire team, and the scrum master facilitates all
+  effort estimations.
+  
+
+*** Waterfall
+**** What it is
 \[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
 
 - Communication is talking with the client
@@ -76,84 +114,93 @@ You can define a software as
 - Construction is the actual implementation
 - Deployment is giving the final product
   
-*** When to use
+**** When to use
 - When requirements are stable and unlikely to change
 - When resources are available throughout.
   
-*** Disadvantages
+**** Disadvantages
 - You have to finish a phase to move to the next one. 
 - You can't go back a phase.
 - You get an actual product only at the end of everything.
 
-** V-Process
+*** V-Process
 
-*** What it is
+**** What it is
 - Extends waterfall model by adding a testing phase.
 - Testing is done in parallel to development.
 - This ensures that the product meets the specifications.
 
 
-*** When to use
+**** When to use
 - Requirements are clear and fixed.
 - But you also need early defect detection.
 
-** Incremental
+*** Incremental
 
-*** What it is
+**** What it is
 - Applies linear sequences in a staggered fashion
   
-*** Advantages
+**** Advantages
 - Users get working functionality early, even if the complete system isn't
   ready. This provides value sooner and allows for feedback.
 
-*** When to use
+**** When to use
 - You have a large project that can be broken into modules
 - Resources can be added gradually.
 
-** Rapid Application Development
+*** Rapid Application Development
 
-*** What it is
+**** What it is
 - Even here, you need well defined requirements.
 
-** Evolutionary Process Models
+*** Evolutionary Process Models
 
-*** What it is
+**** What it is
 - Prototypic
 
-* Spiral Model
+** Spiral Model
 
-* Agile Method
+** Agile Method
+- These are for small-scale process.
+- The whole premise is that you prioritize human outcomes over rigid system.
+- The organizational structure is iterative, not linear.
+- This model favors adaptation.
+- Clients don't get involved that much, and customers don't get involved at all
+  after the execution starts.
+- Issues escalate to managers, and they are also the people who provides
+  estimates.
+- Refer to [[*Prescriptive/ Traditional][traditional approach]] to compare.
 
-** What it is
+*** What it is
 - A way to prioritize the product itself over the procedure of making it.
 - In traditional project management, the *project manager* takes ownership, while
   here *every team member* takes ownership.
 - It also allows for constant feedback.
 - There are only a limited quantity of resources in the case of agile
   methodology.
-- The whole premise is that you prioritize human outcomes over rigid system.
 \[ \text{Customer experience} >  \text{contract negotiation} \]
 \[  \text{Developer experience} >  \text{rigid processes & tools}\]
 \[  \text{Working software} >  \text{internal reporting/artifacts}\]
 \[  \text{Responding to change} >  \text{sticking to a plan}\]
 
-** Agile Scrum Methodology
+*** Agile Scrum Methodology
 - Scrum is a lightweight framework of Agile Project Management
 - A sprint in Agile is the time-boxed period to complete an increment.
 
-*** Three Pillars
+**** Three Pillars
 - Transparency
 - Inspection
 - Adaptation
 
-*** Roles
+**** Roles
 
 | Product Owner | Scrum Master                         | Development Team                                   |
 |---------------+--------------------------------------+----------------------------------------------------|
 | Client        | Coaches the team on scrum principles | Delivers a shippable increment during every /sprint/ |
 
-*** Scrum Artifacts
+**** Scrum Artifacts
 
 | Product Backlog                          | Sprint Backlog                                                   | Increment                                                           |
 |------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
 | List of requirements of build in product | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
+
