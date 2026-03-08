@@ -436,3 +436,64 @@ Maps Test Cases and Project Deliverables \rightarrow Requirements
 **** Bidirectional
 Maps both ways.
 
+* Design Engineering
+
+** McGlaughin's Characteristics
+- Implement all implicit/explicit requirements by stakeholders.
+- Design should be a readable, understandable guide.
+- Design should give a complete picture of the software.
+
+** Functional Independence
+
+*** Cohesion
+- Degree to which elements inside a module work together.
+- functional strength of a module
+- More cohesion means elements are more closely related and they all work
+  towards the same goal.
+- Higher the cohesion, the easier the system is to maintain.
+
+**** Functional Cohesion
+- Everything needed is readily available in the module.
+- This is the ideal case.
+
+**** Sequential Cohesion
+- The output of an element is the input of another. 
+- Data flows between the parts.
+
+**** Communicational Cohesion
+- Two elements operate on the same input data or contribute towards the same output data.
+
+**** Procedural Cohesion
+- It's not data flow, but it's still in order.
+
+**** 
+
+*** Coupling
+- Degree of Interdependence among modules
+- More the coupling means more interconnectivity and this means it's harder to
+  maintain.
+
+**** Data Coupling
+- Only data moves around
+- The components are independent of each other
+- There is no /tramp data/. Tramp data is where data moves from one function to
+  another through intermediary functions, and those functions don't use this
+  data.
+
+**** Stamp Coupling
+- Data structures move around. 
+- This contains tramp data, but it could have been for efficiency sake too.
+
+**** Control Coupling
+- Modules communicate via control information/parameters.
+
+**** External Coupling
+- Depends on external modules, not part of the system.
+
+**** Common Coupling
+- Modules have shared data like global data structures.
+- Reusing modules or controlling data access is an issue.
+
+**** Content Coupling
+- One module can modify the data of another module.
+- This is the worst form of coupling.
