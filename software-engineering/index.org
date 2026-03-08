@@ -331,3 +331,108 @@ Define acceptance criteria
 | They are an individual not a group. Else the development team would be getting mixed guidance                                           | They understand the work and help in improving efficiency. | They train each other and are self-organizing.     |
 | They work with stakeholders and customers to make epics, then they work with the development team to break them down into user stories. |                                                            |                                                    |
  
+* Requirements Engineering 
+
+** 7 Tasks of a Requirement Engineer
+
+*** Inception
+- Understand the problem
+- Identify stakeholders
+
+*** Elicitation
+Gather details 
+**** Collaborative Requirements Gathering
+- A facilitator (customer/developer) conducts a meeting to negotiate different
+  approaches.
+**** Quality Function Deployment
+- Translate needs of customer \rightarrow technical requirements for software
+- Three types of requirements:
+  | Normal                               | Expected                                                                                            | Exciting                                         |
+  |--------------------------------------+-----------------------------------------------------------------------------------------------------+--------------------------------------------------|
+  | Goals stated for product by customer | Implicit requirements that might be fundamental enough for the customer to not tell them explicitly | Requirements for features customer didn't expect |
+
+*** Elaboration
+- Build a analysis/technical model and develop use cases.
+- An analysis model is a snapshot of requirements at a specific point of time.
+
+**** Use Case Diagram
+  Here's an example of a use case diagram:
+  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/usecasediagram.png
+- There are 4 symbols in a use case diagram:
+  - Actor (Outside the box)
+  - Use Cases (Ellipses)
+  - Associations (lines/arrows connecting actors and use cases)
+  - System Boundary (rectangle, which indicates scope)
+- In UML, if we include a label ~<< include >>~ on an association/relationship, it
+  means the use case is mandatory. If we use this label, the arrow becomes
+  dotted.
+- Similarly if we include a label ~<< extend >>~ on an association/relationship,
+  it means the use case is optional. Here too, the arrow is dotted.
+  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/uml.png
+  
+**** State Diagram
+- A *state diagram* looks like this:
+  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/statediagram.png
+  
+**** Data Flow Diagram
+- *Rectangle*: Producer of Data
+- *Circle*: This is a function that takes data as input, processes it and gives
+  output.
+- *Arrows*: For data flow
+- *Parallel Lines*: Text written inside parallel lines means it's data stored for
+  later use.
+
+*** Negotiation
+- Using the technical model we've built, we evaluate the *feasibility* of what the
+  customer wants, *rank* the requirements, and evaluate the *risks*, iteratively.
+
+*** Specification
+- Make the *Software Requirement Specification* (SRS) document.
+- This contains all functional and non-functional requirements.
+**** Functional Requirements
+- Functional requirements list all the functions of the website, and tells us
+  how it works in general.
+- These are things the end-user specifically demands.
+**** Non-Functional Requirements
+- Non-functional requirements list technical implementations of functional
+  requirements. They could be related to *performance*, *scalability*, *security*,
+  *usability*, etc.
+- Any performance criteria (eg. 99.9% uptime), constraints (eg. 1000
+  transactions per seconds) are included here.
+  
+***** Execution Qualities 
+- These are things observable during runtime.
+- Eg. Security, usability
+
+***** Evolution Qualities
+- These consist of things like testability, maintainability, scalability that
+  are embodied in the static structure of the system.
+  
+
+*** Validation
+- Validate the requirements presented in SRS.
+
+**** Decision Tables
+
+| Condition Stubs                      | Condition Entries         | Action Stubs                              | Action Entries                                      |
+|--------------------------------------+---------------------------+-------------------------------------------+-----------------------------------------------------|
+| Variables that affect the system     | Values of condition stubs | Outcomes of system                        | Indicators of whether an action was executed or not |
+| Eg. Input, User Roles, System states | Eg. yes/no, numeric, text | Eg. Updating db entry, printing a message | Eg. X, O, Blank                                     |
+
+Eg.
+file:/home/praaneshnair/gitProjects/org-notes/software-engineering/decisiontable.png
+**** Decision Tree
+- The leaf nodes represent actions to be performed.
+
+*** Requirements Management Task
+Make a *requirement traceability matrix (RTM)*
+
+**** Forward Traceability Matrix
+Maps Requirements \rightarrow Test Cases and Project Deliverables
+
+**** Backward/Reverse Traceability Matrix
+Maps Test Cases and Project Deliverables \rightarrow Requirements
+
+**** Bidirectional
+Maps both ways.
+
