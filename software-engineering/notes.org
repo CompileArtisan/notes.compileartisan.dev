@@ -1,0 +1,144 @@
+#+title: Software Engineering
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+
+** Fundamental Definition of Software
+You can define a software as
+- *Instructions* that provide desired features, functions and performance.
+- *Data Structures* that enable programs to adequately manipulate information.
+- *Documentation* that describes operation and use of programs.
+
+** Failure Models of Hardware and Software
+
+*** Hardware
+- Hardware is a physical system element, which starts with high failure rate,
+  and then has a constantly low failure rate, and then later on again has a high
+  failure rate due to wear-and-tear.
+- The picture that depicts this is called the *bathtub curve*.
+  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/bathtub_curve.png
+- When hardware components wear out, you can replace them with spare parts, but
+  that doesn't change the failure rate overall.
+*** Software
+- Software can't wear out because it's a logical construct, not a physical
+  entity.
+- Software too, starts with high failure rate, but ideally should decrease and
+  stay constant forever. 
+- What actually happens is that any side-effect caused by an implementation,
+  suddenly increases failure rate, and then as it's fixed, it goes down again.
+  This keeps happening and is depicted by the below image.
+  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/software-wear.png
+- There is no concept of spare parts here. Every failure reflects an error in
+  design or process.
+- So software maintenance is *harder* than hardware maintenance.
+  
+** Legacy Software
+- These are software developed decades ago, but are still used because they're
+  indispensable to the business.
+- They often have *inextensible designs*, *convoluted code* and *poor change
+  history/documentation*. 
+- All in all, they are of *poor quality*.
+- These are forgiven because they do the job. If it ain't broken, don't fix it.
+
+* Process
+- A process is a collection of:
+  - *Activity:* what you do to achieve a *broad objective*. (a phase)
+  - *Action:* set of tasks
+  - *Task:*
+- Processes hold everything together in any model.
+- Netsource is a company that uses the web as a computing engine.
+
+
+* Evolutionary Models
+
+** Waterfall
+*** What it is
+\[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
+
+- Communication is talking with the client
+- Planning is about organizational structure
+- Modelling is about planning the technical implementation 
+- Construction is the actual implementation
+- Deployment is giving the final product
+  
+*** When to use
+- When requirements are stable and unlikely to change
+- When resources are available throughout.
+  
+*** Disadvantages
+- You have to finish a phase to move to the next one. 
+- You can't go back a phase.
+- You get an actual product only at the end of everything.
+
+** V-Process
+
+*** What it is
+- Extends waterfall model by adding a testing phase.
+- Testing is done in parallel to development.
+- This ensures that the product meets the specifications.
+
+
+*** When to use
+- Requirements are clear and fixed.
+- But you also need early defect detection.
+
+** Incremental
+
+*** What it is
+- Applies linear sequences in a staggered fashion
+  
+*** Advantages
+- Users get working functionality early, even if the complete system isn't
+  ready. This provides value sooner and allows for feedback.
+
+*** When to use
+- You have a large project that can be broken into modules
+- Resources can be added gradually.
+
+** Rapid Application Development
+
+*** What it is
+- Even here, you need well defined requirements.
+
+** Evolutionary Process Models
+
+*** What it is
+- Prototypic
+
+* Spiral Model
+
+* Agile Method
+
+** What it is
+- A way to prioritize the product itself over the procedure of making it.
+- In traditional project management, the *project manager* takes ownership, while
+  here *every team member* takes ownership.
+- It also allows for constant feedback.
+- There are only a limited quantity of resources in the case of agile
+  methodology.
+- The whole premise is that you prioritize human outcomes over rigid system.
+\[ \text{Customer experience} >  \text{contract negotiation} \]
+\[  \text{Developer experience} >  \text{rigid processes & tools}\]
+\[  \text{Working software} >  \text{internal reporting/artifacts}\]
+\[  \text{Responding to change} >  \text{sticking to a plan}\]
+
+** Agile Scrum Methodology
+- Scrum is a lightweight framework of Agile Project Management
+- A sprint in Agile is the time-boxed period to complete an increment.
+
+*** Three Pillars
+- Transparency
+- Inspection
+- Adaptation
+
+*** Roles
+
+| Product Owner | Scrum Master                         | Development Team                                   |
+|---------------+--------------------------------------+----------------------------------------------------|
+| Client        | Coaches the team on scrum principles | Delivers a shippable increment during every /sprint/ |
+
+*** Scrum Artifacts
+
+| Product Backlog                          | Sprint Backlog                                                   | Increment                                                           |
+|------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
+| List of requirements of build in product | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
