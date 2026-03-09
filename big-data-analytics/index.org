@@ -314,17 +314,24 @@ As a function of time:
 - These shards are distributed across multiple systems to improve scalability
   and performance. (because this paves way for parallel processing).
 
-** Difference between SQL and NoSQL
+** Types of NoSQL
 
-| SQL                                                       | NoSQL                                                                |
-|-----------------------------------------------------------+----------------------------------------------------------------------|
-| Follows ACID Properties                                   | Follows Brewer's CAP theorem                                         |
-| Standardized                                              | Not Standardized                                                     |
-| No support for horizontal scaling                         | Has Support for horizontal scaling                                   |
-| Not preferred for hierarchical data (tree-like structure) | Best for hierarchical data (because JSON can effectively store this) |
+| Key-Value                       | Document Oriented   | Column Oriented                                                        | Graph Based                         |
+|---------------------------------+---------------------+------------------------------------------------------------------------+-------------------------------------|
+| Designed for horizontal scaling | JSON-like documents | Work on columns instead of rows, and they're good for faster analytics | Good for representing relationships |
+| Eg. Redis                       | Eg. MongoDB         | Eg. Cassandra                                                          | Eg. InfiniteGraph                   |
 
-* NewSQL
-- NewSQL is a mixture of both SQL and NoSQL
+** Difference between SQL, NoSQL and NewSQL
+
+|                                          | Traditional SQL                                           | NoSQL                                                                | NewSQL         |
+|------------------------------------------+-----------------------------------------------------------+----------------------------------------------------------------------+----------------|
+| Horizontal Scaling/Distributed Computing | No                                                        | Yes                                                                  | Yes            |
+| Data Format Flexibility                  | No                                                        | Yes                                                                  | Maybe          |
+| OLTP/OLAP                                | Yes                                                       | No                                                                   | Yes            |
+| Community Support                        | Huge                                                      | Growing                                                              | Slowly Growing |
+| Properties                               | Follows ACID Properties                                   | Follows Brewer's CAP theorem                                         | Follows both   |
+| P                                        | Not preferred for hierarchical data (tree-like structure) | Best for hierarchical data (because JSON can effectively store this) |                |
+
 
 # file:/home/praaneshnair/gitProjects/org-notes/big-data-analytics/mongodb.org
 
@@ -373,11 +380,11 @@ Node4 → Block4
   
 ***** Blocks
 - This is the minimum amount of data that can be read or written. (64 MB or 128 MB).
-- By default there are 3 replicas of data (3 blocks, each placed in a different
-  rack).
+- By default there are 3 replicas of data, and they will be placed across at
+  least 2 racks.
   - The first replica is placed on the local node
-  - The second replica is placed on a remote rack.
-  - The third replica is placed on the same remote rack as the second one
+  - The second and third replica are palaced on a remote rack during write
+    pipeline.
 - The client reads from the nearest replica.
 
 ***** Rack
@@ -394,30 +401,38 @@ Node4 → Block4
 ***** Rack Awareness
 - Choosing data node racks that are closest to each other is called rack
   awareness.
+- Improves cluster performance by reducing network traffic.
 - This is how you move the computation to where the data is stored.
   
 ***** Master/Slave Architecture - Node
 ****** NameNode
 - Master of the system
 - Maintains and manages the blocks present on the Data Node.
+- It doesn't store the files themselves. It only stores metadata, locates the
+  files and tracks changes.
 - These are up and running all the time.
 - There exists a *secondary NameNode*, which takes over if the primary NameNode is
   not there.
 - There are two components of a NameNode:
   
-  | FSImage                                            | Edit Logs                                                                                    |
+  | FSImage (File System Image)                        | Edit Logs                                                                                    |
   |----------------------------------------------------+----------------------------------------------------------------------------------------------|
   | Point-in-time snapshot of the file system metadata | Journals recording every change (write/delete) made to the namespace since the last snapshot |
   
 ******* Secondary NameNode
+- NameNode only stores metadata (FSImage) and logs. So incase it restarts, it
+  has to replay the entire log to manage the cluster.
 - The Secondary NameNode pulls the current FSImage and Edit Logs from the Active
   NameNode.
-- It merges them, creating a new, up-to-date FSImage.
+- It merges them, creating a new, up-to-date FSImage. This means the current
+  snapshot is modified to accommodate the new changes presented in Edit logs.
 - The new FSImage is sent back to the Primary NameNode, and the old edit log is
   cleared
 
 ****** DataNode
-- Slaves which are deployed on each machine and provide the actual storage.
+- These are the machines that actually store data and serve it to the client.
+- They send *heartbeat* signals to the NameNode about every 3 seconds to indicate
+  health.
 - Responsible for serving read/write requests to the client.
 
 **** MapReduce
@@ -500,16 +515,48 @@ Job
 ***** Some applications of MapReduce
 
 ****** Reverse Web-Link Graph
+- You have a bunch of tuples ~(a,b)~ where there's a link from page ~a~ to ~b~.
+- The output is that for each page we have to display the list of pages that
+  link to it.
+  #+begin_quote
+For example, given ~(a,b)~, ~(c,b)~ and ~(d,b)~, the output will be
+#+begin_src 
+<b, [a,c,d]>
+#+end_src
+  #+end_quote
+- Map will take ~(a,b)~ as input and output ~(b,a)~ (it simply swaps, so that we can group by ~b~)
+  #+begin_src txt
+map(a, b):
+    emit(b, a)
+  #+end_src
+- Hadoop automatically does something called *shuffle and sort phase*, where all
+  entries with the same key are grouped.
+- The reduce phase would simply output the list.
+  #+begin_src txt
+reduce(b, list_of_a):
+    emit(b, list_of_a)
+  #+end_src
+
+
 
 
 ***** Some things you CAN'T use Map-Reduce for
-- Real-time analytics because of high latency
+- Real-time analytics because of high latency. MapReduce was designed for
+  massive batch jobs.
 - Iterative algorithms because re-reading and writing data to HDFS is expensive.
-- A large number of small files, because they can overwhelm the NameNode and
-  create metadata overhead.
+- A large number of small files, because
+  - They can overwhelm the NameNode and create metadata overhead.
+  - The shuffle and sort phase moves data all over the nodes consuming bandwidth.
+- Tasks which need Caching, because in MapReduce, the same dataset is re-read
+  from the disk for every subsequent job.
 
 
 ***** Daemons in Hadoop 1.x
+- NameNode (Master Node in HDFS)
+- Secondary NameNode (Helper)
+- DataNode (Slave Node in HDFS)
+- JobTracker (Master Node in MapReduce)
+- TaskTracker (Slave Node in MapReduce)
 
 *** Hadoop 2.x
 These are the components of a node using Hadoop 2.x.
