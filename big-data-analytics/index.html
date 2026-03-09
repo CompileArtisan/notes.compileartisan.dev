@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-10 Tue 02:21 -->
+<!-- 2026-03-10 Tue 03:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Big Data Analytics</title>
@@ -617,132 +617,130 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0ef2e6f">1. Introduction</a>
+<li><a href="#org02ce031">1. Introduction</a>
 <ul>
-<li><a href="#org5f3677c">1.1. What is Big Data?</a></li>
-<li><a href="#org3a8e3c8">1.2. What is Big Data Analytics?</a></li>
-<li><a href="#org5be1bc5">1.3. Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</a>
+<li><a href="#org1a4cd1a">1.1. What is Big Data?</a></li>
+<li><a href="#org37f5890">1.2. What is Big Data Analytics?</a></li>
+<li><a href="#org4628ac1">1.3. Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</a>
 <ul>
-<li><a href="#orgc67ea6b">1.3.1. Volume</a></li>
-<li><a href="#org0b2a488">1.3.2. Velocity</a></li>
-<li><a href="#orgc0c0b45">1.3.3. Variety</a></li>
-<li><a href="#org11b8b38">1.3.4. Newer V&rsquo;s introduced in recent times</a></li>
+<li><a href="#org243e883">1.3.1. Volume</a></li>
+<li><a href="#org67668e4">1.3.2. Velocity</a></li>
+<li><a href="#org1d1bc5c">1.3.3. Variety</a></li>
+<li><a href="#org71c46fa">1.3.4. Newer V&rsquo;s introduced in recent times</a></li>
 </ul>
 </li>
-<li><a href="#org3aeda95">1.4. Human-Generated Data vs Machine-Generated Data</a></li>
-<li><a href="#org5e1d76c">1.5. Issues with Terminology related to Structure</a></li>
+<li><a href="#org2d2bdea">1.4. Human-Generated Data vs Machine-Generated Data</a></li>
+<li><a href="#org313892b">1.5. Issues with Terminology related to Structure</a></li>
 </ul>
 </li>
-<li><a href="#orgc1aecd9">2. Definition of Big Data</a></li>
-<li><a href="#org5a99c85">3. Types of Data Analytics</a>
+<li><a href="#org92de737">2. Definition of Big Data</a></li>
+<li><a href="#org3b3f245">3. Types of Data Analytics</a>
 <ul>
-<li><a href="#org4fc8e92">3.1. Descriptive Analytics</a></li>
-<li><a href="#org8e73d42">3.2. Diagnostic Analytics</a></li>
-<li><a href="#orgb7162ff">3.3. Predictive Analytics</a></li>
-<li><a href="#org5a30a73">3.4. Prescriptive Analytics</a></li>
+<li><a href="#org88783d5">3.1. Descriptive Analytics</a></li>
+<li><a href="#org469f174">3.2. Diagnostic Analytics</a></li>
+<li><a href="#orgfebc977">3.3. Predictive Analytics</a></li>
+<li><a href="#orgdc802b4">3.4. Prescriptive Analytics</a></li>
 </ul>
 </li>
-<li><a href="#orgb413da1">4. Database Architectures</a>
+<li><a href="#org6bd2a54">4. Database Architectures</a>
 <ul>
-<li><a href="#orgfacdbc1">4.1. OLTP</a></li>
-<li><a href="#orge4ef074">4.2. OLAP</a></li>
-<li><a href="#org64647d4">4.3. RTAP</a></li>
+<li><a href="#org34a74c3">4.1. OLTP</a></li>
+<li><a href="#org8b2bd08">4.2. OLAP</a></li>
+<li><a href="#org01c52b4">4.3. RTAP</a></li>
 </ul>
 </li>
-<li><a href="#orga6ff92a">5. Change in Trend</a></li>
-<li><a href="#org473a6cf">6. Size Matters</a>
+<li><a href="#org112d170">5. Change in Trend</a></li>
+<li><a href="#orgb53cd65">6. Size Matters</a>
 <ul>
-<li><a href="#org650b5c4">6.1. In Bits</a></li>
-<li><a href="#org06a0684">6.2. In General</a></li>
-<li><a href="#org301907a">6.3. Traditional Business Intelligence vs Big Data</a></li>
-<li><a href="#org0ef51a5">6.4. What is a Data lake</a></li>
+<li><a href="#org5ec6a1e">6.1. In Bits</a></li>
+<li><a href="#org311bf09">6.2. In General</a></li>
+<li><a href="#org200f21d">6.3. Traditional Business Intelligence vs Big Data</a></li>
+<li><a href="#orgf4361ed">6.4. What is a Data lake</a></li>
 </ul>
 </li>
-<li><a href="#org705c920">7. Transaction Processing</a>
+<li><a href="#org76b453a">7. Transaction Processing</a>
 <ul>
-<li><a href="#org31c4283">7.1. Atomicity</a></li>
-<li><a href="#orgd9da323">7.2. Consistency</a></li>
-<li><a href="#org8293adf">7.3. Isolation</a></li>
-<li><a href="#orgbe4fcbc">7.4. Durability</a></li>
+<li><a href="#orgfaa9f74">7.1. Atomicity</a></li>
+<li><a href="#orgdf804c3">7.2. Consistency</a></li>
+<li><a href="#org28a680c">7.3. Isolation</a></li>
+<li><a href="#orge6b3232">7.4. Durability</a></li>
 </ul>
 </li>
-<li><a href="#orgcfc908e">8. Challenges</a>
+<li><a href="#orgc864339">8. Challenges</a>
 <ul>
-<li><a href="#org39ce242">8.1. Vertical and Horizontal Scaling</a></li>
-<li><a href="#orge9db74d">8.2. Security</a></li>
-<li><a href="#orgfb58af8">8.3. Schema</a></li>
-<li><a href="#orgb61c0f8">8.4. Consistency</a></li>
-<li><a href="#org7c3c742">8.5. Continuous Availability</a></li>
-<li><a href="#orgaaa6189">8.6. Partition Tolerent</a></li>
-<li><a href="#orga1df948">8.7. Data Quality</a>
+<li><a href="#orgfcff330">8.1. Vertical and Horizontal Scaling</a></li>
+<li><a href="#org51c69f3">8.2. Security</a></li>
+<li><a href="#org555e574">8.3. Schema</a></li>
+<li><a href="#org1fef302">8.4. Consistency</a></li>
+<li><a href="#orgb4143d3">8.5. Continuous Availability</a></li>
+<li><a href="#orgf8c80d8">8.6. Partition Tolerent</a></li>
+<li><a href="#org10729d2">8.7. Data Quality</a>
 <ul>
-<li><a href="#org72bf200">8.7.1. 3Cs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org835be52">9. Brewer&rsquo;s CAP Theorem</a>
-<ul>
-<li><a href="#org4e03960">9.1. What CAP is</a>
-<ul>
-<li><a href="#org60c0fb0">9.1.1. Consistency</a></li>
-<li><a href="#orgb10426a">9.1.2. Availability</a></li>
-<li><a href="#org8b5634f">9.1.3. Partition Tolerance</a></li>
-</ul>
-</li>
-<li><a href="#orgf38f436">9.2. CAP Theorem</a></li>
-<li><a href="#org6dbd025">9.3. Examples of Different Systems</a>
-<ul>
-<li><a href="#orgf727669">9.3.1. CP</a></li>
-<li><a href="#org717b87e">9.3.2. AP</a></li>
-<li><a href="#org6593ff8">9.3.3. CA</a></li>
+<li><a href="#org3d4c1e6">8.7.1. 3Cs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0e15f50">10. BASE Theorem</a>
+<li><a href="#org8e9ad03">9. Brewer&rsquo;s CAP Theorem</a>
 <ul>
-<li><a href="#orgf24699d">10.1. Basically Available</a></li>
-<li><a href="#orgdbf0e2c">10.2. Soft-state</a></li>
-<li><a href="#org28d55f6">10.3. Eventually Consistent</a></li>
+<li><a href="#org933357e">9.1. What CAP is</a>
+<ul>
+<li><a href="#org8a59f96">9.1.1. Consistency</a></li>
+<li><a href="#orgcaeca37">9.1.2. Availability</a></li>
+<li><a href="#orgff33134">9.1.3. Partition Tolerance</a></li>
 </ul>
 </li>
-<li><a href="#org28ca2d4">11. NoSQL</a>
+<li><a href="#orgdb420da">9.2. CAP Theorem</a></li>
+<li><a href="#org128e303">9.3. Examples of Different Systems</a>
 <ul>
-<li><a href="#org7916e5b">11.1. Sharding</a></li>
-<li><a href="#org6fe1a84">11.2. Types of NoSQL</a></li>
-<li><a href="#org50f9497">11.3. Difference between SQL, NoSQL and NewSQL</a></li>
+<li><a href="#orgafd6823">9.3.1. CP</a></li>
+<li><a href="#org6f1912f">9.3.2. AP</a></li>
+<li><a href="#org4dbf881">9.3.3. CA</a></li>
 </ul>
 </li>
-<li><a href="#orgcf8ed98">12. Hadoop</a>
-<ul>
-<li><a href="#org27ee573">12.1. Hadoop Cluster</a></li>
-<li><a href="#orgf15b756">12.2. Hadoop Versions</a>
-<ul>
-<li><a href="#org4cc8b6a">12.2.1. Hadoop 1.x</a></li>
-<li><a href="#orgc9fd19d">12.2.2. Hadoop 2.x</a></li>
 </ul>
 </li>
-<li><a href="#orgb37d576">12.3. Basic Hadoop Architecture</a></li>
-<li><a href="#orge54ed7c">12.4. Challenges of Hadoop</a></li>
-<li><a href="#orgf24c5a9">12.5. Columnar Databases</a></li>
+<li><a href="#org5fcda51">10. BASE Theorem</a>
+<ul>
+<li><a href="#org2636e9c">10.1. Basically Available</a></li>
+<li><a href="#orgee8f7f1">10.2. Soft-state</a></li>
+<li><a href="#org7d9fbd3">10.3. Eventually Consistent</a></li>
 </ul>
 </li>
-<li><a href="#org937a3e6">13. Apache Spark</a>
+<li><a href="#orgf9c299f">11. NoSQL</a>
 <ul>
-<li><a href="#org3dc1bb3">13.1. What it is</a></li>
-<li><a href="#org90d1fc3">13.2. Resilient Distributed Dataset</a></li>
+<li><a href="#org1418c91">11.1. Sharding</a></li>
+<li><a href="#org01bb64c">11.2. Types of NoSQL</a></li>
+<li><a href="#org3b7f0a0">11.3. Difference between SQL, NoSQL and NewSQL</a></li>
+</ul>
+</li>
+<li><a href="#orge924e4d">12. Hadoop</a>
+<ul>
+<li><a href="#org20a2ab3">12.1. Hadoop Cluster</a></li>
+<li><a href="#org7d4434f">12.2. Hadoop Versions</a>
+<ul>
+<li><a href="#orgaa61808">12.2.1. Hadoop 1.x</a></li>
+<li><a href="#orgca6a918">12.2.2. Hadoop 2.x</a></li>
+</ul>
+</li>
+<li><a href="#org276d32c">12.3. HBase</a></li>
+</ul>
+</li>
+<li><a href="#org85b5bc8">13. Apache Spark</a>
+<ul>
+<li><a href="#org0112540">13.1. What it is</a></li>
+<li><a href="#org122c0b4">13.2. Resilient Distributed Dataset</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0ef2e6f" class="outline-2">
-<h2 id="org0ef2e6f"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org02ce031" class="outline-2">
+<h2 id="org02ce031"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org5f3677c" class="outline-3">
-<h3 id="org5f3677c"><span class="section-number-3">1.1.</span> What is Big Data?</h3>
+<div id="outline-container-org1a4cd1a" class="outline-3">
+<h3 id="org1a4cd1a"><span class="section-number-3">1.1.</span> What is Big Data?</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Big Data involves datasets that are too large or complex for traditional data
@@ -754,8 +752,8 @@ maybe even Exabytes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3a8e3c8" class="outline-3">
-<h3 id="org3a8e3c8"><span class="section-number-3">1.2.</span> What is Big Data Analytics?</h3>
+<div id="outline-container-org37f5890" class="outline-3">
+<h3 id="org37f5890"><span class="section-number-3">1.2.</span> What is Big Data Analytics?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Process of uncovering <b>trends</b>, <b>patterns</b> and <b>correlations</b> in large datasets.</li>
@@ -763,39 +761,39 @@ maybe even Exabytes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5be1bc5" class="outline-3">
-<h3 id="org5be1bc5"><span class="section-number-3">1.3.</span> Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</h3>
+<div id="outline-container-org4628ac1" class="outline-3">
+<h3 id="org4628ac1"><span class="section-number-3">1.3.</span> Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>These are core challenges involved with big data.</li>
 <li>These were coined by <b>Doug Laney</b> in 2001, in a report for <a href="https://www.gartner.com/en/documents/2057415">Gartner</a>.</li>
 </ul>
 </div>
-<div id="outline-container-orgc67ea6b" class="outline-4">
-<h4 id="orgc67ea6b"><span class="section-number-4">1.3.1.</span> Volume</h4>
+<div id="outline-container-org243e883" class="outline-4">
+<h4 id="org243e883"><span class="section-number-4">1.3.1.</span> Volume</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>The data itself is in larger units.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b2a488" class="outline-4">
-<h4 id="org0b2a488"><span class="section-number-4">1.3.2.</span> Velocity</h4>
+<div id="outline-container-org67668e4" class="outline-4">
+<h4 id="org67668e4"><span class="section-number-4">1.3.2.</span> Velocity</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>This is the rate at which data is being generated.</li>
 <li>As of 2022, 2.5 quintillion bytes of data is created every day. In 2026, that
-number is 3.5 quintillion. Refer to <a href="#org06a0684">the common sizes</a>.</li>
+number is 3.5 quintillion. Refer to <a href="#org311bf09">the common sizes</a>.</li>
 <li>This emphasizes on how close we are to real time processing of data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc0c0b45" class="outline-4">
-<h4 id="orgc0c0b45"><span class="section-number-4">1.3.3.</span> Variety</h4>
+<div id="outline-container-org1d1bc5c" class="outline-4">
+<h4 id="org1d1bc5c"><span class="section-number-4">1.3.3.</span> Variety</h4>
 <div class="outline-text-4" id="text-1-3-3">
 </div>
 <ol class="org-ol">
-<li><a id="org3e2f305"></a>Structured<br />
+<li><a id="org210cc75"></a>Structured<br />
 <div class="outline-text-5" id="text-1-3-3-1">
 <ul class="org-ul">
 <li>Data with a fixed format.</li>
@@ -804,7 +802,7 @@ number is 3.5 quintillion. Refer to <a href="#org06a0684">the common sizes</a>.<
 </ul>
 </div>
 </li>
-<li><a id="org3b981be"></a>Unstructured<br />
+<li><a id="orgef0d60c"></a>Unstructured<br />
 <div class="outline-text-5" id="text-1-3-3-2">
 <ul class="org-ul">
 <li>Data with no fixed format.</li>
@@ -820,7 +818,7 @@ number is 3.5 quintillion. Refer to <a href="#org06a0684">the common sizes</a>.<
 </ul>
 </div>
 </li>
-<li><a id="org2dda96f"></a>Semi-Structured<br />
+<li><a id="org488717c"></a>Semi-Structured<br />
 <div class="outline-text-5" id="text-1-3-3-3">
 <ul class="org-ul">
 <li>It might have a fixed format, but might contain unstructured data.</li>
@@ -833,61 +831,61 @@ structure, but the content can be anything).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org11b8b38" class="outline-4">
-<h4 id="org11b8b38"><span class="section-number-4">1.3.4.</span> Newer V&rsquo;s introduced in recent times</h4>
+<div id="outline-container-org71c46fa" class="outline-4">
+<h4 id="org71c46fa"><span class="section-number-4">1.3.4.</span> Newer V&rsquo;s introduced in recent times</h4>
 <div class="outline-text-4" id="text-1-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org412ee12"></a>Veracity<br />
+<li><a id="orgb8ccf85"></a>Veracity<br />
 <div class="outline-text-5" id="text-1-3-4-1">
 <ul class="org-ul">
 <li>Trustworthiness/credibility of data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1a18bc2"></a>Value<br />
+<li><a id="orgd97aa4d"></a>Value<br />
 <div class="outline-text-5" id="text-1-3-4-2">
 <ul class="org-ul">
 <li>The ability to extract meaningful data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3ed268b"></a>Validity<br />
+<li><a id="org84765a6"></a>Validity<br />
 <div class="outline-text-5" id="text-1-3-4-3">
 <ul class="org-ul">
 <li>Is the data correct or appropriate for its intended use?</li>
 </ul>
 </div>
 </li>
-<li><a id="org57cd6d2"></a>Visualization<br />
+<li><a id="orgda81dfb"></a>Visualization<br />
 <div class="outline-text-5" id="text-1-3-4-4">
 <ul class="org-ul">
 <li>Putting data in a human-interpretable form.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7ad32f7"></a>Variability<br />
+<li><a id="orgeb13e5d"></a>Variability<br />
 <div class="outline-text-5" id="text-1-3-4-5">
 <ul class="org-ul">
 <li>Changes in the nature of the data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3f83f93"></a>Vulnerability<br />
+<li><a id="orgb051744"></a>Vulnerability<br />
 <div class="outline-text-5" id="text-1-3-4-6">
 <ul class="org-ul">
 <li>Compromises in system security.</li>
 </ul>
 </div>
 </li>
-<li><a id="org862963e"></a>Viscosity<br />
+<li><a id="orge760995"></a>Viscosity<br />
 <div class="outline-text-5" id="text-1-3-4-7">
 <ul class="org-ul">
 <li>How easy/difficult it is to combine/transfer data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1c270d3"></a>Volatility<br />
+<li><a id="orgda083ff"></a>Volatility<br />
 <div class="outline-text-5" id="text-1-3-4-8">
 <ul class="org-ul">
 <li>How long data is valid for, and how long it should be stored.</li>
@@ -895,7 +893,7 @@ structure, but the content can be anything).</li>
 </ul>
 </div>
 </li>
-<li><a id="org5c9ddbb"></a>Virality<br />
+<li><a id="org4c9c0ef"></a>Virality<br />
 <div class="outline-text-5" id="text-1-3-4-9">
 <ul class="org-ul">
 <li>How far the existing data spreads around.</li>
@@ -905,8 +903,8 @@ structure, but the content can be anything).</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org3aeda95" class="outline-3">
-<h3 id="org3aeda95"><span class="section-number-3">1.4.</span> Human-Generated Data vs Machine-Generated Data</h3>
+<div id="outline-container-org2d2bdea" class="outline-3">
+<h3 id="org2d2bdea"><span class="section-number-3">1.4.</span> Human-Generated Data vs Machine-Generated Data</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Examples of human-generated data are text messages, emails, documents.</li>
@@ -914,8 +912,8 @@ structure, but the content can be anything).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e1d76c" class="outline-3">
-<h3 id="org5e1d76c"><span class="section-number-3">1.5.</span> Issues with Terminology related to Structure</h3>
+<div id="outline-container-org313892b" class="outline-3">
+<h3 id="org313892b"><span class="section-number-3">1.5.</span> Issues with Terminology related to Structure</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>HTML is often debated between considered unstructured or semi-structured.</li>
@@ -925,8 +923,8 @@ actually helping analytics or not.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc1aecd9" class="outline-2">
-<h2 id="orgc1aecd9"><span class="section-number-2">2.</span> Definition of Big Data</h2>
+<div id="outline-container-org92de737" class="outline-2">
+<h2 id="org92de737"><span class="section-number-2">2.</span> Definition of Big Data</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -937,12 +935,12 @@ insight</b> and <b>decision making</b>.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org5a99c85" class="outline-2">
-<h2 id="org5a99c85"><span class="section-number-2">3.</span> Types of Data Analytics</h2>
+<div id="outline-container-org3b3f245" class="outline-2">
+<h2 id="org3b3f245"><span class="section-number-2">3.</span> Types of Data Analytics</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4fc8e92" class="outline-3">
-<h3 id="org4fc8e92"><span class="section-number-3">3.1.</span> Descriptive Analytics</h3>
+<div id="outline-container-org88783d5" class="outline-3">
+<h3 id="org88783d5"><span class="section-number-3">3.1.</span> Descriptive Analytics</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Describe the data i.e. tell you <b>what</b> happened in the past.</li>
@@ -951,8 +949,8 @@ charts, graphs, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8e73d42" class="outline-3">
-<h3 id="org8e73d42"><span class="section-number-3">3.2.</span> Diagnostic Analytics</h3>
+<div id="outline-container-org469f174" class="outline-3">
+<h3 id="org469f174"><span class="section-number-3">3.2.</span> Diagnostic Analytics</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Understand <b>why</b> something happened in the past.</li>
@@ -960,16 +958,16 @@ charts, graphs, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb7162ff" class="outline-3">
-<h3 id="orgb7162ff"><span class="section-number-3">3.3.</span> Predictive Analytics</h3>
+<div id="outline-container-orgfebc977" class="outline-3">
+<h3 id="orgfebc977"><span class="section-number-3">3.3.</span> Predictive Analytics</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Predicts what&rsquo;s most likely to happen in the <b>future</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5a30a73" class="outline-3">
-<h3 id="org5a30a73"><span class="section-number-3">3.4.</span> Prescriptive Analytics</h3>
+<div id="outline-container-orgdc802b4" class="outline-3">
+<h3 id="orgdc802b4"><span class="section-number-3">3.4.</span> Prescriptive Analytics</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>What <b>actions</b> to take to affect those outcomes.</li>
@@ -977,15 +975,15 @@ charts, graphs, etc).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb413da1" class="outline-2">
-<h2 id="orgb413da1"><span class="section-number-2">4.</span> Database Architectures</h2>
+<div id="outline-container-org6bd2a54" class="outline-2">
+<h2 id="org6bd2a54"><span class="section-number-2">4.</span> Database Architectures</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Refer to <a href="https://www.tinybird.co/blog/oltp-vs-olap">OLTP vs OLAP: key differences, use cases, and architectures</a>.
 </p>
 </div>
-<div id="outline-container-orgfacdbc1" class="outline-3">
-<h3 id="orgfacdbc1"><span class="section-number-3">4.1.</span> OLTP</h3>
+<div id="outline-container-org34a74c3" class="outline-3">
+<h3 id="org34a74c3"><span class="section-number-3">4.1.</span> OLTP</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Stands for Online Transaction Processing.</li>
@@ -993,8 +991,8 @@ Refer to <a href="https://www.tinybird.co/blog/oltp-vs-olap">OLTP vs OLAP: key d
 </ul>
 </div>
 </div>
-<div id="outline-container-orge4ef074" class="outline-3">
-<h3 id="orge4ef074"><span class="section-number-3">4.2.</span> OLAP</h3>
+<div id="outline-container-org8b2bd08" class="outline-3">
+<h3 id="org8b2bd08"><span class="section-number-3">4.2.</span> OLAP</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Online Analytical Processing.</li>
@@ -1003,8 +1001,8 @@ of OLTP.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org64647d4" class="outline-3">
-<h3 id="org64647d4"><span class="section-number-3">4.3.</span> RTAP</h3>
+<div id="outline-container-org01c52b4" class="outline-3">
+<h3 id="org01c52b4"><span class="section-number-3">4.3.</span> RTAP</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Real-time Analytics Processing.</li>
@@ -1013,8 +1011,8 @@ of OLTP.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga6ff92a" class="outline-2">
-<h2 id="orga6ff92a"><span class="section-number-2">5.</span> Change in Trend</h2>
+<div id="outline-container-org112d170" class="outline-2">
+<h2 id="org112d170"><span class="section-number-2">5.</span> Change in Trend</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Models have changed: previously the amount of people generating big-data was
@@ -1023,12 +1021,12 @@ less, and the consumers were high in number.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org473a6cf" class="outline-2">
-<h2 id="org473a6cf"><span class="section-number-2">6.</span> Size Matters</h2>
+<div id="outline-container-orgb53cd65" class="outline-2">
+<h2 id="orgb53cd65"><span class="section-number-2">6.</span> Size Matters</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org650b5c4" class="outline-3">
-<h3 id="org650b5c4"><span class="section-number-3">6.1.</span> In Bits</h3>
+<div id="outline-container-org5ec6a1e" class="outline-3">
+<h3 id="org5ec6a1e"><span class="section-number-3">6.1.</span> In Bits</h3>
 <div class="outline-text-3" id="text-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1098,8 +1096,8 @@ less, and the consumers were high in number.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org06a0684" class="outline-3">
-<h3 id="org06a0684"><span class="section-number-3">6.2.</span> In General</h3>
+<div id="outline-container-org311bf09" class="outline-3">
+<h3 id="org311bf09"><span class="section-number-3">6.2.</span> In General</h3>
 <div class="outline-text-3" id="text-6-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1160,8 +1158,8 @@ As a function of time:
 </ul>
 </div>
 </div>
-<div id="outline-container-org301907a" class="outline-3">
-<h3 id="org301907a"><span class="section-number-3">6.3.</span> Traditional Business Intelligence vs Big Data</h3>
+<div id="outline-container-org200f21d" class="outline-3">
+<h3 id="org200f21d"><span class="section-number-3">6.3.</span> Traditional Business Intelligence vs Big Data</h3>
 <div class="outline-text-3" id="text-6-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1201,8 +1199,8 @@ As a function of time:
 </table>
 </div>
 </div>
-<div id="outline-container-org0ef51a5" class="outline-3">
-<h3 id="org0ef51a5"><span class="section-number-3">6.4.</span> What is a Data lake</h3>
+<div id="outline-container-orgf4361ed" class="outline-3">
+<h3 id="orgf4361ed"><span class="section-number-3">6.4.</span> What is a Data lake</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>A data lake is a data repository that stores data in its native/original
@@ -1215,16 +1213,16 @@ warehouses.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org705c920" class="outline-2">
-<h2 id="org705c920"><span class="section-number-2">7.</span> Transaction Processing</h2>
+<div id="outline-container-org76b453a" class="outline-2">
+<h2 id="org76b453a"><span class="section-number-2">7.</span> Transaction Processing</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Ensures that DBMS operations happen as one single indivisible unit with the
 help of ACID properties</li>
 </ul>
 </div>
-<div id="outline-container-org31c4283" class="outline-3">
-<h3 id="org31c4283"><span class="section-number-3">7.1.</span> Atomicity</h3>
+<div id="outline-container-orgfaa9f74" class="outline-3">
+<h3 id="orgfaa9f74"><span class="section-number-3">7.1.</span> Atomicity</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Transaction either completely finishes, or doesn&rsquo;t happen at all. There&rsquo;s no
@@ -1232,8 +1230,8 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd9da323" class="outline-3">
-<h3 id="orgd9da323"><span class="section-number-3">7.2.</span> Consistency</h3>
+<div id="outline-container-orgdf804c3" class="outline-3">
+<h3 id="orgdf804c3"><span class="section-number-3">7.2.</span> Consistency</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Changes must reflect everywhere.</li>
@@ -1241,16 +1239,16 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8293adf" class="outline-3">
-<h3 id="org8293adf"><span class="section-number-3">7.3.</span> Isolation</h3>
+<div id="outline-container-org28a680c" class="outline-3">
+<h3 id="org28a680c"><span class="section-number-3">7.3.</span> Isolation</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Two transactions shouldn&rsquo;t interfere with each other</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbe4fcbc" class="outline-3">
-<h3 id="orgbe4fcbc"><span class="section-number-3">7.4.</span> Durability</h3>
+<div id="outline-container-orge6b3232" class="outline-3">
+<h3 id="orge6b3232"><span class="section-number-3">7.4.</span> Durability</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>Transactions must be permanent.</li>
@@ -1258,12 +1256,12 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgcfc908e" class="outline-2">
-<h2 id="orgcfc908e"><span class="section-number-2">8.</span> Challenges</h2>
+<div id="outline-container-orgc864339" class="outline-2">
+<h2 id="orgc864339"><span class="section-number-2">8.</span> Challenges</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org39ce242" class="outline-3">
-<h3 id="org39ce242"><span class="section-number-3">8.1.</span> Vertical and Horizontal Scaling</h3>
+<div id="outline-container-orgfcff330" class="outline-3">
+<h3 id="orgfcff330"><span class="section-number-3">8.1.</span> Vertical and Horizontal Scaling</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Vertical Scaling (scaling-up) is adding more CPUs, RAM to a single server.</li>
@@ -1272,32 +1270,32 @@ distribute the work load.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9db74d" class="outline-3">
-<h3 id="orge9db74d"><span class="section-number-3">8.2.</span> Security</h3>
+<div id="outline-container-org51c69f3" class="outline-3">
+<h3 id="org51c69f3"><span class="section-number-3">8.2.</span> Security</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>Lack of proper authentication and authorization mechanisms.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb58af8" class="outline-3">
-<h3 id="orgfb58af8"><span class="section-number-3">8.3.</span> Schema</h3>
+<div id="outline-container-org555e574" class="outline-3">
+<h3 id="org555e574"><span class="section-number-3">8.3.</span> Schema</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>Has to be dynamic.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb61c0f8" class="outline-3">
-<h3 id="orgb61c0f8"><span class="section-number-3">8.4.</span> Consistency</h3>
+<div id="outline-container-org1fef302" class="outline-3">
+<h3 id="org1fef302"><span class="section-number-3">8.4.</span> Consistency</h3>
 </div>
 
-<div id="outline-container-org7c3c742" class="outline-3">
-<h3 id="org7c3c742"><span class="section-number-3">8.5.</span> Continuous Availability</h3>
+<div id="outline-container-orgb4143d3" class="outline-3">
+<h3 id="orgb4143d3"><span class="section-number-3">8.5.</span> Continuous Availability</h3>
 </div>
 
-<div id="outline-container-orgaaa6189" class="outline-3">
-<h3 id="orgaaa6189"><span class="section-number-3">8.6.</span> Partition Tolerent</h3>
+<div id="outline-container-orgf8c80d8" class="outline-3">
+<h3 id="orgf8c80d8"><span class="section-number-3">8.6.</span> Partition Tolerent</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>This is regarding the partitions in a network.</li>
@@ -1306,12 +1304,12 @@ failures involved in a Network.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga1df948" class="outline-3">
-<h3 id="orga1df948"><span class="section-number-3">8.7.</span> Data Quality</h3>
+<div id="outline-container-org10729d2" class="outline-3">
+<h3 id="org10729d2"><span class="section-number-3">8.7.</span> Data Quality</h3>
 <div class="outline-text-3" id="text-8-7">
 </div>
-<div id="outline-container-org72bf200" class="outline-4">
-<h4 id="org72bf200"><span class="section-number-4">8.7.1.</span> 3Cs</h4>
+<div id="outline-container-org3d4c1e6" class="outline-4">
+<h4 id="org3d4c1e6"><span class="section-number-4">8.7.1.</span> 3Cs</h4>
 <div class="outline-text-4" id="text-8-7-1">
 <ul class="org-ul">
 <li>Completeness</li>
@@ -1322,16 +1320,16 @@ failures involved in a Network.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org835be52" class="outline-2">
-<h2 id="org835be52"><span class="section-number-2">9.</span> Brewer&rsquo;s CAP Theorem</h2>
+<div id="outline-container-org8e9ad03" class="outline-2">
+<h2 id="org8e9ad03"><span class="section-number-2">9.</span> Brewer&rsquo;s CAP Theorem</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org4e03960" class="outline-3">
-<h3 id="org4e03960"><span class="section-number-3">9.1.</span> What CAP is</h3>
+<div id="outline-container-org933357e" class="outline-3">
+<h3 id="org933357e"><span class="section-number-3">9.1.</span> What CAP is</h3>
 <div class="outline-text-3" id="text-9-1">
 </div>
-<div id="outline-container-org60c0fb0" class="outline-4">
-<h4 id="org60c0fb0"><span class="section-number-4">9.1.1.</span> Consistency</h4>
+<div id="outline-container-org8a59f96" class="outline-4">
+<h4 id="org8a59f96"><span class="section-number-4">9.1.1.</span> Consistency</h4>
 <div class="outline-text-4" id="text-9-1-1">
 <ul class="org-ul">
 <li>All reads receive the most recent write or an error.</li>
@@ -1339,8 +1337,8 @@ failures involved in a Network.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb10426a" class="outline-4">
-<h4 id="orgb10426a"><span class="section-number-4">9.1.2.</span> Availability</h4>
+<div id="outline-container-orgcaeca37" class="outline-4">
+<h4 id="orgcaeca37"><span class="section-number-4">9.1.2.</span> Availability</h4>
 <div class="outline-text-4" id="text-9-1-2">
 <ul class="org-ul">
 <li>All reads contain data, but it might not be the most recent.</li>
@@ -1349,8 +1347,8 @@ too.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8b5634f" class="outline-4">
-<h4 id="org8b5634f"><span class="section-number-4">9.1.3.</span> Partition Tolerance</h4>
+<div id="outline-container-orgff33134" class="outline-4">
+<h4 id="orgff33134"><span class="section-number-4">9.1.3.</span> Partition Tolerance</h4>
 <div class="outline-text-4" id="text-9-1-3">
 <ul class="org-ul">
 <li>The system continues to be operate despite network failure.</li>
@@ -1358,8 +1356,8 @@ too.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf38f436" class="outline-3">
-<h3 id="orgf38f436"><span class="section-number-3">9.2.</span> CAP Theorem</h3>
+<div id="outline-container-orgdb420da" class="outline-3">
+<h3 id="orgdb420da"><span class="section-number-3">9.2.</span> CAP Theorem</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>A system that has consistency and partition tolerance, but compromises
@@ -1376,12 +1374,12 @@ There&rsquo;s no network involved and hence we&rsquo;re talking about your local
 </ul>
 </div>
 </div>
-<div id="outline-container-org6dbd025" class="outline-3">
-<h3 id="org6dbd025"><span class="section-number-3">9.3.</span> Examples of Different Systems</h3>
+<div id="outline-container-org128e303" class="outline-3">
+<h3 id="org128e303"><span class="section-number-3">9.3.</span> Examples of Different Systems</h3>
 <div class="outline-text-3" id="text-9-3">
 </div>
-<div id="outline-container-orgf727669" class="outline-4">
-<h4 id="orgf727669"><span class="section-number-4">9.3.1.</span> CP</h4>
+<div id="outline-container-orgafd6823" class="outline-4">
+<h4 id="orgafd6823"><span class="section-number-4">9.3.1.</span> CP</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <ul class="org-ul">
 <li>Availability meant there will always be a response (despite being outdated).</li>
@@ -1393,8 +1391,8 @@ replica. If it can&rsquo;t reach the primary server, the write won&rsquo;t happe
 </ul>
 </div>
 </div>
-<div id="outline-container-org717b87e" class="outline-4">
-<h4 id="org717b87e"><span class="section-number-4">9.3.2.</span> AP</h4>
+<div id="outline-container-org6f1912f" class="outline-4">
+<h4 id="org6f1912f"><span class="section-number-4">9.3.2.</span> AP</h4>
 <div class="outline-text-4" id="text-9-3-2">
 <ul class="org-ul">
 <li>Consistency meant all reads from any server, either always show the most
@@ -1406,8 +1404,8 @@ instead of just failing, it&rsquo;s okay to be a little inconsistent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6593ff8" class="outline-4">
-<h4 id="org6593ff8"><span class="section-number-4">9.3.3.</span> CA</h4>
+<div id="outline-container-org4dbf881" class="outline-4">
+<h4 id="org4dbf881"><span class="section-number-4">9.3.3.</span> CA</h4>
 <div class="outline-text-4" id="text-9-3-3">
 <ul class="org-ul">
 <li>Like previously mentioned, the lack of partition tolerance means there&rsquo;s no
@@ -1418,8 +1416,8 @@ distributed network to partition.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0e15f50" class="outline-2">
-<h2 id="org0e15f50"><span class="section-number-2">10.</span> BASE Theorem</h2>
+<div id="outline-container-org5fcda51" class="outline-2">
+<h2 id="org5fcda51"><span class="section-number-2">10.</span> BASE Theorem</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>BASE stands for Basically Available Soft-state Eventually-Consistent.</li>
@@ -1427,8 +1425,8 @@ distributed network to partition.</li>
 the lack of consistency.</li>
 </ul>
 </div>
-<div id="outline-container-orgf24699d" class="outline-3">
-<h3 id="orgf24699d"><span class="section-number-3">10.1.</span> Basically Available</h3>
+<div id="outline-container-org2636e9c" class="outline-3">
+<h3 id="org2636e9c"><span class="section-number-3">10.1.</span> Basically Available</h3>
 <div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>If a particular node fails in a network, data on that will not be available.
@@ -1437,8 +1435,8 @@ But the entire data layer is still operational.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdbf0e2c" class="outline-3">
-<h3 id="orgdbf0e2c"><span class="section-number-3">10.2.</span> Soft-state</h3>
+<div id="outline-container-orgee8f7f1" class="outline-3">
+<h3 id="orgee8f7f1"><span class="section-number-3">10.2.</span> Soft-state</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>The design principle in which the state of the system may change over a period
@@ -1448,8 +1446,8 @@ times. This is when soft-state is preferred.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org28d55f6" class="outline-3">
-<h3 id="org28d55f6"><span class="section-number-3">10.3.</span> Eventually Consistent</h3>
+<div id="outline-container-org7d9fbd3" class="outline-3">
+<h3 id="org7d9fbd3"><span class="section-number-3">10.3.</span> Eventually Consistent</h3>
 <div class="outline-text-3" id="text-10-3">
 <ul class="org-ul">
 <li>It&rsquo;s a guarantee that the system will have consistent values applied at a
@@ -1458,15 +1456,15 @@ certain point of time, if not immediately.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org28ca2d4" class="outline-2">
-<h2 id="org28ca2d4"><span class="section-number-2">11.</span> NoSQL</h2>
+<div id="outline-container-orgf9c299f" class="outline-2">
+<h2 id="orgf9c299f"><span class="section-number-2">11.</span> NoSQL</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>It stands for <b>Not Only SQL</b>, and it was coined by <b>Carlo Strozzi</b> in 1998.</li>
 </ul>
 </div>
-<div id="outline-container-org7916e5b" class="outline-3">
-<h3 id="org7916e5b"><span class="section-number-3">11.1.</span> Sharding</h3>
+<div id="outline-container-org1418c91" class="outline-3">
+<h3 id="org1418c91"><span class="section-number-3">11.1.</span> Sharding</h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li>Splitting a large dataset into smaller, more manageable pieces called &ldquo;shards&rdquo;
@@ -1476,8 +1474,8 @@ and performance. (because this paves way for parallel processing).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6fe1a84" class="outline-3">
-<h3 id="org6fe1a84"><span class="section-number-3">11.2.</span> Types of NoSQL</h3>
+<div id="outline-container-org01bb64c" class="outline-3">
+<h3 id="org01bb64c"><span class="section-number-3">11.2.</span> Types of NoSQL</h3>
 <div class="outline-text-3" id="text-11-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1517,8 +1515,8 @@ and performance. (because this paves way for parallel processing).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org50f9497" class="outline-3">
-<h3 id="org50f9497"><span class="section-number-3">11.3.</span> Difference between SQL, NoSQL and NewSQL</h3>
+<div id="outline-container-org3b7f0a0" class="outline-3">
+<h3 id="org3b7f0a0"><span class="section-number-3">11.3.</span> Difference between SQL, NoSQL and NewSQL</h3>
 <div class="outline-text-3" id="text-11-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1587,8 +1585,8 @@ and performance. (because this paves way for parallel processing).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf8ed98" class="outline-2">
-<h2 id="orgcf8ed98"><span class="section-number-2">12.</span> Hadoop</h2>
+<div id="outline-container-orge924e4d" class="outline-2">
+<h2 id="orge924e4d"><span class="section-number-2">12.</span> Hadoop</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>It&rsquo;s an open-source framework written in Java used to process enormous data
@@ -1601,8 +1599,8 @@ sets.</li>
 Hadoop defeated supercomputers.</li>
 </ul>
 </div>
-<div id="outline-container-org27ee573" class="outline-3">
-<h3 id="org27ee573"><span class="section-number-3">12.1.</span> Hadoop Cluster</h3>
+<div id="outline-container-org20a2ab3" class="outline-3">
+<h3 id="org20a2ab3"><span class="section-number-3">12.1.</span> Hadoop Cluster</h3>
 <div class="outline-text-3" id="text-12-1">
 <ul class="org-ul">
 <li>A Hadoop Cluster is a collection of computers (which are broadly of two types)
@@ -1617,19 +1615,19 @@ and perform computation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf15b756" class="outline-3">
-<h3 id="orgf15b756"><span class="section-number-3">12.2.</span> Hadoop Versions</h3>
+<div id="outline-container-org7d4434f" class="outline-3">
+<h3 id="org7d4434f"><span class="section-number-3">12.2.</span> Hadoop Versions</h3>
 <div class="outline-text-3" id="text-12-2">
 </div>
-<div id="outline-container-org4cc8b6a" class="outline-4">
-<h4 id="org4cc8b6a"><span class="section-number-4">12.2.1.</span> Hadoop 1.x</h4>
+<div id="outline-container-orgaa61808" class="outline-4">
+<h4 id="orgaa61808"><span class="section-number-4">12.2.1.</span> Hadoop 1.x</h4>
 <div class="outline-text-4" id="text-12-2-1">
 <p>
 These are the components of a node using Hadoop 1.x.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org9e3d5bf"></a>HDFS<br />
+<li><a id="orgc10aea8"></a>HDFS<br />
 <div class="outline-text-5" id="text-12-2-1-1">
 <ul class="org-ul">
 <li>This is for reliable storage.</li>
@@ -1659,7 +1657,7 @@ Node4 → Block4
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga4a08d6"></a>Blocks<br />
+<li><a id="org68ac9c4"></a>Blocks<br />
 <div class="outline-text-6" id="text-12-2-1-1-1">
 <ul class="org-ul">
 <li>This is the minimum amount of data that can be read or written. (64 MB or 128 MB).</li>
@@ -1674,7 +1672,7 @@ pipeline.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcb98ca9"></a>Rack<br />
+<li><a id="orgd3bcfc4"></a>Rack<br />
 <div class="outline-text-6" id="text-12-2-1-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a collection of 40-50 data nodes using the same network switch.</li>
@@ -1725,7 +1723,7 @@ pipeline.</li>
 </table>
 </div>
 </li>
-<li><a id="orgb59042a"></a>Rack Awareness<br />
+<li><a id="org98f283d"></a>Rack Awareness<br />
 <div class="outline-text-6" id="text-12-2-1-1-3">
 <ul class="org-ul">
 <li>Choosing data node racks that are closest to each other is called rack
@@ -1735,9 +1733,9 @@ awareness.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf1926fb"></a>Master/Slave Architecture - Node<br />
+<li><a id="orge7b4f1d"></a>Master/Slave Architecture - Node<br />
 <ol class="org-ol">
-<li><a id="org90c9b04"></a>NameNode<br />
+<li><a id="org5028e77"></a>NameNode<br />
 <div class="outline-text-7" id="text-12-2-1-1-4-1">
 <ul class="org-ul">
 <li>Master of the system</li>
@@ -1775,7 +1773,7 @@ There are two components of a NameNode:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgcfbc63f"></a>Secondary NameNode<br />
+<li><a id="org081ca0c"></a>Secondary NameNode<br />
 <div class="outline-text-8" id="text-12-2-1-1-4-1-1">
 <ul class="org-ul">
 <li>NameNode only stores metadata (FSImage) and logs. So incase it restarts, it
@@ -1791,7 +1789,7 @@ cleared</li>
 </li>
 </ol>
 </li>
-<li><a id="org657ce22"></a>DataNode<br />
+<li><a id="orge2255e0"></a>DataNode<br />
 <div class="outline-text-7" id="text-12-2-1-1-4-2">
 <ul class="org-ul">
 <li>These are the machines that actually store data and serve it to the client.</li>
@@ -1805,7 +1803,7 @@ health.</li>
 </li>
 </ol>
 </li>
-<li><a id="orga2de760"></a>MapReduce<br />
+<li><a id="org84c1382"></a>MapReduce<br />
 <div class="outline-text-5" id="text-12-2-1-2">
 <ul class="org-ul">
 <li>MapReduce is a programming model for cluster resource management and data
@@ -1817,7 +1815,7 @@ processing.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org2897360"></a>Record Reader<br />
+<li><a id="org5640ad3"></a>Record Reader<br />
 <div class="outline-text-6" id="text-12-2-1-2-1">
 <ul class="org-ul">
 <li>You read documents, where the key is the name of the file and the value is the
@@ -1826,7 +1824,7 @@ contents of the file.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd2fa8b7"></a>Mapper<br />
+<li><a id="orgf2b7506"></a>Mapper<br />
 <div class="outline-text-6" id="text-12-2-1-2-2">
 <ul class="org-ul">
 <li>Mapper splits each word from the value, and now each word will be the key and
@@ -1849,7 +1847,7 @@ and each key will have value 1.
 </ul>
 </div>
 </li>
-<li><a id="orge572efe"></a>Combiner<br />
+<li><a id="org1802b80"></a>Combiner<br />
 <div class="outline-text-6" id="text-12-2-1-2-3">
 <ul class="org-ul">
 <li>This reads each key-value pair and for common keys, it combines the values as
@@ -1867,7 +1865,7 @@ So the output of Combiner would be:
 </ul>
 </div>
 </li>
-<li><a id="orga612582"></a>Reducer<br />
+<li><a id="org70f527f"></a>Reducer<br />
 <div class="outline-text-6" id="text-12-2-1-2-4">
 <ul class="org-ul">
 <li>This reduces a set of intermediate values (the values are now a collection),
@@ -1885,7 +1883,7 @@ So the output of Reducer would be:
 </ul>
 </div>
 </li>
-<li><a id="orgc7b6576"></a>Some Map-Reduce Terminology<br />
+<li><a id="org00baf80"></a>Some Map-Reduce Terminology<br />
 <div class="outline-text-6" id="text-12-2-1-2-5">
 <div class="org-src-container">
 <pre class="src src-txt">Job
@@ -1902,14 +1900,14 @@ So the output of Reducer would be:
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org402194f"></a>Job<br />
+<li><a id="org6c248be"></a>Job<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-1">
 <ul class="org-ul">
 <li>The problem statement i.e. what you want to run Map-Reduce on.</li>
 </ul>
 </div>
 </li>
-<li><a id="org61571d8"></a>Task<br />
+<li><a id="org214146d"></a>Task<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-2">
 <ul class="org-ul">
 <li>Smaller piece of a job</li>
@@ -1917,7 +1915,7 @@ So the output of Reducer would be:
 </ul>
 </div>
 </li>
-<li><a id="org86ceffe"></a>Task Attempt<br />
+<li><a id="org97b26f4"></a>Task Attempt<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-3">
 <ul class="org-ul">
 <li>It&rsquo;s an execution attempt of a task.</li>
@@ -1928,9 +1926,9 @@ task crashes.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf51af3a"></a>Some applications of MapReduce<br />
+<li><a id="orgbefc4f5"></a>Some applications of MapReduce<br />
 <ol class="org-ol">
-<li><a id="orgd2b1b5d"></a>Reverse Web-Link Graph<br />
+<li><a id="orgd740820"></a>Reverse Web-Link Graph<br />
 <div class="outline-text-7" id="text-12-2-1-2-6-1">
 <ul class="org-ul">
 <li>You have a bunch of tuples <code>(a,b)</code> where there&rsquo;s a link from page <code>a</code> to <code>b</code>.</li>
@@ -1970,7 +1968,7 @@ The reduce phase would simply output the list.
 </li>
 </ol>
 </li>
-<li><a id="org21903a0"></a>Some things you CAN&rsquo;T use Map-Reduce for<br />
+<li><a id="orgc5989e4"></a>Some things you CAN&rsquo;T use Map-Reduce for<br />
 <div class="outline-text-6" id="text-12-2-1-2-7">
 <ul class="org-ul">
 <li>Real-time analytics because of high latency. MapReduce was designed for
@@ -1986,7 +1984,7 @@ from the disk for every subsequent job.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd602d3a"></a>Daemons in Hadoop 1.x<br />
+<li><a id="orga07008f"></a>Daemons in Hadoop 1.x<br />
 <div class="outline-text-6" id="text-12-2-1-2-8">
 <ul class="org-ul">
 <li>NameNode (Master Node in HDFS)</li>
@@ -2001,15 +1999,15 @@ from the disk for every subsequent job.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc9fd19d" class="outline-4">
-<h4 id="orgc9fd19d"><span class="section-number-4">12.2.2.</span> Hadoop 2.x</h4>
+<div id="outline-container-orgca6a918" class="outline-4">
+<h4 id="orgca6a918"><span class="section-number-4">12.2.2.</span> Hadoop 2.x</h4>
 <div class="outline-text-4" id="text-12-2-2">
 <p>
 These are the components of a node using Hadoop 2.x.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org80620c6"></a>HDFS<br />
+<li><a id="org55bfb96"></a>HDFS<br />
 <div class="outline-text-5" id="text-12-2-2-1">
 <ul class="org-ul">
 <li>Reliable Storage.</li>
@@ -2017,7 +2015,7 @@ These are the components of a node using Hadoop 2.x.
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgffe33fc"></a>Standby NameNode<br />
+<li><a id="org5e58f7e"></a>Standby NameNode<br />
 <div class="outline-text-6" id="text-12-2-2-1-1">
 <ul class="org-ul">
 <li>Along with primary and secondary NameNode, there also exists a Standby
@@ -2026,7 +2024,7 @@ NameNode.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6a6948b"></a>Data Pipelining<br />
+<li><a id="org31938c4"></a>Data Pipelining<br />
 <div class="outline-text-6" id="text-12-2-2-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a multistep processing of moving large volumes of data across a
@@ -2036,99 +2034,130 @@ distributed computing cluster.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf74c545"></a>MapReduce<br />
+<li><a id="org90f5ec1"></a>MapReduce<br />
 <div class="outline-text-5" id="text-12-2-2-2">
 <ul class="org-ul">
 <li>Data processing.</li>
-<li>There is no longer any concept of job tracker</li>
+<li>There is no longer any concept of job tracker or task tracker</li>
 </ul>
 </div>
 </li>
-<li><a id="org4b0130f"></a>Yarn<br />
+<li><a id="orgc0f1efe"></a>Yarn<br />
 <div class="outline-text-5" id="text-12-2-2-3">
 <ul class="org-ul">
 <li>Cluster Resource Managment</li>
 <li>Yarn stands for <b>Yet Another Resource Negotiator</b>.</li>
 <li>Yarn is called the operating system of Hadoop 2.x.</li>
-</ul>
-</div>
-<ol class="org-ol">
-<li><a id="org0026b78"></a>Daemons in Hadoop 2.x<br />
-<ol class="org-ol">
-<li><a id="orgc0ba95f"></a>Resource Manager<br />
-<div class="outline-text-7" id="text-12-2-2-3-1-1">
+<li>Yarn defines two resources:
 <ul class="org-ul">
-<li>Master daemon that allocates CPU and memory.</li>
+<li><b>v-cores</b>: virtual cores (CPU power allocated to a container on a node)</li>
+<li><b>memory</b>: memory allocated to a container on a node</li>
+</ul></li>
 </ul>
 </div>
 </li>
-<li><a id="orge566dba"></a>Node Manager<br />
-<div class="outline-text-7" id="text-12-2-2-3-1-2">
+<li><a id="org0f741cb"></a>Daemons in Hadoop 2.x<br />
+<div class="outline-text-5" id="text-12-2-2-4">
 <ul class="org-ul">
-<li>Monitors containers and managing resource usage.</li>
+<li>NameNode (Master node in HDFS)</li>
+<li>Secondary NameNode (helper)</li>
+<li>DataNode (slave node in HDFS)</li>
+<li>Resource Manager (master node in YARN)
+<ul class="org-ul">
+<li>This keeps a running total of the cluster&rsquo;s available resources.</li>
+</ul></li>
+<li>NodeManager (slave node in YARN)</li>
+<li>ApplicationMaster
+<ul class="org-ul">
+<li>This isn&rsquo;t a daemon, but it&rsquo;s a framework-specific library to manage the
+entire lifecycle of a job.</li>
+</ul></li>
+<li>Container
+<ul class="org-ul">
+<li>These are the resources allocated to a single node on a cluster.</li>
+</ul></li>
 </ul>
 </div>
 </li>
-<li><a id="orge28b271"></a>Application Manager<br /></li>
-
-<li><a id="org680ab94"></a>Container<br /></li>
-</ol>
+<li><a id="orga961673"></a>How Yarn works<br />
+<div class="outline-text-5" id="text-12-2-2-5">
+<ul class="org-ul">
+<li>First the application talks to the ResourceManager for the cluster</li>
+<li>In response, the ResourceManager first allocates one single container.</li>
+<li>The ApplicationMaster starts running within that container.</li>
+<li>The ApplicationMaster requests subsequent containers from ResourceManager.</li>
+<li>Once all tasks are finished, ApplicationMaster exists and the container is
+de-allocated.</li>
+</ul>
+</div>
 </li>
-<li><a id="org3eb7ce2"></a>Key Features<br />
+<li><a id="org92f4f72"></a>Key Features<br />
 <ol class="org-ol">
-<li><a id="orgb88c04d"></a>Scalability<br /></li>
+<li><a id="orgc2bdc92"></a>Scalability<br /></li>
 
 
-<li><a id="org0f3a7d3"></a>Flexibility<br />
-<div class="outline-text-7" id="text-12-2-2-3-2-2">
+<li><a id="orgfc0c123"></a>Flexibility<br />
+<div class="outline-text-6" id="text-12-2-2-6-2">
 <ul class="org-ul">
 <li>Supports way more processing models than just MapReduce, including interactive
 SQL, real-time streaming.</li>
 </ul>
 </div>
 </li>
-<li><a id="org70d5c78"></a>Improved Utilization<br /></li>
-</ol>
-</li>
+<li><a id="orge9d8c77"></a>Improved Utilization<br /></li>
 </ol>
 </li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb37d576" class="outline-3">
-<h3 id="orgb37d576"><span class="section-number-3">12.3.</span> Basic Hadoop Architecture</h3>
+<div id="outline-container-org276d32c" class="outline-3">
+<h3 id="org276d32c"><span class="section-number-3">12.3.</span> HBase</h3>
 <div class="outline-text-3" id="text-12-3">
 <ul class="org-ul">
-<li>There is one <b>master node</b> and multiple <b>slave nodes</b>.</li>
+<li>HBase is an open-source, non-relational distributed database.</li>
+<li>It&rsquo;s a column oriented NoSQL database, that runs on top of HDFS.</li>
 </ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">HDFS</th>
+<th scope="col" class="org-left">HBase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Does Batch Processing</td>
+<td class="org-left">Does Real Time Processing</td>
+</tr>
+
+<tr>
+<td class="org-left">Does sequential access of data</td>
+<td class="org-left">Does Random access of data</td>
+</tr>
+
+<tr>
+<td class="org-left">It&rsquo;s a File System</td>
+<td class="org-left">HBase is a Column oriented Database (i&rsquo;s a data warehouse)</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-orge54ed7c" class="outline-3">
-<h3 id="orge54ed7c"><span class="section-number-3">12.4.</span> Challenges of Hadoop</h3>
-<div class="outline-text-3" id="text-12-4">
-<ul class="org-ul">
-<li>Hadoop is meant for processing large and immutable datasets, not transactions
-which are ACID-compliant.</li>
-</ul>
 </div>
-</div>
-<div id="outline-container-orgf24c5a9" class="outline-3">
-<h3 id="orgf24c5a9"><span class="section-number-3">12.5.</span> Columnar Databases</h3>
-<div class="outline-text-3" id="text-12-5">
-<ul class="org-ul">
-<li>Each datablock stores values of a single column for multiple rows.</li>
-<li>Read-writes happen column by column.</li>
-<li>It has high compression rates and efficient indexing.</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org937a3e6" class="outline-2">
-<h2 id="org937a3e6"><span class="section-number-2">13.</span> Apache Spark</h2>
+<div id="outline-container-org85b5bc8" class="outline-2">
+<h2 id="org85b5bc8"><span class="section-number-2">13.</span> Apache Spark</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-org3dc1bb3" class="outline-3">
-<h3 id="org3dc1bb3"><span class="section-number-3">13.1.</span> What it is</h3>
+<div id="outline-container-org0112540" class="outline-3">
+<h3 id="org0112540"><span class="section-number-3">13.1.</span> What it is</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>Instead of just &ldquo;map&rdquo; and &ldquo;reduce&rdquo;, you define a large set of operations
@@ -2139,8 +2168,8 @@ processing on computer clusters.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org90d1fc3" class="outline-3">
-<h3 id="org90d1fc3"><span class="section-number-3">13.2.</span> Resilient Distributed Dataset</h3>
+<div id="outline-container-org122c0b4" class="outline-3">
+<h3 id="org122c0b4"><span class="section-number-3">13.2.</span> Resilient Distributed Dataset</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>All of the data is in the form of <b>immutable</b>, <b>fault-tolerant</b>, <b>distributed</b>

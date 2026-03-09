@@ -576,50 +576,60 @@ These are the components of a node using Hadoop 2.x.
 
 **** MapReduce
 - Data processing. 
-- There is no longer any concept of job tracker
+- There is no longer any concept of job tracker or task tracker
 
 **** Yarn
 - Cluster Resource Managment
 - Yarn stands for *Yet Another Resource Negotiator*.
 - Yarn is called the operating system of Hadoop 2.x.
+- Yarn defines two resources:
+  - *v-cores*: virtual cores (CPU power allocated to a container on a node)
+  - *memory*: memory allocated to a container on a node
 
-***** Daemons in Hadoop 2.x
-
-****** Resource Manager
-- Master daemon that allocates CPU and memory.
-
-****** Node Manager
-- Monitors containers and managing resource usage.
-
-****** Application Manager
-
-****** Container
-
-
-***** Key Features 
-
-****** Scalability
+**** Daemons in Hadoop 2.x
+- NameNode (Master node in HDFS)
+- Secondary NameNode (helper)
+- DataNode (slave node in HDFS)
+- Resource Manager (master node in YARN)
+  - This keeps a running total of the cluster's available resources.
+- NodeManager (slave node in YARN)
+- ApplicationMaster
+  - This isn't a daemon, but it's a framework-specific library to manage the
+    entire lifecycle of a job.
+- Container
+  - These are the resources allocated to a single node on a cluster.
 
 
-****** Flexibility
+
+**** How Yarn works
+- First the application talks to the ResourceManager for the cluster
+- In response, the ResourceManager first allocates one single container.
+- The ApplicationMaster starts running within that container. 
+- The ApplicationMaster requests subsequent containers from ResourceManager.
+- Once all tasks are finished, ApplicationMaster exists and the container is
+  de-allocated.
+
+**** Key Features 
+
+***** Scalability
+
+
+***** Flexibility
 - Supports way more processing models than just MapReduce, including interactive
   SQL, real-time streaming.
 
-****** Improved Utilization
+***** Improved Utilization
 
 
+** HBase
+- HBase is an open-source, non-relational distributed database.
+- It's a column oriented NoSQL database, that runs on top of HDFS.
 
-** Basic Hadoop Architecture
-- There is one *master node* and multiple *slave nodes*.
-
-** Challenges of Hadoop
-- Hadoop is meant for processing large and immutable datasets, not transactions
-  which are ACID-compliant.
-  
-** Columnar Databases
-- Each datablock stores values of a single column for multiple rows.
-- Read-writes happen column by column.
-- It has high compression rates and efficient indexing.
+| HDFS                           | HBase                                                      |
+|--------------------------------+------------------------------------------------------------|
+| Does Batch Processing          | Does Real Time Processing                                  |
+| Does sequential access of data | Does Random access of data                                 |
+| It's a File System             | HBase is a Column oriented Database (i's a data warehouse) |
 
 * Apache Spark
 
