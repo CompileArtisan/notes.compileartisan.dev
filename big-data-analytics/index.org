@@ -213,13 +213,14 @@ As a function of time:
   distribute the work load.
 
 ** Security
+- Lack of proper authentication and authorization mechanisms.
 
 ** Schema
 - Has to be dynamic.
 
-** Continuous Availability
-
 ** Consistency
+
+** Continuous Availability
 
 ** Partition Tolerent
 - This is regarding the partitions in a network.
@@ -228,9 +229,25 @@ As a function of time:
 
 ** Data Quality
 *** 3Cs
-- Completeness, Consistency, Cleanliness
+- Completeness
+- Consistency
+- Cleanliness
   
 * Brewer's CAP Theorem
+** What CAP is
+*** Consistency
+- All reads receive the most recent write or an error.
+- Everyone always sees the same latest data. 
+
+*** Availability
+- All reads contain data, but it might not be the most recent.
+- The system will always provide a response, but that response could be outdated
+  too.
+
+*** Partition Tolerance
+- The system continues to be operate despite network failure.
+
+** CAP Theorem
 - A system that has consistency and partition tolerance, but compromises
   availability is called a *CP* system. (note that it's compromised, not
   non-existent).
@@ -243,15 +260,30 @@ As a function of time:
   There's no network involved and hence we're talking about your local system.
 - Refer to [[https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/][CAP Twelve Years Later: How the "Rules" Have Changed - InfoQ]].
 
-** Consistency
-- All reads receive the most recent write or an error.
+
+** Examples of Different Systems
+
+*** CP
+- Availability meant there will always be a response (despite being outdated).
+- Lack of availability simply means during partition, requests could be
+  rejected.
+- It chooses failure over giving wrong data.
+- MongoDB is an example, because one server is primary and everthing else is a
+  replica. If it can't reach the primary server, the write won't happen.
 
 
-** Availability
-- All reads contain data, but it might not be the most recent.
+*** AP
+- Consistency meant all reads from any server, either always show the most
+  recent read, or it gives an error.
+- The lack of consistency means that it chooses to give slightly
+  incorrect/inconsistent data instead of just failing.
+- Apache Cassandra was designed for facebook, where downtime is unacceptable. So
+  instead of just failing, it's okay to be a little inconsistent.
 
-** Partition Tolerance
-- The system continues to be operate despite network failure.
+*** CA
+- Like previously mentioned, the lack of partition tolerance means there's no
+  distributed network to partition.
+- Some examples include MySQL or Oracle Database.
 
 * BASE Theorem
 - BASE stands for Basically Available Soft-state Eventually-Consistent
