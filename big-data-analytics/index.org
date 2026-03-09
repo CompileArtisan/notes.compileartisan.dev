@@ -9,6 +9,7 @@
 - It counts as too large, if the data is in Gigabytes, Terabytes, Petabytes or
   maybe even Exabytes.
 - The future involves an unofficial data size called Brontobyte ($10^{27}$ bytes).
+- The term "big data" was first coined by *John Mashey* in the 90s.
 
 ** What is Big Data Analytics?
 - Process of uncovering *trends*, *patterns* and *correlations* in large datasets.
@@ -23,6 +24,8 @@
 
 *** Velocity
 - This is the rate at which data is being generated.
+- As of 2022, 2.5 quintillion bytes of data is created every day. In 2026, that
+  number is 3.5 quintillion. Refer to [[*In General][the common sizes]].
 - This emphasizes on how close we are to real time processing of data.
 
 *** Variety
@@ -36,6 +39,11 @@
 - Data with no fixed format.
 - For example, images, videos, text.
 - 80% of the data is unstructured.
+- To deal with unstructured data, the various ways are
+  - Data mining
+  - NLP
+  - Text Analytics
+  - Noisy Text Analytics
 
 **** Semi-Structured
 - It might have a fixed format, but might contain unstructured data.
@@ -46,12 +54,12 @@
 
 *** Newer V's introduced in recent times
 
+**** Veracity
+- Trustworthiness/credibility of data.
+  
 **** Value
 - The ability to extract meaningful data.
 
-**** Veracity
-- Trustworthiness of data.
-  
 **** Validity
 - Is the data correct or appropriate for its intended use?
 
@@ -85,9 +93,11 @@
 
 
 * Definition of Big Data
-- It's a *high-volume*, *high-velocity* and *high-variety* information assets that
-  demand *cost-effective*, *innovative* forms of information processing for *enhanced
-  insight* and *decision making*.
+#+begin_quote
+It's a *high-volume*, *high-velocity* and *high-variety* information assets that
+demand *cost-effective*, *innovative* forms of information processing for *enhanced
+insight* and *decision making*.
+#+end_quote
   
 
 * Types of Data Analytics
@@ -163,11 +173,22 @@ As a function of time:
 - 1 Quadrillion Seconds is 31.7 Million Years
 - 1 Quintillion Seconds is 31.7 Billion Years
 
-* Traditional Business Intelligence vs Big Data
+** Traditional Business Intelligence vs Big Data
 
-| Traditional Business Intelligence | Big Data          |
-|-----------------------------------+-------------------|
-| Move Data to Code                 | Move Code to Data |
+| Traditional Business Intelligence | Big Data                       |
+|-----------------------------------+--------------------------------|
+| The data size is GB-TB            | The data size is PB to ZB/YB   |
+| The file system is centralized    | The file system is distributed |
+| The data is structured            | The data is variable           |
+| Move Data to Code                 | Move Code to Data              |
+
+** What is a Data lake
+- A data lake is a data repository that stores data in its native/original
+  format until needed.
+- Data lakes can store both relational and non-relational data, while data
+  warehouses is purely relational in nature.
+- Data lakes are way easier to scale at a lower cost, compared to data
+  warehouses.
 
 * Transaction Processing 
 - Ensures that DBMS operations happen as one single indivisible unit with the
@@ -233,7 +254,7 @@ As a function of time:
 - The system continues to be operate despite network failure.
 
 * BASE Theorem
-- BASE stands for Basically Available Soft-state Eventual-consistency
+- BASE stands for Basically Available Soft-state Eventually-Consistent
   
 ** Basically Available
 - If a particular node fails in a network, data on that will not be available.
@@ -246,7 +267,7 @@ As a function of time:
   times. This is when soft-state is preferred.
 
 ** Eventually Consistent
-- It's a guarantee that if the system will have consistent values applied at a
+- It's a guarantee that the system will have consistent values applied at a
   certain point of time.
 
 * NoSQL
@@ -273,6 +294,7 @@ As a function of time:
 
 * Hadoop
 - It's an open-source framework use to process enormous data sets.
+- It was first developed by *Doug Cutting* and *Mike Cafarella* in 2005.
 - Hadoop allows *distributed processing*, across a cluster of *commodity hardware*
   (inexpensive, widely available hardware).
 - Hadoop was inspired by *Google File System* for distributed storage.
@@ -316,26 +338,166 @@ These are the components of a node using Hadoop 1.x.
 - Master of the system
 - Maintains and manages the blocks present on the Data Node.
 - These are up and running all the time.
+- There exists a *secondary NameNode*, which takes over if the primary NameNode is
+  not there.
+- There are two components of a NameNode:
+  
+  | FSImage                                            | Edit Logs                                                                                    |
+  |----------------------------------------------------+----------------------------------------------------------------------------------------------|
+  | Point-in-time snapshot of the file system metadata | Journals recording every change (write/delete) made to the namespace since the last snapshot |
+  
+******* Secondary NameNode
+- The Secondary NameNode pulls the current FSImage and Edit Logs from the Active
+  NameNode.
+- It merges them, creating a new, up-to-date FSImage.
+- The new FSImage is sent back to the Primary NameNode, and the old edit log is
+  cleared
 
 ****** DataNode
-- Slaves whcih are deployed on each machine and provide the actual storage.
+- Slaves which are deployed on each machine and provide the actual storage.
 - Responsible for serving read/write requests to the client.
 
 **** MapReduce
-- This is for cluster resource management and data processing.
+- MapReduce is a programming model for cluster resource management and data
+  processing.
 - It's also known as Hadoop's processing unit.
+- *Map* is for loading, parsing, transforming and filtering key-value pairs.
+- *Reduce* is for grouping and aggregating data produced by map.
+- There are various steps for MapReduce:
+  
+
+***** Record Reader
+- You read documents, where the key is the name of the file and the value is the
+  contents of the file.
+- For example, a ~<key, value>~ pair could be ~<input.txt, "the quick brown fox the">~.
+
+***** Mapper
+- Mapper splits each word from the value, and now each word will be the key and
+  the count of that word will be the value.
+- So the output of Mapper would be:
+  #+begin_src txt
+<"the", 1>
+<"quick", 1>
+<"brown", 1>
+<"fox", 1>
+<"the", 1>
+  #+end_src
+  This is hardcoded, so if a word appears twice, there will be duplicate keys,
+  and each key will have value 1.
+  
+***** Combiner
+- This reads each key-value pair and for common keys, it combines the values as
+  a collection.
+- So the output of Combiner would be:
+  #+begin_src txt
+<"the", [1, 1]>
+<"quick", [1]>
+<"brown", [1]>
+<"fox", [1]>
+  #+end_src
+
+***** Reducer
+- This reduces a set of intermediate values (the values are now a collection),
+  into a final value.
+- So the output of Reducer would be:
+  #+begin_src txt
+<"the", 2>
+<"quick", 1>
+<"brown", 1>
+<"fox", 1>
+  #+end_src
+
+
+***** Some Map-Reduce Terminology
+#+begin_src txt
+Job
+ ├── Task (Map)
+ │    ├── Task Attempt 1
+ │    ├── Task Attempt 2
+ │    └── Task Attempt 3
+ ├── Task (Map)
+ │    └── Task Attempt 1
+ └── Task (Reduce)
+      ├── Task Attempt 1
+      └── Task Attempt 2
+#+end_src
+
+****** Job
+- The problem statement i.e. what you want to run Map-Reduce on.
+
+****** Task
+- Smaller piece of a job
+- There's the map task and the reduce task
+
+****** Task Attempt
+- It's an execution attempt of a task.
+- For one task, there may be multiple task attempts, because of node failures or
+  task crashes.
+
+***** Some applications of MapReduce
+
+****** Reverse Web-Link Graph
+
+
+***** Some things you CAN'T use Map-Reduce for
+- Real-time analytics because of high latency
+- Iterative algorithms because re-reading and writing data to HDFS is expensive.
+- A large number of small files, because they can overwhelm the NameNode and
+  create metadata overhead.
+
+
+***** Daemons in Hadoop 1.x
 
 *** Hadoop 2.x
 These are the components of a node using Hadoop 2.x.
 **** HDFS
 - Reliable Storage.
+- HDFS is still the file system of Hadoop 2.x.
+
+***** Standby NameNode
+- Along with primary and secondary NameNode, there also exists a Standby
+  NameNode.
+- It acts as a passive backup to the active NameNode.
+
+***** Data Pipelining
+- It's a multistep processing of moving large volumes of data across a
+  distributed computing cluster.
+
+
+**** MapReduce
+- Data processing. 
+- There is no longer any concept of job tracker
 
 **** Yarn
 - Cluster Resource Managment
 - Yarn stands for *Yet Another Resource Negotiator*.
+- Yarn is called the operating system of Hadoop 2.x.
 
-**** MapReduce
-- Data processing
+***** Daemons in Hadoop 2.x
+
+****** Resource Manager
+- Master daemon that allocates CPU and memory.
+
+****** Node Manager
+- Monitors containers and managing resource usage.
+
+****** Application Manager
+
+****** Container
+
+
+***** Key Features 
+
+****** Scalability
+
+
+****** Flexibility
+- Supports way more processing models than just MapReduce, including interactive
+  SQL, real-time streaming.
+
+****** Improved Utilization
+
+
 
 ** Basic Hadoop Architecture
 - There is one *master node* and multiple *slave nodes*.
@@ -343,3 +505,25 @@ These are the components of a node using Hadoop 2.x.
 ** Challenges of Hadoop
 - Hadoop is meant for processing large and immutable datasets, not transactions
   which are ACID-compliant.
+  
+** Columnar Databases
+- Each datablock stores values of a single column for multiple rows.
+- Read-writes happen column by column.
+- It has high compression rates and efficient indexing.
+
+* Apache Spark
+
+** What it is
+- Instead of just "map" and "reduce", you define a large set of operations
+  (transformations and actions).
+- It was started by *Matei Zaharia*.
+- It's a *unified computing engine* and a *set of libraries* for parallel data
+  processing on computer clusters.
+
+** Resilient Distributed Dataset
+- All of the data is in the form of *immutable*, *fault-tolerant*, *distributed*
+  collection of objects that can be operated on in parallel.
+- It's an in-memory collection of items/data distributed across many compute
+  nodes.
+- Spark core provides many APIs for building and manipulating these collections.
+
