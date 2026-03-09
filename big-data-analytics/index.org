@@ -286,11 +286,14 @@ As a function of time:
 - Some examples include MySQL or Oracle Database.
 
 * BASE Theorem
-- BASE stands for Basically Available Soft-state Eventually-Consistent
+- BASE stands for Basically Available Soft-state Eventually-Consistent.
+- BASE theorem provides a good model for AP systems and how they can deal with
+  the lack of consistency.
   
 ** Basically Available
 - If a particular node fails in a network, data on that will not be available.
   But the entire data layer is still operational.
+- It conveys the same idea of consistency in CAP theorem.
   
 ** Soft-state
 - The design principle in which the state of the system may change over a period
@@ -300,10 +303,10 @@ As a function of time:
 
 ** Eventually Consistent
 - It's a guarantee that the system will have consistent values applied at a
-  certain point of time.
+  certain point of time, if not immediately.
 
 * NoSQL
-- It stands for *Not Only SQL*.
+- It stands for *Not Only SQL*, and it was coined by *Carlo Strozzi* in 1998. 
 
 ** Sharding
 - Splitting a large dataset into smaller, more manageable pieces called "shards"
@@ -313,11 +316,12 @@ As a function of time:
 
 ** Difference between SQL and NoSQL
 
-| SQL                               | NoSQL                              |
-|-----------------------------------+------------------------------------|
-| Follows ACID Properties           | Follows Brewer's CAP theorem       |
-| Standardized                      | Not Standardized                   |
-| No support for horizontal scaling | Has Support for horizontal scaling |
+| SQL                                                       | NoSQL                                                                |
+|-----------------------------------------------------------+----------------------------------------------------------------------|
+| Follows ACID Properties                                   | Follows Brewer's CAP theorem                                         |
+| Standardized                                              | Not Standardized                                                     |
+| No support for horizontal scaling                         | Has Support for horizontal scaling                                   |
+| Not preferred for hierarchical data (tree-like structure) | Best for hierarchical data (because JSON can effectively store this) |
 
 * NewSQL
 - NewSQL is a mixture of both SQL and NoSQL
@@ -325,13 +329,23 @@ As a function of time:
 # file:/home/praaneshnair/gitProjects/org-notes/big-data-analytics/mongodb.org
 
 * Hadoop
-- It's an open-source framework use to process enormous data sets.
+- It's an open-source framework written in Java used to process enormous data
+  sets.
 - It was first developed by *Doug Cutting* and *Mike Cafarella* in 2005.
 - Hadoop allows *distributed processing*, across a cluster of *commodity hardware*
   (inexpensive, widely available hardware).
 - Hadoop was inspired by *Google File System* for distributed storage.
 - In 2007, Yahoo started using Hadoop on a 1000 node cluster. It was in 2008
   Hadoop defeated supercomputers.
+
+** Hadoop Cluster
+- A Hadoop Cluster is a collection of computers (which are broadly of two types)
+  which store and work on data.
+- The two types of computers in a cluster, are *master node* and *slave node*.
+  - The master node (primary node) is responsible for managing the cluster.
+  - The slave nodes (secondary nodes) are the workers which actually store data
+    and perform computation.
+- One cluster has a single namespace.
 
 ** Hadoop Versions
 
@@ -340,6 +354,22 @@ These are the components of a node using Hadoop 1.x.
 **** HDFS
 - This is for reliable storage.
 - HDFS stands for *Hadoop Distributed File System*.
+- Given any file, you split the file into blocks
+  #+begin_src txt
+File (1GB)
+↓
+Block1 (128MB)
+Block2 (128MB)
+Block3 (128MB)
+...
+  #+end_src
+  Then you distribute the blocks across different nodes:
+  #+begin_src txt
+Node1 → Block1
+Node2 → Block2
+Node3 → Block3
+Node4 → Block4
+  #+end_src
   
 ***** Blocks
 - This is the minimum amount of data that can be read or written. (64 MB or 128 MB).
@@ -364,6 +394,7 @@ These are the components of a node using Hadoop 1.x.
 ***** Rack Awareness
 - Choosing data node racks that are closest to each other is called rack
   awareness.
+- This is how you move the computation to where the data is stored.
   
 ***** Master/Slave Architecture - Node
 ****** NameNode
