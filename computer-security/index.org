@@ -36,10 +36,17 @@ Anyone who tries to get unauthorized access of an information system.
 *** Data Confidentiality
 - Confidentiality tells us that if you have the authorization, you can access
   data.
+- An attack on confidentiality could be, for instance "John copying Mary's
+  assignment". Mary's work was exposed to an unauthorized party.
 
 *** Privacy
 - Privacy tells us that even if you are authorized, you may not be able to
   access all of the data.
+
+*** Authentication
+- This ensures that someone's identify is verified.
+- An example of an attack on authentication could be, "Henry spoofs Julie's IP
+  address to gain access to her computer".
 
 ** Integrity
 - The data you store and the data you retrieve should be the same: it shouldn't
@@ -47,12 +54,14 @@ Anyone who tries to get unauthorized access of an information system.
 - Again, integrity covers two concepts:
 
 *** Data Integrity
-- 
+- The data in a database should be complete and consistent.
 
 *** System Integrity
 - The information system should not be tamper-able.
 - For example, an ATM machine should have system integrity. Data integrity
   should be ensured in the bank account.
+- An attack on integrity could be "Carol changes Mary's cheque from $100 to
+  $1000".
 
 ** Availability
 - The data should be available without any hurdles.
@@ -78,6 +87,10 @@ Anyone who tries to get unauthorized access of an information system.
 - Examples include Denial of Service (make a resource unavailable to everyone by
   spamming traffic and requests and slowing it down), Password Tracking, Replay
   Attack and Viruses.
+- A simpler example would be "Gina forging Roger's signature", as this is an act
+  of data fabrication.
+- Here's another example: "Henry spoofs Julie's IP address to gain access to her
+  computer"
 
 
 **** Passive Attack
@@ -97,7 +110,11 @@ Anyone who tries to get unauthorized access of an information system.
   |----------+----------------------------------------------|
   | Sniffing | Using software (sniffers) to capture packets |
   | Snooping | Observing screens, keystrokes, or files      |
+  
+- Here's an example of a passive attack: "John copies Mary's assignment". The
+  assignment wasn't changed - it's an act of eavesdropping.
 
+  
 ** Security Service
 - It is intended to counter security attacks by using security mechanisms.
 - It replicates functions normally associated with physical documents.
@@ -669,16 +686,12 @@ $$\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text
 - $[9^{-1} \times  \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} ] \times \text{(Cipher Text)} \mod(26)$
 - $[ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} 9^{-1} \mod(26)] \times \text{(Cipher Text)} \mod(26)$
 Refer to [[*Extended Euclidean Algorithm][Extended Euclidean Algorithm]]
+- $[ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} \times 3] \times \text{(Cipher Text)} \mod(26)$
+- $[ \begin{bmatrix} 15 & -9 \\ -6 & 9  \end{bmatrix}] \times \begin{bmatrix}22 \\ 22\end{bmatrix} \mod(26) = \begin{bmatrix}2 \\ 14\end{bmatrix}$
+- $[ \begin{bmatrix} 15 & -9 \\ -6 & 9  \end{bmatrix}] \times \begin{bmatrix}21 \\ 0\end{bmatrix} \mod(26) =  \begin{bmatrix} 3 \\ 4  \end{bmatrix}$
 
-Also, $\text{adj}(k)$ is given as the transpose of the cofactor matrix.
 
-******* Examples
-******** Plaintext = ~ZR~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
-- Ciphertext = ~LD~
-******** Ciphertext = ~JD~, Key =   $\begin{bmatrix} 3 & 10 \\ 20 & 9  \end{bmatrix}$
-******** $\text{Key} = \begin{bmatrix} 3 & 10 & 20 \\ 20 & 9 & 17 \\ 9 & 4 & 17  \end{bmatrix}$, $\text{Cipher Text = ZRHDCF}$
-- $\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text{Cipher Text} \mod(26)$
-- 
+
 ***** Homophonic
 - If a letter $x$ appears for $y\%$ of all characters, we assign $y$ number of
   symbols to represent it.
@@ -834,17 +847,36 @@ print(encrypt(encrypt('CAT', 'DOG'), 'DOG'))
   without changing the actual letters.
 
 ****** Railfence Cipher
+******* Encryption
 - Here you write message's letters diagonally over the rows, then read the
   message row-by-row.
 - For example, plain text = "meet me after the party", and the number of rows
-  is 3.
+  is 3 (this is the key).
 
   | m |   |   | t |   |   | a |   |   | e |   |   | h |   |   | a |   |   | y |
   |   | e |   |   | m |   |   | f |   |   | r |   |   | e |   |   | r |   |   |
   |   |   | e |   |   | e |   |   | t |   |   | t |   |   | p |   |   | t |   |
   
-- The cipher text would be "mtahayemfrereettpt"
-
+- The cipher text would be "mtahaeyemfrereettpt"
+******* Decryption
+- For example, let the cipher text be "mtahaeyemfrereettpt"
+- The length of the text is 18, and the number of rails is 3.
+- Find the positions of letters in each rail:
+  - *Rail 1:* ~0, 3, 6, 9, 12, 15, 18~
+  - *Rail 2:* ~1, 4, 7, 10, 13, 16~
+  - *Rail 3:* ~2, 5, 8, 11, 14, 17~
+- So the ciphertext is:
+  
+  | 0 | 3 | 6 | 9 | 12 | 15 | 18 | 1 | 4 | 7 | 10 | 13 | 16 | 2 | 5 | 8 | 11 | 14 | 17 |
+  | m | t | a | e |  h |  a |  y | e | m | f |  r |  e |  r | e | e | t |  t |  p |  t |
+  
+- Now that we've mapped the correct indices, we can find the plain text:
+  
+  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
+  | m | e | e | t | m | e | a | f | t | e |  r |  t |  h |  e |  p |  a |  r |  t |  y |
+  
+******* Cryptanalysis
+- The only way is to brute force and try different key lengths.
 
 ******* Code
 
@@ -1161,15 +1193,22 @@ For example, the GCD for 24598 and 7895 would be:
 The answer is *1*.
 
 *** Euclidean Algorithm
-$$divident = quotient \times divisor + remainder$$
+$$divident = quotient \times divisor + remainder$$ Basically, the property used is
+that $GCD(a,b) = GCD(a\mod(b), b)$, given that $a>b$. You can endlessly keep
+replacing the larger of the two numbers, with the remainder they form on
+dividing. You keep doing this until the remainder is 0 (the value of the smaller
+number is the GCD).
 
-For example, the GCD of 49 and 63 would be:
+For example, the GCD of 49 and 63 would be 7:
 
-| q |  a |  b |  r |
-|---+----+----+----|
-| 1 | 49 | 63 | 14 |
-| 4 | 63 | 14 |  7 |
-| 2 | 14 |  7 |  0 |
+| q |  a |  b | $r = a\mod(b)$ |
+|---+----+----+----------------|
+| 1 | 63 | 49 |             14 |
+| 3 | 49 | 14 |              7 |
+| 2 | 14 |  7 |              0 |
+
+What we've done here is $GCD(63,49) = GCD(49, 14) = GCD(14, 7) = GCD(7, 0) = 7$
+(because GCD of a number and 0, is the number itself).w
 
 
 *** Modular Arithmetic Operations
@@ -1184,23 +1223,29 @@ $$[a\mod(n) \times (b\mod(n))] \mod(n) = (a \times b)\mod(n)$$
 Some inferences you can make out from this is:
 - $(a-b)\mod(n) = 0$ is the same as $a\mod(n) = b\mod(n)$.
 
+**** How to do $(\text{negativeNumber})\mod(x)$
+- It's simply $(\text{negativeNumber}+nx)\mod(x)$, where $n$ can be anything
+  that turns that negative number into a positive one.
+
+
 *** Addition Modulo $n$ table
 - We construct a table where each value is $(row + col) \mod (n)$
 - For example, let $n=7$:
 
   | $(row + col)\mod(7)$ | *0* | *1* | *2* | *3* | *4* | *5* | *6* |
-  | *0*                    |   |   |   |   |   |   |   |
-  | *1*                    |   |   |   |   |   |   |   |
-  | *2*                    |   |   |   |   |   |   |   |
-  | *3*                    |   |   |   |   |   |   |   |
-  | *4*                    |   |   |   |   |   |   |   |
-  | *5*                    |   |   |   |   |   |   |   |
-  | *6*                    |   |   |   |   |   |   |   |
+  | *0*                    | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+  | *1*                    | 1 | 2 | 3 | 4 | 5 | 6 | 0 |
+  | *2*                    | 2 | 3 | 4 | 5 | 6 | 0 | 1 |
+  | *3*                    | 3 | 4 | 5 | 6 | 0 | 1 | 2 |
+  | *4*                    | 4 | 5 | 6 | 0 | 1 | 2 | 3 |
+  | *5*                    | 5 | 6 | 0 | 1 | 2 | 3 | 4 |
+  | *6*                    | 6 | 0 | 1 | 2 | 3 | 4 | 5 |
 
 *** Congruence
 $$a \equiv b \mod(n)$$
 - This means that $a\mod(n) = b\mod(n)$.
 - When you do $a \div n$ and $b \div n$, you get the same remainder.
+- One way of saying this is that $a$ and $b$ differ by a multiple of $n$.
 
 
 *** Inverses
@@ -1222,6 +1267,8 @@ $$-a + a\mod(m) = 0$$
 - For example, $2^{-1} \mod(7) = 4$, i.e. $2 \times 4 \mod(7) = 1$
   - Hence 4 is the multiplicative inverse of $2\mod(7)$.
   - Also, 2 is the multiplicative inverse of $4\mod(7)$.
+- All in all, to find $a^{-1}\mod(m)$, find the number $x$ to multiply $a$ with,
+  such that $a \times x \mod(m) = 1$.
 
 ***** Extended Euclidean Algorithm
 - Consider this example of finding multiplicative inverse of $356\mod(45)$ or
@@ -1239,8 +1286,8 @@ $$-a + a\mod(m) = 0$$
 
  The value of $u_{1}$ in the row where $r$ becomes 0, is the multiplicative inverse.
 
-- In the above table, you always carry the value of $a$ and $m$ from the top
-  right element, but you calculate $q$ and $r$.
+- In the above table, you always carry the value of $a$ , $m$ , $u_{0}$ and $u_{1}$
+  from their respective top right neighbour, but you calculate $q$ and $r$.
 
 - Check if $2^{-1}\mod(10)$ exists:
   - Can't be found because $GCD(2, 10) = 2 \ne 1$
@@ -1267,27 +1314,39 @@ $$-a + a\mod(m) = 0$$
   | $2\cdot x \mod(10)$ | $x=1$ |
 
  
+***** Solving a congruence
+- Consider the example $$15x \equiv 7\mod(32)$$
+- Since ~GCD(15,32) = 1~, we can find the modular inverse of $15\mod(32)$.
+  - $15a \equiv 1\mod(32)$
+  - $a = 15$
+  - Hence $15 \equiv 15^{-1}\mod(32)$
+- $15x \equiv 7\mod(32)$
+- Multiply both sides by the value of $15^{-1}\mod(32)$
+- $15 \times 15x \equiv 15 \times 7\mod(32)$
+- $x \equiv 105\mod(32)$ because $15 \times 15 \equiv 1\mod(32)$
+- $x \equiv 9\mod(32)$
  
 
-*** Equivruence Class
-- A equivruence/residual class is a set of integers that are equivalent to each
+
+*** Equivalence Class
+- A Equivalence/residual class is a set of integers that are equivalent to each
   others modulo $n$.
 
   $a \equiv b\mod(n)$
 
 - For example: $12 \equiv 18\mod(15)$
   - $12\mod(15) = 12$ and $18\mod(15) = 3$
-  - Since $3 \neq 15$, $12 \equiv 18\mod(15)$ is not a valid equivruence class.
+  - Since $3 \neq 15$, $12 \equiv 18\mod(15)$ is not a valid Equivalence class.
     
 - Another example: $4 \equiv -18\mod(11)$
   - $4\mod(11) = 4$ and $-18\mod(11) = 4$
-  - Since $4 = 4$, $4 \equiv -18\mod(11)$ is a valid equivruence class.
+  - Since $4 = 4$, $4 \equiv -18\mod(11)$ is a valid Equivalence class.
     
 - Another example: $4^{-1} \equiv 2\mod(7)$ (this is not multiplicative inverse)
   - $\frac{1}{4} = 2\mod(7)$
   - $\frac{1}{4} \times 4 = (2 \times 4)\mod(7)$
   - $1 = 8\mod(7)$
-  - This becomes your new equivruence class.
+  - This becomes your new Equivalence class.
 
   
 ** Euler's Totient/Phi Function
@@ -1339,10 +1398,10 @@ Eg. $B = 11$
 - Step 1:
   - $13 = 8 + 4 + 1$
 - Step 2: 
-  - $11^{1}\mod(13) = 11\mod(53) = 11$
-  - $11^{2}\mod(13) = (11^{1}\mod(53) \times 11^{1}\mod(53))\mod(53) = 121\mod(53) = 15$
-  - $11^{4}\mod(13) = (11^{2}\mod(53) \times 11^{2}\mod(53))\mod(53) = 225\mod(53) = 13$
-  - $11^{8}\mod(13) = (11^{4}\mod(53) \times 11^{4}\mod(53))\mod(53) = 169\mod(53) = 10$
+  - $11^{1}\mod(53) = 11\mod(53) = 11$
+  - $11^{2}\mod(53) = (11^{1}\mod(53) \times 11^{1}\mod(53))\mod(53) = 121\mod(53) = 15$
+  - $11^{4}\mod(53) = (11^{2}\mod(53) \times 11^{2}\mod(53))\mod(53) = 225\mod(53) = 13$
+  - $11^{8}\mod(53) = (11^{4}\mod(53) \times 11^{4}\mod(53))\mod(53) = 169\mod(53) = 10$
 - Step 3:
   - $11^{(8 + 4 + 1)}\mod(53) = (11^{8}\mod(53) \times 11^{4}\mod(53) \times 11^{1}\mod(53))\mod(53)$
   - $11^{(13)}\mod(53) = (10 \times 13 \times 11)\mod(53)$
@@ -1366,7 +1425,10 @@ For example, verifying Fermat's little theorem for $p = 31$ and $a = 3$.
 **** Find $3^{-1}\mod(31)$ using Fermat's Little Theorem
 - By Fermat's little theorem, $3^{30} \equiv 1\mod(31)$
 - On dividing by 3, you get  $3^{29} \equiv \frac{1}{3}\mod(31)$
-- 
+- $3^{29} \equiv 3^{-1}\mod(31)$
+- $3^{-1} \equiv 3^{29}\mod(31)$
+- Now you can solve $3^{29}\mod(31)$ using fast exponentiation method.
+  
 
 
 **** TODO Compute  $3^{-592} \mod(1831)$ using Fermat's Little Theorem
@@ -1385,6 +1447,18 @@ $a^{\phi(n)} \equiv 1\mod(n)$, if
 - gcd(6,35) = 1, hence they are coprime
 - $\phi(35) = \phi(5) \times \phi(7) = 4 \times 6 = 24$
 - Hence $6^{24} \mod(35) \equiv 1\mod(35)$
+
+**** Find $37^{103}\mod(40)$ using Euler's theorem
+- $37^{\phi(40)}\mod(40) = 37^{\phi(2^{3}) \times \phi(5)}\mod(40) = 37^{16}\mod(40)$
+- So according to euler's theorem, $37^{16} \equiv 1\mod(40)$
+- $103 = 6\cdot16 + 7$
+- So $(37^{16\times6 + 7}) \equiv 1\mod(40)$
+- So $(37^{16})^{6} \times 37^{7} \equiv 1^{6} \times 37^{7}\mod(40)$
+- Now the problem reduces to $37^{7}\mod(40)$
+- We also know that $37\mod(40)$ is the same as $-3\mod(40)$ 
+- So $(-3)^{7} \mod(40) = -1 \times 3^{7}\mod(40)$
+- Now you can use fast exponentiation method (you could have used it for 37
+  directly too, but this is better).
 
 **** Find $71^{-1}\mod(100)$ using Euler's Theorem
 - gcd(71, 100) = 1, hence they are coprime
