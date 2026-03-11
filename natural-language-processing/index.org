@@ -269,43 +269,58 @@ These are basically two types of bound morphemes.
   sentence.
 - This "group of words" could be a clause, a phrase or even a single word.
 
+  | Phrase Type          | Example                                 |
+  |----------------------+-----------------------------------------|
+  | Noun Phrase          | 'the big red dog'                       |
+  | Verb Phrase          | 'chased the mouse' or 'eating an apple' |
+  | Prepositional Phrase | 'on the mat'                            |
+  | Adjective Phrase     | 'very happy' or 'quite large'           |
+
 **** CFG
 - Preterminals are terminal variables which directly correspond to a terminal.
 - Eg. /Noun/ \rightarrow amrita
-- These are usually what's used for POS tages.
+- These are usually what's used for POS tags.
 
 **** Parsing
 - There are two kinds of parsing.
 
-| Constituency Parsing                | Dependency Parsing                                      |
-|-------------------------------------+---------------------------------------------------------|
-| Builds a tree out of constituencies | Builds a directed graph out of grammatical dependencies |
+| Constituency Parsing                                    | Dependency Parsing                                                                         |
+|---------------------------------------------------------+--------------------------------------------------------------------------------------------|
+| Builds a tree out of constituencies                     | Builds a directed graph out of grammatical dependencies                                    |
+| The leaf nodes will be the actual words of the sentence | The root is the main verb, and the rest of the tree tells how everything works around this |
 
 
 *** Semantics
+- After understanding structure of words (morphology) and structure of sentences
+  (syntax), we now have to understand what all the words mean, and this is
+  called semantics
 - *Lexicon* is the English term for Bag of Words.
 - *Lexeme* is a pair of an orthographic form (spelling), phonological form
   (pronounciation).
   
 **** Homonymy
-- It's the relation that holds between words which have the same form, with
-  unrelated meanings.
+- It's the relation that holds between words which have the same form (both
+  orthographical and phonological), with unrelated meanings.
 - Eg. Bat (cricket bat) vs Bat (mammal)
 - Eg. Bank (river bank) vs Bank (financial bank)
 
 **** Homophones
-- Words with the same pronounciation but different spellings (aka. different
-  orthographic form).
+- Words with the same phonological form but different orthographic form (same
+  pronounciation but different spelling)
 - Eg. Write vs Right
 - Eg. Piece vs Peace
 
 **** Homographs
 - Lexems with the same orthographic form (spelling) but different meanings. They
-  need not have the same pronounciation.
+  may/may not have the same phonological form.
 - Eg. Live (live life) vs Live (live tv show).
   
 **** Polysemy
-- It's how two lexemes can have 
+- It's just like hononymy where you have the same form, but different meanings,
+  but they're not entirely different.
+- The meanings are different, but have some semantic relationship.
+- Eg. "The bank was constructed in 1875" talks about the bank as a building, but
+  "I have an account at this bank" talks about the bank as an institution.
 
 **** Synonymy
 - Relation between senses (synonyms)
@@ -319,7 +334,7 @@ These are basically two types of bound morphemes.
 
 **** Hyponymy and Hypernymy
 - Car is a subclass (hyponym) of vehicle
-- Vehicle is a superclass (supernym) of car.
+- Vehicle is a superclass (hypernym) of car.
 
 **** Meronym and Holonym
 - Wheel is a part (meronym) of car.
@@ -475,31 +490,71 @@ We contruct a graph (looks exactly like a neural network, and it's called the
 - Each node of the layer, is a possibility of what part of speech that word
   could have.
 
-Here's how you calculate the probability of a state/node in the graph:
-- For each and every node in a layer, you calculate $P(\text{Word} | \text{POS Tag}) \times P(\text{Largest Node in each of previous layers})$
-- For the nodes in the first layer, you don't need the backtracking part.
+$S_{i}(j)$ is the probability of the most likely path that ends in tag $i$, at word
+position $j$.
+
+$$S_{i}(j) =  P(\text{Word }j \mid \text{POS Tag }i) \times P(\text{POS Tag }i)$$
+
+At word position 1, we assume that the probability of each POS tag is uniformly
+distributed. In our case we have 4 POS tags, so each POS tag will have
+probability 0.25.
+
+
+$$S_{1}(1) = P(\text{the} \mid \text{Det}) \times P(\text{Det}) = 0.3 \times 0.25 = 0.075$$
+
+From the next word onwards ($S_{i}(2)$), $P(\text{POS Tag }i)$ will be the max of
+the probabilities in that layer.
+
+$$S_{i}(j) =  P(\text{Word }j \mid \text{POS Tag }i) \times P(\text{POS Tag }i \mid \text{POS Tag }k) \times S_{i-1}(k)$$
+
+
 
 * Word Embeddings
 - Word embedding is a natural language processing technique that converts words
   into dense numerical vectors, capturing their semantic meanings and
   relationships.
-
+- *Distributional Hypothesis* is the idea that tells us that a word is known by
+  the company it keeps.
+- The one-hot encoding of the word "king" among a total of 100 words would be a $100\times1$ vector that looks like $$\text{king} =  \begin{bmatrix} 0 \\ 1 \\ 0 \\ ... \\ ... \end{bmatrix}$$
+- Instead of such a large and sparse vector, we can represent the word using a
+  smaller and denser vector. Each dimension wouldn't be the other words in the
+  dictionary like one-hot encoding. Here, each dimension would represent some
+  abstract property.
+  
   |         | *King* | *Queen* | *Women* | *Princess* |
   | *Royalty* | 0.99 |  0.99 |       |          |
   | *Age*     | 0.99 |   0.2 |       |          |
-  | *..*      |  0.8 |       |       |          |
+  | *Wise*    |  0.8 |       |       |          |
   | *..*      |  0.2 |       |       |          |
   |         |      |       |       |          |
   
+- Arithmetic operations on these actually give meaningful results. The
+  difference between the vector embedding of a word and the vector embedding of
+  its plural is almost the same for any word.
+
+  
 ** Word to Vec
+- The word embeddings are the weights of the hidden layers of a neural network
+  that predicts words from context.
+- You run a sliding window across the sentences and using this there are two
+  ways to predict words: CBOW and Skip-Gram
+- CBOW and Skip-Gram are two types of neural networks. After training them, you
+  remove the output layer, and keep the input and hidden layers.
+- Consider the sentence:
+  #+begin_quote
+"The recently introduced continuous Skip-gram model is an efficient method for
+learning high-quality distributed vector representations..."
+  #+end_quote
+  - With a window size of 4, when the focus word is "learning", the context
+    words would be: ~["an", "efficient", "method", "for"]~ on the left, and
+    ~["high", "quality", "distributed", "vector"]~ on the right.
+  
+    | Continuous Bag Of Words (CBOW)                                       | Skip-Gram                                                                         |
+    |----------------------------------------------------------------------+-----------------------------------------------------------------------------------|
+    | You feed those 8 context words in, and the model predicts "learning" | You feed in "learning", and the model predicts each of those 8 surrounding words. |
 
-*** Continuous Bag of Words (CBoW)
-- You have a window of words and you're trying to predict the middle word.
-- The middle word is called the *focus word*, and the surrounding words are called *context words*.
-- Good on large corpora
+  
 
-*** Skip-Gram
-- Given the middle word, you predict the surrounding words.
 
 * Evaluation Metrics
 
