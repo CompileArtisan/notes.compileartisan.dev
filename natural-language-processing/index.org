@@ -279,14 +279,14 @@ where $P(\text{about fifteen minutes from}) = P(\text{about}) \times P(\text{fif
 *** Example:
 - Say we have 3 strings in our corpus:
   #+begin_src html
-<s>I am here</s>
-<s>who am I</s>
-<s>I would like to know</s>
+< start >I am here< /stop >
+< start >who am I< /stop >
+< start >I would like to know< /stop >
   #+end_src
 
 **** Unigrams
-- $P(\text{<s>}) = \frac{3}{17}$
-- $P(\text{</s>}) = \frac{3}{17}$
+- $P(\text{< start >}) = \frac{3}{17}$
+- $P(\text{< /stop >}) = \frac{3}{17}$
 - $P(\text{I}) = \frac{3}{17}$
 - $P(\text{am}) = \frac{2}{17}$
 - $P(\text{here}) = \frac{1}{17}$
@@ -306,23 +306,23 @@ $$P(w_{i} | w_{i-1}) = \frac{count(w_{i-1}, w_{i})}{count(w_{i-1})}$$
 - Examples of bigrams here are ~I am~, ~am here~, ~who am~, ~am I~, etc.
 
 
-- $P(\text{I} \mid \text{<s>}) = \frac{count(\text{<s>}, \text{I})}{count(\text{<s>})} = \frac{2}{3}$
-- $P(\text{who} \mid \text{<s>}) = \frac{count(\text{<s>}, \text{who})}{count(\text{<s>})} = \frac{1}{3}$
+- $P(\text{I} \mid \text{< start >}) = \frac{count(\text{< start >}, \text{I})}{count(\text{< start >})} = \frac{2}{3}$
+- $P(\text{who} \mid \text{< start >}) = \frac{count(\text{< start >}, \text{who})}{count(\text{< start >})} = \frac{1}{3}$
 - $P(\text{am} \mid \text{I}) = \frac{count(\text{I}, \text{am})}{count(\text{I})} = \frac{1}{3}$
 - $P(\text{would} \mid \text{I}) = \frac{count(\text{I}, \text{would})}{count(\text{I})} = \frac{1}{3}$
-- $P(\text{</s>} \mid \text{I}) = \frac{count(\text{I}, \text{</s>})}{count(\text{I})} = \frac{1}{3}$
+- $P(\text{< /stop >} \mid \text{I}) = \frac{count(\text{I}, \text{< /stop >})}{count(\text{I})} = \frac{1}{3}$
 - $P(\text{here} \mid \text{am}) = \frac{count(\text{am}, \text{here})}{count(\text{am})} = \frac{1}{2}$
 - $P(\text{I} \mid \text{am}) = \frac{count(\text{am}, \text{I})}{count(\text{am})} = \frac{1}{2}$
-- $P(\text{</s>} \mid \text{here}) = \frac{count(\text{here}, \text{</s>})}{count(\text{here})} = 1$
+- $P(\text{< /stop >} \mid \text{here}) = \frac{count(\text{here}, \text{< /stop >})}{count(\text{here})} = 1$
 - $P(\text{am} \mid \text{who}) = \frac{count(\text{who}, \text{am})}{count(\text{who})} = 1$
 - $P(\text{like} \mid \text{would}) = \frac{count(\text{would}, \text{like})}{count(\text{would})} = 1$
 - $P(\text{to} \mid \text{like}) = \frac{count(\text{like}, \text{to})}{count(\text{like})} = 1$
 - $P(\text{know} \mid \text{to}) = \frac{count(\text{to}, \text{know})}{count(\text{to})} = 1$
-- $P(\text{</s>} \mid \text{know}) = \frac{count(\text{know}, \text{</s>})}{count(\text{know})} = 1$
+- $P(\text{< /stop >} \mid \text{know}) = \frac{count(\text{know}, \text{< /stop >})}{count(\text{know})} = 1$
 
 
-Calculating the probability of the sentence ~<s>I am here</s>~:
-$$= P(\text{I} \mid \text{<s>}) \times P(\text{am} \mid \text{I})\times P(\text{here} \mid \text{am})\times P(\text{</s>} \mid \text{here})$$
+Calculating the probability of the sentence ~< start >I am here< /stop >~:
+$$= P(\text{I} \mid \text{< start >}) \times P(\text{am} \mid \text{I})\times P(\text{here} \mid \text{am})\times P(\text{< /stop >} \mid \text{here})$$
 $$= \frac{2}{3} \times \frac{1}{3} \times \frac{1}{2} \times 1 $$
 $$= \frac{1}{9}$$
 
@@ -338,7 +338,7 @@ Working in log space solves underflow and moreover addition is
 faster than multiplication.
 
 **** Trigram
-- $P(\text{am} \mid \text{<s>}, \text{I}) = \frac{count(\text{<s>}, \text{I}, \text{am})}{count(\text{<s>}, \text{I})} = \frac{1}{2}$
+- $P(\text{am} \mid \text{< start >}, \text{I}) = \frac{count(\text{< start >}, \text{I}, \text{am})}{count(\text{< start >}, \text{I})} = \frac{1}{2}$
 
   
 *** Fixing Zero Probabilities
