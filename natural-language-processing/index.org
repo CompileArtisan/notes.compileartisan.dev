@@ -49,6 +49,9 @@ $$ \text{Unstructured Language} \xleftarrow[\text{}]{\text{Natural Language Gene
 - Make a model that can talk like a human being.
 
 *** Zero-shot and few shot learning
+- Zero-shot learning is where a model performs tasks on completely unseen data.
+- Few-shot learning is where a model is first provided with a small number of
+  labeled examples to adapt to it, and then perform the tasks.
 
 ** Challenges of NLP
 
@@ -87,11 +90,15 @@ This could mean:
 - Deciding where the sentences begin and end. 
 
 *** Normalization
-- Standardizing text by converting it into a simpler and consistent format.
+- Normalization is where we convert raw, unstructured text into a simpler,
+  consistent and standard format. 
+- This is what what enables algorithms to treat different variations of the word
+  as the same token.
 - This simpler and consistent format has to strike a balance between making it
   simpler for the model to work on, and not losing the actual meaning of the
   text.
-- For example:
+- There are three types of normalization: case folding, stemming and
+  lemmatization.
 
 **** Case Folding
 - One simpler, consistent format could be turning all of the text into the same
@@ -112,55 +119,93 @@ This could mean:
 - Here, you convert it into the equivalent root word.
 - This is different from stemming because this root word isn't an abruptly
   cut-off piece of text - it's an actual word from a dictionary.
+- For example:
+  | Word    | Stemming | Lemmatization |
+  |---------+----------+---------------|
+  | studies | studi    | study         |
+  | wolves  | wolv     | wolf          |
 
 
 ** Bag of Words
+*** What it is
 - It's a dictionary that tells you how many unique words are present in each
   piece of text.
 - It's a sparse dictionary as each piece of text need not contain all unique
   words.
 - These may/may not contain stop-words or things like those.
-- For example, ~data_given = ['The quick brown fox', 'Fox news is the best']~
+- For example, ~data_given = ['The quick brown brown fox', 'Fox news is the best']~
   |             | best | brown | fox | is | news | quick | the |
   |-------------+------+-------+-----+----+------+-------+-----|
-  | Sentence1 \rightarrow |    0 |     1 |   1 |  0 |    0 |     1 |   1 |
+  | Sentence1 \rightarrow |    0 |     2 |   1 |  0 |    0 |     1 |   1 |
   | Sentence2 \rightarrow |    1 |     0 |   1 |  1 |    1 |     0 |   1 |
+  This is called a *Term-Document Matrix*.
+*** Advantages vs Disadvantages
+- The only advantage is that this is easy to compute.
+- It loses order of words. For example, "dog bites man" and "man bites dog"
+  can't be distinguished.
+- It fails to capture semantic relationships.
+  - For example, "car" and "automobile" have no relation according to Bag of
+    Words.
+  - Another example is where if the word "the" appears 100 times and the word
+    "photosynthesis" appears thrice, it considers the word "the" more important.
+- That's why techniques like *word embeddings* (word2vec) or *transformer-based
+  models* (BERT) are preferred because they capture semantic similarity and
+  represent words in a *dense continuous vector space*.
 
-** TF-IDF
+
+** TF-IDF 
+*** What it is
 - It stands for term frequency - inverse document frequency.
 
 $$TF(t,D) = \frac{D_{t}}{T}$$
 $$IDF(t) = \log(\frac{N}{\text{df}(D,t)})$$ where
+- $D_{t}$ is the number of times the word $t$ has occured in document $D$.
+- $T$ is the number of words/terms in document $D$.
 - $N$ is the total number of documents
 - $\text{df}(D,t)$ is the document frequency of the word $t$. It basically tells
   us the number of documents in which the word $t$ has occurred.
+
+- An example mentioned previously was that if the word "the" appears 100 times
+  and the word "photosynthesis" appears thrice, BoW would consider the word
+  "the" more important.
+- TF-IDF fixes this by measuring how informative the word is. If a word appears
+  in every document (like say, the word "the"), it isn't that informative. But
+  if it appears in that document alone, it is more informative and has a higher
+  IDF score.
 
 - Consider the following 3 documents:
   - D1: "the cat sat on the mat"
   - D2: "the dog sat on the log"
   - D3: "the cat chased the dog"
 
-    |                      | the                 | cat                 | sat                 | on                  | mat                 | dog                 | log                 | chased              |
-    |----------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------|
-    | $TF(\text{word},D1)$ | $\frac{2}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 | $0$                 | $0$                 |
-    | $TF(\text{word},D2)$ | $\frac{2}{6}$       | $0$                 | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 | $\frac{1}{6}$       | $\frac{1}{6}$       | $0$                 |
-    | $TF(\text{word},D3)$ | $\frac{2}{6}$       | $\frac{1}{6}$       | $0$                 | $0$                 | $0$                 | $\frac{1}{6}$       | $0$                 | $\frac{1}{6}$       |
-    | $IDF(\text{word})$   | $\log(\frac{3}{3})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{1})$ | $\log(\frac{3}{2})$ | $\log(\frac{3}{1})$ | $\log(\frac{3}{1})$ |
+    |                      | the                  | cat                  | sat                  | on                   | mat                  | dog                  | log                  | chased               |
+    |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+    | $TF(\text{word},D1)$ | $\frac{2}{6}$        | $\frac{1}{6}$        | $\frac{1}{6}$        | $\frac{1}{6}$        | $\frac{1}{6}$        | $0$                  | $0$                  | $0$                  |
+    | $TF(\text{word},D2)$ | $\frac{2}{6}$        | $0$                  | $\frac{1}{6}$        | $\frac{1}{6}$        | $0$                  | $\frac{1}{6}$        | $\frac{1}{6}$        | $0$                  |
+    | $TF(\text{word},D3)$ | $\frac{2}{5}$        | $\frac{1}{5}$        | $0$                  | $0$                  | $0$                  | $\frac{1}{5}$        | $0$                  | $\frac{1}{5}$        |
+    | $IDF(\text{word})$   | $\log_{2}(\frac{3}{3})$ | $\log_{2}(\frac{3}{2})$ | $\log_{2}(\frac{3}{2})$ | $\log_{2}(\frac{3}{2})$ | $\log_{2}(\frac{3}{1})$ | $\log_{2}(\frac{3}{2})$ | $\log_{2}(\frac{3}{1})$ | $\log_{2}(\frac{3}{1})$ |
     
+    Then for each term in this matrix, you calculate
+    $$\text{TF-IDF}(\text{word}, D) = TF(\text{word},D) \times IDF(t)$$
 
-  
- 
+    For example:
+    - $\text{TF-IDF}(\text{'the'}, D1) = 0.333 \times 0.000 = 0.000$ (makes sense: 'the' is in every doc, tells us nothing specific)
+    - $\text{TF-IDF}(\text{'cat'}, D1) = 0.167 \times 0.585 = 0.098$
+    - $\text{TF-IDF}(\text{'sat'}, D1) = 0.167 \times 0.585 = 0.098$
+    - $\text{TF-IDF}(\text{'dog'}, D1) = 0.000 \times 0.585 = 0.000$
+*** Disadvantages
+Just like BoW, this is also based on word counts only. It lacks any
+understanding or word meaning or order.
+- For example, "I love NLP" and "I do not love NLP" would produce similary
+  TF-IDF vectors despite opposite meanings.
+- It still can't tell you that "car" and "automobile" are semantically similar.
 
 * Linguistic Analysis
 
 ** Qualities of a Language
-- Ambiguous
-- Structured
-- Context Dependent
-
-** Morphemes
-- [[https://alic.sites.unlv.edu/chapter-12-1-morphemes/][Chapter 12.1: Morphemes – ALIC – Analyzing Language in Context]]
-- [[https://alic.sites.unlv.edu/chapter-12-2-types-of-morphemes/][Chapter 12.2: Types of Morphemes – ALIC – Analyzing Language in Context]]
+- *Ambiguous*: Same words can mean different things
+- *Structured*: Words must follow grammatical rules to make sense
+- *Context Dependent*: Meaning of a word depends on the words which surround it
 
 ** Levels of Linguistic Analysis
 - These are the 3 types of patterns that a model should learn.
@@ -168,16 +213,52 @@ $$IDF(t) = \log(\frac{N}{\text{df}(D,t)})$$ where
 - Now modern NLP (BERT, GPT) learn these patterns automatically.
 
 *** Morphology
-- This has to deal with the *structure of words*.
-- For this, we use tokenization, stemming and lemmatization.
+- This has to deal with the *structure of words* (eg. run, running, runner)
+- For this, we use tokenization and normalization.
+  
+**** Morphemes
+- A morpheme is the smallest unit of grammatical or semantic meaning in a
+  language.
+- For example, the word "runs" can be divided into two morphemes:
+  - /run/: means "move quickly on foot"
+  - /-s/: means "3rd person singular present tense verb"
+- Similarly, "unlucky" can be divided into morphemes /un/, /lucky/ and /-y/.
+- When a word is broken down into morphemes, it's split into
+  - *stem / root*: The central meaning-bearing part. Eg. /walk/ in "walking"/
+  - *affix*: A morpheme that attaches to a stem. 
+- All affixes are bound morphemes, but all bound morphemes aren't affixes. Eg. /-mit/ in /submit/ is a bound morpheme, but is not an affix.
+- Affixes include *prefix*, *suffix*, etc.
+- Phonemes are the smallest, individual units of sound in a language (e.g., /k/,
+  /a/, /t/), whereas morphemes are the smallest units of meaning. Phenomes combine
+  to form morphemes.
 
-**** Inflectional Morphology
+
+There are two ways you can classify morphemes:
+| Free morphemes                                                            | Bound morphemes                                        |
+|---------------------------------------------------------------------------+--------------------------------------------------------|
+| They carry a semantic meaning of its own and doesn't need a prefix/suffix | They need a prefix/suffix to convey a semantic meaning |
+| Eg. /run/ in /runs/                                                           | Eg. /-s/ in /runs/                                         |
+
+| Content Morphemes        | Functional Morphemes                |
+|--------------------------+-------------------------------------|
+| Carries semantic Content | Provides grammatical information    |
+| Eg. 'car', '-able'       | Eg. 'a', 'the', 'he', '-s' (plural) |
+
+**** Types of Morphology
+These are basically two types of bound morphemes.
+
+***** Inflectional Morphology
 - Slightly modify words for grammar, but not changing core category or part of
   speech.
+- All we have to know is that they don't create a new dictionary word. The base
+  token is still the same.
+- Eg. Turning "run" to "runs", or "quick" to "quicker".
 
-**** Derivational Morphology
+***** Derivational Morphology
 - Creates new words with different meanings of part of speech by adding affixes
-- Eg. turning "happy" to "unhappy", or "sad" to "sadness"
+- A new dictionary word is created because of change in semantics.
+- Eg. Turning "teach" (verb) to "teacher" (noun), or "happy" to "unhappy" (both
+  adjectives but the meaning has changed).
 
 *** Syntax
 - This has to deal with the *structure of sentences*.
