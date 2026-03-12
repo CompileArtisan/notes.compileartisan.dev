@@ -9,6 +9,7 @@
   vision).
 - The object of computer vision is to make computers see and interpret the world
   like humans and possibly even better than humans.
+- By 'understand', we mean detecting patterns based on programmed rules.
   
 ** What is Machine Vision
 - It's a branch of engineering that uses computer vision in industrial and
@@ -17,6 +18,7 @@
   objects or inspecting for defects.
 - Machine Vision is often used in controlled environments, and is more likely to
   be used for fast decisions. Eg. Currency Counting Machines.
+- The focus is on inspection, measurement and control.
 - These systems are often rule-based, high-speed and very precise.
 
 ** Machine Vision or Computer Vision
@@ -71,15 +73,22 @@
 - It's a 2D array of numbers (each called a pixel).
 
 ** Operations on Images
-
 *** Computer Vision
 - Understanding Images
+- Inputs an image and outputs interpretation
 
 *** Image Processing
 - Manipulating Images
+- Inputs an image and outputs a manipulated image
 
 *** Computer Graphics
 - Generating Images
+- Inputs a description/representation of an image, and outputs an image.
+- So interestingly, computer graphics is the opposite of computer vision.
+  
+$$ \xrightarrow{\text{Image}} \text{Computer Vision} \xrightarrow{\text{Interpretation}}$$
+$$ \xleftarrow{\text{Image}} \text{Computer Graphics} \xleftarrow{\text{Interpretation}}$$
+
 
 ** Electromagnetic Spectrum
 - The human eye can see light with wavelengths from around 400 nm to 750 nm.
@@ -136,38 +145,38 @@ $(dA\cos(\theta))$, per unit direction $(d\Omega)$.
 - Amount of *visible* light radiating off a surface.
 - The term used here is "luminance".
 
-**** Luminance Flux \phi
+**** Luminous Flux \phi
 - Total *visible power* emitted from a source.
 - It's measured in *lumens* (the light-equivalent of energy).
 
-**** Luminance Intensity (I)
+**** Luminous Intensity (I)
 - Total *visible power* per unit solid angle \Omega from the source.
 - Measured in \(\frac{lm}{Sr} \)
 
 **** Illuminance (E)
-- Luminance power \phi incident on a surface area A.
-- Expressed as \(\frac{\Omega}{A}\)
+- Luminous power \phi incident on a surface area A.
+- Expressed as \(\frac{\phi}{A}\)
 - It's measured in \(\frac{lm}{m^{2}} \)
 
 **** Luminance (L)
-- Luminance flux/power emitted or reflected from a surface A, per unit solid angle
+- Luminous flux/power emitted or reflected from a surface A, per unit solid angle
   \Omega.
 \[ L = \frac{d\phi}{\cos(\theta) dA d\Omega}  \]
 
 
 **** Summary
 
-| Quantity            | Symbol | Units             |
-|---------------------+--------+-------------------|
-| Luminance Power     | \phi      | $lm$              |
-| Luminance Intensity | I      | $\frac{lm}{sr}$   |
-| Illuminance         | E      | $\frac{lm}{m^{2}}$   |
-| Luminance           | L      | $\frac{lm}{m^{2}Sr}$ |
+| Quantity           | Symbol | Units             |
+|--------------------+--------+-------------------|
+| Luminous Power     | \phi      | $lm$              |
+| Luminous Intensity | I      | $\frac{lm}{sr}$   |
+| Illuminance        | E      | $\frac{lm}{m^{2}}$   |
+| Luminance          | L      | $\frac{lm}{m^{2}Sr}$ |
 
 
 **** For example, a point source emits a total radiant power of \phi = 12W uniformly in all directions. Find its radiant intensity.
 - Total solid angle for a sphere
-  $$\Omega = 4 \pi \text{sr}$$
+  $$\Omega = 4 \pi \ \text{sr}$$
 - Radiant intensity
   \[ l = \frac{\phi}{4\pi} \]
   - $l = \frac{\phi}{4\pi}$
@@ -207,9 +216,9 @@ $(dA\cos(\theta))$, per unit direction $(d\Omega)$.
 - This adjusts how long the light can enter the camera.
 
 ** Sensor (CCD/ CMOS)
-- The image capturing system (Charged-Couple Device or Complementary
-  Metal-Oxide Semiconductor) captures an image which is in the form of analog
-  electrical signals.
+- The image capturing system (Charge-Coupled Device or Complementary Metal-Oxide
+  Semiconductor) captures an image which is in the form of analog electrical
+  signals.
 $$ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}$$
 
 *** Direction by Angles
@@ -230,7 +239,9 @@ $$ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signa
   - If $\rho = 0$, all incoming light is absorbed.
 
 - $\text{BRDF} = f = \frac{\rho}{\pi}$, so albedo $\rho$ is calculated as
-$$\rho = \text{BRDF} \times \pi$$
+  $$\rho = \text{BRDF} \times \pi$$
+- BRDF is measured from a device called gonioreflectometer (name stands
+  irrelevant for this course).
 
 *** Photon Detection
 \[ E = h \times f \]
@@ -264,7 +275,6 @@ where:
 
   Higher sensitivity to light, basically means it can capture light better.
 
-** A/D
 
 ** Bayers Filter
 - Instead of having 3 sensors (each for one color), Kodak found a way to use one
@@ -282,8 +292,8 @@ where:
   remove one among red and blue, and then from the second row you remove the
   other. Green stays in both the rows.
 *** Types of Bayer Filters
-- There are different types of bayers filter (most commonly RGGB aka R-G-R
-  pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.
+- There are different types of bayers filter (most commonly RGGB or R-G-R or
+  R-G-B-G pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.
 - If the matrix has G on the top left corner, it's a GRBG pattern. 
 - Likewise if the matrix has R on the top left corner, it's RGGB pattern.
   
@@ -444,7 +454,7 @@ main()
   - $R = \frac{(180+170)}{2} = 175$
   - $G = 120$ (Given)
   - $B = \frac{(60+65)}{2} = 62.5$
-- Whlie this is smoother than nearest neighbour, it still does produce blurry
+- While this is smoother than nearest neighbour, it still does produce blurry
   images.
 
 
@@ -478,6 +488,26 @@ neighbors:
 $$I_{sharpened} = I_{original} + k \cdot (I_{original} - I_{blurred})$$
 where $k$ is the sharpening factor.
 
+Here's a Python Program for sharpening an image:
+#+begin_src python
+import cv2
+
+# Read image
+img = cv2.imread("image.jpg")
+
+# Apply Gaussian blur
+blur = cv2.GaussianBlur(img, (5,5), 0)
+
+# Sharpen: original + (original - blur)
+sharpened = cv2.addWeighted(img, 1.5, blur, -0.5, 0)
+
+# Show results
+cv2.imshow("Original", img)
+cv2.imshow("Sharpened", sharpened)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+#+end_src
 
 ** White Balance
 - Different light sources create different color casts on the sensor output.
@@ -516,27 +546,58 @@ where $k$ is the sharpening factor.
   equation. $$L = (L^{\frac{1}{\gamma}})^{\gamma}$$ So the monitor did the ~messing up mid-tones~
   function on this /inverse/ signal we created, and hence it ends up displaying
   the original luminance.
+- The most commonly chosen value for $\gamma$ is 2.2, because it closely replicates
+  human vision.
+  
 
 ** Compress
 *** ~.jpeg~
 - JPEG stands for *Joint Photographic Experts Group*, and this is a *lossy decomposition*.
 
-*** YCbCr
+*** Chrominance Reduction
 - Chrominance reduction is the process of reducing the amount of color in the
   image.
 - We basically concert RBG into YCbCr, and here we don't have to store a color
   value for some pixels.
 - This works because the human brain perceives brightness better than color, so
   we keep brightness untouched, but downsample color values.
+- Previously you'd have a matrix for R, one for G and one for B. All of these
+  matrices are of the same size.
+- Now, we'd have a matrix for Y, one for Cb and one for Cr, but Cb and Cr are
+  smaller in size.
+
+**** Luminance and Chrominance
+- In video systems, $Y$ is *luminance* (brightness) and both $Cb$ and $Cr$
+  represent *chrominance* (color information).
+
 - In YCbCr format, each pixel will have a tuple ~(Y, Cb, Cr)~ instead of ~(R, G,
   B)~.
   - $Y = 0.299R + 0.587G + 0.114B$ (brightness, i.e. the grayscale information)
   - $Cb = 128 - 0.1687R - 0.3313G + 0.5B$ (chrominance for blue-difference)
   - $Cr = 128 + 0.5R - 0.4187G - 0.0813B$ (chrominance for red-difference)
-- Previously you'd have a matrix for R, one for G and one for B. All of these
-  matrices are of the same size.
-- Now, we'd have a matrix for Y, one for Cb and one for Cr, but Cb and Cr are
-  smaller in size.
+
+**** Chroma Downsampling
+- This is what you call it when you store less color information that brightness
+  information.
+- This is where you change the ratio between luminance and chrominance, per 4
+  horizontal pixels:
+  $$4 : \text{Cb samples} : \text{Cr Samples}$$
+  | Format | Meaning                                                                |
+  |--------+------------------------------------------------------------------------|
+  |  4:4:4 | No downsampling                                                        |
+  |  4:2:2 | For every 2 horizontal pixels, keep 1 Cb and 1 Cr value (average them) |
+  |  4:2:0 | Average each $2\times2$ block of chrominance into a single value            |
+
+***** 4:4:4
+file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/444.png
+
+***** 4:2:2
+
+file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/422.png
+
+***** 4:2:0
+
+file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/420.png
 
 *** Quantization
 - This is later *sampled spacially* into pixels.
