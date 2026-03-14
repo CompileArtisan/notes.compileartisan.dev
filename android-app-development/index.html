@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-25 Wed 19:40 -->
+<!-- 2026-03-14 Sat 16:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobile Application Development</title>
@@ -585,44 +585,45 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfbd83a6">1. Prelude</a></li>
-<li><a href="#org8af5fdb">2. Introduction to Android</a>
+<li><a href="#org09a2326">1. Prelude</a></li>
+<li><a href="#org47faf21">2. Introduction to Android</a>
 <ul>
-<li><a href="#org93109ef">2.1. User Interaction</a>
+<li><a href="#orgd94ec36">2.1. User Interaction</a>
 <ul>
-<li><a href="#org7a228d4">2.1.1. Touch Gestures</a></li>
-<li><a href="#orgd0f5fe3">2.1.2. Virtual Keyboard</a></li>
-<li><a href="#org9cc9458">2.1.3. External</a></li>
+<li><a href="#org3dcee5c">2.1.1. Touch Gestures</a></li>
+<li><a href="#org15bae94">2.1.2. Virtual Keyboard</a></li>
+<li><a href="#org67dbb33">2.1.3. External</a></li>
 </ul>
 </li>
-<li><a href="#org7f4211b">2.2. Android Stack</a></li>
-<li><a href="#org1f209a2">2.3. Android Application Components</a></li>
+<li><a href="#orgaef8506">2.2. Android Stack</a></li>
+<li><a href="#org869c8e9">2.3. Android Application Components</a></li>
 </ul>
 </li>
-<li><a href="#org7c2d727">3. How the App works</a>
+<li><a href="#org7d21068">3. How the App works</a>
 <ul>
-<li><a href="#orgf605c97">3.1. Activity</a></li>
-<li><a href="#org827ed4d">3.2. XML Files</a>
+<li><a href="#org6310baf">3.1. Activity</a></li>
+<li><a href="#orgc305b9f">3.2. Views</a>
 <ul>
-<li><a href="#orgc37a1a4">3.2.1. <code>&lt;TextView/&gt;</code></a></li>
+<li><a href="#orgc9016a0">3.2.1. XML</a></li>
+<li><a href="#org1b40d7a">3.2.2. Three ways to define a view</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1de8dab">4. Basic Addition</a></li>
-<li><a href="#orgd513181">5. Rerouting to a different screen using Intent</a></li>
-<li><a href="#org1fab902">6. Scroll View</a></li>
-<li><a href="#org5c31663">7. Spinner</a></li>
-<li><a href="#org2c1689b">8. Feedback app</a>
+<li><a href="#org938975d">4. Basic Addition</a></li>
+<li><a href="#org2e8b78d">5. Rerouting to a different screen using Intent</a></li>
+<li><a href="#org2465c3a">6. Scroll View</a></li>
+<li><a href="#org06e998e">7. Spinner</a></li>
+<li><a href="#orgadf954f">8. Feedback app</a>
 <ul>
-<li><a href="#org33fec1a">8.1. RatingBar</a></li>
-<li><a href="#org5a81cf6">8.2. Radio Button</a></li>
-<li><a href="#orgd410a21">8.3. CheckBox</a></li>
-<li><a href="#orgeda807a">8.4. Making a WebSearch Button</a></li>
-<li><a href="#orgb8d8e73">8.5. Solving Data Loss after Screen Rotation</a>
+<li><a href="#org574fc46">8.1. RatingBar</a></li>
+<li><a href="#org98ab2ab">8.2. Radio Button</a></li>
+<li><a href="#org525d8e9">8.3. CheckBox</a></li>
+<li><a href="#org071e604">8.4. Making a WebSearch Button</a></li>
+<li><a href="#org2e0af9f">8.5. Solving Data Loss after Screen Rotation</a>
 <ul>
-<li><a href="#org3cdb5b2">8.5.1. What happens when screen rotates</a></li>
-<li><a href="#org52d30a5">8.5.2. What happens after screen rotates</a></li>
+<li><a href="#org0fc2eea">8.5.1. What happens when screen rotates</a></li>
+<li><a href="#org0fe9983">8.5.2. What happens after screen rotates</a></li>
 </ul>
 </li>
 </ul>
@@ -630,8 +631,8 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfbd83a6" class="outline-2">
-<h2 id="orgfbd83a6"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-org09a2326" class="outline-2">
+<h2 id="org09a2326"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>These notes don&rsquo;t include Android Studio tutorials as:
@@ -645,16 +646,16 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org8af5fdb" class="outline-2">
-<h2 id="org8af5fdb"><span class="section-number-2">2.</span> Introduction to Android</h2>
+<div id="outline-container-org47faf21" class="outline-2">
+<h2 id="org47faf21"><span class="section-number-2">2.</span> Introduction to Android</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org93109ef" class="outline-3">
-<h3 id="org93109ef"><span class="section-number-3">2.1.</span> User Interaction</h3>
+<div id="outline-container-orgd94ec36" class="outline-3">
+<h3 id="orgd94ec36"><span class="section-number-3">2.1.</span> User Interaction</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org7a228d4" class="outline-4">
-<h4 id="org7a228d4"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
+<div id="outline-container-org3dcee5c" class="outline-4">
+<h4 id="org3dcee5c"><span class="section-number-4">2.1.1.</span> Touch Gestures</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Swiping</li>
@@ -663,8 +664,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd0f5fe3" class="outline-4">
-<h4 id="orgd0f5fe3"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
+<div id="outline-container-org15bae94" class="outline-4">
+<h4 id="org15bae94"><span class="section-number-4">2.1.2.</span> Virtual Keyboard</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Characters</li>
@@ -673,8 +674,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org9cc9458" class="outline-4">
-<h4 id="org9cc9458"><span class="section-number-4">2.1.3.</span> External</h4>
+<div id="outline-container-org67dbb33" class="outline-4">
+<h4 id="org67dbb33"><span class="section-number-4">2.1.3.</span> External</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Bluetooth</li>
@@ -684,8 +685,8 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </div>
 </div>
 </div>
-<div id="outline-container-org7f4211b" class="outline-3">
-<h3 id="org7f4211b"><span class="section-number-3">2.2.</span> Android Stack</h3>
+<div id="outline-container-orgaef8506" class="outline-3">
+<h3 id="orgaef8506"><span class="section-number-3">2.2.</span> Android Stack</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -732,8 +733,8 @@ different parts of an app.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f209a2" class="outline-3">
-<h3 id="org1f209a2"><span class="section-number-3">2.3.</span> Android Application Components</h3>
+<div id="outline-container-org869c8e9" class="outline-3">
+<h3 id="org869c8e9"><span class="section-number-3">2.3.</span> Android Application Components</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -779,12 +780,12 @@ different parts of an app.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7c2d727" class="outline-2">
-<h2 id="org7c2d727"><span class="section-number-2">3.</span> How the App works</h2>
+<div id="outline-container-org7d21068" class="outline-2">
+<h2 id="org7d21068"><span class="section-number-2">3.</span> How the App works</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf605c97" class="outline-3">
-<h3 id="orgf605c97"><span class="section-number-3">3.1.</span> Activity</h3>
+<div id="outline-container-org6310baf" class="outline-3">
+<h3 id="org6310baf"><span class="section-number-3">3.1.</span> Activity</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>A Java Class that serves as a controller for a specific screen, is called an
@@ -799,13 +800,14 @@ extends <code>FragmentActivity</code> which extends <code>ComponentActivity</cod
 </ul>
 </div>
 </div>
-<div id="outline-container-org827ed4d" class="outline-3">
-<h3 id="org827ed4d"><span class="section-number-3">3.2.</span> XML Files</h3>
+<div id="outline-container-orgc305b9f" class="outline-3">
+<h3 id="orgc305b9f"><span class="section-number-3">3.2.</span> Views</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>All of the components of the UI of a particular screen is created using an XML
 file or a group of XML files.</li>
 <li>Such a component is called a <b>view</b>.</li>
+<li>They&rsquo;re the building blocks of the user interface.</li>
 <li>Examples of views include <code>TextView</code> (for displaying text), <code>EditText</code> (for taking
 text input), <code>RadioButton</code>, <code>Switch</code>, <code>SeekBar</code> (sliders), etc.</li>
 <li>Each view will have an <code>id</code> (an integer), which can be accessed in a Java Class
@@ -820,13 +822,22 @@ An activity is connected to the XML layout because of a line that looks like:
 <p>
 where <code>activity_main.xml</code> is the name of the xml file.
 </p></li>
+
+<li>Views have properties like:
+<ul class="org-ul">
+<li>Color, dimensions, positions (all static properties)</li>
+<li>May have Focus</li>
+<li>May be interactive</li>
+<li>May be visible or not</li>
+<li>May have relationship with other views.</li>
+</ul></li>
 </ul>
 </div>
-<div id="outline-container-orgc37a1a4" class="outline-4">
-<h4 id="orgc37a1a4"><span class="section-number-4">3.2.1.</span> <code>&lt;TextView/&gt;</code></h4>
+<div id="outline-container-orgc9016a0" class="outline-4">
+<h4 id="orgc9016a0"><span class="section-number-4">3.2.1.</span> XML</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
-Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties.
+Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties defined in XML.
 </p>
 <div class="org-src-container">
 <pre class="src src-java">&lt;<span style="color: #ECBE7B;">TextView</span>
@@ -843,10 +854,11 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 /&gt;
 </pre>
 </div>
-</div>
-<ol class="org-ol">
-<li><a id="org284a53b"></a><code>layout_width</code> or <code>layout_height</code><br />
-<div class="outline-text-5" id="text-3-2-1-1">
+
+<p>
+<code>layout_width</code> or <code>layout_height</code>
+</p>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -864,7 +876,7 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 <tbody>
 <tr>
 <td class="org-left"><code>wrap_content</code></td>
-<td class="org-left">Only as wide as the text</td>
+<td class="org-left">Only as tall/wide as the size of the text</td>
 </tr>
 
 <tr>
@@ -888,14 +900,31 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 <code>dp</code> (density-independent pixels) are used for layout dimensions, while <code>sp</code>
 (scale-independent pixels) are used for text-sizes.
 </p>
+
+<p>
+All of these properties can be modified by changing the XML file, by changing
+things graphically on Android Studio, or by using the Java code.
+</p>
 </div>
-</li>
-</ol>
+</div>
+<div id="outline-container-org1b40d7a" class="outline-4">
+<h4 id="org1b40d7a"><span class="section-number-4">3.2.2.</span> Three ways to define a view</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>The three ways to define a view is:
+<ul class="org-ul">
+<li><b>Graphically</b></li>
+<li><b>Through XML</b></li>
+<li><b>Programmatically</b></li>
+</ul></li>
+<li>A <b>constraint</b> represents connection or alignment to another view.</li>
+</ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org1de8dab" class="outline-2">
-<h2 id="org1de8dab"><span class="section-number-2">4.</span> Basic Addition</h2>
+</div>
+<div id="outline-container-org938975d" class="outline-2">
+<h2 id="org938975d"><span class="section-number-2">4.</span> Basic Addition</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This code follows from <a href="https://www.youtube.com/watch?v=4hEsnJPoP4s">this video</a>.</li>
@@ -1002,8 +1031,8 @@ The complete app looks like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd513181" class="outline-2">
-<h2 id="orgd513181"><span class="section-number-2">5.</span> Rerouting to a different screen using Intent</h2>
+<div id="outline-container-org2e8b78d" class="outline-2">
+<h2 id="org2e8b78d"><span class="section-number-2">5.</span> Rerouting to a different screen using Intent</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Right click on the <code>app</code> and create a new activity (android studio will
@@ -1037,8 +1066,8 @@ textView.setText(String.valueOf(intent.getStringExtra(<span style="color: #98be6
 </ul>
 </div>
 </div>
-<div id="outline-container-org1fab902" class="outline-2">
-<h2 id="org1fab902"><span class="section-number-2">6.</span> Scroll View</h2>
+<div id="outline-container-org2465c3a" class="outline-2">
+<h2 id="org2465c3a"><span class="section-number-2">6.</span> Scroll View</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>When you use scroll view, drag and drop a linear layout into the component
@@ -1048,8 +1077,8 @@ under palette), because all Views should be under the linear layout.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5c31663" class="outline-2">
-<h2 id="org5c31663"><span class="section-number-2">7.</span> Spinner</h2>
+<div id="outline-container-org06e998e" class="outline-2">
+<h2 id="org06e998e"><span class="section-number-2">7.</span> Spinner</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><p>
@@ -1072,12 +1101,12 @@ spinner.setAdapter(adapter);
 </ul>
 </div>
 </div>
-<div id="outline-container-org2c1689b" class="outline-2">
-<h2 id="org2c1689b"><span class="section-number-2">8.</span> Feedback app</h2>
+<div id="outline-container-orgadf954f" class="outline-2">
+<h2 id="orgadf954f"><span class="section-number-2">8.</span> Feedback app</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org33fec1a" class="outline-3">
-<h3 id="org33fec1a"><span class="section-number-3">8.1.</span> RatingBar</h3>
+<div id="outline-container-org574fc46" class="outline-3">
+<h3 id="org574fc46"><span class="section-number-3">8.1.</span> RatingBar</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><p>
@@ -1090,8 +1119,8 @@ You get the rating as:
 </ul>
 </div>
 </div>
-<div id="outline-container-org5a81cf6" class="outline-3">
-<h3 id="org5a81cf6"><span class="section-number-3">8.2.</span> Radio Button</h3>
+<div id="outline-container-org98ab2ab" class="outline-3">
+<h3 id="org98ab2ab"><span class="section-number-3">8.2.</span> Radio Button</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><p>
@@ -1111,8 +1140,8 @@ then the selected radio button is obtained through the id (int):
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd410a21" class="outline-3">
-<h3 id="orgd410a21"><span class="section-number-3">8.3.</span> CheckBox</h3>
+<div id="outline-container-org525d8e9" class="outline-3">
+<h3 id="org525d8e9"><span class="section-number-3">8.3.</span> CheckBox</h3>
 <div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-java">recommendCheckBox = findViewById(R.id.recommend);
@@ -1127,8 +1156,8 @@ You check if it&rsquo;s checked or not by the boolean return value:
 </div>
 </div>
 </div>
-<div id="outline-container-orgeda807a" class="outline-3">
-<h3 id="orgeda807a"><span class="section-number-3">8.4.</span> Making a WebSearch Button</h3>
+<div id="outline-container-org071e604" class="outline-3">
+<h3 id="org071e604"><span class="section-number-3">8.4.</span> Making a WebSearch Button</h3>
 <div class="outline-text-3" id="text-8-4">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Intent</span>(<span style="color: #a9a1e1;">Intent</span>.ACTION_WEB_SEARCH);
@@ -1136,14 +1165,25 @@ intent.putExtra(<span style="color: #a9a1e1;">SearchManager</span>.QUERY, topic)
 startActivity(intent);
 </pre>
 </div>
+
+<ul class="org-ul">
+<li><p>
+The <code>ACTION_WEB_SEARCH</code> parameter passed to the <code>Intent</code> constructor is actually a
+string defined like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #51afef;">final</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">ACTION_WEB_SEARCH</span> = <span style="color: #98be65;">"android.intent.action.WEB_SEARCH"</span>;
+</pre>
+</div></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgb8d8e73" class="outline-3">
-<h3 id="orgb8d8e73"><span class="section-number-3">8.5.</span> Solving Data Loss after Screen Rotation</h3>
+<div id="outline-container-org2e0af9f" class="outline-3">
+<h3 id="org2e0af9f"><span class="section-number-3">8.5.</span> Solving Data Loss after Screen Rotation</h3>
 <div class="outline-text-3" id="text-8-5">
 </div>
-<div id="outline-container-org3cdb5b2" class="outline-4">
-<h4 id="org3cdb5b2"><span class="section-number-4">8.5.1.</span> What happens when screen rotates</h4>
+<div id="outline-container-org0fc2eea" class="outline-4">
+<h4 id="org0fc2eea"><span class="section-number-4">8.5.1.</span> What happens when screen rotates</h4>
 <div class="outline-text-4" id="text-8-5-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
@@ -1160,8 +1200,8 @@ function that&rsquo;s called just before the activity is destroyed.
 </p>
 </div>
 </div>
-<div id="outline-container-org52d30a5" class="outline-4">
-<h4 id="org52d30a5"><span class="section-number-4">8.5.2.</span> What happens after screen rotates</h4>
+<div id="outline-container-org0fe9983" class="outline-4">
+<h4 id="org0fe9983"><span class="section-number-4">8.5.2.</span> What happens after screen rotates</h4>
 <div class="outline-text-4" id="text-8-5-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
