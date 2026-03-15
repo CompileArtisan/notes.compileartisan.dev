@@ -28,6 +28,14 @@
 - USB controllers
 - Peripherals
 
+** Navigation
+- The back button on the bottom of the screen is called the *temporal/back
+  navigation button* and that is controlled by the Android System's *back stack*.
+- The left-arrow on the top-left of the screen is called the *ancestral/up
+  navigation button*, and it's provided by the app's action bar.
+- Ancestral navigation is controlled by defining parent-child relationships
+  between activities in the Android manifest.
+
 ** Android Stack
 
 | System Apps ~OR~ User Apps                      |
@@ -64,6 +72,7 @@
 * How the App works
 
 ** Activity
+*** What it is
 - A Java Class that serves as a controller for a specific screen, is called an
   activity.
 - Such a Java Class must ~extend Activity~ (basic [[https://developer.android.com/guide/components/activities/activity-lifecycle][activity lifecycle]] features
@@ -73,7 +82,18 @@
   ~Activity~.
 - The screen that the app starts with, is controlled with the help of the
   ~MainActivity.java~ file.
-
+  
+*** Activity Life Cycle
+- It is a set of states an activity can be in during it's lifetime, from when it
+  is created until it is destroyed.
+- It's a graph where the nodes are the states, the edges are the callbacks.
+  file:/home/praaneshnair/gitProjects/org-notes/android-app-development/activityStates.png
+  - Created (not visible yet)
+  - Started (visible)
+  - Resume (visible)
+  - Paused(partially invisible)
+  - Stopped (hidden)
+  - Destroyed (gone from memory)
 
 ** Views
 - All of the components of the UI of a particular screen is created using an XML
@@ -111,10 +131,11 @@ Let's arbitrarily take the ~<TextView/>~ view and study its properties defined i
        android:gravity="center"
        android:textAlignment="center"
        android:textStyle="bold" 
+       android:autoLink="web"
 />
 #+end_src
 
-~layout_width~ or ~layout_height~
+**** ~layout_width~ or ~layout_height~
 
 | Value            | Meaning                                     |
 |------------------+---------------------------------------------|
@@ -128,6 +149,21 @@ Let's arbitrarily take the ~<TextView/>~ view and study its properties defined i
 
 All of these properties can be modified by changing the XML file, by changing
 things graphically on Android Studio, or by using the Java code.
+
+
+**** ~android:autoLink="web"~
+You can make the content inside a ~TextView~ clickable, by specifying where it
+should take the user to after clicking.
+- ~web~: Detects URLs like https://example.com or www.example.com and opens them
+  in the browser when tapped.
+- ~email~: Detects email addresses like user@gmail.com and opens the email client
+  (mailto intent) when tapped.
+- ~phone~: Detects phone numbers like +1-800-555-0199 and opens the dialer when
+  tapped.
+- ~map~: Detects addresses and opens them in Maps when tapped. This one is the
+  least reliable — address detection is fuzzy and often misses or
+  false-positives.
+- ~all~: Enables all four of the above at once.
 
 
 *** Three ways to define a view
@@ -158,6 +194,8 @@ x.setOrientation(LinearLayout.VERTICAL);
   #+begin_src java
 TextView tv = new TextView(this);
 tv.setText("hi loll");
+tv.setWidth(LayoutParams.MATCH_PARENT);
+tv.setMinLines(3);
   #+end_src
 - To add the ~TextView~ inside the ~LinearLayout~:
   #+begin_src java
@@ -252,15 +290,26 @@ public class MainActivity extends AppCompatActivity {
 }
   #+end_src
 
-* Rerouting to a different screen using Intent
-- Right click on the ~app~ and create a new activity (android studio will
+* Intent
+- An Intent is an object used to request an action from another app component
+  via the Android system.
+- It's a message to the Android runtime to run an Activity.
+** Types of Intent
+- There are two types of intent: Explicit and Implicit
+
+*** Explicit Intent
+- This is the intent used to transfer from one activity to another activity
+  within an application.
+- Right click on the ~app~ and create a new activity (Android Studio will
   automatically create and link the XML file).
-- Trigger the new activity by setting onClick parameter as the name of a
-  function ~doSomething()~, which is a void function defined in ~MainActivity~.
+- Trigger the new activity by setting onClick parameter of a button as the name
+  of a function ~doSomething()~, which is a void function defined in ~MainActivity~.
   #+begin_src java
 public void doSomething(View view){
     Intent intent = new Intent(this, Next.class);
     intent.putExtra("answer", String.valueOf(Integer.parseInt(someInput.getText().toString()) +100));
+    // in case you're using data instead of extras (both explained later):
+    // intent.setData(Uri.parse("http://www.google.com"));
     startActivity(intent);
 }
 
@@ -274,7 +323,21 @@ textView.setText(String.valueOf(intent.getStringExtra("answer")));
 
   #+end_src
   
+*** Implicit Intent
+- This is used to invoke an activity from another app.
+- Here the system is asked to find an activity that can handle this request.
+  
+** Types of Sending data with Intents
+
+| Data                                             | Extras                         |
+|--------------------------------------------------+--------------------------------|
+| Single piece of information represented by a URI | Key-Value Pairs of Information |
+
+
+
 * Scroll View
+- ScrollView makes a single child under it, vertically scrollable. For
+  horizontal scrolling you'll have to use ~HorizontalScrollView~.
 - When you use scroll view, drag and drop a linear layout into the component
   tree, and then put whatever you want in there.
 - Drag and drop only into the component tree (bottom left corner, basically
