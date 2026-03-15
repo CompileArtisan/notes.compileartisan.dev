@@ -97,7 +97,7 @@ setContentView(R.layout.activity_main);
   - May be visible or not
   - May have relationship with other views.
 
-*** XML
+*** How it looks like in XML
 Let's arbitrarily take the ~<TextView/>~ view and study its properties defined in XML.
 #+begin_src java
 <TextView
@@ -138,6 +138,40 @@ things graphically on Android Studio, or by using the Java code.
 - A *constraint* represents connection or alignment to another view.
 
   
+*** ViewGroup
+- A ~ViewGroup~ is a type of View that can contain other Views.
+- You can see the *View Hierarchy* in the *component tree*.
+  - Use the smallest number of simplest views
+  - Keep the view hierarchy flat by limiting nesting of views.
+*** Layout
+- ~Layout~ is a type of ~ViewGroup~ that are designed to position and arrange those
+  views on the screen.
+  file:/home/praaneshnair/gitProjects/org-notes/android-app-development/view.png
+  
+**** Creating Layouts using Java
+- We'll use ~LinearLayout~, which just puts items in a row or in a column. To create one and then set the direction, we use:
+  #+begin_src java
+LinearLayout x = new LinearLayout(this);
+x.setOrientation(LinearLayout.VERTICAL);
+  #+end_src
+- Let's have a ~TextView~ inside the ~LinearLayout~. To create the ~TextView~:
+  #+begin_src java
+TextView tv = new TextView(this);
+tv.setText("hi loll");
+  #+end_src
+- To add the ~TextView~ inside the ~LinearLayout~:
+  #+begin_src java
+x.addView(tv);
+setContentView(x);
+  #+end_src
+- To modify properties:
+  #+begin_src java
+LinearLayout.LayoutParams layoutParams = new Linear.LayoutParams(
+                 LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT
+                                                                );
+x.setLayoutParams(layoutParams);
+  #+end_src
+
 * Basic Addition
 - This code follows from [[https://www.youtube.com/watch?v=4hEsnJPoP4s][this video]].
 - First declare private variables in the ~MainActivity~ class:
@@ -162,7 +196,7 @@ add = (Button) findViewById(R.id.addButton);
   and just pick the first suggestion (it's most likely what we need). So the
   function will look like this:
   #+begin_src java
-addButton.setOnClickListener(new View.OnClickListener() {
+add.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         // here is where we do the logic
