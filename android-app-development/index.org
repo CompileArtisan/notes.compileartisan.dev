@@ -12,32 +12,69 @@
 
 * Introduction to Android
 
-** User Interaction
-*** Touch Gestures
+** Why Android
+Android is a mobile operating system based on the Linux Kernel, designed for
+touch screen devices. There are several reasons to use it such as:
+*** Large Market Reach
+It is used in 80% of the smartphones in the world.
+
+*** Open Source
+All of the code is open to the developers for customization.
+
+*** Versatility
+Android is used in smartphones, smart watches, TVs and cars.
+
+*** Customizable
+Vendors can tailor Android to specific hardware or user needs.
+
+*** User Interaction
+**** Touch Gestures
 - Swiping
 - Tapping
 - Pinching
   
-*** Virtual Keyboard
+**** Virtual Keyboard
 - Characters
 - Numbers
 - Emojis
 
-*** External
+**** External
 - Bluetooth
 - USB controllers
 - Peripherals
 
-** Navigation
-- The back button on the bottom of the screen is called the *temporal/back
-  navigation button* and that is controlled by the Android System's *back stack*.
-- The left-arrow on the top-left of the screen is called the *ancestral/up
-  navigation button*, and it's provided by the app's action bar.
-- Ancestral navigation is controlled by defining parent-child relationships
-  between activities in the Android manifest.
+** Sensors that Android Uses
 
-** Android Stack
+*** Accelerometer
+- Detects device orientation, motion and speed.
 
+
+*** Gyroscope
+- Measures angular rotation.
+- Used in steering in games.
+
+*** GPS/Location
+- Detects the user's geographic position.
+
+*** Proximity Sensor
+- Detects how close the user's face is.
+- This disables the screen during phone calls.
+
+** Four Components of Android Application Development
+
+*** Resources
+- This contains all static data which is to be separated from the code.
+- Includes:
+  - XML Layouts (stored in ~res/layout/~)
+  - Strings
+  - Images
+  - Colors
+  - Media Files
+
+*** Components / Android Stack
+- These are the executable of an app.
+- These includes:
+  
 | System Apps ~OR~ User Apps                      |
 | Java API Framework                            |
 | Native C/C++ Runtime ~OR~ Android Runtime (ART) |
@@ -56,6 +93,27 @@
   functions too.
 - The Java API Framework consists of premade classes which correspond to
   different parts of an app.
+  
+*** Manifest 
+- A configuration file that the Android Runtime reads first.
+- This declares all of the components of the App.
+
+*** Build Configuration (Gradle)
+- Manages dependencies and build settings using the ~.gradle~ config files.
+- It also manages APK (Android Package) versions.
+
+
+
+** Navigation
+- The back button on the bottom of the screen is called the *temporal/back
+  navigation button* and that is controlled by the Android System's *back stack*.
+- The left-arrow on the top-left of the screen is called the *ancestral/up
+  navigation button*, and it's provided by the app's action bar.
+- Ancestral navigation is controlled by defining parent-child relationships
+  between activities in the Android manifest.
+
+
+
 
   
 ** Android Application Components
@@ -90,7 +148,7 @@
   file:/home/praaneshnair/gitProjects/org-notes/android-app-development/activityStates.png
   - Created (not visible yet)
   - Started (visible)
-  - Resume (visible)
+  - Resume (In foreground and interactive)
   - Paused(partially invisible)
   - Stopped (hidden)
   - Destroyed (gone from memory)
