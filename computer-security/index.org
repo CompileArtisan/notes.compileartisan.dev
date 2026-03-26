@@ -1106,7 +1106,84 @@ meetmeaftertheparty
   | $\text{Secret Key} = K = B^{a}$ |                                    | $\text{Secret Key} = K = A^{b}$ |
   
 
-****** Perform Diffie Hellman Key exchange using a prime number 13, and a generator of prime number 6, where person 1 has a private key 5, and person 2 has a private key 4. Calculate the shared secret among person 1 and 2.
+
+****** Man in the Middle Attack
+
+***** Digital Signature
+- It's an authentication mechanism that enables the creator of a maessage to
+  attach a code that acts as a signature.
+- Digital signature is formed by taking the hash value of the message and
+  encrypting the message with the sender's private key.
+- After transmitting the message, both of us have the same message $m$ in
+  plaintext. To verify that we actually have the same message, we verify the
+  digital signature.
+****** Properties of Digital Signature
+- It must verify *author*, *date* and *time* of the signature.
+- It must authenticate the *contents* at the time of signature.
+- It must be *verifiable* by *third parties* to resolve disputes.
+
+****** RSA Approach to Digital Signature
+  | Sender                                                                                                                                       | Receiver                                                                                                                                                                                                                             |
+  |----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | The hash of message $m$ is computed as $h$, and then you encrypt this hash using the sender's private key to get the message's signature $S$ | The receiver also computes the hash $h$ of the message $m$. Next, the signature $S$ that the sender provided, is decrypted using the receiver's public key. If the decrypted value is the same as $h$, then the message is verified. |
+  
+****** DSS (Digital Signature Standard)
+- Digital signatures are generated using *Secure Hash Algorithm* (SHA). 
+- Here, instead of a key, we use a *digital signature function*.
+
+******* Sender Side/ Signing
+- A hash value is generated from the message.
+- There are 4 inputs given to the signature generation function:
+  - The hash value
+  - A random number $k$
+  - The sender's private key $PR(a)$
+  - The global public key $PU(g)$
+- The signature function generates two components $s$ and $r$, where $r \neq 0$.
+- ($m$, $s$, $r$) are sent to the receiver.
+
+******* Receiver Side
+- The hash value is generated from the message.
+- The signature verification function takes 5 inputs:
+  - The hash value
+  - $s$ and $r$
+  - Public key of sender $PU(a)$
+  - The global public key $PU(g)$
+- The output of the verification function is compared with $r$.
+- If they match, the signature is valid.
+
+****** DSA (Digital Signature Algorithm)
+- The values used here are:
+  - $p$: 512 - 1024 bit prime number
+  - $q$: 160 bit prime number, such that $q \mid p-1$
+  - $x$: Any integer such that $0 < x < q$
+  - $y = g^{x} \mod(p)$
+
+******* Sender Side/ Signing
+- Pick a random number $k$ such that $0 < k < q$
+- $r = (g^{k}\mod(p)) \mod(q)$
+- $s = k^{-1}(\text{SHA1}(m) + x\cdot r) \mod(q)$
+- ($m$, $s$, $r$) are sent to the receiver.
+
+******* Verification
+- $w = s^{-1}\mod(q)$
+- $u1 = (\text{SHA1}(m) \times w)\mod(q)$
+- $u2 = (r \times w) mod q$ 
+- $v = (g^{u1} \times y^{u2} \mod(p)) \mod(q)$
+- If $v$ and $r$ give the same number, the signature is verified.
+
+
+***** Hash Function
+****** Properties
+  
+  | Property                  | Description                                                                                             |
+  |---------------------------+---------------------------------------------------------------------------------------------------------|
+  | Variable Input Size       |                                                                                                         |
+  | Fixed Output Size         |                                                                                                         |
+  | Preimage Resistant        | It's a one-way property, as given the hash it's computationally infeasible to find the original message |
+  | Second preimage resistant | Given $H(x)$, $H(y)$ and $y$, if you know $H(x) = H(y)$, it doesn't mean $x = y$ (you can't find $x$)   |
+  | Collision Resistant       | It's computationally infeasible to find ($x$,$y$) if $H(x) = H(y)$                                      |
+
+
 
 *** Based on how plaintext is processed
 
@@ -1126,14 +1203,12 @@ meetmeaftertheparty
 
 *** Commutative
 $$a + b = b + a$$
-
 *** Associative
 $$a + (b+c) = (a+b)+c$$
 Same applies to multiplication too.
 
 *** Distributive
 $$a \times (b+c) = ab + ac$$
-
 ** Division
 - When we say $a | b$ (a divides b), we're doing $\frac{b}{a}$.
 - $b$ is the dividend and $a$ is the divisor.
