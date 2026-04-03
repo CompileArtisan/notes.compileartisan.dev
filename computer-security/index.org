@@ -939,11 +939,59 @@ meetmeaftertheparty
 
 *** Based on Number of Keys
 
-**** Single/Private Key
-- It's called *symmetric key encryption*.
+**** Single/Private Key or Symmetric Cryptography
 
-**** Two-key or Public Key cryptography
-- It's called *assymmetric key encryption*.
+$$\text{Plain Text} \xrightarrow[\small{+key}]{\text{Encryption Algorithm (DES)}} \text{Transmitted Cipher Text}  \xrightarrow[\text{Decryption Algorithm}]{}  \text{Plain Text}$$
+
+***** Feistel Cipher Structure
+- There are $2^{n}$ ways of mapping for plain text
+- Here, we use [[*Block][Block]] cipher
+- For a plain text block of $n$ bits, the key length has to be $n \times 2^{n}$ bits.
+- *Design Principles*:
+  - Block size
+  - Key size
+  - Number of rounds
+  - Subkey generation 
+
+***** Data Encryption Standard (DES)
+- This is the most widely used block cipher in the world.
+- The key size is 64 reduced to 56 and the subkey size is 48 bits.
+- The number of rounds and subkeys are 16.
+- The cipher text is of 64 bits.
+- Every round has substitution and transposition.
+- Each round is defined as:
+  $$L_{i} = R_{i-1}$$
+  $$R_{i} = L_{i-1} \text{ xor } F(R_{0}, K_{1})$$
+- Takes 32 bit R half and 48-bit subkey and:
+  - Expands R to 48 bits using permutation E
+  - Adds to subkey
+  - Passes through 8 S-boxes to get 32 bit results
+  - Finally permutes this using 32-bit permutation P.
+    
+file:/home/praaneshnair/gitProjects/org-notes/computer-security/One_round_of_DES.jpeg
+    
+****** S-Box
+- Given a $4 \times 16$ box of 4 bit numbers, and a 6 bit number, you locate a number
+  as:
+  - The outer two bits (1st bit and 6th bit taken together) determines the row number
+  - The inner bits (2nd, 3rd, 4th, 5th bit taken together) determines the column number
+- The output is the binary number of the cell value.
+- Note that this box is indexed from 0.
+
+****** Decryption
+- DES decryption is encryption in reverse order.
+- The output of encryption generated from the 16th round with be the input to
+  the first round.
+| Double Decryption with 2 keys       | Triple Decryption with 3 keys                          | Triple Decryption with 2 keys                         |
+|-------------------------------------+--------------------------------------------------------+-------------------------------------------------------|
+| Encrypt using k1 \rightarrow Encrypt using k2 | Encrypt using k1 \rightarrow Encrypt using k2 \rightarrow Encrypt using k3 | Encrypt using k1 \rightarrow Decrypt using k2 \rightarrow Encrypt with k1 |
+  
+
+
+
+
+**** Two-key or Public Key cryptography or Asymmetric Cryptography
+- It's called *asymmetric key encryption*.
 - Public key is used to encrypt the message and private key is used to decrypt.
 - Public key for Party b is denoted as $KU_{b}$
   $$C = E(\text{KB}_{B}, M)$$
@@ -1194,6 +1242,27 @@ meetmeaftertheparty
 - Two types are:
   - Transposition
   - Substitution
+- Block cipher models are used for *symmetric cipher models*.
+- In Block ciphers, the input and output have to be of the same length.
+- There are two types of mapping: 
+  - Reversible: The cipher text is unique for every plain text. 
+  - Irreversible
+- The ideal block cipher is equivalent to a classical substitution cipher, which is prone to attacks.
+- To overcome this, an *arbitrary reversible substitution cipher* can be used,
+  where the statistical characteristics of the plain text is masked.
+- Using a large block size increases security but is impractical to implement.
+- For example, in [[*Feistel Cipher Structure][Feistel Cipher Structure]] a plain text block of $n$ bits, the
+  key length has to be $n \times 2^{n}$ bits.
+- The ideal block cipher uses the concept of *product cipher* where product cipher
+  is a combination of substitution and permutation. [[*Feistel Cipher Structure][Feistel Cipher Structure]]
+  proposed this concept.
+- Most ciphers are based on [[*Feistel Cipher Structure][Feistel Cipher Structure]].
+
+***** Confusion and Diffusion
+| Confusion                                                                        | Diffusion                                                                                                                          |
+|----------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------|
+| Makes the relationship between cipher text and plain text as complex as possible | It hides the statistical structure of the plaintext by repeatedly applying permutations, and then applying the encryption function |
+
 
 **** Stream
 
