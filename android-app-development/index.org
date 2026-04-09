@@ -183,7 +183,7 @@ Let's arbitrarily take the ~<TextView/>~ view and study its properties defined i
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:background="@color/myBackgroundColor"
-       android:text="@string/count_initial_value"
+       android:text="This is some text that will be displayed lolllll"
        android:textColor="@color/#0000aa"
        android:textSize="@dimen/count_text_size"
        android:gravity="center"
@@ -384,7 +384,11 @@ textView.setText(String.valueOf(intent.getStringExtra("answer")));
 *** Implicit Intent
 - This is used to invoke an activity from another app.
 - Here the system is asked to find an activity that can handle this request.
-  
+  #+begin_src java
+Uri webpage = Uri.parse("www.google.com");
+Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+startActivity(intent);
+  #+end_src  
 ** Types of Sending data with Intents
 
 | Data                                             | Extras                         |
@@ -479,3 +483,91 @@ function that's called just before the activity is destroyed.
 This is the function that is called when the activity is recreated after the
 screen rotates.
 
+* Toast
+#+begin_src java
+Toast.makeText(this, "something to show", Toast.LENGTH_LONG).show();
+#+end_src
+
+* Personal Expense Manager
+- Make scroll down/ context menu item
+- Make a 'check balance' option
+
+* SQLite
+** Datatypes
+
+| ~SQLite type~ | Use for Notes                                                   |
+| ~NULL~        | Missing values                                                  |
+| ~INTEGER~     | Whole numbers, booleans, Auto-scales bit width                  |
+| ~REAL~        | Decimals, floats                                                |
+| ~TEXT~        | Strings of any length, Most flexible type                       |
+| ~BLOB~        | Binary data, but avoid this and store file path as TEXT instead |
+
+Say we have some file ~DBhelper.java~
+#+begin_src java
+public class DBhelper extends SQLiteOpenHelper {
+    private static final String DB_NAME = "lol";
+    private static final int DB_VERSION = 1;
+    private static final String TABLE_NAME = "users"; 
+    private static final String COL_ID = "id";        // 
+    private static final String COL_NAME = "name";    // define column names as variables
+    private static final String COL_AGE = "age";      // 
+
+    public DBHelper(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);    // constructor takes context
+    }
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String query = "CREATE TABLE " + TABLE_NAME + " (" +
+                COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_NAME + " TEXT, " +
+                COL_AGE + " INTEGER)";
+        db.execSQL(query);                            
+    }
+    // the onCreate function builds the sql string:
+    // CREATE TABLE users (
+    //    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    //    name TEXT,
+    //    age INTEGER
+    // )
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
+    
+}
+#+end_src
+In the ~MainActivity.java~ file,
+#+begin_src java
+public class MainActivity extends AppCompatActivity {
+    DBHelper dbhelper; 
+    Button btnSave;
+    // ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        dbHelper = new DBHelper(this);
+        btnSave = findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(v -> {
+            String name = etName.getText().toString();
+            String age = etAge.getText().toString();
+
+            if (name.isEmpty() || age.isEmpty()) {
+                Toast.makeText(this, "Enter all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            SQLiteDatabase db = dbHelper.getWritableDatabase();  //  opens the db in read-write mode 
+            ContentValues values = new ContentValues();          //    
+            values.put(DBHelper.COL_NAME, name);                 //      
+            values.put(DBHelper.COL_AGE, Integer.parseInt(age)); //  
+            db.insert(DBHelper.TABLE_NAME, null, values);        //  and here is where the values are inserted into the db
+
+            Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show();
+            etName.setText("");
+            etAge.setText("");
+        });
+    }
+}
+#+end_src
