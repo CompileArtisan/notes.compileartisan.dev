@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-04-09 Thu 22:10 -->
+<!-- 2026-04-10 Fri 00:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mobile Application Development</title>
@@ -585,96 +585,102 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga8acc8e">1. Prelude</a></li>
-<li><a href="#org94afe6b">2. Introduction to Android</a>
+<li><a href="#orgd7e6d09">1. Prelude</a></li>
+<li><a href="#org1cb1389">2. Introduction to Android</a>
 <ul>
-<li><a href="#orgde47088">2.1. Why Android</a>
+<li><a href="#org5586e9a">2.1. Why Android</a>
 <ul>
-<li><a href="#org365ba8a">2.1.1. Large Market Reach</a></li>
-<li><a href="#org42fca81">2.1.2. Open Source</a></li>
-<li><a href="#orgc2fb0ba">2.1.3. Versatility</a></li>
-<li><a href="#orgaeed4d3">2.1.4. Customizable</a></li>
-<li><a href="#org7203f98">2.1.5. User Interaction</a></li>
+<li><a href="#org629e3bc">2.1.1. Large Market Reach</a></li>
+<li><a href="#org2f8e672">2.1.2. Open Source</a></li>
+<li><a href="#orgae352b0">2.1.3. Versatility</a></li>
+<li><a href="#org41b4f99">2.1.4. Customizable</a></li>
+<li><a href="#org9928805">2.1.5. User Interaction</a></li>
 </ul>
 </li>
-<li><a href="#orgb5c2c12">2.2. Sensors that Android Uses</a>
+<li><a href="#org59c3e57">2.2. Sensors that Android Uses</a>
 <ul>
-<li><a href="#org0aa89fa">2.2.1. Accelerometer</a></li>
-<li><a href="#org407357b">2.2.2. Gyroscope</a></li>
-<li><a href="#org42b0678">2.2.3. GPS/Location</a></li>
-<li><a href="#org3de908f">2.2.4. Proximity Sensor</a></li>
+<li><a href="#orga85a0c1">2.2.1. Accelerometer</a></li>
+<li><a href="#org0a7a8d6">2.2.2. Gyroscope</a></li>
+<li><a href="#org19288f5">2.2.3. GPS/Location</a></li>
+<li><a href="#orgf562d04">2.2.4. Proximity Sensor</a></li>
 </ul>
 </li>
-<li><a href="#org99fcefb">2.3. Four Components of Android Application Development</a>
+<li><a href="#orgac24b72">2.3. Four Components of Android Application Development</a>
 <ul>
-<li><a href="#orgfc51303">2.3.1. Resources</a></li>
-<li><a href="#org5264a1c">2.3.2. Components / Android Stack</a></li>
-<li><a href="#orge198d10">2.3.3. Manifest</a></li>
-<li><a href="#org65ca6e4">2.3.4. Build Configuration (Gradle)</a></li>
+<li><a href="#org84fd061">2.3.1. Resources</a></li>
+<li><a href="#org31892c6">2.3.2. Components / Android Stack</a></li>
+<li><a href="#orgf02a488">2.3.3. Manifest</a></li>
+<li><a href="#orgfd28e68">2.3.4. Build Configuration (Gradle)</a></li>
 </ul>
 </li>
-<li><a href="#org68a3a0a">2.4. Navigation</a></li>
-<li><a href="#org9052341">2.5. Android Application Components</a></li>
+<li><a href="#org0965f08">2.4. Navigation</a></li>
+<li><a href="#orgc4784aa">2.5. Android Application Components</a></li>
 </ul>
 </li>
-<li><a href="#org657ca8a">3. How the App works</a>
+<li><a href="#org21e79cb">3. How the App works</a>
 <ul>
-<li><a href="#orge75d22c">3.1. Activity</a>
+<li><a href="#org7860eaa">3.1. Activity</a>
 <ul>
-<li><a href="#org10fbace">3.1.1. What it is</a></li>
-<li><a href="#org6ee5372">3.1.2. Activity Life Cycle</a></li>
+<li><a href="#org2bc3f17">3.1.1. What it is</a></li>
+<li><a href="#orgb372f2b">3.1.2. Activity Life Cycle</a></li>
 </ul>
 </li>
-<li><a href="#org29b352c">3.2. Views</a>
+<li><a href="#org7fa180c">3.2. Views</a>
 <ul>
-<li><a href="#org9e43e37">3.2.1. How it looks like in XML</a></li>
-<li><a href="#org075d6c6">3.2.2. Three ways to define a view</a></li>
-<li><a href="#orgeb3eb2a">3.2.3. ViewGroup</a></li>
-<li><a href="#orgaf234a5">3.2.4. Layout</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgbb8f8ca">4. Basic Addition</a></li>
-<li><a href="#org9d62e0f">5. Intent</a>
-<ul>
-<li><a href="#orge7a05cf">5.1. Types of Intent</a>
-<ul>
-<li><a href="#org8c43c93">5.1.1. Explicit Intent</a></li>
-<li><a href="#org7c9679c">5.1.2. Implicit Intent</a></li>
-</ul>
-</li>
-<li><a href="#org6c80072">5.2. Types of Sending data with Intents</a></li>
-</ul>
-</li>
-<li><a href="#orgb3898a4">6. Scroll View</a></li>
-<li><a href="#orgc0ecab6">7. Spinner</a></li>
-<li><a href="#org6ae4f80">8. Feedback app</a>
-<ul>
-<li><a href="#orgdb9dd75">8.1. RatingBar</a></li>
-<li><a href="#orgb9e374a">8.2. Radio Button</a></li>
-<li><a href="#orgb04cb3a">8.3. CheckBox</a></li>
-<li><a href="#org2796d18">8.4. Making a WebSearch Button</a></li>
-<li><a href="#org75fb460">8.5. Solving Data Loss after Screen Rotation</a>
-<ul>
-<li><a href="#org296a638">8.5.1. What happens when screen rotates</a></li>
-<li><a href="#orge354050">8.5.2. What happens after screen rotates</a></li>
+<li><a href="#org1489065">3.2.1. How it looks like in XML</a></li>
+<li><a href="#orge360083">3.2.2. Three ways to define a view</a></li>
+<li><a href="#orgcae4471">3.2.3. ViewGroup</a></li>
+<li><a href="#org0e215fe">3.2.4. Layout</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org6ed1728">9. Toast</a></li>
-<li><a href="#orgd6cb2f4">10. Personal Expense Manager</a></li>
-<li><a href="#orgdb7418b">11. SQLite</a>
+<li><a href="#org2f061dc">4. Basic Addition</a></li>
+<li><a href="#org16e6845">5. Intent</a>
 <ul>
-<li><a href="#orgcc473a9">11.1. Datatypes</a></li>
+<li><a href="#orgb8d07d8">5.1. Types of Intent</a>
+<ul>
+<li><a href="#org14ef81e">5.1.1. Explicit Intent</a></li>
+<li><a href="#orgfb1965b">5.1.2. Implicit Intent</a></li>
+</ul>
+</li>
+<li><a href="#org846b852">5.2. Types of Sending data with Intents</a></li>
+</ul>
+</li>
+<li><a href="#orgee607b4">6. Scroll View</a></li>
+<li><a href="#orgc4be856">7. Spinner</a></li>
+<li><a href="#orgbc50e8d">8. Feedback app</a>
+<ul>
+<li><a href="#orgf309d6a">8.1. RatingBar</a></li>
+<li><a href="#org2a58066">8.2. Radio Button</a></li>
+<li><a href="#org3ec2950">8.3. CheckBox</a></li>
+<li><a href="#org22d8bea">8.4. Making a WebSearch Button</a></li>
+<li><a href="#org594a0b5">8.5. Solving Data Loss after Screen Rotation</a>
+<ul>
+<li><a href="#orgedd1393">8.5.1. What happens when screen rotates</a></li>
+<li><a href="#orgf939a18">8.5.2. What happens after screen rotates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd64b93f">9. Toast</a></li>
+<li><a href="#org583800d">10. Personal Expense Manager</a></li>
+<li><a href="#orgaa13671">11. SQLite</a>
+<ul>
+<li><a href="#org1133163">11.1. Datatypes</a></li>
+</ul>
+</li>
+<li><a href="#orgc173dbf">12. Services</a>
+<ul>
+<li><a href="#org2ea2be6">12.1. Started Service</a></li>
+<li><a href="#org54c8352">12.2. Bound Service</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga8acc8e" class="outline-2">
-<h2 id="orga8acc8e"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-orgd7e6d09" class="outline-2">
+<h2 id="orgd7e6d09"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>These notes don&rsquo;t include Android Studio tutorials as:
@@ -688,56 +694,56 @@ I really don&rsquo;t think these notes can replace lectures or a course itself.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org94afe6b" class="outline-2">
-<h2 id="org94afe6b"><span class="section-number-2">2.</span> Introduction to Android</h2>
+<div id="outline-container-org1cb1389" class="outline-2">
+<h2 id="org1cb1389"><span class="section-number-2">2.</span> Introduction to Android</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgde47088" class="outline-3">
-<h3 id="orgde47088"><span class="section-number-3">2.1.</span> Why Android</h3>
+<div id="outline-container-org5586e9a" class="outline-3">
+<h3 id="org5586e9a"><span class="section-number-3">2.1.</span> Why Android</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Android is a mobile operating system based on the Linux Kernel, designed for
 touch screen devices. There are several reasons to use it such as:
 </p>
 </div>
-<div id="outline-container-org365ba8a" class="outline-4">
-<h4 id="org365ba8a"><span class="section-number-4">2.1.1.</span> Large Market Reach</h4>
+<div id="outline-container-org629e3bc" class="outline-4">
+<h4 id="org629e3bc"><span class="section-number-4">2.1.1.</span> Large Market Reach</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 It is used in 80% of the smartphones in the world.
 </p>
 </div>
 </div>
-<div id="outline-container-org42fca81" class="outline-4">
-<h4 id="org42fca81"><span class="section-number-4">2.1.2.</span> Open Source</h4>
+<div id="outline-container-org2f8e672" class="outline-4">
+<h4 id="org2f8e672"><span class="section-number-4">2.1.2.</span> Open Source</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 All of the code is open to the developers for customization.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc2fb0ba" class="outline-4">
-<h4 id="orgc2fb0ba"><span class="section-number-4">2.1.3.</span> Versatility</h4>
+<div id="outline-container-orgae352b0" class="outline-4">
+<h4 id="orgae352b0"><span class="section-number-4">2.1.3.</span> Versatility</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 Android is used in smartphones, smart watches, TVs and cars.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaeed4d3" class="outline-4">
-<h4 id="orgaeed4d3"><span class="section-number-4">2.1.4.</span> Customizable</h4>
+<div id="outline-container-org41b4f99" class="outline-4">
+<h4 id="org41b4f99"><span class="section-number-4">2.1.4.</span> Customizable</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 Vendors can tailor Android to specific hardware or user needs.
 </p>
 </div>
 </div>
-<div id="outline-container-org7203f98" class="outline-4">
-<h4 id="org7203f98"><span class="section-number-4">2.1.5.</span> User Interaction</h4>
+<div id="outline-container-org9928805" class="outline-4">
+<h4 id="org9928805"><span class="section-number-4">2.1.5.</span> User Interaction</h4>
 <div class="outline-text-4" id="text-2-1-5">
 </div>
 <ol class="org-ol">
-<li><a id="org59c8d55"></a>Touch Gestures<br />
+<li><a id="org517a131"></a>Touch Gestures<br />
 <div class="outline-text-5" id="text-2-1-5-1">
 <ul class="org-ul">
 <li>Swiping</li>
@@ -746,7 +752,7 @@ Vendors can tailor Android to specific hardware or user needs.
 </ul>
 </div>
 </li>
-<li><a id="orgfd82524"></a>Virtual Keyboard<br />
+<li><a id="orge7af0d8"></a>Virtual Keyboard<br />
 <div class="outline-text-5" id="text-2-1-5-2">
 <ul class="org-ul">
 <li>Characters</li>
@@ -755,7 +761,7 @@ Vendors can tailor Android to specific hardware or user needs.
 </ul>
 </div>
 </li>
-<li><a id="org20c5647"></a>External<br />
+<li><a id="orga6f9130"></a>External<br />
 <div class="outline-text-5" id="text-2-1-5-3">
 <ul class="org-ul">
 <li>Bluetooth</li>
@@ -767,20 +773,20 @@ Vendors can tailor Android to specific hardware or user needs.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb5c2c12" class="outline-3">
-<h3 id="orgb5c2c12"><span class="section-number-3">2.2.</span> Sensors that Android Uses</h3>
+<div id="outline-container-org59c3e57" class="outline-3">
+<h3 id="org59c3e57"><span class="section-number-3">2.2.</span> Sensors that Android Uses</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org0aa89fa" class="outline-4">
-<h4 id="org0aa89fa"><span class="section-number-4">2.2.1.</span> Accelerometer</h4>
+<div id="outline-container-orga85a0c1" class="outline-4">
+<h4 id="orga85a0c1"><span class="section-number-4">2.2.1.</span> Accelerometer</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>Detects device orientation, motion and speed.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org407357b" class="outline-4">
-<h4 id="org407357b"><span class="section-number-4">2.2.2.</span> Gyroscope</h4>
+<div id="outline-container-org0a7a8d6" class="outline-4">
+<h4 id="org0a7a8d6"><span class="section-number-4">2.2.2.</span> Gyroscope</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>Measures angular rotation.</li>
@@ -788,16 +794,16 @@ Vendors can tailor Android to specific hardware or user needs.
 </ul>
 </div>
 </div>
-<div id="outline-container-org42b0678" class="outline-4">
-<h4 id="org42b0678"><span class="section-number-4">2.2.3.</span> GPS/Location</h4>
+<div id="outline-container-org19288f5" class="outline-4">
+<h4 id="org19288f5"><span class="section-number-4">2.2.3.</span> GPS/Location</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li>Detects the user&rsquo;s geographic position.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3de908f" class="outline-4">
-<h4 id="org3de908f"><span class="section-number-4">2.2.4.</span> Proximity Sensor</h4>
+<div id="outline-container-orgf562d04" class="outline-4">
+<h4 id="orgf562d04"><span class="section-number-4">2.2.4.</span> Proximity Sensor</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <ul class="org-ul">
 <li>Detects how close the user&rsquo;s face is.</li>
@@ -806,12 +812,12 @@ Vendors can tailor Android to specific hardware or user needs.
 </div>
 </div>
 </div>
-<div id="outline-container-org99fcefb" class="outline-3">
-<h3 id="org99fcefb"><span class="section-number-3">2.3.</span> Four Components of Android Application Development</h3>
+<div id="outline-container-orgac24b72" class="outline-3">
+<h3 id="orgac24b72"><span class="section-number-3">2.3.</span> Four Components of Android Application Development</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orgfc51303" class="outline-4">
-<h4 id="orgfc51303"><span class="section-number-4">2.3.1.</span> Resources</h4>
+<div id="outline-container-org84fd061" class="outline-4">
+<h4 id="org84fd061"><span class="section-number-4">2.3.1.</span> Resources</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
 <li>This contains all static data which is to be separated from the code.</li>
@@ -826,8 +832,8 @@ Vendors can tailor Android to specific hardware or user needs.
 </ul>
 </div>
 </div>
-<div id="outline-container-org5264a1c" class="outline-4">
-<h4 id="org5264a1c"><span class="section-number-4">2.3.2.</span> Components / Android Stack</h4>
+<div id="outline-container-org31892c6" class="outline-4">
+<h4 id="org31892c6"><span class="section-number-4">2.3.2.</span> Components / Android Stack</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
 <li>These are the executable of an app.</li>
@@ -879,8 +885,8 @@ different parts of an app.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge198d10" class="outline-4">
-<h4 id="orge198d10"><span class="section-number-4">2.3.3.</span> Manifest</h4>
+<div id="outline-container-orgf02a488" class="outline-4">
+<h4 id="orgf02a488"><span class="section-number-4">2.3.3.</span> Manifest</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li>A configuration file that the Android Runtime reads first.</li>
@@ -888,8 +894,8 @@ different parts of an app.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org65ca6e4" class="outline-4">
-<h4 id="org65ca6e4"><span class="section-number-4">2.3.4.</span> Build Configuration (Gradle)</h4>
+<div id="outline-container-orgfd28e68" class="outline-4">
+<h4 id="orgfd28e68"><span class="section-number-4">2.3.4.</span> Build Configuration (Gradle)</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <ul class="org-ul">
 <li>Manages dependencies and build settings using the <code>.gradle</code> config files.</li>
@@ -898,8 +904,8 @@ different parts of an app.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org68a3a0a" class="outline-3">
-<h3 id="org68a3a0a"><span class="section-number-3">2.4.</span> Navigation</h3>
+<div id="outline-container-org0965f08" class="outline-3">
+<h3 id="org0965f08"><span class="section-number-3">2.4.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>The back button on the bottom of the screen is called the <b>temporal/back
@@ -911,8 +917,8 @@ between activities in the Android manifest.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9052341" class="outline-3">
-<h3 id="org9052341"><span class="section-number-3">2.5.</span> Android Application Components</h3>
+<div id="outline-container-orgc4784aa" class="outline-3">
+<h3 id="orgc4784aa"><span class="section-number-3">2.5.</span> Android Application Components</h3>
 <div class="outline-text-3" id="text-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -958,16 +964,16 @@ between activities in the Android manifest.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org657ca8a" class="outline-2">
-<h2 id="org657ca8a"><span class="section-number-2">3.</span> How the App works</h2>
+<div id="outline-container-org21e79cb" class="outline-2">
+<h2 id="org21e79cb"><span class="section-number-2">3.</span> How the App works</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge75d22c" class="outline-3">
-<h3 id="orge75d22c"><span class="section-number-3">3.1.</span> Activity</h3>
+<div id="outline-container-org7860eaa" class="outline-3">
+<h3 id="org7860eaa"><span class="section-number-3">3.1.</span> Activity</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org10fbace" class="outline-4">
-<h4 id="org10fbace"><span class="section-number-4">3.1.1.</span> What it is</h4>
+<div id="outline-container-org2bc3f17" class="outline-4">
+<h4 id="org2bc3f17"><span class="section-number-4">3.1.1.</span> What it is</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>A Java Class that serves as a controller for a specific screen, is called an
@@ -982,8 +988,8 @@ extends <code>FragmentActivity</code> which extends <code>ComponentActivity</cod
 </ul>
 </div>
 </div>
-<div id="outline-container-org6ee5372" class="outline-4">
-<h4 id="org6ee5372"><span class="section-number-4">3.1.2.</span> Activity Life Cycle</h4>
+<div id="outline-container-orgb372f2b" class="outline-4">
+<h4 id="orgb372f2b"><span class="section-number-4">3.1.2.</span> Activity Life Cycle</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li>It is a set of states an activity can be in during it&rsquo;s lifetime, from when it
@@ -1002,8 +1008,8 @@ is created until it is destroyed.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org29b352c" class="outline-3">
-<h3 id="org29b352c"><span class="section-number-3">3.2.</span> Views</h3>
+<div id="outline-container-org7fa180c" class="outline-3">
+<h3 id="org7fa180c"><span class="section-number-3">3.2.</span> Views</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>All of the components of the UI of a particular screen is created using an XML
@@ -1035,8 +1041,8 @@ where <code>activity_main.xml</code> is the name of the xml file.
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org9e43e37" class="outline-4">
-<h4 id="org9e43e37"><span class="section-number-4">3.2.1.</span> How it looks like in XML</h4>
+<div id="outline-container-org1489065" class="outline-4">
+<h4 id="org1489065"><span class="section-number-4">3.2.1.</span> How it looks like in XML</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study its properties defined in XML.
@@ -1059,7 +1065,7 @@ Let&rsquo;s arbitrarily take the <code>&lt;TextView/&gt;</code> view and study i
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="orge16aee7"></a><code>layout_width</code> or <code>layout_height</code><br />
+<li><a id="orgd90de2f"></a><code>layout_width</code> or <code>layout_height</code><br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1109,7 +1115,7 @@ things graphically on Android Studio, or by using the Java code.
 </p>
 </div>
 </li>
-<li><a id="orgeaf4165"></a><code>android:autoLink="web"</code><br />
+<li><a id="org0905ad0"></a><code>android:autoLink="web"</code><br />
 <div class="outline-text-5" id="text-3-2-1-2">
 <p>
 You can make the content inside a <code>TextView</code> clickable, by specifying where it
@@ -1131,8 +1137,8 @@ false-positives.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org075d6c6" class="outline-4">
-<h4 id="org075d6c6"><span class="section-number-4">3.2.2.</span> Three ways to define a view</h4>
+<div id="outline-container-orge360083" class="outline-4">
+<h4 id="orge360083"><span class="section-number-4">3.2.2.</span> Three ways to define a view</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>The three ways to define a view is:
@@ -1145,8 +1151,8 @@ false-positives.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeb3eb2a" class="outline-4">
-<h4 id="orgeb3eb2a"><span class="section-number-4">3.2.3.</span> ViewGroup</h4>
+<div id="outline-container-orgcae4471" class="outline-4">
+<h4 id="orgcae4471"><span class="section-number-4">3.2.3.</span> ViewGroup</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <ul class="org-ul">
 <li>A <code>ViewGroup</code> is a type of View that can contain other Views.</li>
@@ -1158,8 +1164,8 @@ false-positives.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaf234a5" class="outline-4">
-<h4 id="orgaf234a5"><span class="section-number-4">3.2.4.</span> Layout</h4>
+<div id="outline-container-org0e215fe" class="outline-4">
+<h4 id="org0e215fe"><span class="section-number-4">3.2.4.</span> Layout</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <ul class="org-ul">
 <li><code>Layout</code> is a type of <code>ViewGroup</code> that are designed to position and arrange those
@@ -1168,7 +1174,7 @@ views on the screen.
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org182ccd1"></a>Creating Layouts using Java<br />
+<li><a id="org9bd09a5"></a>Creating Layouts using Java<br />
 <div class="outline-text-5" id="text-3-2-4-1">
 <ul class="org-ul">
 <li><p>
@@ -1214,8 +1220,8 @@ x.setLayoutParams(layoutParams);
 </div>
 </div>
 </div>
-<div id="outline-container-orgbb8f8ca" class="outline-2">
-<h2 id="orgbb8f8ca"><span class="section-number-2">4.</span> Basic Addition</h2>
+<div id="outline-container-org2f061dc" class="outline-2">
+<h2 id="org2f061dc"><span class="section-number-2">4.</span> Basic Addition</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This code follows from <a href="https://www.youtube.com/watch?v=4hEsnJPoP4s">this video</a>.</li>
@@ -1322,8 +1328,8 @@ The complete app looks like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d62e0f" class="outline-2">
-<h2 id="org9d62e0f"><span class="section-number-2">5.</span> Intent</h2>
+<div id="outline-container-org16e6845" class="outline-2">
+<h2 id="org16e6845"><span class="section-number-2">5.</span> Intent</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>An Intent is an object used to request an action from another app component
@@ -1331,15 +1337,15 @@ via the Android system.</li>
 <li>It&rsquo;s a message to the Android runtime to run an Activity.</li>
 </ul>
 </div>
-<div id="outline-container-orge7a05cf" class="outline-3">
-<h3 id="orge7a05cf"><span class="section-number-3">5.1.</span> Types of Intent</h3>
+<div id="outline-container-orgb8d07d8" class="outline-3">
+<h3 id="orgb8d07d8"><span class="section-number-3">5.1.</span> Types of Intent</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>There are two types of intent: Explicit and Implicit</li>
 </ul>
 </div>
-<div id="outline-container-org8c43c93" class="outline-4">
-<h4 id="org8c43c93"><span class="section-number-4">5.1.1.</span> Explicit Intent</h4>
+<div id="outline-container-org14ef81e" class="outline-4">
+<h4 id="org14ef81e"><span class="section-number-4">5.1.1.</span> Explicit Intent</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <ul class="org-ul">
 <li>This is the intent used to transfer from one activity to another activity
@@ -1377,8 +1383,8 @@ textView.setText(String.valueOf(intent.getStringExtra(<span style="color: #98be6
 </ul>
 </div>
 </div>
-<div id="outline-container-org7c9679c" class="outline-4">
-<h4 id="org7c9679c"><span class="section-number-4">5.1.2.</span> Implicit Intent</h4>
+<div id="outline-container-orgfb1965b" class="outline-4">
+<h4 id="orgfb1965b"><span class="section-number-4">5.1.2.</span> Implicit Intent</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <ul class="org-ul">
 <li>This is used to invoke an activity from another app.</li>
@@ -1395,8 +1401,8 @@ startActivity(intent);
 </div>
 </div>
 </div>
-<div id="outline-container-org6c80072" class="outline-3">
-<h3 id="org6c80072"><span class="section-number-3">5.2.</span> Types of Sending data with Intents</h3>
+<div id="outline-container-org846b852" class="outline-3">
+<h3 id="org846b852"><span class="section-number-3">5.2.</span> Types of Sending data with Intents</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1422,8 +1428,8 @@ startActivity(intent);
 </div>
 </div>
 </div>
-<div id="outline-container-orgb3898a4" class="outline-2">
-<h2 id="orgb3898a4"><span class="section-number-2">6.</span> Scroll View</h2>
+<div id="outline-container-orgee607b4" class="outline-2">
+<h2 id="orgee607b4"><span class="section-number-2">6.</span> Scroll View</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>ScrollView makes a single child under it, vertically scrollable. For
@@ -1435,8 +1441,8 @@ under palette), because all Views should be under the linear layout.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc0ecab6" class="outline-2">
-<h2 id="orgc0ecab6"><span class="section-number-2">7.</span> Spinner</h2>
+<div id="outline-container-orgc4be856" class="outline-2">
+<h2 id="orgc4be856"><span class="section-number-2">7.</span> Spinner</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><p>
@@ -1459,12 +1465,12 @@ spinner.setAdapter(adapter);
 </ul>
 </div>
 </div>
-<div id="outline-container-org6ae4f80" class="outline-2">
-<h2 id="org6ae4f80"><span class="section-number-2">8.</span> Feedback app</h2>
+<div id="outline-container-orgbc50e8d" class="outline-2">
+<h2 id="orgbc50e8d"><span class="section-number-2">8.</span> Feedback app</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgdb9dd75" class="outline-3">
-<h3 id="orgdb9dd75"><span class="section-number-3">8.1.</span> RatingBar</h3>
+<div id="outline-container-orgf309d6a" class="outline-3">
+<h3 id="orgf309d6a"><span class="section-number-3">8.1.</span> RatingBar</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><p>
@@ -1477,8 +1483,8 @@ You get the rating as:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb9e374a" class="outline-3">
-<h3 id="orgb9e374a"><span class="section-number-3">8.2.</span> Radio Button</h3>
+<div id="outline-container-org2a58066" class="outline-3">
+<h3 id="org2a58066"><span class="section-number-3">8.2.</span> Radio Button</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><p>
@@ -1498,8 +1504,8 @@ then the selected radio button is obtained through the id (int):
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb04cb3a" class="outline-3">
-<h3 id="orgb04cb3a"><span class="section-number-3">8.3.</span> CheckBox</h3>
+<div id="outline-container-org3ec2950" class="outline-3">
+<h3 id="org3ec2950"><span class="section-number-3">8.3.</span> CheckBox</h3>
 <div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-java">recommendCheckBox = findViewById(R.id.recommend);
@@ -1514,8 +1520,8 @@ You check if it&rsquo;s checked or not by the boolean return value:
 </div>
 </div>
 </div>
-<div id="outline-container-org2796d18" class="outline-3">
-<h3 id="org2796d18"><span class="section-number-3">8.4.</span> Making a WebSearch Button</h3>
+<div id="outline-container-org22d8bea" class="outline-3">
+<h3 id="org22d8bea"><span class="section-number-3">8.4.</span> Making a WebSearch Button</h3>
 <div class="outline-text-3" id="text-8-4">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Intent</span>(<span style="color: #a9a1e1;">Intent</span>.ACTION_WEB_SEARCH);
@@ -1536,12 +1542,12 @@ string defined like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org75fb460" class="outline-3">
-<h3 id="org75fb460"><span class="section-number-3">8.5.</span> Solving Data Loss after Screen Rotation</h3>
+<div id="outline-container-org594a0b5" class="outline-3">
+<h3 id="org594a0b5"><span class="section-number-3">8.5.</span> Solving Data Loss after Screen Rotation</h3>
 <div class="outline-text-3" id="text-8-5">
 </div>
-<div id="outline-container-org296a638" class="outline-4">
-<h4 id="org296a638"><span class="section-number-4">8.5.1.</span> What happens when screen rotates</h4>
+<div id="outline-container-orgedd1393" class="outline-4">
+<h4 id="orgedd1393"><span class="section-number-4">8.5.1.</span> What happens when screen rotates</h4>
 <div class="outline-text-4" id="text-8-5-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
@@ -1558,8 +1564,8 @@ function that&rsquo;s called just before the activity is destroyed.
 </p>
 </div>
 </div>
-<div id="outline-container-orge354050" class="outline-4">
-<h4 id="orge354050"><span class="section-number-4">8.5.2.</span> What happens after screen rotates</h4>
+<div id="outline-container-orgf939a18" class="outline-4">
+<h4 id="orgf939a18"><span class="section-number-4">8.5.2.</span> What happens after screen rotates</h4>
 <div class="outline-text-4" id="text-8-5-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
@@ -1579,8 +1585,8 @@ screen rotates.
 </div>
 </div>
 </div>
-<div id="outline-container-org6ed1728" class="outline-2">
-<h2 id="org6ed1728"><span class="section-number-2">9.</span> Toast</h2>
+<div id="outline-container-orgd64b93f" class="outline-2">
+<h2 id="orgd64b93f"><span class="section-number-2">9.</span> Toast</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
 <pre class="src src-java">Toast.makeText(<span style="color: #51afef;">this</span>, <span style="color: #98be65;">"something to show"</span>, <span style="color: #a9a1e1;">Toast</span>.<span style="color: #ECBE7B;">LENGTH_LONG</span>).show();
@@ -1588,8 +1594,8 @@ screen rotates.
 </div>
 </div>
 </div>
-<div id="outline-container-orgd6cb2f4" class="outline-2">
-<h2 id="orgd6cb2f4"><span class="section-number-2">10.</span> Personal Expense Manager</h2>
+<div id="outline-container-org583800d" class="outline-2">
+<h2 id="org583800d"><span class="section-number-2">10.</span> Personal Expense Manager</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Make scroll down/ context menu item</li>
@@ -1597,12 +1603,12 @@ screen rotates.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdb7418b" class="outline-2">
-<h2 id="orgdb7418b"><span class="section-number-2">11.</span> SQLite</h2>
+<div id="outline-container-orgaa13671" class="outline-2">
+<h2 id="orgaa13671"><span class="section-number-2">11.</span> SQLite</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-orgcc473a9" class="outline-3">
-<h3 id="orgcc473a9"><span class="section-number-3">11.1.</span> Datatypes</h3>
+<div id="outline-container-org1133163" class="outline-3">
+<h3 id="org1133163"><span class="section-number-3">11.1.</span> Datatypes</h3>
 <div class="outline-text-3" id="text-11-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1695,8 +1701,8 @@ In the <code>MainActivity.java</code> file,
  
 </span><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">protected</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">onCreate</span>(<span style="color: #ECBE7B;">Bundle</span> <span style="color: #dcaeea;">savedInstanceState</span>) {
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   dbHelper = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">DBHelper</span>(<span style="color: #51afef;">this</span>);
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   btnSave = findViewById(R.id.btnSave);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   dbHelper = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">DBHelper</span>(<span style="color: #51afef;">this</span>);                          <span style="color: #5B6268;">// </span><span style="color: #5B6268;">make new db manager
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   btnSave = findViewById(R.id.btnSave);
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   btnSave.setOnClickListener(v -&gt; {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span> = etName.getText().toString();
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">age</span> = etAge.getText().toString();
@@ -1707,19 +1713,171 @@ In the <code>MainActivity.java</code> file,
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
          
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">SQLiteDatabase</span> <span style="color: #dcaeea;">db</span> = dbHelper.getWritableDatabase();  <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">opens the db in read-write mode 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">SQLiteDatabase db = dbHelper.getReadableDatabase();  //  this would open in read only mode, appropriate for fetching data
 </span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">ContentValues</span> <span style="color: #dcaeea;">values</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ContentValues</span>();          <span style="color: #5B6268;">//    </span><span style="color: #5B6268;">
 </span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   values.put(<span style="color: #a9a1e1;">DBHelper</span>.COL_NAME, name);                 <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">
 </span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   values.put(<span style="color: #a9a1e1;">DBHelper</span>.COL_AGE, Integer.parseInt(age)); <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">
 </span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   db.insert(<span style="color: #a9a1e1;">DBHelper</span>.TABLE_NAME, <span style="color: #a9a1e1;">null</span>, values);        <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">and here is where the values are inserted into the db
          
-</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   Toast.makeText(<span style="color: #51afef;">this</span>, <span style="color: #98be65;">"Data Saved"</span>, <span style="color: #a9a1e1;">Toast</span>.LENGTH_SHORT).show();
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   etName.setText(<span style="color: #98be65;">""</span>);
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   etAge.setText(<span style="color: #98be65;">""</span>);
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   });
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">For reading data:
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>       
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">Cursor cursor = db.rawQuery("SELECT * FROM users", null);
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">StringBuilder data = new StringBuilder();
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">while (cursor.moveToNext()) {
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">data.append("Name: ")
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">.append(cursor.getString(1))
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">.append(", Age: ")
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">.append(cursor.getInt(2))
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">.append("\n\n");
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">}
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">//  </span><span style="color: #5B6268;">cursor.close();
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   });
 <span style="color: #3dea43364a63;"> </span>   }
 }
 </pre>
 </div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc173dbf" class="outline-2">
+<h2 id="orgc173dbf"><span class="section-number-2">12.</span> Services</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>A Service is an Android component that runs in the background and has no user
+interface. It&rsquo;s designed for long-running operations.</li>
+<li>A Service runs on the main thread.</li>
+<li><p>
+A Service is started using an Intent:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Intent</span>(<span style="color: #51afef;">this</span>, MyService.<span style="color: #51afef;">class</span>);
+startService(intent);  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">starts the service
+</span>stopService(intent);         <span style="color: #5B6268;">// </span><span style="color: #5B6268;">from outside the service
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">OR
+</span>stopSelf();                  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">from inside the service itself</span>
+</pre>
+</div></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Service</th>
+<th scope="col" class="org-left">AsyncTasks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Can run even when the user quits</td>
+<td class="org-left">Short-lived; stops when the background job finishes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-org2ea2be6" class="outline-3">
+<h3 id="org2ea2be6"><span class="section-number-3">12.1.</span> Started Service</h3>
+<div class="outline-text-3" id="text-12-1">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">MyStartedService</span> <span style="color: #51afef;">extends</span> <span style="color: #ECBE7B;">Service</span> {
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">onStartCommand</span>(<span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">flags</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">startId</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">This runs every time startService() is called
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Do your background work here
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">For example: start playing music, begin syncing files, etc.
+     
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Thread</span>(<span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Runnable</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">run</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Heavy work on a background thread
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   doLongRunningTask();
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }).start();
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> START_STICKY; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">tells Android to restart this service if killed
+</span><span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">IBinder</span> <span style="color: #c678dd;">onBind</span>(<span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">null</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Started services don't bind
+</span><span style="color: #3dea43364a63;"> </span>   }
+}
+</pre>
+</div>
+<p>
+If you call <code>startService()</code> 5 times, <code>onStartCommand()</code> runs 5 times, but
+<code>onCreate()</code> only runs once (the first time).
+</p>
+</div>
+</div>
+<div id="outline-container-org54c8352" class="outline-3">
+<h3 id="org54c8352"><span class="section-number-3">12.2.</span> Bound Service</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li>This works on a Client-Server Model.</li>
+<li>A Bound Service works on a client-server model. Other components (like an
+Activity) can &ldquo;bind&rdquo; to it, send it requests, and get results back. It&rsquo;s
+interactive.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">In the Service
+</span><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">MyBoundService</span> <span style="color: #51afef;">extends</span> <span style="color: #ECBE7B;">Service</span> {
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">private</span> <span style="color: #51afef;">final</span> <span style="color: #ECBE7B;">IBinder</span> <span style="color: #dcaeea;">binder</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">LocalBinder</span>();
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">LocalBinder</span> <span style="color: #51afef;">extends</span> <span style="color: #ECBE7B;">Binder</span> {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">MyBoundService</span> <span style="color: #c678dd;">getService</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> MyBoundService.<span style="color: #51afef;">this</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">returns the service instance to the client
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">IBinder</span> <span style="color: #c678dd;">onBind</span>(<span style="color: #ECBE7B;">Intent</span> <span style="color: #dcaeea;">intent</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> binder; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">client receives this to communicate
+</span><span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">String</span> <span style="color: #c678dd;">doSomething</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #98be65;">"Result from service"</span>;
+<span style="color: #3dea43364a63;"> </span>   }
+}
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">In the Activity (client side)
+</span><span style="color: #ECBE7B;">MyBoundService</span> <span style="color: #dcaeea;">myService</span>;
+<span style="color: #ECBE7B;">boolean</span> <span style="color: #dcaeea;">isBound</span> = <span style="color: #a9a1e1;">false</span>;
+
+<span style="color: #ECBE7B;">ServiceConnection</span> <span style="color: #dcaeea;">connection</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ServiceConnection</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">onServiceConnected</span>(<span style="color: #ECBE7B;">ComponentName</span> <span style="color: #dcaeea;">name</span>, <span style="color: #ECBE7B;">IBinder</span> <span style="color: #dcaeea;">service</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">MyBoundService</span>.<span style="color: #ECBE7B;">LocalBinder</span> <span style="color: #dcaeea;">binder</span> = (<span style="color: #a9a1e1;">MyBoundService</span>.<span style="color: #ECBE7B;">LocalBinder</span>) service;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   myService = binder.getService(); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">now we have a reference to the service
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   isBound = <span style="color: #a9a1e1;">true</span>;
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">@Override</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">onServiceDisconnected</span>(<span style="color: #ECBE7B;">ComponentName</span> <span style="color: #dcaeea;">name</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   isBound = <span style="color: #a9a1e1;">false</span>;
+<span style="color: #3dea43364a63;"> </span>   }
+};
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Start binding
+</span>bindService(<span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Intent</span>(<span style="color: #51afef;">this</span>, MyBoundService.<span style="color: #51afef;">class</span>), connection, <span style="color: #a9a1e1;">Context</span>.BIND_AUTO_CREATE);
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Later, call a method on the service directly
+</span><span style="color: #51afef;">if</span> (isBound) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">result</span> = myService.doSomething();
+}
+</pre>
+</div>
+<p>
+This is used for two way communication.
+</p>
 </div>
 </div>
 </div>

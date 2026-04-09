@@ -547,7 +547,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        dbHelper = new DBHelper(this);
+        dbHelper = new DBHelper(this);                          // make new db manager
         btnSave = findViewById(R.id.btnSave);
         btnSave.setOnClickListener(v -> {
             String name = etName.getText().toString();
@@ -559,15 +559,127 @@ public class MainActivity extends AppCompatActivity {
             }
 
             SQLiteDatabase db = dbHelper.getWritableDatabase();  //  opens the db in read-write mode 
+        //  SQLiteDatabase db = dbHelper.getReadableDatabase();  //  this would open in read only mode, appropriate for fetching data
             ContentValues values = new ContentValues();          //    
             values.put(DBHelper.COL_NAME, name);                 //      
             values.put(DBHelper.COL_AGE, Integer.parseInt(age)); //  
             db.insert(DBHelper.TABLE_NAME, null, values);        //  and here is where the values are inserted into the db
 
-            Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show();
-            etName.setText("");
-            etAge.setText("");
+        //  For reading data:
+            
+        //  Cursor cursor = db.rawQuery("SELECT * FROM users", null);
+        //  StringBuilder data = new StringBuilder();
+        //  while (cursor.moveToNext()) {
+        //      data.append("Name: ")
+        //      .append(cursor.getString(1))
+        //      .append(", Age: ")
+        //      .append(cursor.getInt(2))
+        //      .append("\n\n");
+        //  }
+        //  cursor.close();
         });
     }
 }
 #+end_src
+
+* Services
+- A Service is an Android component that runs in the background and has no user
+  interface. It's designed for long-running operations.
+- A Service runs on the main thread.
+- A Service is started using an Intent:
+  #+begin_src java
+Intent intent = new Intent(this, MyService.class);
+startService(intent);  // starts the service
+stopService(intent);         // from outside the service
+// OR
+stopSelf();                  // from inside the service itself
+  #+end_src
+
+| Service                          | AsyncTasks                                          |
+|----------------------------------+-----------------------------------------------------|
+| Can run even when the user quits | Short-lived; stops when the background job finishes |
+
+** Started Service
+#+begin_src java
+public class MyStartedService extends Service {
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // This runs every time startService() is called
+        // Do your background work here
+        // For example: start playing music, begin syncing files, etc.
+
+        new Thread(new Runnable() {
+            public void run() {
+                // Heavy work on a background thread
+                doLongRunningTask();
+            }
+        }).start();
+
+        return START_STICKY; // tells Android to restart this service if killed
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null; // Started services don't bind
+    }
+}
+#+end_src
+If you call ~startService()~ 5 times, ~onStartCommand()~ runs 5 times, but
+~onCreate()~ only runs once (the first time).
+
+** Bound Service
+- This works on a Client-Server Model.
+- A Bound Service works on a client-server model. Other components (like an
+  Activity) can "bind" to it, send it requests, and get results back. It's
+  interactive.
+
+#+begin_src java
+// In the Service
+public class MyBoundService extends Service {
+
+    private final IBinder binder = new LocalBinder();
+
+    public class LocalBinder extends Binder {
+        MyBoundService getService() {
+            return MyBoundService.this; // returns the service instance to the client
+        }
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return binder; // client receives this to communicate
+    }
+
+    public String doSomething() {
+        return "Result from service";
+    }
+}
+
+// In the Activity (client side)
+MyBoundService myService;
+boolean isBound = false;
+
+ServiceConnection connection = new ServiceConnection() {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        MyBoundService.LocalBinder binder = (MyBoundService.LocalBinder) service;
+        myService = binder.getService(); // now we have a reference to the service
+        isBound = true;
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        isBound = false;
+    }
+};
+
+// Start binding
+bindService(new Intent(this, MyBoundService.class), connection, Context.BIND_AUTO_CREATE);
+
+// Later, call a method on the service directly
+if (isBound) {
+    String result = myService.doSomething();
+}
+#+end_src
+This is used for two way communication.
