@@ -683,3 +683,75 @@ if (isBound) {
 }
 #+end_src
 This is used for two way communication.
+
+* BroadcastReceiver
+- A ~BroadcastReceiver~ is a component in your Android app that "listens" for
+  broadcasts and reacts to them. It's a class that you create by extending
+  Android's ~BroadcastReceiver~ base class and overriding one method: ~onReceive().~
+- There are two types:
+  | Static                                                                            | Dynamic                                      |
+  |-----------------------------------------------------------------------------------+----------------------------------------------|
+  | Declared inside ~AndroidManifest.xml~                                               | Declared programmatically                    |
+  | Works even when the app is completely closed (not even running in the background) | Works only when the app is open or minimized |
+- Here's an example:
+  The receiver:
+  #+begin_src java
+public class BatteryLowReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) { 
+        if (intent.getAction().equals(Intent.ACTION_BATTERY_LOW)) {
+            Toast.makeText(context, "Battery is Low", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+  #+end_src
+  In MainActivity:
+  #+begin_src java
+package com.example.broadcastreceiver_airplanemode;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+    BatteryLowReceiver batteryLowReceiver = new BatteryLowReceiver(); // Make receiver object
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_LOW); // listen to only these intents
+        registerReceiver(batteryLowReceiver, filter);                      // pass receiver object and the filter object
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(batteryLowReceiver);
+    }
+}
+  #+end_src
+You can make it listen to custom Intents from within the app too. Instead of
+~Intent.ACTION_BATTERY_LOW~, you'd have
+~com.packageName.broadcastreceiever.someaction~.
+
+- ~sendBroadcast(intent)~ is asynchronous and random, while
+  ~sendOrderedBroadcast(intent, receiverPermission)~ is synchronous and ordered.
+  In ~sendOrderedBroadcast()~, you can abort by ~abortBroadcast()~ and control the
+  order by ~android:priority~ in the manifest.
+
+* Connecting to the Internet
+In ~AndroidManifest.xml~:
+#+begin_src xml
+<!-- Required to make any network request -->
+<uses-permission android:name="android.permission.INTERNET" />
+
+<!-- Required to check whether you're currently connected before making a call -->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+#+end_src
