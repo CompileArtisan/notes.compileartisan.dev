@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-12 Thu 20:57 -->
+<!-- 2026-04-28 Tue 00:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Vision and Image Processing</title>
@@ -617,169 +617,193 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org309ac76">1. Introduction</a>
+<li><a href="#org11db197">1. Introduction</a>
 <ul>
-<li><a href="#orgace3366">1.1. What is Computer Vision</a></li>
-<li><a href="#orga59808f">1.2. What is Machine Vision</a></li>
-<li><a href="#org5d65831">1.3. Machine Vision or Computer Vision</a></li>
-<li><a href="#org17a232c">1.4. What is Cognitive Vision</a></li>
-<li><a href="#orgb189019">1.5. Computer Vision or Cognitive Vision</a></li>
-<li><a href="#org4eeee11">1.6. Why Computer Vision is Challenging</a>
+<li><a href="#orgcd531b4">1.1. What is Computer Vision</a></li>
+<li><a href="#org4b1fad7">1.2. What is Machine Vision</a></li>
+<li><a href="#org972e1e7">1.3. Machine Vision or Computer Vision</a></li>
+<li><a href="#org2e5d036">1.4. What is Cognitive Vision</a></li>
+<li><a href="#org8dbfbdd">1.5. Computer Vision or Cognitive Vision</a></li>
+<li><a href="#org11d2ad3">1.6. Why Computer Vision is Challenging</a>
 <ul>
-<li><a href="#org2f323a9">1.6.1. Many-to-one Mapping</a></li>
-<li><a href="#org2020edd">1.6.2. Computationally Expensive</a></li>
-<li><a href="#org31a3596">1.6.3. We don&rsquo;t understand the recognition problem</a></li>
+<li><a href="#orgfd925d9">1.6.1. Many-to-one Mapping</a></li>
+<li><a href="#org182057a">1.6.2. Computationally Expensive</a></li>
+<li><a href="#org46115ee">1.6.3. We don&rsquo;t understand the recognition problem</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgdbce043">2. Digital Image Processing</a>
+<li><a href="#orged01782">2. Digital Image Processing</a>
 <ul>
-<li><a href="#orgfd68e8d">2.1. What is a Digital Image?</a></li>
-<li><a href="#org6581427">2.2. Operations on Images</a>
+<li><a href="#orgb02bb5e">2.1. What is a Digital Image?</a></li>
+<li><a href="#org38424ab">2.2. Operations on Images</a>
 <ul>
-<li><a href="#orgeadbdcd">2.2.1. Computer Vision</a></li>
-<li><a href="#orgb29fa63">2.2.2. Image Processing</a></li>
-<li><a href="#orgf73b2fc">2.2.3. Computer Graphics</a></li>
+<li><a href="#org3979f30">2.2.1. Computer Vision</a></li>
+<li><a href="#org9db09ae">2.2.2. Image Processing</a></li>
+<li><a href="#org89c3175">2.2.3. Computer Graphics</a></li>
 </ul>
 </li>
-<li><a href="#orgec4ff95">2.3. Electromagnetic Spectrum</a></li>
-<li><a href="#orga7a8f38">2.4. Abstract Image</a></li>
-<li><a href="#orgcd6b94d">2.5. Factors in Image Formation</a>
+<li><a href="#org6ffe19d">2.3. Electromagnetic Spectrum</a></li>
+<li><a href="#orgc906c6f">2.4. Abstract Image</a></li>
+<li><a href="#orgff0eecb">2.5. Factors in Image Formation</a>
 <ul>
-<li><a href="#org441babc">2.5.1. Geometry</a></li>
-<li><a href="#org32e2060">2.5.2. Radiometry</a></li>
-<li><a href="#org0f945fd">2.5.3. Photometry</a></li>
-<li><a href="#org3fcb8bb">2.5.4. Digitization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org5e062f6">3. How Image Processing Typically Works</a>
-<ul>
-<li><a href="#org0cfaf2c">3.1. Optics</a></li>
-<li><a href="#org40f99b8">3.2. Aperture</a></li>
-<li><a href="#orgceaf171">3.3. Shutter</a></li>
-<li><a href="#orgbc67ad4">3.4. Sensor (CCD/ CMOS)</a>
-<ul>
-<li><a href="#org59c5ecb">3.4.1. Direction by Angles</a></li>
-<li><a href="#orge463599">3.4.2. Photon Detection</a></li>
-<li><a href="#org32f77ee">3.4.3. Photon Energy to Radiant Power</a></li>
-<li><a href="#org40e9a75">3.4.4. Summary of Light to Electrical Signal</a></li>
-</ul>
-</li>
-<li><a href="#org82427a7">3.5. Gain (ISO)</a></li>
-<li><a href="#org825f1b3">3.6. Bayers Filter</a>
-<ul>
-<li><a href="#orgf1d962b">3.6.1. Types of Bayer Filters</a></li>
-<li><a href="#orgf0952e5">3.6.2. Extracting RGB matrices from Bayer Pattern</a></li>
-</ul>
-</li>
-<li><a href="#org8b382c5">3.7. Demosaicing / Debayering</a>
-<ul>
-<li><a href="#org570292a">3.7.1. Nearest Neighbour Interpolation</a></li>
-<li><a href="#org85de332">3.7.2. Bilinear Interpolation</a></li>
-<li><a href="#orgee59e59">3.7.3. Gradient Based Interpolation</a></li>
-</ul>
-</li>
-<li><a href="#org86ba3e8">3.8. Sharpen</a>
-<ul>
-<li><a href="#orgfcf8a67">3.8.1. Unsharp Masking</a></li>
-</ul>
-</li>
-<li><a href="#org1536d85">3.9. White Balance</a></li>
-<li><a href="#orgb7d39fc">3.10. Gamma/Curve Correction</a>
-<ul>
-<li><a href="#org97d4d8d">3.10.1. Inverse Gamma (Gamma Encoding)</a></li>
-<li><a href="#orga5170d6">3.10.2. Gamma Decoding</a></li>
-</ul>
-</li>
-<li><a href="#org51569c1">3.11. Compress</a>
-<ul>
-<li><a href="#orgde81fdf">3.11.1. <code>.jpeg</code></a></li>
-<li><a href="#org86ce4e9">3.11.2. Chrominance Reduction</a></li>
-<li><a href="#org086f986">3.11.3. Quantization</a></li>
+<li><a href="#orgacccac6">2.5.1. Geometry</a></li>
+<li><a href="#org6954dd0">2.5.2. Radiometry</a></li>
+<li><a href="#org625998d">2.5.3. Photometry</a></li>
+<li><a href="#org683883d">2.5.4. Digitization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8dc25dc">4. Camera Calibration</a>
+<li><a href="#org01dd27e">3. How Image Processing Typically Works</a>
 <ul>
-<li><a href="#org52145d5">4.1. Fundamental Problem</a></li>
-<li><a href="#org4ea2b2b">4.2. Essential Parameters</a>
+<li><a href="#org9f567d4">3.1. Optics</a></li>
+<li><a href="#org9c1321e">3.2. Aperture</a></li>
+<li><a href="#org39d745a">3.3. Shutter</a></li>
+<li><a href="#org4328b65">3.4. Sensor (CCD/ CMOS)</a>
 <ul>
-<li><a href="#org956bf6e">4.2.1. Intrinsics</a></li>
-<li><a href="#org2937cad">4.2.2. Extrinsics</a></li>
-<li><a href="#org98e8718">4.2.3. How they all come together</a></li>
+<li><a href="#org27e4e2e">3.4.1. Direction by Angles</a></li>
+<li><a href="#org3f71a6e">3.4.2. Photon Detection</a></li>
+<li><a href="#orgd83048e">3.4.3. Photon Energy to Radiant Power</a></li>
+<li><a href="#org80280be">3.4.4. Summary of Light to Electrical Signal</a></li>
+</ul>
+</li>
+<li><a href="#org701bcc5">3.5. Gain (ISO)</a></li>
+<li><a href="#org53597f7">3.6. Bayers Filter</a>
+<ul>
+<li><a href="#orgb1507a5">3.6.1. Types of Bayer Filters</a></li>
+<li><a href="#orga4bb17c">3.6.2. Extracting RGB matrices from Bayer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#org04cca60">3.7. Demosaicing / Debayering</a>
+<ul>
+<li><a href="#org2abd329">3.7.1. Nearest Neighbour Interpolation</a></li>
+<li><a href="#org2027ad6">3.7.2. Bilinear Interpolation</a></li>
+<li><a href="#orgaa1d273">3.7.3. Gradient Based Interpolation</a></li>
+</ul>
+</li>
+<li><a href="#orgfd01f8b">3.8. Sharpen</a>
+<ul>
+<li><a href="#org9885c08">3.8.1. Unsharp Masking</a></li>
+</ul>
+</li>
+<li><a href="#org4515594">3.9. White Balance</a></li>
+<li><a href="#orgf0c7ea5">3.10. Gamma/Curve Correction</a>
+<ul>
+<li><a href="#org248af33">3.10.1. Inverse Gamma (Gamma Encoding)</a></li>
+<li><a href="#orgbd16729">3.10.2. Gamma Decoding</a></li>
+</ul>
+</li>
+<li><a href="#org9c500e9">3.11. Compress</a>
+<ul>
+<li><a href="#orgd45026a">3.11.1. <code>.jpeg</code></a></li>
+<li><a href="#org9a4ff2c">3.11.2. Chrominance Reduction</a></li>
+<li><a href="#orgb29b647">3.11.3. Quantization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1efdc0d">5. Segmentation</a>
+<li><a href="#orgac9fed9">4. Camera Calibration</a>
 <ul>
-<li><a href="#org9e449bf">5.1. Simplest form of Segmentation: Binary Segmentation</a></li>
-<li><a href="#org4f36aed">5.2. Gestalt Theory of Perception</a>
+<li><a href="#orgdbe436e">4.1. Fundamental Problem</a></li>
+<li><a href="#orgf8cf5a3">4.2. Essential Parameters</a>
 <ul>
-<li><a href="#org113b7ec">5.2.1. Proximity Principles</a></li>
-<li><a href="#org57cdf72">5.2.2. Similarity</a></li>
-<li><a href="#org45eeee5">5.2.3. Common Fate</a></li>
-<li><a href="#orgc361025">5.2.4. Common Region / Connectivity</a></li>
-<li><a href="#orgcef5237">5.2.5. Continuity Principle</a></li>
-<li><a href="#org20080a5">5.2.6. Symmetry Principle</a></li>
-<li><a href="#org7619a2d">5.2.7. Illusory Contours - Illusions&rsquo; grouping</a></li>
-</ul>
-</li>
-<li><a href="#org5a1149f">5.3. Two approaches towards Segmentation</a>
-<ul>
-<li><a href="#orgaa223eb">5.3.1. Top Down</a></li>
-<li><a href="#orgc4890fd">5.3.2. Bottom Up</a></li>
+<li><a href="#orga9ef74a">4.2.1. Intrinsics</a></li>
+<li><a href="#org36959a7">4.2.2. Extrinsics</a></li>
+<li><a href="#org0e5db40">4.2.3. How they all come together</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc624ba3">6. Feature Extraction</a>
+<li><a href="#org7b55dfc">5. Segmentation</a>
 <ul>
-<li><a href="#org0c3e346">6.1. Main Components of Feature Detection and Matching</a>
+<li><a href="#org156279c">5.1. Simplest form of Segmentation: Binary Segmentation</a></li>
+<li><a href="#org2adb7b8">5.2. Gestalt Theory of Perception</a>
 <ul>
-<li><a href="#org4daaec7">6.1.1. Detection</a></li>
-<li><a href="#orgbb71e81">6.1.2. Description</a></li>
-<li><a href="#orgacf045c">6.1.3. Matching</a></li>
+<li><a href="#orga9c874f">5.2.1. Proximity Principles</a></li>
+<li><a href="#orge3e8b2f">5.2.2. Similarity</a></li>
+<li><a href="#org881b4cc">5.2.3. Common Fate</a></li>
+<li><a href="#org6d43975">5.2.4. Common Region / Connectivity</a></li>
+<li><a href="#orgc426aca">5.2.5. Continuity Principle</a></li>
+<li><a href="#orga869764">5.2.6. Symmetry Principle</a></li>
+<li><a href="#orge3bba70">5.2.7. Illusory Contours - Illusions&rsquo; grouping</a></li>
 </ul>
 </li>
-<li><a href="#orga5fc65b">6.2. SIFT</a>
+<li><a href="#orgf6afb51">5.3. Two approaches towards Segmentation</a>
 <ul>
-<li><a href="#org0cbe34c">6.2.1. Detecting Interest Points/ Blobs</a></li>
-<li><a href="#org199f1df">6.2.2. Finding the Descriptor</a></li>
-<li><a href="#org3aac440">6.2.3. Matching</a></li>
+<li><a href="#org04ab5e3">5.3.1. Top Down</a></li>
+<li><a href="#org801181e">5.3.2. Bottom Up</a></li>
 </ul>
 </li>
-<li><a href="#org20255ed">6.3. How SIFT is used in places?</a>
-<ul>
-<li><a href="#orga8da79d">6.3.1. How SIFT is used in Image registration or alignment</a></li>
-<li><a href="#org9f42f30">6.3.2. How SIFT is used in Object Recognition</a></li>
-<li><a href="#org7c37c69">6.3.3. How SIFT is used in Image Stitching</a></li>
-<li><a href="#orgd610741">6.3.4. SIFT vs YOLO</a></li>
 </ul>
 </li>
-<li><a href="#orge0f3603">6.4. Program for SIFT</a>
+<li><a href="#org2ecca46">6. Feature Extraction</a>
 <ul>
-<li><a href="#org557cf37">6.4.1. Load the image in grayscale</a></li>
-<li><a href="#orgb9b8880">6.4.2. Initialize the SIFT detector</a></li>
-<li><a href="#org05789c8">6.4.3. Detect Keypoints and Compute Descriptors</a></li>
-<li><a href="#org2550e7c">6.4.4. Extract values for the first keypoint found</a></li>
+<li><a href="#orgab3139b">6.1. Main Components of Feature Detection and Matching</a>
+<ul>
+<li><a href="#org766e1fe">6.1.1. Detection</a></li>
+<li><a href="#orgcacf74b">6.1.2. Description</a></li>
+<li><a href="#org135ac56">6.1.3. Matching</a></li>
 </ul>
 </li>
+<li><a href="#org6c5c5e3">6.2. SIFT</a>
+<ul>
+<li><a href="#orgfd37fee">6.2.1. Detecting Interest Points/ Blobs</a></li>
+<li><a href="#org5a85007">6.2.2. Finding the Descriptor</a></li>
+<li><a href="#orgcb2c2eb">6.2.3. Matching</a></li>
+</ul>
+</li>
+<li><a href="#org17ac8a4">6.3. How SIFT is used in places?</a>
+<ul>
+<li><a href="#orgb057122">6.3.1. How SIFT is used in Image registration or alignment</a></li>
+<li><a href="#org639452d">6.3.2. How SIFT is used in Object Recognition</a></li>
+<li><a href="#orga1b887f">6.3.3. How SIFT is used in Image Stitching</a></li>
+<li><a href="#org3a8a6b4">6.3.4. SIFT vs YOLO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgaf87858">7. Pose Estimation</a>
+<ul>
+<li><a href="#orgb0b6242">7.1. What it is</a></li>
+<li><a href="#orgc9e9857">7.2. Types of Pose Estimation</a></li>
+<li><a href="#org3e9b178">7.3. Applications</a></li>
+<li><a href="#orga9d32a4">7.4. How it works</a></li>
+<li><a href="#orgb40e1f0">7.5. Approaches for Pose Estimation</a></li>
+<li><a href="#orgafc2636">7.6. OpenPose</a></li>
+</ul>
+</li>
+<li><a href="#orga75e7bd">8. Motion Detection</a>
+<ul>
+<li><a href="#org4145447">8.1. Motion Field</a></li>
+<li><a href="#org9492e3e">8.2. Optical Flow</a></li>
+</ul>
+</li>
+<li><a href="#org3bb059e">9. Object Recognition and Detection</a>
+<ul>
+<li><a href="#org9b72483">9.1. Early Approaches for Human Detection</a>
+<ul>
+<li><a href="#orgba93bf2">9.1.1. Haar Cascades</a></li>
+<li><a href="#org0513526">9.1.2. Histogram of Oriented Gradients</a></li>
+<li><a href="#org573d8a8">9.1.3. Shape-based Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7fea92b">10. Stereo Matching</a>
+<ul>
+<li><a href="#orgfa2c34e">10.1. Code</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org309ac76" class="outline-2">
-<h2 id="org309ac76"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org11db197" class="outline-2">
+<h2 id="org11db197"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgace3366" class="outline-3">
-<h3 id="orgace3366"><span class="section-number-3">1.1.</span> What is Computer Vision</h3>
+<div id="outline-container-orgcd531b4" class="outline-3">
+<h3 id="orgcd531b4"><span class="section-number-3">1.1.</span> What is Computer Vision</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Computer Vision is a field of computer science, that helps computers
@@ -792,8 +816,8 @@ like humans and possibly even better than humans.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga59808f" class="outline-3">
-<h3 id="orga59808f"><span class="section-number-3">1.2.</span> What is Machine Vision</h3>
+<div id="outline-container-org4b1fad7" class="outline-3">
+<h3 id="org4b1fad7"><span class="section-number-3">1.2.</span> What is Machine Vision</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a branch of engineering that uses computer vision in industrial and
@@ -807,8 +831,8 @@ be used for fast decisions. Eg. Currency Counting Machines.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5d65831" class="outline-3">
-<h3 id="org5d65831"><span class="section-number-3">1.3.</span> Machine Vision or Computer Vision</h3>
+<div id="outline-container-org972e1e7" class="outline-3">
+<h3 id="org972e1e7"><span class="section-number-3">1.3.</span> Machine Vision or Computer Vision</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Robot Guidance in Manufacturing <b>- Machine Vision</b></li>
@@ -820,8 +844,8 @@ be used for fast decisions. Eg. Currency Counting Machines.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org17a232c" class="outline-3">
-<h3 id="org17a232c"><span class="section-number-3">1.4.</span> What is Cognitive Vision</h3>
+<div id="outline-container-org2e5d036" class="outline-3">
+<h3 id="org2e5d036"><span class="section-number-3">1.4.</span> What is Cognitive Vision</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>It can refer to CV systems that can adapt to changes in a visual environment,
@@ -835,8 +859,8 @@ attention, memory and pattern recognition.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb189019" class="outline-3">
-<h3 id="orgb189019"><span class="section-number-3">1.5.</span> Computer Vision or Cognitive Vision</h3>
+<div id="outline-container-org8dbfbdd" class="outline-3">
+<h3 id="org8dbfbdd"><span class="section-number-3">1.5.</span> Computer Vision or Cognitive Vision</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>Detecting a Pedestrian Crossing the road <b>- Computer Vision</b></li>
@@ -850,12 +874,12 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4eeee11" class="outline-3">
-<h3 id="org4eeee11"><span class="section-number-3">1.6.</span> Why Computer Vision is Challenging</h3>
+<div id="outline-container-org11d2ad3" class="outline-3">
+<h3 id="org11d2ad3"><span class="section-number-3">1.6.</span> Why Computer Vision is Challenging</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org2f323a9" class="outline-4">
-<h4 id="org2f323a9"><span class="section-number-4">1.6.1.</span> Many-to-one Mapping</h4>
+<div id="outline-container-orgfd925d9" class="outline-4">
+<h4 id="orgfd925d9"><span class="section-number-4">1.6.1.</span> Many-to-one Mapping</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <ul class="org-ul">
 <li>A picture is a 2D representation of a 3D world.</li>
@@ -863,8 +887,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2020edd" class="outline-4">
-<h4 id="org2020edd"><span class="section-number-4">1.6.2.</span> Computationally Expensive</h4>
+<div id="outline-container-org182057a" class="outline-4">
+<h4 id="org182057a"><span class="section-number-4">1.6.2.</span> Computationally Expensive</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <ul class="org-ul">
 <li>A \(1920 \times 1080\) image has \(1920 \times 1080 \times 3\) values (which is 6220800).</li>
@@ -872,8 +896,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org31a3596" class="outline-4">
-<h4 id="org31a3596"><span class="section-number-4">1.6.3.</span> We don&rsquo;t understand the recognition problem</h4>
+<div id="outline-container-org46115ee" class="outline-4">
+<h4 id="org46115ee"><span class="section-number-4">1.6.3.</span> We don&rsquo;t understand the recognition problem</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <ul class="org-ul">
 <li>We don&rsquo;t understand how human beings recognize.</li>
@@ -883,24 +907,24 @@ reasoning. <b>- Cognitive Vision</b></li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdbce043" class="outline-2">
-<h2 id="orgdbce043"><span class="section-number-2">2.</span> Digital Image Processing</h2>
+<div id="outline-container-orged01782" class="outline-2">
+<h2 id="orged01782"><span class="section-number-2">2.</span> Digital Image Processing</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfd68e8d" class="outline-3">
-<h3 id="orgfd68e8d"><span class="section-number-3">2.1.</span> What is a Digital Image?</h3>
+<div id="outline-container-orgb02bb5e" class="outline-3">
+<h3 id="orgb02bb5e"><span class="section-number-3">2.1.</span> What is a Digital Image?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s a 2D array of numbers (each called a pixel).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6581427" class="outline-3">
-<h3 id="org6581427"><span class="section-number-3">2.2.</span> Operations on Images</h3>
+<div id="outline-container-org38424ab" class="outline-3">
+<h3 id="org38424ab"><span class="section-number-3">2.2.</span> Operations on Images</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgeadbdcd" class="outline-4">
-<h4 id="orgeadbdcd"><span class="section-number-4">2.2.1.</span> Computer Vision</h4>
+<div id="outline-container-org3979f30" class="outline-4">
+<h4 id="org3979f30"><span class="section-number-4">2.2.1.</span> Computer Vision</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>Understanding Images</li>
@@ -908,8 +932,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb29fa63" class="outline-4">
-<h4 id="orgb29fa63"><span class="section-number-4">2.2.2.</span> Image Processing</h4>
+<div id="outline-container-org9db09ae" class="outline-4">
+<h4 id="org9db09ae"><span class="section-number-4">2.2.2.</span> Image Processing</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>Manipulating Images</li>
@@ -917,8 +941,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf73b2fc" class="outline-4">
-<h4 id="orgf73b2fc"><span class="section-number-4">2.2.3.</span> Computer Graphics</h4>
+<div id="outline-container-org89c3175" class="outline-4">
+<h4 id="org89c3175"><span class="section-number-4">2.2.3.</span> Computer Graphics</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li>Generating Images</li>
@@ -933,16 +957,16 @@ reasoning. <b>- Cognitive Vision</b></li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgec4ff95" class="outline-3">
-<h3 id="orgec4ff95"><span class="section-number-3">2.3.</span> Electromagnetic Spectrum</h3>
+<div id="outline-container-org6ffe19d" class="outline-3">
+<h3 id="org6ffe19d"><span class="section-number-3">2.3.</span> Electromagnetic Spectrum</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>The human eye can see light with wavelengths from around 400 nm to 750 nm.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga7a8f38" class="outline-3">
-<h3 id="orga7a8f38"><span class="section-number-3">2.4.</span> Abstract Image</h3>
+<div id="outline-container-orgc906c6f" class="outline-3">
+<h3 id="orgc906c6f"><span class="section-number-3">2.4.</span> Abstract Image</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>An image can be represented by an image function \(f(x,y)\), where \(x\) and \(y\)
@@ -951,12 +975,12 @@ represent the pixel location.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcd6b94d" class="outline-3">
-<h3 id="orgcd6b94d"><span class="section-number-3">2.5.</span> Factors in Image Formation</h3>
+<div id="outline-container-orgff0eecb" class="outline-3">
+<h3 id="orgff0eecb"><span class="section-number-3">2.5.</span> Factors in Image Formation</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org441babc" class="outline-4">
-<h4 id="org441babc"><span class="section-number-4">2.5.1.</span> Geometry</h4>
+<div id="outline-container-orgacccac6" class="outline-4">
+<h4 id="orgacccac6"><span class="section-number-4">2.5.1.</span> Geometry</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <ul class="org-ul">
 <li>It&rsquo;s the mathematical study of shapes, sizes and spacial images.</li>
@@ -966,8 +990,8 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org32e2060" class="outline-4">
-<h4 id="org32e2060"><span class="section-number-4">2.5.2.</span> Radiometry</h4>
+<div id="outline-container-org6954dd0" class="outline-4">
+<h4 id="org6954dd0"><span class="section-number-4">2.5.2.</span> Radiometry</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <ul class="org-ul">
 <li>Total amount of light radiating off a surface.</li>
@@ -975,7 +999,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga8e29c7"></a>Radiant Power/Flux ( &phi; )<br />
+<li><a id="orgd8cfae3"></a>Radiant Power/Flux ( &phi; )<br />
 <div class="outline-text-5" id="text-2-5-2-1">
 <ul class="org-ul">
 <li>Radiant Flux is the total <b>optical power</b> emitted from a source.</li>
@@ -983,7 +1007,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1ce59d0"></a>Radient Intensity (I)<br />
+<li><a id="orgf4555e4"></a>Radient Intensity (I)<br />
 <div class="outline-text-5" id="text-2-5-2-2">
 <ul class="org-ul">
 <li>Radiant Power &phi; per unit solid angle &Omega; from the source.</li>
@@ -991,7 +1015,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3036c4f"></a>Irradiance (E)<br />
+<li><a id="org7befe2c"></a>Irradiance (E)<br />
 <div class="outline-text-5" id="text-2-5-2-3">
 <ul class="org-ul">
 <li>Radiant power &phi; incident on a surface area A.</li>
@@ -1000,7 +1024,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7cade32"></a>Radiance (L)<br />
+<li><a id="org30877e0"></a>Radiance (L)<br />
 <div class="outline-text-5" id="text-2-5-2-4">
 <ul class="org-ul">
 <li>Radiant flux/power emitted or reflected from a surface A, per unit solid angle
@@ -1016,7 +1040,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="orge411750"></a>Summary<br />
+<li><a id="org65539f4"></a>Summary<br />
 <div class="outline-text-5" id="text-2-5-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1065,8 +1089,8 @@ direction.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org0f945fd" class="outline-4">
-<h4 id="org0f945fd"><span class="section-number-4">2.5.3.</span> Photometry</h4>
+<div id="outline-container-org625998d" class="outline-4">
+<h4 id="org625998d"><span class="section-number-4">2.5.3.</span> Photometry</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <ul class="org-ul">
 <li>Amount of <b>visible</b> light radiating off a surface.</li>
@@ -1074,7 +1098,7 @@ direction.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org49f946a"></a>Luminous Flux &phi;<br />
+<li><a id="org2edcff1"></a>Luminous Flux &phi;<br />
 <div class="outline-text-5" id="text-2-5-3-1">
 <ul class="org-ul">
 <li>Total <b>visible power</b> emitted from a source.</li>
@@ -1082,7 +1106,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8d9244a"></a>Luminous Intensity (I)<br />
+<li><a id="org742adc1"></a>Luminous Intensity (I)<br />
 <div class="outline-text-5" id="text-2-5-3-2">
 <ul class="org-ul">
 <li>Total <b>visible power</b> per unit solid angle &Omega; from the source.</li>
@@ -1090,7 +1114,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org44d3f79"></a>Illuminance (E)<br />
+<li><a id="org0542c6d"></a>Illuminance (E)<br />
 <div class="outline-text-5" id="text-2-5-3-3">
 <ul class="org-ul">
 <li>Luminous power &phi; incident on a surface area A.</li>
@@ -1099,7 +1123,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org84d45f4"></a>Luminance (L)<br />
+<li><a id="org4906daf"></a>Luminance (L)<br />
 <div class="outline-text-5" id="text-2-5-3-4">
 <ul class="org-ul">
 <li>Luminous flux/power emitted or reflected from a surface A, per unit solid angle
@@ -1110,7 +1134,7 @@ direction.</li>
 </p>
 </div>
 </li>
-<li><a id="org5959e17"></a>Summary<br />
+<li><a id="org1004355"></a>Summary<br />
 <div class="outline-text-5" id="text-2-5-3-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1157,7 +1181,7 @@ direction.</li>
 </table>
 </div>
 </li>
-<li><a id="orgc29e5e6"></a>For example, a point source emits a total radiant power of &phi; = 12W uniformly in all directions. Find its radiant intensity.<br />
+<li><a id="org1cbf05c"></a>For example, a point source emits a total radiant power of &phi; = 12W uniformly in all directions. Find its radiant intensity.<br />
 <div class="outline-text-5" id="text-2-5-3-6">
 <ul class="org-ul">
 <li>Total solid angle for a sphere
@@ -1176,7 +1200,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0db3ef9"></a>A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.<br />
+<li><a id="org1f00077"></a>A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.<br />
 <div class="outline-text-5" id="text-2-5-3-7">
 <ul class="org-ul">
 <li>Luminance flux \(L = 900 lm  \)</li>
@@ -1184,7 +1208,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc87e9db"></a>A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.<br />
+<li><a id="org6db0af7"></a>A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.<br />
 <div class="outline-text-5" id="text-2-5-3-8">
 <ul class="org-ul">
 <li>\(\text{Luminance Intensity} = 20\frac{lm}{Sr}\)</li>
@@ -1195,22 +1219,26 @@ direction.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org3fcb8bb" class="outline-4">
-<h4 id="org3fcb8bb"><span class="section-number-4">2.5.4.</span> Digitization</h4>
+<div id="outline-container-org683883d" class="outline-4">
+<h4 id="org683883d"><span class="section-number-4">2.5.4.</span> Digitization</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org5e062f6" class="outline-2">
-<h2 id="org5e062f6"><span class="section-number-2">3.</span> How Image Processing Typically Works</h2>
+<div id="outline-container-org01dd27e" class="outline-2">
+<h2 id="org01dd27e"><span class="section-number-2">3.</span> How Image Processing Typically Works</h2>
 <div class="outline-text-2" id="text-3">
 
-<div id="org487db20" class="figure">
+<div id="org7c4c564" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/imageSummary.png" alt="imageSummary.png" />
 </p>
 </div>
+
+<p>
+Here, DSP stands for Digital Signal Processing.
+</p>
 </div>
-<div id="outline-container-org0cfaf2c" class="outline-3">
-<h3 id="org0cfaf2c"><span class="section-number-3">3.1.</span> Optics</h3>
+<div id="outline-container-org9f567d4" class="outline-3">
+<h3 id="org9f567d4"><span class="section-number-3">3.1.</span> Optics</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>First light falls on the object.</li>
@@ -1221,24 +1249,24 @@ radiance intensity. It&rsquo;s for the rest of the quantities.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org40f99b8" class="outline-3">
-<h3 id="org40f99b8"><span class="section-number-3">3.2.</span> Aperture</h3>
+<div id="outline-container-org9c1321e" class="outline-3">
+<h3 id="org9c1321e"><span class="section-number-3">3.2.</span> Aperture</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>This adjusts how much light enters the camera.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgceaf171" class="outline-3">
-<h3 id="orgceaf171"><span class="section-number-3">3.3.</span> Shutter</h3>
+<div id="outline-container-org39d745a" class="outline-3">
+<h3 id="org39d745a"><span class="section-number-3">3.3.</span> Shutter</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>This adjusts how long the light can enter the camera.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbc67ad4" class="outline-3">
-<h3 id="orgbc67ad4"><span class="section-number-3">3.4.</span> Sensor (CCD/ CMOS)</h3>
+<div id="outline-container-org4328b65" class="outline-3">
+<h3 id="org4328b65"><span class="section-number-3">3.4.</span> Sensor (CCD/ CMOS)</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>The image capturing system (Charge-Coupled Device or Complementary Metal-Oxide
@@ -1249,8 +1277,8 @@ signals.</li>
 \[ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}\]
 </p>
 </div>
-<div id="outline-container-org59c5ecb" class="outline-4">
-<h4 id="org59c5ecb"><span class="section-number-4">3.4.1.</span> Direction by Angles</h4>
+<div id="outline-container-org27e4e2e" class="outline-4">
+<h4 id="org27e4e2e"><span class="section-number-4">3.4.1.</span> Direction by Angles</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <ul class="org-ul">
 <li>The angle of a ray in a 3D plane is represented by two angles: 
@@ -1284,8 +1312,8 @@ irrelevant for this course).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge463599" class="outline-4">
-<h4 id="orge463599"><span class="section-number-4">3.4.2.</span> Photon Detection</h4>
+<div id="outline-container-org3f71a6e" class="outline-4">
+<h4 id="org3f71a6e"><span class="section-number-4">3.4.2.</span> Photon Detection</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 \[ E = h \times f \]
@@ -1302,8 +1330,8 @@ where:
 </ul>
 </div>
 </div>
-<div id="outline-container-org32f77ee" class="outline-4">
-<h4 id="org32f77ee"><span class="section-number-4">3.4.3.</span> Photon Energy to Radiant Power</h4>
+<div id="outline-container-orgd83048e" class="outline-4">
+<h4 id="orgd83048e"><span class="section-number-4">3.4.3.</span> Photon Energy to Radiant Power</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 \[\phi = NE_{photon}\]
@@ -1316,8 +1344,8 @@ where:
 </ul>
 </div>
 </div>
-<div id="outline-container-org40e9a75" class="outline-4">
-<h4 id="org40e9a75"><span class="section-number-4">3.4.4.</span> Summary of Light to Electrical Signal</h4>
+<div id="outline-container-org80280be" class="outline-4">
+<h4 id="org80280be"><span class="section-number-4">3.4.4.</span> Summary of Light to Electrical Signal</h4>
 <div class="outline-text-4" id="text-3-4-4">
 <p>
 \[ \text{Photon Energy} \xrightarrow[\text{}]{\phi = NE_{photon}}  \text{Radiant power} \xrightarrow[\text{}]{E = \frac{\phi}{A}} \text{Irradiance}  \xrightarrow[\text{}]{L = \text{BRDF} \times E} \text{Radiance} \xrightarrow[\text{}]{I = L \times A \cos(\theta)}  \text{Intensity} \rightarrow \text{Sensor Signal}\]
@@ -1325,8 +1353,8 @@ where:
 </div>
 </div>
 </div>
-<div id="outline-container-org82427a7" class="outline-3">
-<h3 id="org82427a7"><span class="section-number-3">3.5.</span> Gain (ISO)</h3>
+<div id="outline-container-org701bcc5" class="outline-3">
+<h3 id="org701bcc5"><span class="section-number-3">3.5.</span> Gain (ISO)</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>This amplifies the signal to combat low-light.</li>
@@ -1343,8 +1371,8 @@ Higher sensitivity to light, basically means it can capture light better.
 </ul>
 </div>
 </div>
-<div id="outline-container-org825f1b3" class="outline-3">
-<h3 id="org825f1b3"><span class="section-number-3">3.6.</span> Bayers Filter</h3>
+<div id="outline-container-org53597f7" class="outline-3">
+<h3 id="org53597f7"><span class="section-number-3">3.6.</span> Bayers Filter</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li>Instead of having 3 sensors (each for one color), Kodak found a way to use one
@@ -1363,8 +1391,8 @@ remove one among red and blue, and then from the second row you remove the
 other. Green stays in both the rows.</li>
 </ul>
 </div>
-<div id="outline-container-orgf1d962b" class="outline-4">
-<h4 id="orgf1d962b"><span class="section-number-4">3.6.1.</span> Types of Bayer Filters</h4>
+<div id="outline-container-orgb1507a5" class="outline-4">
+<h4 id="orgb1507a5"><span class="section-number-4">3.6.1.</span> Types of Bayer Filters</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <ul class="org-ul">
 <li>There are different types of bayers filter (most commonly RGGB or R-G-R or
@@ -1374,8 +1402,8 @@ R-G-B-G pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.</li
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf0952e5" class="outline-4">
-<h4 id="orgf0952e5"><span class="section-number-4">3.6.2.</span> Extracting RGB matrices from Bayer Pattern</h4>
+<div id="outline-container-orga4bb17c" class="outline-4">
+<h4 id="orga4bb17c"><span class="section-number-4">3.6.2.</span> Extracting RGB matrices from Bayer Pattern</h4>
 <div class="outline-text-4" id="text-3-6-2">
 <p>
 In our example, we&rsquo;ll use a sample GRBG matrix.
@@ -1466,8 +1494,8 @@ A more Pythonic way would be:
 </div>
 </div>
 </div>
-<div id="outline-container-org8b382c5" class="outline-3">
-<h3 id="org8b382c5"><span class="section-number-3">3.7.</span> Demosaicing / Debayering</h3>
+<div id="outline-container-org04cca60" class="outline-3">
+<h3 id="org04cca60"><span class="section-number-3">3.7.</span> Demosaicing / Debayering</h3>
 <div class="outline-text-3" id="text-3-7">
 <ul class="org-ul">
 <li>This is an algorithm to generate the full RGB image, from a Bayers Image (each
@@ -1481,8 +1509,8 @@ neighbouring green and blue pixels. There are other ways for this
 interpolation though.</li>
 </ul>
 </div>
-<div id="outline-container-org570292a" class="outline-4">
-<h4 id="org570292a"><span class="section-number-4">3.7.1.</span> Nearest Neighbour Interpolation</h4>
+<div id="outline-container-org2abd329" class="outline-4">
+<h4 id="org2abd329"><span class="section-number-4">3.7.1.</span> Nearest Neighbour Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
 <li>Here, we copy the missing values from the neighbouring pixel of the same
@@ -1542,8 +1570,8 @@ main()
 </ul>
 </div>
 </div>
-<div id="outline-container-org85de332" class="outline-4">
-<h4 id="org85de332"><span class="section-number-4">3.7.2.</span> Bilinear Interpolation</h4>
+<div id="outline-container-org2027ad6" class="outline-4">
+<h4 id="org2027ad6"><span class="section-number-4">3.7.2.</span> Bilinear Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-2">
 <ul class="org-ul">
 <li>You consider all of the neighbours, and take the average.</li>
@@ -1561,8 +1589,8 @@ images.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee59e59" class="outline-4">
-<h4 id="orgee59e59"><span class="section-number-4">3.7.3.</span> Gradient Based Interpolation</h4>
+<div id="outline-container-orgaa1d273" class="outline-4">
+<h4 id="orgaa1d273"><span class="section-number-4">3.7.3.</span> Gradient Based Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-3">
 <ul class="org-ul">
 <li>Instead of taking average of all neighbours, you take the average along one
@@ -1591,12 +1619,12 @@ neighbors along the same vertical and horizontal line.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org86ba3e8" class="outline-3">
-<h3 id="org86ba3e8"><span class="section-number-3">3.8.</span> Sharpen</h3>
+<div id="outline-container-orgfd01f8b" class="outline-3">
+<h3 id="orgfd01f8b"><span class="section-number-3">3.8.</span> Sharpen</h3>
 <div class="outline-text-3" id="text-3-8">
 </div>
-<div id="outline-container-orgfcf8a67" class="outline-4">
-<h4 id="orgfcf8a67"><span class="section-number-4">3.8.1.</span> Unsharp Masking</h4>
+<div id="outline-container-org9885c08" class="outline-4">
+<h4 id="org9885c08"><span class="section-number-4">3.8.1.</span> Unsharp Masking</h4>
 <div class="outline-text-4" id="text-3-8-1">
 <ul class="org-ul">
 <li>Blur the image using a Gaussian filter</li>
@@ -1636,8 +1664,8 @@ cv2.destroyAllWindows()
 </div>
 </div>
 </div>
-<div id="outline-container-org1536d85" class="outline-3">
-<h3 id="org1536d85"><span class="section-number-3">3.9.</span> White Balance</h3>
+<div id="outline-container-org4515594" class="outline-3">
+<h3 id="org4515594"><span class="section-number-3">3.9.</span> White Balance</h3>
 <div class="outline-text-3" id="text-3-9">
 <ul class="org-ul">
 <li>Different light sources create different color casts on the sensor output.</li>
@@ -1646,8 +1674,8 @@ warmer colors create a reddish tone and cooler colors create a blueish tone.</li
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb7d39fc" class="outline-3">
-<h3 id="orgb7d39fc"><span class="section-number-3">3.10.</span> Gamma/Curve Correction</h3>
+<div id="outline-container-orgf0c7ea5" class="outline-3">
+<h3 id="orgf0c7ea5"><span class="section-number-3">3.10.</span> Gamma/Curve Correction</h3>
 <div class="outline-text-3" id="text-3-10">
 <ul class="org-ul">
 <li>Ideally, the graph between light signals input to a monitor, and the output
@@ -1694,8 +1722,8 @@ white is unaffected).</li>
 <li><b>Higher</b> the value of gamma, <b>darker</b> the midtones appear to be.</li>
 </ul>
 </div>
-<div id="outline-container-org97d4d8d" class="outline-4">
-<h4 id="org97d4d8d"><span class="section-number-4">3.10.1.</span> Inverse Gamma (Gamma Encoding)</h4>
+<div id="outline-container-org248af33" class="outline-4">
+<h4 id="org248af33"><span class="section-number-4">3.10.1.</span> Inverse Gamma (Gamma Encoding)</h4>
 <div class="outline-text-4" id="text-3-10-1">
 <ul class="org-ul">
 <li>Before transmission, we apply inverse value of gamma:
@@ -1703,8 +1731,8 @@ white is unaffected).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga5170d6" class="outline-4">
-<h4 id="orga5170d6"><span class="section-number-4">3.10.2.</span> Gamma Decoding</h4>
+<div id="outline-container-orgbd16729" class="outline-4">
+<h4 id="orgbd16729"><span class="section-number-4">3.10.2.</span> Gamma Decoding</h4>
 <div class="outline-text-4" id="text-3-10-2">
 <ul class="org-ul">
 <li>When the image is displayed, we substitute \(V = L^{\frac{1}{\gamma}}\), in the above
@@ -1717,12 +1745,12 @@ human vision.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org51569c1" class="outline-3">
-<h3 id="org51569c1"><span class="section-number-3">3.11.</span> Compress</h3>
+<div id="outline-container-org9c500e9" class="outline-3">
+<h3 id="org9c500e9"><span class="section-number-3">3.11.</span> Compress</h3>
 <div class="outline-text-3" id="text-3-11">
 </div>
-<div id="outline-container-orgde81fdf" class="outline-4">
-<h4 id="orgde81fdf"><span class="section-number-4">3.11.1.</span> <code>.jpeg</code></h4>
+<div id="outline-container-orgd45026a" class="outline-4">
+<h4 id="orgd45026a"><span class="section-number-4">3.11.1.</span> <code>.jpeg</code></h4>
 <div class="outline-text-4" id="text-3-11-1">
 <ul class="org-ul">
 <li>JPEG stands for <b>Joint Photographic Experts Group</b>, and this is a <b>lossy
@@ -1731,8 +1759,8 @@ decomposition</b> (as in image data is permanently discarded).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org86ce4e9" class="outline-4">
-<h4 id="org86ce4e9"><span class="section-number-4">3.11.2.</span> Chrominance Reduction</h4>
+<div id="outline-container-org9a4ff2c" class="outline-4">
+<h4 id="org9a4ff2c"><span class="section-number-4">3.11.2.</span> Chrominance Reduction</h4>
 <div class="outline-text-4" id="text-3-11-2">
 <ul class="org-ul">
 <li>Chrominance reduction is the process of reducing the amount of color in the
@@ -1748,7 +1776,7 @@ smaller in size.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org3eb5918"></a>Luminance and Chrominance<br />
+<li><a id="org6d838fb"></a>Luminance and Chrominance<br />
 <div class="outline-text-5" id="text-3-11-2-1">
 <ul class="org-ul">
 <li>In video systems, \(Y\) is <b>luminance</b> (brightness) and both \(Cb\) and \(Cr\)
@@ -1764,7 +1792,7 @@ represent <b>chrominance</b> (color information).</li>
 </ul>
 </div>
 </li>
-<li><a id="orga89025f"></a>Chroma Downsampling<br />
+<li><a id="org4d5c8d8"></a>Chroma Downsampling<br />
 <div class="outline-text-5" id="text-3-11-2-2">
 <ul class="org-ul">
 <li>This is what you call it when you store less color information that brightness
@@ -1808,28 +1836,28 @@ horizontal pixels:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgbc60f9d"></a>4:4:4<br />
+<li><a id="orgd1fe218"></a>4:4:4<br />
 <div class="outline-text-6" id="text-3-11-2-2-1">
 
-<div id="orgd521cb7" class="figure">
+<div id="org939eca0" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/444.png" alt="444.png" />
 </p>
 </div>
 </div>
 </li>
-<li><a id="org7dc76fe"></a>4:2:2<br />
+<li><a id="org811d17d"></a>4:2:2<br />
 <div class="outline-text-6" id="text-3-11-2-2-2">
 
-<div id="orgf06a156" class="figure">
+<div id="org47e4261" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/422.png" alt="422.png" />
 </p>
 </div>
 </div>
 </li>
-<li><a id="org7d95b4d"></a>4:2:0<br />
+<li><a id="org13de398"></a>4:2:0<br />
 <div class="outline-text-6" id="text-3-11-2-2-3">
 
-<div id="org87bfdd2" class="figure">
+<div id="org793990b" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/420.png" alt="420.png" />
 </p>
 </div>
@@ -1839,8 +1867,8 @@ horizontal pixels:
 </li>
 </ol>
 </div>
-<div id="outline-container-org086f986" class="outline-4">
-<h4 id="org086f986"><span class="section-number-4">3.11.3.</span> Quantization</h4>
+<div id="outline-container-orgb29b647" class="outline-4">
+<h4 id="orgb29b647"><span class="section-number-4">3.11.3.</span> Quantization</h4>
 <div class="outline-text-4" id="text-3-11-3">
 <ul class="org-ul">
 <li>This is later <b>sampled spacially</b> into pixels.</li>
@@ -1852,15 +1880,15 @@ manipulated. This process is called <b>quantization</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8dc25dc" class="outline-2">
-<h2 id="org8dc25dc"><span class="section-number-2">4.</span> Camera Calibration</h2>
+<div id="outline-container-orgac9fed9" class="outline-2">
+<h2 id="orgac9fed9"><span class="section-number-2">4.</span> Camera Calibration</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>It&rsquo;s the process of estimating camera parameters.</li>
 </ul>
 </div>
-<div id="outline-container-org52145d5" class="outline-3">
-<h3 id="org52145d5"><span class="section-number-3">4.1.</span> Fundamental Problem</h3>
+<div id="outline-container-orgdbe436e" class="outline-3">
+<h3 id="orgdbe436e"><span class="section-number-3">4.1.</span> Fundamental Problem</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 A real camera is not an ideal pinhole camera. The principle is same but the
@@ -1871,12 +1899,12 @@ difference is that, a real camera has:
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ea2b2b" class="outline-3">
-<h3 id="org4ea2b2b"><span class="section-number-3">4.2.</span> Essential Parameters</h3>
+<div id="outline-container-orgf8cf5a3" class="outline-3">
+<h3 id="orgf8cf5a3"><span class="section-number-3">4.2.</span> Essential Parameters</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org956bf6e" class="outline-4">
-<h4 id="org956bf6e"><span class="section-number-4">4.2.1.</span> Intrinsics</h4>
+<div id="outline-container-orga9ef74a" class="outline-4">
+<h4 id="orga9ef74a"><span class="section-number-4">4.2.1.</span> Intrinsics</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>These are the parameters inside the camera.</li>
@@ -1908,7 +1936,7 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org2a174ec"></a>Radial Distortion<br />
+<li><a id="orgcf497df"></a>Radial Distortion<br />
 <div class="outline-text-5" id="text-4-2-1-1">
 <ul class="org-ul">
 <li>This occurs when the lens is not spherical.</li>
@@ -1916,7 +1944,7 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </ul>
 </div>
 </li>
-<li><a id="orga8d165f"></a>Tangential Distortion<br />
+<li><a id="org2dd1753"></a>Tangential Distortion<br />
 <div class="outline-text-5" id="text-4-2-1-2">
 <ul class="org-ul">
 <li>This occurs when the lens and the image plane are not parallel.</li>
@@ -1926,8 +1954,8 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </li>
 </ol>
 </div>
-<div id="outline-container-org2937cad" class="outline-4">
-<h4 id="org2937cad"><span class="section-number-4">4.2.2.</span> Extrinsics</h4>
+<div id="outline-container-org36959a7" class="outline-4">
+<h4 id="org36959a7"><span class="section-number-4">4.2.2.</span> Extrinsics</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <ul class="org-ul">
 <li>These define camera position (translation) and orientation (Rotation matrix).</li>
@@ -1939,8 +1967,8 @@ matrix</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org98e8718" class="outline-4">
-<h4 id="org98e8718"><span class="section-number-4">4.2.3.</span> How they all come together</h4>
+<div id="outline-container-org0e5db40" class="outline-4">
+<h4 id="org0e5db40"><span class="section-number-4">4.2.3.</span> How they all come together</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 \[ \begin{bmatrix} u \\ v \\ 1\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix} \]
@@ -1949,15 +1977,15 @@ matrix</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1efdc0d" class="outline-2">
-<h2 id="org1efdc0d"><span class="section-number-2">5.</span> Segmentation</h2>
+<div id="outline-container-org7b55dfc" class="outline-2">
+<h2 id="org7b55dfc"><span class="section-number-2">5.</span> Segmentation</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Image segmentation is the task of finding group of pixels that &ldquo;go together&rdquo;.</li>
 </ul>
 </div>
-<div id="outline-container-org9e449bf" class="outline-3">
-<h3 id="org9e449bf"><span class="section-number-3">5.1.</span> Simplest form of Segmentation: Binary Segmentation</h3>
+<div id="outline-container-org156279c" class="outline-3">
+<h3 id="org156279c"><span class="section-number-3">5.1.</span> Simplest form of Segmentation: Binary Segmentation</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Having a fixed threshold for all pixels.</li>
@@ -1966,8 +1994,8 @@ matrix</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f36aed" class="outline-3">
-<h3 id="org4f36aed"><span class="section-number-3">5.2.</span> Gestalt Theory of Perception</h3>
+<div id="outline-container-org2adb7b8" class="outline-3">
+<h3 id="org2adb7b8"><span class="section-number-3">5.2.</span> Gestalt Theory of Perception</h3>
 <div class="outline-text-3" id="text-5-2">
 <blockquote>
 <p>
@@ -1975,8 +2003,8 @@ The mind perceives objects as unified wholes (Gestalts) rather than just collect
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org113b7ec" class="outline-4">
-<h4 id="org113b7ec"><span class="section-number-4">5.2.1.</span> Proximity Principles</h4>
+<div id="outline-container-orga9c874f" class="outline-4">
+<h4 id="orga9c874f"><span class="section-number-4">5.2.1.</span> Proximity Principles</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 Here, we perceive 4 objects.
@@ -1995,8 +2023,8 @@ But here we perceive two objects, because we group based on distance.
 </div>
 </div>
 </div>
-<div id="outline-container-org57cdf72" class="outline-4">
-<h4 id="org57cdf72"><span class="section-number-4">5.2.2.</span> Similarity</h4>
+<div id="outline-container-orge3e8b2f" class="outline-4">
+<h4 id="orge3e8b2f"><span class="section-number-4">5.2.2.</span> Similarity</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 Here, we perceive 4 objects.
@@ -2029,8 +2057,8 @@ It&rsquo;s a human tendancy to pick proximity over similarity.
 </p>
 </div>
 </div>
-<div id="outline-container-org45eeee5" class="outline-4">
-<h4 id="org45eeee5"><span class="section-number-4">5.2.3.</span> Common Fate</h4>
+<div id="outline-container-org881b4cc" class="outline-4">
+<h4 id="org881b4cc"><span class="section-number-4">5.2.3.</span> Common Fate</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li>You group based on what action the objects are performing.</li>
@@ -2039,16 +2067,16 @@ stationary objects would be grouped together too.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc361025" class="outline-4">
-<h4 id="orgc361025"><span class="section-number-4">5.2.4.</span> Common Region / Connectivity</h4>
+<div id="outline-container-org6d43975" class="outline-4">
+<h4 id="org6d43975"><span class="section-number-4">5.2.4.</span> Common Region / Connectivity</h4>
 <div class="outline-text-4" id="text-5-2-4">
 <ul class="org-ul">
 <li>If you draw a boundary around some objects, you perceive them as one group.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcef5237" class="outline-4">
-<h4 id="orgcef5237"><span class="section-number-4">5.2.5.</span> Continuity Principle</h4>
+<div id="outline-container-orgc426aca" class="outline-4">
+<h4 id="orgc426aca"><span class="section-number-4">5.2.5.</span> Continuity Principle</h4>
 <div class="outline-text-4" id="text-5-2-5">
 <ul class="org-ul">
 <li>Our eyes naturally folow smooth paths, even if the path are constituted by
@@ -2057,16 +2085,16 @@ separate parts.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org20080a5" class="outline-4">
-<h4 id="org20080a5"><span class="section-number-4">5.2.6.</span> Symmetry Principle</h4>
+<div id="outline-container-orga869764" class="outline-4">
+<h4 id="orga869764"><span class="section-number-4">5.2.6.</span> Symmetry Principle</h4>
 <div class="outline-text-4" id="text-5-2-6">
 <ul class="org-ul">
 <li>Two symmetrical objects are perceived to be a group.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7619a2d" class="outline-4">
-<h4 id="org7619a2d"><span class="section-number-4">5.2.7.</span> Illusory Contours - Illusions&rsquo; grouping</h4>
+<div id="outline-container-orge3bba70" class="outline-4">
+<h4 id="orge3bba70"><span class="section-number-4">5.2.7.</span> Illusory Contours - Illusions&rsquo; grouping</h4>
 <div class="outline-text-4" id="text-5-2-7">
 <ul class="org-ul">
 <li>Our brains fill in missing parts of an image.</li>
@@ -2074,12 +2102,12 @@ separate parts.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5a1149f" class="outline-3">
-<h3 id="org5a1149f"><span class="section-number-3">5.3.</span> Two approaches towards Segmentation</h3>
+<div id="outline-container-orgf6afb51" class="outline-3">
+<h3 id="orgf6afb51"><span class="section-number-3">5.3.</span> Two approaches towards Segmentation</h3>
 <div class="outline-text-3" id="text-5-3">
 </div>
-<div id="outline-container-orgaa223eb" class="outline-4">
-<h4 id="orgaa223eb"><span class="section-number-4">5.3.1.</span> Top Down</h4>
+<div id="outline-container-org04ab5e3" class="outline-4">
+<h4 id="org04ab5e3"><span class="section-number-4">5.3.1.</span> Top Down</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Here, you already have prior knowledge about objects and you use this to
@@ -2089,7 +2117,7 @@ perform segmentation.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb6b3049"></a>Active Contours - Snake<br />
+<li><a id="org4bcc1cf"></a>Active Contours - Snake<br />
 <div class="outline-text-5" id="text-5-3-1-1">
 <ul class="org-ul">
 <li>You segment using <b>curves</b>, not pixels.</li>
@@ -2109,7 +2137,7 @@ of your lips when you speak, or a car based on the angle you&rsquo;re viewing it
 </ul>
 </div>
 </li>
-<li><a id="org9080eec"></a>Intelligent Scissors<br />
+<li><a id="org291f7dd"></a>Intelligent Scissors<br />
 <div class="outline-text-5" id="text-5-3-1-2">
 <ul class="org-ul">
 <li>The user has to click some points around the boundaries, using which the
@@ -2119,8 +2147,8 @@ algorithm finds a curve that follows strong boundaries.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc4890fd" class="outline-4">
-<h4 id="orgc4890fd"><span class="section-number-4">5.3.2.</span> Bottom Up</h4>
+<div id="outline-container-org801181e" class="outline-4">
+<h4 id="org801181e"><span class="section-number-4">5.3.2.</span> Bottom Up</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Uses only image evidence, where you group pixels based on similarity.</li>
@@ -2131,16 +2159,16 @@ information from this.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org75741cc"></a>Clustering Based Segmentation<br />
+<li><a id="orgd955ebf"></a>Clustering Based Segmentation<br />
 <div class="outline-text-5" id="text-5-3-2-1">
 <ul class="org-ul">
 <li>The disadvantages are that a cluster doesn&rsquo;t necessarily mean an object.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgdfac242"></a>K-Means<br />
+<li><a id="org3160102"></a>K-Means<br />
 <ol class="org-ol">
-<li><a id="org9b0975b"></a>Example: <code>Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]</code>, <code>k = 2</code>, <code>Random Centroids = [(1,1), (5, 5)]</code><br />
+<li><a id="orge32bfed"></a>Example: <code>Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]</code>, <code>k = 2</code>, <code>Random Centroids = [(1,1), (5, 5)]</code><br />
 <div class="outline-text-7" id="text-5-3-2-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2320,7 +2348,7 @@ the average of the points is the same point as the cluster centroid.
 </table>
 </div>
 </li>
-<li><a id="org5239eca"></a>Disadvantage<br />
+<li><a id="org758b868"></a>Disadvantage<br />
 <div class="outline-text-7" id="text-5-3-2-1-1-2">
 <ul class="org-ul">
 <li>The issue is that you need to find the right value of \(k\).</li>
@@ -2330,14 +2358,14 @@ the average of the points is the same point as the cluster centroid.
 </li>
 </ol>
 </li>
-<li><a id="org3887133"></a>Mean Shift Segmentation (Hill Climb)<br />
+<li><a id="org16d5ad7"></a>Mean Shift Segmentation (Hill Climb)<br />
 <div class="outline-text-6" id="text-5-3-2-1-2">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </li>
-<li><a id="org11d92e1"></a>Graph Based Segmentation<br />
+<li><a id="org3f9f2d9"></a>Graph Based Segmentation<br />
 <div class="outline-text-6" id="text-5-3-2-1-3">
 <ul class="org-ul">
 <li>You denote an image as a graph, where 
@@ -2349,7 +2377,7 @@ the weight, more the similarity).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org67fce87"></a>Measuring Affinity<br />
+<li><a id="org6cb1cc7"></a>Measuring Affinity<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-1">
 <ul class="org-ul">
 <li>Pixel Dissimilarity:</li>
@@ -2359,7 +2387,7 @@ the weight, more the similarity).</li>
 </p>
 </div>
 </li>
-<li><a id="orga1982e6"></a>Graph Cut<br />
+<li><a id="orgcd31b60"></a>Graph Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-2">
 <ul class="org-ul">
 <li>Cut \((V_{A},V_{B})\) is a partition of vertices \(V\) of a graph into two disjoint
@@ -2369,7 +2397,7 @@ groups (hence being segmented).</li>
 </ul>
 </div>
 </li>
-<li><a id="orga5d9a78"></a>Min-Cut<br />
+<li><a id="org9d7b95a"></a>Min-Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-3">
 <ul class="org-ul">
 <li><b>Min-Cut</b> algorithm is where you cut the graph only the pair of vertices have
@@ -2381,7 +2409,7 @@ It&rsquo;s the sum of weights of all edges starting from A</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbc2943f"></a>Normalized Cut<br />
+<li><a id="org62ef683"></a>Normalized Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-4">
 <ul class="org-ul">
 <li>The value of a normalized cut ranges from 0 to 2 (lower the number, better the
@@ -2407,14 +2435,14 @@ segments, and strong internal connection within the segments.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgb1098d9"></a>Edge Based Segmentation<br />
+<li><a id="org8085403"></a>Edge Based Segmentation<br />
 <div class="outline-text-5" id="text-5-3-2-2">
 <ul class="org-ul">
 <li>Here, you separate an object based on edges.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgfacf7b7"></a>Edges<br />
+<li><a id="orga7790ec"></a>Edges<br />
 <div class="outline-text-6" id="text-5-3-2-2-1">
 <ul class="org-ul">
 <li>An edge is a rapid change in image intensity within a small region.</li>
@@ -2428,14 +2456,14 @@ segments, and strong internal connection within the segments.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf4e4053"></a>Edge Detection<br />
+<li><a id="orgcefbc5a"></a>Edge Detection<br />
 <div class="outline-text-6" id="text-5-3-2-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s a method of segmenting an image into regions of discontinuity.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org6b5789e"></a>Using Convolution<br />
+<li><a id="orgc5a7dbb"></a>Using Convolution<br />
 <div class="outline-text-7" id="text-5-3-2-2-2-1">
 <ul class="org-ul">
 <li>For edge detection, you have to run a kernel across the image, before which
@@ -2445,7 +2473,7 @@ segments, and strong internal connection within the segments.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge295795"></a>Different Mask/Kernels<br />
+<li><a id="org762ce9f"></a>Different Mask/Kernels<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-1-1">
 <p>
 \[ \begin{bmatrix} -1 & -1 & -1\\ G & B & G\\ R & G & R\end{bmatrix}\]
@@ -2454,9 +2482,9 @@ segments, and strong internal connection within the segments.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgbb776a0"></a>Edge Detection Operators<br />
+<li><a id="org1d11d84"></a>Edge Detection Operators<br />
 <ol class="org-ol">
-<li><a id="org4030bbe"></a>Gradient<br />
+<li><a id="orga05a5ec"></a>Gradient<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-2-1">
 <ul class="org-ul">
 <li>They are based on first-order derivative.</li>
@@ -2476,7 +2504,7 @@ the pixel in the middle is an edge.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb7d11fa"></a>Sobel<br />
+<li><a id="org1a1e89e"></a>Sobel<br />
 <div class="outline-text-9" id="text-5-3-2-2-2-2-1-1">
 <ul class="org-ul">
 <li>For detecting Vertical Edges, you use horizontal matrix.
@@ -2513,7 +2541,7 @@ else assign <code>0</code>. The path along the <code>1</code>&rsquo;s trace the 
 </li>
 </ol>
 </li>
-<li><a id="orgb3a508e"></a>Gaussian<br />
+<li><a id="org4402fa6"></a>Gaussian<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-2-2">
 <ul class="org-ul">
 <li>Examples, Canny, Laplacian</li>
@@ -2530,8 +2558,8 @@ else assign <code>0</code>. The path along the <code>1</code>&rsquo;s trace the 
 </div>
 </div>
 </div>
-<div id="outline-container-orgc624ba3" class="outline-2">
-<h2 id="orgc624ba3"><span class="section-number-2">6.</span> Feature Extraction</h2>
+<div id="outline-container-org2ecca46" class="outline-2">
+<h2 id="org2ecca46"><span class="section-number-2">6.</span> Feature Extraction</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>A feature is a piece of information relevant for solving a computational task.</li>
@@ -2544,19 +2572,19 @@ things which don&rsquo;t depend on the scale, intensity and orientation, and the
 are called features.</li>
 </ul>
 </div>
-<div id="outline-container-org0c3e346" class="outline-3">
-<h3 id="org0c3e346"><span class="section-number-3">6.1.</span> Main Components of Feature Detection and Matching</h3>
+<div id="outline-container-orgab3139b" class="outline-3">
+<h3 id="orgab3139b"><span class="section-number-3">6.1.</span> Main Components of Feature Detection and Matching</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org4daaec7" class="outline-4">
-<h4 id="org4daaec7"><span class="section-number-4">6.1.1.</span> Detection</h4>
+<div id="outline-container-org766e1fe" class="outline-4">
+<h4 id="org766e1fe"><span class="section-number-4">6.1.1.</span> Detection</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>This is where you identify the <b>interest point</b> or <b>blob</b>.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org5a0a3ef"></a>Interest Point<br />
+<li><a id="org92a360a"></a>Interest Point<br />
 <div class="outline-text-5" id="text-6-1-1-1">
 <ul class="org-ul">
 <li>The interest point is the point at which the direction of the boundary of the
@@ -2570,7 +2598,7 @@ interest point.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgebc30eb"></a>Blob<br />
+<li><a id="org2388359"></a>Blob<br />
 <div class="outline-text-5" id="text-6-1-1-2">
 <ul class="org-ul">
 <li>Instead of using a single point, you use a collection/plane of interest points
@@ -2581,8 +2609,8 @@ called a <b>blob</b> (essentially, a sub-image).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgbb71e81" class="outline-4">
-<h4 id="orgbb71e81"><span class="section-number-4">6.1.2.</span> Description</h4>
+<div id="outline-container-orgcacf74b" class="outline-4">
+<h4 id="orgcacf74b"><span class="section-number-4">6.1.2.</span> Description</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>The local appearance of the surroundings of the interest point is described
@@ -2594,8 +2622,8 @@ Feature Transform</b> (SIFT), <b>SURF</b>, <b>Binary Robust Invariant Scalable K
 </ul>
 </div>
 </div>
-<div id="outline-container-orgacf045c" class="outline-4">
-<h4 id="orgacf045c"><span class="section-number-4">6.1.3.</span> Matching</h4>
+<div id="outline-container-org135ac56" class="outline-4">
+<h4 id="org135ac56"><span class="section-number-4">6.1.3.</span> Matching</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>This is establishing correspondence between two points.</li>
@@ -2603,19 +2631,19 @@ Feature Transform</b> (SIFT), <b>SURF</b>, <b>Binary Robust Invariant Scalable K
 </div>
 </div>
 </div>
-<div id="outline-container-orga5fc65b" class="outline-3">
-<h3 id="orga5fc65b"><span class="section-number-3">6.2.</span> SIFT</h3>
+<div id="outline-container-org6c5c5e3" class="outline-3">
+<h3 id="org6c5c5e3"><span class="section-number-3">6.2.</span> SIFT</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>This can both select the interest point, and give the descriptor vector.</li>
 </ul>
 </div>
-<div id="outline-container-org0cbe34c" class="outline-4">
-<h4 id="org0cbe34c"><span class="section-number-4">6.2.1.</span> Detecting Interest Points/ Blobs</h4>
+<div id="outline-container-orgfd37fee" class="outline-4">
+<h4 id="orgfd37fee"><span class="section-number-4">6.2.1.</span> Detecting Interest Points/ Blobs</h4>
 <div class="outline-text-4" id="text-6-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org3e0b6f0"></a>Laplacian of Gaussian (LoG)<br />
+<li><a id="org29c195b"></a>Laplacian of Gaussian (LoG)<br />
 <div class="outline-text-5" id="text-6-2-1-1">
 <ul class="org-ul">
 <li>We use and image processing operator called <b>Normalized Laplacian of Gaussian</b>
@@ -2638,7 +2666,7 @@ negative curvature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org667fb93"></a>Difference of Gaussian (DoG)<br />
+<li><a id="orge1aafff"></a>Difference of Gaussian (DoG)<br />
 <div class="outline-text-5" id="text-6-2-1-2">
 <ul class="org-ul">
 <li>Since laplacian is an expensive operation, SIFT uses DoG.</li>
@@ -2648,82 +2676,381 @@ negative curvature.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org199f1df" class="outline-4">
-<h4 id="org199f1df"><span class="section-number-4">6.2.2.</span> Finding the Descriptor</h4>
+<div id="outline-container-org5a85007" class="outline-4">
+<h4 id="org5a85007"><span class="section-number-4">6.2.2.</span> Finding the Descriptor</h4>
 </div>
 
-<div id="outline-container-org3aac440" class="outline-4">
-<h4 id="org3aac440"><span class="section-number-4">6.2.3.</span> Matching</h4>
+<div id="outline-container-orgcb2c2eb" class="outline-4">
+<h4 id="orgcb2c2eb"><span class="section-number-4">6.2.3.</span> Matching</h4>
 </div>
 </div>
-<div id="outline-container-org20255ed" class="outline-3">
-<h3 id="org20255ed"><span class="section-number-3">6.3.</span> How SIFT is used in places?</h3>
+<div id="outline-container-org17ac8a4" class="outline-3">
+<h3 id="org17ac8a4"><span class="section-number-3">6.3.</span> How SIFT is used in places?</h3>
 <div class="outline-text-3" id="text-6-3">
 </div>
-<div id="outline-container-orga8da79d" class="outline-4">
-<h4 id="orga8da79d"><span class="section-number-4">6.3.1.</span> How SIFT is used in Image registration or alignment</h4>
+<div id="outline-container-orgb057122" class="outline-4">
+<h4 id="orgb057122"><span class="section-number-4">6.3.1.</span> How SIFT is used in Image registration or alignment</h4>
 </div>
 
-<div id="outline-container-org9f42f30" class="outline-4">
-<h4 id="org9f42f30"><span class="section-number-4">6.3.2.</span> How SIFT is used in Object Recognition</h4>
+<div id="outline-container-org639452d" class="outline-4">
+<h4 id="org639452d"><span class="section-number-4">6.3.2.</span> How SIFT is used in Object Recognition</h4>
 </div>
 
-<div id="outline-container-org7c37c69" class="outline-4">
-<h4 id="org7c37c69"><span class="section-number-4">6.3.3.</span> How SIFT is used in Image Stitching</h4>
+<div id="outline-container-orga1b887f" class="outline-4">
+<h4 id="orga1b887f"><span class="section-number-4">6.3.3.</span> How SIFT is used in Image Stitching</h4>
 </div>
 
-<div id="outline-container-orgd610741" class="outline-4">
-<h4 id="orgd610741"><span class="section-number-4">6.3.4.</span> SIFT vs YOLO</h4>
-</div>
-</div>
-<div id="outline-container-orge0f3603" class="outline-3">
-<h3 id="orge0f3603"><span class="section-number-3">6.4.</span> Program for SIFT</h3>
-<div class="outline-text-3" id="text-6-4">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #51afef;">import</span> numpy <span style="color: #51afef;">as</span> np
-<span style="color: #51afef;">import</span> cv2
-</pre>
-</div>
-</div>
-<div id="outline-container-org557cf37" class="outline-4">
-<h4 id="org557cf37"><span class="section-number-4">6.4.1.</span> Load the image in grayscale</h4>
-<div class="outline-text-4" id="text-6-4-1">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #dcaeea;">img</span> = cv2.imread(<span style="color: #98be65;">'/content/aicte.jpg'</span>, cv2.IMREAD_GRAYSCALE)
-</pre>
+<div id="outline-container-org3a8a6b4" class="outline-4">
+<h4 id="org3a8a6b4"><span class="section-number-4">6.3.4.</span> SIFT vs YOLO</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb9b8880" class="outline-4">
-<h4 id="orgb9b8880"><span class="section-number-4">6.4.2.</span> Initialize the SIFT detector</h4>
-<div class="outline-text-4" id="text-6-4-2">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #dcaeea;">sift</span> = cv2.SIFT_create()
-</pre>
+<div id="outline-container-orgaf87858" class="outline-2">
+<h2 id="orgaf87858"><span class="section-number-2">7.</span> Pose Estimation</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgb0b6242" class="outline-3">
+<h3 id="orgb0b6242"><span class="section-number-3">7.1.</span> What it is</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>Pose estimation is the process of determining the position and orientation of
+an object.</li>
+<li>You detect <b>key points</b> / <b>landmarks</b> on the subject, and then estimate their
+spactial arrangement (eg. distance between two eyes).</li>
+<li>Creating this &rsquo;skeleton&rsquo; is what we end up doing in pose estimation.</li>
+<li>SIFT was a classical computer vision method for this while &rsquo;OpenPose&rsquo; and
+&rsquo;PoseNet&rsquo; are deep learning methods.</li>
+</ul>
 </div>
 </div>
-</div>
-<div id="outline-container-org05789c8" class="outline-4">
-<h4 id="org05789c8"><span class="section-number-4">6.4.3.</span> Detect Keypoints and Compute Descriptors</h4>
-<div class="outline-text-4" id="text-6-4-3">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #dcaeea;">keypoints</span>, <span style="color: #dcaeea;">descriptors</span> = sift.detectAndCompute(img, <span style="color: #a9a1e1;">None</span>)
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org2550e7c" class="outline-4">
-<h4 id="org2550e7c"><span class="section-number-4">6.4.4.</span> Extract values for the first keypoint found</h4>
-<div class="outline-text-4" id="text-6-4-4">
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #51afef;">if</span> descriptors <span style="color: #51afef;">is</span> <span style="color: #51afef;">not</span> <span style="color: #a9a1e1;">None</span>:
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">first_descriptor</span> = descriptors[0]
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(f<span style="color: #98be65;">"total keypoints: </span>{<span style="color: #c678dd;">len</span>(keypoints)}<span style="color: #98be65;">"</span>)
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(f<span style="color: #98be65;">"descriptor shape: </span>{first_descriptor.shape}<span style="color: #98be65;"> "</span>)
-<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(f<span style="color: #98be65;">"128 values of the first descriptor: </span>{first_descriptor[:128]}<span style="color: #98be65;">"</span>)
+<div id="outline-container-orgc9e9857" class="outline-3">
+<h3 id="orgc9e9857"><span class="section-number-3">7.2.</span> Types of Pose Estimation</h3>
+<div class="outline-text-3" id="text-7-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">2D</th>
+<th scope="col" class="org-right">3D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">Identifies key points in 2D without depth</td>
+<td class="org-right">Identifies key points in 3D with depth</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org3e9b178" class="outline-3">
+<h3 id="org3e9b178"><span class="section-number-3">7.3.</span> Applications</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>Augmented Reality and Virtual Reality</li>
+<li>Human Activity Recognition</li>
+<li>Gesture Recognition</li>
+<li>Robotics</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9d32a4" class="outline-3">
+<h3 id="orga9d32a4"><span class="section-number-3">7.4.</span> How it works</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li>Detect Key points</li>
+<li>Map Key points to the Skeleton</li>
+<li>Use AI models</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb40e1f0" class="outline-3">
+<h3 id="orgb40e1f0"><span class="section-number-3">7.5.</span> Approaches for Pose Estimation</h3>
+<div class="outline-text-3" id="text-7-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Top Down Approach</th>
+<th scope="col" class="org-left">Bottom Up Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Perform Object detection (identify human beings) and then you predicts key points within each bounding box</td>
+<td class="org-left">Identify the key points, and then you associate all of them with individual poses.</td>
+</tr>
+
+<tr>
+<td class="org-left">The number of key points depends on the dataset (Eg. COCO has 17 keypoints, including nose, eyes, etc)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">This is more accurate and computationally expensive</td>
+<td class="org-left">It&rsquo;s faster and has more tolerance for occlusion, although this is less accurate.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is preferred for real-time applications which are lightweight.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgafc2636" class="outline-3">
+<h3 id="orgafc2636"><span class="section-number-3">7.6.</span> OpenPose</h3>
+<div class="outline-text-3" id="text-7-6">
+<ul class="org-ul">
+<li>It uses a CNN and extracts &rsquo;feature maps&rsquo; (detailed layers of the image that
+highlight various aspects like edges, textures of shapes).</li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orga75e7bd" class="outline-2">
+<h2 id="orga75e7bd"><span class="section-number-2">8.</span> Motion Detection</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org4145447" class="outline-3">
+<h3 id="org4145447"><span class="section-number-3">8.1.</span> Motion Field</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>It&rsquo;s a 3D vector field that represents the velocity of points in 3D, as they
+project onto a 2D image plane.</li>
+<li>If something is moving in 3D, how that motion appears on a 2D image is what
+motion field tells you.</li>
+<li>It depends on:
+<ul class="org-ul">
+<li>Camera Motion</li>
+<li>Object Motion</li>
+<li>Depth of the scene</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9492e3e" class="outline-3">
+<h3 id="org9492e3e"><span class="section-number-3">8.2.</span> Optical Flow</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>It&rsquo;s a 2D vector field that represents the apparent motion of brightness
+patterns in an image sequence.</li>
+<li>It estimates motion of pixels between consecutive frames.</li>
+<li>We are only given with images, and from those images, you can&rsquo;t calculate
+motion field because of the lack of depth.</li>
+<li>Instead, we calculate optical flow and it will approximate motion field well
+when these assumptions hold true:
+<ul class="org-ul">
+<li>The brightness is consistent</li>
+<li>The motion between consecutive frames is small</li>
+<li>Spacial coherence</li>
+</ul></li>
+<li>Two consecutive stationary frames in a video are given as \(I(x,y,t)\) and
+\(I(x,y,t+1)\).</li>
+<li>If the objects in move in this time frame, then they&rsquo;re given as \(I(x,y,t)\)
+and \(I(x+u, y+v, t+1)\), where \(u\), \(v\) is the pixel displacement in one time
+frame.</li>
+<li>The <b>optical flow equation</b> is given as:
+\[I_{x}u + I_{y}v + I_{t} = 0\]</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3bb059e" class="outline-2">
+<h2 id="org3bb059e"><span class="section-number-2">9.</span> Object Recognition and Detection</h2>
+<div class="outline-text-2" id="text-9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Object Recognition</th>
+<th scope="col" class="org-left">Object Detection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">It&rsquo;s a computer vision technique to identify objects in images or objects.</td>
+<td class="org-left">This is a subset of object recognition where you not only identify, but you also locate.</td>
+</tr>
+
+<tr>
+<td class="org-left">This is a classification problem only. The output is just text.</td>
+<td class="org-left">The output is text and a bounding box.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-org9b72483" class="outline-3">
+<h3 id="org9b72483"><span class="section-number-3">9.1.</span> Early Approaches for Human Detection</h3>
+<div class="outline-text-3" id="text-9-1">
+</div>
+<div id="outline-container-orgba93bf2" class="outline-4">
+<h4 id="orgba93bf2"><span class="section-number-4">9.1.1.</span> Haar Cascades</h4>
+<div class="outline-text-4" id="text-9-1-1">
+<ul class="org-ul">
+<li>A <b>haar filter</b> is a type of edge-detection matrix.</li>
+<li>An <b>Integral image</b> is a matrix such that a pixel \((i,j)\) is the sum of all pixels above</li>
+<li>A haar response using an integral image</li>
+</ul>
+<p>
+\[V_{A} = \Sigma(\text{Pixel Intensities of Black}) - \Sigma(\text{Pixel Intensities of White})\]
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org19ef7ad"></a>Viola-Jones Algorithm<br />
+<div class="outline-text-5" id="text-9-1-1-1">
+<p>
+Face Image &rarr; Haar Like Feature &rarr; Integral Images &rarr; Adaptive Boosting or Adaboost &rarr; Cascades of classifier
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0513526" class="outline-4">
+<h4 id="org0513526"><span class="section-number-4">9.1.2.</span> Histogram of Oriented Gradients</h4>
+<div class="outline-text-4" id="text-9-1-2">
+<p>
+Histograms are used to represent object shape and these are more robust than
+cascades. Consider this image:
+\[ \begin{bmatrix} 1 & 2 & 3 & 2\\2 & 3 & 4 & 3 \\3 & 4 & 5 & 4\\ 2 & 3 & 4 & 3 \end{bmatrix}\]
+</p>
+<ol class="org-ol">
+<li>Calculate the magnitude and direction (\(\tan^{-1}(\frac{G_{y}}{G_{x}})\)) of the
+gradients at each pixel of the input image. Given that the indexing starts
+from 1:
+<ul class="org-ul">
+<li><p>
+For pixel (2,2)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(G_{x} = 4 - 2\)</td>
+<td class="org-left">\(G_{y} = 4 - 2\)</td>
+<td class="org-left">\(\text{Orientation} (\phi) = \text{atan}(\frac{G_{y}}{G_{x}}) = \text{atan}(\frac{2}{2})\)</td>
+</tr>
+</tbody>
+</table></li>
+<li>For pixel (2,3)</li>
+<li>For pixel (3,2)</li>
+<li>For pixel (3,3)</li>
+</ul></li>
+<li>Divide the image into cells of the same size (a size such that the scale of
+features fit into the cell).</li>
+<li>Find gradient directions of all pixels in each cell into a specified number of orientation bings.</li>
+<li>Group the cells into blocks of the same size (red sliding window). The amount
+of movement of the block window over the image is called <b>stride</b>.</li>
+<li>Normalize (for eg. L2 or L1 normalization) the cell histogram according to
+the other cells in the block.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org573d8a8" class="outline-4">
+<h4 id="org573d8a8"><span class="section-number-4">9.1.3.</span> Shape-based Methods</h4>
+<div class="outline-text-4" id="text-9-1-3">
+<p>
+These methods model the human form using geoemetric shapes only. They are
+invariant to color, and they&rsquo;re also slightly computationally expensive.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org7fea92b" class="outline-2">
+<h2 id="org7fea92b"><span class="section-number-2">10.</span> Stereo Matching</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-orgfa2c34e" class="outline-3">
+<h3 id="orgfa2c34e"><span class="section-number-3">10.1.</span> Code</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">import</span> cv2          <span style="color: #5B6268;"># </span><span style="color: #5B6268;">OpenCV: image reading, display, grayscale
+</span><span style="color: #51afef;">import</span> numpy <span style="color: #51afef;">as</span> np  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">NumPy: array math for disparity computation
+</span><span style="color: #5B6268;"># </span><span style="color: #5B6268;">Grayscale (single channel) keeps it simple &#8212; we match pixel intensities
+</span><span style="color: #dcaeea;">imgL</span> = cv2.imread(<span style="color: #98be65;">'left.png'</span>, cv2.IMREAD_GRAYSCALE)
+<span style="color: #dcaeea;">imgR</span> = cv2.imread(<span style="color: #98be65;">'right.png'</span>, cv2.IMREAD_GRAYSCALE)
+cv2.imshow(<span style="color: #98be65;">'Left image'</span>, imgL)
+cv2.imshow(<span style="color: #98be65;">'Right image'</span>, imgR)
+cv2.waitKey(0)   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Wait for a key press before continuing
+</span>
+
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">stereo_depth</span>(imgL, imgR, bSize):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">h</span>, <span style="color: #dcaeea;">w</span> = imgL.shape    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">height and width of the image
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">half</span> = bSize // 2   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">half-width of the block window
+ 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Output: a blank disparity image, same size as input
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">disparity</span> = np.zeros((h, w), dtype=np.float32)
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Loop over every pixel that has room for a full block around it
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> y <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(half, h - half):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> x <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(half, w - half):
+         
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Extract the template block from the LEFT image
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">blockL</span> = imgL[y-half:y+half+1, x-half:x+half+1]
+         
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">best_sad</span> = <span style="color: #c678dd;">float</span>(<span style="color: #98be65;">'inf'</span>)  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Start with worst possible score
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">best_d</span>   = 0             <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Best disparity for this pixel
+         
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Slide across the SAME ROW in the right image (scanline)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> d <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(half, x + 1):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">blockR</span> = imgR[y-half:y+half+1, d-half:d+half+1]
+             
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">SAD: sum of absolute differences between the two blocks
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">sad</span> = np.<span style="color: #c678dd;">sum</span>(np.<span style="color: #c678dd;">abs</span>(blockL.astype(np.int32)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  - blockR.astype(np.int32)))
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> sad &lt; best_sad:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">best_sad</span> = sad
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">best_d</span>   = x - d   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">disparity = xL - xR
+                 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">disparity</span>[<span style="color: #dcaeea;">y</span>, <span style="color: #dcaeea;">x</span>] = best_d
+         
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Normalise disparity to 0-255 so we can display it as a grayscale image
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">disp_norm</span> = cv2.normalize(disparity, <span style="color: #a9a1e1;">None</span>, 0, 255, cv2.NORM_MINMAX)
+<span style="color: #3dea43364a63;"> </span>   cv2.imshow(<span style="color: #98be65;">'Disparity map'</span>, disp_norm.astype(np.uint8))
+<span style="color: #3dea43364a63;"> </span>   cv2.waitKey(0)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> disparity
+ 
+ 
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">Small block = fine detail but noisy
+</span>stereo_depth(imgL, imgR, bSize=5)
+
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">Large block = smoother but edges blurred
+</span>stereo_depth(imgL, imgR, bSize=25)
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
 </div>
 </div>
 </div>

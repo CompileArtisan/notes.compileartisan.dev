@@ -202,6 +202,7 @@ $(dA\cos(\theta))$, per unit direction $(d\Omega)$.
 * How Image Processing Typically Works
   file:/home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/imageSummary.png
 
+  Here, DSP stands for Digital Signal Processing.
 ** Optics
 - First light falls on the object.
 - The intensity of light source is inversely proportional to the square of the
@@ -976,36 +977,175 @@ $$ \text{X-Gradient} = \begin{bmatrix} 24 & 4 & -14 & -22 & -10 \\ 30 & 14 & -18
 
 *** SIFT vs YOLO
 
-** Program for SIFT
-#+begin_src python
-import numpy as np
-import cv2
+* Pose Estimation
+
+** What it is
+- Pose estimation is the process of determining the position and orientation of
+  an object.
+- You detect *key points* / *landmarks* on the subject, and then estimate their
+  spactial arrangement (eg. distance between two eyes).
+- Creating this 'skeleton' is what we end up doing in pose estimation.
+- SIFT was a classical computer vision method for this while 'OpenPose' and
+  'PoseNet' are deep learning methods.
+
+** Types of Pose Estimation
+
+|                                        2D |                                     3D |
+|-------------------------------------------+----------------------------------------|
+| Identifies key points in 2D without depth | Identifies key points in 3D with depth |
+
+** Applications
+- Augmented Reality and Virtual Reality
+- Human Activity Recognition
+- Gesture Recognition
+- Robotics
+
+** How it works
+- Detect Key points
+- Map Key points to the Skeleton
+- Use AI models
+
+** Approaches for Pose Estimation
+
+| Top Down Approach                                                                                          | Bottom Up Approach                                                                 |
+|------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------|
+| Perform Object detection (identify human beings) and then you predicts key points within each bounding box | Identify the key points, and then you associate all of them with individual poses. |
+| The number of key points depends on the dataset (Eg. COCO has 17 keypoints, including nose, eyes, etc)     |                                                                                    |
+| This is more accurate and computationally expensive                                                        | It's faster and has more tolerance for occlusion, although this is less accurate.  |
+|                                                                                                            | This is preferred for real-time applications which are lightweight.                |
+
+** OpenPose
+- It uses a CNN and extracts 'feature maps' (detailed layers of the image that
+  highlight various aspects like edges, textures of shapes).
+- 
+
+* Motion Detection
+
+** Motion Field 
+- It's a 3D vector field that represents the velocity of points in 3D, as they
+  project onto a 2D image plane.
+- If something is moving in 3D, how that motion appears on a 2D image is what
+  motion field tells you.
+- It depends on:
+  - Camera Motion
+  - Object Motion
+  - Depth of the scene
+    
+** Optical Flow
+- It's a 2D vector field that represents the apparent motion of brightness
+  patterns in an image sequence.
+- It estimates motion of pixels between consecutive frames.
+- We are only given with images, and from those images, you can't calculate
+  motion field because of the lack of depth.
+- Instead, we calculate optical flow and it will approximate motion field well
+  when these assumptions hold true:
+  - The brightness is consistent
+  - The motion between consecutive frames is small
+  - Spacial coherence
+- Two consecutive stationary frames in a video are given as $I(x,y,t)$ and
+  $I(x,y,t+1)$. 
+- If the objects in move in this time frame, then they're given as $I(x,y,t)$
+  and $I(x+u, y+v, t+1)$, where $u$, $v$ is the pixel displacement in one time
+  frame. 
+- The *optical flow equation* is given as:
+  $$I_{x}u + I_{y}v + I_{t} = 0$$
+
+
+* Object Recognition and Detection
+
+| Object Recognition                                                         | Object Detection                                                                         |
+|----------------------------------------------------------------------------+------------------------------------------------------------------------------------------|
+| It's a computer vision technique to identify objects in images or objects. | This is a subset of object recognition where you not only identify, but you also locate. |
+| This is a classification problem only. The output is just text.            | The output is text and a bounding box.                                                   |
+
+** Early Approaches for Human Detection
+
+*** Haar Cascades
+- A *haar filter* is a type of edge-detection matrix.
+- An *Integral image* is a matrix such that a pixel $(i,j)$ is the sum of all pixels above 
+- A haar response using an integral image
+$$V_{A} = \Sigma(\text{Pixel Intensities of Black}) - \Sigma(\text{Pixel Intensities of White})$$
+
+**** Viola-Jones Algorithm
+Face Image \rightarrow Haar Like Feature \rightarrow Integral Images \rightarrow Adaptive Boosting or Adaboost \rightarrow Cascades of classifier
+
+*** Histogram of Oriented Gradients 
+Histograms are used to represent object shape and these are more robust than
+cascades. Consider this image:
+$$ \begin{bmatrix} 1 & 2 & 3 & 2\\2 & 3 & 4 & 3 \\3 & 4 & 5 & 4\\ 2 & 3 & 4 & 3 \end{bmatrix}$$
+1. Calculate the magnitude and direction ($\tan^{-1}(\frac{G_{y}}{G_{x}})$) of the
+   gradients at each pixel of the input image. Given that the indexing starts
+   from 1:
+   - For pixel (2,2)
+      | $G_{x} = 4 - 2$ | $G_{y} = 4 - 2$ | $\text{Orientation} (\phi) = \text{atan}(\frac{G_{y}}{G_{x}}) = \text{atan}(\frac{2}{2})$ |
+   - For pixel (2,3)
+   - For pixel (3,2)
+   - For pixel (3,3)
+2. Divide the image into cells of the same size (a size such that the scale of
+   features fit into the cell).
+3. Find gradient directions of all pixels in each cell into a specified number of orientation bings.
+4. Group the cells into blocks of the same size (red sliding window). The amount
+   of movement of the block window over the image is called *stride*.
+5. Normalize (for eg. L2 or L1 normalization) the cell histogram according to
+   the other cells in the block.
+
+*** Shape-based Methods
+These methods model the human form using geoemetric shapes only. They are
+invariant to color, and they're also slightly computationally expensive.
+
+* Stereo Matching
+** Code
+#+begin_src python :results output raw :wrap src :exports both
+import cv2          # OpenCV: image reading, display, grayscale
+import numpy as np  # NumPy: array math for disparity computation
+# Grayscale (single channel) keeps it simple — we match pixel intensities
+imgL = cv2.imread('left.png', cv2.IMREAD_GRAYSCALE)
+imgR = cv2.imread('right.png', cv2.IMREAD_GRAYSCALE)
+cv2.imshow('Left image', imgL)
+cv2.imshow('Right image', imgR)
+cv2.waitKey(0)   # Wait for a key press before continuing
+
+
+def stereo_depth(imgL, imgR, bSize):
+    h, w = imgL.shape    # height and width of the image
+    half = bSize // 2   # half-width of the block window
+
+    # Output: a blank disparity image, same size as input
+    disparity = np.zeros((h, w), dtype=np.float32)
+
+    # Loop over every pixel that has room for a full block around it
+    for y in range(half, h - half):
+        for x in range(half, w - half):
+
+            # Extract the template block from the LEFT image
+            blockL = imgL[y-half:y+half+1, x-half:x+half+1]
+
+            best_sad = float('inf')  # Start with worst possible score
+            best_d   = 0             # Best disparity for this pixel
+
+            # Slide across the SAME ROW in the right image (scanline)
+            for d in range(half, x + 1):
+                blockR = imgR[y-half:y+half+1, d-half:d+half+1]
+
+                # SAD: sum of absolute differences between the two blocks
+                sad = np.sum(np.abs(blockL.astype(np.int32)
+                                   - blockR.astype(np.int32)))
+                if sad < best_sad:
+                    best_sad = sad
+                    best_d   = x - d   # disparity = xL - xR
+
+            disparity[y, x] = best_d
+
+    # Normalise disparity to 0-255 so we can display it as a grayscale image
+    disp_norm = cv2.normalize(disparity, None, 0, 255, cv2.NORM_MINMAX)
+    cv2.imshow('Disparity map', disp_norm.astype(np.uint8))
+    cv2.waitKey(0)
+    return disparity
+
+
+# Small block = fine detail but noisy
+stereo_depth(imgL, imgR, bSize=5)
+
+# Large block = smoother but edges blurred
+stereo_depth(imgL, imgR, bSize=25)
 #+end_src
-
-*** Load the image in grayscale
-#+begin_src python
-img = cv2.imread('/content/aicte.jpg', cv2.IMREAD_GRAYSCALE)
-#+end_src
-
-*** Initialize the SIFT detector
-#+begin_src python
-sift = cv2.SIFT_create()
-#+end_src
-
-*** Detect Keypoints and Compute Descriptors
-#+begin_src python
-keypoints, descriptors = sift.detectAndCompute(img, None)
-#+end_src
-
-*** Extract values for the first keypoint found
-#+begin_src python
-if descriptors is not None:
-    first_descriptor = descriptors[0]
-    print(f"total keypoints: {len(keypoints)}")
-    print(f"descriptor shape: {first_descriptor.shape} ")
-    print(f"128 values of the first descriptor: {first_descriptor[:128]}")
-
-#+end_src
-
-#+RESULTS:
-
