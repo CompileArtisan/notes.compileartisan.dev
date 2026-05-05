@@ -505,7 +505,7 @@ $$S_{1}(1) = P(\text{the} \mid \text{Det}) \times P(\text{Det}) = 0.3 \times 0.2
 From the next word onwards ($S_{i}(2)$), $P(\text{POS Tag }i)$ will be the max of
 the probabilities in that layer.
 
-$$S_{i}(j) =  P(\text{Word }j \mid \text{POS Tag }i) \times P(\text{POS Tag }i \mid \text{POS Tag }k) \times S_{i-1}(k)$$
+$$S_{i}(j) = \text{max}[ P(\text{Word }j \mid \text{POS Tag }i) \times P(\text{POS Tag }i \mid \text{POS Tag }k) \times S_{i-1}(k)]$$
 
 
 
@@ -600,3 +600,87 @@ Here are some other formulae that can be derived:
 - Recall-Oriented Understudy for Gisting Evaluation metrics measures recall, and
   here it's the overlap of n-grams and word sequences, between generated text
   and reference summaries.
+
+* Transformer
+- A transformer is a deep learning architecture that consists of two parts:
+  encoder and decoder.
+- Encoders convert the input sentence into a *rich representation* (a mathematical
+  understanding of the true meaning).
+- Decoders use the encoder's representation to generate an output sentence (eg.
+  paraphrased sentence or maybe translated sentence)
+- An encoder is not just one unit. It's a stack of units:
+  file:encoder.png
+- Decoders are also a stack of units too. The last encoder gives its output to
+  all of the decoders:
+  file:full.png
+- One encoder block/unit consists of two parts:
+  - *Multi-Head Attention* / *Self Attention*: understands relationships between
+    words
+  - *Feedforward Network*: further processes each word's representation
+    individually
+
+** Self-Attention
+- This is how a model understands a word with the other words as context.
+- For example, in the sentence "Ramesh kicked the ball and *it* fell", "it" refers
+  to the ball and not Ramesh.
+*** Create Q, K, V vectors
+- Given the embedding matrix:
+\[ X = \begin{bmatrix} \text{"I"} & 1.76 & 2.22 & \cdots & 6.66 \\ \text{"am"} & 7.77
+& 0.631 & \cdots & 5.35 \\ \text{"good"}& 11.44 & 10.10 & \cdots & 3.33 \end{bmatrix},
+\quad X \in \mathbb{R}^{3 \times 512} \] where 512 is the number of features in one
+embedding, and 3 is the number of words.
+- For each word, you calculate 3 vectors: *Query*, *Key* and *Value*. 
+  - You ask a question \rightarrow Query (Q)
+  - You compare it with stored labels \rightarrow Keys (K)
+  - You retrieve actual content \rightarrow Values (V)
+- $Q$, $K$ and $V$ vectors are calculated by multiplying the embedding matrix
+  with a Query matrix, a Key matrix and a Value matrix respectively.
+  - *Query Matrix*: Take this general word vector and reshape it into something
+    useful for asking questions
+  - *Key Matrix*: Take this general word vector and reshape into something good
+    for being matched
+  - *Value Matrix*: Take this general word vector and reshape into something good
+    for providing information
+*** Calculate $QK^{T}$
+- Multiply the Query matrix by the transpose of the Key matrix
+- Each entry ~(i, j)~ is the dot product of the query of word ~i~ with the key of
+  word ~j~. A higher value means word ~i~ pays more attention to word ~j~.
+  
+*** Divide $QK^{T}$ by $\sqrt{d_{k}}$
+- Compute $\frac{QK^{T}}{\sqrt{d_{k}}}$, where $d_{k}$ is the dimension of the key vector
+  (number of elements in the key vector).
+- This division happens element by element in the matrix.
+  
+*** Apply SoftMax to normalize
+- Calculate $\text{SoftMax}(\frac{QK^{T}}{\sqrt{d_{k}}})$
+- Again, softmax is applied row wise (so each row must sum up to 1).
+  
+*** Multiply by $V$
+- Calculate $\text{SoftMax}(\frac{QK^{T}}{\sqrt{d_{k}}}) \cdot V$, where $V$ is the *value
+  matrix* from $Q$, $K$ and $V$.
+
+*** Positional Encoding
+file:full_full.png
+- Positional Encoding is where the order of words matter in understanding the
+  meaning of a sentence.
+- Just like how the 3 oscillating hands of a clock uniquely represents any time,
+  a transformer uses 256 such oscillating waves to represent the position of a
+  word.
+- Let's say $P$ is the matrix with positional encodings of each word with $pos$
+  in the sentence.
+  - ~P(pos, 2i)~ = $\sin( \frac{pos}{10000^(2i / d_{model})})$
+  - ~P(pos, 2i+1)~ = $\cos( \frac{pos}{10000^(2i / d_{model})})$
+
+    where $i$ goes from 0 to $\frac{d_{model}}{2} - 1$, and $d_{model}$ is the number
+    of features in an embedding (the size of the embedding).
+
+    file:pos.png
+
+** BERT
+- BERT stands for Bidirectional Encoder Representation from Transformer.
+- It's a *context-based embedding model*, and it can read a sentence in both
+  directions.
+
+  |                        | ~BERT-base~ | ~BERT-large~ |
+  | Number of Encoders     |        12 |         24 |
+  | Number of Hidden Units |       768 |       1024 |
