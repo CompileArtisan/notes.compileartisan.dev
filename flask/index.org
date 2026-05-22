@@ -1,0 +1,294 @@
+#+title: Introduction to Flask
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction to Web Frameworks and Flask
+- It's a tool used to simplify web applications and APIs.
+- Backend Web frameworks include *express.js*, *django* and *flask* and they're used
+  for server-side operations.
+- Frontend web frameworks include *React* and *Angular* and they focus on the UI
+  that runs in the browser (client-side operations).
+- Many backend web frameworks have something called *object relational mapping
+  (ORM)*, where you can interact with a database using the objects of that
+  programming language, instead of writing raw SQL queries.
+- Flask is a *microframework* because it only provides the essentials for web
+  development such as URL routing and a template engine (called jinja2).
+- Flask lacks ORM, user authentication and an admin
+  interface.
+
+
+* Basic Flask Project File Structure
+#+begin_src txt
+project/
+│
+├── app.py             
+└── templates/        
+       ├── index.html
+       ├── someFile.html
+       └── anotherFile.html
+
+#+end_src
+
+** jinja2 templates
+- ~templates/*.html~ are html files which have variables/placeholders according to
+  the jinja2 format. 
+  
+** ~app.py~
+- ~app.py~ is the sole program that controls everything. 
+- You start off by making a Flask web application object:
+  #+begin_src python
+app = Flask(__name__)
+  #+end_src
+  ~__name__~ internally tells Flask where the file is located. Based on that
+  location, it can locate the templates and static files.
+- A route is a URL path. In Flask, you create routes using Python decorators:
+  #+begin_src python
+@app.route("/some-url")
+def my_function():
+    return "Content to show"
+
+  #+end_src
+  Python decorators (in this case, ~@app.route("/some-url")~), takes the function
+  written below it, adds some additional behaviour and returns a new modified
+  function.
+
+- These functions always return html. You can either directly return them as a
+  return value, or you can use ~render_template("someFile.html")~ to render a
+  jinja2 template.
+    
+- From routes in ~app.py~, you can pass in values to take the place of the
+  placeholders given in the html files:
+  #+begin_src python
+name = input("enter your name")
+
+@app.route("/some-url")
+def my_function():
+    return render_template("someFile.html", x = name)
+  #+end_src
+  where ~x~ is a variable used inside the jinja2 template.
+
+* More on Templating
+- Say we have a route in ~app.py~:
+  #+begin_src python
+@app.route("/")
+def index():
+    return render_template("index.html", name="Praanesh", age=20)
+
+  #+end_src
+  ~name~ and ~age~ are variables used inside the jinja2 template.
+
+** Variables
+- This is how these variables are used:
+  #+begin_src html
+<h1>Hello {{ name }}</h1>
+<p>You are {{ age }} years old.</p>
+
+  #+end_src 
+Anything inside ~{{  ...  }}~ is replaced by a variable in Python.
+
+** Loops
+Anything inside ~{% ... %}~ is replaced by a loop/conditional in Python.
+#+begin_src html
+{% for item in items %}
+    <p>{{ item }}</p>
+{% endfor %}
+
+#+end_src
+The only differences to be noted are:
+- You don't use the colon after the loop declaration, like in python.
+- You add a jinja2 expression for ending the loop or conditional. In the case of
+  loops, it's:
+  #+begin_src html
+{% endfor %}
+  #+end_src
+
+** Conditionals
+#+begin_src html
+{% if age > 18 %}
+    <p>Adult</p>
+{% elif age == 18 %}
+    <p>Just turned adult</p>
+{% else %}
+    <p>Minor</p>
+{% endif %}
+
+#+end_src
+Again, you don't use the colons after the statements, and you also add a jinja2
+expression to end the ladder:
+#+begin_src html
+{% endif %}
+#+end_src
+
+** jinja2 filters
+Here are some commonly used filters.
+
+*** jinja2 equivalent of ~name.upper()~
+#+begin_src html
+{{ name | upper }}
+#+end_src
+
+*** jinja2 equivalent of ~round(price,2)~ (rounding price to 2 decimal places)
+#+begin_src html
+{{ price | round(2) }}
+#+end_src
+
+*** jinja2 equivalent of ~len(name)~
+#+begin_src html
+{{ name | length }}
+#+end_src
+
+** jinja2 default values
+You can provide default directly in the template instead of initializing them in
+python like this:
+#+begin_src html
+<p>{{ name | default("Guest") }}</p>
+
+#+end_src
+
+** Template inheritence
+- Say we have a base template ~templates/base.html~:
+  #+begin_src html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Site</h1>
+    </header>
+    
+    {% block content %}
+    <!-- Default content here, but it will be replaced by another child template -->
+    <!-- Content goes here -->
+    {% endblock %}
+    
+    <footer>
+        <p>&copy; 2025 My Site</p>
+    </footer>
+</body>
+</html>
+
+  #+end_src
+  Here, you can replace the contents inside
+  - ~<title><!-- Content goes here --></title>~ and
+  - ~{% block content %} <!-- Content goes here --> {% endblock %}~
+
+- You do this by making another template extend this base template, and change
+  replace place holders with blocks, as shown in ~templates/index.html~:
+  #+begin_src html
+{% extends "base.html" %}
+
+{% block title %}Welcome to the Home Page{% endblock %}
+
+{% block content %}
+    <h2>Hello, {{ name }}!</h2>
+    <p>You are {{ age }} years old.</p>
+{% endblock %}
+
+  #+end_src
+  Here, the word ~title~ and ~content~ aren't reserved words. You can use any name
+  to uniquely identify a block.
+
+- The blocks in the child template don't have to follow the same order as it was
+  declared in the base template.
+
+* Communication Between Client and Server
+- All communications between the client (browser) and the server (~app.py~) happen
+  via HTTP requests.
+- The browser can either send a ~GET~ request (usually used to retrieve data from
+  the server), or a ~POST~ request (usually used to send data to the server).
+- In case of ~GET~ requests, the data is appended onto the URL as query parameters
+  (e.g., ~?name=value~)
+- In case of ~POST~ requests, the data is sent inside the body of the HTTP
+  request.
+
+** Requests
+- In Flask, request is an object that represents all of the data that the
+  browser sent:
+  #+begin_src python
+from flask import request
+  #+end_src
+*** GET Request
+- Say the URL looks like this:
+  #+begin_src txt
+http://example.com/search?query=python&sort=new
+  #+end_src
+- In Flask, here's how you access that data:
+  #+begin_src python
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/search', methods=['GET']) # Also include list of http methods
+def search():
+    query = request.args.get('query')  # Retrieve 'query' parameter from the URL
+    sort = request.args.get('sort')    # Retrieve 'sort' parameter from the URL
+    
+    return f"Searching for: {query}, sorted by: {sort}"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+  #+end_src
+- ~requests.args~ is a Python Dictionary. You could do this too:
+  #+begin_src python
+query = request.args['query']
+  #+end_src 
+  but the issue is that if ~'query'~ doesn't exist in the dictionary, you'll get
+  an error. If you use the ~.get(key)~ method on the dictionary, it'll return ~None~
+  if the key doesn't exist.
+  
+*** POST Request
+- Just like how ~requests.args~ is a Python Dictionary which contains all fields
+  from the GET request, ~requests.form~ is a Python Dictionary which contains all
+  fields from the POST request.
+- POST requests are usually made using a HTML form:
+  #+begin_src html
+    <form method="POST" action="/post">
+        <label>Book Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="desc" required></textarea><br><br>
+
+        <button type="submit">Post</button>
+    </form>
+  #+end_src
+  Here, the ~action~ is optional and it tells you which route to send the data to.
+  If you don't give anything, it'll submit it in the current URL.
+- Here is how the route is handled in ~app.py~:
+  #+begin_src python
+
+@app.route("/post", methods=["POST"])
+def post():
+    global current_id
+    # global is used to specify that current_id is a variable defined outside this function
+    title = request.form["title"]
+    desc = request.form["desc"]    
+    lost_reports.append({
+            "id": current_id,
+            "title": title,
+            "desc": desc,
+            "messages": []  
+    })
+    current_id += 1
+    #+end_src
+ 
+** Redirects
+- After you handle a POST request, you should never use ~render_template()~
+- This is because browsers remember the last POST request, and in case of a
+  refresh, the action will be repeated again. 
+ [[https://media.geeksforgeeks.org/wp-content/uploads/20200403143342/problem1.png]] 
+ Source: geeksforgeeks
+- For this, it's common in web development to use the *PRG Pattern*
+  (Post-Redirect-GET). 
+- Instead of returning a status code 2XX (success), you return a status code 3XX
+  (redirect), then use a GET request to actually load the new page safely.
+- In flask:
+  #+begin_src python
+return redirect(url_for("index"))
+# index is the name of the function
+# you could also do redirect('/index')
+  #+end_src
+ 

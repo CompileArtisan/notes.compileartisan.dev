@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-05-22 Fri 11:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introduction to Flask</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* General styles */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+#postamble, #preamble {
+margin-left: 280px;
+padding: 20px 40px;
+}
+h1, h2, h3 {
+font-family: 'Helvetica', sans-serif;
+}
+a {
+color: #0000aa;
+}
+a:hover {
+background-color: #0000aa;
+color: #ffffff;
+border-radius: 0.2em;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+pre {
+background-color: #333;
+color: white;
+padding: 10px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+/* Styling code blocks */
+pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
+font-family: 'Courier New', monospace;
+background-color: #222;
+color: white;
+padding: 15px;
+font-size: 1.1em;
+border-radius: 0.5em;
+}
+code {
+font-size: 1.5em;
+padding: 0 0.5em;
+}
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+
+.header {
+text-align: center;
+margin: 0px;
+background-color: #0000aa;
+color: #ffffff;
+padding: 5px 0;
+flex-shrink: 0;
+word-wrap: break-word;
+font-family: DOSVGA, monospace;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header a {
+color: #ffffff;
+text-decoration: none;
+font-size: 1.5em;
+white-space: nowrap;
+transition: all 0.3s ease;
+padding: 0px;
+}
+
+.header a:hover {
+color: #bababa;
+}
+
+@font-face {
+font-family: DOSVGA;
+src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
+}
+
+/* Table of Contents Sidebar */
+#table-of-contents {
+position: fixed;
+left: 0;
+top: 45px;
+width: 280px;
+height: calc(100vh - 45px);
+overflow-y: auto;
+background-color: #f8f8f8;
+border-right: 1px solid #ddd;
+padding: 30px 20px;
+box-sizing: border-box;
+z-index: 10;
+}
+
+#table-of-contents h2 {
+margin-top: 0;
+color: #0000aa;
+font-size: 1.1em;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+
+/* Search box styles */
+#toc-search {
+width: 100%;
+padding: 8px 12px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 0.9em;
+box-sizing: border-box;
+}
+
+#toc-search:focus {
+outline: none;
+border-color: #0000aa;
+}
+
+#table-of-contents ul {
+list-style-type: none;
+padding-left: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 15px;
+margin-top: 5px;
+}
+
+#table-of-contents li {
+margin: 8px 0;
+}
+
+#table-of-contents a {
+color: #555;
+text-decoration: none;
+display: block;
+padding: 5px 10px;
+border-radius: 4px;
+transition: all 0.2s ease;
+font-size: 0.95em;
+}
+
+#table-of-contents a:hover {
+color: #0000aa;
+background-color: #e8e8ff;
+}
+
+/* Active TOC link (scroll spy) */
+#table-of-contents a.active {
+color: #0000aa;
+background-color: #e8e8ff;
+font-weight: bold;
+border-left: 3px solid #0000aa;
+}
+
+/* Hidden items during search */
+#table-of-contents li.hidden {
+display: none;
+}
+
+/* Main content area */
+#content {
+margin-left: 280px;
+margin-top: 45px;
+padding: 40px;
+background-color: #ffffff;
+min-height: calc(100vh - 45px);
+}
+table {
+border-collapse: collapse;
+margin: 1.5rem auto;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 1rem;
+background: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+border-radius: 10px;
+overflow: hidden;
+}
+
+table[border] {
+border: none;
+}
+
+td {
+padding: 0.75rem 1.1rem;
+text-align: center;
+border: 1px solid #e5e7eb;
+font-weight: 500;
+color: #111827;
+}
+
+td.org-left {
+text-align: center;
+}
+
+tbody tr:nth-child(even) {
+background-color: #f9fafb;
+}
+
+tbody tr:hover {
+background-color: #eef2ff;
+}
+
+td {
+letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 2px solid #0000aa;
+}
+pre.src {
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+width: 100vw;
+border-radius: 0;
+box-sizing: border-box;
+}
+
+#content {
+margin-left: 0;
+}
+
+body {
+font-size: 14px;
+padding: 10px;
+}
+h1 {
+font-size: 1.5em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+
+@media screen and (max-width: 480px) {
+body {
+font-size: 12px;
+padding: 5px;
+}
+h1 {
+font-size: 1.3em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+</style>
+<div class="header">
+<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introduction to Flask</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5b037a4">1. Introduction to Web Frameworks and Flask</a></li>
+<li><a href="#org9524beb">2. Basic Flask Project File Structure</a>
+<ul>
+<li><a href="#org7f44345">2.1. jinja2 templates</a></li>
+<li><a href="#org93062af">2.2. <code>app.py</code></a></li>
+</ul>
+</li>
+<li><a href="#orga41db6e">3. More on Templating</a>
+<ul>
+<li><a href="#orgcfc4af8">3.1. Variables</a></li>
+<li><a href="#org8f76b7f">3.2. Loops</a></li>
+<li><a href="#org1a30c66">3.3. Conditionals</a></li>
+<li><a href="#orgc19daaf">3.4. jinja2 filters</a>
+<ul>
+<li><a href="#org67431c5">3.4.1. jinja2 equivalent of <code>name.upper()</code></a></li>
+<li><a href="#orga5f1c51">3.4.2. jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</a></li>
+<li><a href="#org6e70e84">3.4.3. jinja2 equivalent of <code>len(name)</code></a></li>
+</ul>
+</li>
+<li><a href="#org23f45bf">3.5. jinja2 default values</a></li>
+<li><a href="#org12b57b7">3.6. Template inheritence</a></li>
+</ul>
+</li>
+<li><a href="#orgfb24fc2">4. Communication Between Client and Server</a>
+<ul>
+<li><a href="#org96de074">4.1. Requests</a>
+<ul>
+<li><a href="#orgc9bda3b">4.1.1. GET Request</a></li>
+<li><a href="#org9e471e9">4.1.2. POST Request</a></li>
+</ul>
+</li>
+<li><a href="#orgf9b4c36">4.2. Redirects</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5b037a4" class="outline-2">
+<h2 id="org5b037a4"><span class="section-number-2">1.</span> Introduction to Web Frameworks and Flask</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>It&rsquo;s a tool used to simplify web applications and APIs.</li>
+<li>Backend Web frameworks include <b>express.js</b>, <b>django</b> and <b>flask</b> and they&rsquo;re used
+for server-side operations.</li>
+<li>Frontend web frameworks include <b>React</b> and <b>Angular</b> and they focus on the UI
+that runs in the browser (client-side operations).</li>
+<li>Many backend web frameworks have something called <b>object relational mapping
+(ORM)</b>, where you can interact with a database using the objects of that
+programming language, instead of writing raw SQL queries.</li>
+<li>Flask is a <b>microframework</b> because it only provides the essentials for web
+development such as URL routing and a template engine (called jinja2).</li>
+<li>Flask lacks ORM, user authentication and an admin
+interface.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9524beb" class="outline-2">
+<h2 id="org9524beb"><span class="section-number-2">2.</span> Basic Flask Project File Structure</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-txt">project/
+│
+├── app.py             
+└── templates/        
+       ├── index.html
+       ├── someFile.html
+       └── anotherFile.html
+
+</pre>
+</div>
+</div>
+<div id="outline-container-org7f44345" class="outline-3">
+<h3 id="org7f44345"><span class="section-number-3">2.1.</span> jinja2 templates</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><code>templates/*.html</code> are html files which have variables/placeholders according to
+the jinja2 format.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org93062af" class="outline-3">
+<h3 id="org93062af"><span class="section-number-3">2.2.</span> <code>app.py</code></h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><code>app.py</code> is the sole program that controls everything.</li>
+<li><p>
+You start off by making a Flask web application object:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">app</span> = Flask(<span style="color: #c678dd;">__name__</span>)
+</pre>
+</div>
+<p>
+<code>__name__</code> internally tells Flask where the file is located. Based on that
+location, it can locate the templates and static files.
+</p></li>
+<li><p>
+A route is a URL path. In Flask, you create routes using Python decorators:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ECBE7B;">@app.route</span>(<span style="color: #98be65;">"/some-url"</span>)
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">my_function</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #98be65;">"Content to show"</span>
+
+</pre>
+</div>
+<p>
+Python decorators (in this case, <code>@app.route("/some-url")</code>), takes the function
+written below it, adds some additional behaviour and returns a new modified
+function.
+</p></li>
+
+<li>These functions always return html. You can either directly return them as a
+return value, or you can use <code>render_template("someFile.html")</code> to render a
+jinja2 template.</li>
+
+<li><p>
+From routes in <code>app.py</code>, you can pass in values to take the place of the
+placeholders given in the html files:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">name</span> = <span style="color: #c678dd;">input</span>(<span style="color: #98be65;">"enter your name"</span>)
+
+<span style="color: #ECBE7B;">@app.route</span>(<span style="color: #98be65;">"/some-url"</span>)
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">my_function</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> render_template(<span style="color: #98be65;">"someFile.html"</span>, x = name)
+</pre>
+</div>
+<p>
+where <code>x</code> is a variable used inside the jinja2 template.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orga41db6e" class="outline-2">
+<h2 id="orga41db6e"><span class="section-number-2">3.</span> More on Templating</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><p>
+Say we have a route in <code>app.py</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ECBE7B;">@app.route</span>(<span style="color: #98be65;">"/"</span>)
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">index</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> render_template(<span style="color: #98be65;">"index.html"</span>, name=<span style="color: #98be65;">"Praanesh"</span>, age=20)
+
+</pre>
+</div>
+<p>
+<code>name</code> and <code>age</code> are variables used inside the jinja2 template.
+</p></li>
+</ul>
+</div>
+<div id="outline-container-orgcfc4af8" class="outline-3">
+<h3 id="orgcfc4af8"><span class="section-number-3">3.1.</span> Variables</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><p>
+This is how these variables are used:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #c678dd;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Hello {{ name }}</span>&lt;/<span style="color: #c678dd;">h1</span>&gt;
+&lt;<span style="color: #c678dd;">p</span>&gt;You are {{ age }} years old.&lt;/<span style="color: #c678dd;">p</span>&gt;
+
+</pre>
+</div></li>
+</ul>
+<p>
+Anything inside <code>{{  ...  }}</code> is replaced by a variable in Python.
+</p>
+</div>
+</div>
+<div id="outline-container-org8f76b7f" class="outline-3">
+<h3 id="org8f76b7f"><span class="section-number-3">3.2.</span> Loops</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Anything inside <code>{% ... %}</code> is replaced by a loop/conditional in Python.
+</p>
+<div class="org-src-container">
+<pre class="src src-html">{% for item in items %}
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;{{ item }}&lt;/<span style="color: #c678dd;">p</span>&gt;
+{% endfor %}
+
+</pre>
+</div>
+<p>
+The only differences to be noted are:
+</p>
+<ul class="org-ul">
+<li>You don&rsquo;t use the colon after the loop declaration, like in python.</li>
+<li><p>
+You add a jinja2 expression for ending the loop or conditional. In the case of
+loops, it&rsquo;s:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">{% endfor %}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1a30c66" class="outline-3">
+<h3 id="org1a30c66"><span class="section-number-3">3.3.</span> Conditionals</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-html">{% if age &gt; 18 %}
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;Adult&lt;/<span style="color: #c678dd;">p</span>&gt;
+{% elif age == 18 %}
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;Just turned adult&lt;/<span style="color: #c678dd;">p</span>&gt;
+{% else %}
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;Minor&lt;/<span style="color: #c678dd;">p</span>&gt;
+{% endif %}
+
+</pre>
+</div>
+<p>
+Again, you don&rsquo;t use the colons after the statements, and you also add a jinja2
+expression to end the ladder:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">{% endif %}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc19daaf" class="outline-3">
+<h3 id="orgc19daaf"><span class="section-number-3">3.4.</span> jinja2 filters</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Here are some commonly used filters.
+</p>
+</div>
+<div id="outline-container-org67431c5" class="outline-4">
+<h4 id="org67431c5"><span class="section-number-4">3.4.1.</span> jinja2 equivalent of <code>name.upper()</code></h4>
+<div class="outline-text-4" id="text-3-4-1">
+<div class="org-src-container">
+<pre class="src src-html">{{ name | upper }}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga5f1c51" class="outline-4">
+<h4 id="orga5f1c51"><span class="section-number-4">3.4.2.</span> jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<div class="org-src-container">
+<pre class="src src-html">{{ price | round(2) }}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e70e84" class="outline-4">
+<h4 id="org6e70e84"><span class="section-number-4">3.4.3.</span> jinja2 equivalent of <code>len(name)</code></h4>
+<div class="outline-text-4" id="text-3-4-3">
+<div class="org-src-container">
+<pre class="src src-html">{{ name | length }}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org23f45bf" class="outline-3">
+<h3 id="org23f45bf"><span class="section-number-3">3.5.</span> jinja2 default values</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+You can provide default directly in the template instead of initializing them in
+python like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #c678dd;">p</span>&gt;{{ name | default("Guest") }}&lt;/<span style="color: #c678dd;">p</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org12b57b7" class="outline-3">
+<h3 id="org12b57b7"><span class="section-number-3">3.6.</span> Template inheritence</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li><p>
+Say we have a base template <code>templates/base.html</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #51afef;">!DOCTYPE</span> html&gt;
+&lt;<span style="color: #c678dd;">html</span> <span style="color: #dcaeea;">lang</span>=<span style="color: #98be65;">"en"</span>&gt;
+&lt;<span style="color: #c678dd;">head</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">meta</span> <span style="color: #dcaeea;">charset</span>=<span style="color: #98be65;">"UTF-8"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">{% block title %}Default Title{% endblock %}</span>&lt;/<span style="color: #c678dd;">title</span>&gt;
+&lt;/<span style="color: #c678dd;">head</span>&gt;
+&lt;<span style="color: #c678dd;">body</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">header</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Welcome to My Site</span>&lt;/<span style="color: #c678dd;">h1</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;/<span style="color: #c678dd;">header</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   
+<span style="color: #3dea43364a63;"> </span>   {% block content %}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">&lt;!-- </span><span style="color: #5B6268;">Default content here, but it will be replaced by another child template</span><span style="color: #5B6268;"> --&gt;</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">&lt;!-- </span><span style="color: #5B6268;">Content goes here</span><span style="color: #5B6268;"> --&gt;</span>
+<span style="color: #3dea43364a63;"> </span>   {% endblock %}
+<span style="color: #3dea43364a63;"> </span>   
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">footer</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;<span style="color: #dcaeea;">&amp;copy;</span> 2025 My Site&lt;/<span style="color: #c678dd;">p</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;/<span style="color: #c678dd;">footer</span>&gt;
+&lt;/<span style="color: #c678dd;">body</span>&gt;
+&lt;/<span style="color: #c678dd;">html</span>&gt;
+
+</pre>
+</div>
+<p>
+Here, you can replace the contents inside
+</p>
+<ul class="org-ul">
+<li><code>&lt;title&gt;&lt;!-- Content goes here --&gt;&lt;/title&gt;</code> and</li>
+<li><code>{% block content %} &lt;!-- Content goes here --&gt; {% endblock %}</code></li>
+</ul></li>
+
+<li><p>
+You do this by making another template extend this base template, and change
+replace place holders with blocks, as shown in <code>templates/index.html</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-html">{% extends "base.html" %}
+
+{% block title %}Welcome to the Home Page{% endblock %}
+
+{% block content %}
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">h2</span>&gt;<span style="font-weight: bold; font-style: italic; text-decoration: underline;">Hello, {{ name }}!</span>&lt;/<span style="color: #c678dd;">h2</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">p</span>&gt;You are {{ age }} years old.&lt;/<span style="color: #c678dd;">p</span>&gt;
+{% endblock %}
+
+</pre>
+</div>
+<p>
+Here, the word <code>title</code> and <code>content</code> aren&rsquo;t reserved words. You can use any name
+to uniquely identify a block.
+</p></li>
+
+<li>The blocks in the child template don&rsquo;t have to follow the same order as it was
+declared in the base template.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfb24fc2" class="outline-2">
+<h2 id="orgfb24fc2"><span class="section-number-2">4.</span> Communication Between Client and Server</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>All communications between the client (browser) and the server (<code>app.py</code>) happen
+via HTTP requests.</li>
+<li>The browser can either send a <code>GET</code> request (usually used to retrieve data from
+the server), or a <code>POST</code> request (usually used to send data to the server).</li>
+<li>In case of <code>GET</code> requests, the data is appended onto the URL as query parameters
+(e.g., <code>?name=value</code>)</li>
+<li>In case of <code>POST</code> requests, the data is sent inside the body of the HTTP
+request.</li>
+</ul>
+</div>
+<div id="outline-container-org96de074" class="outline-3">
+<h3 id="org96de074"><span class="section-number-3">4.1.</span> Requests</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><p>
+In Flask, request is an object that represents all of the data that the
+browser sent:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">from</span> flask <span style="color: #51afef;">import</span> request
+</pre>
+</div></li>
+</ul>
+</div>
+<div id="outline-container-orgc9bda3b" class="outline-4">
+<h4 id="orgc9bda3b"><span class="section-number-4">4.1.1.</span> GET Request</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li><p>
+Say the URL looks like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">http://example.com/search?query=python&amp;sort=new
+</pre>
+</div></li>
+<li><p>
+In Flask, here&rsquo;s how you access that data:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">from</span> flask <span style="color: #51afef;">import</span> Flask, request
+
+<span style="color: #dcaeea;">app</span> = Flask(<span style="color: #c678dd;">__name__</span>)
+
+<span style="color: #ECBE7B;">@app.route</span>(<span style="color: #98be65;">'/search'</span>, methods=[<span style="color: #98be65;">'GET'</span>]) <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Also include list of http methods
+</span><span style="color: #51afef;">def</span> <span style="color: #c678dd;">search</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">query</span> = request.args.get(<span style="color: #98be65;">'query'</span>)  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Retrieve 'query' parameter from the URL
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">sort</span> = request.args.get(<span style="color: #98be65;">'sort'</span>)    <span style="color: #5B6268;"># </span><span style="color: #5B6268;">Retrieve 'sort' parameter from the URL
+</span><span style="color: #3dea43364a63;"> </span>   
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> f<span style="color: #98be65;">"Searching for: </span>{query}<span style="color: #98be65;">, sorted by: </span>{sort}<span style="color: #98be65;">"</span>
+ 
+<span style="color: #51afef;">if</span> <span style="color: #c678dd;">__name__</span> == <span style="color: #98be65;">'__main__'</span>:
+<span style="color: #3dea43364a63;"> </span>   app.run(debug=<span style="color: #a9a1e1;">True</span>)
+
+</pre>
+</div></li>
+<li><p>
+<code>requests.args</code> is a Python Dictionary. You could do this too:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">query</span> = request.args[<span style="color: #98be65;">'query'</span>]
+</pre>
+</div>
+<p>
+but the issue is that if <code>'query'</code> doesn&rsquo;t exist in the dictionary, you&rsquo;ll get
+an error. If you use the <code>.get(key)</code> method on the dictionary, it&rsquo;ll return <code>None</code>
+if the key doesn&rsquo;t exist.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9e471e9" class="outline-4">
+<h4 id="org9e471e9"><span class="section-number-4">4.1.2.</span> POST Request</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<ul class="org-ul">
+<li>Just like how <code>requests.args</code> is a Python Dictionary which contains all fields
+from the GET request, <code>requests.form</code> is a Python Dictionary which contains all
+fields from the POST request.</li>
+<li><p>
+POST requests are usually made using a HTML form:
+</p>
+<div class="org-src-container">
+<pre class="src src-html"><span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">form</span> <span style="color: #dcaeea;">method</span>=<span style="color: #98be65;">"POST"</span> <span style="color: #dcaeea;">action</span>=<span style="color: #98be65;">"/post"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">label</span>&gt;Book Title:&lt;/<span style="color: #c678dd;">label</span>&gt;&lt;<span style="color: #c678dd;">br</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">input</span> <span style="color: #dcaeea;">type</span>=<span style="color: #98be65;">"text"</span> <span style="color: #dcaeea;">name</span>=<span style="color: #98be65;">"title"</span> required&gt;&lt;<span style="color: #c678dd;">br</span>&gt;&lt;<span style="color: #c678dd;">br</span>&gt;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">label</span>&gt;Description:&lt;/<span style="color: #c678dd;">label</span>&gt;&lt;<span style="color: #c678dd;">br</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">textarea</span> <span style="color: #dcaeea;">name</span>=<span style="color: #98be65;">"desc"</span> required&gt;&lt;/<span style="color: #c678dd;">textarea</span>&gt;&lt;<span style="color: #c678dd;">br</span>&gt;&lt;<span style="color: #c678dd;">br</span>&gt;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;<span style="color: #c678dd;">button</span> <span style="color: #dcaeea;">type</span>=<span style="color: #98be65;">"submit"</span>&gt;Post&lt;/<span style="color: #c678dd;">button</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;/<span style="color: #c678dd;">form</span>&gt;
+</pre>
+</div>
+<p>
+Here, the <code>action</code> is optional and it tells you which route to send the data to.
+If you don&rsquo;t give anything, it&rsquo;ll submit it in the current URL.
+</p></li>
+<li><p>
+Here is how the route is handled in <code>app.py</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #ECBE7B;">@app.route</span>(<span style="color: #98be65;">"/post"</span>, methods=[<span style="color: #98be65;">"POST"</span>])
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">post</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">global</span> current_id
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">global is used to specify that current_id is a variable defined outside this function
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">title</span> = request.form[<span style="color: #98be65;">"title"</span>]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">desc</span> = request.form[<span style="color: #98be65;">"desc"</span>]    
+<span style="color: #3dea43364a63;"> </span>   lost_reports.append({
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">"id"</span>: current_id,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">"title"</span>: title,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">"desc"</span>: desc,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">"messages"</span>: []  
+<span style="color: #3dea43364a63;"> </span>   })
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">current_id</span> += 1
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf9b4c36" class="outline-3">
+<h3 id="orgf9b4c36"><span class="section-number-3">4.2.</span> Redirects</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>After you handle a POST request, you should never use <code>render_template()</code></li>
+<li>This is because browsers remember the last POST request, and in case of a
+ refresh, the action will be repeated again. 
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200403143342/problem1.png" alt="problem1.png" /> 
+Source: geeksforgeeks</li>
+<li>For this, it&rsquo;s common in web development to use the <b>PRG Pattern</b>
+(Post-Redirect-GET).</li>
+<li>Instead of returning a status code 2XX (success), you return a status code 3XX
+(redirect), then use a GET request to actually load the new page safely.</li>
+<li><p>
+In flask:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">return</span> redirect(url_for(<span style="color: #98be65;">"index"</span>))
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">index is the name of the function
+</span><span style="color: #5B6268;"># </span><span style="color: #5B6268;">you could also do redirect('/index')</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
