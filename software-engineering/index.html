@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-09 Mon 08:28 -->
+<!-- 2026-06-12 Fri 21:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Software Engineering</title>
@@ -204,275 +204,334 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <style>
-/* General styles */
-body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-margin: 0;
-padding: 0;
-background-color: #f4f4f4;
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
 }
 
-#postamble, #preamble {
-margin-left: 280px;
-padding: 20px 40px;
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
 }
-h1, h2, h3 {
-font-family: 'Helvetica', sans-serif;
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
 }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
 a {
-color: #0000aa;
+color: #2222cc;
+text-decoration: none;
 }
 a:hover {
-background-color: #0000aa;
-color: #ffffff;
-border-radius: 0.2em;
-transition: background-color 0.3s ease, transform 0.3s ease;
+text-decoration: underline;
+text-underline-offset: 3px;
 }
-pre {
-background-color: #333;
-color: white;
-padding: 10px;
-overflow-x: auto;
-white-space: pre-wrap;
-word-wrap: break-word;
-}
-/* Styling code blocks */
-pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
-font-family: 'Courier New', monospace;
-background-color: #222;
-color: white;
-padding: 15px;
-font-size: 1.1em;
-border-radius: 0.5em;
-}
-code {
-font-size: 1.5em;
-padding: 0 0.5em;
-}
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto;
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
 }
 
 .header {
-text-align: center;
-margin: 0px;
-background-color: #0000aa;
-color: #ffffff;
-padding: 5px 0;
-flex-shrink: 0;
-word-wrap: break-word;
-font-family: DOSVGA, monospace;
 position: fixed;
-top: 0;
-left: 0;
-right: 0;
+top: 0; left: 0; right: 0;
 z-index: 1000;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .header a {
-color: #ffffff;
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
 text-decoration: none;
-font-size: 1.5em;
-white-space: nowrap;
-transition: all 0.3s ease;
-padding: 0px;
+line-height: 1;
 }
 
-.header a:hover {
-color: #bababa;
-}
-
-@font-face {
-font-family: DOSVGA;
-src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
-}
-
-/* Table of Contents Sidebar */
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
 #table-of-contents {
 position: fixed;
+top: 48px;
 left: 0;
-top: 45px;
-width: 280px;
-height: calc(100vh - 45px);
+width: 260px;
+height: calc(100vh - 48px);
 overflow-y: auto;
-background-color: #f8f8f8;
-border-right: 1px solid #ddd;
-padding: 30px 20px;
-box-sizing: border-box;
-z-index: 10;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
 }
 
 #table-of-contents h2 {
-margin-top: 0;
-color: #0000aa;
-font-size: 1.1em;
-border-bottom: 1px solid #ddd;
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
 padding-bottom: 10px;
-margin-bottom: 15px;
+border-bottom: 0.5px solid #e8e8ee;
 }
 
-/* Search box styles */
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
 #toc-search {
 width: 100%;
-padding: 8px 12px;
-margin-bottom: 15px;
-border: 1px solid #ddd;
-border-radius: 4px;
-font-size: 0.9em;
-box-sizing: border-box;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
 }
 
 #toc-search:focus {
-outline: none;
-border-color: #0000aa;
+border-color: #4444cc;
+background: #ffffff;
 }
 
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
 #table-of-contents ul {
-list-style-type: none;
-padding-left: 0;
+list-style: none;
+padding: 0;
 margin: 0;
 }
 
 #table-of-contents ul ul {
-padding-left: 15px;
-margin-top: 5px;
+padding-left: 14px;
 }
 
 #table-of-contents li {
-margin: 8px 0;
+margin: 2px 0;
 }
 
 #table-of-contents a {
-color: #555;
-text-decoration: none;
 display: block;
 padding: 5px 10px;
-border-radius: 4px;
-transition: all 0.2s ease;
-font-size: 0.95em;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 #table-of-contents a:hover {
-color: #0000aa;
-background-color: #e8e8ff;
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
 }
 
-/* Active TOC link (scroll spy) */
 #table-of-contents a.active {
-color: #0000aa;
-background-color: #e8e8ff;
-font-weight: bold;
-border-left: 3px solid #0000aa;
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
 }
 
-/* Hidden items during search */
 #table-of-contents li.hidden {
 display: none;
 }
 
-/* Main content area */
+/* ─── Main Content ──────────────────────────────────────── */
 #content {
-margin-left: 280px;
-margin-top: 45px;
-padding: 40px;
-background-color: #ffffff;
-min-height: calc(100vh - 45px);
-}
-table {
-border-collapse: collapse;
-margin: 1.5rem auto;
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 1rem;
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
 background: #ffffff;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
 border-radius: 10px;
 overflow: hidden;
 }
 
-table[border] {
-border: none;
-}
-
-td {
-padding: 0.75rem 1.1rem;
-text-align: center;
-border: 1px solid #e5e7eb;
+th {
+background: #f5f5fa;
 font-weight: 500;
-color: #111827;
-}
-
-td.org-left {
-text-align: center;
-}
-
-tbody tr:nth-child(even) {
-background-color: #f9fafb;
-}
-
-tbody tr:hover {
-background-color: #eef2ff;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
 }
 
 td {
-letter-spacing: 0.05em;
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
 #table-of-contents {
 position: static;
 width: 100%;
 height: auto;
 border-right: none;
-border-bottom: 2px solid #0000aa;
-}
-pre.src {
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-width: 100vw;
-border-radius: 0;
-box-sizing: border-box;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
 }
 
 #content {
 margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
 }
 
-body {
-font-size: 14px;
-padding: 10px;
-}
-h1 {
-font-size: 1.5em;
-}
-pre {
-font-size: 1.3em;
-}
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
 }
 
-@media screen and (max-width: 480px) {
-body {
-font-size: 12px;
-padding: 5px;
-}
-h1 {
-font-size: 1.3em;
-}
 pre {
-font-size: 1.3em;
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
 }
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
 }
 </style>
 <div class="header">
-<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -617,70 +676,70 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org495ccbb">1. Introduction</a>
+<li><a href="#orgc18ea1e">1. Introduction</a>
 <ul>
-<li><a href="#org1e49511">1.1. Fundamental Definition of Software</a></li>
-<li><a href="#orgca3dc5c">1.2. Types of Software Applications</a></li>
-<li><a href="#orgaa05fcf">1.3. Failure Models of Hardware and Software</a>
+<li><a href="#orgf8ed24e">1.1. Fundamental Definition of Software</a></li>
+<li><a href="#org65e71a1">1.2. Types of Software Applications</a></li>
+<li><a href="#orgb734375">1.3. Failure Models of Hardware and Software</a>
 <ul>
-<li><a href="#org571c014">1.3.1. Hardware</a></li>
-<li><a href="#org94206a9">1.3.2. Software</a></li>
+<li><a href="#orgd43cf1c">1.3.1. Hardware</a></li>
+<li><a href="#org4f8cc24">1.3.2. Software</a></li>
 </ul>
 </li>
-<li><a href="#orgf17ed70">1.4. Legacy Software</a>
+<li><a href="#org36d615d">1.4. Legacy Software</a>
 <ul>
-<li><a href="#org09f6877">1.4.1. What are they and why are they unchanged?</a></li>
-<li><a href="#org27a0638">1.4.2. When will you need to change them?</a></li>
+<li><a href="#orgb18f89e">1.4.1. What are they and why are they unchanged?</a></li>
+<li><a href="#org3d56c86">1.4.2. When will you need to change them?</a></li>
 </ul>
 </li>
-<li><a href="#org77f920f">1.5. Newer Categories of Software</a></li>
-<li><a href="#org504575d">1.6. IEEE&rsquo;s Definition of Software Engineering</a></li>
-<li><a href="#org458b1c7">1.7. Layers of technology</a></li>
+<li><a href="#org0dc9e1e">1.5. Newer Categories of Software</a></li>
+<li><a href="#orgd6c9490">1.6. IEEE&rsquo;s Definition of Software Engineering</a></li>
+<li><a href="#org894bc19">1.7. Layers of technology</a></li>
 </ul>
 </li>
-<li><a href="#org27beaad">2. Process Models</a>
+<li><a href="#org1f8564f">2. Process Models</a>
 <ul>
-<li><a href="#org9a85e18">2.1. Prescriptive/ Traditional</a>
+<li><a href="#org3d7d32e">2.1. Prescriptive/ Traditional</a>
 <ul>
-<li><a href="#org25d4051">2.1.1. Waterfall</a></li>
-<li><a href="#orge2a9ef4">2.1.2. V-Process</a></li>
-<li><a href="#orgae78ca7">2.1.3. Incremental</a></li>
-<li><a href="#org65110e9">2.1.4. Rapid Application Development</a></li>
-<li><a href="#org1726328">2.1.5. Prototypic / Evolutionary Process Models</a></li>
-<li><a href="#org31efa4f">2.1.6. Spiral Model</a></li>
+<li><a href="#org168393b">2.1.1. Waterfall</a></li>
+<li><a href="#orgffb1f0d">2.1.2. V-Process</a></li>
+<li><a href="#org6f8f0fc">2.1.3. Incremental</a></li>
+<li><a href="#orgf6ed986">2.1.4. Rapid Application Development</a></li>
+<li><a href="#org5c15364">2.1.5. Prototypic / Evolutionary Process Models</a></li>
+<li><a href="#orga8b2fdc">2.1.6. Spiral Model</a></li>
 </ul>
 </li>
-<li><a href="#orgd0009e9">2.2. Agile Method</a>
+<li><a href="#orgfa2e99f">2.2. Agile Method</a>
 <ul>
-<li><a href="#org8ed8a24">2.2.1. 4 values of Agile</a></li>
-<li><a href="#orgc5ce83b">2.2.2. 12 Principles</a></li>
-<li><a href="#org4e0db8e">2.2.3. Agile Scrum Methodology</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgd0f7c88">3. Requirements Engineering</a>
-<ul>
-<li><a href="#org98607bb">3.1. 7 Tasks of a Requirement Engineer</a>
-<ul>
-<li><a href="#org01ad0e3">3.1.1. Inception</a></li>
-<li><a href="#org3cd9b46">3.1.2. Elicitation</a></li>
-<li><a href="#orgcf5b6a0">3.1.3. Elaboration</a></li>
-<li><a href="#orgbb1f2ea">3.1.4. Negotiation</a></li>
-<li><a href="#orgfec7d17">3.1.5. Specification</a></li>
-<li><a href="#orgb2a45f7">3.1.6. Validation</a></li>
-<li><a href="#org37c9c01">3.1.7. Requirements Management Task</a></li>
+<li><a href="#orgfb40864">2.2.1. 4 values of Agile</a></li>
+<li><a href="#orgabeac25">2.2.2. 12 Principles</a></li>
+<li><a href="#org6c5a7e3">2.2.3. Agile Scrum Methodology</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org788977a">4. Design Engineering</a>
+<li><a href="#org426d93f">3. Requirements Engineering</a>
 <ul>
-<li><a href="#org43f5106">4.1. McGlaughin&rsquo;s Characteristics</a></li>
-<li><a href="#org7252cce">4.2. Functional Independence</a>
+<li><a href="#orgf19951d">3.1. 7 Tasks of a Requirement Engineer</a>
 <ul>
-<li><a href="#org218120a">4.2.1. Cohesion</a></li>
-<li><a href="#org71d6053">4.2.2. Coupling</a></li>
+<li><a href="#org34b4d41">3.1.1. Inception</a></li>
+<li><a href="#orgc4a66fb">3.1.2. Elicitation</a></li>
+<li><a href="#org70f15e8">3.1.3. Elaboration</a></li>
+<li><a href="#org6750758">3.1.4. Negotiation</a></li>
+<li><a href="#org4d5d343">3.1.5. Specification</a></li>
+<li><a href="#org8536e92">3.1.6. Validation</a></li>
+<li><a href="#org148579c">3.1.7. Requirements Management Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org19b442e">4. Design Engineering</a>
+<ul>
+<li><a href="#org745feb6">4.1. McGlaughin&rsquo;s Characteristics</a></li>
+<li><a href="#orgd89a9d2">4.2. Functional Independence</a>
+<ul>
+<li><a href="#org082c540">4.2.1. Cohesion</a></li>
+<li><a href="#org7af7fd7">4.2.2. Coupling</a></li>
 </ul>
 </li>
 </ul>
@@ -688,8 +747,8 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-org495ccbb" class="outline-2">
-<h2 id="org495ccbb"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgc18ea1e" class="outline-2">
+<h2 id="orgc18ea1e"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Software acts as both a product and a vehicle for delivering a product.
@@ -700,8 +759,8 @@ Software acts as both a product and a vehicle for delivering a product.
 System), controls other programs, or helps build new tools.</li>
 </ul>
 </div>
-<div id="outline-container-org1e49511" class="outline-3">
-<h3 id="org1e49511"><span class="section-number-3">1.1.</span> Fundamental Definition of Software</h3>
+<div id="outline-container-orgf8ed24e" class="outline-3">
+<h3 id="orgf8ed24e"><span class="section-number-3">1.1.</span> Fundamental Definition of Software</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 You can define a software as
@@ -713,8 +772,8 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-orgca3dc5c" class="outline-3">
-<h3 id="orgca3dc5c"><span class="section-number-3">1.2.</span> Types of Software Applications</h3>
+<div id="outline-container-org65e71a1" class="outline-3">
+<h3 id="org65e71a1"><span class="section-number-3">1.2.</span> Types of Software Applications</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><b>System Software</b></li>
@@ -727,12 +786,12 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaa05fcf" class="outline-3">
-<h3 id="orgaa05fcf"><span class="section-number-3">1.3.</span> Failure Models of Hardware and Software</h3>
+<div id="outline-container-orgb734375" class="outline-3">
+<h3 id="orgb734375"><span class="section-number-3">1.3.</span> Failure Models of Hardware and Software</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org571c014" class="outline-4">
-<h4 id="org571c014"><span class="section-number-4">1.3.1.</span> Hardware</h4>
+<div id="outline-container-orgd43cf1c" class="outline-4">
+<h4 id="orgd43cf1c"><span class="section-number-4">1.3.1.</span> Hardware</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Hardware is a physical system element, which starts with high failure rate
@@ -746,8 +805,8 @@ that doesn&rsquo;t change the failure rate overall.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org94206a9" class="outline-4">
-<h4 id="org94206a9"><span class="section-number-4">1.3.2.</span> Software</h4>
+<div id="outline-container-org4f8cc24" class="outline-4">
+<h4 id="org4f8cc24"><span class="section-number-4">1.3.2.</span> Software</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Software can&rsquo;t wear out because it&rsquo;s a logical construct, not a physical
@@ -765,12 +824,12 @@ design or process.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf17ed70" class="outline-3">
-<h3 id="orgf17ed70"><span class="section-number-3">1.4.</span> Legacy Software</h3>
+<div id="outline-container-org36d615d" class="outline-3">
+<h3 id="org36d615d"><span class="section-number-3">1.4.</span> Legacy Software</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org09f6877" class="outline-4">
-<h4 id="org09f6877"><span class="section-number-4">1.4.1.</span> What are they and why are they unchanged?</h4>
+<div id="outline-container-orgb18f89e" class="outline-4">
+<h4 id="orgb18f89e"><span class="section-number-4">1.4.1.</span> What are they and why are they unchanged?</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>These are software developed decades ago, but are still used because they&rsquo;re
@@ -782,8 +841,8 @@ history/documentation</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org27a0638" class="outline-4">
-<h4 id="org27a0638"><span class="section-number-4">1.4.2.</span> When will you need to change them?</h4>
+<div id="outline-container-org3d56c86" class="outline-4">
+<h4 id="org3d56c86"><span class="section-number-4">1.4.2.</span> When will you need to change them?</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>Software must be adapted to meet new <b>computing needs</b>.</li>
@@ -793,8 +852,8 @@ history/documentation</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org77f920f" class="outline-3">
-<h3 id="org77f920f"><span class="section-number-3">1.5.</span> Newer Categories of Software</h3>
+<div id="outline-container-org0dc9e1e" class="outline-3">
+<h3 id="org0dc9e1e"><span class="section-number-3">1.5.</span> Newer Categories of Software</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li><b>Ubiquitous Computing</b>: The concept of wireless networks</li>
@@ -803,8 +862,8 @@ history/documentation</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org504575d" class="outline-3">
-<h3 id="org504575d"><span class="section-number-3">1.6.</span> IEEE&rsquo;s Definition of Software Engineering</h3>
+<div id="outline-container-orgd6c9490" class="outline-3">
+<h3 id="orgd6c9490"><span class="section-number-3">1.6.</span> IEEE&rsquo;s Definition of Software Engineering</h3>
 <div class="outline-text-3" id="text-1-6">
 <blockquote>
 <p>
@@ -829,8 +888,8 @@ of software.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org458b1c7" class="outline-3">
-<h3 id="org458b1c7"><span class="section-number-3">1.7.</span> Layers of technology</h3>
+<div id="outline-container-org894bc19" class="outline-3">
+<h3 id="org894bc19"><span class="section-number-3">1.7.</span> Layers of technology</h3>
 <div class="outline-text-3" id="text-1-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -880,12 +939,12 @@ outcome.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org27beaad" class="outline-2">
-<h2 id="org27beaad"><span class="section-number-2">2.</span> Process Models</h2>
+<div id="outline-container-org1f8564f" class="outline-2">
+<h2 id="org1f8564f"><span class="section-number-2">2.</span> Process Models</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9a85e18" class="outline-3">
-<h3 id="org9a85e18"><span class="section-number-3">2.1.</span> Prescriptive/ Traditional</h3>
+<div id="outline-container-org3d7d32e" class="outline-3">
+<h3 id="org3d7d32e"><span class="section-number-3">2.1.</span> Prescriptive/ Traditional</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>These are for large-scale projects.</li>
@@ -899,12 +958,12 @@ anticipation, not adaptation.</li>
 estimates.</li>
 </ul>
 </div>
-<div id="outline-container-org25d4051" class="outline-4">
-<h4 id="org25d4051"><span class="section-number-4">2.1.1.</span> Waterfall</h4>
+<div id="outline-container-org168393b" class="outline-4">
+<h4 id="org168393b"><span class="section-number-4">2.1.1.</span> Waterfall</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga3eb55c"></a>What it is<br />
+<li><a id="orgc3078c9"></a>What it is<br />
 <div class="outline-text-5" id="text-2-1-1-1">
 <p>
 \[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
@@ -921,7 +980,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="orga6aa5d2"></a>When to use<br />
+<li><a id="org2fc2b99"></a>When to use<br />
 <div class="outline-text-5" id="text-2-1-1-2">
 <ul class="org-ul">
 <li>When requirements are stable and unlikely to change</li>
@@ -929,7 +988,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="org50ea8d0"></a>Disadvantages<br />
+<li><a id="orgd810257"></a>Disadvantages<br />
 <div class="outline-text-5" id="text-2-1-1-3">
 <ul class="org-ul">
 <li>You have to finish a phase to move to the next one.</li>
@@ -940,15 +999,15 @@ tracking)</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orge2a9ef4" class="outline-4">
-<h4 id="orge2a9ef4"><span class="section-number-4">2.1.2.</span> V-Process</h4>
+<div id="outline-container-orgffb1f0d" class="outline-4">
+<h4 id="orgffb1f0d"><span class="section-number-4">2.1.2.</span> V-Process</h4>
 <div class="outline-text-4" id="text-2-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org874fded"></a>What it is<br />
+<li><a id="org2dba517"></a>What it is<br />
 <div class="outline-text-5" id="text-2-1-2-1">
 
-<div id="orgd030c8c" class="figure">
+<div id="orgbba01a7" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/v-process.png" alt="v-process.png" />
 </p>
 </div>
@@ -961,7 +1020,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="org467404c"></a>When to use<br />
+<li><a id="orgb2a4da2"></a>When to use<br />
 <div class="outline-text-5" id="text-2-1-2-2">
 <ul class="org-ul">
 <li>Requirements are clear and fixed.</li>
@@ -972,15 +1031,15 @@ tracking)</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgae78ca7" class="outline-4">
-<h4 id="orgae78ca7"><span class="section-number-4">2.1.3.</span> Incremental</h4>
+<div id="outline-container-org6f8f0fc" class="outline-4">
+<h4 id="org6f8f0fc"><span class="section-number-4">2.1.3.</span> Incremental</h4>
 <div class="outline-text-4" id="text-2-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org6126443"></a>What it is<br />
+<li><a id="orge2f25a8"></a>What it is<br />
 <div class="outline-text-5" id="text-2-1-3-1">
 
-<div id="org6dad638" class="figure">
+<div id="org3421587" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/incremental.png" alt="incremental.png" />
 </p>
 </div>
@@ -989,7 +1048,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="org289153d"></a>Advantages<br />
+<li><a id="orgf171176"></a>Advantages<br />
 <div class="outline-text-5" id="text-2-1-3-2">
 <ul class="org-ul">
 <li>Users get working functionality early, even if the complete system isn&rsquo;t
@@ -997,7 +1056,7 @@ ready. This provides value sooner and allows for feedback.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgda75e54"></a>When to use<br />
+<li><a id="org41e4d03"></a>When to use<br />
 <div class="outline-text-5" id="text-2-1-3-3">
 <ul class="org-ul">
 <li>You have a large project that can be broken into modules</li>
@@ -1008,15 +1067,15 @@ ready. This provides value sooner and allows for feedback.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org65110e9" class="outline-4">
-<h4 id="org65110e9"><span class="section-number-4">2.1.4.</span> Rapid Application Development</h4>
+<div id="outline-container-orgf6ed986" class="outline-4">
+<h4 id="orgf6ed986"><span class="section-number-4">2.1.4.</span> Rapid Application Development</h4>
 <div class="outline-text-4" id="text-2-1-4">
 </div>
 <ol class="org-ol">
-<li><a id="org1d50d72"></a>What it is<br />
+<li><a id="org7289e6e"></a>What it is<br />
 <div class="outline-text-5" id="text-2-1-4-1">
 
-<div id="orgf2e4145" class="figure">
+<div id="org517148f" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png" alt="rad.png" />
 </p>
 </div>
@@ -1027,12 +1086,12 @@ ready. This provides value sooner and allows for feedback.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org1726328" class="outline-4">
-<h4 id="org1726328"><span class="section-number-4">2.1.5.</span> Prototypic / Evolutionary Process Models</h4>
+<div id="outline-container-org5c15364" class="outline-4">
+<h4 id="org5c15364"><span class="section-number-4">2.1.5.</span> Prototypic / Evolutionary Process Models</h4>
 <div class="outline-text-4" id="text-2-1-5">
 </div>
 <ol class="org-ol">
-<li><a id="org85c397c"></a>What it is<br />
+<li><a id="org534e0dc"></a>What it is<br />
 <div class="outline-text-5" id="text-2-1-5-1">
 <ul class="org-ul">
 <li>Prototypic</li>
@@ -1041,7 +1100,7 @@ ready. This provides value sooner and allows for feedback.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbb3f610"></a>Disadvantages<br />
+<li><a id="org4e710ed"></a>Disadvantages<br />
 <div class="outline-text-5" id="text-2-1-5-2">
 <ul class="org-ul">
 <li>To impress stakeholders, the prototype is often held together haphazardly,
@@ -1051,8 +1110,8 @@ which means you haven&rsquo;t considered overall software quality.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org31efa4f" class="outline-4">
-<h4 id="org31efa4f"><span class="section-number-4">2.1.6.</span> Spiral Model</h4>
+<div id="outline-container-orga8b2fdc" class="outline-4">
+<h4 id="orga8b2fdc"><span class="section-number-4">2.1.6.</span> Spiral Model</h4>
 <div class="outline-text-4" id="text-2-1-6">
 <ul class="org-ul">
 <li>It&rsquo;s evolutionary model, but risk analysis is introduced.</li>
@@ -1069,8 +1128,8 @@ which means you haven&rsquo;t considered overall software quality.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd0009e9" class="outline-3">
-<h3 id="orgd0009e9"><span class="section-number-3">2.2.</span> Agile Method</h3>
+<div id="outline-container-orgfa2e99f" class="outline-3">
+<h3 id="orgfa2e99f"><span class="section-number-3">2.2.</span> Agile Method</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>These are for small-scale process.</li>
@@ -1081,11 +1140,11 @@ which means you haven&rsquo;t considered overall software quality.</li>
 after the execution starts.</li>
 <li>Issues are handled by the entire team, and the scrum master facilitates all
 effort estimations.</li>
-<li>Refer to <a href="#org9a85e18">traditional approach</a> to compare.</li>
+<li>Refer to <a href="#org3d7d32e">traditional approach</a> to compare.</li>
 </ul>
 </div>
-<div id="outline-container-org8ed8a24" class="outline-4">
-<h4 id="org8ed8a24"><span class="section-number-4">2.2.1.</span> 4 values of Agile</h4>
+<div id="outline-container-orgfb40864" class="outline-4">
+<h4 id="orgfb40864"><span class="section-number-4">2.2.1.</span> 4 values of Agile</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 These are 4 values to focus on quality.
@@ -1098,8 +1157,8 @@ These are 4 values to focus on quality.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc5ce83b" class="outline-4">
-<h4 id="orgc5ce83b"><span class="section-number-4">2.2.2.</span> 12 Principles</h4>
+<div id="outline-container-orgabeac25" class="outline-4">
+<h4 id="orgabeac25"><span class="section-number-4">2.2.2.</span> 12 Principles</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 The 12 principles articulated in the Agile Manifesto emphasize creating a work
@@ -1129,8 +1188,8 @@ Here are those pictorially:
 </p>
 </div>
 </div>
-<div id="outline-container-org4e0db8e" class="outline-4">
-<h4 id="org4e0db8e"><span class="section-number-4">2.2.3.</span> Agile Scrum Methodology</h4>
+<div id="outline-container-org6c5a7e3" class="outline-4">
+<h4 id="org6c5a7e3"><span class="section-number-4">2.2.3.</span> Agile Scrum Methodology</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li>Scrum is a lightweight framework of Agile Project Management</li>
@@ -1138,7 +1197,7 @@ Here are those pictorially:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgf4a6d1c"></a>Three Pillars<br />
+<li><a id="orgfb785f2"></a>Three Pillars<br />
 <div class="outline-text-5" id="text-2-2-3-1">
 <ul class="org-ul">
 <li>Transparency</li>
@@ -1147,7 +1206,7 @@ Here are those pictorially:
 </ul>
 </div>
 </li>
-<li><a id="orgb3b90f4"></a>Scrum Artifacts<br />
+<li><a id="org29d034c"></a>Scrum Artifacts<br />
 <div class="outline-text-5" id="text-2-2-3-2">
 <p>
 Scrum artifacts are information the team and stakeholders use to detail
@@ -1186,14 +1245,14 @@ Scrum artifacts are information the team and stakeholders use to detail
 </table>
 </div>
 <ol class="org-ol">
-<li><a id="org5d3f6a1"></a>Epics<br />
+<li><a id="orgb527f18"></a>Epics<br />
 <div class="outline-text-6" id="text-2-2-3-2-1">
 <ul class="org-ul">
 <li>They represent a big-picture vision</li>
 </ul>
 </div>
 </li>
-<li><a id="orgad93d68"></a>User Stories<br />
+<li><a id="org1d4d86b"></a>User Stories<br />
 <div class="outline-text-6" id="text-2-2-3-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s a requirement expressed in end-user POV</li>
@@ -1205,7 +1264,7 @@ of the functions like &ldquo;can I place an order at ANY time?&rdquo;)</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgcaea984"></a>Card<br />
+<li><a id="org7cd53d3"></a>Card<br />
 <div class="outline-text-7" id="text-2-2-3-2-2-1">
 <ul class="org-ul">
 <li>User stories are printed on physical cards.</li>
@@ -1219,14 +1278,14 @@ of the functions like &ldquo;can I place an order at ANY time?&rdquo;)</li>
 </ul>
 </div>
 </li>
-<li><a id="org9da8987"></a>Conversation<br />
+<li><a id="org1cbbbcc"></a>Conversation<br />
 <div class="outline-text-7" id="text-2-2-3-2-2-2">
 <p>
 Discuss details among stakeholders
 </p>
 </div>
 </li>
-<li><a id="org4ef36ea"></a>Confirmation<br />
+<li><a id="org96d12d5"></a>Confirmation<br />
 <div class="outline-text-7" id="text-2-2-3-2-2-3">
 <p>
 Define acceptance criteria
@@ -1235,7 +1294,7 @@ Define acceptance criteria
 </li>
 </ol>
 </li>
-<li><a id="org84ef01f"></a>Story Points<br />
+<li><a id="orgca4edc6"></a>Story Points<br />
 <div class="outline-text-6" id="text-2-2-3-2-3">
 <ul class="org-ul">
 <li>They help quantify the complexity of a user story</li>
@@ -1247,9 +1306,9 @@ smaller user stories.</li>
 </li>
 </ol>
 </li>
-<li><a id="org6aab793"></a>Events<br />
+<li><a id="org06df348"></a>Events<br />
 <ol class="org-ol">
-<li><a id="orgefbc283"></a>Backlog Grooming/Optimization<br />
+<li><a id="org50d9c7d"></a>Backlog Grooming/Optimization<br />
 <div class="outline-text-6" id="text-2-2-3-3-1">
 <ul class="org-ul">
 <li>The product owner optimizes the product backlog using feedback they get from
@@ -1264,7 +1323,7 @@ users and development team.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6f694d9"></a>Sprint Planning<br />
+<li><a id="orgb46e546"></a>Sprint Planning<br />
 <div class="outline-text-6" id="text-2-2-3-3-2">
 <ul class="org-ul">
 <li>To make the sprint backlog, the development team conducts this meeting.</li>
@@ -1273,7 +1332,7 @@ backlog.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7d4caba"></a>Daily Scrum/ Standup<br />
+<li><a id="org0e140bd"></a>Daily Scrum/ Standup<br />
 <div class="outline-text-6" id="text-2-2-3-3-3">
 <ul class="org-ul">
 <li>It&rsquo;s a meeting of about 15 minutes every day to make sure everyone is on the
@@ -1287,7 +1346,7 @@ same page.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1b8deb5"></a>Sprint<br />
+<li><a id="orgb67e4aa"></a>Sprint<br />
 <div class="outline-text-6" id="text-2-2-3-3-4">
 <ul class="org-ul">
 <li>The time taken to finish an increment</li>
@@ -1296,7 +1355,7 @@ same page.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4ff47b7"></a>Sprint Review<br />
+<li><a id="org8998e64"></a>Sprint Review<br />
 <div class="outline-text-6" id="text-2-2-3-3-5">
 <ul class="org-ul">
 <li>At the end of a sprint, the team showcases the increment to the stakeholders
@@ -1306,7 +1365,7 @@ and teammates.</li>
 </ul>
 </div>
 </li>
-<li><a id="org063d7cc"></a>Sprint Retrospective<br />
+<li><a id="orgd2ad61e"></a>Sprint Retrospective<br />
 <div class="outline-text-6" id="text-2-2-3-3-6">
 <ul class="org-ul">
 <li>The team comes together to discuss what went well, what didn&rsquo;t, and how things
@@ -1316,7 +1375,7 @@ can be improved.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgbf042d9"></a>Roles<br />
+<li><a id="orgb8bbcbf"></a>Roles<br />
 <div class="outline-text-5" id="text-2-2-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1361,16 +1420,16 @@ can be improved.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd0f7c88" class="outline-2">
-<h2 id="orgd0f7c88"><span class="section-number-2">3.</span> Requirements Engineering</h2>
+<div id="outline-container-org426d93f" class="outline-2">
+<h2 id="org426d93f"><span class="section-number-2">3.</span> Requirements Engineering</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org98607bb" class="outline-3">
-<h3 id="org98607bb"><span class="section-number-3">3.1.</span> 7 Tasks of a Requirement Engineer</h3>
+<div id="outline-container-orgf19951d" class="outline-3">
+<h3 id="orgf19951d"><span class="section-number-3">3.1.</span> 7 Tasks of a Requirement Engineer</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org01ad0e3" class="outline-4">
-<h4 id="org01ad0e3"><span class="section-number-4">3.1.1.</span> Inception</h4>
+<div id="outline-container-org34b4d41" class="outline-4">
+<h4 id="org34b4d41"><span class="section-number-4">3.1.1.</span> Inception</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>Understand the problem</li>
@@ -1378,15 +1437,15 @@ can be improved.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3cd9b46" class="outline-4">
-<h4 id="org3cd9b46"><span class="section-number-4">3.1.2.</span> Elicitation</h4>
+<div id="outline-container-orgc4a66fb" class="outline-4">
+<h4 id="orgc4a66fb"><span class="section-number-4">3.1.2.</span> Elicitation</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 Gather details 
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgb989c41"></a>Collaborative Requirements Gathering<br />
+<li><a id="org3ae8742"></a>Collaborative Requirements Gathering<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li>A facilitator (customer/developer) conducts a meeting to negotiate different
@@ -1394,7 +1453,7 @@ approaches.</li>
 </ul>
 </div>
 </li>
-<li><a id="org04bf06f"></a>Quality Function Deployment<br />
+<li><a id="org183156b"></a>Quality Function Deployment<br />
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>Translate needs of customer &rarr; technical requirements for software</li>
@@ -1431,8 +1490,8 @@ Three types of requirements:
 </li>
 </ol>
 </div>
-<div id="outline-container-orgcf5b6a0" class="outline-4">
-<h4 id="orgcf5b6a0"><span class="section-number-4">3.1.3.</span> Elaboration</h4>
+<div id="outline-container-org70f15e8" class="outline-4">
+<h4 id="org70f15e8"><span class="section-number-4">3.1.3.</span> Elaboration</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <ul class="org-ul">
 <li>Build a analysis/technical model and develop use cases.</li>
@@ -1447,7 +1506,7 @@ Three types of requirements:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8457c0e"></a>Use Case Diagram<br />
+<li><a id="org4cab54b"></a>Use Case Diagram<br />
 <div class="outline-text-5" id="text-3-1-3-1">
 <p>
 Here&rsquo;s an example of a use case diagram:
@@ -1470,7 +1529,7 @@ it means the use case is optional. Here too, the arrow is dotted.
 </ul>
 </div>
 </li>
-<li><a id="orge675805"></a>State Diagram<br />
+<li><a id="org1bbfa06"></a>State Diagram<br />
 <div class="outline-text-5" id="text-3-1-3-2">
 <ul class="org-ul">
 <li>A <b>state diagram</b> looks like this:
@@ -1478,7 +1537,7 @@ it means the use case is optional. Here too, the arrow is dotted.
 </ul>
 </div>
 </li>
-<li><a id="org1fd8cd4"></a>Data Flow Diagram<br />
+<li><a id="org6b026fa"></a>Data Flow Diagram<br />
 <div class="outline-text-5" id="text-3-1-3-3">
 <ul class="org-ul">
 <li><b>Rectangle</b>: Producer of Data</li>
@@ -1492,8 +1551,8 @@ later use.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgbb1f2ea" class="outline-4">
-<h4 id="orgbb1f2ea"><span class="section-number-4">3.1.4.</span> Negotiation</h4>
+<div id="outline-container-org6750758" class="outline-4">
+<h4 id="org6750758"><span class="section-number-4">3.1.4.</span> Negotiation</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>Using the technical model we&rsquo;ve built, we evaluate the <b>feasibility</b> of what the
@@ -1501,8 +1560,8 @@ customer wants, <b>rank</b> the requirements, and evaluate the <b>risks</b>, ite
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfec7d17" class="outline-4">
-<h4 id="orgfec7d17"><span class="section-number-4">3.1.5.</span> Specification</h4>
+<div id="outline-container-org4d5d343" class="outline-4">
+<h4 id="org4d5d343"><span class="section-number-4">3.1.5.</span> Specification</h4>
 <div class="outline-text-4" id="text-3-1-5">
 <ul class="org-ul">
 <li>Make the <b>Software Requirement Specification</b> (SRS) document.</li>
@@ -1510,7 +1569,7 @@ customer wants, <b>rank</b> the requirements, and evaluate the <b>risks</b>, ite
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb26d112"></a>Functional Requirements<br />
+<li><a id="org3c72264"></a>Functional Requirements<br />
 <div class="outline-text-5" id="text-3-1-5-1">
 <ul class="org-ul">
 <li>Functional requirements list all the functions of the website, and tells us
@@ -1519,7 +1578,7 @@ how it works in general.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgffb0b09"></a>Non-Functional Requirements<br />
+<li><a id="orga83c8ed"></a>Non-Functional Requirements<br />
 <div class="outline-text-5" id="text-3-1-5-2">
 <ul class="org-ul">
 <li>Non-functional requirements list technical implementations of functional
@@ -1530,7 +1589,7 @@ transactions per seconds) are included here.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgddd916b"></a>Execution Qualities<br />
+<li><a id="org15a2887"></a>Execution Qualities<br />
 <div class="outline-text-6" id="text-3-1-5-2-1">
 <ul class="org-ul">
 <li>These are things observable during runtime.</li>
@@ -1538,7 +1597,7 @@ transactions per seconds) are included here.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcc8c578"></a>Evolution Qualities<br />
+<li><a id="orge75ef80"></a>Evolution Qualities<br />
 <div class="outline-text-6" id="text-3-1-5-2-2">
 <ul class="org-ul">
 <li>These consist of things like testability, maintainability, scalability that
@@ -1550,15 +1609,15 @@ are embodied in the static structure of the system.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgb2a45f7" class="outline-4">
-<h4 id="orgb2a45f7"><span class="section-number-4">3.1.6.</span> Validation</h4>
+<div id="outline-container-org8536e92" class="outline-4">
+<h4 id="org8536e92"><span class="section-number-4">3.1.6.</span> Validation</h4>
 <div class="outline-text-4" id="text-3-1-6">
 <ul class="org-ul">
 <li>Validate the requirements presented in SRS.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org7be5d21"></a>Decision Tables<br />
+<li><a id="org50bc32e"></a>Decision Tables<br />
 <div class="outline-text-5" id="text-3-1-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1603,7 +1662,7 @@ Eg.
 </p>
 </div>
 </li>
-<li><a id="org794915e"></a>Decision Tree<br />
+<li><a id="org0046f1e"></a>Decision Tree<br />
 <div class="outline-text-5" id="text-3-1-6-2">
 <ul class="org-ul">
 <li>The leaf nodes represent actions to be performed.</li>
@@ -1612,29 +1671,29 @@ Eg.
 </li>
 </ol>
 </div>
-<div id="outline-container-org37c9c01" class="outline-4">
-<h4 id="org37c9c01"><span class="section-number-4">3.1.7.</span> Requirements Management Task</h4>
+<div id="outline-container-org148579c" class="outline-4">
+<h4 id="org148579c"><span class="section-number-4">3.1.7.</span> Requirements Management Task</h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p>
 Make a <b>requirement traceability matrix (RTM)</b>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org8d87d19"></a>Forward Traceability Matrix<br />
+<li><a id="org5ca1097"></a>Forward Traceability Matrix<br />
 <div class="outline-text-5" id="text-3-1-7-1">
 <p>
 Maps Requirements &rarr; Test Cases and Project Deliverables
 </p>
 </div>
 </li>
-<li><a id="orgd5e5b42"></a>Backward/Reverse Traceability Matrix<br />
+<li><a id="org95e4fcf"></a>Backward/Reverse Traceability Matrix<br />
 <div class="outline-text-5" id="text-3-1-7-2">
 <p>
 Maps Test Cases and Project Deliverables &rarr; Requirements
 </p>
 </div>
 </li>
-<li><a id="org7aa1209"></a>Bidirectional<br />
+<li><a id="orgdb04589"></a>Bidirectional<br />
 <div class="outline-text-5" id="text-3-1-7-3">
 <p>
 Maps both ways.
@@ -1645,12 +1704,12 @@ Maps both ways.
 </div>
 </div>
 </div>
-<div id="outline-container-org788977a" class="outline-2">
-<h2 id="org788977a"><span class="section-number-2">4.</span> Design Engineering</h2>
+<div id="outline-container-org19b442e" class="outline-2">
+<h2 id="org19b442e"><span class="section-number-2">4.</span> Design Engineering</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org43f5106" class="outline-3">
-<h3 id="org43f5106"><span class="section-number-3">4.1.</span> McGlaughin&rsquo;s Characteristics</h3>
+<div id="outline-container-org745feb6" class="outline-3">
+<h3 id="org745feb6"><span class="section-number-3">4.1.</span> McGlaughin&rsquo;s Characteristics</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Implement all implicit/explicit requirements by stakeholders.</li>
@@ -1659,12 +1718,12 @@ Maps both ways.
 </ul>
 </div>
 </div>
-<div id="outline-container-org7252cce" class="outline-3">
-<h3 id="org7252cce"><span class="section-number-3">4.2.</span> Functional Independence</h3>
+<div id="outline-container-orgd89a9d2" class="outline-3">
+<h3 id="orgd89a9d2"><span class="section-number-3">4.2.</span> Functional Independence</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org218120a" class="outline-4">
-<h4 id="org218120a"><span class="section-number-4">4.2.1.</span> Cohesion</h4>
+<div id="outline-container-org082c540" class="outline-4">
+<h4 id="org082c540"><span class="section-number-4">4.2.1.</span> Cohesion</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>Degree to which elements inside a module work together.</li>
@@ -1675,7 +1734,7 @@ towards the same goal.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb5cbcf4"></a>Functional Cohesion<br />
+<li><a id="org1a83081"></a>Functional Cohesion<br />
 <div class="outline-text-5" id="text-4-2-1-1">
 <ul class="org-ul">
 <li>Everything needed is readily available in the module.</li>
@@ -1683,7 +1742,7 @@ towards the same goal.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga0f5031"></a>Sequential Cohesion<br />
+<li><a id="org692a496"></a>Sequential Cohesion<br />
 <div class="outline-text-5" id="text-4-2-1-2">
 <ul class="org-ul">
 <li>The output of an element is the input of another.</li>
@@ -1691,25 +1750,25 @@ towards the same goal.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1a26df4"></a>Communicational Cohesion<br />
+<li><a id="orge27bd7c"></a>Communicational Cohesion<br />
 <div class="outline-text-5" id="text-4-2-1-3">
 <ul class="org-ul">
 <li>Two elements operate on the same input data or contribute towards the same output data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8d55cf1"></a>Procedural Cohesion<br />
+<li><a id="orgb5a3424"></a>Procedural Cohesion<br />
 <div class="outline-text-5" id="text-4-2-1-4">
 <ul class="org-ul">
 <li>It&rsquo;s not data flow, but it&rsquo;s still in order.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga57e135"></a><br /></li>
+<li><a id="orga33bcdf"></a><br /></li>
 </ol>
 </div>
-<div id="outline-container-org71d6053" class="outline-4">
-<h4 id="org71d6053"><span class="section-number-4">4.2.2.</span> Coupling</h4>
+<div id="outline-container-org7af7fd7" class="outline-4">
+<h4 id="org7af7fd7"><span class="section-number-4">4.2.2.</span> Coupling</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <ul class="org-ul">
 <li>Degree of Interdependence among modules</li>
@@ -1718,7 +1777,7 @@ maintain.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgecda70c"></a>Data Coupling<br />
+<li><a id="org6f9046f"></a>Data Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-1">
 <ul class="org-ul">
 <li>Only data moves around</li>
@@ -1729,7 +1788,7 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org335fc73"></a>Stamp Coupling<br />
+<li><a id="orgec4a8aa"></a>Stamp Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-2">
 <ul class="org-ul">
 <li>Data structures move around.</li>
@@ -1737,21 +1796,21 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6e88431"></a>Control Coupling<br />
+<li><a id="org6210c3a"></a>Control Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-3">
 <ul class="org-ul">
 <li>Modules communicate via control information/parameters.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1656c40"></a>External Coupling<br />
+<li><a id="orgd83a6b8"></a>External Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-4">
 <ul class="org-ul">
 <li>Depends on external modules, not part of the system.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgdb2ab04"></a>Common Coupling<br />
+<li><a id="org299251f"></a>Common Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-5">
 <ul class="org-ul">
 <li>Modules have shared data like global data structures.</li>
@@ -1759,7 +1818,7 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4111ebb"></a>Content Coupling<br />
+<li><a id="org08f764d"></a>Content Coupling<br />
 <div class="outline-text-5" id="text-4-2-2-6">
 <ul class="org-ul">
 <li>One module can modify the data of another module.</li>

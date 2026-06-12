@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-07 Sat 17:10 -->
+<!-- 2026-06-12 Fri 21:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Deep Learning using Images and Signals</title>
@@ -204,275 +204,334 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <style>
-/* General styles */
-body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-margin: 0;
-padding: 0;
-background-color: #f4f4f4;
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
 }
 
-#postamble, #preamble {
-margin-left: 280px;
-padding: 20px 40px;
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
 }
-h1, h2, h3 {
-font-family: 'Helvetica', sans-serif;
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
 }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
 a {
-color: #0000aa;
+color: #2222cc;
+text-decoration: none;
 }
 a:hover {
-background-color: #0000aa;
-color: #ffffff;
-border-radius: 0.2em;
-transition: background-color 0.3s ease, transform 0.3s ease;
+text-decoration: underline;
+text-underline-offset: 3px;
 }
-pre {
-background-color: #333;
-color: white;
-padding: 10px;
-overflow-x: auto;
-white-space: pre-wrap;
-word-wrap: break-word;
-}
-/* Styling code blocks */
-pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
-font-family: 'Courier New', monospace;
-background-color: #222;
-color: white;
-padding: 15px;
-font-size: 1.1em;
-border-radius: 0.5em;
-}
-code {
-font-size: 1.5em;
-padding: 0 0.5em;
-}
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto;
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
 }
 
 .header {
-text-align: center;
-margin: 0px;
-background-color: #0000aa;
-color: #ffffff;
-padding: 5px 0;
-flex-shrink: 0;
-word-wrap: break-word;
-font-family: DOSVGA, monospace;
 position: fixed;
-top: 0;
-left: 0;
-right: 0;
+top: 0; left: 0; right: 0;
 z-index: 1000;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .header a {
-color: #ffffff;
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
 text-decoration: none;
-font-size: 1.5em;
-white-space: nowrap;
-transition: all 0.3s ease;
-padding: 0px;
+line-height: 1;
 }
 
-.header a:hover {
-color: #bababa;
-}
-
-@font-face {
-font-family: DOSVGA;
-src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
-}
-
-/* Table of Contents Sidebar */
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
 #table-of-contents {
 position: fixed;
+top: 48px;
 left: 0;
-top: 45px;
-width: 280px;
-height: calc(100vh - 45px);
+width: 260px;
+height: calc(100vh - 48px);
 overflow-y: auto;
-background-color: #f8f8f8;
-border-right: 1px solid #ddd;
-padding: 30px 20px;
-box-sizing: border-box;
-z-index: 10;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
 }
 
 #table-of-contents h2 {
-margin-top: 0;
-color: #0000aa;
-font-size: 1.1em;
-border-bottom: 1px solid #ddd;
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
 padding-bottom: 10px;
-margin-bottom: 15px;
+border-bottom: 0.5px solid #e8e8ee;
 }
 
-/* Search box styles */
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
 #toc-search {
 width: 100%;
-padding: 8px 12px;
-margin-bottom: 15px;
-border: 1px solid #ddd;
-border-radius: 4px;
-font-size: 0.9em;
-box-sizing: border-box;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
 }
 
 #toc-search:focus {
-outline: none;
-border-color: #0000aa;
+border-color: #4444cc;
+background: #ffffff;
 }
 
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
 #table-of-contents ul {
-list-style-type: none;
-padding-left: 0;
+list-style: none;
+padding: 0;
 margin: 0;
 }
 
 #table-of-contents ul ul {
-padding-left: 15px;
-margin-top: 5px;
+padding-left: 14px;
 }
 
 #table-of-contents li {
-margin: 8px 0;
+margin: 2px 0;
 }
 
 #table-of-contents a {
-color: #555;
-text-decoration: none;
 display: block;
 padding: 5px 10px;
-border-radius: 4px;
-transition: all 0.2s ease;
-font-size: 0.95em;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 #table-of-contents a:hover {
-color: #0000aa;
-background-color: #e8e8ff;
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
 }
 
-/* Active TOC link (scroll spy) */
 #table-of-contents a.active {
-color: #0000aa;
-background-color: #e8e8ff;
-font-weight: bold;
-border-left: 3px solid #0000aa;
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
 }
 
-/* Hidden items during search */
 #table-of-contents li.hidden {
 display: none;
 }
 
-/* Main content area */
+/* ─── Main Content ──────────────────────────────────────── */
 #content {
-margin-left: 280px;
-margin-top: 45px;
-padding: 40px;
-background-color: #ffffff;
-min-height: calc(100vh - 45px);
-}
-table {
-border-collapse: collapse;
-margin: 1.5rem auto;
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 1rem;
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
 background: #ffffff;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
 border-radius: 10px;
 overflow: hidden;
 }
 
-table[border] {
-border: none;
-}
-
-td {
-padding: 0.75rem 1.1rem;
-text-align: center;
-border: 1px solid #e5e7eb;
+th {
+background: #f5f5fa;
 font-weight: 500;
-color: #111827;
-}
-
-td.org-left {
-text-align: center;
-}
-
-tbody tr:nth-child(even) {
-background-color: #f9fafb;
-}
-
-tbody tr:hover {
-background-color: #eef2ff;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
 }
 
 td {
-letter-spacing: 0.05em;
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
 #table-of-contents {
 position: static;
 width: 100%;
 height: auto;
 border-right: none;
-border-bottom: 2px solid #0000aa;
-}
-pre.src {
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-width: 100vw;
-border-radius: 0;
-box-sizing: border-box;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
 }
 
 #content {
 margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
 }
 
-body {
-font-size: 14px;
-padding: 10px;
-}
-h1 {
-font-size: 1.5em;
-}
-pre {
-font-size: 1.3em;
-}
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
 }
 
-@media screen and (max-width: 480px) {
-body {
-font-size: 12px;
-padding: 5px;
-}
-h1 {
-font-size: 1.3em;
-}
 pre {
-font-size: 1.3em;
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
 }
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
 }
 </style>
 <div class="header">
-<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -617,175 +676,175 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgeff3f99">1. Introduction</a>
+<li><a href="#orga3ea520">1. Introduction</a>
 <ul>
-<li><a href="#org38c8992">1.1. How to choose data</a></li>
-<li><a href="#orga26f627">1.2. General Terminologies</a>
+<li><a href="#orgf13a5a6">1.1. How to choose data</a></li>
+<li><a href="#org1e033aa">1.2. General Terminologies</a>
 <ul>
-<li><a href="#org49d0e3c">1.2.1. Epoch</a></li>
+<li><a href="#org28e5394">1.2.1. Epoch</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgeb838d6">2. McCulloch Pitts Neuron</a>
+<li><a href="#org362756e">2. McCulloch Pitts Neuron</a>
 <ul>
-<li><a href="#org2fd2d3b">2.1. Types of Inputs</a></li>
+<li><a href="#org5710a3d">2.1. Types of Inputs</a></li>
 </ul>
 </li>
-<li><a href="#orgf20958e">3. Perceptron</a>
+<li><a href="#org45840b4">3. Perceptron</a>
 <ul>
-<li><a href="#org51a0b39">3.1. Perceptron Learning</a></li>
-<li><a href="#org99d445a">3.2. AND gate</a></li>
-<li><a href="#org5becb49">3.3. Hebbian Rule</a></li>
-<li><a href="#org668a1cb">3.4. Perceptron Learning Rule or Delta Rule</a></li>
-<li><a href="#org31a7654">3.5. Number of Parameters in a Neural Network</a></li>
+<li><a href="#orgba01379">3.1. Perceptron Learning</a></li>
+<li><a href="#org0788fd7">3.2. AND gate</a></li>
+<li><a href="#orgcc4d16a">3.3. Hebbian Rule</a></li>
+<li><a href="#orgf48373a">3.4. Perceptron Learning Rule or Delta Rule</a></li>
+<li><a href="#org6f64c36">3.5. Number of Parameters in a Neural Network</a></li>
 </ul>
 </li>
-<li><a href="#org47d98c9">4. Non-Linear Regions</a>
+<li><a href="#org1f8967a">4. Non-Linear Regions</a>
 <ul>
-<li><a href="#orgc703097">4.1. Activation Function</a>
+<li><a href="#org14559cf">4.1. Activation Function</a>
 <ul>
-<li><a href="#org1414f77">4.1.1. Sigmoidal Function</a></li>
-<li><a href="#org2d08977">4.1.2. Tanh</a></li>
-<li><a href="#orga403b4a">4.1.3. ReLU</a></li>
-<li><a href="#orga394ae8">4.1.4. Leaky ReLU</a></li>
-<li><a href="#orgc6cb81c">4.1.5. Swish/ SeLU</a></li>
-<li><a href="#org1887ce2">4.1.6. Softmax function</a></li>
+<li><a href="#orgdfcb370">4.1.1. Sigmoidal Function</a></li>
+<li><a href="#org9801237">4.1.2. Tanh</a></li>
+<li><a href="#orgf343e59">4.1.3. ReLU</a></li>
+<li><a href="#orgf85637b">4.1.4. Leaky ReLU</a></li>
+<li><a href="#org0cbada1">4.1.5. Swish/ SeLU</a></li>
+<li><a href="#org52ddfc3">4.1.6. Softmax function</a></li>
 </ul>
 </li>
-<li><a href="#org5386e04">4.2. Hidden Layers</a></li>
+<li><a href="#orgbf8e6b2">4.2. Hidden Layers</a></li>
 </ul>
 </li>
-<li><a href="#org336dbd0">5. Gradient Descent</a>
+<li><a href="#orge4fc38d">5. Gradient Descent</a>
 <ul>
-<li><a href="#orgffd5774">5.1. Weight Initialization</a></li>
-<li><a href="#org19d4a0e">5.2. Loss</a>
+<li><a href="#org7473a45">5.1. Weight Initialization</a></li>
+<li><a href="#org28c2286">5.2. Loss</a>
 <ul>
-<li><a href="#org099f84a">5.2.1. <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</a></li>
-<li><a href="#org189568d">5.2.2. Mean Square Error</a></li>
-<li><a href="#orgb7513cb">5.2.3. Learning Rate vs Loss</a></li>
+<li><a href="#org64c621f">5.2.1. <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</a></li>
+<li><a href="#org1e1dd21">5.2.2. Mean Square Error</a></li>
+<li><a href="#org7e00c54">5.2.3. Learning Rate vs Loss</a></li>
 </ul>
 </li>
-<li><a href="#org8158fe9">5.3. Working of Gradient Descent</a>
+<li><a href="#org8250a88">5.3. Working of Gradient Descent</a>
 <ul>
-<li><a href="#org7f1c796">5.3.1. Feedforward</a></li>
-<li><a href="#orgc7b6c2f">5.3.2. Find Loss or Error</a></li>
-<li><a href="#org5c39e5c">5.3.3. Backpropagation</a></li>
+<li><a href="#orgfa3fab7">5.3.1. Feedforward</a></li>
+<li><a href="#org6a81f20">5.3.2. Find Loss or Error</a></li>
+<li><a href="#org7a4c24f">5.3.3. Backpropagation</a></li>
 </ul>
 </li>
-<li><a href="#org70e2cb3">5.4. Vanishing Gradient</a></li>
+<li><a href="#org35ee9d6">5.4. Vanishing Gradient</a></li>
 </ul>
 </li>
-<li><a href="#org51d9cf8">6. Overfitting Techniques</a>
+<li><a href="#org075e8e8">6. Overfitting Techniques</a>
 <ul>
-<li><a href="#org2ad8a3a">6.1. Early Stopping</a></li>
-<li><a href="#org4938bec">6.2. Drop Out</a></li>
-<li><a href="#org057a808">6.3. Regularization</a>
+<li><a href="#org60afa9c">6.1. Early Stopping</a></li>
+<li><a href="#orgf986207">6.2. Drop Out</a></li>
+<li><a href="#org0b0c383">6.3. Regularization</a>
 <ul>
-<li><a href="#orgf0ef146">6.3.1. L-2 Regularization</a></li>
-<li><a href="#org6cb2853">6.3.2. L-1 Regularization</a></li>
+<li><a href="#orgd3998ed">6.3.1. L-2 Regularization</a></li>
+<li><a href="#org64c3e0a">6.3.2. L-1 Regularization</a></li>
 </ul>
 </li>
-<li><a href="#orgc4fa7db">6.4. Adding Noise to the inputs</a></li>
-<li><a href="#org520f32c">6.5. Ensembling</a></li>
-<li><a href="#org061ceaa">6.6. Batch Normalization</a></li>
+<li><a href="#orgbb13d4b">6.4. Adding Noise to the inputs</a></li>
+<li><a href="#org9bfe9a0">6.5. Ensembling</a></li>
+<li><a href="#org86d38a1">6.6. Batch Normalization</a></li>
 </ul>
 </li>
-<li><a href="#org4c14369">7. Optimization</a>
+<li><a href="#orgba98ba1">7. Optimization</a>
 <ul>
-<li><a href="#orgd49c139">7.1. Unconstrained Optimizations</a></li>
-<li><a href="#org5761044">7.2. Constrained Optimization</a></li>
+<li><a href="#org5b3f810">7.1. Unconstrained Optimizations</a></li>
+<li><a href="#org1f1fff2">7.2. Constrained Optimization</a></li>
 </ul>
 </li>
-<li><a href="#org14f907a">8. Convolutional Neural Networks</a>
+<li><a href="#org07a7df8">8. Convolutional Neural Networks</a>
 <ul>
-<li><a href="#orge3a7c82">8.1. Issue of ANN (Artificial Neural Network)</a></li>
-<li><a href="#orgb8f70ba">8.2. Sliding Window Technique</a>
+<li><a href="#org4a25d31">8.1. Issue of ANN (Artificial Neural Network)</a></li>
+<li><a href="#org5739379">8.2. Sliding Window Technique</a>
 <ul>
-<li><a href="#orge214cfa">8.2.1. Kernel</a></li>
-<li><a href="#orgf1865f7">8.2.2. How CNN is viewed as an ANN</a></li>
+<li><a href="#orgfd5267b">8.2.1. Kernel</a></li>
+<li><a href="#orgb6a2a7b">8.2.2. How CNN is viewed as an ANN</a></li>
 </ul>
 </li>
-<li><a href="#org4ac246c">8.3. Types of Convolution based on Padding</a>
+<li><a href="#org216dca7">8.3. Types of Convolution based on Padding</a>
 <ul>
-<li><a href="#orgda46df6">8.3.1. Zero Padding / Valid Convolution</a></li>
-<li><a href="#orgfb00428">8.3.2. Just Enough Zero Padding / Same Convolution</a></li>
-<li><a href="#orgb832823">8.3.3. Full Convolution</a></li>
+<li><a href="#org2523809">8.3.1. Zero Padding / Valid Convolution</a></li>
+<li><a href="#org0b92233">8.3.2. Just Enough Zero Padding / Same Convolution</a></li>
+<li><a href="#org48aae30">8.3.3. Full Convolution</a></li>
 </ul>
 </li>
-<li><a href="#org6fc5e8c">8.4. Striding</a></li>
-<li><a href="#orgbbb3f71">8.5. Grand Formula for Feature Map</a></li>
-<li><a href="#orgd5ebcd6">8.6. Pooling</a>
+<li><a href="#org65ccb21">8.4. Striding</a></li>
+<li><a href="#orgb74ff7e">8.5. Grand Formula for Feature Map</a></li>
+<li><a href="#orgcb6240c">8.6. Pooling</a>
 <ul>
-<li><a href="#org17d9548">8.6.1. Max-Pooling</a></li>
-<li><a href="#org86b3fe0">8.6.2. Global Average Pooling</a></li>
+<li><a href="#org6c4ebb9">8.6.1. Max-Pooling</a></li>
+<li><a href="#orga70d821">8.6.2. Global Average Pooling</a></li>
 </ul>
 </li>
-<li><a href="#org0ba83ec">8.7. Flattening Layer</a></li>
-<li><a href="#org026664c">8.8. LeNet</a>
+<li><a href="#orgc14cf91">8.7. Flattening Layer</a></li>
+<li><a href="#org1d6b4d5">8.8. LeNet</a>
 <ul>
-<li><a href="#org30869f0">8.8.1. Architecture</a></li>
-<li><a href="#orge773afb">8.8.2. Convolution Layer 1</a></li>
+<li><a href="#org686b8ce">8.8.1. Architecture</a></li>
+<li><a href="#orge99f802">8.8.2. Convolution Layer 1</a></li>
 </ul>
 </li>
-<li><a href="#orgc70eccc">8.9. AlexNet</a>
+<li><a href="#orgaded228">8.9. AlexNet</a>
 <ul>
-<li><a href="#orgdd52fa5">8.9.1. Dataset</a></li>
-<li><a href="#org8dc5de8">8.9.2. Structure</a></li>
+<li><a href="#orge9321c0">8.9.1. Dataset</a></li>
+<li><a href="#org0d62198">8.9.2. Structure</a></li>
 </ul>
 </li>
-<li><a href="#orgaf176d9">8.10. YOLO NAS (Neural Architectural Search)</a></li>
-<li><a href="#org9d8fe39">8.11. VGGNet</a></li>
-<li><a href="#orgdd15e03">8.12. ResNet</a></li>
-<li><a href="#org87a9004">8.13. GoogleNet</a></li>
-<li><a href="#org59d15d8">8.14. Applications</a></li>
-<li><a href="#orga7a86a2">8.15. UNet</a>
+<li><a href="#orgcc30011">8.10. YOLO NAS (Neural Architectural Search)</a></li>
+<li><a href="#org5ade6c5">8.11. VGGNet</a></li>
+<li><a href="#org56228a6">8.12. ResNet</a></li>
+<li><a href="#org4a124bf">8.13. GoogleNet</a></li>
+<li><a href="#org399ef6b">8.14. Applications</a></li>
+<li><a href="#org056bb8e">8.15. UNet</a>
 <ul>
-<li><a href="#org2400a11">8.15.1. VGGNet used as an encoder</a></li>
+<li><a href="#orgea4ea35">8.15.1. VGGNet used as an encoder</a></li>
 </ul>
 </li>
-<li><a href="#org0f63433">8.16. YOLO</a>
+<li><a href="#orgf7bef66">8.16. YOLO</a>
 <ul>
-<li><a href="#org0612bd7">8.16.1. What it is</a></li>
-<li><a href="#orgb22badc">8.16.2. Code</a></li>
+<li><a href="#org58674c9">8.16.1. What it is</a></li>
+<li><a href="#org293b963">8.16.2. Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd764040">9. Recurrent Neural Network</a>
+<li><a href="#orgcb40d0f">9. Recurrent Neural Network</a>
 <ul>
-<li><a href="#orga3e6ec3">9.1. Introduction</a></li>
-<li><a href="#org78af7be">9.2. Issue of ANNs</a></li>
-<li><a href="#orgc55bbc5">9.3. What RNNs do</a>
+<li><a href="#orgced523b">9.1. Introduction</a></li>
+<li><a href="#orga791d6f">9.2. Issue of ANNs</a></li>
+<li><a href="#orga9c2a62">9.3. What RNNs do</a>
 <ul>
-<li><a href="#orgfe77f7c">9.3.1. Working:</a></li>
-<li><a href="#org45256ca">9.3.2. Full Workflow, explained with the case of a word predictor</a></li>
-<li><a href="#orge6f6a92">9.3.3. A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</a></li>
-<li><a href="#orgf930e0f">9.3.4. Given the following architecture, find the number of trainable parameters.</a></li>
+<li><a href="#org4d187dd">9.3.1. Working:</a></li>
+<li><a href="#org10e494d">9.3.2. Full Workflow, explained with the case of a word predictor</a></li>
+<li><a href="#org69ca3a2">9.3.3. A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</a></li>
+<li><a href="#org6896d86">9.3.4. Given the following architecture, find the number of trainable parameters.</a></li>
 </ul>
 </li>
-<li><a href="#org6b23ef9">9.4. Calculating Loss</a></li>
-<li><a href="#orge3de45e">9.5. Backpropagation through Time (BTT)</a></li>
-<li><a href="#orgece9670">9.6. Input to RNN</a></li>
-<li><a href="#org583c6cc">9.7. Layer Normalization</a></li>
-<li><a href="#org2bdd3ad">9.8. Issues</a></li>
+<li><a href="#orga8d5560">9.4. Calculating Loss</a></li>
+<li><a href="#org9da655c">9.5. Backpropagation through Time (BTT)</a></li>
+<li><a href="#org9e7f5c3">9.6. Input to RNN</a></li>
+<li><a href="#orgb5d00aa">9.7. Layer Normalization</a></li>
+<li><a href="#org8229a4f">9.8. Issues</a></li>
 </ul>
 </li>
-<li><a href="#org57ad758">10. Long Short Term Memory (LSTM)</a>
+<li><a href="#org89ca38c">10. Long Short Term Memory (LSTM)</a>
 <ul>
-<li><a href="#orgbea9666">10.1. How Previous Hidden State is Modified</a></li>
-<li><a href="#orgaad4f70">10.2. How Current Hidden State is Modified</a></li>
-<li><a href="#org0cddf2b">10.3. Gates</a></li>
+<li><a href="#org873bc56">10.1. How Previous Hidden State is Modified</a></li>
+<li><a href="#orgccd4ccc">10.2. How Current Hidden State is Modified</a></li>
+<li><a href="#org39f562b">10.3. Gates</a></li>
 </ul>
 </li>
-<li><a href="#orgb26c8ce">11. Gated Recurrent Unit (GRU)</a></li>
-<li><a href="#orgf8d48e2">12. Encoders and Decoders</a></li>
-<li><a href="#orgcf19b4b">13. Attention</a></li>
+<li><a href="#orgb3ed754">11. Gated Recurrent Unit (GRU)</a></li>
+<li><a href="#org145fa0c">12. Encoders and Decoders</a></li>
+<li><a href="#org381cc54">13. Attention</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeff3f99" class="outline-2">
-<h2 id="orgeff3f99"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orga3ea520" class="outline-2">
+<h2 id="orga3ea520"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>ML is a subset of AI, and DL is a subset of ML.</li>
@@ -848,8 +907,8 @@ Here are the general differences:
 </table></li>
 </ul>
 </div>
-<div id="outline-container-org38c8992" class="outline-3">
-<h3 id="org38c8992"><span class="section-number-3">1.1.</span> How to choose data</h3>
+<div id="outline-container-orgf13a5a6" class="outline-3">
+<h3 id="orgf13a5a6"><span class="section-number-3">1.1.</span> How to choose data</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>When the inter-class distance is too high, the accuracy of the model will be
@@ -862,12 +921,12 @@ models).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga26f627" class="outline-3">
-<h3 id="orga26f627"><span class="section-number-3">1.2.</span> General Terminologies</h3>
+<div id="outline-container-org1e033aa" class="outline-3">
+<h3 id="org1e033aa"><span class="section-number-3">1.2.</span> General Terminologies</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org49d0e3c" class="outline-4">
-<h4 id="org49d0e3c"><span class="section-number-4">1.2.1.</span> Epoch</h4>
+<div id="outline-container-org28e5394" class="outline-4">
+<h4 id="org28e5394"><span class="section-number-4">1.2.1.</span> Epoch</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>One iteration over the entire dataset.</li>
@@ -876,8 +935,8 @@ models).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb838d6" class="outline-2">
-<h2 id="orgeb838d6"><span class="section-number-2">2.</span> McCulloch Pitts Neuron</h2>
+<div id="outline-container-org362756e" class="outline-2">
+<h2 id="org362756e"><span class="section-number-2">2.</span> McCulloch Pitts Neuron</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>An artifial neuron passes a linear combination of inputs to an activation function, and
@@ -1022,8 +1081,8 @@ use a single line to make a decision boundary.
 </p></li>
 </ul>
 </div>
-<div id="outline-container-org2fd2d3b" class="outline-3">
-<h3 id="org2fd2d3b"><span class="section-number-3">2.1.</span> Types of Inputs</h3>
+<div id="outline-container-org5710a3d" class="outline-3">
+<h3 id="org5710a3d"><span class="section-number-3">2.1.</span> Types of Inputs</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><b>Inhibitory Input</b>: It&rsquo;s an input which can independently change the decision</li>
@@ -1140,8 +1199,8 @@ this case, both \(x_{1}\) and \(x_{2}\) are inhibitory.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf20958e" class="outline-2">
-<h2 id="orgf20958e"><span class="section-number-2">3.</span> Perceptron</h2>
+<div id="outline-container-org45840b4" class="outline-2">
+<h2 id="org45840b4"><span class="section-number-2">3.</span> Perceptron</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>This is for non-boolean classification, where now each input have weights.</li>
@@ -1222,8 +1281,8 @@ Take a simple example where \(f(x) = x_{1} \land x_{2} \)
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org51a0b39" class="outline-3">
-<h3 id="org51a0b39"><span class="section-number-3">3.1.</span> Perceptron Learning</h3>
+<div id="outline-container-orgba01379" class="outline-3">
+<h3 id="orgba01379"><span class="section-number-3">3.1.</span> Perceptron Learning</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>\(g(x) = W^{T}X = 0 \). \(W\) is perpendicular to any point X lying on the
@@ -1249,8 +1308,8 @@ where &eta; is called the <b>learning rate</b>.
 </ul>
 </div>
 </div>
-<div id="outline-container-org99d445a" class="outline-3">
-<h3 id="org99d445a"><span class="section-number-3">3.2.</span> AND gate</h3>
+<div id="outline-container-org0788fd7" class="outline-3">
+<h3 id="org0788fd7"><span class="section-number-3">3.2.</span> AND gate</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Given Bipolar data (only -1 and 1)</li>
@@ -1384,8 +1443,8 @@ Assume all weights to be 1 and bias to be -1 for this example.
 </table>
 </div>
 </div>
-<div id="outline-container-org5becb49" class="outline-3">
-<h3 id="org5becb49"><span class="section-number-3">3.3.</span> Hebbian Rule</h3>
+<div id="outline-container-orgcc4d16a" class="outline-3">
+<h3 id="orgcc4d16a"><span class="section-number-3">3.3.</span> Hebbian Rule</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 \[w_{new} = w_{old} + \Delta w\]
@@ -1398,8 +1457,8 @@ where \( \Delta w =  \eta t x  \)
 </ul>
 </div>
 </div>
-<div id="outline-container-org668a1cb" class="outline-3">
-<h3 id="org668a1cb"><span class="section-number-3">3.4.</span> Perceptron Learning Rule or Delta Rule</h3>
+<div id="outline-container-orgf48373a" class="outline-3">
+<h3 id="orgf48373a"><span class="section-number-3">3.4.</span> Perceptron Learning Rule or Delta Rule</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 \[w_{new} = w_{old} + \Delta w\]
@@ -1501,8 +1560,8 @@ approach in the traditional hebbian rule.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org31a7654" class="outline-3">
-<h3 id="org31a7654"><span class="section-number-3">3.5.</span> Number of Parameters in a Neural Network</h3>
+<div id="outline-container-org6f64c36" class="outline-3">
+<h3 id="org6f64c36"><span class="section-number-3">3.5.</span> Number of Parameters in a Neural Network</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>Let N<sub>i</sub> be the number of neurons in layer \(i\), and \(n\) is the number of layers
@@ -1514,8 +1573,8 @@ approach in the traditional hebbian rule.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org47d98c9" class="outline-2">
-<h2 id="org47d98c9"><span class="section-number-2">4.</span> Non-Linear Regions</h2>
+<div id="outline-container-org1f8967a" class="outline-2">
+<h2 id="org1f8967a"><span class="section-number-2">4.</span> Non-Linear Regions</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Generally, one line (decision boundary) is formed by one neuron.</li>
@@ -1526,16 +1585,16 @@ hence neuron).</li>
 <li>These neurons are just inputs to the next neuron.</li>
 </ul>
 </div>
-<div id="outline-container-orgc703097" class="outline-3">
-<h3 id="orgc703097"><span class="section-number-3">4.1.</span> Activation Function</h3>
+<div id="outline-container-org14559cf" class="outline-3">
+<h3 id="org14559cf"><span class="section-number-3">4.1.</span> Activation Function</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>The error function must be <b>continuous</b> and <b>differentiable</b>, so that you&rsquo;re not
 taking sudden and high jumps.</li>
 </ul>
 </div>
-<div id="outline-container-org1414f77" class="outline-4">
-<h4 id="org1414f77"><span class="section-number-4">4.1.1.</span> Sigmoidal Function</h4>
+<div id="outline-container-orgdfcb370" class="outline-4">
+<h4 id="orgdfcb370"><span class="section-number-4">4.1.1.</span> Sigmoidal Function</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 \[ f(x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{1+e^{x}} \]
@@ -1556,8 +1615,8 @@ classification.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d08977" class="outline-4">
-<h4 id="org2d08977"><span class="section-number-4">4.1.2.</span> Tanh</h4>
+<div id="outline-container-org9801237" class="outline-4">
+<h4 id="org9801237"><span class="section-number-4">4.1.2.</span> Tanh</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 \[ f(x) = \frac{e^{x} - e^{-x} }{e^{x} + e^{-x}} \]
@@ -1569,8 +1628,8 @@ expensive because of so many \(e^{x}\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga403b4a" class="outline-4">
-<h4 id="orga403b4a"><span class="section-number-4">4.1.3.</span> ReLU</h4>
+<div id="outline-container-orgf343e59" class="outline-4">
+<h4 id="orgf343e59"><span class="section-number-4">4.1.3.</span> ReLU</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 \[ f(x) = max(0,x)  \]
@@ -1588,24 +1647,24 @@ using ReLU only in hidden layers.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga394ae8" class="outline-4">
-<h4 id="orga394ae8"><span class="section-number-4">4.1.4.</span> Leaky ReLU</h4>
+<div id="outline-container-orgf85637b" class="outline-4">
+<h4 id="orgf85637b"><span class="section-number-4">4.1.4.</span> Leaky ReLU</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 \[f(x) = \begin{cases} x & \text{if } x \geq 0, \\ \alpha x & \text{if } x < 0, \end{cases}\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgc6cb81c" class="outline-4">
-<h4 id="orgc6cb81c"><span class="section-number-4">4.1.5.</span> Swish/ SeLU</h4>
+<div id="outline-container-org0cbada1" class="outline-4">
+<h4 id="org0cbada1"><span class="section-number-4">4.1.5.</span> Swish/ SeLU</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 \[f(x) = x * Sigmoid(x)\]
 </p>
 </div>
 </div>
-<div id="outline-container-org1887ce2" class="outline-4">
-<h4 id="org1887ce2"><span class="section-number-4">4.1.6.</span> Softmax function</h4>
+<div id="outline-container-org52ddfc3" class="outline-4">
+<h4 id="org52ddfc3"><span class="section-number-4">4.1.6.</span> Softmax function</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 \[ P(class_{i}) = \frac{e^{Z_{i}}}{\Sigma_{1}^{n}e^{Z_{i}}}\]
@@ -1622,8 +1681,8 @@ time.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5386e04" class="outline-3">
-<h3 id="org5386e04"><span class="section-number-3">4.2.</span> Hidden Layers</h3>
+<div id="outline-container-orgbf8e6b2" class="outline-3">
+<h3 id="orgbf8e6b2"><span class="section-number-3">4.2.</span> Hidden Layers</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>A general trick is that, the number of neurons in a hidden layer is
@@ -1634,12 +1693,12 @@ and N<sub>o</sub> is the number of neurons in the output layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org336dbd0" class="outline-2">
-<h2 id="org336dbd0"><span class="section-number-2">5.</span> Gradient Descent</h2>
+<div id="outline-container-orge4fc38d" class="outline-2">
+<h2 id="orge4fc38d"><span class="section-number-2">5.</span> Gradient Descent</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgffd5774" class="outline-3">
-<h3 id="orgffd5774"><span class="section-number-3">5.1.</span> Weight Initialization</h3>
+<div id="outline-container-org7473a45" class="outline-3">
+<h3 id="org7473a45"><span class="section-number-3">5.1.</span> Weight Initialization</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>In a neural network, you have to initialize weights with random values.</li>
@@ -1654,12 +1713,12 @@ only one neuron present in each layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org19d4a0e" class="outline-3">
-<h3 id="org19d4a0e"><span class="section-number-3">5.2.</span> Loss</h3>
+<div id="outline-container-org28c2286" class="outline-3">
+<h3 id="org28c2286"><span class="section-number-3">5.2.</span> Loss</h3>
 <div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-org099f84a" class="outline-4">
-<h4 id="org099f84a"><span class="section-number-4">5.2.1.</span> <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</h4>
+<div id="outline-container-org64c621f" class="outline-4">
+<h4 id="org64c621f"><span class="section-number-4">5.2.1.</span> <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 \[ Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \]
@@ -1673,9 +1732,9 @@ very negative. Log of max probability (1) is 0.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org778c096"></a>Given a binary inputs {0,1}, compute binary cross entropy loss<br />
+<li><a id="org83fdbcb"></a>Given a binary inputs {0,1}, compute binary cross entropy loss<br />
 <ol class="org-ol">
-<li><a id="org2ff6660"></a>For X, actual class = 1, predicted probability = 0.8<br />
+<li><a id="org48564d5"></a>For X, actual class = 1, predicted probability = 0.8<br />
 <div class="outline-text-6" id="text-5-2-1-1-1">
 <ul class="org-ul">
 <li>\( Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \)</li>
@@ -1684,7 +1743,7 @@ very negative. Log of max probability (1) is 0.</li>
 </ul>
 </div>
 </li>
-<li><a id="org9ffc772"></a>For Y, actual class = 0, predicted probability = 0.2<br />
+<li><a id="orgd3048b7"></a>For Y, actual class = 0, predicted probability = 0.2<br />
 <div class="outline-text-6" id="text-5-2-1-1-2">
 <ul class="org-ul">
 <li>\( Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \)</li>
@@ -1695,7 +1754,7 @@ very negative. Log of max probability (1) is 0.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgc658918"></a>Loss Function for an entire Layer<br />
+<li><a id="orgc4b743b"></a>Loss Function for an entire Layer<br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <p>
 \[-\frac{1}{n} \sum_{i=1}^{n} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)})\]
@@ -1704,8 +1763,8 @@ very negative. Log of max probability (1) is 0.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org189568d" class="outline-4">
-<h4 id="org189568d"><span class="section-number-4">5.2.2.</span> Mean Square Error</h4>
+<div id="outline-container-org1e1dd21" class="outline-4">
+<h4 id="org1e1dd21"><span class="section-number-4">5.2.2.</span> Mean Square Error</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 \[Loss = \frac{(t-y)^{2}}{2}\]
@@ -1714,8 +1773,8 @@ predicted value.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb7513cb" class="outline-4">
-<h4 id="orgb7513cb"><span class="section-number-4">5.2.3.</span> Learning Rate vs Loss</h4>
+<div id="outline-container-org7e00c54" class="outline-4">
+<h4 id="org7e00c54"><span class="section-number-4">5.2.3.</span> Learning Rate vs Loss</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li><p>
@@ -1725,31 +1784,31 @@ This is what happens with different learning rates:
 </div>
 </div>
 </div>
-<div id="outline-container-org8158fe9" class="outline-3">
-<h3 id="org8158fe9"><span class="section-number-3">5.3.</span> Working of Gradient Descent</h3>
+<div id="outline-container-org8250a88" class="outline-3">
+<h3 id="org8250a88"><span class="section-number-3">5.3.</span> Working of Gradient Descent</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>There are mainly 3 steps:</li>
 </ul>
 </div>
-<div id="outline-container-org7f1c796" class="outline-4">
-<h4 id="org7f1c796"><span class="section-number-4">5.3.1.</span> Feedforward</h4>
+<div id="outline-container-orgfa3fab7" class="outline-4">
+<h4 id="orgfa3fab7"><span class="section-number-4">5.3.1.</span> Feedforward</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Find aggregate and activations throughout the network till you reach the end.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc7b6c2f" class="outline-4">
-<h4 id="orgc7b6c2f"><span class="section-number-4">5.3.2.</span> Find Loss or Error</h4>
+<div id="outline-container-org6a81f20" class="outline-4">
+<h4 id="org6a81f20"><span class="section-number-4">5.3.2.</span> Find Loss or Error</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Calculate Mean Square Error or 0/1 loss (or whatever loss you need).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5c39e5c" class="outline-4">
-<h4 id="org5c39e5c"><span class="section-number-4">5.3.3.</span> Backpropagation</h4>
+<div id="outline-container-org7a4c24f" class="outline-4">
+<h4 id="org7a4c24f"><span class="section-number-4">5.3.3.</span> Backpropagation</h4>
 <div class="outline-text-4" id="text-5-3-3">
 <ul class="org-ul">
 <li>Essentially, you have to update weights as:
@@ -1844,8 +1903,8 @@ derivative of aggregation of previous layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org70e2cb3" class="outline-3">
-<h3 id="org70e2cb3"><span class="section-number-3">5.4.</span> Vanishing Gradient</h3>
+<div id="outline-container-org35ee9d6" class="outline-3">
+<h3 id="org35ee9d6"><span class="section-number-3">5.4.</span> Vanishing Gradient</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>During gradient descent, as errors are propagated backward through the layers,
@@ -1861,12 +1920,12 @@ suffer the most from vanishing gradient.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org51d9cf8" class="outline-2">
-<h2 id="org51d9cf8"><span class="section-number-2">6.</span> Overfitting Techniques</h2>
+<div id="outline-container-org075e8e8" class="outline-2">
+<h2 id="org075e8e8"><span class="section-number-2">6.</span> Overfitting Techniques</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org2ad8a3a" class="outline-3">
-<h3 id="org2ad8a3a"><span class="section-number-3">6.1.</span> Early Stopping</h3>
+<div id="outline-container-org60afa9c" class="outline-3">
+<h3 id="org60afa9c"><span class="section-number-3">6.1.</span> Early Stopping</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>You allocate some data for <b>training</b>.</li>
@@ -1892,23 +1951,23 @@ loss starts increasing. This is called <b>early stopping</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4938bec" class="outline-3">
-<h3 id="org4938bec"><span class="section-number-3">6.2.</span> Drop Out</h3>
+<div id="outline-container-orgf986207" class="outline-3">
+<h3 id="orgf986207"><span class="section-number-3">6.2.</span> Drop Out</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org057a808" class="outline-3">
-<h3 id="org057a808"><span class="section-number-3">6.3.</span> Regularization</h3>
+<div id="outline-container-org0b0c383" class="outline-3">
+<h3 id="org0b0c383"><span class="section-number-3">6.3.</span> Regularization</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>This helps in combating overfitting.</li>
 </ul>
 </div>
-<div id="outline-container-orgf0ef146" class="outline-4">
-<h4 id="orgf0ef146"><span class="section-number-4">6.3.1.</span> L-2 Regularization</h4>
+<div id="outline-container-orgd3998ed" class="outline-4">
+<h4 id="orgd3998ed"><span class="section-number-4">6.3.1.</span> L-2 Regularization</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <ul class="org-ul">
 <li>Instead of directly backpropagating on the loss, you add a penalty. This
@@ -1924,8 +1983,8 @@ slightly reducing the weights will shrink the penalty.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6cb2853" class="outline-4">
-<h4 id="org6cb2853"><span class="section-number-4">6.3.2.</span> L-1 Regularization</h4>
+<div id="outline-container-org64c3e0a" class="outline-4">
+<h4 id="org64c3e0a"><span class="section-number-4">6.3.2.</span> L-1 Regularization</h4>
 <div class="outline-text-4" id="text-6-3-2">
 <ul class="org-ul">
 <li>You still add a penalty, but this time the weights aren&rsquo;t squared.
@@ -1942,8 +2001,8 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc4fa7db" class="outline-3">
-<h3 id="orgc4fa7db"><span class="section-number-3">6.4.</span> Adding Noise to the inputs</h3>
+<div id="outline-container-orgbb13d4b" class="outline-3">
+<h3 id="orgbb13d4b"><span class="section-number-3">6.4.</span> Adding Noise to the inputs</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>x + Noise &rArr; \(\bar{x}\)</li>
@@ -1952,13 +2011,13 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org520f32c" class="outline-3">
-<h3 id="org520f32c"><span class="section-number-3">6.5.</span> Ensembling</h3>
+<div id="outline-container-org9bfe9a0" class="outline-3">
+<h3 id="org9bfe9a0"><span class="section-number-3">6.5.</span> Ensembling</h3>
 </div>
 
 
-<div id="outline-container-org061ceaa" class="outline-3">
-<h3 id="org061ceaa"><span class="section-number-3">6.6.</span> Batch Normalization</h3>
+<div id="outline-container-org86d38a1" class="outline-3">
+<h3 id="org86d38a1"><span class="section-number-3">6.6.</span> Batch Normalization</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>Activations</li>
@@ -1969,20 +2028,20 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org4c14369" class="outline-2">
-<h2 id="org4c14369"><span class="section-number-2">7.</span> Optimization</h2>
+<div id="outline-container-orgba98ba1" class="outline-2">
+<h2 id="orgba98ba1"><span class="section-number-2">7.</span> Optimization</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgd49c139" class="outline-3">
-<h3 id="orgd49c139"><span class="section-number-3">7.1.</span> Unconstrained Optimizations</h3>
+<div id="outline-container-org5b3f810" class="outline-3">
+<h3 id="org5b3f810"><span class="section-number-3">7.1.</span> Unconstrained Optimizations</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Only concerned with the objective function.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5761044" class="outline-3">
-<h3 id="org5761044"><span class="section-number-3">7.2.</span> Constrained Optimization</h3>
+<div id="outline-container-org1f1fff2" class="outline-3">
+<h3 id="org1f1fff2"><span class="section-number-3">7.2.</span> Constrained Optimization</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Do something with the objective function, but at the same time, you have some
@@ -1991,12 +2050,12 @@ contraints.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org14f907a" class="outline-2">
-<h2 id="org14f907a"><span class="section-number-2">8.</span> Convolutional Neural Networks</h2>
+<div id="outline-container-org07a7df8" class="outline-2">
+<h2 id="org07a7df8"><span class="section-number-2">8.</span> Convolutional Neural Networks</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orge3a7c82" class="outline-3">
-<h3 id="orge3a7c82"><span class="section-number-3">8.1.</span> Issue of ANN (Artificial Neural Network)</h3>
+<div id="outline-container-org4a25d31" class="outline-3">
+<h3 id="org4a25d31"><span class="section-number-3">8.1.</span> Issue of ANN (Artificial Neural Network)</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><b>Dense/ Fully Connected Neural Networks</b>: Every neuron in 1 layer is connected
@@ -2016,8 +2075,8 @@ smaller in size, and is located on the top-left corner of the image.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb8f70ba" class="outline-3">
-<h3 id="orgb8f70ba"><span class="section-number-3">8.2.</span> Sliding Window Technique</h3>
+<div id="outline-container-org5739379" class="outline-3">
+<h3 id="org5739379"><span class="section-number-3">8.2.</span> Sliding Window Technique</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><b>Convolution</b> is a linear mathematical operation
@@ -2025,8 +2084,8 @@ smaller in size, and is located on the top-left corner of the image.</li>
 <li>The output is called the <b>feature map</b>.</li>
 </ul>
 </div>
-<div id="outline-container-orge214cfa" class="outline-4">
-<h4 id="orge214cfa"><span class="section-number-4">8.2.1.</span> Kernel</h4>
+<div id="outline-container-orgfd5267b" class="outline-4">
+<h4 id="orgfd5267b"><span class="section-number-4">8.2.1.</span> Kernel</h4>
 <div class="outline-text-4" id="text-8-2-1">
 <ul class="org-ul">
 <li>Sliding window (w) is called the <b>kernel</b> and it&rsquo;s also called a <b>filter</b>.</li>
@@ -2053,12 +2112,12 @@ pixels at the edge.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf1865f7" class="outline-4">
-<h4 id="orgf1865f7"><span class="section-number-4">8.2.2.</span> How CNN is viewed as an ANN</h4>
+<div id="outline-container-orgb6a2a7b" class="outline-4">
+<h4 id="orgb6a2a7b"><span class="section-number-4">8.2.2.</span> How CNN is viewed as an ANN</h4>
 <div class="outline-text-4" id="text-8-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org974db9b"></a>Sparse Connections<br />
+<li><a id="org2a41ae2"></a>Sparse Connections<br />
 <div class="outline-text-5" id="text-8-2-2-1">
 <ul class="org-ul">
 <li>In an ANN, you vectorize the image, and every pixel (every neuron in the input
@@ -2072,7 +2131,7 @@ goes to 1 neuron in the next layer (the feature map).</li>
 </ul>
 </div>
 </li>
-<li><a id="org897051d"></a>Receptive Field<br />
+<li><a id="org3f0afcb"></a>Receptive Field<br />
 <div class="outline-text-5" id="text-8-2-2-2">
 <ul class="org-ul">
 <li>Receptive Field is the information a neuron gets from a previous layer.
@@ -2087,7 +2146,7 @@ the image.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6504fc1"></a>Weight Sharing<br />
+<li><a id="org41eb1be"></a>Weight Sharing<br />
 <div class="outline-text-5" id="text-8-2-2-3">
 <ul class="org-ul">
 <li>Kernels only change layer by layer. So when a kernel moves through an image,
@@ -2099,12 +2158,12 @@ image. This is called <b>weight sharing</b>.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org4ac246c" class="outline-3">
-<h3 id="org4ac246c"><span class="section-number-3">8.3.</span> Types of Convolution based on Padding</h3>
+<div id="outline-container-org216dca7" class="outline-3">
+<h3 id="org216dca7"><span class="section-number-3">8.3.</span> Types of Convolution based on Padding</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
-<div id="outline-container-orgda46df6" class="outline-4">
-<h4 id="orgda46df6"><span class="section-number-4">8.3.1.</span> Zero Padding / Valid Convolution</h4>
+<div id="outline-container-org2523809" class="outline-4">
+<h4 id="org2523809"><span class="section-number-4">8.3.1.</span> Zero Padding / Valid Convolution</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <ul class="org-ul">
 <li>Essentially, what we&rsquo;ve been doing is <b>zero padding convolution</b>.</li>
@@ -2114,8 +2173,8 @@ image. This is called <b>weight sharing</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb00428" class="outline-4">
-<h4 id="orgfb00428"><span class="section-number-4">8.3.2.</span> Just Enough Zero Padding / Same Convolution</h4>
+<div id="outline-container-org0b92233" class="outline-4">
+<h4 id="org0b92233"><span class="section-number-4">8.3.2.</span> Just Enough Zero Padding / Same Convolution</h4>
 <div class="outline-text-4" id="text-8-3-2">
 <ul class="org-ul">
 <li>Instead of just losing information, we pad the image with \(\frac{n-1}{2} \)
@@ -2124,8 +2183,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb832823" class="outline-4">
-<h4 id="orgb832823"><span class="section-number-4">8.3.3.</span> Full Convolution</h4>
+<div id="outline-container-org48aae30" class="outline-4">
+<h4 id="org48aae30"><span class="section-number-4">8.3.3.</span> Full Convolution</h4>
 <div class="outline-text-4" id="text-8-3-3">
 <ul class="org-ul">
 <li>Now, we pad the image with \(n-1\) number of 0s on each side.</li>
@@ -2133,8 +2192,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6fc5e8c" class="outline-3">
-<h3 id="org6fc5e8c"><span class="section-number-3">8.4.</span> Striding</h3>
+<div id="outline-container-org65ccb21" class="outline-3">
+<h3 id="org65ccb21"><span class="section-number-3">8.4.</span> Striding</h3>
 <div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li>When S=1, you move the kernel 1 pixel at a time (regardless of direction).</li>
@@ -2143,8 +2202,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbbb3f71" class="outline-3">
-<h3 id="orgbbb3f71"><span class="section-number-3">8.5.</span> Grand Formula for Feature Map</h3>
+<div id="outline-container-orgb74ff7e" class="outline-3">
+<h3 id="orgb74ff7e"><span class="section-number-3">8.5.</span> Grand Formula for Feature Map</h3>
 <div class="outline-text-3" id="text-8-5">
 <p>
 \[ W_{featureMap} = \frac{W - F + 2P}{S} + 1 \]
@@ -2159,8 +2218,8 @@ where
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd5ebcd6" class="outline-3">
-<h3 id="orgd5ebcd6"><span class="section-number-3">8.6.</span> Pooling</h3>
+<div id="outline-container-orgcb6240c" class="outline-3">
+<h3 id="orgcb6240c"><span class="section-number-3">8.6.</span> Pooling</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>Pooling is a dynamic kernel of sorts. You&rsquo;re not aggregating, but you&rsquo;re doing
@@ -2172,8 +2231,8 @@ overfitting.</li>
 <li>The number of parameters involved in pooling is <b>0</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org17d9548" class="outline-4">
-<h4 id="org17d9548"><span class="section-number-4">8.6.1.</span> Max-Pooling</h4>
+<div id="outline-container-org6c4ebb9" class="outline-4">
+<h4 id="org6c4ebb9"><span class="section-number-4">8.6.1.</span> Max-Pooling</h4>
 <div class="outline-text-4" id="text-8-6-1">
 <ul class="org-ul">
 <li>In the kernel, instead of giving aggregate to the neuron in the next layer,
@@ -2184,8 +2243,8 @@ mostly similar to the information of its neighbours.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org86b3fe0" class="outline-4">
-<h4 id="org86b3fe0"><span class="section-number-4">8.6.2.</span> Global Average Pooling</h4>
+<div id="outline-container-orga70d821" class="outline-4">
+<h4 id="orga70d821"><span class="section-number-4">8.6.2.</span> Global Average Pooling</h4>
 <div class="outline-text-4" id="text-8-6-2">
 <ul class="org-ul">
 <li>One layer that performs global average pooling, is used to seperate the layers
@@ -2199,8 +2258,8 @@ details.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0ba83ec" class="outline-3">
-<h3 id="org0ba83ec"><span class="section-number-3">8.7.</span> Flattening Layer</h3>
+<div id="outline-container-orgc14cf91" class="outline-3">
+<h3 id="orgc14cf91"><span class="section-number-3">8.7.</span> Flattening Layer</h3>
 <div class="outline-text-3" id="text-8-7">
 <ul class="org-ul">
 <li>When a convolutional layer is connected to a dense layer, a flattening layer
@@ -2211,15 +2270,15 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org026664c" class="outline-3">
-<h3 id="org026664c"><span class="section-number-3">8.8.</span> LeNet</h3>
+<div id="outline-container-org1d6b4d5" class="outline-3">
+<h3 id="org1d6b4d5"><span class="section-number-3">8.8.</span> LeNet</h3>
 <div class="outline-text-3" id="text-8-8">
 <ul class="org-ul">
 <li>Proposed to recognize handwritten postal zip codes.</li>
 </ul>
 </div>
-<div id="outline-container-org30869f0" class="outline-4">
-<h4 id="org30869f0"><span class="section-number-4">8.8.1.</span> Architecture</h4>
+<div id="outline-container-org686b8ce" class="outline-4">
+<h4 id="org686b8ce"><span class="section-number-4">8.8.1.</span> Architecture</h4>
 <div class="outline-text-4" id="text-8-8-1">
 <ul class="org-ul">
 <li>Each input image is a 32x32 image of a handwritten character.</li>
@@ -2231,8 +2290,8 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge773afb" class="outline-4">
-<h4 id="orge773afb"><span class="section-number-4">8.8.2.</span> Convolution Layer 1</h4>
+<div id="outline-container-orge99f802" class="outline-4">
+<h4 id="orge99f802"><span class="section-number-4">8.8.2.</span> Convolution Layer 1</h4>
 <div class="outline-text-4" id="text-8-8-2">
 <ul class="org-ul">
 <li>Size of Feature Map = \(\frac{32-5+0}{1} + 1\) = 28x28</li>
@@ -2241,12 +2300,12 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc70eccc" class="outline-3">
-<h3 id="orgc70eccc"><span class="section-number-3">8.9.</span> AlexNet</h3>
+<div id="outline-container-orgaded228" class="outline-3">
+<h3 id="orgaded228"><span class="section-number-3">8.9.</span> AlexNet</h3>
 <div class="outline-text-3" id="text-8-9">
 </div>
-<div id="outline-container-orgdd52fa5" class="outline-4">
-<h4 id="orgdd52fa5"><span class="section-number-4">8.9.1.</span> Dataset</h4>
+<div id="outline-container-orge9321c0" class="outline-4">
+<h4 id="orge9321c0"><span class="section-number-4">8.9.1.</span> Dataset</h4>
 <div class="outline-text-4" id="text-8-9-1">
 <ul class="org-ul">
 <li>Trained on ImageNet-1k
@@ -2257,8 +2316,8 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8dc5de8" class="outline-4">
-<h4 id="org8dc5de8"><span class="section-number-4">8.9.2.</span> Structure</h4>
+<div id="outline-container-org0d62198" class="outline-4">
+<h4 id="org0d62198"><span class="section-number-4">8.9.2.</span> Structure</h4>
 <div class="outline-text-4" id="text-8-9-2">
 <ul class="org-ul">
 <li><p>
@@ -2294,8 +2353,8 @@ Layers
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf176d9" class="outline-3">
-<h3 id="orgaf176d9"><span class="section-number-3">8.10.</span> YOLO NAS (Neural Architectural Search)</h3>
+<div id="outline-container-orgcc30011" class="outline-3">
+<h3 id="orgcc30011"><span class="section-number-3">8.10.</span> YOLO NAS (Neural Architectural Search)</h3>
 <div class="outline-text-3" id="text-8-10">
 <ul class="org-ul">
 <li>Instead of relying on manual design by human beings, the model automates the
@@ -2304,8 +2363,8 @@ activations, pooling, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d8fe39" class="outline-3">
-<h3 id="org9d8fe39"><span class="section-number-3">8.11.</span> VGGNet</h3>
+<div id="outline-container-org5ade6c5" class="outline-3">
+<h3 id="org5ade6c5"><span class="section-number-3">8.11.</span> VGGNet</h3>
 <div class="outline-text-3" id="text-8-11">
 <ul class="org-ul">
 <li>VGG introduced the fact that there&rsquo;s no need of larger kernels.</li>
@@ -2326,8 +2385,8 @@ amount of depth.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdd15e03" class="outline-3">
-<h3 id="orgdd15e03"><span class="section-number-3">8.12.</span> ResNet</h3>
+<div id="outline-container-org56228a6" class="outline-3">
+<h3 id="org56228a6"><span class="section-number-3">8.12.</span> ResNet</h3>
 <div class="outline-text-3" id="text-8-12">
 <ul class="org-ul">
 <li>Early layers learn fine details and edges, while later layers learn complex
@@ -2351,8 +2410,8 @@ where
 </ul>
 </div>
 </div>
-<div id="outline-container-org87a9004" class="outline-3">
-<h3 id="org87a9004"><span class="section-number-3">8.13.</span> GoogleNet</h3>
+<div id="outline-container-org4a124bf" class="outline-3">
+<h3 id="org4a124bf"><span class="section-number-3">8.13.</span> GoogleNet</h3>
 <div class="outline-text-3" id="text-8-13">
 <ul class="org-ul">
 <li>This introduced the concept of <b>parallel convolutions</b>.</li>
@@ -2362,8 +2421,8 @@ kernel moving across the depth.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org59d15d8" class="outline-3">
-<h3 id="org59d15d8"><span class="section-number-3">8.14.</span> Applications</h3>
+<div id="outline-container-org399ef6b" class="outline-3">
+<h3 id="org399ef6b"><span class="section-number-3">8.14.</span> Applications</h3>
 <div class="outline-text-3" id="text-8-14">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2503,8 +2562,8 @@ kernel moving across the depth.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-orga7a86a2" class="outline-3">
-<h3 id="orga7a86a2"><span class="section-number-3">8.15.</span> UNet</h3>
+<div id="outline-container-org056bb8e" class="outline-3">
+<h3 id="org056bb8e"><span class="section-number-3">8.15.</span> UNet</h3>
 <div class="outline-text-3" id="text-8-15">
 <ul class="org-ul">
 <li>This is a type of <b>segmentation</b>.</li>
@@ -2524,8 +2583,8 @@ the <b>bottleneck</b>, and it has the smallest feature map, but the most amount 
 features.</li>
 </ul>
 </div>
-<div id="outline-container-org2400a11" class="outline-4">
-<h4 id="org2400a11"><span class="section-number-4">8.15.1.</span> VGGNet used as an encoder</h4>
+<div id="outline-container-orgea4ea35" class="outline-4">
+<h4 id="orgea4ea35"><span class="section-number-4">8.15.1.</span> VGGNet used as an encoder</h4>
 <div class="outline-text-4" id="text-8-15-1">
 <ul class="org-ul">
 <li>In UNet, LHS is one big encoder, and the RHS is one big decoder.</li>
@@ -2537,12 +2596,12 @@ map is directly given to the bottleneck</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0f63433" class="outline-3">
-<h3 id="org0f63433"><span class="section-number-3">8.16.</span> YOLO</h3>
+<div id="outline-container-orgf7bef66" class="outline-3">
+<h3 id="orgf7bef66"><span class="section-number-3">8.16.</span> YOLO</h3>
 <div class="outline-text-3" id="text-8-16">
 </div>
-<div id="outline-container-org0612bd7" class="outline-4">
-<h4 id="org0612bd7"><span class="section-number-4">8.16.1.</span> What it is</h4>
+<div id="outline-container-org58674c9" class="outline-4">
+<h4 id="org58674c9"><span class="section-number-4">8.16.1.</span> What it is</h4>
 <div class="outline-text-4" id="text-8-16-1">
 <ul class="org-ul">
 <li>Essentially, it&rsquo;s a complex model that does <b>parallel convolutions</b>, to work on
@@ -2557,8 +2616,8 @@ map is directly given to the bottleneck</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb22badc" class="outline-4">
-<h4 id="orgb22badc"><span class="section-number-4">8.16.2.</span> Code</h4>
+<div id="outline-container-org293b963" class="outline-4">
+<h4 id="org293b963"><span class="section-number-4">8.16.2.</span> Code</h4>
 <div class="outline-text-4" id="text-8-16-2">
 <ul class="org-ul">
 <li>There are about 13 types of YOLO, and each type has different sizes, L, S, XL,
@@ -2671,12 +2730,12 @@ layers), so the <code>from</code> number should be changed accordingly.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd764040" class="outline-2">
-<h2 id="orgd764040"><span class="section-number-2">9.</span> Recurrent Neural Network</h2>
+<div id="outline-container-orgcb40d0f" class="outline-2">
+<h2 id="orgcb40d0f"><span class="section-number-2">9.</span> Recurrent Neural Network</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-orga3e6ec3" class="outline-3">
-<h3 id="orga3e6ec3"><span class="section-number-3">9.1.</span> Introduction</h3>
+<div id="outline-container-orgced523b" class="outline-3">
+<h3 id="orgced523b"><span class="section-number-3">9.1.</span> Introduction</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Up until now:
@@ -2691,8 +2750,8 @@ images, and RNNs are used to relate the sequence of these images.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org78af7be" class="outline-3">
-<h3 id="org78af7be"><span class="section-number-3">9.2.</span> Issue of ANNs</h3>
+<div id="outline-container-orga791d6f" class="outline-3">
+<h3 id="orga791d6f"><span class="section-number-3">9.2.</span> Issue of ANNs</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>Sentences like &ldquo;I ate a pizza&rdquo; and &ldquo;A pizza was ate by me&rdquo; use almost the same
@@ -2778,8 +2837,8 @@ where &ldquo;how&rdquo; is the 5th word.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc55bbc5" class="outline-3">
-<h3 id="orgc55bbc5"><span class="section-number-3">9.3.</span> What RNNs do</h3>
+<div id="outline-container-orga9c2a62" class="outline-3">
+<h3 id="orga9c2a62"><span class="section-number-3">9.3.</span> What RNNs do</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>RNNs process the sentence word-by-word, and for each word, it computes a
@@ -2835,8 +2894,8 @@ x3 → [RNN Cell] → h3 → y3
 <li>One thing to note is that RNNs can&rsquo;t handle spatial data.</li>
 </ul>
 </div>
-<div id="outline-container-orgfe77f7c" class="outline-4">
-<h4 id="orgfe77f7c"><span class="section-number-4">9.3.1.</span> Working:</h4>
+<div id="outline-container-org4d187dd" class="outline-4">
+<h4 id="org4d187dd"><span class="section-number-4">9.3.1.</span> Working:</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <ul class="org-ul">
 <li>Given Data:
@@ -2920,8 +2979,8 @@ Note that \(tanh(\begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix})
 </ul>
 </div>
 </div>
-<div id="outline-container-org45256ca" class="outline-4">
-<h4 id="org45256ca"><span class="section-number-4">9.3.2.</span> Full Workflow, explained with the case of a word predictor</h4>
+<div id="outline-container-org10e494d" class="outline-4">
+<h4 id="org10e494d"><span class="section-number-4">9.3.2.</span> Full Workflow, explained with the case of a word predictor</h4>
 <div class="outline-text-4" id="text-9-3-2">
 <ul class="org-ul">
 <li>Iteration 1:
@@ -2952,8 +3011,8 @@ answer should be a probability.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge6f6a92" class="outline-4">
-<h4 id="orge6f6a92"><span class="section-number-4">9.3.3.</span> A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</h4>
+<div id="outline-container-org69ca3a2" class="outline-4">
+<h4 id="org69ca3a2"><span class="section-number-4">9.3.3.</span> A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</h4>
 <div class="outline-text-4" id="text-9-3-3">
 <ul class="org-ul">
 <li>\(W_{xh}\) is of size <code>10 x 20</code>, so we have 200 parameters here.</li>
@@ -2983,8 +3042,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf930e0f" class="outline-4">
-<h4 id="orgf930e0f"><span class="section-number-4">9.3.4.</span> Given the following architecture, find the number of trainable parameters.</h4>
+<div id="outline-container-org6896d86" class="outline-4">
+<h4 id="org6896d86"><span class="section-number-4">9.3.4.</span> Given the following architecture, find the number of trainable parameters.</h4>
 <div class="outline-text-4" id="text-9-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3053,8 +3112,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </div>
 </div>
 </div>
-<div id="outline-container-org6b23ef9" class="outline-3">
-<h3 id="org6b23ef9"><span class="section-number-3">9.4.</span> Calculating Loss</h3>
+<div id="outline-container-orga8d5560" class="outline-3">
+<h3 id="orga8d5560"><span class="section-number-3">9.4.</span> Calculating Loss</h3>
 <div class="outline-text-3" id="text-9-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3107,8 +3166,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </table>
 </div>
 </div>
-<div id="outline-container-orge3de45e" class="outline-3">
-<h3 id="orge3de45e"><span class="section-number-3">9.5.</span> Backpropagation through Time (BTT)</h3>
+<div id="outline-container-org9da655c" class="outline-3">
+<h3 id="org9da655c"><span class="section-number-3">9.5.</span> Backpropagation through Time (BTT)</h3>
 <div class="outline-text-3" id="text-9-5">
 <ul class="org-ul">
 <li>Each step essentially learns how much it contributed to the future steps&rsquo; error.</li>
@@ -3118,8 +3177,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgece9670" class="outline-3">
-<h3 id="orgece9670"><span class="section-number-3">9.6.</span> Input to RNN</h3>
+<div id="outline-container-org9e7f5c3" class="outline-3">
+<h3 id="org9e7f5c3"><span class="section-number-3">9.6.</span> Input to RNN</h3>
 <div class="outline-text-3" id="text-9-6">
 <ul class="org-ul">
 <li>Batch Size: Number of sequences of words. This doesn&rsquo;t affect the number of
@@ -3129,8 +3188,8 @@ trainable.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org583c6cc" class="outline-3">
-<h3 id="org583c6cc"><span class="section-number-3">9.7.</span> Layer Normalization</h3>
+<div id="outline-container-orgb5d00aa" class="outline-3">
+<h3 id="orgb5d00aa"><span class="section-number-3">9.7.</span> Layer Normalization</h3>
 <div class="outline-text-3" id="text-9-7">
 <ul class="org-ul">
 <li>In Batch normalizations, activations for a single feature across all
@@ -3142,8 +3201,8 @@ now independent of batch size and sequence size.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2bdd3ad" class="outline-3">
-<h3 id="org2bdd3ad"><span class="section-number-3">9.8.</span> Issues</h3>
+<div id="outline-container-org8229a4f" class="outline-3">
+<h3 id="org8229a4f"><span class="section-number-3">9.8.</span> Issues</h3>
 <div class="outline-text-3" id="text-9-8">
 <ul class="org-ul">
 <li>Vanishing or Exploding Gradients</li>
@@ -3156,8 +3215,8 @@ each cell is, because each cell just uses the same weights.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org57ad758" class="outline-2">
-<h2 id="org57ad758"><span class="section-number-2">10.</span> Long Short Term Memory (LSTM)</h2>
+<div id="outline-container-org89ca38c" class="outline-2">
+<h2 id="org89ca38c"><span class="section-number-2">10.</span> Long Short Term Memory (LSTM)</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>LSTM is a type of RNN, which uses &ldquo;gates&rdquo;. While a vanilla RNN has only hidden
@@ -3171,8 +3230,8 @@ away” — hard to keep long-term info (vanishing gradients).</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgbea9666" class="outline-3">
-<h3 id="orgbea9666"><span class="section-number-3">10.1.</span> How Previous Hidden State is Modified</h3>
+<div id="outline-container-org873bc56" class="outline-3">
+<h3 id="org873bc56"><span class="section-number-3">10.1.</span> How Previous Hidden State is Modified</h3>
 <div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>Now, the previous hidden state \(h_{t-1} = s_{t-1} 0 o_{t-1}\).
@@ -3185,8 +3244,8 @@ the previous output, actually becomes the previous hidden state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaad4f70" class="outline-3">
-<h3 id="orgaad4f70"><span class="section-number-3">10.2.</span> How Current Hidden State is Modified</h3>
+<div id="outline-container-orgccd4ccc" class="outline-3">
+<h3 id="orgccd4ccc"><span class="section-number-3">10.2.</span> How Current Hidden State is Modified</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>Since \(s_{t-1}\) is the same as \(h_{t-1}\) in RNN, \(s_{t}\) is the new hidden state calculated and that is given as:
@@ -3201,8 +3260,8 @@ state is forgotten.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0cddf2b" class="outline-3">
-<h3 id="org0cddf2b"><span class="section-number-3">10.3.</span> Gates</h3>
+<div id="outline-container-org39f562b" class="outline-3">
+<h3 id="org39f562b"><span class="section-number-3">10.3.</span> Gates</h3>
 <div class="outline-text-3" id="text-10-3">
 <p>
 \[o_{t} = tanh(U_{o}x_{t} + W_{o}h_{t-1} + b_{o})\]
@@ -3216,8 +3275,8 @@ state is forgotten.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb26c8ce" class="outline-2">
-<h2 id="orgb26c8ce"><span class="section-number-2">11.</span> Gated Recurrent Unit (GRU)</h2>
+<div id="outline-container-orgb3ed754" class="outline-2">
+<h2 id="orgb3ed754"><span class="section-number-2">11.</span> Gated Recurrent Unit (GRU)</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>They came later, but it focuses on speed and efficiency, not accuracy and
@@ -3226,8 +3285,8 @@ performance.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf8d48e2" class="outline-2">
-<h2 id="orgf8d48e2"><span class="section-number-2">12.</span> Encoders and Decoders</h2>
+<div id="outline-container-org145fa0c" class="outline-2">
+<h2 id="org145fa0c"><span class="section-number-2">12.</span> Encoders and Decoders</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>If your RNN had to understand both text and images, there are two ways:
@@ -3240,8 +3299,8 @@ performance.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcf19b4b" class="outline-2">
-<h2 id="orgcf19b4b"><span class="section-number-2">13.</span> Attention</h2>
+<div id="outline-container-org381cc54" class="outline-2">
+<h2 id="org381cc54"><span class="section-number-2">13.</span> Attention</h2>
 <div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>This concept was introduced specifically for sequential data i.e. for natural

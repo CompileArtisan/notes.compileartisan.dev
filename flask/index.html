@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-05-22 Fri 11:52 -->
+<!-- 2026-06-12 Fri 21:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introduction to Flask</title>
@@ -204,275 +204,334 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <style>
-/* General styles */
-body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-margin: 0;
-padding: 0;
-background-color: #f4f4f4;
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
 }
 
-#postamble, #preamble {
-margin-left: 280px;
-padding: 20px 40px;
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
 }
-h1, h2, h3 {
-font-family: 'Helvetica', sans-serif;
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
 }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
 a {
-color: #0000aa;
+color: #2222cc;
+text-decoration: none;
 }
 a:hover {
-background-color: #0000aa;
-color: #ffffff;
-border-radius: 0.2em;
-transition: background-color 0.3s ease, transform 0.3s ease;
+text-decoration: underline;
+text-underline-offset: 3px;
 }
-pre {
-background-color: #333;
-color: white;
-padding: 10px;
-overflow-x: auto;
-white-space: pre-wrap;
-word-wrap: break-word;
-}
-/* Styling code blocks */
-pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java {
-font-family: 'Courier New', monospace;
-background-color: #222;
-color: white;
-padding: 15px;
-font-size: 1.1em;
-border-radius: 0.5em;
-}
-code {
-font-size: 1.5em;
-padding: 0 0.5em;
-}
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto;
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
 }
 
 .header {
-text-align: center;
-margin: 0px;
-background-color: #0000aa;
-color: #ffffff;
-padding: 5px 0;
-flex-shrink: 0;
-word-wrap: break-word;
-font-family: DOSVGA, monospace;
 position: fixed;
-top: 0;
-left: 0;
-right: 0;
+top: 0; left: 0; right: 0;
 z-index: 1000;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .header a {
-color: #ffffff;
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
 text-decoration: none;
-font-size: 1.5em;
-white-space: nowrap;
-transition: all 0.3s ease;
-padding: 0px;
+line-height: 1;
 }
 
-.header a:hover {
-color: #bababa;
-}
-
-@font-face {
-font-family: DOSVGA;
-src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
-}
-
-/* Table of Contents Sidebar */
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
 #table-of-contents {
 position: fixed;
+top: 48px;
 left: 0;
-top: 45px;
-width: 280px;
-height: calc(100vh - 45px);
+width: 260px;
+height: calc(100vh - 48px);
 overflow-y: auto;
-background-color: #f8f8f8;
-border-right: 1px solid #ddd;
-padding: 30px 20px;
-box-sizing: border-box;
-z-index: 10;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
 }
 
 #table-of-contents h2 {
-margin-top: 0;
-color: #0000aa;
-font-size: 1.1em;
-border-bottom: 1px solid #ddd;
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
 padding-bottom: 10px;
-margin-bottom: 15px;
+border-bottom: 0.5px solid #e8e8ee;
 }
 
-/* Search box styles */
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
 #toc-search {
 width: 100%;
-padding: 8px 12px;
-margin-bottom: 15px;
-border: 1px solid #ddd;
-border-radius: 4px;
-font-size: 0.9em;
-box-sizing: border-box;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
 }
 
 #toc-search:focus {
-outline: none;
-border-color: #0000aa;
+border-color: #4444cc;
+background: #ffffff;
 }
 
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
 #table-of-contents ul {
-list-style-type: none;
-padding-left: 0;
+list-style: none;
+padding: 0;
 margin: 0;
 }
 
 #table-of-contents ul ul {
-padding-left: 15px;
-margin-top: 5px;
+padding-left: 14px;
 }
 
 #table-of-contents li {
-margin: 8px 0;
+margin: 2px 0;
 }
 
 #table-of-contents a {
-color: #555;
-text-decoration: none;
 display: block;
 padding: 5px 10px;
-border-radius: 4px;
-transition: all 0.2s ease;
-font-size: 0.95em;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 #table-of-contents a:hover {
-color: #0000aa;
-background-color: #e8e8ff;
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
 }
 
-/* Active TOC link (scroll spy) */
 #table-of-contents a.active {
-color: #0000aa;
-background-color: #e8e8ff;
-font-weight: bold;
-border-left: 3px solid #0000aa;
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
 }
 
-/* Hidden items during search */
 #table-of-contents li.hidden {
 display: none;
 }
 
-/* Main content area */
+/* ─── Main Content ──────────────────────────────────────── */
 #content {
-margin-left: 280px;
-margin-top: 45px;
-padding: 40px;
-background-color: #ffffff;
-min-height: calc(100vh - 45px);
-}
-table {
-border-collapse: collapse;
-margin: 1.5rem auto;
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 1rem;
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
 background: #ffffff;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
 border-radius: 10px;
 overflow: hidden;
 }
 
-table[border] {
-border: none;
-}
-
-td {
-padding: 0.75rem 1.1rem;
-text-align: center;
-border: 1px solid #e5e7eb;
+th {
+background: #f5f5fa;
 font-weight: 500;
-color: #111827;
-}
-
-td.org-left {
-text-align: center;
-}
-
-tbody tr:nth-child(even) {
-background-color: #f9fafb;
-}
-
-tbody tr:hover {
-background-color: #eef2ff;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
 }
 
 td {
-letter-spacing: 0.05em;
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
 #table-of-contents {
 position: static;
 width: 100%;
 height: auto;
 border-right: none;
-border-bottom: 2px solid #0000aa;
-}
-pre.src {
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-width: 100vw;
-border-radius: 0;
-box-sizing: border-box;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
 }
 
 #content {
 margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
 }
 
-body {
-font-size: 14px;
-padding: 10px;
-}
-h1 {
-font-size: 1.5em;
-}
-pre {
-font-size: 1.3em;
-}
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
 }
 
-@media screen and (max-width: 480px) {
-body {
-font-size: 12px;
-padding: 5px;
-}
-h1 {
-font-size: 1.3em;
-}
 pre {
-font-size: 1.3em;
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
 }
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
 }
 </style>
 <div class="header">
-<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -585,45 +644,45 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5b037a4">1. Introduction to Web Frameworks and Flask</a></li>
-<li><a href="#org9524beb">2. Basic Flask Project File Structure</a>
+<li><a href="#org6262ae7">1. Introduction to Web Frameworks and Flask</a></li>
+<li><a href="#org842070f">2. Basic Flask Project File Structure</a>
 <ul>
-<li><a href="#org7f44345">2.1. jinja2 templates</a></li>
-<li><a href="#org93062af">2.2. <code>app.py</code></a></li>
+<li><a href="#org75639b3">2.1. jinja2 templates</a></li>
+<li><a href="#orgbcae766">2.2. <code>app.py</code></a></li>
 </ul>
 </li>
-<li><a href="#orga41db6e">3. More on Templating</a>
+<li><a href="#org3417402">3. More on Templating</a>
 <ul>
-<li><a href="#orgcfc4af8">3.1. Variables</a></li>
-<li><a href="#org8f76b7f">3.2. Loops</a></li>
-<li><a href="#org1a30c66">3.3. Conditionals</a></li>
-<li><a href="#orgc19daaf">3.4. jinja2 filters</a>
+<li><a href="#org55e2a53">3.1. Variables</a></li>
+<li><a href="#orgf4a4ec2">3.2. Loops</a></li>
+<li><a href="#org35a027a">3.3. Conditionals</a></li>
+<li><a href="#orgcd1d447">3.4. jinja2 filters</a>
 <ul>
-<li><a href="#org67431c5">3.4.1. jinja2 equivalent of <code>name.upper()</code></a></li>
-<li><a href="#orga5f1c51">3.4.2. jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</a></li>
-<li><a href="#org6e70e84">3.4.3. jinja2 equivalent of <code>len(name)</code></a></li>
+<li><a href="#orgddcea04">3.4.1. jinja2 equivalent of <code>name.upper()</code></a></li>
+<li><a href="#org2d91cd3">3.4.2. jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</a></li>
+<li><a href="#org000b2db">3.4.3. jinja2 equivalent of <code>len(name)</code></a></li>
 </ul>
 </li>
-<li><a href="#org23f45bf">3.5. jinja2 default values</a></li>
-<li><a href="#org12b57b7">3.6. Template inheritence</a></li>
+<li><a href="#orge33c91e">3.5. jinja2 default values</a></li>
+<li><a href="#org33ce938">3.6. Template inheritence</a></li>
 </ul>
 </li>
-<li><a href="#orgfb24fc2">4. Communication Between Client and Server</a>
+<li><a href="#org5ff672e">4. Communication Between Client and Server</a>
 <ul>
-<li><a href="#org96de074">4.1. Requests</a>
+<li><a href="#org3f1ecb4">4.1. Requests</a>
 <ul>
-<li><a href="#orgc9bda3b">4.1.1. GET Request</a></li>
-<li><a href="#org9e471e9">4.1.2. POST Request</a></li>
+<li><a href="#orgd462651">4.1.1. GET Request</a></li>
+<li><a href="#org7f05ead">4.1.2. POST Request</a></li>
 </ul>
 </li>
-<li><a href="#orgf9b4c36">4.2. Redirects</a></li>
+<li><a href="#org006abd9">4.2. Redirects</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5b037a4" class="outline-2">
-<h2 id="org5b037a4"><span class="section-number-2">1.</span> Introduction to Web Frameworks and Flask</h2>
+<div id="outline-container-org6262ae7" class="outline-2">
+<h2 id="org6262ae7"><span class="section-number-2">1.</span> Introduction to Web Frameworks and Flask</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>It&rsquo;s a tool used to simplify web applications and APIs.</li>
@@ -641,8 +700,8 @@ interface.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9524beb" class="outline-2">
-<h2 id="org9524beb"><span class="section-number-2">2.</span> Basic Flask Project File Structure</h2>
+<div id="outline-container-org842070f" class="outline-2">
+<h2 id="org842070f"><span class="section-number-2">2.</span> Basic Flask Project File Structure</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-txt">project/
@@ -656,8 +715,8 @@ interface.</li>
 </pre>
 </div>
 </div>
-<div id="outline-container-org7f44345" class="outline-3">
-<h3 id="org7f44345"><span class="section-number-3">2.1.</span> jinja2 templates</h3>
+<div id="outline-container-org75639b3" class="outline-3">
+<h3 id="org75639b3"><span class="section-number-3">2.1.</span> jinja2 templates</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><code>templates/*.html</code> are html files which have variables/placeholders according to
@@ -665,8 +724,8 @@ the jinja2 format.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org93062af" class="outline-3">
-<h3 id="org93062af"><span class="section-number-3">2.2.</span> <code>app.py</code></h3>
+<div id="outline-container-orgbcae766" class="outline-3">
+<h3 id="orgbcae766"><span class="section-number-3">2.2.</span> <code>app.py</code></h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><code>app.py</code> is the sole program that controls everything.</li>
@@ -720,8 +779,8 @@ where <code>x</code> is a variable used inside the jinja2 template.
 </div>
 </div>
 </div>
-<div id="outline-container-orga41db6e" class="outline-2">
-<h2 id="orga41db6e"><span class="section-number-2">3.</span> More on Templating</h2>
+<div id="outline-container-org3417402" class="outline-2">
+<h2 id="org3417402"><span class="section-number-2">3.</span> More on Templating</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><p>
@@ -739,8 +798,8 @@ Say we have a route in <code>app.py</code>:
 </p></li>
 </ul>
 </div>
-<div id="outline-container-orgcfc4af8" class="outline-3">
-<h3 id="orgcfc4af8"><span class="section-number-3">3.1.</span> Variables</h3>
+<div id="outline-container-org55e2a53" class="outline-3">
+<h3 id="org55e2a53"><span class="section-number-3">3.1.</span> Variables</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><p>
@@ -758,8 +817,8 @@ Anything inside <code>{{  ...  }}</code> is replaced by a variable in Python.
 </p>
 </div>
 </div>
-<div id="outline-container-org8f76b7f" class="outline-3">
-<h3 id="org8f76b7f"><span class="section-number-3">3.2.</span> Loops</h3>
+<div id="outline-container-orgf4a4ec2" class="outline-3">
+<h3 id="orgf4a4ec2"><span class="section-number-3">3.2.</span> Loops</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Anything inside <code>{% ... %}</code> is replaced by a loop/conditional in Python.
@@ -787,8 +846,8 @@ loops, it&rsquo;s:
 </ul>
 </div>
 </div>
-<div id="outline-container-org1a30c66" class="outline-3">
-<h3 id="org1a30c66"><span class="section-number-3">3.3.</span> Conditionals</h3>
+<div id="outline-container-org35a027a" class="outline-3">
+<h3 id="org35a027a"><span class="section-number-3">3.3.</span> Conditionals</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-html">{% if age &gt; 18 %}
@@ -811,15 +870,15 @@ expression to end the ladder:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc19daaf" class="outline-3">
-<h3 id="orgc19daaf"><span class="section-number-3">3.4.</span> jinja2 filters</h3>
+<div id="outline-container-orgcd1d447" class="outline-3">
+<h3 id="orgcd1d447"><span class="section-number-3">3.4.</span> jinja2 filters</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Here are some commonly used filters.
 </p>
 </div>
-<div id="outline-container-org67431c5" class="outline-4">
-<h4 id="org67431c5"><span class="section-number-4">3.4.1.</span> jinja2 equivalent of <code>name.upper()</code></h4>
+<div id="outline-container-orgddcea04" class="outline-4">
+<h4 id="orgddcea04"><span class="section-number-4">3.4.1.</span> jinja2 equivalent of <code>name.upper()</code></h4>
 <div class="outline-text-4" id="text-3-4-1">
 <div class="org-src-container">
 <pre class="src src-html">{{ name | upper }}
@@ -827,8 +886,8 @@ Here are some commonly used filters.
 </div>
 </div>
 </div>
-<div id="outline-container-orga5f1c51" class="outline-4">
-<h4 id="orga5f1c51"><span class="section-number-4">3.4.2.</span> jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</h4>
+<div id="outline-container-org2d91cd3" class="outline-4">
+<h4 id="org2d91cd3"><span class="section-number-4">3.4.2.</span> jinja2 equivalent of <code>round(price,2)</code> (rounding price to 2 decimal places)</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <div class="org-src-container">
 <pre class="src src-html">{{ price | round(2) }}
@@ -836,8 +895,8 @@ Here are some commonly used filters.
 </div>
 </div>
 </div>
-<div id="outline-container-org6e70e84" class="outline-4">
-<h4 id="org6e70e84"><span class="section-number-4">3.4.3.</span> jinja2 equivalent of <code>len(name)</code></h4>
+<div id="outline-container-org000b2db" class="outline-4">
+<h4 id="org000b2db"><span class="section-number-4">3.4.3.</span> jinja2 equivalent of <code>len(name)</code></h4>
 <div class="outline-text-4" id="text-3-4-3">
 <div class="org-src-container">
 <pre class="src src-html">{{ name | length }}
@@ -846,8 +905,8 @@ Here are some commonly used filters.
 </div>
 </div>
 </div>
-<div id="outline-container-org23f45bf" class="outline-3">
-<h3 id="org23f45bf"><span class="section-number-3">3.5.</span> jinja2 default values</h3>
+<div id="outline-container-orge33c91e" class="outline-3">
+<h3 id="orge33c91e"><span class="section-number-3">3.5.</span> jinja2 default values</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 You can provide default directly in the template instead of initializing them in
@@ -860,8 +919,8 @@ python like this:
 </div>
 </div>
 </div>
-<div id="outline-container-org12b57b7" class="outline-3">
-<h3 id="org12b57b7"><span class="section-number-3">3.6.</span> Template inheritence</h3>
+<div id="outline-container-org33ce938" class="outline-3">
+<h3 id="org33ce938"><span class="section-number-3">3.6.</span> Template inheritence</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li><p>
@@ -927,8 +986,8 @@ declared in the base template.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgfb24fc2" class="outline-2">
-<h2 id="orgfb24fc2"><span class="section-number-2">4.</span> Communication Between Client and Server</h2>
+<div id="outline-container-org5ff672e" class="outline-2">
+<h2 id="org5ff672e"><span class="section-number-2">4.</span> Communication Between Client and Server</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>All communications between the client (browser) and the server (<code>app.py</code>) happen
@@ -941,8 +1000,8 @@ the server), or a <code>POST</code> request (usually used to send data to the se
 request.</li>
 </ul>
 </div>
-<div id="outline-container-org96de074" class="outline-3">
-<h3 id="org96de074"><span class="section-number-3">4.1.</span> Requests</h3>
+<div id="outline-container-org3f1ecb4" class="outline-3">
+<h3 id="org3f1ecb4"><span class="section-number-3">4.1.</span> Requests</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><p>
@@ -955,8 +1014,8 @@ browser sent:
 </div></li>
 </ul>
 </div>
-<div id="outline-container-orgc9bda3b" class="outline-4">
-<h4 id="orgc9bda3b"><span class="section-number-4">4.1.1.</span> GET Request</h4>
+<div id="outline-container-orgd462651" class="outline-4">
+<h4 id="orgd462651"><span class="section-number-4">4.1.1.</span> GET Request</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <ul class="org-ul">
 <li><p>
@@ -1001,8 +1060,8 @@ if the key doesn&rsquo;t exist.
 </ul>
 </div>
 </div>
-<div id="outline-container-org9e471e9" class="outline-4">
-<h4 id="org9e471e9"><span class="section-number-4">4.1.2.</span> POST Request</h4>
+<div id="outline-container-org7f05ead" class="outline-4">
+<h4 id="org7f05ead"><span class="section-number-4">4.1.2.</span> POST Request</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <ul class="org-ul">
 <li>Just like how <code>requests.args</code> is a Python Dictionary which contains all fields
@@ -1051,8 +1110,8 @@ Here is how the route is handled in <code>app.py</code>:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf9b4c36" class="outline-3">
-<h3 id="orgf9b4c36"><span class="section-number-3">4.2.</span> Redirects</h3>
+<div id="outline-container-org006abd9" class="outline-3">
+<h3 id="org006abd9"><span class="section-number-3">4.2.</span> Redirects</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>After you handle a POST request, you should never use <code>render_template()</code></li>

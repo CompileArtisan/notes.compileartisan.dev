@@ -137,7 +137,7 @@ const html = `<!DOCTYPE html>
 
 <div class="header">
   <a href="https://compileartisan.pages.dev/">
-    <span class="dim">notes.</span><span class="bright">compileartisan</span><span class="dim">.dev</span>
+    <span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
   </a>
 </div>
 
