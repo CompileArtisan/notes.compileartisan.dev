@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-06-12 Fri 21:15 -->
+<!-- 2026-06-25 Thu 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A Comprehensive Guide to Algorithms</title>
@@ -676,400 +676,706 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc21679b">1. Prelude</a></li>
-<li><a href="#orgef55e09">2. What are Data Structures</a>
+<li><a href="#orgf023ea6">1. Prelude</a></li>
+<li><a href="#org09fffc7">2. Basic Programming</a>
 <ul>
-<li><a href="#orgc1f31a0">2.1. Why do you need Data Structures?</a></li>
-<li><a href="#orge3028f4">2.2. Primitive vs Non-Primitive</a></li>
-<li><a href="#org9b13526">2.3. Abstract Data Types</a></li>
-<li><a href="#orgbcf029b">2.4. Auxillary Space</a></li>
+<li><a href="#orgb6d941d">2.1. Finding Prime Numbers in a given Range</a>
+<ul>
+<li><a href="#orgbfb2e4e">2.1.1. Brute force approach</a></li>
+<li><a href="#org7eb68ee">2.1.2. Sieve of Eratosthenes</a></li>
+<li><a href="#org209747f">2.1.3. Segmented Sieve</a></li>
 </ul>
 </li>
-<li><a href="#orgf1811aa">3. Algorithm</a>
+<li><a href="#org3ea832f">2.2. Find the number of odd numbers in a given range</a></li>
+<li><a href="#orge2b1424">2.3. GCD</a>
 <ul>
-<li><a href="#org8b50d2a">3.1. What an Algorithm is</a></li>
-<li><a href="#org1c2bd9f">3.2. Specification of an Algorithm</a></li>
-<li><a href="#orga491c7c">3.3. Correctness of an algorithm</a></li>
-<li><a href="#org0371391">3.4. What a pseudocode is</a></li>
+<li><a href="#org764b4dd">2.3.1. Finding GCD for two numbers</a></li>
+<li><a href="#org710705a">2.3.2. Finding GCD for a list of numbers</a></li>
 </ul>
 </li>
-<li><a href="#orgc97988f">4. Measure of efficiency</a>
-<ul>
-<li><a href="#org35e7240">4.1. Growth Rate</a></li>
-<li><a href="#orgd7a4006">4.2. RAM Model of finding Growth rate</a>
-<ul>
-<li><a href="#org924029c">4.2.1. Definition</a></li>
-<li><a href="#org238a2c1">4.2.2. How to count primitive operations</a></li>
-<li><a href="#org984f958">4.2.3. Examples</a></li>
+<li><a href="#orgf11c2f1">2.4. Distinct factors of \(n\), sorted</a></li>
+<li><a href="#org387770e">2.5. Reverse Characters in Timed Chunks</a></li>
+<li><a href="#org11f3168">2.6. Reverse only the vowels in a string</a></li>
+<li><a href="#org793efb7">2.7. Rotating an array</a></li>
 </ul>
 </li>
-<li><a href="#orga981e8b">4.3. Runtime Complexity</a>
+<li><a href="#org578ed9e">3. What are Data Structures</a>
 <ul>
-<li><a href="#orge8bd8d7">4.3.1. The worst case, denoted by O (Big-Oh)</a></li>
-<li><a href="#org0b70a69">4.3.2. The best case, denoted by &omega; (Big-Omega)</a></li>
-<li><a href="#orgb78e476">4.3.3. The average case, denoted by &Theta; (Big-theta)</a></li>
+<li><a href="#org5bde53f">3.1. Why do you need Data Structures?</a></li>
+<li><a href="#org7ba32b7">3.2. Primitive vs Non-Primitive</a></li>
+<li><a href="#org045243f">3.3. Abstract Data Types</a></li>
+<li><a href="#org753fd7c">3.4. Auxillary Space</a></li>
 </ul>
 </li>
-<li><a href="#org5c53a5e">4.4. Asymptotic Efficiency</a>
+<li><a href="#orgc872c49">4. Algorithm</a>
 <ul>
-<li><a href="#org4223d86">4.4.1. Asymptote</a></li>
-<li><a href="#org1133f99">4.4.2. Asymptotic efficiency and runtime complexity</a></li>
-<li><a href="#org4cf9087">4.4.3. Asymptotically tight or loose</a></li>
-<li><a href="#org5bc6a57">4.4.4. Some complexities to keep in mind</a></li>
+<li><a href="#org82c71e2">4.1. What an Algorithm is</a></li>
+<li><a href="#org719fccc">4.2. Specification of an Algorithm</a></li>
+<li><a href="#org3d684aa">4.3. Correctness of an algorithm</a></li>
+<li><a href="#org32b6101">4.4. What a pseudocode is</a></li>
 </ul>
 </li>
+<li><a href="#org308fb7e">5. Measure of efficiency</a>
+<ul>
+<li><a href="#org0c94984">5.1. Growth Rate</a></li>
+<li><a href="#org8722542">5.2. RAM Model of finding Growth rate</a>
+<ul>
+<li><a href="#org5435a1a">5.2.1. Definition</a></li>
+<li><a href="#org2505928">5.2.2. How to count primitive operations</a></li>
+<li><a href="#org851e262">5.2.3. Examples</a></li>
 </ul>
 </li>
-<li><a href="#org5718b1d">5. How to find/prove a function&rsquo;s runtime complexity</a>
+<li><a href="#org71e93a1">5.3. Runtime Complexity</a>
 <ul>
-<li><a href="#orgc7fa0c1">5.1. Prove it&rsquo;s relation with any multiple of the growth rate</a></li>
-<li><a href="#org9de204f">5.2. Contradiction</a></li>
-<li><a href="#org01f249a">5.3. Comparing Orders of Growth using Limits</a>
-<ul>
-<li><a href="#org408e728">5.3.1. Principal Cases</a></li>
-<li><a href="#org6718d00">5.3.2. Explanation</a></li>
-<li><a href="#orgff72743">5.3.3. How to use this</a></li>
+<li><a href="#orga65801b">5.3.1. The worst case, denoted by O (Big-Oh)</a></li>
+<li><a href="#org9a1d0e2">5.3.2. The best case, denoted by &omega; (Big-Omega)</a></li>
+<li><a href="#org39b719c">5.3.3. The average case, denoted by &Theta; (Big-theta)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgb2d7282">6. Recurrence Relations</a>
+<li><a href="#orge774248">5.4. Asymptotic Efficiency</a>
 <ul>
-<li><a href="#orgf129281">6.1. What you&rsquo;re actually doing</a></li>
-<li><a href="#org5146d0d">6.2. Recurrence relations with two recursive terms</a></li>
-<li><a href="#org3a41d8e">6.3. Solving a Recurrence relation using Stirling&rsquo;s Approximation</a></li>
-<li><a href="#orgf757e86">6.4. Dividing functions</a></li>
-<li><a href="#orgc5b5b68">6.5. Master&rsquo;s Theorem</a>
-<ul>
-<li><a href="#org65a4b57">6.5.1. For Decreasing Functions</a></li>
-<li><a href="#orgec44d7b">6.5.2. For Dividing Functions</a></li>
+<li><a href="#org3832d44">5.4.1. Asymptote</a></li>
+<li><a href="#org8fa4af5">5.4.2. Asymptotic efficiency and runtime complexity</a></li>
+<li><a href="#org8d3a01b">5.4.3. Asymptotically tight or loose</a></li>
+<li><a href="#orgff31dc4">5.4.4. Some complexities to keep in mind</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd10fdf1">7. Snippets of Code that&rsquo;ll help later on</a>
+<li><a href="#org56cc1ae">6. How to find/prove a function&rsquo;s runtime complexity</a>
 <ul>
-<li><a href="#org973f9fc">7.1. Finding the sum of the digits of a number</a></li>
-<li><a href="#org72630f9">7.2. Finding the sum of the digits of a number (recursive version)</a></li>
-</ul>
-</li>
-<li><a href="#org8a46960">8. Understanding Arrays</a>
+<li><a href="#org2452e49">6.1. Prove it&rsquo;s relation with any multiple of the growth rate</a></li>
+<li><a href="#orgc71f1a0">6.2. Contradiction</a></li>
+<li><a href="#org1791ed2">6.3. Comparing Orders of Growth using Limits</a>
 <ul>
-<li><a href="#orgf5f3046">8.1. Memory Allocation</a></li>
-<li><a href="#org6447eaf">8.2. 1D</a></li>
-<li><a href="#org7d7e6d3">8.3. 2D</a></li>
-</ul>
-</li>
-<li><a href="#orga4ad7ec">9. Basic Array Operations</a>
-<ul>
-<li><a href="#org660da64">9.1. Finding the largest Element</a></li>
-<li><a href="#org2ede822">9.2. Inserting an Element</a></li>
-<li><a href="#orgd56298f">9.3. Deleting an Element</a></li>
-<li><a href="#orge9e2369">9.4. Linear Search</a></li>
-<li><a href="#org1264761">9.5. Traversing Through an Array Recursively</a></li>
-<li><a href="#org8f56618">9.6. Largest element recursive</a></li>
-<li><a href="#org497a2c1">9.7. Two Pointer Technique/ Sliding Window</a>
-<ul>
-<li><a href="#org1089a12">9.7.1. Maximum Sum of &rsquo;K&rsquo; sized subarray</a></li>
-<li><a href="#org7acba9f">9.7.2. Target Sum from a Pair of Numbers in a sorted array</a></li>
-<li><a href="#orgd9d011c">9.7.3. Count the number of subarrays with sum &lt;= k</a></li>
-</ul>
-</li>
-<li><a href="#org8d0ae7e">9.8. Prefix Sum</a>
-<ul>
-<li><a href="#orgb916c50">9.8.1. Count the number of subarrays with sum&lt;=k, but negative numbers exist</a></li>
-<li><a href="#org913b7b3">9.8.2. Count the number of subarrays with sum==k</a></li>
-<li><a href="#org7ef881b">9.8.3. Binary Search</a></li>
+<li><a href="#org4bc7344">6.3.1. Principal Cases</a></li>
+<li><a href="#org09c3bac">6.3.2. Explanation</a></li>
+<li><a href="#org087faf2">6.3.3. How to use this</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org45488e4">10. Characteristics of Sorting Algorithms</a>
+<li><a href="#org6e5c83a">7. Recurrence Relations</a>
 <ul>
-<li><a href="#org563c1c9">10.1. Stable</a></li>
-<li><a href="#orgf0585f7">10.2. In-place</a></li>
-</ul>
-</li>
-<li><a href="#orgc6ddcbf">11. Sorting Algorithms</a>
+<li><a href="#org2fbbe2b">7.1. What you&rsquo;re actually doing</a></li>
+<li><a href="#orgf1a5044">7.2. Recurrence relations with two recursive terms</a></li>
+<li><a href="#org595cb28">7.3. Solving a Recurrence relation using Stirling&rsquo;s Approximation</a></li>
+<li><a href="#orgb87cd29">7.4. Dividing functions</a></li>
+<li><a href="#org0727e24">7.5. Master&rsquo;s Theorem</a>
 <ul>
-<li><a href="#org0524bab">11.1. Basic Sorting Algorithms</a>
-<ul>
-<li><a href="#org4e8dee1">11.1.1. Bubble Sort</a></li>
-<li><a href="#org2461abf">11.1.2. Selection Sort</a></li>
-<li><a href="#org13dd373">11.1.3. Insertion Sort</a></li>
-</ul>
-</li>
-<li><a href="#org2c7676f">11.2. Dynamic Sorting Algorithms (Divide and Conquer)</a>
-<ul>
-<li><a href="#org81a9052">11.2.1. Quick Sort</a></li>
-<li><a href="#org4eff027">11.2.2. Merge Sort</a></li>
-<li><a href="#orgf56a8d3">11.2.3. Heap Sort</a></li>
-</ul>
-</li>
-<li><a href="#orgfe16a5c">11.3. Linear Sorting Algorithms</a>
-<ul>
-<li><a href="#org5d34b7e">11.3.1. Counting Sort</a></li>
-<li><a href="#org4323a67">11.3.2. Radix Sort</a></li>
+<li><a href="#org05a13dc">7.5.1. For Decreasing Functions</a></li>
+<li><a href="#org243c68b">7.5.2. For Dividing Functions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf1b2aef">12. Hashing</a>
+<li><a href="#orgcc806f3">8. Snippets of Code that&rsquo;ll help later on</a>
 <ul>
-<li><a href="#org6fde637">12.1. HashSet</a>
-<ul>
-<li><a href="#org6969a3c">12.1.1. What it is</a></li>
-<li><a href="#org9545bdc">12.1.2. Code</a></li>
+<li><a href="#org85c4b41">8.1. Finding the sum of the digits of a number</a></li>
+<li><a href="#org07b2094">8.2. Finding the sum of the digits of a number (recursive version)</a></li>
 </ul>
 </li>
-<li><a href="#orgcb796e3">12.2. HashMap: Java&rsquo;s Equivalent of Python Dictionaries</a></li>
-<li><a href="#org33daa7b">12.3. Function to find if an array contains duplicates or not</a>
+<li><a href="#org3465724">9. Understanding Arrays</a>
 <ul>
-<li><a href="#org9f42f9c">12.3.1. Without Builtin Functions</a></li>
-<li><a href="#org5f2281c">12.3.2. With Builtin functions</a></li>
+<li><a href="#org725d245">9.1. Memory Allocation</a></li>
+<li><a href="#org251907f">9.2. 1D</a></li>
+<li><a href="#org53cb6c8">9.3. 2D</a></li>
 </ul>
 </li>
-<li><a href="#orgd42fd27">12.4. Anagram Checker</a></li>
-<li><a href="#orge9bf3af">12.5. Two Sum</a></li>
+<li><a href="#org3631138">10. Basic Array Operations</a>
+<ul>
+<li><a href="#org844ec54">10.1. Finding the largest Element</a></li>
+<li><a href="#org516863a">10.2. Inserting an Element</a></li>
+<li><a href="#org5af695e">10.3. Deleting an Element</a></li>
+<li><a href="#orga6528b1">10.4. Linear Search</a></li>
+<li><a href="#orgef0289b">10.5. Traversing Through an Array Recursively</a></li>
+<li><a href="#org909c566">10.6. Largest element recursive</a></li>
+<li><a href="#orge665205">10.7. Two Pointer Technique/ Sliding Window</a>
+<ul>
+<li><a href="#orga4e4e68">10.7.1. Maximum Sum of &rsquo;K&rsquo; sized subarray</a></li>
+<li><a href="#orgc56a921">10.7.2. Target Sum from a Pair of Numbers in a sorted array</a></li>
+<li><a href="#org7f00628">10.7.3. Count the number of subarrays with sum &lt;= k</a></li>
 </ul>
 </li>
-<li><a href="#orge4808a6">13. Algorithms which &rsquo;Divide and Conquer&rsquo;</a>
+<li><a href="#org92a8062">10.8. Prefix Sum</a>
 <ul>
-<li><a href="#org3fe6677">13.1. Karatsuba&rsquo;s Integer Multiplication using Divide and Conquer Approach</a>
-<ul>
-<li><a href="#org4d0f7b7">13.1.1. How it works</a></li>
-<li><a href="#org3018358">13.1.2. Complexity</a></li>
-</ul>
-</li>
-<li><a href="#org0e48e76">13.2. Strassen&rsquo;s Matrix Multiplication</a></li>
-<li><a href="#org5af9a82">13.3. Maximum Subarray sum</a>
-<ul>
-<li><a href="#org9910260">13.3.1. What it is</a></li>
-<li><a href="#org204c359">13.3.2. Brute Force approach</a></li>
-<li><a href="#org5f31de0">13.3.3. Brute Force, but slightly optimized</a></li>
-<li><a href="#org42f5baa">13.3.4. Best approach</a></li>
-</ul>
-</li>
-<li><a href="#org90073b9">13.4. Convex Hull</a>
-<ul>
-<li><a href="#orgfacbf1a">13.4.1. Prerequisite knowledge</a></li>
-<li><a href="#org7b2e6fb">13.4.2. What the problem statement is</a></li>
-<li><a href="#org71f4a40">13.4.3. How it works</a></li>
-</ul>
-</li>
-<li><a href="#org8bc57d5">13.5. Closest Pair of Points</a>
-<ul>
-<li><a href="#org3cdb24d">13.5.1. What it is</a></li>
-<li><a href="#orga63e9a9">13.5.2. Procedure</a></li>
+<li><a href="#org60b8680">10.8.1. Count the number of subarrays with sum&lt;=k, but negative numbers exist</a></li>
+<li><a href="#orgbc85d6d">10.8.2. Count the number of subarrays with sum==k</a></li>
+<li><a href="#orgd92c917">10.8.3. Binary Search</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org43dc480">14. Greedy Algorithms</a>
+<li><a href="#orgdd166e2">11. Characteristics of Sorting Algorithms</a>
 <ul>
-<li><a href="#orgf6f2056">14.1. Coin Change Problem</a>
-<ul>
-<li><a href="#org395a978">14.1.1. What it is</a></li>
-<li><a href="#org4f0b20b">14.1.2. Procedure (Solved with an Example)</a></li>
-<li><a href="#org48b894e">14.1.3. An Example where this can Fail</a></li>
+<li><a href="#orgbbbe9bd">11.1. Stable</a></li>
+<li><a href="#orgea52a60">11.2. In-place</a></li>
 </ul>
 </li>
-<li><a href="#org0deffe8">14.2. 0/1 Knapsack Problem</a>
+<li><a href="#org34f34b0">12. Sorting Algorithms</a>
 <ul>
-<li><a href="#org502ff87">14.2.1. What it is</a></li>
-<li><a href="#orge09b815">14.2.2. Procedure (Solved with an Example)</a></li>
-<li><a href="#org339f794">14.2.3. Code</a></li>
+<li><a href="#org78bd0e0">12.1. Basic Sorting Algorithms</a>
+<ul>
+<li><a href="#org1a5e398">12.1.1. Bubble Sort</a></li>
+<li><a href="#org78cf535">12.1.2. Selection Sort</a></li>
+<li><a href="#orgc7f6e54">12.1.3. Insertion Sort</a></li>
 </ul>
 </li>
-<li><a href="#orgd15b48a">14.3. Fractional Knapsack Problem</a>
+<li><a href="#org4466123">12.2. Dynamic Sorting Algorithms (Divide and Conquer)</a>
 <ul>
-<li><a href="#org71028a4">14.3.1. Code</a></li>
+<li><a href="#org0b90ac1">12.2.1. Quick Sort</a></li>
+<li><a href="#org05414c4">12.2.2. Merge Sort</a></li>
+<li><a href="#org2b2e55a">12.2.3. Heap Sort</a></li>
 </ul>
 </li>
-<li><a href="#org8afaaaa">14.4. Activity Selection</a>
+<li><a href="#org8973c18">12.3. Linear Sorting Algorithms</a>
 <ul>
-<li><a href="#org135607a">14.4.1. What it is</a></li>
-<li><a href="#orga62b8b0">14.4.2. Procedure (Solved with an Example)</a></li>
-<li><a href="#orgf09f2ce">14.4.3. Psuedocode</a></li>
-</ul>
-</li>
-<li><a href="#orgddf8029">14.5. Task Scheduling</a>
-<ul>
-<li><a href="#orgdc70626">14.5.1. What it is</a></li>
-<li><a href="#org0570096">14.5.2. Procedure (Solved with an Example)</a></li>
-</ul>
-</li>
-<li><a href="#org05a6596">14.6. File Merge Problem</a>
-<ul>
-<li><a href="#org41df243">14.6.1. What it is</a></li>
-<li><a href="#org02100b5">14.6.2. Code</a></li>
-</ul>
-</li>
-<li><a href="#org0cb07da">14.7. Huffman Encoding</a>
-<ul>
-<li><a href="#org40a17e3">14.7.1. What it is</a></li>
+<li><a href="#org96fdfd2">12.3.1. Counting Sort</a></li>
+<li><a href="#org1b2872c">12.3.2. Radix Sort</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgbb9618a">15. Dynamic Programming</a>
+<li><a href="#org8f8ae5d">13. Hashing</a>
 <ul>
-<li><a href="#org37749f1">15.1. Pascal&rsquo;s Triangle</a>
+<li><a href="#org41c3444">13.1. HashSet</a>
 <ul>
-<li><a href="#org98216a7">15.1.1. Trivia</a></li>
-<li><a href="#org611b99b">15.1.2. Code</a></li>
+<li><a href="#org74c6718">13.1.1. What it is</a></li>
+<li><a href="#org264e1df">13.1.2. Code</a></li>
 </ul>
 </li>
-<li><a href="#org6fb4605">15.2. 0/1 Knapsack</a>
+<li><a href="#org3efb636">13.2. HashMap: Java&rsquo;s Equivalent of Python Dictionaries</a></li>
+<li><a href="#orgeb13bad">13.3. Function to find if an array contains duplicates or not</a>
 <ul>
-<li><a href="#org4adc1e0">15.2.1. Trivia</a></li>
-<li><a href="#orgfb2a9d2">15.2.2. DP Table</a></li>
-<li><a href="#org90ac55a">15.2.3. Code</a></li>
+<li><a href="#orgdcd0ce6">13.3.1. Without Builtin Functions</a></li>
+<li><a href="#org274bdb7">13.3.2. With Builtin functions</a></li>
 </ul>
 </li>
-<li><a href="#org37df6ed">15.3. Coin Change Problem</a>
-<ul>
-<li><a href="#org542d0a4">15.3.1. Code to find minimum number of coins required to make an amount</a></li>
-<li><a href="#orgc05c936">15.3.2. Code to find Number of Ways to make an amount</a></li>
+<li><a href="#org6cc7799">13.4. Anagram Checker</a></li>
+<li><a href="#org93e793e">13.5. Two Sum</a></li>
 </ul>
 </li>
-<li><a href="#org65edd79">15.4. Longest Common Sequence</a>
+<li><a href="#org084c48e">14. Algorithms which &rsquo;Divide and Conquer&rsquo;</a>
 <ul>
-<li><a href="#orgca40939">15.4.1. What it is</a></li>
-<li><a href="#org954ae19">15.4.2. Code</a></li>
+<li><a href="#orge47f7ca">14.1. Karatsuba&rsquo;s Integer Multiplication using Divide and Conquer Approach</a>
+<ul>
+<li><a href="#org5dae3f8">14.1.1. How it works</a></li>
+<li><a href="#orgbecea89">14.1.2. Complexity</a></li>
 </ul>
 </li>
-<li><a href="#org1ada515">15.5. Longest Increasing Subsequence (LIS)</a>
+<li><a href="#org2a9c251">14.2. Strassen&rsquo;s Matrix Multiplication</a></li>
+<li><a href="#org19c04a8">14.3. Maximum Subarray sum</a>
 <ul>
-<li><a href="#org611f4d0">15.5.1. Code</a></li>
+<li><a href="#orgae6d445">14.3.1. What it is</a></li>
+<li><a href="#orgc6ea5ac">14.3.2. Brute Force approach</a></li>
+<li><a href="#orgede7144">14.3.3. Brute Force, but slightly optimized</a></li>
+<li><a href="#orga704ab7">14.3.4. Best approach</a></li>
 </ul>
 </li>
-<li><a href="#org722c443">15.6. Paranthezisation in Matrix Multiplication</a></li>
-<li><a href="#org4d29a81">15.7. Cost of Reaching the End of a Matrix</a></li>
-<li><a href="#org410c618">15.8. Optimal Binary Search Tree</a></li>
+<li><a href="#org387ef2d">14.4. Convex Hull</a>
+<ul>
+<li><a href="#org97e70e0">14.4.1. Prerequisite knowledge</a></li>
+<li><a href="#orgad89053">14.4.2. What the problem statement is</a></li>
+<li><a href="#org4eb0a62">14.4.3. How it works</a></li>
 </ul>
 </li>
-<li><a href="#org8e280a7">16. Backtracking</a>
+<li><a href="#org8039733">14.5. Closest Pair of Points</a>
 <ul>
-<li><a href="#orgcf34f97">16.1. Sudoku</a>
-<ul>
-<li><a href="#org3a280c0">16.1.1. About Sudoku</a></li>
-<li><a href="#org0d88839">16.1.2. Approach Taken</a></li>
-</ul>
-</li>
-<li><a href="#org6645186">16.2. Graph Colouring</a>
-<ul>
-<li><a href="#org54aa845">16.2.1. What it is</a></li>
-<li><a href="#org19fa3f7">16.2.2. Code</a></li>
-</ul>
-</li>
-<li><a href="#org0095115">16.3. N-Queens</a>
-<ul>
-<li><a href="#orgc694a34">16.3.1. What it is</a></li>
-<li><a href="#org55626d1">16.3.2. Approach taken</a></li>
-</ul>
-</li>
-<li><a href="#org51c0a31">16.4. Making a Required Sum out of a Given set</a>
-<ul>
-<li><a href="#org2b7cc65">16.4.1. What it is</a></li>
-<li><a href="#org41e1d8a">16.4.2. Approach taken</a></li>
-</ul>
-</li>
-<li><a href="#orgb6850a5">16.5. Maze Solving</a></li>
-<li><a href="#org63c26df">16.6. Hamiltonian Cycle</a>
-<ul>
-<li><a href="#org656c269">16.6.1. What it is</a></li>
-<li><a href="#org2b983a9">16.6.2. Code</a></li>
+<li><a href="#org6adcc4b">14.5.1. What it is</a></li>
+<li><a href="#org90fe8e9">14.5.2. Procedure</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9594c12">17. Branch and Bound</a>
+<li><a href="#org078250d">15. Greedy Algorithms</a>
 <ul>
-<li><a href="#org6158b9b">17.1. KnapSack Problem using Branch and Bound</a></li>
-<li><a href="#org3fa031b">17.2. Travelling Salesman Problem using Branch and Bound</a></li>
-<li><a href="#org788eb81">17.3. Checking for a Substring in a String</a></li>
-<li><a href="#org329a94d">17.4. Knuth-Morris Algorithm</a></li>
+<li><a href="#org2d66df7">15.1. Coin Change Problem</a>
+<ul>
+<li><a href="#org09dee2d">15.1.1. What it is</a></li>
+<li><a href="#org8688a58">15.1.2. Procedure (Solved with an Example)</a></li>
+<li><a href="#orga9dff54">15.1.3. An Example where this can Fail</a></li>
 </ul>
 </li>
-<li><a href="#org5462b98">18. PNP</a>
+<li><a href="#org45ebcab">15.2. 0/1 Knapsack Problem</a>
 <ul>
-<li><a href="#org66f7337">18.1. P</a></li>
-<li><a href="#org22f9da4">18.2. NP</a></li>
-<li><a href="#org9ab4fc6">18.3. NP-Hard</a></li>
-<li><a href="#orgae5420a">18.4. NP-Complete</a></li>
+<li><a href="#org8608b96">15.2.1. What it is</a></li>
+<li><a href="#org71287e4">15.2.2. Procedure (Solved with an Example)</a></li>
+<li><a href="#orgb6f681e">15.2.3. Code</a></li>
 </ul>
 </li>
-<li><a href="#orgfbea37e">19. LinkedList</a>
+<li><a href="#orgb801ff7">15.3. Fractional Knapsack Problem</a>
 <ul>
-<li><a href="#org6109fe6">19.1. Floyd&rsquo;s Cycle-Finding algorithm</a></li>
-<li><a href="#org1ddb860">19.2. Leetcode 206</a></li>
-<li><a href="#org7d9dfd0">19.3. Leetcode 204</a></li>
+<li><a href="#orgfa9301d">15.3.1. Code</a></li>
+</ul>
+</li>
+<li><a href="#orgbc767c3">15.4. Activity Selection</a>
+<ul>
+<li><a href="#org6103334">15.4.1. What it is</a></li>
+<li><a href="#org3183432">15.4.2. Procedure (Solved with an Example)</a></li>
+<li><a href="#orgb2689b7">15.4.3. Psuedocode</a></li>
+</ul>
+</li>
+<li><a href="#org7fbe4c7">15.5. Task Scheduling</a>
+<ul>
+<li><a href="#orgdb63242">15.5.1. What it is</a></li>
+<li><a href="#org1a92816">15.5.2. Procedure (Solved with an Example)</a></li>
+</ul>
+</li>
+<li><a href="#org9a1e9b8">15.6. File Merge Problem</a>
+<ul>
+<li><a href="#orgd7cf0bf">15.6.1. What it is</a></li>
+<li><a href="#orgbb04d01">15.6.2. Code</a></li>
+</ul>
+</li>
+<li><a href="#org9d3a950">15.7. Huffman Encoding</a>
+<ul>
+<li><a href="#org633a6fd">15.7.1. What it is</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5d0e4a3">16. Dynamic Programming</a>
+<ul>
+<li><a href="#orgc756dc6">16.1. Pascal&rsquo;s Triangle</a>
+<ul>
+<li><a href="#org5433105">16.1.1. Trivia</a></li>
+<li><a href="#org17a4710">16.1.2. Code</a></li>
+</ul>
+</li>
+<li><a href="#org3211872">16.2. 0/1 Knapsack</a>
+<ul>
+<li><a href="#org19c0c7e">16.2.1. Trivia</a></li>
+<li><a href="#org2526e62">16.2.2. DP Table</a></li>
+<li><a href="#orgc87306b">16.2.3. Code</a></li>
+</ul>
+</li>
+<li><a href="#org5a63071">16.3. Coin Change Problem</a>
+<ul>
+<li><a href="#orgbd34c46">16.3.1. Code to find minimum number of coins required to make an amount</a></li>
+<li><a href="#org0d163fd">16.3.2. Code to find Number of Ways to make an amount</a></li>
+</ul>
+</li>
+<li><a href="#org833a689">16.4. Longest Common Sequence</a>
+<ul>
+<li><a href="#org394f738">16.4.1. What it is</a></li>
+<li><a href="#org9030ea8">16.4.2. Code</a></li>
+</ul>
+</li>
+<li><a href="#orgb56a617">16.5. Longest Increasing Subsequence (LIS)</a>
+<ul>
+<li><a href="#orgf6cea99">16.5.1. Code</a></li>
+</ul>
+</li>
+<li><a href="#org8162720">16.6. Paranthezisation in Matrix Multiplication</a></li>
+<li><a href="#org5fc89ed">16.7. Cost of Reaching the End of a Matrix</a></li>
+<li><a href="#orgb429100">16.8. Optimal Binary Search Tree</a></li>
+</ul>
+</li>
+<li><a href="#orgd0fa1a2">17. Backtracking</a>
+<ul>
+<li><a href="#org5f1732b">17.1. Sudoku</a>
+<ul>
+<li><a href="#orgb6e00be">17.1.1. About Sudoku</a></li>
+<li><a href="#org84fb6b0">17.1.2. Approach Taken</a></li>
+</ul>
+</li>
+<li><a href="#orgc43d716">17.2. Graph Colouring</a>
+<ul>
+<li><a href="#org92a97ec">17.2.1. What it is</a></li>
+<li><a href="#org58334f8">17.2.2. Code</a></li>
+</ul>
+</li>
+<li><a href="#org75645c5">17.3. N-Queens</a>
+<ul>
+<li><a href="#org3b9e58f">17.3.1. What it is</a></li>
+<li><a href="#org9014d88">17.3.2. Approach taken</a></li>
+</ul>
+</li>
+<li><a href="#org90953c1">17.4. Making a Required Sum out of a Given set</a>
+<ul>
+<li><a href="#orgba1e430">17.4.1. What it is</a></li>
+<li><a href="#orgeb42480">17.4.2. Approach taken</a></li>
+</ul>
+</li>
+<li><a href="#orgda76442">17.5. Maze Solving</a></li>
+<li><a href="#org1a3bed3">17.6. Hamiltonian Cycle</a>
+<ul>
+<li><a href="#orgd66f09e">17.6.1. What it is</a></li>
+<li><a href="#org941adaa">17.6.2. Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3a39383">18. Branch and Bound</a>
+<ul>
+<li><a href="#orgf229205">18.1. KnapSack Problem using Branch and Bound</a></li>
+<li><a href="#orgb603571">18.2. Travelling Salesman Problem using Branch and Bound</a></li>
+<li><a href="#orgc82fa37">18.3. Checking for a Substring in a String</a></li>
+<li><a href="#org794c06d">18.4. Knuth-Morris Algorithm</a></li>
+</ul>
+</li>
+<li><a href="#org6a525f3">19. PNP</a>
+<ul>
+<li><a href="#org6cec539">19.1. P</a></li>
+<li><a href="#org401aa8d">19.2. NP</a></li>
+<li><a href="#orgd08d57e">19.3. NP-Hard</a></li>
+<li><a href="#org17c2918">19.4. NP-Complete</a></li>
+</ul>
+</li>
+<li><a href="#org4a96f70">20. LinkedList</a>
+<ul>
+<li><a href="#org42c56ae">20.1. Floyd&rsquo;s Cycle-Finding algorithm</a></li>
+<li><a href="#orge8060fe">20.2. Leetcode 206</a></li>
+<li><a href="#org10ccf83">20.3. Leetcode 204</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc21679b" class="outline-2">
-<h2 id="orgc21679b"><span class="section-number-2">1.</span> Prelude</h2>
+<div id="outline-container-orgf023ea6" class="outline-2">
+<h2 id="orgf023ea6"><span class="section-number-2">1.</span> Prelude</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This page is my own explanation and interpretation of algorithms, what they are
 and how they work in general. The order of concepts presented is mildly
-influenced by my professor&rsquo;s classes at college. All the code has been written
-by me in Java. I&rsquo;d also like to let the readers know that these are notes from a
-student&rsquo;s perspective, which means these could have mistakes. If you find any,
-please do let me know and I&rsquo;ll correct them at the earliest. Thank you for
-reading!
+influenced by my professor&rsquo;s classes at college. I&rsquo;d also like to let the
+readers know that these are notes from a student&rsquo;s perspective, which means
+these could have mistakes. If you find any, please do let me know and I&rsquo;ll
+correct them at the earliest. Thank you for reading!
 </p>
 </div>
 </div>
-<div id="outline-container-orgef55e09" class="outline-2">
-<h2 id="orgef55e09"><span class="section-number-2">2.</span> What are Data Structures</h2>
+<div id="outline-container-org09fffc7" class="outline-2">
+<h2 id="org09fffc7"><span class="section-number-2">2.</span> Basic Programming</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgc1f31a0" class="outline-3">
-<h3 id="orgc1f31a0"><span class="section-number-3">2.1.</span> Why do you need Data Structures?</h3>
+<div id="outline-container-orgb6d941d" class="outline-3">
+<h3 id="orgb6d941d"><span class="section-number-3">2.1.</span> Finding Prime Numbers in a given Range</h3>
 <div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orgbfb2e4e" class="outline-4">
+<h4 id="orgbfb2e4e"><span class="section-number-4">2.1.1.</span> Brute force approach</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">r1</span> = 3
+<span style="color: #dcaeea;">r2</span> = 10 <span style="color: #5B6268;"># </span><span style="color: #5B6268;">example numbers
+</span>
+<span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(r1, r2+1):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> i&lt;2:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">continue</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">prime</span> = <span style="color: #a9a1e1;">True</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> j <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(2,i):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> i%j == 0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">prime</span> = <span style="color: #a9a1e1;">False</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">break</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> prime:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(i, end=<span style="color: #98be65;">" "</span>)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">3 5 7 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7eb68ee" class="outline-4">
+<h4 id="org7eb68ee"><span class="section-number-4">2.1.2.</span> Sieve of Eratosthenes</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>If a number is prime, then all its multiples must be composite. Eliminating
+those composite numbers is what Sieve of Eratosthenes does.</li>
+<li>This is one of the fastest ways to find all prime numbers up to a given
+number N.</li>
+<li><p>
+Initially write down all the numbers:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">2 3 4 5 6 7 8 9 10
+11 12 13 14 15 16 17 18 19 20
+21 22 23 24 25 26 27 28 29 30
+</pre>
+</div>
+<p>
+From this list, you start from the first number and keep crossing out all of
+its multiples. You keep going till you hit \(\sqrt{n}\) because it&rsquo;s a rule.
+</p></li>
+<li>When you start writing the multiples, you start from \(p^{2}\).</li>
+<li><p>
+Code
+</p>
+<div class="org-src-container">
+<pre class="src src-python">
+
+</pre>
+</div></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org209747f" class="outline-4">
+<h4 id="org209747f"><span class="section-number-4">2.1.3.</span> Segmented Sieve</h4>
+</div>
+</div>
+<div id="outline-container-org3ea832f" class="outline-3">
+<h3 id="org3ea832f"><span class="section-number-3">2.2.</span> Find the number of odd numbers in a given range</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">r1</span>, <span style="color: #dcaeea;">r2</span> = <span style="color: #c678dd;">map</span>(<span style="color: #c678dd;">int</span>, <span style="color: #c678dd;">input</span>().split())
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> r1%2==0 <span style="color: #51afef;">and</span> r2%2==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>((r2-r1+1)//2)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(((r1-r1+1)//2)+1)
+     
+main()
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge2b1424" class="outline-3">
+<h3 id="orge2b1424"><span class="section-number-3">2.3.</span> GCD</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Given that: 
+<ul class="org-ul">
+<li>First line: An integer <code>n</code> (1 ≤ n ≤ 10<sup>5</sup>), the number of guardian stones.</li>
+<li>Second line: <code>n</code> space-separated positive integers \((1 \le \text{a[i]} \le 10^{9})\), the numbers on the stones</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org764b4dd" class="outline-4">
+<h4 id="org764b4dd"><span class="section-number-4">2.3.1.</span> Finding GCD for two numbers</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">gcd</span>(a, b):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> b==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> a
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> gcd(b, a%b)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Ideally, you&rsquo;d expect \(a\) to be a larger number than \(b\), but euclidean
+algorithm can handle either way.
+<ul class="org-ul">
+<li>Say we have <code>36 % 24</code>: The quotient would be 1 and the remainder would be 12.</li>
+<li>If we have <code>24 % 36</code>:
+<ul class="org-ul">
+<li>In the first iteration, the quotient would be 0 and the remainder would be 24.</li>
+<li>In the second iteration, the quotient is back to being 24.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org710705a" class="outline-4">
+<h4 id="org710705a"><span class="section-number-4">2.3.2.</span> Finding GCD for a list of numbers</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<ul class="org-ul">
+<li>For all the items in the list, you find the gcd of the first two numbers, then
+the gcd of the result and the 3rd number, then the gcd of the result and the
+4th number, and so on.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">arr</span> = <span style="color: #c678dd;">list</span>(<span style="color: #c678dd;">map</span>(<span style="color: #c678dd;">int</span>, <span style="color: #c678dd;">input</span>().split()))
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">result</span> = arr[0]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> x <span style="color: #51afef;">in</span> arr:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">result</span> = arr(result, x)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(result)
+ 
+<span style="color: #3dea43364a63;"> </span>   
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">gcd</span>(a, b):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> b==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> a
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> gcd(b, a%b)
+     
+     
+main()
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf11c2f1" class="outline-3">
+<h3 id="orgf11c2f1"><span class="section-number-3">2.4.</span> Distinct factors of \(n\), sorted</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #dcaeea;">n</span> = <span style="color: #c678dd;">int</span>(<span style="color: #c678dd;">input</span>())
+[<span style="color: #c678dd;">print</span>(item, end=<span style="color: #98be65;">' '</span>) <span style="color: #51afef;">for</span> item <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(1, n+1) <span style="color: #51afef;">if</span> item % n == 0]
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org387770e" class="outline-3">
+<h3 id="org387770e"><span class="section-number-3">2.5.</span> Reverse Characters in Timed Chunks</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Reverse first k characters</li>
+<li>Leave the next k characters as they are</li>
+<li>Repeat this pattern throughout the message</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   reverse(<span style="color: #c678dd;">input</span>(), <span style="color: #c678dd;">int</span>(<span style="color: #c678dd;">input</span>()))
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">reverse</span>(s, k):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">result</span> = <span style="color: #98be65;">""</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(0, <span style="color: #c678dd;">len</span>(s), 2*k):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">result</span> += s[i:i+k][::-1] + s[i+k : i + 2*k]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(result)
+ 
+main()
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org11f3168" class="outline-3">
+<h3 id="org11f3168"><span class="section-number-3">2.6.</span> Reverse only the vowels in a string</h3>
+<div class="outline-text-3" id="text-2-6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   reverseVowels(<span style="color: #c678dd;">input</span>())
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">reverseVowels</span>(s):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">l</span> = 0
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">r</span> = <span style="color: #c678dd;">len</span>(s)-1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">arr</span> = <span style="color: #c678dd;">list</span>(s)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> l&lt;r:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> l&lt;r <span style="color: #51afef;">and</span> <span style="color: #51afef;">not</span> isVowel(arr[l]):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">l</span> += 1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> l&lt;r <span style="color: #51afef;">and</span> <span style="color: #51afef;">not</span> isVowel(arr[r]):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">r</span> -= 1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> l&lt;r:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">arr</span>[<span style="color: #dcaeea;">l</span>], <span style="color: #dcaeea;">arr</span>[r] = arr[r], arr[l]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">l</span> += 1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">r</span> -= 1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(<span style="color: #98be65;">""</span>.join(arr))
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">isVowel</span>(c):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> c <span style="color: #51afef;">in</span> <span style="color: #98be65;">"aeiou"</span>
+ 
+ 
+main()
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org793efb7" class="outline-3">
+<h3 id="org793efb7"><span class="section-number-3">2.7.</span> Rotating an array</h3>
+<div class="outline-text-3" id="text-2-7">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   stream_alignment([1,2,3,4,5,6, 7], 10)
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">stream_alignment</span>(arr, k):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">k</span> = k%<span style="color: #c678dd;">len</span>(arr)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">[print(x, end=" ") for x in arr[-k:] + arr[:-k]]
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(*arr[-k:] + arr[:-k])
+ 
+main()
+
+
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">5 6 7 1 2 3 4
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org578ed9e" class="outline-2">
+<h2 id="org578ed9e"><span class="section-number-2">3.</span> What are Data Structures</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org5bde53f" class="outline-3">
+<h3 id="org5bde53f"><span class="section-number-3">3.1.</span> Why do you need Data Structures?</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>You choose a structure, based on what <b>operation</b> you want to do on it, and what
 it takes to do that operation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge3028f4" class="outline-3">
-<h3 id="orge3028f4"><span class="section-number-3">2.2.</span> Primitive vs Non-Primitive</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org7ba32b7" class="outline-3">
+<h3 id="org7ba32b7"><span class="section-number-3">3.2.</span> Primitive vs Non-Primitive</h3>
+<div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Primitive data types are baked into the language itself.</li>
 <li>Non-Primitive datatypes are more complex ways to store and access data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b13526" class="outline-3">
-<h3 id="org9b13526"><span class="section-number-3">2.3.</span> Abstract Data Types</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org045243f" class="outline-3">
+<h3 id="org045243f"><span class="section-number-3">3.3.</span> Abstract Data Types</h3>
+<div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>You define behaviour but hide implementation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbcf029b" class="outline-3">
-<h3 id="orgbcf029b"><span class="section-number-3">2.4.</span> Auxillary Space</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-org753fd7c" class="outline-3">
+<h3 id="org753fd7c"><span class="section-number-3">3.4.</span> Auxillary Space</h3>
+<div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Additional space temporarily needed to manipulate data in a data structure.</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf1811aa" class="outline-2">
-<h2 id="orgf1811aa"><span class="section-number-2">3.</span> Algorithm</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgc872c49" class="outline-2">
+<h2 id="orgc872c49"><span class="section-number-2">4.</span> Algorithm</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org8b50d2a" class="outline-3">
-<h3 id="org8b50d2a"><span class="section-number-3">3.1.</span> What an Algorithm is</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org82c71e2" class="outline-3">
+<h3 id="org82c71e2"><span class="section-number-3">4.1.</span> What an Algorithm is</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 Simply put, an algorithm is a series of steps to solve a problem. But a much more formal definition of the term, would have these key points checked:
 </p>
@@ -1085,9 +1391,9 @@ In turn, an algorithm must definitely solve a problem.
 </p>
 </div>
 </div>
-<div id="outline-container-org1c2bd9f" class="outline-3">
-<h3 id="org1c2bd9f"><span class="section-number-3">3.2.</span> Specification of an Algorithm</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org719fccc" class="outline-3">
+<h3 id="org719fccc"><span class="section-number-3">4.2.</span> Specification of an Algorithm</h3>
+<div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>Name of the Algorithm</li>
 <li>List of inputs/ arguments</li>
@@ -1096,9 +1402,9 @@ In turn, an algorithm must definitely solve a problem.
 </ol>
 </div>
 </div>
-<div id="outline-container-orga491c7c" class="outline-3">
-<h3 id="orga491c7c"><span class="section-number-3">3.3.</span> Correctness of an algorithm</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-org3d684aa" class="outline-3">
+<h3 id="org3d684aa"><span class="section-number-3">4.3.</span> Correctness of an algorithm</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 For a given specification, an algorithm is correct if it
 </p>
@@ -1109,9 +1415,9 @@ For a given specification, an algorithm is correct if it
 </ol>
 </div>
 </div>
-<div id="outline-container-org0371391" class="outline-3">
-<h3 id="org0371391"><span class="section-number-3">3.4.</span> What a pseudocode is</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-org32b6101" class="outline-3">
+<h3 id="org32b6101"><span class="section-number-3">4.4.</span> What a pseudocode is</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
 Algorithms are generally written in plain English, while pseudocodes convey the same sequence of steps using common programming syntax.
 Here are some constructs in pseudocode:
@@ -1152,13 +1458,13 @@ Example 3.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc97988f" class="outline-2">
-<h2 id="orgc97988f"><span class="section-number-2">4.</span> Measure of efficiency</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org308fb7e" class="outline-2">
+<h2 id="org308fb7e"><span class="section-number-2">5.</span> Measure of efficiency</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org35e7240" class="outline-3">
-<h3 id="org35e7240"><span class="section-number-3">4.1.</span> Growth Rate</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org0c94984" class="outline-3">
+<h3 id="org0c94984"><span class="section-number-3">5.1.</span> Growth Rate</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li><b>Runtime-complexity</b> is an abstract measure of power/time required to execute an algorithm. We will revisit this shortly.</li>
 <li>Any sort of real-life parameters would vary across different systems and environments. For example, if a system &rsquo;A&rsquo; sorts 10,000 numbers in 2 seconds, and system &rsquo;B&rsquo; sorts the same 10,000 numbers in 1.5 seconds, you can&rsquo;t conclude that system &rsquo;B&rsquo; is more efficient than system &rsquo;A&rsquo;.</li>
@@ -1176,13 +1482,13 @@ eg. <code>for(int i=0 ; i&lt; *n* ; i++)</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7a4006" class="outline-3">
-<h3 id="orgd7a4006"><span class="section-number-3">4.2.</span> RAM Model of finding Growth rate</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org8722542" class="outline-3">
+<h3 id="org8722542"><span class="section-number-3">5.2.</span> RAM Model of finding Growth rate</h3>
+<div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-org924029c" class="outline-4">
-<h4 id="org924029c"><span class="section-number-4">4.2.1.</span> Definition</h4>
-<div class="outline-text-4" id="text-4-2-1">
+<div id="outline-container-org5435a1a" class="outline-4">
+<h4 id="org5435a1a"><span class="section-number-4">5.2.1.</span> Definition</h4>
+<div class="outline-text-4" id="text-5-2-1">
 <ul class="org-ul">
 <li>The <b>Random Access Machine</b> Model defines the growth rate to be the number of &ldquo;primitive operations/computations&rdquo; needed to solve the algorithm.</li>
 <li>Here are the things which count as a primitive operation:
@@ -1195,9 +1501,9 @@ eg. <code>for(int i=0 ; i&lt; *n* ; i++)</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org238a2c1" class="outline-4">
-<h4 id="org238a2c1"><span class="section-number-4">4.2.2.</span> How to count primitive operations</h4>
-<div class="outline-text-4" id="text-4-2-2">
+<div id="outline-container-org2505928" class="outline-4">
+<h4 id="org2505928"><span class="section-number-4">5.2.2.</span> How to count primitive operations</h4>
+<div class="outline-text-4" id="text-5-2-2">
 <ul class="org-ul">
 <li>One primitive operation is considered one unit time i.e. \( g(n) = 1 \)</li>
 <li>In case of loops, you run through the loops:
@@ -1208,13 +1514,13 @@ eg. <code>for(int i=0 ; i&lt; *n* ; i++)</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org984f958" class="outline-4">
-<h4 id="org984f958"><span class="section-number-4">4.2.3.</span> Examples</h4>
-<div class="outline-text-4" id="text-4-2-3">
+<div id="outline-container-org851e262" class="outline-4">
+<h4 id="org851e262"><span class="section-number-4">5.2.3.</span> Examples</h4>
+<div class="outline-text-4" id="text-5-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgafaca2e"></a>Example 1<br />
-<div class="outline-text-5" id="text-4-2-3-1">
+<li><a id="org3b7258c"></a>Example 1<br />
+<div class="outline-text-5" id="text-5-2-3-1">
 <div class="org-src-container">
 <pre class="src src-txt">S1: curMax ← A[0]
 S2: i← 1
@@ -1303,8 +1609,8 @@ S7: return curmax
 </ul>
 </div>
 </li>
-<li><a id="orgf8036a1"></a>Example 2<br />
-<div class="outline-text-5" id="text-4-2-3-2">
+<li><a id="orgd97603c"></a>Example 2<br />
+<div class="outline-text-5" id="text-5-2-3-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">a</span>=5
@@ -1452,8 +1758,8 @@ Time taken: \(g(n) = 11n^{2} + 4\)
 </p>
 </div>
 </li>
-<li><a id="orge06ec11"></a>Example 3<br />
-<div class="outline-text-5" id="text-4-2-3-3">
+<li><a id="org4ecca6d"></a>Example 3<br />
+<div class="outline-text-5" id="text-5-2-3-3">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">g</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>){
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span>=0; i&lt;n; ++i)
@@ -1536,8 +1842,8 @@ We&rsquo;ll drop the constants because we&rsquo;re only concered about how the r
 </ul>
 </div>
 </li>
-<li><a id="org82c1858"></a>Example 4<br />
-<div class="outline-text-5" id="text-4-2-3-4">
+<li><a id="org0ec519a"></a>Example 4<br />
+<div class="outline-text-5" id="text-5-2-3-4">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #ECBE7B;">function</span> <span style="color: #c678dd;">isPrime</span>(<span style="color: #ECBE7B;">n</span>) {
@@ -1602,8 +1908,8 @@ We&rsquo;ll drop the constants because we&rsquo;re only concered about how the r
 </ul>
 </div>
 </li>
-<li><a id="orge6164b7"></a>Example 5<br />
-<div class="outline-text-5" id="text-4-2-3-5">
+<li><a id="org6b28320"></a>Example 5<br />
+<div class="outline-text-5" id="text-5-2-3-5">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">a</span> = 0, <span style="color: #dcaeea;">i</span> = N;
@@ -1683,8 +1989,8 @@ We&rsquo;ll drop the constants because we&rsquo;re only concered about how the r
 </ul>
 </div>
 </li>
-<li><a id="org8dac57e"></a>Example 6<br />
-<div class="outline-text-5" id="text-4-2-3-6">
+<li><a id="org9f29b33"></a>Example 6<br />
+<div class="outline-text-5" id="text-5-2-3-6">
 <div class="org-src-container">
 <pre class="src src-txt">
 //Determines the value of the largest element in a given array
@@ -1769,16 +2075,16 @@ return maxval
 </ol>
 </div>
 </div>
-<div id="outline-container-orga981e8b" class="outline-3">
-<h3 id="orga981e8b"><span class="section-number-3">4.3.</span> Runtime Complexity</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org71e93a1" class="outline-3">
+<h3 id="org71e93a1"><span class="section-number-3">5.3.</span> Runtime Complexity</h3>
+<div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Runtime-complexity is where we find the set of growth rates for 3 different scenarios:</li>
 </ul>
 </div>
-<div id="outline-container-orge8bd8d7" class="outline-4">
-<h4 id="orge8bd8d7"><span class="section-number-4">4.3.1.</span> The worst case, denoted by O (Big-Oh)</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-orga65801b" class="outline-4">
+<h4 id="orga65801b"><span class="section-number-4">5.3.1.</span> The worst case, denoted by O (Big-Oh)</h4>
+<div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Denoted by \( O(g(n)) \)</li>
 <li>It&rsquo;s a set that contains any multiple of the growth rate of the worst scenario possible, and the growth rates of all the cases better than this.</li>
@@ -1837,9 +2143,9 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b70a69" class="outline-4">
-<h4 id="org0b70a69"><span class="section-number-4">4.3.2.</span> The best case, denoted by &omega; (Big-Omega)</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-org9a1d0e2" class="outline-4">
+<h4 id="org9a1d0e2"><span class="section-number-4">5.3.2.</span> The best case, denoted by &omega; (Big-Omega)</h4>
+<div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Denoted by \( \omega(g(n)) \)</li>
 <li>It&rsquo;s a set that contains any multiple of the growth rate of the best scenario possible, and the growth rates of all the cases worse than this</li>
@@ -1852,26 +2158,26 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb78e476" class="outline-4">
-<h4 id="orgb78e476"><span class="section-number-4">4.3.3.</span> The average case, denoted by &Theta; (Big-theta)</h4>
+<div id="outline-container-org39b719c" class="outline-4">
+<h4 id="org39b719c"><span class="section-number-4">5.3.3.</span> The average case, denoted by &Theta; (Big-theta)</h4>
 </div>
 </div>
-<div id="outline-container-org5c53a5e" class="outline-3">
-<h3 id="org5c53a5e"><span class="section-number-3">4.4.</span> Asymptotic Efficiency</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-orge774248" class="outline-3">
+<h3 id="orge774248"><span class="section-number-3">5.4.</span> Asymptotic Efficiency</h3>
+<div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-org4223d86" class="outline-4">
-<h4 id="org4223d86"><span class="section-number-4">4.4.1.</span> Asymptote</h4>
-<div class="outline-text-4" id="text-4-4-1">
+<div id="outline-container-org3832d44" class="outline-4">
+<h4 id="org3832d44"><span class="section-number-4">5.4.1.</span> Asymptote</h4>
+<div class="outline-text-4" id="text-5-4-1">
 <ul class="org-ul">
 <li>An asymptote is the tangent of a curve as it approaches \(\infty\) . A curve will generally have a fixed behaviour at such large inputs.</li>
 <li>So when we say one growth function is <b>asymptotically more efficient</b> than another, it simply means that <b>its asymptote has a smaller slope.</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1133f99" class="outline-4">
-<h4 id="org1133f99"><span class="section-number-4">4.4.2.</span> Asymptotic efficiency and runtime complexity</h4>
-<div class="outline-text-4" id="text-4-4-2">
+<div id="outline-container-org8fa4af5" class="outline-4">
+<h4 id="org8fa4af5"><span class="section-number-4">5.4.2.</span> Asymptotic efficiency and runtime complexity</h4>
+<div class="outline-text-4" id="text-5-4-2">
 <ul class="org-ul">
 <li>As we&rsquo;ve seen, runtime complexites are sets of growth rates, which consist of one benchmark growth rate (the worst one, the best one, or the average one).</li>
 <li>In case of runtime complexity, the whole point of taking the set of growth rates, was to compare growth rates. Given a growth rate, you try to fit them in a set. This set can be compared with other sets, and hence come to a conclusion on order of growth.</li>
@@ -1880,9 +2186,9 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org4cf9087" class="outline-4">
-<h4 id="org4cf9087"><span class="section-number-4">4.4.3.</span> Asymptotically tight or loose</h4>
-<div class="outline-text-4" id="text-4-4-3">
+<div id="outline-container-org8d3a01b" class="outline-4">
+<h4 id="org8d3a01b"><span class="section-number-4">5.4.3.</span> Asymptotically tight or loose</h4>
+<div class="outline-text-4" id="text-5-4-3">
 <ul class="org-ul">
 <li>When we say some growth rate is in \( O(g(n)) \), it means that the given growth rate is no more than \(g(n)\). So \( O(g(n)) \) is an upper bound.</li>
 <li>Similarly, when we say some growth rate is in \( \omega(g(n)) \), it means that the given growth rate is definitely more than \( g(n) \). So \( \omega(g(n)) \) is a lower bound.</li>
@@ -1891,28 +2197,28 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </div>
-<div id="outline-container-org5bc6a57" class="outline-4">
-<h4 id="org5bc6a57"><span class="section-number-4">4.4.4.</span> Some complexities to keep in mind</h4>
-<div class="outline-text-4" id="text-4-4-4">
+<div id="outline-container-orgff31dc4" class="outline-4">
+<h4 id="orgff31dc4"><span class="section-number-4">5.4.4.</span> Some complexities to keep in mind</h4>
+<div class="outline-text-4" id="text-5-4-4">
 </div>
 <ol class="org-ol">
-<li><a id="org082f1f5"></a>Common growth rates, arranged in order<br />
-<div class="outline-text-5" id="text-4-4-4-1">
+<li><a id="org72dfb14"></a>Common growth rates, arranged in order<br />
+<div class="outline-text-5" id="text-5-4-4-1">
 <p>
 \[ O(1) < O( log(n) ) < O( n^{x} ) < O( x^{n} ) < O( n!) \] for \(1\)&lt;\(x\)&lt;&lt;n
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org19c52d7"></a>Example 1<br />
-<div class="outline-text-6" id="text-4-4-4-1-1">
+<li><a id="org5dcb908"></a>Example 1<br />
+<div class="outline-text-6" id="text-5-4-4-1-1">
 <ul class="org-ul">
 <li>Compare growth rate of \(O(n)\) and \(O(n^{2})  \)</li>
 <li>Answer: \( O(n) \subseteq O(n^{2}) \) because both are in the form \( O(n^{x}) \), but the exponent of the right side is larger than the exponent of the left</li>
 </ul>
 </div>
 </li>
-<li><a id="org64840f7"></a>Example 2<br />
-<div class="outline-text-6" id="text-4-4-4-1-2">
+<li><a id="orgf4694c7"></a>Example 2<br />
+<div class="outline-text-6" id="text-5-4-4-1-2">
 <ul class="org-ul">
 <li>Find the overall growth rate of \( log(n^{10}) + \sqrt{n}\)</li>
 <li>Answer: \(  g(n) = \sqrt{n}  \)</li>
@@ -1920,8 +2226,8 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </li>
-<li><a id="orge39889b"></a>Example 3<br />
-<div class="outline-text-6" id="text-4-4-4-1-3">
+<li><a id="org6708363"></a>Example 3<br />
+<div class="outline-text-6" id="text-5-4-4-1-3">
 <ul class="org-ul">
 <li>Compare growth rates of \(nlog(n)\) and \( \sqrt{n} \)</li>
 <li>Answer: \( nlog(n) \subseteq \omega(\sqrt{n}) \)</li>
@@ -1932,8 +2238,8 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </li>
 </ol>
 </li>
-<li><a id="org355d1a7"></a>Stirling&rsquo;s approximation of n!<br />
-<div class="outline-text-5" id="text-4-4-4-2">
+<li><a id="org2e271ca"></a>Stirling&rsquo;s approximation of n!<br />
+<div class="outline-text-5" id="text-5-4-4-2">
 <ul class="org-ul">
 <li>\( n! \approx \sqrt{2 \pi n} * (\frac{n}{e})^{n} \), at very large values of n.</li>
 <li>On taking log on both sides, \( log(n!) \approx log(\sqrt{2 \pi n} * (\frac{n}{e})^{n} ) \)</li>
@@ -1941,8 +2247,8 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </ul>
 </div>
 </li>
-<li><a id="org95ea04c"></a>Growth rates of Logarithmic functions don&rsquo;t depend on base<br />
-<div class="outline-text-5" id="text-4-4-4-3">
+<li><a id="org5b0ef15"></a>Growth rates of Logarithmic functions don&rsquo;t depend on base<br />
+<div class="outline-text-5" id="text-5-4-4-3">
 <ul class="org-ul">
 <li>For instance, \( log_{2}(n) \) and \( log_{8}(n) \), are pretty much the same in terms of complexity.</li>
 </ul>
@@ -1952,13 +2258,13 @@ At very large values of \(n\) , \(g(n)\) pretty much converges with \(f1(n)\).
 </div>
 </div>
 </div>
-<div id="outline-container-org5718b1d" class="outline-2">
-<h2 id="org5718b1d"><span class="section-number-2">5.</span> How to find/prove a function&rsquo;s runtime complexity</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org56cc1ae" class="outline-2">
+<h2 id="org56cc1ae"><span class="section-number-2">6.</span> How to find/prove a function&rsquo;s runtime complexity</h2>
+<div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgc7fa0c1" class="outline-3">
-<h3 id="orgc7fa0c1"><span class="section-number-3">5.1.</span> Prove it&rsquo;s relation with any multiple of the growth rate</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org2452e49" class="outline-3">
+<h3 id="org2452e49"><span class="section-number-3">6.1.</span> Prove it&rsquo;s relation with any multiple of the growth rate</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 A function \(t(n)\) is said to be in \(O(g(n))\) , if \( t(n) \leq c*g(n)\) for all \(n \geq n_{0}\).
    So if you can somehow find a value for \(c\) and \(n_{0}\) satisfying this condition, you can prove a function&rsquo;s runtime complexity.
@@ -1974,9 +2280,9 @@ A function \(t(n)\) is said to be in \(O(g(n))\) , if \( t(n) \leq c*g(n)\) for 
 </ul>
 </div>
 </div>
-<div id="outline-container-org9de204f" class="outline-3">
-<h3 id="org9de204f"><span class="section-number-3">5.2.</span> Contradiction</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-orgc71f1a0" class="outline-3">
+<h3 id="orgc71f1a0"><span class="section-number-3">6.2.</span> Contradiction</h3>
+<div class="outline-text-3" id="text-6-2">
 <p>
 Example: Prove that \( n^{2} \) is not in \( O(n) \).
 </p>
@@ -1989,25 +2295,25 @@ Example: Prove that \( n^{2} \) is not in \( O(n) \).
 </ul>
 </div>
 </div>
-<div id="outline-container-org01f249a" class="outline-3">
-<h3 id="org01f249a"><span class="section-number-3">5.3.</span> Comparing Orders of Growth using Limits</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-org1791ed2" class="outline-3">
+<h3 id="org1791ed2"><span class="section-number-3">6.3.</span> Comparing Orders of Growth using Limits</h3>
+<div class="outline-text-3" id="text-6-3">
 </div>
-<div id="outline-container-org408e728" class="outline-4">
-<h4 id="org408e728"><span class="section-number-4">5.3.1.</span> Principal Cases</h4>
-<div class="outline-text-4" id="text-5-3-1">
+<div id="outline-container-org4bc7344" class="outline-4">
+<h4 id="org4bc7344"><span class="section-number-4">6.3.1.</span> Principal Cases</h4>
+<div class="outline-text-4" id="text-6-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgd348f46"></a>\(o(g(n))\)<br />
-<div class="outline-text-5" id="text-5-3-1-1">
+<li><a id="org344f9da"></a>\(o(g(n))\)<br />
+<div class="outline-text-5" id="text-6-3-1-1">
 <ul class="org-ul">
 <li>\( \lim_{n\to\infty} \frac{t(n)}{g(n)}  =  0\) &rArr; \(t(n)\) has a significantly smaller growth rate than \(g(n)\)</li>
 <li>\(t(n) \) is <b>asymptotically negligible</b> when compared to \(g(n)\)</li>
 </ul>
 </div>
 </li>
-<li><a id="org18384cd"></a>\(\theta(g(n))\)<br />
-<div class="outline-text-5" id="text-5-3-1-2">
+<li><a id="org4a51d5e"></a>\(\theta(g(n))\)<br />
+<div class="outline-text-5" id="text-6-3-1-2">
 <ul class="org-ul">
 <li>\( \lim_{n\to\infty} \frac{t(n)}{g(n)}  =  c\) , where \(0<c<\infty\)&rArr; \(t(n)\) has a growth rate equal to \(g(n)\)</li>
 <li>\(t(n) \) is an <b>asymptotically tight bound</b> when compared to \(g(n)\) as
@@ -2016,16 +2322,16 @@ thing is very tightly packed.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3c77856"></a>\(\omega(g(n))\)<br />
-<div class="outline-text-5" id="text-5-3-1-3">
+<li><a id="org907450e"></a>\(\omega(g(n))\)<br />
+<div class="outline-text-5" id="text-6-3-1-3">
 <ul class="org-ul">
 <li>\( \lim_{n\to\infty} \frac{t(n)}{g(n)}  =  \infty\) &rArr; \(t(n)\) has a larger growth rate than \(g(n)\)</li>
 <li>\(t(n) \) is <b>asymptotically dominant</b> when compared to \(g(n)\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgdf630f3"></a>\(O(g(n))\)<br />
-<div class="outline-text-5" id="text-5-3-1-4">
+<li><a id="orgbfb2a19"></a>\(O(g(n))\)<br />
+<div class="outline-text-5" id="text-6-3-1-4">
 <ul class="org-ul">
 <li>\( \lim_{n\to\infty} \frac{t(n)}{g(n)} < \infty\) &rArr; \(t(n)\) has a
 growth rate close to (but smaller than) a multiple of \(g(n)\).</li>
@@ -2033,8 +2339,8 @@ growth rate close to (but smaller than) a multiple of \(g(n)\).</li>
 </ul>
 </div>
 </li>
-<li><a id="org26f64be"></a>\(\Omega(g(n))\)<br />
-<div class="outline-text-5" id="text-5-3-1-5">
+<li><a id="orgafa7e3b"></a>\(\Omega(g(n))\)<br />
+<div class="outline-text-5" id="text-6-3-1-5">
 <ul class="org-ul">
 <li>\( \lim_{n\to\infty} \frac{t(n)}{g(n)} > 0\) &rArr; \(t(n)\) has a
 growth rate close to (but larger than) a multiple of \(g(n)\).</li>
@@ -2044,9 +2350,9 @@ growth rate close to (but larger than) a multiple of \(g(n)\).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org6718d00" class="outline-4">
-<h4 id="org6718d00"><span class="section-number-4">5.3.2.</span> Explanation</h4>
-<div class="outline-text-4" id="text-5-3-2">
+<div id="outline-container-org09c3bac" class="outline-4">
+<h4 id="org09c3bac"><span class="section-number-4">6.3.2.</span> Explanation</h4>
+<div class="outline-text-4" id="text-6-3-2">
 <ul class="org-ul">
 <li>\(o(g(n))\) and \(\omega(g(n))\) make complete sense because it&rsquo;s either 0 or
 \(infty\). But \(Omega(g(n))\), \(O(g(n))\) and \(\theta(g(n)) \) all
@@ -2057,9 +2363,9 @@ the vice-versa is never true.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff72743" class="outline-4">
-<h4 id="orgff72743"><span class="section-number-4">5.3.3.</span> How to use this</h4>
-<div class="outline-text-4" id="text-5-3-3">
+<div id="outline-container-org087faf2" class="outline-4">
+<h4 id="org087faf2"><span class="section-number-4">6.3.3.</span> How to use this</h4>
+<div class="outline-text-4" id="text-6-3-3">
 <ul class="org-ul">
 <li>Firstly, this means you can use L&rsquo;Hopital&rsquo;s Rule:
 \( \lim_{x\to\infty } \frac{t(n)}{g(n)} =   \lim_{x\to\infty } \frac{t'(n)}{g'(n)}  \)
@@ -2069,9 +2375,9 @@ You do use this if \( \lim_{x\to\infty}   \frac{t(n)}{g(n)} = \frac{\infty}{\inf
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2d7282" class="outline-2">
-<h2 id="orgb2d7282"><span class="section-number-2">6.</span> Recurrence Relations</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org6e5c83a" class="outline-2">
+<h2 id="org6e5c83a"><span class="section-number-2">7.</span> Recurrence Relations</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>They are mathematical functions which define a sequence in terms of its own previous terms.</li>
 <li>In an algorithm, this would be a sequence of the sum of primitive operations.</li>
@@ -2079,9 +2385,9 @@ You do use this if \( \lim_{x\to\infty}   \frac{t(n)}{g(n)} = \frac{\infty}{\inf
 <li>Solving this sum would lead us to our ultimate growth rate, from which we can find the runtime complexity. Consider this example.</li>
 </ul>
 </div>
-<div id="outline-container-orgf129281" class="outline-3">
-<h3 id="orgf129281"><span class="section-number-3">6.1.</span> What you&rsquo;re actually doing</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-org2fbbe2b" class="outline-3">
+<h3 id="org2fbbe2b"><span class="section-number-3">7.1.</span> What you&rsquo;re actually doing</h3>
+<div class="outline-text-3" id="text-7-1">
 <p>
 Consider this example:
 </p>
@@ -2139,9 +2445,9 @@ and on repeating this for \(k\) terms, you get:
 </ul>
 </div>
 </div>
-<div id="outline-container-org5146d0d" class="outline-3">
-<h3 id="org5146d0d"><span class="section-number-3">6.2.</span> Recurrence relations with two recursive terms</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-orgf1a5044" class="outline-3">
+<h3 id="orgf1a5044"><span class="section-number-3">7.2.</span> Recurrence relations with two recursive terms</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
 There are recurrence relations which show order of growth of programs with more than one recursive calls too,
 </p>
@@ -2191,9 +2497,9 @@ This belongs to a runtime complexity of \(O(2^{n})\)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3a41d8e" class="outline-3">
-<h3 id="org3a41d8e"><span class="section-number-3">6.3.</span> Solving a Recurrence relation using Stirling&rsquo;s Approximation</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-org595cb28" class="outline-3">
+<h3 id="org595cb28"><span class="section-number-3">7.3.</span> Solving a Recurrence relation using Stirling&rsquo;s Approximation</h3>
+<div class="outline-text-3" id="text-7-3">
 <p>
 \[   T(n) = T(n-1) + log(n) \]
 </p>
@@ -2220,9 +2526,9 @@ Hence the order of growth is \(O(nlog(n))\)
 </p>
 </div>
 </div>
-<div id="outline-container-orgf757e86" class="outline-3">
-<h3 id="orgf757e86"><span class="section-number-3">6.4.</span> Dividing functions</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-orgb87cd29" class="outline-3">
+<h3 id="orgb87cd29"><span class="section-number-3">7.4.</span> Dividing functions</h3>
+<div class="outline-text-3" id="text-7-4">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">function</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>){
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(n==1) <span style="color: #51afef;">return</span> n;                    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">non recursive part
@@ -2236,16 +2542,16 @@ Hence the order of growth is \(O(nlog(n))\)
 </p>
 </div>
 </div>
-<div id="outline-container-orgc5b5b68" class="outline-3">
-<h3 id="orgc5b5b68"><span class="section-number-3">6.5.</span> Master&rsquo;s Theorem</h3>
-<div class="outline-text-3" id="text-6-5">
+<div id="outline-container-org0727e24" class="outline-3">
+<h3 id="org0727e24"><span class="section-number-3">7.5.</span> Master&rsquo;s Theorem</h3>
+<div class="outline-text-3" id="text-7-5">
 <p>
 This theorem directly gets you to the runtime complexity, given the recurrence relation
 </p>
 </div>
-<div id="outline-container-org65a4b57" class="outline-4">
-<h4 id="org65a4b57"><span class="section-number-4">6.5.1.</span> For Decreasing Functions</h4>
-<div class="outline-text-4" id="text-6-5-1">
+<div id="outline-container-org05a13dc" class="outline-4">
+<h4 id="org05a13dc"><span class="section-number-4">7.5.1.</span> For Decreasing Functions</h4>
+<div class="outline-text-4" id="text-7-5-1">
 <p>
 For a recurrence relation
 \[ T(n) = aT(n-b) + f(n)  \]
@@ -2262,9 +2568,9 @@ You check the values of \(a\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgec44d7b" class="outline-4">
-<h4 id="orgec44d7b"><span class="section-number-4">6.5.2.</span> For Dividing Functions</h4>
-<div class="outline-text-4" id="text-6-5-2">
+<div id="outline-container-org243c68b" class="outline-4">
+<h4 id="org243c68b"><span class="section-number-4">7.5.2.</span> For Dividing Functions</h4>
+<div class="outline-text-4" id="text-7-5-2">
 <p>
 For a recurrence relation
 \[ T(n) = aT(\frac{n}{b}) + f(n) \]
@@ -2298,13 +2604,13 @@ In the denominator of \(f(n)\) there&rsquo;s a logarithmic term with an exponent
 </div>
 </div>
 </div>
-<div id="outline-container-orgd10fdf1" class="outline-2">
-<h2 id="orgd10fdf1"><span class="section-number-2">7.</span> Snippets of Code that&rsquo;ll help later on</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgcc806f3" class="outline-2">
+<h2 id="orgcc806f3"><span class="section-number-2">8.</span> Snippets of Code that&rsquo;ll help later on</h2>
+<div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org973f9fc" class="outline-3">
-<h3 id="org973f9fc"><span class="section-number-3">7.1.</span> Finding the sum of the digits of a number</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-org85c4b41" class="outline-3">
+<h3 id="org85c4b41"><span class="section-number-3">8.1.</span> Finding the sum of the digits of a number</h3>
+<div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">sum</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>){
@@ -2322,9 +2628,9 @@ In the denominator of \(f(n)\) there&rsquo;s a logarithmic term with an exponent
 </div>
 </div>
 </div>
-<div id="outline-container-org72630f9" class="outline-3">
-<h3 id="org72630f9"><span class="section-number-3">7.2.</span> Finding the sum of the digits of a number (recursive version)</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-org07b2094" class="outline-3">
+<h3 id="org07b2094"><span class="section-number-3">8.2.</span> Finding the sum of the digits of a number (recursive version)</h3>
+<div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">sum</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>){
@@ -2344,17 +2650,17 @@ In the denominator of \(f(n)\) there&rsquo;s a logarithmic term with an exponent
 </div>
 </div>
 </div>
-<div id="outline-container-org8a46960" class="outline-2">
-<h2 id="org8a46960"><span class="section-number-2">8.</span> Understanding Arrays</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org3465724" class="outline-2">
+<h2 id="org3465724"><span class="section-number-2">9.</span> Understanding Arrays</h2>
+<div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Arrays are a data structure used to store a sequence of data, in contiguous
 memory locations.</li>
 </ul>
 </div>
-<div id="outline-container-orgf5f3046" class="outline-3">
-<h3 id="orgf5f3046"><span class="section-number-3">8.1.</span> Memory Allocation</h3>
-<div class="outline-text-3" id="text-8-1">
+<div id="outline-container-org725d245" class="outline-3">
+<h3 id="org725d245"><span class="section-number-3">9.1.</span> Memory Allocation</h3>
+<div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>There are two types of memory allocations: static and dynamic. Static memory
 allocations happen at compile time, while dynamic memory allocations happen at
@@ -2365,9 +2671,9 @@ allocated.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6447eaf" class="outline-3">
-<h3 id="org6447eaf"><span class="section-number-3">8.2.</span> 1D</h3>
-<div class="outline-text-3" id="text-8-2">
+<div id="outline-container-org251907f" class="outline-3">
+<h3 id="org251907f"><span class="section-number-3">9.2.</span> 1D</h3>
+<div class="outline-text-3" id="text-9-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -2455,9 +2761,9 @@ Address of A[i] = (Base Address of A) + i * size
 </p>
 </div>
 </div>
-<div id="outline-container-org7d7e6d3" class="outline-3">
-<h3 id="org7d7e6d3"><span class="section-number-3">8.3.</span> 2D</h3>
-<div class="outline-text-3" id="text-8-3">
+<div id="outline-container-org53cb6c8" class="outline-3">
+<h3 id="org53cb6c8"><span class="section-number-3">9.3.</span> 2D</h3>
+<div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li><p>
 This is how an array A[m][n] looks: (numbering has been done differently
@@ -2621,13 +2927,13 @@ And this is how it&rsquo;s stored in memory: (row-major form)
 </div>
 </div>
 </div>
-<div id="outline-container-orga4ad7ec" class="outline-2">
-<h2 id="orga4ad7ec"><span class="section-number-2">9.</span> Basic Array Operations</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-org3631138" class="outline-2">
+<h2 id="org3631138"><span class="section-number-2">10.</span> Basic Array Operations</h2>
+<div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org660da64" class="outline-3">
-<h3 id="org660da64"><span class="section-number-3">9.1.</span> Finding the largest Element</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-org844ec54" class="outline-3">
+<h3 id="org844ec54"><span class="section-number-3">10.1.</span> Finding the largest Element</h3>
+<div class="outline-text-3" id="text-10-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">largest</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>){
@@ -2649,9 +2955,9 @@ And this is how it&rsquo;s stored in memory: (row-major form)
 </div>
 </div>
 </div>
-<div id="outline-container-org2ede822" class="outline-3">
-<h3 id="org2ede822"><span class="section-number-3">9.2.</span> Inserting an Element</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-org516863a" class="outline-3">
+<h3 id="org516863a"><span class="section-number-3">10.2.</span> Inserting an Element</h3>
+<div class="outline-text-3" id="text-10-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">insert</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">pos</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">key</span>){
@@ -2673,9 +2979,9 @@ And this is how it&rsquo;s stored in memory: (row-major form)
 </div>
 </div>
 </div>
-<div id="outline-container-orgd56298f" class="outline-3">
-<h3 id="orgd56298f"><span class="section-number-3">9.3.</span> Deleting an Element</h3>
-<div class="outline-text-3" id="text-9-3">
+<div id="outline-container-org5af695e" class="outline-3">
+<h3 id="org5af695e"><span class="section-number-3">10.3.</span> Deleting an Element</h3>
+<div class="outline-text-3" id="text-10-3">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">delete</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">pos</span>){
@@ -2696,9 +3002,9 @@ And this is how it&rsquo;s stored in memory: (row-major form)
 </div>
 </div>
 </div>
-<div id="outline-container-orge9e2369" class="outline-3">
-<h3 id="orge9e2369"><span class="section-number-3">9.4.</span> Linear Search</h3>
-<div class="outline-text-3" id="text-9-4">
+<div id="outline-container-orga6528b1" class="outline-3">
+<h3 id="orga6528b1"><span class="section-number-3">10.4.</span> Linear Search</h3>
+<div class="outline-text-3" id="text-10-4">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">linearSearch</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">key</span>){
@@ -2727,9 +3033,9 @@ two-pointers.
 </p>
 </div>
 </div>
-<div id="outline-container-org1264761" class="outline-3">
-<h3 id="org1264761"><span class="section-number-3">9.5.</span> Traversing Through an Array Recursively</h3>
-<div class="outline-text-3" id="text-9-5">
+<div id="outline-container-orgef0289b" class="outline-3">
+<h3 id="orgef0289b"><span class="section-number-3">10.5.</span> Traversing Through an Array Recursively</h3>
+<div class="outline-text-3" id="text-10-5">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
@@ -2761,9 +3067,9 @@ later.
 </p>
 </div>
 </div>
-<div id="outline-container-org8f56618" class="outline-3">
-<h3 id="org8f56618"><span class="section-number-3">9.6.</span> Largest element recursive</h3>
-<div class="outline-text-3" id="text-9-6">
+<div id="outline-container-org909c566" class="outline-3">
+<h3 id="org909c566"><span class="section-number-3">10.6.</span> Largest element recursive</h3>
+<div class="outline-text-3" id="text-10-6">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">lang</span>.<span style="color: #ECBE7B;">Math</span>;
@@ -2787,13 +3093,13 @@ later.
 </div>
 </div>
 </div>
-<div id="outline-container-org497a2c1" class="outline-3">
-<h3 id="org497a2c1"><span class="section-number-3">9.7.</span> Two Pointer Technique/ Sliding Window</h3>
-<div class="outline-text-3" id="text-9-7">
+<div id="outline-container-orge665205" class="outline-3">
+<h3 id="orge665205"><span class="section-number-3">10.7.</span> Two Pointer Technique/ Sliding Window</h3>
+<div class="outline-text-3" id="text-10-7">
 </div>
-<div id="outline-container-org1089a12" class="outline-4">
-<h4 id="org1089a12"><span class="section-number-4">9.7.1.</span> Maximum Sum of &rsquo;K&rsquo; sized subarray</h4>
-<div class="outline-text-4" id="text-9-7-1">
+<div id="outline-container-orga4e4e68" class="outline-4">
+<h4 id="orga4e4e68"><span class="section-number-4">10.7.1.</span> Maximum Sum of &rsquo;K&rsquo; sized subarray</h4>
+<div class="outline-text-4" id="text-10-7-1">
 <ul class="org-ul">
 <li>Given a target <code>sum</code>, we&rsquo;re supposed to find the maximum sum you can get by
 taking &rsquo;k&rsquo; consecutive elements of an array.</li>
@@ -2826,9 +3132,9 @@ taking &rsquo;k&rsquo; consecutive elements of an array.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7acba9f" class="outline-4">
-<h4 id="org7acba9f"><span class="section-number-4">9.7.2.</span> Target Sum from a Pair of Numbers in a sorted array</h4>
-<div class="outline-text-4" id="text-9-7-2">
+<div id="outline-container-orgc56a921" class="outline-4">
+<h4 id="orgc56a921"><span class="section-number-4">10.7.2.</span> Target Sum from a Pair of Numbers in a sorted array</h4>
+<div class="outline-text-4" id="text-10-7-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -2859,9 +3165,9 @@ taking &rsquo;k&rsquo; consecutive elements of an array.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd9d011c" class="outline-4">
-<h4 id="orgd9d011c"><span class="section-number-4">9.7.3.</span> Count the number of subarrays with sum &lt;= k</h4>
-<div class="outline-text-4" id="text-9-7-3">
+<div id="outline-container-org7f00628" class="outline-4">
+<h4 id="org7f00628"><span class="section-number-4">10.7.3.</span> Count the number of subarrays with sum &lt;= k</h4>
+<div class="outline-text-4" id="text-10-7-3">
 <ul class="org-ul">
 <li>Here the window size is variable.</li>
 <li>When you want to increase the size of the window (which is what we want to),
@@ -2903,9 +3209,9 @@ you <code>sum&lt;=k</code>. All subarrays ending at <code>r</code> will also mea
 </div>
 </div>
 </div>
-<div id="outline-container-org8d0ae7e" class="outline-3">
-<h3 id="org8d0ae7e"><span class="section-number-3">9.8.</span> Prefix Sum</h3>
-<div class="outline-text-3" id="text-9-8">
+<div id="outline-container-org92a8062" class="outline-3">
+<h3 id="org92a8062"><span class="section-number-3">10.8.</span> Prefix Sum</h3>
+<div class="outline-text-3" id="text-10-8">
 <ul class="org-ul">
 <li>A prefix array is an array with cumulative summation.</li>
 <li><p>
@@ -3123,9 +3429,9 @@ For example, subarray sum from index 1 to 3:
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgb916c50" class="outline-4">
-<h4 id="orgb916c50"><span class="section-number-4">9.8.1.</span> Count the number of subarrays with sum&lt;=k, but negative numbers exist</h4>
-<div class="outline-text-4" id="text-9-8-1">
+<div id="outline-container-org60b8680" class="outline-4">
+<h4 id="org60b8680"><span class="section-number-4">10.8.1.</span> Count the number of subarrays with sum&lt;=k, but negative numbers exist</h4>
+<div class="outline-text-4" id="text-10-8-1">
 <ul class="org-ul">
 <li>sum &lt;= k</li>
 <li><code>prefix[j] - prefix[i-1]</code> &lt;= k</li>
@@ -3142,9 +3448,9 @@ For example, subarray sum from index 1 to 3:
 </div>
 </div>
 </div>
-<div id="outline-container-org913b7b3" class="outline-4">
-<h4 id="org913b7b3"><span class="section-number-4">9.8.2.</span> Count the number of subarrays with sum==k</h4>
-<div class="outline-text-4" id="text-9-8-2">
+<div id="outline-container-orgbc85d6d" class="outline-4">
+<h4 id="orgbc85d6d"><span class="section-number-4">10.8.2.</span> Count the number of subarrays with sum==k</h4>
+<div class="outline-text-4" id="text-10-8-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">Map</span>;
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">HashMap</span>;
@@ -3184,9 +3490,9 @@ For example, subarray sum from index 1 to 3:
 </div>
 </div>
 </div>
-<div id="outline-container-org7ef881b" class="outline-4">
-<h4 id="org7ef881b"><span class="section-number-4">9.8.3.</span> Binary Search</h4>
-<div class="outline-text-4" id="text-9-8-3">
+<div id="outline-container-orgd92c917" class="outline-4">
+<h4 id="orgd92c917"><span class="section-number-4">10.8.3.</span> Binary Search</h4>
+<div class="outline-text-4" id="text-10-8-3">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">binarySearch</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">key</span>){
@@ -3224,13 +3530,13 @@ For example, subarray sum from index 1 to 3:
 </div>
 </div>
 </div>
-<div id="outline-container-org45488e4" class="outline-2">
-<h2 id="org45488e4"><span class="section-number-2">10.</span> Characteristics of Sorting Algorithms</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-orgdd166e2" class="outline-2">
+<h2 id="orgdd166e2"><span class="section-number-2">11.</span> Characteristics of Sorting Algorithms</h2>
+<div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-org563c1c9" class="outline-3">
-<h3 id="org563c1c9"><span class="section-number-3">10.1.</span> Stable</h3>
-<div class="outline-text-3" id="text-10-1">
+<div id="outline-container-orgbbbe9bd" class="outline-3">
+<h3 id="orgbbbe9bd"><span class="section-number-3">11.1.</span> Stable</h3>
+<div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li>Preserves the relative ordering of elements with equal values</li>
 <li>For example
@@ -3242,9 +3548,9 @@ For example, subarray sum from index 1 to 3:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf0585f7" class="outline-3">
-<h3 id="orgf0585f7"><span class="section-number-3">10.2.</span> In-place</h3>
-<div class="outline-text-3" id="text-10-2">
+<div id="outline-container-orgea52a60" class="outline-3">
+<h3 id="orgea52a60"><span class="section-number-3">11.2.</span> In-place</h3>
+<div class="outline-text-3" id="text-11-2">
 <ul class="org-ul">
 <li>All the operations are done in the space allocated to the original array</li>
 <li>In other words, no additional arrays are used for sorting</li>
@@ -3252,21 +3558,21 @@ For example, subarray sum from index 1 to 3:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc6ddcbf" class="outline-2">
-<h2 id="orgc6ddcbf"><span class="section-number-2">11.</span> Sorting Algorithms</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org34f34b0" class="outline-2">
+<h2 id="org34f34b0"><span class="section-number-2">12.</span> Sorting Algorithms</h2>
+<div class="outline-text-2" id="text-12">
 </div>
-<div id="outline-container-org0524bab" class="outline-3">
-<h3 id="org0524bab"><span class="section-number-3">11.1.</span> Basic Sorting Algorithms</h3>
-<div class="outline-text-3" id="text-11-1">
+<div id="outline-container-org78bd0e0" class="outline-3">
+<h3 id="org78bd0e0"><span class="section-number-3">12.1.</span> Basic Sorting Algorithms</h3>
+<div class="outline-text-3" id="text-12-1">
 </div>
-<div id="outline-container-org4e8dee1" class="outline-4">
-<h4 id="org4e8dee1"><span class="section-number-4">11.1.1.</span> Bubble Sort</h4>
-<div class="outline-text-4" id="text-11-1-1">
+<div id="outline-container-org1a5e398" class="outline-4">
+<h4 id="org1a5e398"><span class="section-number-4">12.1.1.</span> Bubble Sort</h4>
+<div class="outline-text-4" id="text-12-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgea7f1de"></a>Code<br />
-<div class="outline-text-5" id="text-11-1-1-1">
+<li><a id="org9dc9352"></a>Code<br />
+<div class="outline-text-5" id="text-12-1-1-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">bubbleSort</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>){
@@ -3292,8 +3598,8 @@ For example, subarray sum from index 1 to 3:
 </div>
 </div>
 </li>
-<li><a id="org19e287d"></a>Worst Case Complexity<br />
-<div class="outline-text-5" id="text-11-1-1-2">
+<li><a id="org3228397"></a>Worst Case Complexity<br />
+<div class="outline-text-5" id="text-12-1-1-2">
 <p>
 Take the worst case scenario: x = [50, 40, 30 , 20, 10]
 </p>
@@ -3463,8 +3769,8 @@ Primitive Operation =
 </ul>
 </div>
 </li>
-<li><a id="org327d774"></a>Best Case Complexity<br />
-<div class="outline-text-5" id="text-11-1-1-3">
+<li><a id="org1fa07f4"></a>Best Case Complexity<br />
+<div class="outline-text-5" id="text-12-1-1-3">
 <p>
 The best case should occur when you already have a sorted array x = [10, 20, 30, 40, 50]
 </p>
@@ -3530,8 +3836,8 @@ The best case should occur when you already have a sorted array x = [10, 20, 30,
 </ul>
 </div>
 </li>
-<li><a id="org8a76aa0"></a>Properties<br />
-<div class="outline-text-5" id="text-11-1-1-4">
+<li><a id="org2db9b83"></a>Properties<br />
+<div class="outline-text-5" id="text-12-1-1-4">
 <ul class="org-ul">
 <li>Bubble Sort is <b>stable</b>.</li>
 <li>At the end of pass number \(i\), you get the \(i^{th}\) largest number of the array, at the \(i^{th} \) position from the end</li>
@@ -3543,13 +3849,13 @@ The best case should occur when you already have a sorted array x = [10, 20, 30,
 </li>
 </ol>
 </div>
-<div id="outline-container-org2461abf" class="outline-4">
-<h4 id="org2461abf"><span class="section-number-4">11.1.2.</span> Selection Sort</h4>
-<div class="outline-text-4" id="text-11-1-2">
+<div id="outline-container-org78cf535" class="outline-4">
+<h4 id="org78cf535"><span class="section-number-4">12.1.2.</span> Selection Sort</h4>
+<div class="outline-text-4" id="text-12-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgb7c2c7b"></a>Code<br />
-<div class="outline-text-5" id="text-11-1-2-1">
+<li><a id="orgd48c8fe"></a>Code<br />
+<div class="outline-text-5" id="text-12-1-2-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">selectionSort</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>) {
@@ -3580,8 +3886,8 @@ The best case should occur when you already have a sorted array x = [10, 20, 30,
 </div>
 </div>
 </li>
-<li><a id="org3ecda47"></a>Worst Case Complexity<br />
-<div class="outline-text-5" id="text-11-1-2-2">
+<li><a id="orgf3c5150"></a>Worst Case Complexity<br />
+<div class="outline-text-5" id="text-12-1-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3759,8 +4065,8 @@ Comparing value of an array with minimum
 </ul>
 </div>
 </li>
-<li><a id="org51bf0a9"></a>Best Case Complexity<br />
-<div class="outline-text-5" id="text-11-1-2-3">
+<li><a id="org22073e8"></a>Best Case Complexity<br />
+<div class="outline-text-5" id="text-12-1-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3911,8 +4217,8 @@ Comparing value of an array with minimum
 </ul>
 </div>
 </li>
-<li><a id="org2788155"></a>Properties<br />
-<div class="outline-text-5" id="text-11-1-2-4">
+<li><a id="org7104a9f"></a>Properties<br />
+<div class="outline-text-5" id="text-12-1-2-4">
 <ul class="org-ul">
 <li>Selection sort uses only 1 swap per pass, so the number of swaps is minimized.</li>
 <li>Selection sort is <b>unstable</b>.</li>
@@ -3922,9 +4228,9 @@ Comparing value of an array with minimum
 </li>
 </ol>
 </div>
-<div id="outline-container-org13dd373" class="outline-4">
-<h4 id="org13dd373"><span class="section-number-4">11.1.3.</span> Insertion Sort</h4>
-<div class="outline-text-4" id="text-11-1-3">
+<div id="outline-container-orgc7f6e54" class="outline-4">
+<h4 id="orgc7f6e54"><span class="section-number-4">12.1.3.</span> Insertion Sort</h4>
+<div class="outline-text-4" id="text-12-1-3">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">insertionSort</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>){
@@ -3954,22 +4260,22 @@ Comparing value of an array with minimum
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org2e53642"></a>Best Case<br />
-<div class="outline-text-5" id="text-11-1-3-1">
+<li><a id="org3e4871d"></a>Best Case<br />
+<div class="outline-text-5" id="text-12-1-3-1">
 <p>
 \(O(n)\), as if the array is already sorted, then we won&rsquo;t even enter the inner loop (<code>x[j]&gt;temp</code> will be false)
 </p>
 </div>
 </li>
-<li><a id="org2d75b2a"></a>Worst Case<br />
-<div class="outline-text-5" id="text-11-1-3-2">
+<li><a id="orga584093"></a>Worst Case<br />
+<div class="outline-text-5" id="text-12-1-3-2">
 <p>
 \(O(n^{2})\)
 </p>
 </div>
 </li>
-<li><a id="org95a7909"></a>Properties<br />
-<div class="outline-text-5" id="text-11-1-3-3">
+<li><a id="org8bc16c8"></a>Properties<br />
+<div class="outline-text-5" id="text-12-1-3-3">
 <ul class="org-ul">
 <li>Stable</li>
 <li>In place</li>
@@ -3981,20 +4287,20 @@ away from their sorted positions.)</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org2c7676f" class="outline-3">
-<h3 id="org2c7676f"><span class="section-number-3">11.2.</span> Dynamic Sorting Algorithms (Divide and Conquer)</h3>
-<div class="outline-text-3" id="text-11-2">
+<div id="outline-container-org4466123" class="outline-3">
+<h3 id="org4466123"><span class="section-number-3">12.2.</span> Dynamic Sorting Algorithms (Divide and Conquer)</h3>
+<div class="outline-text-3" id="text-12-2">
 </div>
-<div id="outline-container-org81a9052" class="outline-4">
-<h4 id="org81a9052"><span class="section-number-4">11.2.1.</span> Quick Sort</h4>
-<div class="outline-text-4" id="text-11-2-1">
+<div id="outline-container-org0b90ac1" class="outline-4">
+<h4 id="org0b90ac1"><span class="section-number-4">12.2.1.</span> Quick Sort</h4>
+<div class="outline-text-4" id="text-12-2-1">
 <ul class="org-ul">
 <li>An element is in its sorted position, if all the elements to the left of it, are smaller and all the elements to the right of it are larger.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org53168db"></a>Code<br />
-<div class="outline-text-5" id="text-11-2-1-1">
+<li><a id="orgb50c848"></a>Code<br />
+<div class="outline-text-5" id="text-12-2-1-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">quicksort</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">left</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">right</span>) {
@@ -4037,16 +4343,16 @@ away from their sorted positions.)</li>
 </div>
 </div>
 </li>
-<li><a id="orgaa6a101"></a>Best Case Complexity<br />
-<div class="outline-text-5" id="text-11-2-1-2">
+<li><a id="orgce03b49"></a>Best Case Complexity<br />
+<div class="outline-text-5" id="text-12-2-1-2">
 <ul class="org-ul">
 <li>The best case is when the pivot always divides the array equally throughout.</li>
 <li>The complexity would be \(O(nlog(n))\)</li>
 </ul>
 </div>
 </li>
-<li><a id="org001793e"></a>Recurrence Relation<br />
-<div class="outline-text-5" id="text-11-2-1-3">
+<li><a id="org4cb0855"></a>Recurrence Relation<br />
+<div class="outline-text-5" id="text-12-2-1-3">
 <p>
 \[  T(n) = 2T(\frac{n}{2}) + n   \])
 </p>
@@ -4058,15 +4364,15 @@ away from their sorted positions.)</li>
 </ul>
 </div>
 </li>
-<li><a id="org2140201"></a>Worst Case Complexity<br />
-<div class="outline-text-5" id="text-11-2-1-4">
+<li><a id="org445e198"></a>Worst Case Complexity<br />
+<div class="outline-text-5" id="text-12-2-1-4">
 <ul class="org-ul">
 <li>Quick Sort can have a complexity \(O(n^{2})\) when the array is completely sorted (ascending order or descending order)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd821056"></a>Application of Quick Sort: Splitting numbers into 2 groups<br />
-<div class="outline-text-5" id="text-11-2-1-5">
+<li><a id="org0cbdb41"></a>Application of Quick Sort: Splitting numbers into 2 groups<br />
+<div class="outline-text-5" id="text-12-2-1-5">
 <ul class="org-ul">
 <li>In Quick Sort, every time we call the <code>partition()</code> method, we place the element in the place where it would be in the final sorted array.</li>
 <li>Once we do that, everything to the left of that element would be smaller and everything to the right of that element would be larger. Do note that everything to the left aren&rsquo;t themselves. They&rsquo;re just smaller than the pivot. Similarly everything to the right are just larger than the pivot, and not necessarily sorted.</li>
@@ -4080,10 +4386,10 @@ away from their sorted positions.)</li>
 </ul>
 </div>
 </li>
-<li><a id="org23112ad"></a>Application of Quick Sort: Quick Select<br />
+<li><a id="org5410406"></a>Application of Quick Sort: Quick Select<br />
 <ol class="org-ol">
-<li><a id="org342f5d4"></a>What it is<br />
-<div class="outline-text-6" id="text-11-2-1-6-1">
+<li><a id="org62d58c2"></a>What it is<br />
+<div class="outline-text-6" id="text-12-2-1-6-1">
 <ul class="org-ul">
 <li>Quick Select is what we use to find the \(k^{th}\) smallest or largest element in any given array (doesn&rsquo;t have to be sorted).</li>
 <li>You keep partitioning and placing elements in their sorted positions by taking them as pivots one at a time.</li>
@@ -4092,8 +4398,8 @@ away from their sorted positions.)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb47fc9b"></a>Code<br />
-<div class="outline-text-6" id="text-11-2-1-6-2">
+<li><a id="org9929546"></a>Code<br />
+<div class="outline-text-6" id="text-12-2-1-6-2">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
@@ -4142,8 +4448,8 @@ away from their sorted positions.)</li>
 </li>
 </ol>
 </li>
-<li><a id="org1250b90"></a>Application of Quick Sort: Quick Select to find an element occuring more than half the time in the array (and that element is the largest)<br />
-<div class="outline-text-5" id="text-11-2-1-7">
+<li><a id="orgf3d809e"></a>Application of Quick Sort: Quick Select to find an element occuring more than half the time in the array (and that element is the largest)<br />
+<div class="outline-text-5" id="text-12-2-1-7">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>) {
@@ -4208,13 +4514,13 @@ away from their sorted positions.)</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org4eff027" class="outline-4">
-<h4 id="org4eff027"><span class="section-number-4">11.2.2.</span> Merge Sort</h4>
-<div class="outline-text-4" id="text-11-2-2">
+<div id="outline-container-org05414c4" class="outline-4">
+<h4 id="org05414c4"><span class="section-number-4">12.2.2.</span> Merge Sort</h4>
+<div class="outline-text-4" id="text-12-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgeb8062c"></a>Code<br />
-<div class="outline-text-5" id="text-11-2-2-1">
+<li><a id="org926a5f1"></a>Code<br />
+<div class="outline-text-5" id="text-12-2-2-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
  
@@ -4257,8 +4563,8 @@ away from their sorted positions.)</li>
 </div>
 </div>
 </li>
-<li><a id="orge2e72c0"></a>Application: Perfect use in Linked Lists<br />
-<div class="outline-text-5" id="text-11-2-2-2">
+<li><a id="org8eca590"></a>Application: Perfect use in Linked Lists<br />
+<div class="outline-text-5" id="text-12-2-2-2">
 <ul class="org-ul">
 <li>In this case, you don&rsquo;t have to make 2 extra sub arrays.</li>
 <li>You can manipulate the pointers and do everything in the same linked list.</li>
@@ -4268,13 +4574,13 @@ away from their sorted positions.)</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgf56a8d3" class="outline-4">
-<h4 id="orgf56a8d3"><span class="section-number-4">11.2.3.</span> Heap Sort</h4>
-<div class="outline-text-4" id="text-11-2-3">
+<div id="outline-container-org2b2e55a" class="outline-4">
+<h4 id="org2b2e55a"><span class="section-number-4">12.2.3.</span> Heap Sort</h4>
+<div class="outline-text-4" id="text-12-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org59c44fe"></a>Array as a binary tree<br />
-<div class="outline-text-5" id="text-11-2-3-1">
+<li><a id="org18bac13"></a>Array as a binary tree<br />
+<div class="outline-text-5" id="text-12-2-3-1">
 <ul class="org-ul">
 <li>An array is converted to a binary tree as follows:
 <ul class="org-ul">
@@ -4296,8 +4602,8 @@ Source: geeksforgeeks
 </ul>
 </div>
 </li>
-<li><a id="org0c5fd93"></a>Some terminologies of Binary Trees<br />
-<div class="outline-text-5" id="text-11-2-3-2">
+<li><a id="org2e2b57e"></a>Some terminologies of Binary Trees<br />
+<div class="outline-text-5" id="text-12-2-3-2">
 <ol class="org-ol">
 <li><b>Full Binary Tree</b>: A binary tree with the maximum number of nodes possible for a given height.
 <ul class="org-ul">
@@ -4368,15 +4674,15 @@ Here, there could have been a node to the left of node <code>7</code>, but it&rs
 </p>
 </div>
 </li>
-<li><a id="org713a909"></a>Property of a Complete Binary Tree<br />
-<div class="outline-text-5" id="text-11-2-3-3">
+<li><a id="org03b547c"></a>Property of a Complete Binary Tree<br />
+<div class="outline-text-5" id="text-12-2-3-3">
 <p>
 If the number of nodes in a complete binary tree is \(n\), then the height of the tree is \(log_{2}(n+1)\).
 </p>
 </div>
 </li>
-<li><a id="org7ee3d0b"></a>Introduction to Heap<br />
-<div class="outline-text-5" id="text-11-2-3-4">
+<li><a id="orgae910dd"></a>Introduction to Heap<br />
+<div class="outline-text-5" id="text-12-2-3-4">
 <ol class="org-ol">
 <li><b>Max Heap</b>: A complete binary tree where any node is larger than its descendents.</li>
 </ol>
@@ -4411,8 +4717,8 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </div>
 </div>
 </li>
-<li><a id="org8473295"></a>How heaps can sort arrays<br />
-<div class="outline-text-5" id="text-11-2-3-5">
+<li><a id="org03e2310"></a>How heaps can sort arrays<br />
+<div class="outline-text-5" id="text-12-2-3-5">
 <ul class="org-ul">
 <li>Here&rsquo;s the basic idea:
 <ul class="org-ul">
@@ -4428,10 +4734,10 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </ul>
 </div>
 </li>
-<li><a id="orgf5bfda4"></a>Insertion and Deletion<br />
+<li><a id="org37c52ae"></a>Insertion and Deletion<br />
 <ol class="org-ol">
-<li><a id="org47ccab5"></a>Insertion<br />
-<div class="outline-text-6" id="text-11-2-3-6-1">
+<li><a id="orgcd6ab75"></a>Insertion<br />
+<div class="outline-text-6" id="text-12-2-3-6-1">
 <ul class="org-ul">
 <li>When you insert into a heap, you always insert at the last index i.e. the node on the last level such that there are no gaps to the left.</li>
 <li>Soon after this, you&rsquo;ll have to keep comparing with the parents, and swapping to make the graph a max heap again</li>
@@ -4439,8 +4745,8 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </ul>
 </div>
 </li>
-<li><a id="org3b99f14"></a>Deletion<br />
-<div class="outline-text-6" id="text-11-2-3-6-2">
+<li><a id="org1e24950"></a>Deletion<br />
+<div class="outline-text-6" id="text-12-2-3-6-2">
 <ul class="org-ul">
 <li>When you delete from a heap, you always delete from the root</li>
 <li>Again, you&rsquo;ll keep comparing the children, and to maintain the max heap you&rsquo;d swap with the largest child</li>
@@ -4452,15 +4758,15 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </li>
 </ol>
 </li>
-<li><a id="orgefdd1a9"></a>How to Identify child nodes<br />
-<div class="outline-text-5" id="text-11-2-3-7">
+<li><a id="org2f91ebc"></a>How to Identify child nodes<br />
+<div class="outline-text-5" id="text-12-2-3-7">
 <ul class="org-ul">
 <li>Child nodes go from index number \( \lfloor \frac{n}{2} \rfloor  \) to index number \(n-1\), where \(n\) is the number of elements in the heap/array</li>
 </ul>
 </div>
 </li>
-<li><a id="org4134c1b"></a>Heapify<br />
-<div class="outline-text-5" id="text-11-2-3-8">
+<li><a id="orge8cda00"></a>Heapify<br />
+<div class="outline-text-5" id="text-12-2-3-8">
 <ul class="org-ul">
 <li>You start from the last non-leaf node, which is index number \( \lfloor \frac{n}{2} \rfloor - 1 \)</li>
 <li>Find the largest child (left or right) and if there is a child larger than the parent, swap the parent and that child</li>
@@ -4468,8 +4774,8 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </ul>
 </div>
 </li>
-<li><a id="orgde0053f"></a>Code<br />
-<div class="outline-text-5" id="text-11-2-3-9">
+<li><a id="org8b84618"></a>Code<br />
+<div class="outline-text-5" id="text-12-2-3-9">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -4520,17 +4826,17 @@ If the number of nodes in a complete binary tree is \(n\), then the height of th
 </ol>
 </div>
 </div>
-<div id="outline-container-orgfe16a5c" class="outline-3">
-<h3 id="orgfe16a5c"><span class="section-number-3">11.3.</span> Linear Sorting Algorithms</h3>
-<div class="outline-text-3" id="text-11-3">
+<div id="outline-container-org8973c18" class="outline-3">
+<h3 id="org8973c18"><span class="section-number-3">12.3.</span> Linear Sorting Algorithms</h3>
+<div class="outline-text-3" id="text-12-3">
 </div>
-<div id="outline-container-org5d34b7e" class="outline-4">
-<h4 id="org5d34b7e"><span class="section-number-4">11.3.1.</span> Counting Sort</h4>
-<div class="outline-text-4" id="text-11-3-1">
+<div id="outline-container-org96fdfd2" class="outline-4">
+<h4 id="org96fdfd2"><span class="section-number-4">12.3.1.</span> Counting Sort</h4>
+<div class="outline-text-4" id="text-12-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga90f9bc"></a>Overview<br />
-<div class="outline-text-5" id="text-11-3-1-1">
+<li><a id="org4be77f1"></a>Overview<br />
+<div class="outline-text-5" id="text-12-3-1-1">
 <ul class="org-ul">
 <li>Say the array given to us was <code>A</code>.</li>
 <li>If you know the range of the elements present in the array (say the largest
@@ -4547,8 +4853,8 @@ make another array called <code>sorted</code>).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgaf7e372"></a>Code<br />
-<div class="outline-text-5" id="text-11-3-1-2">
+<li><a id="orgda36f8e"></a>Code<br />
+<div class="outline-text-5" id="text-12-3-1-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -4583,8 +4889,8 @@ make another array called <code>sorted</code>).</li>
 </div>
 </div>
 </li>
-<li><a id="orgd3e0d2f"></a>Trivia<br />
-<div class="outline-text-5" id="text-11-3-1-3">
+<li><a id="org0000633"></a>Trivia<br />
+<div class="outline-text-5" id="text-12-3-1-3">
 <ul class="org-ul">
 <li>\( O(n+r) \), where \(r\) is the range of the elements.</li>
 <li>If the range of the elements is comparable to the size of the array, then it
@@ -4596,13 +4902,13 @@ original array in reverse.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org4323a67" class="outline-4">
-<h4 id="org4323a67"><span class="section-number-4">11.3.2.</span> Radix Sort</h4>
-<div class="outline-text-4" id="text-11-3-2">
+<div id="outline-container-org1b2872c" class="outline-4">
+<h4 id="org1b2872c"><span class="section-number-4">12.3.2.</span> Radix Sort</h4>
+<div class="outline-text-4" id="text-12-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org6f626db"></a>Code<br />
-<div class="outline-text-5" id="text-11-3-2-1">
+<li><a id="org401dfa8"></a>Code<br />
+<div class="outline-text-5" id="text-12-3-2-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -4623,29 +4929,29 @@ original array in reverse.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf1b2aef" class="outline-2">
-<h2 id="orgf1b2aef"><span class="section-number-2">12.</span> Hashing</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-org8f8ae5d" class="outline-2">
+<h2 id="org8f8ae5d"><span class="section-number-2">13.</span> Hashing</h2>
+<div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>It&rsquo;s an array being used as a dictionary.</li>
 </ul>
 </div>
-<div id="outline-container-org6fde637" class="outline-3">
-<h3 id="org6fde637"><span class="section-number-3">12.1.</span> HashSet</h3>
-<div class="outline-text-3" id="text-12-1">
+<div id="outline-container-org41c3444" class="outline-3">
+<h3 id="org41c3444"><span class="section-number-3">13.1.</span> HashSet</h3>
+<div class="outline-text-3" id="text-13-1">
 </div>
-<div id="outline-container-org6969a3c" class="outline-4">
-<h4 id="org6969a3c"><span class="section-number-4">12.1.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-12-1-1">
+<div id="outline-container-org74c6718" class="outline-4">
+<h4 id="org74c6718"><span class="section-number-4">13.1.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-13-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a Set, and the order in which you add elements aren&rsquo;t preserved.</li>
 <li><code>java.util.HashSet</code> is a class that implements the <code>java.util.Set</code> interface.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9545bdc" class="outline-4">
-<h4 id="org9545bdc"><span class="section-number-4">12.1.2.</span> Code</h4>
-<div class="outline-text-4" id="text-12-1-2">
+<div id="outline-container-org264e1df" class="outline-4">
+<h4 id="org264e1df"><span class="section-number-4">13.1.2.</span> Code</h4>
+<div class="outline-text-4" id="text-13-1-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">Set</span>;
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">HashSet</span>;
@@ -4678,9 +4984,9 @@ Manoj
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb796e3" class="outline-3">
-<h3 id="orgcb796e3"><span class="section-number-3">12.2.</span> HashMap: Java&rsquo;s Equivalent of Python Dictionaries</h3>
-<div class="outline-text-3" id="text-12-2">
+<div id="outline-container-org3efb636" class="outline-3">
+<h3 id="org3efb636"><span class="section-number-3">13.2.</span> HashMap: Java&rsquo;s Equivalent of Python Dictionaries</h3>
+<div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>Java offers an interface called Map, for which the most common implementation
 is HashMap&lt;&gt;().</li>
@@ -4749,13 +5055,13 @@ iteratively, and not by index)
 </ul>
 </div>
 </div>
-<div id="outline-container-org33daa7b" class="outline-3">
-<h3 id="org33daa7b"><span class="section-number-3">12.3.</span> Function to find if an array contains duplicates or not</h3>
-<div class="outline-text-3" id="text-12-3">
+<div id="outline-container-orgeb13bad" class="outline-3">
+<h3 id="orgeb13bad"><span class="section-number-3">13.3.</span> Function to find if an array contains duplicates or not</h3>
+<div class="outline-text-3" id="text-13-3">
 </div>
-<div id="outline-container-org9f42f9c" class="outline-4">
-<h4 id="org9f42f9c"><span class="section-number-4">12.3.1.</span> Without Builtin Functions</h4>
-<div class="outline-text-4" id="text-12-3-1">
+<div id="outline-container-orgdcd0ce6" class="outline-4">
+<h4 id="orgdcd0ce6"><span class="section-number-4">13.3.1.</span> Without Builtin Functions</h4>
+<div class="outline-text-4" id="text-13-3-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">boolean</span> <span style="color: #c678dd;">hasDuplicate</span>(<span style="color: #ECBE7B;">int</span>[] <span style="color: #dcaeea;">nums</span>) {
@@ -4791,9 +5097,9 @@ iteratively, and not by index)
 </div>
 </div>
 </div>
-<div id="outline-container-org5f2281c" class="outline-4">
-<h4 id="org5f2281c"><span class="section-number-4">12.3.2.</span> With Builtin functions</h4>
-<div class="outline-text-4" id="text-12-3-2">
+<div id="outline-container-org274bdb7" class="outline-4">
+<h4 id="org274bdb7"><span class="section-number-4">13.3.2.</span> With Builtin functions</h4>
+<div class="outline-text-4" id="text-13-3-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">Set</span>;
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.<span style="color: #ECBE7B;">HashSet</span>;
@@ -4818,9 +5124,9 @@ iteratively, and not by index)
 </div>
 </div>
 </div>
-<div id="outline-container-orgd42fd27" class="outline-3">
-<h3 id="orgd42fd27"><span class="section-number-3">12.4.</span> Anagram Checker</h3>
-<div class="outline-text-3" id="text-12-4">
+<div id="outline-container-org6cc7799" class="outline-3">
+<h3 id="org6cc7799"><span class="section-number-3">13.4.</span> Anagram Checker</h3>
+<div class="outline-text-3" id="text-13-4">
 <ul class="org-ul">
 <li><p>
 To check if two strings are anagrams (same alphabets, but in different order),
@@ -4851,9 +5157,9 @@ have the same frequency of the same alphabets, they&rsquo;re anagrams.
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9bf3af" class="outline-3">
-<h3 id="orge9bf3af"><span class="section-number-3">12.5.</span> Two Sum</h3>
-<div class="outline-text-3" id="text-12-5">
+<div id="outline-container-org93e793e" class="outline-3">
+<h3 id="org93e793e"><span class="section-number-3">13.5.</span> Two Sum</h3>
+<div class="outline-text-3" id="text-13-5">
 <ul class="org-ul">
 <li>Given an array of integers nums and an integer target, return indices of the
 two numbers such that they add up to target.</li>
@@ -4888,17 +5194,17 @@ use the same element twice.
 </div>
 </div>
 </div>
-<div id="outline-container-orge4808a6" class="outline-2">
-<h2 id="orge4808a6"><span class="section-number-2">13.</span> Algorithms which &rsquo;Divide and Conquer&rsquo;</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org084c48e" class="outline-2">
+<h2 id="org084c48e"><span class="section-number-2">14.</span> Algorithms which &rsquo;Divide and Conquer&rsquo;</h2>
+<div class="outline-text-2" id="text-14">
 </div>
-<div id="outline-container-org3fe6677" class="outline-3">
-<h3 id="org3fe6677"><span class="section-number-3">13.1.</span> Karatsuba&rsquo;s Integer Multiplication using Divide and Conquer Approach</h3>
-<div class="outline-text-3" id="text-13-1">
+<div id="outline-container-orge47f7ca" class="outline-3">
+<h3 id="orge47f7ca"><span class="section-number-3">14.1.</span> Karatsuba&rsquo;s Integer Multiplication using Divide and Conquer Approach</h3>
+<div class="outline-text-3" id="text-14-1">
 </div>
-<div id="outline-container-org4d0f7b7" class="outline-4">
-<h4 id="org4d0f7b7"><span class="section-number-4">13.1.1.</span> How it works</h4>
-<div class="outline-text-4" id="text-13-1-1">
+<div id="outline-container-org5dae3f8" class="outline-4">
+<h4 id="org5dae3f8"><span class="section-number-4">14.1.1.</span> How it works</h4>
+<div class="outline-text-4" id="text-14-1-1">
 <ul class="org-ul">
 <li>Say we have 2 numbers \(X\) and \(Y\) each of \(n\) digits.</li>
 <li>To multiply then, you&rsquo;d need \(n^{2}\) single digit multiplications</li>
@@ -4939,9 +5245,9 @@ Where
 </ul>
 </div>
 </div>
-<div id="outline-container-org3018358" class="outline-4">
-<h4 id="org3018358"><span class="section-number-4">13.1.2.</span> Complexity</h4>
-<div class="outline-text-4" id="text-13-1-2">
+<div id="outline-container-orgbecea89" class="outline-4">
+<h4 id="orgbecea89"><span class="section-number-4">14.1.2.</span> Complexity</h4>
+<div class="outline-text-4" id="text-14-1-2">
 <ul class="org-ul">
 <li>The recurrence relation for this would be:
 \[ T(n) = 3T(\frac{n}{2}) + O(n) \]</li>
@@ -4949,21 +5255,21 @@ Where
 </div>
 </div>
 </div>
-<div id="outline-container-org0e48e76" class="outline-3">
-<h3 id="org0e48e76"><span class="section-number-3">13.2.</span> Strassen&rsquo;s Matrix Multiplication</h3>
-<div class="outline-text-3" id="text-13-2">
+<div id="outline-container-org2a9c251" class="outline-3">
+<h3 id="org2a9c251"><span class="section-number-3">14.2.</span> Strassen&rsquo;s Matrix Multiplication</h3>
+<div class="outline-text-3" id="text-14-2">
 <p>
 (very annoying, but it reduces 8 recursive calls to 7 using A BILLION VARIABLES)
 </p>
 </div>
 </div>
-<div id="outline-container-org5af9a82" class="outline-3">
-<h3 id="org5af9a82"><span class="section-number-3">13.3.</span> Maximum Subarray sum</h3>
-<div class="outline-text-3" id="text-13-3">
+<div id="outline-container-org19c04a8" class="outline-3">
+<h3 id="org19c04a8"><span class="section-number-3">14.3.</span> Maximum Subarray sum</h3>
+<div class="outline-text-3" id="text-14-3">
 </div>
-<div id="outline-container-org9910260" class="outline-4">
-<h4 id="org9910260"><span class="section-number-4">13.3.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-13-3-1">
+<div id="outline-container-orgae6d445" class="outline-4">
+<h4 id="orgae6d445"><span class="section-number-4">14.3.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-14-3-1">
 <ul class="org-ul">
 <li>An array is a continuous sequence of numbers. You can index them linearly (i, i+1, i+2, i+3, &#x2026;).</li>
 <li>If you skip indices, it&rsquo;s not an array.
@@ -4976,9 +5282,9 @@ Where
 </ul>
 </div>
 </div>
-<div id="outline-container-org204c359" class="outline-4">
-<h4 id="org204c359"><span class="section-number-4">13.3.2.</span> Brute Force approach</h4>
-<div class="outline-text-4" id="text-13-3-2">
+<div id="outline-container-orgc6ea5ac" class="outline-4">
+<h4 id="orgc6ea5ac"><span class="section-number-4">14.3.2.</span> Brute Force approach</h4>
+<div class="outline-text-4" id="text-14-3-2">
 <div class="org-src-container">
 <pre class="src src-python">
 <span style="color: #dcaeea;">max_sum</span> = -9999999 <span style="color: #5B6268;"># </span><span style="color: #5B6268;">smallest integer ever
@@ -5000,9 +5306,9 @@ This has a complexity of \( O(n^{3}) \).
 </p>
 </div>
 </div>
-<div id="outline-container-org5f31de0" class="outline-4">
-<h4 id="org5f31de0"><span class="section-number-4">13.3.3.</span> Brute Force, but slightly optimized</h4>
-<div class="outline-text-4" id="text-13-3-3">
+<div id="outline-container-orgede7144" class="outline-4">
+<h4 id="orgede7144"><span class="section-number-4">14.3.3.</span> Brute Force, but slightly optimized</h4>
+<div class="outline-text-4" id="text-14-3-3">
 <ul class="org-ul">
 <li>At some point, the sums you&rsquo;re calculating are being repeated</li>
 <li>Eg. [1], [1, 2], [1, 2, 3], [1, 2, 3, 4] <br />
@@ -5029,26 +5335,26 @@ This has a complexity of \( O(n^{2}) \)
 </p>
 </div>
 </div>
-<div id="outline-container-org42f5baa" class="outline-4">
-<h4 id="org42f5baa"><span class="section-number-4">13.3.4.</span> Best approach</h4>
-<div class="outline-text-4" id="text-13-3-4">
+<div id="outline-container-orga704ab7" class="outline-4">
+<h4 id="orga704ab7"><span class="section-number-4">14.3.4.</span> Best approach</h4>
+<div class="outline-text-4" id="text-14-3-4">
 <p>
 (i&rsquo;ll add this later)
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org90073b9" class="outline-3">
-<h3 id="org90073b9"><span class="section-number-3">13.4.</span> Convex Hull</h3>
-<div class="outline-text-3" id="text-13-4">
+<div id="outline-container-org387ef2d" class="outline-3">
+<h3 id="org387ef2d"><span class="section-number-3">14.4.</span> Convex Hull</h3>
+<div class="outline-text-3" id="text-14-4">
 </div>
-<div id="outline-container-orgfacbf1a" class="outline-4">
-<h4 id="orgfacbf1a"><span class="section-number-4">13.4.1.</span> Prerequisite knowledge</h4>
-<div class="outline-text-4" id="text-13-4-1">
+<div id="outline-container-org97e70e0" class="outline-4">
+<h4 id="org97e70e0"><span class="section-number-4">14.4.1.</span> Prerequisite knowledge</h4>
+<div class="outline-text-4" id="text-14-4-1">
 </div>
 <ol class="org-ol">
-<li><a id="org22ea997"></a>Convex Polygon<br />
-<div class="outline-text-5" id="text-13-4-1-1">
+<li><a id="org75c9794"></a>Convex Polygon<br />
+<div class="outline-text-5" id="text-14-4-1-1">
 <ul class="org-ul">
 <li>A polygon with all interior angles less than 180 degrees
 <img src="https://mathmonks.com/wp-content/uploads/2021/10/Convex-and-Concave-Hexagons.jpg" alt="Convex-and-Concave-Hexagons.jpg" /></li>
@@ -5056,16 +5362,16 @@ This has a complexity of \( O(n^{2}) \)
 </ul>
 </div>
 </li>
-<li><a id="org3436989"></a>Convex Hull<br />
-<div class="outline-text-5" id="text-13-4-1-2">
+<li><a id="org6191e01"></a>Convex Hull<br />
+<div class="outline-text-5" id="text-14-4-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s the smallest convex polygon that surrounds all of the given points.</li>
 <li>It&rsquo;s simply represented as a set of points used to make that polygon.</li>
 </ul>
 </div>
 </li>
-<li><a id="org649c059"></a>Orientation of a point with respect to a line<br />
-<div class="outline-text-5" id="text-13-4-1-3">
+<li><a id="orgb94c938"></a>Orientation of a point with respect to a line<br />
+<div class="outline-text-5" id="text-14-4-1-3">
 <ul class="org-ul">
 <li><a href="https://dccg.upc.edu/people/vera/wp-content/uploads/2012/10/DAG-OrientationTests.pdf">https://dccg.upc.edu/people/vera/wp-content/uploads/2012/10/DAG-OrientationTests.pdf</a></li>
 </ul>
@@ -5073,21 +5379,21 @@ This has a complexity of \( O(n^{2}) \)
 </li>
 </ol>
 </div>
-<div id="outline-container-org7b2e6fb" class="outline-4">
-<h4 id="org7b2e6fb"><span class="section-number-4">13.4.2.</span> What the problem statement is</h4>
-<div class="outline-text-4" id="text-13-4-2">
+<div id="outline-container-orgad89053" class="outline-4">
+<h4 id="orgad89053"><span class="section-number-4">14.4.2.</span> What the problem statement is</h4>
+<div class="outline-text-4" id="text-14-4-2">
 <ul class="org-ul">
 <li>Given a set of points, you have to find the set of points which form its convex hull.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org71f4a40" class="outline-4">
-<h4 id="org71f4a40"><span class="section-number-4">13.4.3.</span> How it works</h4>
-<div class="outline-text-4" id="text-13-4-3">
+<div id="outline-container-org4eb0a62" class="outline-4">
+<h4 id="org4eb0a62"><span class="section-number-4">14.4.3.</span> How it works</h4>
+<div class="outline-text-4" id="text-14-4-3">
 </div>
 <ol class="org-ol">
-<li><a id="org7609163"></a>Overview<br />
-<div class="outline-text-5" id="text-13-4-3-1">
+<li><a id="orgb30377f"></a>Overview<br />
+<div class="outline-text-5" id="text-14-4-3-1">
 <ul class="org-ul">
 <li>Sort all of the points by their x-coordinates</li>
 <li>Keep dividing them into 2 halves, until one part has only one point.</li>
@@ -5108,8 +5414,8 @@ to know how to merge two convex hulls, into another convex hull.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0441f92"></a>Abstract idea of Merging<br />
-<div class="outline-text-5" id="text-13-4-3-2">
+<li><a id="org0e1a25a"></a>Abstract idea of Merging<br />
+<div class="outline-text-5" id="text-14-4-3-2">
 <ul class="org-ul">
 <li>Say you already have the convex hull of the left half and the convex hull of the right half.</li>
 <li>To make a convex hull out of these two, you need to connect them with an upper tangent and a lower tangent.</li>
@@ -5117,8 +5423,8 @@ to know how to merge two convex hulls, into another convex hull.</li>
 </ul>
 </div>
 </li>
-<li><a id="org19fb559"></a>How merging actually works<br />
-<div class="outline-text-5" id="text-13-4-3-3">
+<li><a id="orga02a149"></a>How merging actually works<br />
+<div class="outline-text-5" id="text-14-4-3-3">
 <ul class="org-ul">
 <li>Before we move any further, you must know that after merging two convex hulls,
 the resultant convex hull will contain points arranged in a circular manner.
@@ -5130,22 +5436,22 @@ convex hull in a clockwise direction, or an anti-clockwise direction.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8bc57d5" class="outline-3">
-<h3 id="org8bc57d5"><span class="section-number-3">13.5.</span> Closest Pair of Points</h3>
-<div class="outline-text-3" id="text-13-5">
+<div id="outline-container-org8039733" class="outline-3">
+<h3 id="org8039733"><span class="section-number-3">14.5.</span> Closest Pair of Points</h3>
+<div class="outline-text-3" id="text-14-5">
 </div>
-<div id="outline-container-org3cdb24d" class="outline-4">
-<h4 id="org3cdb24d"><span class="section-number-4">13.5.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-13-5-1">
+<div id="outline-container-org6adcc4b" class="outline-4">
+<h4 id="org6adcc4b"><span class="section-number-4">14.5.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-14-5-1">
 <ul class="org-ul">
 <li>Given a set of points in space, you need to find the pair of points having
 least distance of seperation between them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga63e9a9" class="outline-4">
-<h4 id="orga63e9a9"><span class="section-number-4">13.5.2.</span> Procedure</h4>
-<div class="outline-text-4" id="text-13-5-2">
+<div id="outline-container-org90fe8e9" class="outline-4">
+<h4 id="org90fe8e9"><span class="section-number-4">14.5.2.</span> Procedure</h4>
+<div class="outline-text-4" id="text-14-5-2">
 <p>
 Just refer to <a href="https://www.geeksforgeeks.org/closest-pair-of-points-using-divide-and-conquer-algorithm/?ref=lbp#expected-approach-using-divide-and-conquer-on-logn2-time-and-on-space">Minimum Distance between Two Points | GeeksforGeeks</a>.
 </p>
@@ -5153,26 +5459,26 @@ Just refer to <a href="https://www.geeksforgeeks.org/closest-pair-of-points-usin
 </div>
 </div>
 </div>
-<div id="outline-container-org43dc480" class="outline-2">
-<h2 id="org43dc480"><span class="section-number-2">14.</span> Greedy Algorithms</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-org078250d" class="outline-2">
+<h2 id="org078250d"><span class="section-number-2">15.</span> Greedy Algorithms</h2>
+<div class="outline-text-2" id="text-15">
 </div>
-<div id="outline-container-orgf6f2056" class="outline-3">
-<h3 id="orgf6f2056"><span class="section-number-3">14.1.</span> Coin Change Problem</h3>
-<div class="outline-text-3" id="text-14-1">
+<div id="outline-container-org2d66df7" class="outline-3">
+<h3 id="org2d66df7"><span class="section-number-3">15.1.</span> Coin Change Problem</h3>
+<div class="outline-text-3" id="text-15-1">
 </div>
-<div id="outline-container-org395a978" class="outline-4">
-<h4 id="org395a978"><span class="section-number-4">14.1.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-14-1-1">
+<div id="outline-container-org09dee2d" class="outline-4">
+<h4 id="org09dee2d"><span class="section-number-4">15.1.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-15-1-1">
 <ul class="org-ul">
 <li>You&rsquo;re given a sum of money to make, and a denomination ($1, $2, $5, $10, $20, $50, $100, $200, $500)</li>
 <li>You have to find the least number of coins/notes you can use to make that amount</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f0b20b" class="outline-4">
-<h4 id="org4f0b20b"><span class="section-number-4">14.1.2.</span> Procedure (Solved with an Example)</h4>
-<div class="outline-text-4" id="text-14-1-2">
+<div id="outline-container-org8688a58" class="outline-4">
+<h4 id="org8688a58"><span class="section-number-4">15.1.2.</span> Procedure (Solved with an Example)</h4>
+<div class="outline-text-4" id="text-15-1-2">
 <ul class="org-ul">
 <li><p>
 Question: Make $840 out of ($1, $2, $5, $10, $20, $50, $100, $200, $500)
@@ -5204,9 +5510,9 @@ Question: Make $840 out of ($1, $2, $5, $10, $20, $50, $100, $200, $500)
 </ul>
 </div>
 </div>
-<div id="outline-container-org48b894e" class="outline-4">
-<h4 id="org48b894e"><span class="section-number-4">14.1.3.</span> An Example where this can Fail</h4>
-<div class="outline-text-4" id="text-14-1-3">
+<div id="outline-container-orga9dff54" class="outline-4">
+<h4 id="orga9dff54"><span class="section-number-4">15.1.3.</span> An Example where this can Fail</h4>
+<div class="outline-text-4" id="text-15-1-3">
 <ul class="org-ul">
 <li><p>
 Question: Make $41 out of ($1, $5, $10, $20, $25)
@@ -5237,13 +5543,13 @@ balance = balance - 1 (largest denomination that can fit in 1)
 </div>
 </div>
 </div>
-<div id="outline-container-org0deffe8" class="outline-3">
-<h3 id="org0deffe8"><span class="section-number-3">14.2.</span> 0/1 Knapsack Problem</h3>
-<div class="outline-text-3" id="text-14-2">
+<div id="outline-container-org45ebcab" class="outline-3">
+<h3 id="org45ebcab"><span class="section-number-3">15.2.</span> 0/1 Knapsack Problem</h3>
+<div class="outline-text-3" id="text-15-2">
 </div>
-<div id="outline-container-org502ff87" class="outline-4">
-<h4 id="org502ff87"><span class="section-number-4">14.2.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-14-2-1">
+<div id="outline-container-org8608b96" class="outline-4">
+<h4 id="org8608b96"><span class="section-number-4">15.2.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-15-2-1">
 <ul class="org-ul">
 <li>You&rsquo;re given with some items (item1, item2, item3, &#x2026;), their weights and profits.</li>
 <li>You&rsquo;re also given with a sack which can hold a given maximum weight.</li>
@@ -5256,9 +5562,9 @@ balance = balance - 1 (largest denomination that can fit in 1)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge09b815" class="outline-4">
-<h4 id="orge09b815"><span class="section-number-4">14.2.2.</span> Procedure (Solved with an Example)</h4>
-<div class="outline-text-4" id="text-14-2-2">
+<div id="outline-container-org71287e4" class="outline-4">
+<h4 id="org71287e4"><span class="section-number-4">15.2.2.</span> Procedure (Solved with an Example)</h4>
+<div class="outline-text-4" id="text-15-2-2">
 <p>
 Maximum Weight that the Sack can Hold = 10
 </p>
@@ -5392,9 +5698,9 @@ weight_left = weight_left - weight(item4)
 </ul>
 </div>
 </div>
-<div id="outline-container-org339f794" class="outline-4">
-<h4 id="org339f794"><span class="section-number-4">14.2.3.</span> Code</h4>
-<div class="outline-text-4" id="text-14-2-3">
+<div id="outline-container-orgb6f681e" class="outline-4">
+<h4 id="orgb6f681e"><span class="section-number-4">15.2.3.</span> Code</h4>
+<div class="outline-text-4" id="text-15-2-3">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
@@ -5455,13 +5761,13 @@ weight_left = weight_left - weight(item4)
 </div>
 </div>
 </div>
-<div id="outline-container-orgd15b48a" class="outline-3">
-<h3 id="orgd15b48a"><span class="section-number-3">14.3.</span> Fractional Knapsack Problem</h3>
-<div class="outline-text-3" id="text-14-3">
+<div id="outline-container-orgb801ff7" class="outline-3">
+<h3 id="orgb801ff7"><span class="section-number-3">15.3.</span> Fractional Knapsack Problem</h3>
+<div class="outline-text-3" id="text-15-3">
 </div>
-<div id="outline-container-org71028a4" class="outline-4">
-<h4 id="org71028a4"><span class="section-number-4">14.3.1.</span> Code</h4>
-<div class="outline-text-4" id="text-14-3-1">
+<div id="outline-container-orgfa9301d" class="outline-4">
+<h4 id="orgfa9301d"><span class="section-number-4">15.3.1.</span> Code</h4>
+<div class="outline-text-4" id="text-15-3-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -5509,22 +5815,22 @@ weight_left = weight_left - weight(item4)
 </div>
 </div>
 </div>
-<div id="outline-container-org8afaaaa" class="outline-3">
-<h3 id="org8afaaaa"><span class="section-number-3">14.4.</span> Activity Selection</h3>
-<div class="outline-text-3" id="text-14-4">
+<div id="outline-container-orgbc767c3" class="outline-3">
+<h3 id="orgbc767c3"><span class="section-number-3">15.4.</span> Activity Selection</h3>
+<div class="outline-text-3" id="text-15-4">
 </div>
-<div id="outline-container-org135607a" class="outline-4">
-<h4 id="org135607a"><span class="section-number-4">14.4.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-14-4-1">
+<div id="outline-container-org6103334" class="outline-4">
+<h4 id="org6103334"><span class="section-number-4">15.4.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-15-4-1">
 <ul class="org-ul">
 <li>You&rsquo;re given with a bunch of activities, each given by a start time and an end time.</li>
 <li>You have to find the maximum number of activities you can do, given that you can only do one activity at a time.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga62b8b0" class="outline-4">
-<h4 id="orga62b8b0"><span class="section-number-4">14.4.2.</span> Procedure (Solved with an Example)</h4>
-<div class="outline-text-4" id="text-14-4-2">
+<div id="outline-container-org3183432" class="outline-4">
+<h4 id="org3183432"><span class="section-number-4">15.4.2.</span> Procedure (Solved with an Example)</h4>
+<div class="outline-text-4" id="text-15-4-2">
 <ul class="org-ul">
 <li>Activities given: (1,2), (3,4), (0,6), (5,9), (8,9), (5,7)</li>
 <li><p>
@@ -5584,9 +5890,9 @@ Remove the overlapping activities
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf09f2ce" class="outline-4">
-<h4 id="orgf09f2ce"><span class="section-number-4">14.4.3.</span> Psuedocode</h4>
-<div class="outline-text-4" id="text-14-4-3">
+<div id="outline-container-orgb2689b7" class="outline-4">
+<h4 id="orgb2689b7"><span class="section-number-4">15.4.3.</span> Psuedocode</h4>
+<div class="outline-text-4" id="text-15-4-3">
 <div class="org-src-container">
 <pre class="src src-nil">
 heap_sort(activities)
@@ -5599,13 +5905,13 @@ for i &lt;= 1 to len(activities), do:
 </div>
 </div>
 </div>
-<div id="outline-container-orgddf8029" class="outline-3">
-<h3 id="orgddf8029"><span class="section-number-3">14.5.</span> Task Scheduling</h3>
-<div class="outline-text-3" id="text-14-5">
+<div id="outline-container-org7fbe4c7" class="outline-3">
+<h3 id="org7fbe4c7"><span class="section-number-3">15.5.</span> Task Scheduling</h3>
+<div class="outline-text-3" id="text-15-5">
 </div>
-<div id="outline-container-orgdc70626" class="outline-4">
-<h4 id="orgdc70626"><span class="section-number-4">14.5.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-14-5-1">
+<div id="outline-container-orgdb63242" class="outline-4">
+<h4 id="orgdb63242"><span class="section-number-4">15.5.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-15-5-1">
 <ul class="org-ul">
 <li>You&rsquo;re given with a bunch of activities, each given by a start time and an end time.</li>
 <li>This time, you have different machines. One machine can do one activity at a time, but if there is an overlap you can create another machine and make it do it.</li>
@@ -5614,9 +5920,9 @@ for i &lt;= 1 to len(activities), do:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0570096" class="outline-4">
-<h4 id="org0570096"><span class="section-number-4">14.5.2.</span> Procedure (Solved with an Example)</h4>
-<div class="outline-text-4" id="text-14-5-2">
+<div id="outline-container-org1a92816" class="outline-4">
+<h4 id="org1a92816"><span class="section-number-4">15.5.2.</span> Procedure (Solved with an Example)</h4>
+<div class="outline-text-4" id="text-15-5-2">
 <ul class="org-ul">
 <li>Activities given: (1,4), (2,6), (5,7), (3,8), (8,9)</li>
 <li>Initialize the number of machines to be 1</li>
@@ -5868,13 +6174,13 @@ In general, first we check for machine-1 (for an overlap), then we check machine
 </div>
 </div>
 </div>
-<div id="outline-container-org05a6596" class="outline-3">
-<h3 id="org05a6596"><span class="section-number-3">14.6.</span> File Merge Problem</h3>
-<div class="outline-text-3" id="text-14-6">
+<div id="outline-container-org9a1e9b8" class="outline-3">
+<h3 id="org9a1e9b8"><span class="section-number-3">15.6.</span> File Merge Problem</h3>
+<div class="outline-text-3" id="text-15-6">
 </div>
-<div id="outline-container-org41df243" class="outline-4">
-<h4 id="org41df243"><span class="section-number-4">14.6.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-14-6-1">
+<div id="outline-container-orgd7cf0bf" class="outline-4">
+<h4 id="orgd7cf0bf"><span class="section-number-4">15.6.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-15-6-1">
 <ul class="org-ul">
 <li>Given two files, one of size \(m\) and the other of size \(n\), the cost of merging them would be \(m+n\).</li>
 <li>Simply put, to merge an array <code>x[m]</code> and <code>y[n]</code>, you&rsquo;ll need a new array
@@ -5883,9 +6189,9 @@ In general, first we check for machine-1 (for an overlap), then we check machine
 </ul>
 </div>
 </div>
-<div id="outline-container-org02100b5" class="outline-4">
-<h4 id="org02100b5"><span class="section-number-4">14.6.2.</span> Code</h4>
-<div class="outline-text-4" id="text-14-6-2">
+<div id="outline-container-orgbb04d01" class="outline-4">
+<h4 id="orgbb04d01"><span class="section-number-4">15.6.2.</span> Code</h4>
+<div class="outline-text-4" id="text-15-6-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
 
@@ -5912,18 +6218,18 @@ In general, first we check for machine-1 (for an overlap), then we check machine
 </div>
 </div>
 </div>
-<div id="outline-container-org0cb07da" class="outline-3">
-<h3 id="org0cb07da"><span class="section-number-3">14.7.</span> Huffman Encoding</h3>
-<div class="outline-text-3" id="text-14-7">
+<div id="outline-container-org9d3a950" class="outline-3">
+<h3 id="org9d3a950"><span class="section-number-3">15.7.</span> Huffman Encoding</h3>
+<div class="outline-text-3" id="text-15-7">
 </div>
-<div id="outline-container-org40a17e3" class="outline-4">
-<h4 id="org40a17e3"><span class="section-number-4">14.7.1.</span> What it is</h4>
+<div id="outline-container-org633a6fd" class="outline-4">
+<h4 id="org633a6fd"><span class="section-number-4">15.7.1.</span> What it is</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbb9618a" class="outline-2">
-<h2 id="orgbb9618a"><span class="section-number-2">15.</span> Dynamic Programming</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-org5d0e4a3" class="outline-2">
+<h2 id="org5d0e4a3"><span class="section-number-2">16.</span> Dynamic Programming</h2>
+<div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li><b>Principle of Optimality</b>
 <ul class="org-ul">
@@ -5937,13 +6243,13 @@ optimality holds true for that problem.</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org37749f1" class="outline-3">
-<h3 id="org37749f1"><span class="section-number-3">15.1.</span> Pascal&rsquo;s Triangle</h3>
-<div class="outline-text-3" id="text-15-1">
+<div id="outline-container-orgc756dc6" class="outline-3">
+<h3 id="orgc756dc6"><span class="section-number-3">16.1.</span> Pascal&rsquo;s Triangle</h3>
+<div class="outline-text-3" id="text-16-1">
 </div>
-<div id="outline-container-org98216a7" class="outline-4">
-<h4 id="org98216a7"><span class="section-number-4">15.1.1.</span> Trivia</h4>
-<div class="outline-text-4" id="text-15-1-1">
+<div id="outline-container-org5433105" class="outline-4">
+<h4 id="org5433105"><span class="section-number-4">16.1.1.</span> Trivia</h4>
+<div class="outline-text-4" id="text-16-1-1">
 <ul class="org-ul">
 <li><p>
 Pascal&rsquo;s triangle is simple: Every number is the sum of the numbers just above it.
@@ -5960,9 +6266,9 @@ Pascal&rsquo;s triangle is simple: Every number is the sum of the numbers just a
 </ul>
 </div>
 </div>
-<div id="outline-container-org611b99b" class="outline-4">
-<h4 id="org611b99b"><span class="section-number-4">15.1.2.</span> Code</h4>
-<div class="outline-text-4" id="text-15-1-2">
+<div id="outline-container-org17a4710" class="outline-4">
+<h4 id="org17a4710"><span class="section-number-4">16.1.2.</span> Code</h4>
+<div class="outline-text-4" id="text-16-1-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
 <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
@@ -5990,21 +6296,21 @@ Pascal&rsquo;s triangle is simple: Every number is the sum of the numbers just a
 </div>
 </div>
 </div>
-<div id="outline-container-org6fb4605" class="outline-3">
-<h3 id="org6fb4605"><span class="section-number-3">15.2.</span> 0/1 Knapsack</h3>
-<div class="outline-text-3" id="text-15-2">
+<div id="outline-container-org3211872" class="outline-3">
+<h3 id="org3211872"><span class="section-number-3">16.2.</span> 0/1 Knapsack</h3>
+<div class="outline-text-3" id="text-16-2">
 </div>
-<div id="outline-container-org4adc1e0" class="outline-4">
-<h4 id="org4adc1e0"><span class="section-number-4">15.2.1.</span> Trivia</h4>
-<div class="outline-text-4" id="text-15-2-1">
+<div id="outline-container-org19c0c7e" class="outline-4">
+<h4 id="org19c0c7e"><span class="section-number-4">16.2.1.</span> Trivia</h4>
+<div class="outline-text-4" id="text-16-2-1">
 <p>
 In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred, and when it&rsquo;s fractional, the greedy approach is preferred.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfb2a9d2" class="outline-4">
-<h4 id="orgfb2a9d2"><span class="section-number-4">15.2.2.</span> DP Table</h4>
-<div class="outline-text-4" id="text-15-2-2">
+<div id="outline-container-org2526e62" class="outline-4">
+<h4 id="org2526e62"><span class="section-number-4">16.2.2.</span> DP Table</h4>
+<div class="outline-text-4" id="text-16-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -6161,9 +6467,9 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </table>
 </div>
 </div>
-<div id="outline-container-org90ac55a" class="outline-4">
-<h4 id="org90ac55a"><span class="section-number-4">15.2.3.</span> Code</h4>
-<div class="outline-text-4" id="text-15-2-3">
+<div id="outline-container-orgc87306b" class="outline-4">
+<h4 id="orgc87306b"><span class="section-number-4">16.2.3.</span> Code</h4>
+<div class="outline-text-4" id="text-16-2-3">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
@@ -6193,13 +6499,13 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </div>
 </div>
 </div>
-<div id="outline-container-org37df6ed" class="outline-3">
-<h3 id="org37df6ed"><span class="section-number-3">15.3.</span> Coin Change Problem</h3>
-<div class="outline-text-3" id="text-15-3">
+<div id="outline-container-org5a63071" class="outline-3">
+<h3 id="org5a63071"><span class="section-number-3">16.3.</span> Coin Change Problem</h3>
+<div class="outline-text-3" id="text-16-3">
 </div>
-<div id="outline-container-org542d0a4" class="outline-4">
-<h4 id="org542d0a4"><span class="section-number-4">15.3.1.</span> Code to find minimum number of coins required to make an amount</h4>
-<div class="outline-text-4" id="text-15-3-1">
+<div id="outline-container-orgbd34c46" class="outline-4">
+<h4 id="orgbd34c46"><span class="section-number-4">16.3.1.</span> Code to find minimum number of coins required to make an amount</h4>
+<div class="outline-text-4" id="text-16-3-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
 
@@ -6236,9 +6542,9 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </div>
 </div>
 </div>
-<div id="outline-container-orgc05c936" class="outline-4">
-<h4 id="orgc05c936"><span class="section-number-4">15.3.2.</span> Code to find Number of Ways to make an amount</h4>
-<div class="outline-text-4" id="text-15-3-2">
+<div id="outline-container-org0d163fd" class="outline-4">
+<h4 id="org0d163fd"><span class="section-number-4">16.3.2.</span> Code to find Number of Ways to make an amount</h4>
+<div class="outline-text-4" id="text-16-3-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">import java.util.*;
 </span>
@@ -6274,17 +6580,17 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </div>
 </div>
 </div>
-<div id="outline-container-org65edd79" class="outline-3">
-<h3 id="org65edd79"><span class="section-number-3">15.4.</span> Longest Common Sequence</h3>
-<div class="outline-text-3" id="text-15-4">
+<div id="outline-container-org833a689" class="outline-3">
+<h3 id="org833a689"><span class="section-number-3">16.4.</span> Longest Common Sequence</h3>
+<div class="outline-text-3" id="text-16-4">
 </div>
-<div id="outline-container-orgca40939" class="outline-4">
-<h4 id="orgca40939"><span class="section-number-4">15.4.1.</span> What it is</h4>
+<div id="outline-container-org394f738" class="outline-4">
+<h4 id="org394f738"><span class="section-number-4">16.4.1.</span> What it is</h4>
 </div>
 
-<div id="outline-container-org954ae19" class="outline-4">
-<h4 id="org954ae19"><span class="section-number-4">15.4.2.</span> Code</h4>
-<div class="outline-text-4" id="text-15-4-2">
+<div id="outline-container-org9030ea8" class="outline-4">
+<h4 id="org9030ea8"><span class="section-number-4">16.4.2.</span> Code</h4>
+<div class="outline-text-4" id="text-16-4-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
 
@@ -6339,13 +6645,13 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </div>
 </div>
 </div>
-<div id="outline-container-org1ada515" class="outline-3">
-<h3 id="org1ada515"><span class="section-number-3">15.5.</span> Longest Increasing Subsequence (LIS)</h3>
-<div class="outline-text-3" id="text-15-5">
+<div id="outline-container-orgb56a617" class="outline-3">
+<h3 id="orgb56a617"><span class="section-number-3">16.5.</span> Longest Increasing Subsequence (LIS)</h3>
+<div class="outline-text-3" id="text-16-5">
 </div>
-<div id="outline-container-org611f4d0" class="outline-4">
-<h4 id="org611f4d0"><span class="section-number-4">15.5.1.</span> Code</h4>
-<div class="outline-text-4" id="text-15-5-1">
+<div id="outline-container-orgf6cea99" class="outline-4">
+<h4 id="orgf6cea99"><span class="section-number-4">16.5.1.</span> Code</h4>
+<div class="outline-text-4" id="text-16-5-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">import</span> <span style="color: #a9a1e1;">java</span>.<span style="color: #a9a1e1;">util</span>.*;
 <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
@@ -6386,23 +6692,23 @@ In general, if you have to solve 0/1 Knapsack, dynamic programming is preferred,
 </div>
 </div>
 </div>
-<div id="outline-container-org722c443" class="outline-3">
-<h3 id="org722c443"><span class="section-number-3">15.6.</span> Paranthezisation in Matrix Multiplication</h3>
+<div id="outline-container-org8162720" class="outline-3">
+<h3 id="org8162720"><span class="section-number-3">16.6.</span> Paranthezisation in Matrix Multiplication</h3>
 </div>
 
 
-<div id="outline-container-org4d29a81" class="outline-3">
-<h3 id="org4d29a81"><span class="section-number-3">15.7.</span> Cost of Reaching the End of a Matrix</h3>
+<div id="outline-container-org5fc89ed" class="outline-3">
+<h3 id="org5fc89ed"><span class="section-number-3">16.7.</span> Cost of Reaching the End of a Matrix</h3>
 </div>
 
 
-<div id="outline-container-org410c618" class="outline-3">
-<h3 id="org410c618"><span class="section-number-3">15.8.</span> Optimal Binary Search Tree</h3>
+<div id="outline-container-orgb429100" class="outline-3">
+<h3 id="orgb429100"><span class="section-number-3">16.8.</span> Optimal Binary Search Tree</h3>
 </div>
 </div>
-<div id="outline-container-org8e280a7" class="outline-2">
-<h2 id="org8e280a7"><span class="section-number-2">16.</span> Backtracking</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-orgd0fa1a2" class="outline-2">
+<h2 id="orgd0fa1a2"><span class="section-number-2">17.</span> Backtracking</h2>
+<div class="outline-text-2" id="text-17">
 <ul class="org-ul">
 <li>Backtracking is used to optimize problems which have to be solved by solving
 constraint-satisfaction problems (i.e. finding the right permutations and
@@ -6440,13 +6746,13 @@ The algorithmic approach is given as:
 </div></li>
 </ul>
 </div>
-<div id="outline-container-orgcf34f97" class="outline-3">
-<h3 id="orgcf34f97"><span class="section-number-3">16.1.</span> Sudoku</h3>
-<div class="outline-text-3" id="text-16-1">
+<div id="outline-container-org5f1732b" class="outline-3">
+<h3 id="org5f1732b"><span class="section-number-3">17.1.</span> Sudoku</h3>
+<div class="outline-text-3" id="text-17-1">
 </div>
-<div id="outline-container-org3a280c0" class="outline-4">
-<h4 id="org3a280c0"><span class="section-number-4">16.1.1.</span> About Sudoku</h4>
-<div class="outline-text-4" id="text-16-1-1">
+<div id="outline-container-orgb6e00be" class="outline-4">
+<h4 id="orgb6e00be"><span class="section-number-4">17.1.1.</span> About Sudoku</h4>
+<div class="outline-text-4" id="text-17-1-1">
 <ul class="org-ul">
 <li>A Sudoku board is usually a 9x9 matrix, where each of the digits 1-9 should be
 appear exactly once in any given column or any given row.</li>
@@ -6455,9 +6761,9 @@ digits 1-9 appear exactly once.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0d88839" class="outline-4">
-<h4 id="org0d88839"><span class="section-number-4">16.1.2.</span> Approach Taken</h4>
-<div class="outline-text-4" id="text-16-1-2">
+<div id="outline-container-org84fb6b0" class="outline-4">
+<h4 id="org84fb6b0"><span class="section-number-4">17.1.2.</span> Approach Taken</h4>
+<div class="outline-text-4" id="text-17-1-2">
 <ul class="org-ul">
 <li>You go row-by-row, and in each row you go element-by-element.</li>
 <li>You backtrack when you can&rsquo;t place an element in that place i.e. that element
@@ -6468,29 +6774,29 @@ it&rsquo;s 1-9, then n=9), and m is the number of blank spaces.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6645186" class="outline-3">
-<h3 id="org6645186"><span class="section-number-3">16.2.</span> Graph Colouring</h3>
-<div class="outline-text-3" id="text-16-2">
+<div id="outline-container-orgc43d716" class="outline-3">
+<h3 id="orgc43d716"><span class="section-number-3">17.2.</span> Graph Colouring</h3>
+<div class="outline-text-3" id="text-17-2">
 </div>
-<div id="outline-container-org54aa845" class="outline-4">
-<h4 id="org54aa845"><span class="section-number-4">16.2.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-16-2-1">
+<div id="outline-container-org92a97ec" class="outline-4">
+<h4 id="org92a97ec"><span class="section-number-4">17.2.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-17-2-1">
 <ul class="org-ul">
 <li>Complexity: \(O(v*c^{v})\), where v is the number of cases (vertices), and c is the number of colours.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org19fa3f7" class="outline-4">
-<h4 id="org19fa3f7"><span class="section-number-4">16.2.2.</span> Code</h4>
+<div id="outline-container-org58334f8" class="outline-4">
+<h4 id="org58334f8"><span class="section-number-4">17.2.2.</span> Code</h4>
 </div>
 </div>
-<div id="outline-container-org0095115" class="outline-3">
-<h3 id="org0095115"><span class="section-number-3">16.3.</span> N-Queens</h3>
-<div class="outline-text-3" id="text-16-3">
+<div id="outline-container-org75645c5" class="outline-3">
+<h3 id="org75645c5"><span class="section-number-3">17.3.</span> N-Queens</h3>
+<div class="outline-text-3" id="text-17-3">
 </div>
-<div id="outline-container-orgc694a34" class="outline-4">
-<h4 id="orgc694a34"><span class="section-number-4">16.3.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-16-3-1">
+<div id="outline-container-org3b9e58f" class="outline-4">
+<h4 id="org3b9e58f"><span class="section-number-4">17.3.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-17-3-1">
 <ul class="org-ul">
 <li>You have to find how to place \(n\) queens on an nxn matrix</li>
 <li>If you place one queen in any position in a row, you can&rsquo;t place any other
@@ -6498,9 +6804,9 @@ queen in the same row. The same thing applies for column and diagonal too.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org55626d1" class="outline-4">
-<h4 id="org55626d1"><span class="section-number-4">16.3.2.</span> Approach taken</h4>
-<div class="outline-text-4" id="text-16-3-2">
+<div id="outline-container-org9014d88" class="outline-4">
+<h4 id="org9014d88"><span class="section-number-4">17.3.2.</span> Approach taken</h4>
+<div class="outline-text-4" id="text-17-3-2">
 <ul class="org-ul">
 <li>So the approach taken is simple:
 <ul class="org-ul">
@@ -6519,13 +6825,13 @@ again. If not, go one more row behind, and so on.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org51c0a31" class="outline-3">
-<h3 id="org51c0a31"><span class="section-number-3">16.4.</span> Making a Required Sum out of a Given set</h3>
-<div class="outline-text-3" id="text-16-4">
+<div id="outline-container-org90953c1" class="outline-3">
+<h3 id="org90953c1"><span class="section-number-3">17.4.</span> Making a Required Sum out of a Given set</h3>
+<div class="outline-text-3" id="text-17-4">
 </div>
-<div id="outline-container-org2b7cc65" class="outline-4">
-<h4 id="org2b7cc65"><span class="section-number-4">16.4.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-16-4-1">
+<div id="outline-container-orgba1e430" class="outline-4">
+<h4 id="orgba1e430"><span class="section-number-4">17.4.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-17-4-1">
 <ul class="org-ul">
 <li>You&rsquo;re given a set of numbers, and you have to find the all the subsets which sum up to a given sum \(w\).</li>
 <li>Each node will represent which numbers you&rsquo;re picking from the set, as a bit vector S.
@@ -6668,9 +6974,9 @@ And each element in the set is referred like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org41e1d8a" class="outline-4">
-<h4 id="org41e1d8a"><span class="section-number-4">16.4.2.</span> Approach taken</h4>
-<div class="outline-text-4" id="text-16-4-2">
+<div id="outline-container-orgeb42480" class="outline-4">
+<h4 id="orgeb42480"><span class="section-number-4">17.4.2.</span> Approach taken</h4>
+<div class="outline-text-4" id="text-17-4-2">
 <ul class="org-ul">
 <li>You&rsquo;ll have a variable <i>completed</i>, which tells you how much of the sum you&rsquo;ve made so far. Initially, this is 0.</li>
 <li>You&rsquo;ll also have a variable <i>pending</i>, which is initially the sum of
@@ -6695,22 +7001,22 @@ This is the boundary function.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb6850a5" class="outline-3">
-<h3 id="orgb6850a5"><span class="section-number-3">16.5.</span> Maze Solving</h3>
-<div class="outline-text-3" id="text-16-5">
+<div id="outline-container-orgda76442" class="outline-3">
+<h3 id="orgda76442"><span class="section-number-3">17.5.</span> Maze Solving</h3>
+<div class="outline-text-3" id="text-17-5">
 <ul class="org-ul">
 <li>Complexity: \(O(2^{n^{2}})\), for an nxn maze.</li>
 <li>This is because there are \(n^{2}\) cells (nxn maze), and each cell can be 0 or 1 (you go there, or you don&rsquo;t)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org63c26df" class="outline-3">
-<h3 id="org63c26df"><span class="section-number-3">16.6.</span> Hamiltonian Cycle</h3>
-<div class="outline-text-3" id="text-16-6">
+<div id="outline-container-org1a3bed3" class="outline-3">
+<h3 id="org1a3bed3"><span class="section-number-3">17.6.</span> Hamiltonian Cycle</h3>
+<div class="outline-text-3" id="text-17-6">
 </div>
-<div id="outline-container-org656c269" class="outline-4">
-<h4 id="org656c269"><span class="section-number-4">16.6.1.</span> What it is</h4>
-<div class="outline-text-4" id="text-16-6-1">
+<div id="outline-container-orgd66f09e" class="outline-4">
+<h4 id="orgd66f09e"><span class="section-number-4">17.6.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-17-6-1">
 <ul class="org-ul">
 <li>It&rsquo;s the path of a graph, such that it visits all the nodes exactly once, and
 returns back to the starting node.</li>
@@ -6720,9 +7026,9 @@ standard way to find them is by using backtracking.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2b983a9" class="outline-4">
-<h4 id="org2b983a9"><span class="section-number-4">16.6.2.</span> Code</h4>
-<div class="outline-text-4" id="text-16-6-2">
+<div id="outline-container-org941adaa" class="outline-4">
+<h4 id="org941adaa"><span class="section-number-4">17.6.2.</span> Code</h4>
+<div class="outline-text-4" id="text-17-6-2">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -6771,9 +7077,9 @@ standard way to find them is by using backtracking.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org9594c12" class="outline-2">
-<h2 id="org9594c12"><span class="section-number-2">17.</span> Branch and Bound</h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-org3a39383" class="outline-2">
+<h2 id="org3a39383"><span class="section-number-2">18.</span> Branch and Bound</h2>
+<div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>The incremental solution build happens here too, but you only obtain the best solution.</li>
 <li>This is because you constantly keep track of the best solution as of that stage.</li>
@@ -6789,9 +7095,9 @@ bound, you put in multiple possibilities in a priority queue, in order to
 proceed with the most promising solution.</li>
 </ul>
 </div>
-<div id="outline-container-org6158b9b" class="outline-3">
-<h3 id="org6158b9b"><span class="section-number-3">17.1.</span> KnapSack Problem using Branch and Bound</h3>
-<div class="outline-text-3" id="text-17-1">
+<div id="outline-container-orgf229205" class="outline-3">
+<h3 id="orgf229205"><span class="section-number-3">18.1.</span> KnapSack Problem using Branch and Bound</h3>
+<div class="outline-text-3" id="text-18-1">
 <ul class="org-ul">
 <li>Each node has 3 values:
 <ul class="org-ul">
@@ -6939,28 +7245,28 @@ next level.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3fa031b" class="outline-3">
-<h3 id="org3fa031b"><span class="section-number-3">17.2.</span> Travelling Salesman Problem using Branch and Bound</h3>
+<div id="outline-container-orgb603571" class="outline-3">
+<h3 id="orgb603571"><span class="section-number-3">18.2.</span> Travelling Salesman Problem using Branch and Bound</h3>
 </div>
 
-<div id="outline-container-org788eb81" class="outline-3">
-<h3 id="org788eb81"><span class="section-number-3">17.3.</span> Checking for a Substring in a String</h3>
+<div id="outline-container-orgc82fa37" class="outline-3">
+<h3 id="orgc82fa37"><span class="section-number-3">18.3.</span> Checking for a Substring in a String</h3>
 </div>
 
-<div id="outline-container-org329a94d" class="outline-3">
-<h3 id="org329a94d"><span class="section-number-3">17.4.</span> Knuth-Morris Algorithm</h3>
+<div id="outline-container-org794c06d" class="outline-3">
+<h3 id="org794c06d"><span class="section-number-3">18.4.</span> Knuth-Morris Algorithm</h3>
 </div>
 </div>
-<div id="outline-container-org5462b98" class="outline-2">
-<h2 id="org5462b98"><span class="section-number-2">18.</span> PNP</h2>
-<div class="outline-text-2" id="text-18">
+<div id="outline-container-org6a525f3" class="outline-2">
+<h2 id="org6a525f3"><span class="section-number-2">19.</span> PNP</h2>
+<div class="outline-text-2" id="text-19">
 <p>
 There are mainly 4 categories of algorithms based on what they do, and how long they take.
 </p>
 </div>
-<div id="outline-container-org66f7337" class="outline-3">
-<h3 id="org66f7337"><span class="section-number-3">18.1.</span> P</h3>
-<div class="outline-text-3" id="text-18-1">
+<div id="outline-container-org6cec539" class="outline-3">
+<h3 id="org6cec539"><span class="section-number-3">19.1.</span> P</h3>
+<div class="outline-text-3" id="text-19-1">
 <ul class="org-ul">
 <li>P stands for <b>polynomial time</b>.</li>
 <li>All algorithms in P class, use a <b>deterministic algorithm</b> (all steps are
@@ -6970,9 +7276,9 @@ clearly defined and hence you can find complexity) and can be solved in
 </ul>
 </div>
 </div>
-<div id="outline-container-org22f9da4" class="outline-3">
-<h3 id="org22f9da4"><span class="section-number-3">18.2.</span> NP</h3>
-<div class="outline-text-3" id="text-18-2">
+<div id="outline-container-org401aa8d" class="outline-3">
+<h3 id="org401aa8d"><span class="section-number-3">19.2.</span> NP</h3>
+<div class="outline-text-3" id="text-19-2">
 <ul class="org-ul">
 <li>N stands for <b>non-deterministic polynomial time</b>.</li>
 <li>All algorithms in the class NP, use a <b>non-deterministic algorithm</b> (some
@@ -6989,9 +7295,9 @@ element. This is of \(O(n)\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9ab4fc6" class="outline-3">
-<h3 id="org9ab4fc6"><span class="section-number-3">18.3.</span> NP-Hard</h3>
-<div class="outline-text-3" id="text-18-3">
+<div id="outline-container-orgd08d57e" class="outline-3">
+<h3 id="orgd08d57e"><span class="section-number-3">19.3.</span> NP-Hard</h3>
+<div class="outline-text-3" id="text-19-3">
 <ul class="org-ul">
 <li>These are extremely hard problems (which needn&rsquo;t be in NP) which set a
 benchmark for NP problems in terms of difficulty. NP problems may not be
@@ -7010,9 +7316,9 @@ carried, given a weight limit?&rdquo;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgae5420a" class="outline-3">
-<h3 id="orgae5420a"><span class="section-number-3">18.4.</span> NP-Complete</h3>
-<div class="outline-text-3" id="text-18-4">
+<div id="outline-container-org17c2918" class="outline-3">
+<h3 id="org17c2918"><span class="section-number-3">19.4.</span> NP-Complete</h3>
+<div class="outline-text-3" id="text-19-4">
 <ul class="org-ul">
 <li>These are extremely hard problems, which are in NP themselves! An NP-complete
 problem is a problem in NP, which serves as a benchmark to NP problems.</li>
@@ -7024,13 +7330,13 @@ shortest hamiltonian path or not.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgfbea37e" class="outline-2">
-<h2 id="orgfbea37e"><span class="section-number-2">19.</span> LinkedList</h2>
-<div class="outline-text-2" id="text-19">
+<div id="outline-container-org4a96f70" class="outline-2">
+<h2 id="org4a96f70"><span class="section-number-2">20.</span> LinkedList</h2>
+<div class="outline-text-2" id="text-20">
 </div>
-<div id="outline-container-org6109fe6" class="outline-3">
-<h3 id="org6109fe6"><span class="section-number-3">19.1.</span> Floyd&rsquo;s Cycle-Finding algorithm</h3>
-<div class="outline-text-3" id="text-19-1">
+<div id="outline-container-org42c56ae" class="outline-3">
+<h3 id="org42c56ae"><span class="section-number-3">20.1.</span> Floyd&rsquo;s Cycle-Finding algorithm</h3>
+<div class="outline-text-3" id="text-20-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> {
 <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">String</span>[] <span style="color: #dcaeea;">args</span>){
@@ -7057,12 +7363,12 @@ shortest hamiltonian path or not.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1ddb860" class="outline-3">
-<h3 id="org1ddb860"><span class="section-number-3">19.2.</span> Leetcode 206</h3>
+<div id="outline-container-orge8060fe" class="outline-3">
+<h3 id="orge8060fe"><span class="section-number-3">20.2.</span> Leetcode 206</h3>
 </div>
 
-<div id="outline-container-org7d9dfd0" class="outline-3">
-<h3 id="org7d9dfd0"><span class="section-number-3">19.3.</span> Leetcode 204</h3>
+<div id="outline-container-org10ccf83" class="outline-3">
+<h3 id="org10ccf83"><span class="section-number-3">20.3.</span> Leetcode 204</h3>
 </div>
 </div>
 </div>

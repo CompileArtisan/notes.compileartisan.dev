@@ -4,11 +4,188 @@
 * Prelude
 This page is my own explanation and interpretation of algorithms, what they are
 and how they work in general. The order of concepts presented is mildly
-influenced by my professor's classes at college. All the code has been written
-by me in Java. I'd also like to let the readers know that these are notes from a
-student's perspective, which means these could have mistakes. If you find any,
-please do let me know and I'll correct them at the earliest. Thank you for
-reading!
+influenced by my professor's classes at college. I'd also like to let the
+readers know that these are notes from a student's perspective, which means
+these could have mistakes. If you find any, please do let me know and I'll
+correct them at the earliest. Thank you for reading!
+
+
+* Basic Programming 
+
+** Finding Prime Numbers in a given Range
+*** Brute force approach
+#+begin_src python :results output raw :wrap src :exports both
+r1 = 3
+r2 = 10 # example numbers
+
+for i in range(r1, r2+1):
+    if i<2:
+        continue
+    prime = True
+    for j in range(2,i):
+        if i%j == 0:
+            prime = False
+            break
+    if prime:
+        print(i, end=" ")
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+3 5 7 
+#+end_src
+*** Sieve of Eratosthenes
+- If a number is prime, then all its multiples must be composite. Eliminating
+  those composite numbers is what Sieve of Eratosthenes does.
+- This is one of the fastest ways to find all prime numbers up to a given
+  number N.
+- Initially write down all the numbers:
+  #+begin_src txt
+2 3 4 5 6 7 8 9 10
+11 12 13 14 15 16 17 18 19 20
+21 22 23 24 25 26 27 28 29 30
+  #+end_src
+  From this list, you start from the first number and keep crossing out all of
+  its multiples. You keep going till you hit $\sqrt{n}$ because it's a rule.
+- When you start writing the multiples, you start from $p^{2}$.
+- Code
+  #+begin_src python :results output raw :wrap src :exports both
+
+
+#+end_src
+*** Segmented Sieve
+
+** Find the number of odd numbers in a given range
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    r1, r2 = map(int, input().split())
+    if r1%2==0 and r2%2==0:
+        print((r2-r1+1)//2)
+    else:
+        print(((r1-r1+1)//2)+1)
+
+main()
+
+#+end_src
+
+
+** GCD
+- Given that: 
+  - First line: An integer ~n~ (1 ≤ n ≤ 10^5), the number of guardian stones.
+  - Second line: ~n~ space-separated positive integers $(1 \le \text{a[i]} \le 10^{9})$, the numbers on the stones
+*** Finding GCD for two numbers
+#+begin_src python :results output raw :wrap src :exports both
+def gcd(a, b):
+    if b==0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+#+end_src
+- Ideally, you'd expect $a$ to be a larger number than $b$, but euclidean
+  algorithm can handle either way.
+  - Say we have ~36 % 24~: The quotient would be 1 and the remainder would be 12.
+  - If we have ~24 % 36~:
+    - In the first iteration, the quotient would be 0 and the remainder would be 24. 
+    - In the second iteration, the quotient is back to being 24.
+*** Finding GCD for a list of numbers
+- For all the items in the list, you find the gcd of the first two numbers, then
+  the gcd of the result and the 3rd number, then the gcd of the result and the
+  4th number, and so on.
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    arr = list(map(int, input().split()))
+    result = arr[0]
+    for x in arr:
+        result = arr(result, x)
+    print(result)
+
+    
+def gcd(a, b):
+    if b==0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+
+main()
+
+#+end_src
+
+** Distinct factors of $n$, sorted
+#+begin_src python :results output raw :wrap src :exports both
+n = int(input())
+[print(item, end=' ') for item in range(1, n+1) if item % n == 0]
+
+#+end_src
+
+** Reverse Characters in Timed Chunks
+- Reverse first k characters
+- Leave the next k characters as they are
+- Repeat this pattern throughout the message
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    reverse(input(), int(input()))
+
+def reverse(s, k):
+    result = ""
+    for i in range(0, len(s), 2*k):
+        result += s[i:i+k][::-1] + s[i+k : i + 2*k]
+    print(result)
+
+main()
+
+#+end_src
+
+** Reverse only the vowels in a string
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    reverseVowels(input())
+
+def reverseVowels(s):
+    l = 0
+    r = len(s)-1
+    arr = list(s)
+    while l<r:
+        while l<r and not isVowel(arr[l]):
+            l += 1
+        while l<r and not isVowel(arr[r]):
+            r -= 1
+        if l<r:
+            arr[l], arr[r] = arr[r], arr[l]
+            l += 1
+            r -= 1
+    print("".join(arr))
+
+def isVowel(c):
+    return c in "aeiou"
+
+
+main()
+#+end_src
+
+** Rotating an array
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    stream_alignment([1,2,3,4,5,6, 7], 10)
+
+def stream_alignment(arr, k):
+    k = k%len(arr)
+    # [print(x, end=" ") for x in arr[-k:] + arr[:-k]]
+    print(*arr[-k:] + arr[:-k])
+
+main()
+
+
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+5 6 7 1 2 3 4
+#+end_src
+
 
 
 * What are Data Structures
@@ -2989,4 +3166,5 @@ class Solution {
 ** Leetcode 206
 
 ** Leetcode 204
+
 
