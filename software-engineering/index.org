@@ -1,20 +1,23 @@
 #+title: Software Engineering
 #+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
 
-* Introduction
+* Software Engineering
+
+
+** Introduction
 
 Software acts as both a product and a vehicle for delivering a product.
 - *As a Product*: It manages, displays, and transmits information.
 - *As a Vehicle*: It acts as a platform for other software (like an Operating
   System), controls other programs, or helps build new tools.
 
-** Fundamental Definition of Software
+*** Fundamental Definition of Software
 You can define a software as
 - *Instructions* that provide desired features, functions and performance.
 - *Data Structures* that enable programs to adequately manipulate information.
 - *Documentation* that describes operation and use of programs.
 
-** Types of Software Applications
+*** Types of Software Applications
 - *System Software* 
 - *Application Software*
 - *Engineering/Scientific Software* (a specific type of application software)
@@ -23,9 +26,9 @@ You can define a software as
 - *WebApps* (applications which run on a browser)
 - *AI Software* (specific type of application software which use AI)
 
-** Failure Models of Hardware and Software
+*** Failure Models of Hardware and Software
 
-*** Hardware
+**** Hardware
 - Hardware is a physical system element, which starts with high failure rate
   (infant mortality), and then has a constantly low failure rate (steady state),
   and then later on again has a high failure rate due to wear-and-tear (wear
@@ -34,7 +37,7 @@ You can define a software as
   file:/home/praaneshnair/gitProjects/org-notes/software-engineering/bathtub_curve.png
 - When hardware components wear out, you can replace them with spare parts, but
   that doesn't change the failure rate overall.
-*** Software
+**** Software
 - Software can't wear out because it's a logical construct, not a physical
   entity.
 - Software too, starts with high failure rate, but ideally should decrease and
@@ -47,8 +50,8 @@ You can define a software as
   design or process.
 - So software maintenance is *harder* than hardware maintenance.
   
-** Legacy Software
-*** What are they and why are they unchanged?
+*** Legacy Software
+**** What are they and why are they unchanged?
 - These are software developed decades ago, but are still used because they're
   indispensable to the business.
 - They often have *inextensible designs*, *convoluted code* and *poor change
@@ -56,17 +59,17 @@ You can define a software as
 - All in all, they are of *poor quality*.
 - These are forgiven because they do the job. If it ain't broken, don't fix it.
   
-*** When will you need to change them?
+**** When will you need to change them?
 - Software must be adapted to meet new *computing needs*.
 - They must be enhanced to implement new *business requirements*.
 - They must be extended to make it *interoperable with modern systems*.
 
-** Newer Categories of Software
+*** Newer Categories of Software
 - *Ubiquitous Computing*: The concept of wireless networks
 - *Netsourcing*: Using the internet as a computing engine
 - *Open Source*: Source Code open to the computing community.
 
-** IEEE's Definition of Software Engineering
+*** IEEE's Definition of Software Engineering
 #+begin_quote
 The application of a
 - Systematic
@@ -79,7 +82,7 @@ approach to the
 of software.
 #+end_quote
 
-** Layers of technology
+*** Layers of technology
 
 | *Tools:*         | What you use. Eg. Compilers, Database, programming languages, IDEs, etc                         |
 | *Methods:*       | These include the things which make up a  workflow. Eg. Communication, Design Modeling, Testing |
@@ -96,9 +99,9 @@ The last layer is what matters the most in engineering.
 - Processes hold everything together in any model.
 
 
-* Process Models
+** Process Models
 
-** Prescriptive/ Traditional 
+*** Prescriptive/ Traditional 
 - These are for large-scale projects.
 - You prescribe a set of processes and workflows for projects. You focus on the
   process over the product.
@@ -110,8 +113,8 @@ The last layer is what matters the most in engineering.
   estimates.
   
 
-*** Waterfall
-**** What it is
+**** Waterfall
+***** What it is
 \[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
 
 - Communication is talking with the client (project initiation and requirements
@@ -122,18 +125,18 @@ The last layer is what matters the most in engineering.
 - Construction is the actual implementation (code and test)
 - Deployment is giving the final product (delivery, support and feedback)
   
-**** When to use
+***** When to use
 - When requirements are stable and unlikely to change
 - When resources are available throughout.
   
-**** Disadvantages
+***** Disadvantages
 - You have to finish a phase to move to the next one. 
 - You can't go back a phase.
 - You get an actual product only at the end of everything.
 
-*** V-Process
+**** V-Process
 
-**** What it is
+***** What it is
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/v-process.png
 - Extends waterfall model by adding a testing phase.
 - It emphasizes verification and validation.
@@ -142,44 +145,44 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/v-process.png
 - Each phase has specific deliverables, and the resources are well utilized.
 
 
-**** When to use
+***** When to use
 - Requirements are clear and fixed.
 - Scale is small
 - But you also need early defect detection.
 
-*** Incremental
+**** Incremental
 
-**** What it is
+***** What it is
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/incremental.png
 - Applies linear sequences in a staggered fashion
   
-**** Advantages
+***** Advantages
 - Users get working functionality early, even if the complete system isn't
   ready. This provides value sooner and allows for feedback.
 
-**** When to use
+***** When to use
 - You have a large project that can be broken into modules
 - Resources can be added gradually.
 - Complexity is high but no uncertainty.
 
-*** Rapid Application Development
+**** Rapid Application Development
 
-**** What it is
+***** What it is
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
 - Even here, you need well defined requirements.
 
-*** Prototypic / Evolutionary Process Models
+**** Prototypic / Evolutionary Process Models
 
-**** What it is
+***** What it is
 - Prototypic
 - It's the same waterfall model, but in a loop.
 - You do it when requirements are not well understood.
 
-**** Disadvantages
+***** Disadvantages
 - To impress stakeholders, the prototype is often held together haphazardly,
   which means you haven't considered overall software quality.
 
-*** Spiral Model
+**** Spiral Model
 - It's evolutionary model, but risk analysis is introduced.
 - Instead of being a loop, you move that line in a spiral shape.
 - This is better for large scale projects.
@@ -189,7 +192,7 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
   - Engineering
   - Evaluation
 
-** Agile Method
+*** Agile Method
 - These are for small-scale process.
 - The whole premise is that you prioritize human outcomes over rigid system.
 - The organizational structure is iterative, not linear.
@@ -200,14 +203,14 @@ file:/home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png
   effort estimations.
 - Refer to [[*Prescriptive/ Traditional][traditional approach]] to compare.
 
-*** 4 values of Agile
+**** 4 values of Agile
 These are 4 values to focus on quality.
 - $\text{People and Interactions} >  \text{rigid processes and tools}$
 - $\text{Working software} >  \text{Documentation}$
 - $\text{Customer collaboration} >  \text{contract negotiation}$
 - $\text{Responding to change} >  \text{sticking to a plan}$
 
-*** 12 Principles
+**** 12 Principles
 The 12 principles articulated in the Agile Manifesto emphasize creating a work
 environment that focuses on the customer:
 - Satisfying customers through early and continuous delivery of valuable work.
@@ -229,16 +232,16 @@ environment that focuses on the customer:
 Here are those pictorially:
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/principlesscrum.png
 
-*** Agile Scrum Methodology
+**** Agile Scrum Methodology
 - Scrum is a lightweight framework of Agile Project Management
 - A sprint in Agile is the time-boxed period to complete an increment.
 
-**** Three Pillars
+***** Three Pillars
 - Transparency
 - Inspection
 - Adaptation
 
-**** Scrum Artifacts
+***** Scrum Artifacts
 Scrum artifacts are information the team and stakeholders use to detail
 - the product being developed
 - the actions to produce it, and
@@ -249,10 +252,10 @@ Scrum artifacts are information the team and stakeholders use to detail
 |--------------------------------------------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------|
 | List of requirements of build in product aka. list of user stories | Set of product backlog items to be implemented in current sprint | Customer deliverables which were actually delivered during a sprint |
 
-***** Epics
+****** Epics
 - They represent a big-picture vision
 
-***** User Stories
+****** User Stories
 - It's a requirement expressed in end-user POV
 - These break epics down into actionable tasks.
 - These include functional user stories (eg. can I save my order and come back
@@ -260,7 +263,7 @@ Scrum artifacts are information the team and stakeholders use to detail
   of the functions like "can I place an order at ANY time?")
 - They comprise of 3 elements: card, conversation and confirmation
 
-****** Card
+******* Card
 - User stories are printed on physical cards.
 - The front tells us:
   - Who the primary stakeholder is (*As a* some role)
@@ -268,15 +271,15 @@ Scrum artifacts are information the team and stakeholders use to detail
   - What business value does this effect give the stakeholder (*so that* I can get some benefit)
 - The back gives us *acceptance criteria* (the test cases which prove that the feature works as intended).
   
-****** Conversation
+******* Conversation
 Discuss details among stakeholders
   
-****** Confirmation
+******* Confirmation
 Define acceptance criteria
 
 
 
-***** Story Points
+****** Story Points
 - They help quantify the complexity of a user story
 - The numbers used are often part of the fibonacci sequence
 - Larger the number, higher the complexity and the need to be broken down into
@@ -284,9 +287,9 @@ Define acceptance criteria
 
 
 
-**** Events
+***** Events
 
-***** Backlog Grooming/Optimization
+****** Backlog Grooming/Optimization
 - The product owner optimizes the product backlog using feedback they get from
   users and development team.
 - A good backlog should be *DEEP*: 
@@ -295,12 +298,12 @@ Define acceptance criteria
   - *Emergent* (backlog adapts to customer needs)
   - *Prioritized* (backlog items are ranked according to business value)
 
-***** Sprint Planning
+****** Sprint Planning
 - To make the sprint backlog, the development team conducts this meeting.
 - Specific user stores are added to the sprint backlog, from the product
   backlog.
 
-***** Daily Scrum/ Standup
+****** Daily Scrum/ Standup
 - It's a meeting of about 15 minutes every day to make sure everyone is on the
   same page.
 - The common questions are:
@@ -308,22 +311,22 @@ Define acceptance criteria
   - What do I plan to do today?
   - Are there any obstacles?
    
-***** Sprint
+****** Sprint
 - The time taken to finish an increment
 - It's typically two weeks long
 - The more complex the work is, the more shorter the sprint should be.
 
-***** Sprint Review
+****** Sprint Review
 - At the end of a sprint, the team showcases the increment to the stakeholders
   and teammates.
 - The product owner can chose if they want to release the increment or not.
 - For a 1 month long sprint, a sprint review should take not more than 4 hours.
 
-***** Sprint Retrospective
+****** Sprint Retrospective
 - The team comes together to discuss what went well, what didn't, and how things
   can be improved.
 
-**** Roles
+***** Roles
 
 | Product Owner                                                                                                                           | Scrum Master                                               | Development Team                                   |
 |-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------|
@@ -331,27 +334,27 @@ Define acceptance criteria
 | They are an individual not a group. Else the development team would be getting mixed guidance                                           | They understand the work and help in improving efficiency. | They train each other and are self-organizing.     |
 | They work with stakeholders and customers to make epics, then they work with the development team to break them down into user stories. |                                                            |                                                    |
  
-* Requirements Engineering 
+** Requirements Engineering 
 
-** 7 Tasks of a Requirement Engineer
+*** 7 Tasks of a Requirement Engineer
 
-*** Inception
+**** Inception
 - Understand the problem
 - Identify stakeholders
 
-*** Elicitation
+**** Elicitation
 Gather details 
-**** Collaborative Requirements Gathering
+***** Collaborative Requirements Gathering
 - A facilitator (customer/developer) conducts a meeting to negotiate different
   approaches.
-**** Quality Function Deployment
+***** Quality Function Deployment
 - Translate needs of customer \rightarrow technical requirements for software
 - Three types of requirements:
   | Normal                               | Expected                                                                                            | Exciting                                         |
   |--------------------------------------+-----------------------------------------------------------------------------------------------------+--------------------------------------------------|
   | Goals stated for product by customer | Implicit requirements that might be fundamental enough for the customer to not tell them explicitly | Requirements for features customer didn't expect |
 
-*** Elaboration
+**** Elaboration
 - Build a analysis/technical model and develop use cases.
 - An analysis model is a snapshot of requirements at a specific point of time.
 - There are majorly 4 categorizations of models:
@@ -361,7 +364,7 @@ Gather details
   - Flow Models (eg. DFDs, data models)
   
 
-**** Use Case Diagram
+***** Use Case Diagram
   Here's an example of a use case diagram:
   file:/home/praaneshnair/gitProjects/org-notes/software-engineering/usecasediagram.png
 - There are 4 symbols in a use case diagram:
@@ -376,11 +379,11 @@ Gather details
   it means the use case is optional. Here too, the arrow is dotted.
   file:/home/praaneshnair/gitProjects/org-notes/software-engineering/uml.png
   
-**** State Diagram
+***** State Diagram
 - A *state diagram* looks like this:
   file:/home/praaneshnair/gitProjects/org-notes/software-engineering/statediagram.png
   
-**** Data Flow Diagram
+***** Data Flow Diagram
 - *Rectangle*: Producer of Data
 - *Circle*: This is a function that takes data as input, processes it and gives
   output.
@@ -388,37 +391,37 @@ Gather details
 - *Parallel Lines*: Text written inside parallel lines means it's data stored for
   later use.
 
-*** Negotiation
+**** Negotiation
 - Using the technical model we've built, we evaluate the *feasibility* of what the
   customer wants, *rank* the requirements, and evaluate the *risks*, iteratively.
 
-*** Specification
+**** Specification
 - Make the *Software Requirement Specification* (SRS) document.
 - This contains all functional and non-functional requirements.
-**** Functional Requirements
+***** Functional Requirements
 - Functional requirements list all the functions of the website, and tells us
   how it works in general.
 - These are things the end-user specifically demands.
-**** Non-Functional Requirements
+***** Non-Functional Requirements
 - Non-functional requirements list technical implementations of functional
   requirements. They could be related to *performance*, *scalability*, *security*,
   *usability*, etc.
 - Any performance criteria (eg. 99.9% uptime), constraints (eg. 1000
   transactions per seconds) are included here.
   
-***** Execution Qualities 
+****** Execution Qualities 
 - These are things observable during runtime.
 - Eg. Security, usability
 
-***** Evolution Qualities
+****** Evolution Qualities
 - These consist of things like testability, maintainability, scalability that
   are embodied in the static structure of the system.
   
 
-*** Validation
+**** Validation
 - Validate the requirements presented in SRS.
 
-**** Decision Tables
+***** Decision Tables
 
 | Condition Stubs                      | Condition Entries         | Action Stubs                              | Action Entries                                      |
 |--------------------------------------+---------------------------+-------------------------------------------+-----------------------------------------------------|
@@ -427,79 +430,85 @@ Gather details
 
 Eg.
 file:/home/praaneshnair/gitProjects/org-notes/software-engineering/decisiontable.png
-**** Decision Tree
+***** Decision Tree
 - The leaf nodes represent actions to be performed.
 
-*** Requirements Management Task
+**** Requirements Management Task
 Make a *requirement traceability matrix (RTM)*
 
-**** Forward Traceability Matrix
+***** Forward Traceability Matrix
 Maps Requirements \rightarrow Test Cases and Project Deliverables
 
-**** Backward/Reverse Traceability Matrix
+***** Backward/Reverse Traceability Matrix
 Maps Test Cases and Project Deliverables \rightarrow Requirements
 
-**** Bidirectional
+***** Bidirectional
 Maps both ways.
 
-* Design Engineering
+** Design Engineering
 
-** McGlaughin's Characteristics
+*** McGlaughin's Characteristics
 - Implement all implicit/explicit requirements by stakeholders.
 - Design should be a readable, understandable guide.
 - Design should give a complete picture of the software.
 
-** Functional Independence
+*** Functional Independence
 
-*** Cohesion
+**** Cohesion
 - Degree to which elements inside a module work together.
 - functional strength of a module
 - More cohesion means elements are more closely related and they all work
   towards the same goal.
 - Higher the cohesion, the easier the system is to maintain.
 
-**** Functional Cohesion
+***** Functional Cohesion
 - Everything needed is readily available in the module.
 - This is the ideal case.
 
-**** Sequential Cohesion
+***** Sequential Cohesion
 - The output of an element is the input of another. 
 - Data flows between the parts.
 
-**** Communicational Cohesion
+***** Communicational Cohesion
 - Two elements operate on the same input data or contribute towards the same output data.
 
-**** Procedural Cohesion
+***** Procedural Cohesion
 - It's not data flow, but it's still in order.
 
-**** 
+***** 
 
-*** Coupling
+**** Coupling
 - Degree of Interdependence among modules
 - More the coupling means more interconnectivity and this means it's harder to
   maintain.
 
-**** Data Coupling
+***** Data Coupling
 - Only data moves around
 - The components are independent of each other
 - There is no /tramp data/. Tramp data is where data moves from one function to
   another through intermediary functions, and those functions don't use this
   data.
 
-**** Stamp Coupling
+***** Stamp Coupling
 - Data structures move around. 
 - This contains tramp data, but it could have been for efficiency sake too.
 
-**** Control Coupling
+***** Control Coupling
 - Modules communicate via control information/parameters.
 
-**** External Coupling
+***** External Coupling
 - Depends on external modules, not part of the system.
 
-**** Common Coupling
+***** Common Coupling
 - Modules have shared data like global data structures.
 - Reusing modules or controlling data access is an issue.
 
-**** Content Coupling
+***** Content Coupling
 - One module can modify the data of another module.
 - This is the worst form of coupling.
+
+* Softare Project Management
+
+** Introduction
+
+
