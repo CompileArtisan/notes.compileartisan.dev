@@ -1337,6 +1337,7 @@ For example, the GCD for 24598 and 7895 would be:
 The answer is *1*.
 
 *** Euclidean Algorithm
+**** What it is
 $$divident = quotient \times divisor + remainder$$ Basically, the property used is
 that $GCD(a,b) = GCD(a\mod(b), b)$, given that $a>b$. You can endlessly keep
 replacing the larger of the two numbers, with the remainder they form on
@@ -1352,8 +1353,27 @@ For example, the GCD of 49 and 63 would be 7:
 | 2 | 14 |  7 |              0 |
 
 What we've done here is $GCD(63,49) = GCD(49, 14) = GCD(14, 7) = GCD(7, 0) = 7$
-(because GCD of a number and 0, is the number itself).w
+(because GCD of a number and 0, is the number itself).
 
+**** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(gcd(63,49))
+
+def gcd(a, b):
+    if b==0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+7
+#+end_src
 
 *** Modular Arithmetic Operations
 **** Standard Rules
@@ -1371,6 +1391,28 @@ Some inferences you can make out from this is:
 - It's simply $(\text{negativeNumber}+nx)\mod(x)$, where $n$ can be anything
   that turns that negative number into a positive one.
 
+
+**** Program to compute $(a+b)mod(n)$ and $(a*b)mod(n)$
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(a_plus_b_mod_n(15, 37, 13))
+    print(a_plus_b_mod_n(15, 37, 13))
+
+def a_plus_b_mod_n(a, b, n):
+    return (a%n + b%n)%n
+
+def a_times_b_mod_n(a, b, n):
+    return (a%n * b%n)%n
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+0
+0
+#+end_src
 
 *** Addition Modulo $n$ table
 - We construct a table where each value is $(row + col) \mod (n)$
@@ -1554,6 +1596,29 @@ Eg. $B = 11$
 - Hence $11^{(13)}\mod(53) = 52$
 
   
+
+*** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    fast(3, 50, 7)
+
+def fast(a, b, n): # a^b mod(n)
+    binary = bin(b)[2:]
+    dp = [0 for i in range(len(binary))]
+    dp[-1] = a%n
+    for i in range(len(binary) - 2, 0, -1):
+        dp[i] = (dp[i+1]**2)%n
+            
+    print(dp)
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+[0, 4, 2, 4, 2, 3]
+#+end_src
 
 ** Fermat's Little Theorem
 #+begin_quote

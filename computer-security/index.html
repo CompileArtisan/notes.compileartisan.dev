@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-06-12 Fri 21:23 -->
+<!-- 2026-07-14 Tue 12:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Security</title>
@@ -676,157 +676,158 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6b5f802">1. Introduction</a>
+<li><a href="#orgf925daf">1. Introduction</a>
 <ul>
-<li><a href="#org6cb35b0">1.1. Types of Security</a>
+<li><a href="#org2b25040">1.1. Types of Security</a>
 <ul>
-<li><a href="#org164905a">1.1.1. Computer Security</a></li>
-<li><a href="#org76808a0">1.1.2. Network Security</a></li>
-<li><a href="#org6db2bf1">1.1.3. Internet Security</a></li>
+<li><a href="#orge6d6c6d">1.1.1. Computer Security</a></li>
+<li><a href="#org09d346e">1.1.2. Network Security</a></li>
+<li><a href="#org8c63a4c">1.1.3. Internet Security</a></li>
 </ul>
 </li>
-<li><a href="#org79491a6">1.2. What is an information system?</a></li>
-<li><a href="#org228826b">1.3. Who is an intruder?</a></li>
+<li><a href="#org46d523c">1.2. What is an information system?</a></li>
+<li><a href="#org2dee62e">1.3. Who is an intruder?</a></li>
 </ul>
 </li>
-<li><a href="#orgbc92d38">2. CIA Triad: What is Computer Security?</a>
+<li><a href="#org1d6c709">2. CIA Triad: What is Computer Security?</a>
 <ul>
-<li><a href="#orga5e7fc2">2.1. Confidentiality</a>
+<li><a href="#org9b2863d">2.1. Confidentiality</a>
 <ul>
-<li><a href="#orgdff78ea">2.1.1. Data Confidentiality</a></li>
-<li><a href="#org7ebd0eb">2.1.2. Privacy</a></li>
-<li><a href="#org24bc8ae">2.1.3. Authentication</a></li>
+<li><a href="#org29be5f0">2.1.1. Data Confidentiality</a></li>
+<li><a href="#org65bed57">2.1.2. Privacy</a></li>
+<li><a href="#org02958e4">2.1.3. Authentication</a></li>
 </ul>
 </li>
-<li><a href="#org6b39926">2.2. Integrity</a>
+<li><a href="#org4fde667">2.2. Integrity</a>
 <ul>
-<li><a href="#org29b6b52">2.2.1. Data Integrity</a></li>
-<li><a href="#org05bb25d">2.2.2. System Integrity</a></li>
+<li><a href="#org152091d">2.2.1. Data Integrity</a></li>
+<li><a href="#orgcdbe888">2.2.2. System Integrity</a></li>
 </ul>
 </li>
-<li><a href="#org6fdbd0e">2.3. Availability</a></li>
+<li><a href="#orgaeb36d2">2.3. Availability</a></li>
 </ul>
 </li>
-<li><a href="#orgea60d84">3. Three Aspects of Information Security</a>
+<li><a href="#org5b23ed3">3. Three Aspects of Information Security</a>
 <ul>
-<li><a href="#org4b5efba">3.1. Security Attack</a>
+<li><a href="#orgff8370c">3.1. Security Attack</a>
 <ul>
-<li><a href="#orgc1c3af5">3.1.1. Security Threat</a></li>
-<li><a href="#org671eaa4">3.1.2. Two types of Attacks</a></li>
+<li><a href="#orged9851e">3.1.1. Security Threat</a></li>
+<li><a href="#org408b5da">3.1.2. Two types of Attacks</a></li>
 </ul>
 </li>
-<li><a href="#orgdb8c465">3.2. Security Service</a>
+<li><a href="#org6a6d372">3.2. Security Service</a>
 <ul>
-<li><a href="#orgc75e8e6">3.2.1. Definitions by different standards</a></li>
-<li><a href="#org8958dc7">3.2.2. Notorization</a></li>
+<li><a href="#org9894750">3.2.1. Definitions by different standards</a></li>
+<li><a href="#orge659f32">3.2.2. Notorization</a></li>
 </ul>
 </li>
-<li><a href="#org6de6a21">3.3. Security Mechanism</a></li>
+<li><a href="#org9fb7f33">3.3. Security Mechanism</a></li>
 </ul>
 </li>
-<li><a href="#orge95959c">4. OSI Security Architecture</a></li>
-<li><a href="#org9498164">5. Models for the Security of Network</a>
+<li><a href="#orgd88cc99">4. OSI Security Architecture</a></li>
+<li><a href="#org222b205">5. Models for the Security of Network</a>
 <ul>
-<li><a href="#org44d30d7">5.1. Model for Network Security</a></li>
-<li><a href="#org49849e8">5.2. Model for Network Access Security</a>
+<li><a href="#org3d19d51">5.1. Model for Network Security</a></li>
+<li><a href="#org665744d">5.2. Model for Network Access Security</a>
 <ul>
-<li><a href="#org5a883a0">5.2.1. Types of attacks on access controls</a></li>
-<li><a href="#org4ee95e4">5.2.2. Layered Security Tools/Devices</a></li>
-<li><a href="#orgb12d010">5.2.3. Zero-Day Attack</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgbdcbff8">6. Malicious Program</a>
-<ul>
-<li><a href="#org64f6896">6.1. Host Dependent Malicious Programs</a>
-<ul>
-<li><a href="#org453171a">6.1.1. Virus</a></li>
-<li><a href="#org6af4ead">6.1.2. Trojan Horse</a></li>
-<li><a href="#org68dd872">6.1.3. Trapdoors/Backdoor</a></li>
-<li><a href="#org97da682">6.1.4. Logic Bomb</a></li>
-</ul>
-</li>
-<li><a href="#org227683c">6.2. Host independent Malicious Programs</a>
-<ul>
-<li><a href="#org73212e7">6.2.1. Worms</a></li>
-<li><a href="#org189d17d">6.2.2. Zombie</a></li>
+<li><a href="#org433afa5">5.2.1. Types of attacks on access controls</a></li>
+<li><a href="#orgd8308c0">5.2.2. Layered Security Tools/Devices</a></li>
+<li><a href="#orgdd58ddc">5.2.3. Zero-Day Attack</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5db4165">7. Cryptography</a>
+<li><a href="#org7c170f5">6. Malicious Program</a>
 <ul>
-<li><a href="#org5ac3be7">7.1. Basic Terminology</a></li>
-<li><a href="#org63abf6f">7.2. Types of Cryptography</a>
+<li><a href="#org5fe8ecd">6.1. Host Dependent Malicious Programs</a>
 <ul>
-<li><a href="#org781dc3c">7.2.1. Based on Encryption Techniques</a></li>
-<li><a href="#orgd5d9ae7">7.2.2. Based on Number of Keys</a></li>
-<li><a href="#org70e66ba">7.2.3. Based on how plaintext is processed</a></li>
+<li><a href="#org4816712">6.1.1. Virus</a></li>
+<li><a href="#org54bae7d">6.1.2. Trojan Horse</a></li>
+<li><a href="#org3b67378">6.1.3. Trapdoors/Backdoor</a></li>
+<li><a href="#orgf270224">6.1.4. Logic Bomb</a></li>
+</ul>
+</li>
+<li><a href="#org877edc9">6.2. Host independent Malicious Programs</a>
+<ul>
+<li><a href="#org14c1650">6.2.1. Worms</a></li>
+<li><a href="#org55b5cd9">6.2.2. Zombie</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9f8bcdc">8. Number Theory</a>
+<li><a href="#org5abb93b">7. Cryptography</a>
 <ul>
-<li><a href="#org9d57773">8.1. Basic Properties</a>
+<li><a href="#orgd07efc4">7.1. Basic Terminology</a></li>
+<li><a href="#org1c8e6d5">7.2. Types of Cryptography</a>
 <ul>
-<li><a href="#orgf2e23f3">8.1.1. Commutative</a></li>
-<li><a href="#orgde7bdea">8.1.2. Associative</a></li>
-<li><a href="#orgdebe628">8.1.3. Distributive</a></li>
+<li><a href="#org1293052">7.2.1. Based on Encryption Techniques</a></li>
+<li><a href="#orgca4a3fe">7.2.2. Based on Number of Keys</a></li>
+<li><a href="#org45b4a06">7.2.3. Based on how plaintext is processed</a></li>
 </ul>
 </li>
-<li><a href="#org53e2cc3">8.2. Division</a></li>
-<li><a href="#orgce87c59">8.3. Prime Numbers</a>
-<ul>
-<li><a href="#orga3ab27f">8.3.1. Fundamental Theorem of Arithmetic</a></li>
-<li><a href="#orgaf56230">8.3.2. GCD</a></li>
-<li><a href="#org33aab80">8.3.3. Euclidean Algorithm</a></li>
-<li><a href="#orgf42b1bb">8.3.4. Modular Arithmetic Operations</a></li>
-<li><a href="#org75cf8c2">8.3.5. Addition Modulo \(n\) table</a></li>
-<li><a href="#org3e7d000">8.3.6. Congruence</a></li>
-<li><a href="#orgcbaf7df">8.3.7. Inverses</a></li>
-<li><a href="#org89b2f0f">8.3.8. Equivalence Class</a></li>
 </ul>
 </li>
-<li><a href="#org3ccaea1">8.4. Euler&rsquo;s Totient/Phi Function</a>
+<li><a href="#orge6a57d2">8. Number Theory</a>
 <ul>
-<li><a href="#orgc163b45">8.4.1. Conditions for \(\phi(P)\)</a></li>
-<li><a href="#org27e3aa9">8.4.2. Examples</a></li>
+<li><a href="#org9dd3d19">8.1. Basic Properties</a>
+<ul>
+<li><a href="#org9034119">8.1.1. Commutative</a></li>
+<li><a href="#org114055e">8.1.2. Associative</a></li>
+<li><a href="#orgb7d784f">8.1.3. Distributive</a></li>
 </ul>
 </li>
-<li><a href="#org10da7e2">8.5. Fast Exponentiation Algorithm</a>
+<li><a href="#org6cdec33">8.2. Division</a></li>
+<li><a href="#org45f65a6">8.3. Prime Numbers</a>
 <ul>
-<li><a href="#org6f62e2c">8.5.1. Steps</a></li>
-<li><a href="#orgb5054c2">8.5.2. Examples</a></li>
+<li><a href="#org34186ae">8.3.1. Fundamental Theorem of Arithmetic</a></li>
+<li><a href="#orgecfa317">8.3.2. GCD</a></li>
+<li><a href="#org2f013d5">8.3.3. Euclidean Algorithm</a></li>
+<li><a href="#orgfadd92c">8.3.4. Modular Arithmetic Operations</a></li>
+<li><a href="#org7633425">8.3.5. Addition Modulo \(n\) table</a></li>
+<li><a href="#org7ef0b7d">8.3.6. Congruence</a></li>
+<li><a href="#org8a72e20">8.3.7. Inverses</a></li>
+<li><a href="#orgb21ac11">8.3.8. Equivalence Class</a></li>
 </ul>
 </li>
-<li><a href="#orga63d2ef">8.6. Fermat&rsquo;s Little Theorem</a>
+<li><a href="#orgc60c6eb">8.4. Euler&rsquo;s Totient/Phi Function</a>
 <ul>
-<li><a href="#orgb0e3d2e">8.6.1. Examples</a></li>
+<li><a href="#org82abf92">8.4.1. Conditions for \(\phi(P)\)</a></li>
+<li><a href="#org5d4ad40">8.4.2. Examples</a></li>
 </ul>
 </li>
-<li><a href="#orgdc991a6">8.7. Euler&rsquo;s Theorem</a>
+<li><a href="#org7923c60">8.5. Fast Exponentiation Algorithm</a>
 <ul>
-<li><a href="#org18ed9fb">8.7.1. Examples</a></li>
+<li><a href="#org7660817">8.5.1. Steps</a></li>
+<li><a href="#org2d8a1fa">8.5.2. Examples</a></li>
+<li><a href="#org34c04c2">8.5.3. Code</a></li>
 </ul>
 </li>
-<li><a href="#org9691a6b">8.8. Discrete Logarithm</a></li>
+<li><a href="#org0680040">8.6. Fermat&rsquo;s Little Theorem</a>
+<ul>
+<li><a href="#org42cb85b">8.6.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#org61bb6eb">8.7. Euler&rsquo;s Theorem</a>
+<ul>
+<li><a href="#orgb1e146b">8.7.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#org0fcd8c1">8.8. Discrete Logarithm</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6b5f802" class="outline-2">
-<h2 id="org6b5f802"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgf925daf" class="outline-2">
+<h2 id="orgf925daf"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6cb35b0" class="outline-3">
-<h3 id="org6cb35b0"><span class="section-number-3">1.1.</span> Types of Security</h3>
+<div id="outline-container-org2b25040" class="outline-3">
+<h3 id="org2b25040"><span class="section-number-3">1.1.</span> Types of Security</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org164905a" class="outline-4">
-<h4 id="org164905a"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
+<div id="outline-container-orge6d6c6d" class="outline-4">
+<h4 id="orge6d6c6d"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>It is designed to protect data which is stored in a device with the help of
@@ -834,16 +835,16 @@ tools.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org76808a0" class="outline-4">
-<h4 id="org76808a0"><span class="section-number-4">1.1.2.</span> Network Security</h4>
+<div id="outline-container-org09d346e" class="outline-4">
+<h4 id="org09d346e"><span class="section-number-4">1.1.2.</span> Network Security</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>It is designed to protect data during transmission using LAN, WAN.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6db2bf1" class="outline-4">
-<h4 id="org6db2bf1"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
+<div id="outline-container-org8c63a4c" class="outline-4">
+<h4 id="org8c63a4c"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>It is designed to protect data during their transmission over an
@@ -852,8 +853,8 @@ interconnected network.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org79491a6" class="outline-3">
-<h3 id="org79491a6"><span class="section-number-3">1.2.</span> What is an information system?</h3>
+<div id="outline-container-org46d523c" class="outline-3">
+<h3 id="org46d523c"><span class="section-number-3">1.2.</span> What is an information system?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Any form of hardware or software used to store information.</li>
@@ -862,8 +863,8 @@ processes, software.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org228826b" class="outline-3">
-<h3 id="org228826b"><span class="section-number-3">1.3.</span> Who is an intruder?</h3>
+<div id="outline-container-org2dee62e" class="outline-3">
+<h3 id="org2dee62e"><span class="section-number-3">1.3.</span> Who is an intruder?</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Anyone who tries to get unauthorized access of an information system.
@@ -871,8 +872,8 @@ Anyone who tries to get unauthorized access of an information system.
 </div>
 </div>
 </div>
-<div id="outline-container-orgbc92d38" class="outline-2">
-<h2 id="orgbc92d38"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
+<div id="outline-container-org1d6c709" class="outline-2">
+<h2 id="org1d6c709"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The protection provided to an automated information system in order to attain
@@ -880,16 +881,16 @@ the applicable objectives of preserving the <b>confidentiality</b>, <b>integrity
 <b>availability</b> of information system resources.</li>
 </ul>
 </div>
-<div id="outline-container-orga5e7fc2" class="outline-3">
-<h3 id="orga5e7fc2"><span class="section-number-3">2.1.</span> Confidentiality</h3>
+<div id="outline-container-org9b2863d" class="outline-3">
+<h3 id="org9b2863d"><span class="section-number-3">2.1.</span> Confidentiality</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Give authorization to access data.</li>
 <li>Confidentiality covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-orgdff78ea" class="outline-4">
-<h4 id="orgdff78ea"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
+<div id="outline-container-org29be5f0" class="outline-4">
+<h4 id="org29be5f0"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Confidentiality tells us that if you have the authorization, you can access
@@ -899,8 +900,8 @@ assignment&rdquo;. Mary&rsquo;s work was exposed to an unauthorized party.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7ebd0eb" class="outline-4">
-<h4 id="org7ebd0eb"><span class="section-number-4">2.1.2.</span> Privacy</h4>
+<div id="outline-container-org65bed57" class="outline-4">
+<h4 id="org65bed57"><span class="section-number-4">2.1.2.</span> Privacy</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Privacy tells us that even if you are authorized, you may not be able to
@@ -908,8 +909,8 @@ access all of the data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org24bc8ae" class="outline-4">
-<h4 id="org24bc8ae"><span class="section-number-4">2.1.3.</span> Authentication</h4>
+<div id="outline-container-org02958e4" class="outline-4">
+<h4 id="org02958e4"><span class="section-number-4">2.1.3.</span> Authentication</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>This ensures that someone&rsquo;s identify is verified.</li>
@@ -919,8 +920,8 @@ address to gain access to her computer&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6b39926" class="outline-3">
-<h3 id="org6b39926"><span class="section-number-3">2.2.</span> Integrity</h3>
+<div id="outline-container-org4fde667" class="outline-3">
+<h3 id="org4fde667"><span class="section-number-3">2.2.</span> Integrity</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>The data you store and the data you retrieve should be the same: it shouldn&rsquo;t
@@ -928,16 +929,16 @@ be manipulated or destroyed in the process.</li>
 <li>Again, integrity covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-org29b6b52" class="outline-4">
-<h4 id="org29b6b52"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
+<div id="outline-container-org152091d" class="outline-4">
+<h4 id="org152091d"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>The data in a database should be complete and consistent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org05bb25d" class="outline-4">
-<h4 id="org05bb25d"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
+<div id="outline-container-orgcdbe888" class="outline-4">
+<h4 id="orgcdbe888"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>The information system should not be tamper-able.</li>
@@ -949,8 +950,8 @@ $1000&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6fdbd0e" class="outline-3">
-<h3 id="org6fdbd0e"><span class="section-number-3">2.3.</span> Availability</h3>
+<div id="outline-container-orgaeb36d2" class="outline-3">
+<h3 id="orgaeb36d2"><span class="section-number-3">2.3.</span> Availability</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>The data should be available without any hurdles.</li>
@@ -958,32 +959,32 @@ $1000&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgea60d84" class="outline-2">
-<h2 id="orgea60d84"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
+<div id="outline-container-org5b23ed3" class="outline-2">
+<h2 id="org5b23ed3"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4b5efba" class="outline-3">
-<h3 id="org4b5efba"><span class="section-number-3">3.1.</span> Security Attack</h3>
+<div id="outline-container-orgff8370c" class="outline-3">
+<h3 id="orgff8370c"><span class="section-number-3">3.1.</span> Security Attack</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Actions which compromise on security information.</li>
 <li>It is an assualt on system security that derives from an intelligent threat.</li>
 </ul>
 </div>
-<div id="outline-container-orgc1c3af5" class="outline-4">
-<h4 id="orgc1c3af5"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
+<div id="outline-container-orged9851e" class="outline-4">
+<h4 id="orged9851e"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a potential danger that might exploit vulnerability.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org671eaa4" class="outline-4">
-<h4 id="org671eaa4"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
+<div id="outline-container-org408b5da" class="outline-4">
+<h4 id="org408b5da"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org2f80ae2"></a>Active Attack<br />
+<li><a id="org26821f0"></a>Active Attack<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li>An attacker tries to modify the content of the messages.</li>
@@ -1002,7 +1003,7 @@ computer&rdquo;</li>
 </ul>
 </div>
 </li>
-<li><a id="org8c32b92"></a>Passive Attack<br />
+<li><a id="orga5f53c2"></a>Passive Attack<br />
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>An attacker observes the messages, and uses them for malicious purposes
@@ -1054,8 +1055,8 @@ assignment wasn&rsquo;t changed - it&rsquo;s an act of eavesdropping.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgdb8c465" class="outline-3">
-<h3 id="orgdb8c465"><span class="section-number-3">3.2.</span> Security Service</h3>
+<div id="outline-container-org6a6d372" class="outline-3">
+<h3 id="org6a6d372"><span class="section-number-3">3.2.</span> Security Service</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>It is intended to counter security attacks by using security mechanisms.</li>
@@ -1064,27 +1065,27 @@ assignment wasn&rsquo;t changed - it&rsquo;s an act of eavesdropping.</li>
 protected system.</li>
 </ul>
 </div>
-<div id="outline-container-orgc75e8e6" class="outline-4">
-<h4 id="orgc75e8e6"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
+<div id="outline-container-org9894750" class="outline-4">
+<h4 id="org9894750"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
 <div class="outline-text-4" id="text-3-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org571c281"></a>X.800<br />
+<li><a id="org5969941"></a>X.800<br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org0f2f9b1"></a>Authentication<br /></li>
+<li><a id="orgffbf213"></a>Authentication<br /></li>
 
-<li><a id="orgd46fd72"></a>Access Control (Data Privacy)<br /></li>
+<li><a id="org25e016c"></a>Access Control (Data Privacy)<br /></li>
 
-<li><a id="orge0dc88a"></a>Confidentiality<br /></li>
+<li><a id="org4d3bf46"></a>Confidentiality<br /></li>
 
-<li><a id="orgb0e1feb"></a>Data Integrity<br /></li>
+<li><a id="orgb099817"></a>Data Integrity<br /></li>
 
-<li><a id="org9592535"></a>Non-Repudiation (Rejection)<br />
+<li><a id="org37355ed"></a>Non-Repudiation (Rejection)<br />
 <div class="outline-text-6" id="text-3-2-1-1-5">
 <ul class="org-ul">
 <li>Protection against Denial of Service.</li>
@@ -1095,8 +1096,8 @@ protected system.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org8958dc7" class="outline-4">
-<h4 id="org8958dc7"><span class="section-number-4">3.2.2.</span> Notorization</h4>
+<div id="outline-container-orge659f32" class="outline-4">
+<h4 id="orge659f32"><span class="section-number-4">3.2.2.</span> Notorization</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s an official witness for signing a document. The person/body who does this
@@ -1105,8 +1106,8 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6de6a21" class="outline-3">
-<h3 id="org6de6a21"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
+<div id="outline-container-org9fb7f33" class="outline-3">
+<h3 id="org9fb7f33"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>These are HOW to counter security attacks (detect one, or recover from one).</li>
@@ -1115,23 +1116,23 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge95959c" class="outline-2">
-<h2 id="orge95959c"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
+<div id="outline-container-orgd88cc99" class="outline-2">
+<h2 id="orgd88cc99"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>It&rsquo;s a standard framework of</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9498164" class="outline-2">
-<h2 id="org9498164"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
+<div id="outline-container-org222b205" class="outline-2">
+<h2 id="org222b205"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are two models for security of networks
 </p>
 </div>
-<div id="outline-container-org44d30d7" class="outline-3">
-<h3 id="org44d30d7"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
+<div id="outline-container-org3d19d51" class="outline-3">
+<h3 id="org3d19d51"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>The sender passes <b>secret information</b> (key) as an argument, and runs a
@@ -1147,15 +1148,15 @@ The keys and the information channel is provided by a <b>trusted third party</b>
 </p>
 
 
-<div id="org5f3a3bb" class="figure">
+<div id="org68e7949" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/network_security.png" alt="network_security.png" />
 </p>
 </div></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org49849e8" class="outline-3">
-<h3 id="org49849e8"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
+<div id="outline-container-org665744d" class="outline-3">
+<h3 id="org665744d"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>This model requires to select an appropriate <b>gatekeeper function</b> to identify
@@ -1166,12 +1167,12 @@ and what actions are allowed.</li>
 <b>access control</b>, <b>file-permissions</b>, and <b>login</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org5a883a0" class="outline-4">
-<h4 id="org5a883a0"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
+<div id="outline-container-org433afa5" class="outline-4">
+<h4 id="org433afa5"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
 <div class="outline-text-4" id="text-5-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org8f55b62"></a>Brute-Force Attacks<br />
+<li><a id="orge86f93b"></a>Brute-Force Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-1">
 <ul class="org-ul">
 <li>You keep trying all combinations of characters in all possible lengths, until
@@ -1179,7 +1180,7 @@ you actually crack the password.</li>
 </ul>
 </div>
 </li>
-<li><a id="org9acfa0a"></a>Dictionary Attacks<br />
+<li><a id="org421de53"></a>Dictionary Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <ul class="org-ul">
 <li>Guessing passwords from a predefined dictionary of common words, phrases and
@@ -1189,8 +1190,8 @@ passwords,</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org4ee95e4" class="outline-4">
-<h4 id="org4ee95e4"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
+<div id="outline-container-orgd8308c0" class="outline-4">
+<h4 id="orgd8308c0"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1231,8 +1232,8 @@ passwords,</li>
 </table>
 </div>
 </div>
-<div id="outline-container-orgb12d010" class="outline-4">
-<h4 id="orgb12d010"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
+<div id="outline-container-orgdd58ddc" class="outline-4">
+<h4 id="orgdd58ddc"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li>It&rsquo;s an attack that can happen at any point of time, without any prior signs.</li>
@@ -1243,16 +1244,16 @@ malware.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbdcbff8" class="outline-2">
-<h2 id="orgbdcbff8"><span class="section-number-2">6.</span> Malicious Program</h2>
+<div id="outline-container-org7c170f5" class="outline-2">
+<h2 id="org7c170f5"><span class="section-number-2">6.</span> Malicious Program</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org64f6896" class="outline-3">
-<h3 id="org64f6896"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
+<div id="outline-container-org5fe8ecd" class="outline-3">
+<h3 id="org5fe8ecd"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org453171a" class="outline-4">
-<h4 id="org453171a"><span class="section-number-4">6.1.1.</span> Virus</h4>
+<div id="outline-container-org4816712" class="outline-4">
+<h4 id="org4816712"><span class="section-number-4">6.1.1.</span> Virus</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself and spread across the files of
@@ -1260,8 +1261,8 @@ the same system.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6af4ead" class="outline-4">
-<h4 id="org6af4ead"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
+<div id="outline-container-org54bae7d" class="outline-4">
+<h4 id="org54bae7d"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>These are malware that are disguised as legitimate programs/softwares to trick
@@ -1269,16 +1270,16 @@ the users into installing them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org68dd872" class="outline-4">
-<h4 id="org68dd872"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
+<div id="outline-container-org3b67378" class="outline-4">
+<h4 id="org3b67378"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>Malware which enter using undocumented entry points.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org97da682" class="outline-4">
-<h4 id="org97da682"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
+<div id="outline-container-orgf270224" class="outline-4">
+<h4 id="orgf270224"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
 <div class="outline-text-4" id="text-6-1-4">
 <ul class="org-ul">
 <li>Malware that remain inactive until some conditions are met.</li>
@@ -1286,12 +1287,12 @@ the users into installing them.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org227683c" class="outline-3">
-<h3 id="org227683c"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
+<div id="outline-container-org877edc9" class="outline-3">
+<h3 id="org877edc9"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-org73212e7" class="outline-4">
-<h4 id="org73212e7"><span class="section-number-4">6.2.1.</span> Worms</h4>
+<div id="outline-container-org14c1650" class="outline-4">
+<h4 id="org14c1650"><span class="section-number-4">6.2.1.</span> Worms</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself (just like viruses), but they
@@ -1301,8 +1302,8 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org189d17d" class="outline-4">
-<h4 id="org189d17d"><span class="section-number-4">6.2.2.</span> Zombie</h4>
+<div id="outline-container-org55b5cd9" class="outline-4">
+<h4 id="org55b5cd9"><span class="section-number-4">6.2.2.</span> Zombie</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <ul class="org-ul">
 <li>It takes control of an entire system.</li>
@@ -1312,12 +1313,12 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5db4165" class="outline-2">
-<h2 id="org5db4165"><span class="section-number-2">7.</span> Cryptography</h2>
+<div id="outline-container-org5abb93b" class="outline-2">
+<h2 id="org5abb93b"><span class="section-number-2">7.</span> Cryptography</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org5ac3be7" class="outline-3">
-<h3 id="org5ac3be7"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
+<div id="outline-container-orgd07efc4" class="outline-3">
+<h3 id="orgd07efc4"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
 <div class="outline-text-3" id="text-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1382,18 +1383,18 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org63abf6f" class="outline-3">
-<h3 id="org63abf6f"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
+<div id="outline-container-org1c8e6d5" class="outline-3">
+<h3 id="org1c8e6d5"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
-<div id="outline-container-org781dc3c" class="outline-4">
-<h4 id="org781dc3c"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
+<div id="outline-container-org1293052" class="outline-4">
+<h4 id="org1293052"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
 <div class="outline-text-4" id="text-7-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgc9a2c86"></a>Substitution<br />
+<li><a id="org4e90fe0"></a>Substitution<br />
 <ol class="org-ol">
-<li><a id="org6e45d18"></a>Classical Substitution Cipher<br />
+<li><a id="org1813989"></a>Classical Substitution Cipher<br />
 <div class="outline-text-6" id="text-7-2-1-1-1">
 <ul class="org-ul">
 <li>Every occurrence of a plain text symbol is replaced by a corresponding
@@ -1401,7 +1402,7 @@ ciphertext character.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org269599d"></a>Ceaser/Shift Cipher<br />
+<li><a id="org7acc6ae"></a>Ceaser/Shift Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-1-1">
 <p>
 This is the earliest known subsitution cipher.
@@ -1409,7 +1410,7 @@ This is the earliest known subsitution cipher.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org1b084f0"></a>For example, let m = college, k = 3 and s = 26.<br />
+<li><a id="org0d1edf3"></a>For example, let m = college, k = 3 and s = 26.<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-1">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;c&rsquo;) + 3mod(26) = f</li>
@@ -1423,7 +1424,7 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="org2e9368b"></a>In general, for alphabets, Ceasar Cipher is given as<br />
+<li><a id="orgbb0b53a"></a>In general, for alphabets, Ceasar Cipher is given as<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1447,7 +1448,7 @@ This is the earliest known subsitution cipher.
 </table>
 </div>
 </li>
-<li><a id="org5ab442a"></a>For example, Encrypt KHOOR with k=4<br />
+<li><a id="org00c50c9"></a>For example, Encrypt KHOOR with k=4<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-3">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;K&rsquo;) + 4mod(26) = O</li>
@@ -1459,14 +1460,14 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="org31ba4d3"></a>Decrypt Ciphertext ABC, k=3<br />
+<li><a id="org5ed63e3"></a>Decrypt Ciphertext ABC, k=3<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-4">
 <ul class="org-ul">
 <li>A: \((0-3)\mod26 = -3\mod(26) = (-3+26)\mod(26) = 23\)</li>
 </ul>
 </div>
 </li>
-<li><a id="org0e946dc"></a>Code for Encryption<br />
+<li><a id="org9fb81fd"></a>Code for Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, k: <span style="color: #c678dd;">int</span>, alphabet_size: <span style="color: #c678dd;">int</span>):
@@ -1501,7 +1502,7 @@ encrypt(<span style="color: #98be65;">"Hello World3!"</span>, 2, 26)
 </div>
 </div>
 </li>
-<li><a id="org6a67401"></a>Code for Decryption<br />
+<li><a id="orgf47d8cf"></a>Code for Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-6">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">decrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, k: <span style="color: #c678dd;">int</span>, alphabet_size: <span style="color: #c678dd;">int</span>):
@@ -1542,9 +1543,9 @@ character.</li>
 </ul>
 </div>
 </li>
-<li><a id="org66409f7"></a>Cryptanalysis<br />
+<li><a id="org462f149"></a>Cryptanalysis<br />
 <ol class="org-ol">
-<li><a id="org0b111e1"></a>Break the ciphertext WKLV using cryptanalysis<br />
+<li><a id="orgb541e21"></a>Break the ciphertext WKLV using cryptanalysis<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-7-1">
 <p>
 The program given below is a very simple Python Script to generate all possible
@@ -1585,7 +1586,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgaa5a008"></a>Break the ciphertext GWTBS<br />
+<li><a id="orgf925b73"></a>Break the ciphertext GWTBS<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-7-2">
 <div class="org-src-container">
 <pre class="src src-python">breakCaesar(<span style="color: #98be65;">"GWTBS"</span>)
@@ -1604,7 +1605,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </li>
 </ol>
 </li>
-<li><a id="org81ac85d"></a>Simple Substitution/ Monoalphabetic<br />
+<li><a id="orgfff8574"></a>Simple Substitution/ Monoalphabetic<br />
 <div class="outline-text-6" id="text-7-2-1-1-2">
 <ul class="org-ul">
 <li>Rather than shifting the alphabets, you shuffle the alphabets randomly.</li>
@@ -1615,7 +1616,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </ul>
 </div>
 </li>
-<li><a id="org85a7df3"></a>Polygram<br />
+<li><a id="org5fe9b55"></a>Polygram<br />
 <div class="outline-text-6" id="text-7-2-1-1-3">
 <ul class="org-ul">
 <li>A block of plain text symbols is replaced by a corresponding ciphertext block
@@ -1639,9 +1640,9 @@ This can become, say (random, just for example):
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org0a48cd7"></a>Playfair Cipher<br />
+<li><a id="orgf9963b6"></a>Playfair Cipher<br />
 <ol class="org-ol">
-<li><a id="orgf3ecdc7"></a>Explanation<br />
+<li><a id="orgefa540f"></a>Explanation<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-1">
 <ul class="org-ul">
 <li>Make a \(5 \times 5\) matrix. In these 25 spaces, you&rsquo;ll have to fill all 26
@@ -1653,7 +1654,7 @@ the rest of the gaps in order without repetition.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org04a82df"></a>Example we&rsquo;ll be using to learn the rules<br />
+<li><a id="orgf332469"></a>Example we&rsquo;ll be using to learn the rules<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-1">
 <ul class="org-ul">
 <li>keyword: CRYPTOGRAPHY CLASS SPRING</li>
@@ -1717,7 +1718,7 @@ the rest of the gaps in order without repetition.</li>
 </table>
 </div>
 </li>
-<li><a id="orgb701708"></a>How to Encrypt a given plain text<br />
+<li><a id="org74dbff7"></a>How to Encrypt a given plain text<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-2">
 <ol class="org-ol">
 <li>If letters of a pair are both same, then add an x after the first letter and
@@ -1825,7 +1826,7 @@ by the original pair.</li>
 </ol>
 </div>
 </li>
-<li><a id="orge4b06ae"></a>Demonstration of the plain text being encrypted<br />
+<li><a id="org4a200ca"></a>Demonstration of the plain text being encrypted<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-3">
 <ul class="org-ul">
 <li>Consider the plain text &ldquo;Hello find the solution&rdquo;.</li>
@@ -1848,7 +1849,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="orgb1face4"></a>Solving another Example<br />
+<li><a id="orgb05e8b8"></a>Solving another Example<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-2">
 <ul class="org-ul">
 <li><p>
@@ -1914,7 +1915,7 @@ Keyword: KEYWORD
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8e1fba1"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
+<li><a id="org80a20ef"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-1">
 <ul class="org-ul">
 <li><p>
@@ -1934,7 +1935,7 @@ And the encrypted text will look like:
 </ul>
 </div>
 </li>
-<li><a id="orgbe0dc97"></a>Plain Text: <b>Come to the window</b><br />
+<li><a id="org2ccf38e"></a>Plain Text: <b>Come to the window</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-2">
 <ul class="org-ul">
 <li><p>
@@ -1956,7 +1957,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="org12c06ea"></a>Code for Encryption<br />
+<li><a id="orgb3a25e8"></a>Code for Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, keyword: <span style="color: #c678dd;">str</span>):
@@ -2015,7 +2016,7 @@ encrypt(<span style="color: #98be65;">'WHYDONTYOU'</span>,<span style="color: #9
 </div>
 </div>
 </li>
-<li><a id="org35c30a1"></a>Code for Decryption<br />
+<li><a id="orgeae246e"></a>Code for Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-4">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -2094,14 +2095,14 @@ Hence the row is modified.</li>
 </li>
 </ol>
 </li>
-<li><a id="org7f9c58b"></a>Hill Cipher<br />
+<li><a id="orgea27ff2"></a>Hill Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-3-2">
 <p>
 Consider the Example: Plaintext = <code>CODE</code>, Key =   \(\begin{bmatrix} 3 & 3 \\ 2 & 5  \end{bmatrix}\)
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org3d606d5"></a>Encryption<br />
+<li><a id="orgddf8ad6"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-2-1">
 <p>
 \[\text{Cipher Text} = \begin{bmatrix} \text{Key} \end{bmatrix} \times \text{Plain Text} \mod(26)\]
@@ -2131,7 +2132,7 @@ In alphabetic form:
 </ul>
 </div>
 </li>
-<li><a id="org69db4be"></a>Decryption<br />
+<li><a id="org2aced04"></a>Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-2-2">
 <p>
 \[\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text{Cipher Text} \mod(26)\]
@@ -2144,7 +2145,7 @@ In alphabetic form:
 <li>\([ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} 9^{-1} \mod(26)] \times \text{(Cipher Text)} \mod(26)\)</li>
 </ul>
 <p>
-Refer to <a href="#org25030da">Extended Euclidean Algorithm</a>
+Refer to <a href="#org7f9f455">Extended Euclidean Algorithm</a>
 </p>
 <ul class="org-ul">
 <li>\([ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} \times 3] \times \text{(Cipher Text)} \mod(26)\)</li>
@@ -2157,7 +2158,7 @@ Refer to <a href="#org25030da">Extended Euclidean Algorithm</a>
 </li>
 </ol>
 </li>
-<li><a id="org75ce721"></a>Homophonic<br />
+<li><a id="orgf0fd543"></a>Homophonic<br />
 <div class="outline-text-6" id="text-7-2-1-1-4">
 <ul class="org-ul">
 <li>If a letter \(x\) appears for \(y\%\) of all characters, we assign \(y\) number of
@@ -2165,7 +2166,7 @@ symbols to represent it.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4250050"></a>Polyalphabetic<br />
+<li><a id="org69a4f67"></a>Polyalphabetic<br />
 <div class="outline-text-6" id="text-7-2-1-1-5">
 <ul class="org-ul">
 <li>In Caesar cipher, the key was a single number.</li>
@@ -2176,9 +2177,9 @@ length of the plain text.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8173b3a"></a>Vigenere Cipher<br />
+<li><a id="orgefc0840"></a>Vigenere Cipher<br />
 <ol class="org-ol">
-<li><a id="org52c8350"></a>Encryption<br />
+<li><a id="orgfe6a664"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-1-1">
 <ul class="org-ul">
 <li>This is one of the simplest polyalphabetic substitution cipher.</li>
@@ -2320,7 +2321,7 @@ _____________________________________________________
 </ul>
 </div>
 </li>
-<li><a id="org98bfaa8"></a>Code<br />
+<li><a id="org07837e7"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, key: <span style="color: #c678dd;">str</span>):
@@ -2350,9 +2351,9 @@ WEAREDISCOVEREDSAVEYOURSELF
 </div>
 </div>
 </li>
-<li><a id="org4808877"></a>Cryptanalysis<br />
+<li><a id="org403e262"></a>Cryptanalysis<br />
 <ol class="org-ol">
-<li><a id="org42ddc2d"></a>Example 1: Plain Text = &ldquo;acbxzcb&rdquo;, Cipher Text = &ldquo;bxbywdb&rdquo;<br />
+<li><a id="org9b04655"></a>Example 1: Plain Text = &ldquo;acbxzcb&rdquo;, Cipher Text = &ldquo;bxbywdb&rdquo;<br />
 <div class="outline-text-9" id="text-7-2-1-1-5-1-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2415,7 +2416,7 @@ WEAREDISCOVEREDSAVEYOURSELF
 </li>
 </ol>
 </li>
-<li><a id="org4c14ec9"></a>Vernam Cipher (one-time pad)<br />
+<li><a id="org072248a"></a>Vernam Cipher (one-time pad)<br />
 <div class="outline-text-7" id="text-7-2-1-1-5-2">
 <ul class="org-ul">
 <li>You perform bitwise XOR on the ASCII value of the characters of the plain text
@@ -2524,7 +2525,7 @@ purely random.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgcdf7178"></a>Code<br />
+<li><a id="org56e3bff"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-2-1">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -2561,7 +2562,7 @@ purely random.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgb1a8e0c"></a>Transposition / Permutation Cipher<br />
+<li><a id="org1d483ca"></a>Transposition / Permutation Cipher<br />
 <div class="outline-text-5" id="text-7-2-1-2">
 <ul class="org-ul">
 <li>This cipher hides the message by rearranging the letters of the plain text
@@ -2569,9 +2570,9 @@ without changing the actual letters.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgf6afc8b"></a>Railfence Cipher<br />
+<li><a id="org530e754"></a>Railfence Cipher<br />
 <ol class="org-ol">
-<li><a id="orgd124e1c"></a>Encryption<br />
+<li><a id="org13b708c"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-1">
 <ul class="org-ul">
 <li>Here you write message&rsquo;s letters diagonally over the rows, then read the
@@ -2696,7 +2697,7 @@ is 3 (this is the key).
 </ul>
 </div>
 </li>
-<li><a id="org90a8626"></a>Decryption<br />
+<li><a id="orgd28306f"></a>Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-2">
 <ul class="org-ul">
 <li>For example, let the cipher text be &ldquo;mtahaeyemfrereettpt&rdquo;</li>
@@ -2895,14 +2896,14 @@ Now that we&rsquo;ve mapped the correct indices, we can find the plain text:
 </ul>
 </div>
 </li>
-<li><a id="orge9fbde8"></a>Cryptanalysis<br />
+<li><a id="org2127f43"></a>Cryptanalysis<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-3">
 <ul class="org-ul">
 <li>The only way is to brute force and try different key lengths.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4653a94"></a>Code<br />
+<li><a id="org693528e"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, rails: <span style="color: #c678dd;">int</span>):
@@ -2943,7 +2944,7 @@ meetmeaftertheparty
 </li>
 </ol>
 </li>
-<li><a id="org3d0004d"></a>Columnar Transposition<br />
+<li><a id="org2fdaa05"></a>Columnar Transposition<br />
 <div class="outline-text-7" id="text-7-2-1-2-0-2">
 <ul class="org-ul">
 <li>Write the characters of the message in rows over a specified number of
@@ -3037,26 +3038,26 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </li>
 </ol>
 </li>
-<li><a id="org443776c"></a>Product<br /></li>
+<li><a id="org2fe044b"></a>Product<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgd5d9ae7" class="outline-4">
-<h4 id="orgd5d9ae7"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
+<div id="outline-container-orgca4a3fe" class="outline-4">
+<h4 id="orgca4a3fe"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
 <div class="outline-text-4" id="text-7-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgb2f1f5c"></a>Single/Private Key or Symmetric Cryptography<br />
+<li><a id="org4b15a3a"></a>Single/Private Key or Symmetric Cryptography<br />
 <div class="outline-text-5" id="text-7-2-2-1">
 <p>
 \[\text{Plain Text} \xrightarrow[\small{+key}]{\text{Encryption Algorithm (DES)}} \text{Transmitted Cipher Text}  \xrightarrow[\text{Decryption Algorithm}]{}  \text{Plain Text}\]
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgb6970a1"></a>Feistel Cipher Structure<br />
+<li><a id="orgeee708d"></a>Feistel Cipher Structure<br />
 <div class="outline-text-6" id="text-7-2-2-1-1">
 <ul class="org-ul">
 <li>There are \(2^{n}\) ways of mapping for plain text</li>
-<li>Here, we use <a href="#org8470b7c">Block</a> cipher</li>
+<li>Here, we use <a href="#orgd2b8dcf">Block</a> cipher</li>
 <li>For a plain text block of \(n\) bits, the key length has to be \(n \times 2^{n}\) bits.</li>
 <li><b>Design Principles</b>:
 <ul class="org-ul">
@@ -3068,7 +3069,7 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </ul>
 </div>
 </li>
-<li><a id="orge92513b"></a>Data Encryption Standard (DES)<br />
+<li><a id="org6c76bbe"></a>Data Encryption Standard (DES)<br />
 <div class="outline-text-6" id="text-7-2-2-1-2">
 <ul class="org-ul">
 <li>This is the most widely used block cipher in the world.</li>
@@ -3089,13 +3090,13 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </ul>
 
 
-<div id="orgdea1602" class="figure">
+<div id="orgb04b199" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/One_round_of_DES.jpeg" alt="One_round_of_DES.jpeg" />
 </p>
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org99e8371"></a>S-Box<br />
+<li><a id="org8915fad"></a>S-Box<br />
 <div class="outline-text-7" id="text-7-2-2-1-2-1">
 <ul class="org-ul">
 <li>Given a \(4 \times 16\) box of 4 bit numbers, and a 6 bit number, you locate a number
@@ -3109,7 +3110,7 @@ as:
 </ul>
 </div>
 </li>
-<li><a id="org0beb121"></a>Decryption<br />
+<li><a id="orgc073010"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-1-2-2">
 <ul class="org-ul">
 <li>DES decryption is encryption in reverse order.</li>
@@ -3147,7 +3148,7 @@ the first round.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgac1f10d"></a>Two-key or Public Key cryptography or Asymmetric Cryptography<br />
+<li><a id="org72aa957"></a>Two-key or Public Key cryptography or Asymmetric Cryptography<br />
 <div class="outline-text-5" id="text-7-2-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s called <b>asymmetric key encryption</b>.</li>
@@ -3159,7 +3160,7 @@ the first round.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgd9afa7f"></a>Encryption/Decryption<br />
+<li><a id="orgc4f12cb"></a>Encryption/Decryption<br />
 <div class="outline-text-6" id="text-7-2-2-2-1">
 <ul class="org-ul">
 <li>If you know the private key, you automatically get the public key too. But
@@ -3220,7 +3221,7 @@ the applications.</li>
 </table>
 </div>
 </li>
-<li><a id="org0569f19"></a>Security of Public key algorithms<br />
+<li><a id="org59dec6e"></a>Security of Public key algorithms<br />
 <div class="outline-text-6" id="text-7-2-2-2-2">
 <ul class="org-ul">
 <li>Brute force is always possible, so make sure you:
@@ -3233,7 +3234,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org65ce2f1"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
+<li><a id="org68b83b4"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
 <div class="outline-text-6" id="text-7-2-2-2-3">
 <ul class="org-ul">
 <li>This is the model widely used Public Key Cryptography (PKC).</li>
@@ -3241,7 +3242,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga8b03f1"></a>Key Generation<br />
+<li><a id="org8386130"></a>Key Generation<br />
 <div class="outline-text-7" id="text-7-2-2-2-3-1">
 <ul class="org-ul">
 <li>Select \(p\), \(q\), where \(p\) and \(q\) are prime.</li>
@@ -3253,9 +3254,9 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org276422b"></a>Encryption<br />
+<li><a id="org8122836"></a>Encryption<br />
 <ol class="org-ol">
-<li><a id="orgafcdcdc"></a>Rules<br />
+<li><a id="org5ef5c66"></a>Rules<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-2-1">
 <ul class="org-ul">
 <li>Plaintext \(M < n\)</li>
@@ -3263,9 +3264,9 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org03a5d72"></a>Examples<br />
+<li><a id="orgcf7f962"></a>Examples<br />
 <ol class="org-ol">
-<li><a id="orgcb2043b"></a>Example 1<br />
+<li><a id="org1f04911"></a>Example 1<br />
 <div class="outline-text-9" id="text-7-2-2-2-3-2-2-1">
 <ul class="org-ul">
 <li>\(p=3\), \(q=11\)</li>
@@ -3327,12 +3328,12 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8dce05a"></a>Example 2<br /></li>
+<li><a id="org3f80156"></a>Example 2<br /></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><a id="orgaaa745c"></a>Decryption<br />
+<li><a id="orgc182963"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-3-3">
 <ul class="org-ul">
 <li>Ciphertext = \(C\)</li>
@@ -3340,12 +3341,12 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf150567"></a>Attacks against RSA<br />
+<li><a id="org8a51c1d"></a>Attacks against RSA<br />
 <ol class="org-ol">
-<li><a id="org3cf5c67"></a>Brute Force<br /></li>
+<li><a id="org385d098"></a>Brute Force<br /></li>
 
 
-<li><a id="org638fac8"></a>Mathematical Attakcs<br />
+<li><a id="orge512b21"></a>Mathematical Attakcs<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-4-2">
 <ul class="org-ul">
 <li>Factor n</li>
@@ -3353,7 +3354,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5b714c0"></a>Timings Attack<br />
+<li><a id="org5d602b1"></a>Timings Attack<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-4-3">
 <ul class="org-ul">
 <li>Use the running time of the algorithm to determine the key</li>
@@ -3364,7 +3365,7 @@ be much larger the symmetric crypto keys.</li>
 </li>
 </ol>
 </li>
-<li><a id="org8e99a47"></a>ElGamal Encryption Algorithm<br />
+<li><a id="org6b3efbf"></a>ElGamal Encryption Algorithm<br />
 <div class="outline-text-6" id="text-7-2-2-2-4">
 <ul class="org-ul">
 <li>It&rsquo;s also a public-key cryptosystem like RSA.</li>
@@ -3372,7 +3373,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org32f75a3"></a>Algorithm<br />
+<li><a id="orgecdd67e"></a>Algorithm<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-1">
 <ul class="org-ul">
 <li>Select a large prime \(q\).</li>
@@ -3385,7 +3386,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org46e0422"></a>Encryption<br />
+<li><a id="orgdf64ab8"></a>Encryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-2">
 <ul class="org-ul">
 <li>Select a random number \(r\) from \(Z_{q}^{*}\)</li>
@@ -3402,18 +3403,18 @@ involved.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3dd7e9a"></a>Decryption<br />
+<li><a id="org0cb4ce1"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-3">
 <ul class="org-ul">
 <li>\(P = [C_{2} (C_{1}^{x})^{-1}]\mod(q)\)</li>
 <li>Encrypted message along with shared secret is needed for decryption.</li>
-<li>Use <a href="#org9691a6b">Discrete Logarithm</a></li>
+<li>Use <a href="#org0fcd8c1">Discrete Logarithm</a></li>
 </ul>
 </div>
 </li>
-<li><a id="org047bedd"></a>Examples<br />
+<li><a id="org8526fb8"></a>Examples<br />
 <ol class="org-ol">
-<li><a id="org9d601e0"></a>Encrypt a message \(m\) having value 10 using a public key \(9\), where a random number generated is \(3\) and primitive root \(11\) and a prime number \(23\)<br />
+<li><a id="orgf5ecea6"></a>Encrypt a message \(m\) having value 10 using a public key \(9\), where a random number generated is \(3\) and primitive root \(11\) and a prime number \(23\)<br />
 <div class="outline-text-8" id="text-7-2-2-2-4-4-1">
 <ul class="org-ul">
 <li>Given:
@@ -3438,7 +3439,7 @@ involved.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbe323d3"></a>\(q = 23\), \(g = 7\), \(x = 9\), \(r = 3\), \(m = 20\)<br />
+<li><a id="org5bd48f6"></a>\(q = 23\), \(g = 7\), \(x = 9\), \(r = 3\), \(m = 20\)<br />
 <div class="outline-text-8" id="text-7-2-2-2-4-4-2">
 <ul class="org-ul">
 <li></li>
@@ -3449,7 +3450,7 @@ involved.</li>
 </li>
 </ol>
 </li>
-<li><a id="org3516513"></a>Diffie Hellman<br />
+<li><a id="org0c5c49f"></a>Diffie Hellman<br />
 <div class="outline-text-6" id="text-7-2-2-2-5">
 <ul class="org-ul">
 <li>This is used for key-exchange where both the parties jointly establish a
@@ -3615,10 +3616,10 @@ Calculate shared secret key:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org7d99394"></a>Man in the Middle Attack<br /></li>
+<li><a id="orga334382"></a>Man in the Middle Attack<br /></li>
 </ol>
 </li>
-<li><a id="org2d15dc0"></a>Digital Signature<br />
+<li><a id="org05d298e"></a>Digital Signature<br />
 <div class="outline-text-6" id="text-7-2-2-2-6">
 <ul class="org-ul">
 <li>It&rsquo;s an authentication mechanism that enables the creator of a maessage to
@@ -3631,7 +3632,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgfda1f6d"></a>Properties of Digital Signature<br />
+<li><a id="org0b3511e"></a>Properties of Digital Signature<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-1">
 <ul class="org-ul">
 <li>It must verify <b>author</b>, <b>date</b> and <b>time</b> of the signature.</li>
@@ -3640,7 +3641,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6dd67f7"></a>RSA Approach to Digital Signature<br />
+<li><a id="org41707c9"></a>RSA Approach to Digital Signature<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3665,7 +3666,7 @@ digital signature.</li>
 </table>
 </div>
 </li>
-<li><a id="orgf956c91"></a>DSS (Digital Signature Standard)<br />
+<li><a id="orge92171d"></a>DSS (Digital Signature Standard)<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-3">
 <ul class="org-ul">
 <li>Digital signatures are generated using <b>Secure Hash Algorithm</b> (SHA).</li>
@@ -3673,7 +3674,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgcd333f7"></a>Sender Side/ Signing<br />
+<li><a id="orgb4d57c9"></a>Sender Side/ Signing<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-3-1">
 <ul class="org-ul">
 <li>A hash value is generated from the message.</li>
@@ -3689,7 +3690,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8eac15e"></a>Receiver Side<br />
+<li><a id="org5a19169"></a>Receiver Side<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-3-2">
 <ul class="org-ul">
 <li>The hash value is generated from the message.</li>
@@ -3707,7 +3708,7 @@ digital signature.</li>
 </li>
 </ol>
 </li>
-<li><a id="org45155d1"></a>DSA (Digital Signature Algorithm)<br />
+<li><a id="orgd45c88e"></a>DSA (Digital Signature Algorithm)<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-4">
 <ul class="org-ul">
 <li>The values used here are:
@@ -3720,7 +3721,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgf5bca85"></a>Sender Side/ Signing<br />
+<li><a id="org3cf8b4c"></a>Sender Side/ Signing<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-4-1">
 <ul class="org-ul">
 <li>Pick a random number \(k\) such that \(0 < k < q\)</li>
@@ -3730,7 +3731,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org11e8fe0"></a>Verification<br />
+<li><a id="org760a7dd"></a>Verification<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-4-2">
 <ul class="org-ul">
 <li>\(w = s^{-1}\mod(q)\)</li>
@@ -3745,9 +3746,9 @@ digital signature.</li>
 </li>
 </ol>
 </li>
-<li><a id="org1747780"></a>Hash Function<br />
+<li><a id="org93f2a11"></a>Hash Function<br />
 <ol class="org-ol">
-<li><a id="orgc4a68cd"></a>Properties<br />
+<li><a id="org43e1747"></a>Properties<br />
 <div class="outline-text-7" id="text-7-2-2-2-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3798,12 +3799,12 @@ digital signature.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org70e66ba" class="outline-4">
-<h4 id="org70e66ba"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
+<div id="outline-container-org45b4a06" class="outline-4">
+<h4 id="org45b4a06"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
 <div class="outline-text-4" id="text-7-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org8470b7c"></a>Block<br />
+<li><a id="orgd2b8dcf"></a>Block<br />
 <div class="outline-text-5" id="text-7-2-3-1">
 <ul class="org-ul">
 <li>Block Cipher transforms a fixed length of plaintext data into a block of
@@ -3825,16 +3826,16 @@ ciphertext of the same length, with the help of a secret key.</li>
 <li>To overcome this, an <b>arbitrary reversible substitution cipher</b> can be used,
 where the statistical characteristics of the plain text is masked.</li>
 <li>Using a large block size increases security but is impractical to implement.</li>
-<li>For example, in <a href="#orgb6970a1">Feistel Cipher Structure</a> a plain text block of \(n\) bits, the
+<li>For example, in <a href="#orgeee708d">Feistel Cipher Structure</a> a plain text block of \(n\) bits, the
 key length has to be \(n \times 2^{n}\) bits.</li>
 <li>The ideal block cipher uses the concept of <b>product cipher</b> where product cipher
-is a combination of substitution and permutation. <a href="#orgb6970a1">Feistel Cipher Structure</a>
+is a combination of substitution and permutation. <a href="#orgeee708d">Feistel Cipher Structure</a>
 proposed this concept.</li>
-<li>Most ciphers are based on <a href="#orgb6970a1">Feistel Cipher Structure</a>.</li>
+<li>Most ciphers are based on <a href="#orgeee708d">Feistel Cipher Structure</a>.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org09d57bf"></a>Confusion and Diffusion<br />
+<li><a id="org34f46e1"></a>Confusion and Diffusion<br />
 <div class="outline-text-6" id="text-7-2-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3861,29 +3862,29 @@ proposed this concept.</li>
 </li>
 </ol>
 </li>
-<li><a id="org94e0494"></a>Stream<br /></li>
+<li><a id="orgc6a0ce0"></a>Stream<br /></li>
 </ol>
 </div>
 </div>
 </div>
-<div id="outline-container-org9f8bcdc" class="outline-2">
-<h2 id="org9f8bcdc"><span class="section-number-2">8.</span> Number Theory</h2>
+<div id="outline-container-orge6a57d2" class="outline-2">
+<h2 id="orge6a57d2"><span class="section-number-2">8.</span> Number Theory</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org9d57773" class="outline-3">
-<h3 id="org9d57773"><span class="section-number-3">8.1.</span> Basic Properties</h3>
+<div id="outline-container-org9dd3d19" class="outline-3">
+<h3 id="org9dd3d19"><span class="section-number-3">8.1.</span> Basic Properties</h3>
 <div class="outline-text-3" id="text-8-1">
 </div>
-<div id="outline-container-orgf2e23f3" class="outline-4">
-<h4 id="orgf2e23f3"><span class="section-number-4">8.1.1.</span> Commutative</h4>
+<div id="outline-container-org9034119" class="outline-4">
+<h4 id="org9034119"><span class="section-number-4">8.1.1.</span> Commutative</h4>
 <div class="outline-text-4" id="text-8-1-1">
 <p>
 \[a + b = b + a\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgde7bdea" class="outline-4">
-<h4 id="orgde7bdea"><span class="section-number-4">8.1.2.</span> Associative</h4>
+<div id="outline-container-org114055e" class="outline-4">
+<h4 id="org114055e"><span class="section-number-4">8.1.2.</span> Associative</h4>
 <div class="outline-text-4" id="text-8-1-2">
 <p>
 \[a + (b+c) = (a+b)+c\]
@@ -3891,8 +3892,8 @@ Same applies to multiplication too.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdebe628" class="outline-4">
-<h4 id="orgdebe628"><span class="section-number-4">8.1.3.</span> Distributive</h4>
+<div id="outline-container-orgb7d784f" class="outline-4">
+<h4 id="orgb7d784f"><span class="section-number-4">8.1.3.</span> Distributive</h4>
 <div class="outline-text-4" id="text-8-1-3">
 <p>
 \[a \times (b+c) = ab + ac\]
@@ -3900,8 +3901,8 @@ Same applies to multiplication too.
 </div>
 </div>
 </div>
-<div id="outline-container-org53e2cc3" class="outline-3">
-<h3 id="org53e2cc3"><span class="section-number-3">8.2.</span> Division</h3>
+<div id="outline-container-org6cdec33" class="outline-3">
+<h3 id="org6cdec33"><span class="section-number-3">8.2.</span> Division</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>When we say \(a | b\) (a divides b), we&rsquo;re doing \(\frac{b}{a}\).</li>
@@ -3913,12 +3914,12 @@ process is 0. (Obvious facts, but I still chose to put them here).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgce87c59" class="outline-3">
-<h3 id="orgce87c59"><span class="section-number-3">8.3.</span> Prime Numbers</h3>
+<div id="outline-container-org45f65a6" class="outline-3">
+<h3 id="org45f65a6"><span class="section-number-3">8.3.</span> Prime Numbers</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
-<div id="outline-container-orga3ab27f" class="outline-4">
-<h4 id="orga3ab27f"><span class="section-number-4">8.3.1.</span> Fundamental Theorem of Arithmetic</h4>
+<div id="outline-container-org34186ae" class="outline-4">
+<h4 id="org34186ae"><span class="section-number-4">8.3.1.</span> Fundamental Theorem of Arithmetic</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <blockquote>
 <p>
@@ -3927,12 +3928,12 @@ Every positive integer is uniquely a product of prime numbers.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgaf56230" class="outline-4">
-<h4 id="orgaf56230"><span class="section-number-4">8.3.2.</span> GCD</h4>
+<div id="outline-container-orgecfa317" class="outline-4">
+<h4 id="orgecfa317"><span class="section-number-4">8.3.2.</span> GCD</h4>
 <div class="outline-text-4" id="text-8-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org0ea99cb"></a>What it is<br />
+<li><a id="org21c4d87"></a>What it is<br />
 <div class="outline-text-5" id="text-8-3-2-1">
 <ul class="org-ul">
 <li>Greatest common divisor is the largest number that divides both numbers.</li>
@@ -3968,7 +3969,7 @@ whole.</li>
 </ul>
 </div>
 </li>
-<li><a id="org736ac25"></a>How to find<br />
+<li><a id="org2f72724"></a>How to find<br />
 <div class="outline-text-5" id="text-8-3-2-2">
 <p>
 For example, the GCD for 24598 and 7895 would be:
@@ -4049,9 +4050,13 @@ The answer is <b>1</b>.
 </li>
 </ol>
 </div>
-<div id="outline-container-org33aab80" class="outline-4">
-<h4 id="org33aab80"><span class="section-number-4">8.3.3.</span> Euclidean Algorithm</h4>
+<div id="outline-container-org2f013d5" class="outline-4">
+<h4 id="org2f013d5"><span class="section-number-4">8.3.3.</span> Euclidean Algorithm</h4>
 <div class="outline-text-4" id="text-8-3-3">
+</div>
+<ol class="org-ol">
+<li><a id="org449ca07"></a>What it is<br />
+<div class="outline-text-5" id="text-8-3-3-1">
 <p>
 \[divident = quotient \times divisor + remainder\] Basically, the property used is
 that \(GCD(a,b) = GCD(a\mod(b), b)\), given that \(a>b\). You can endlessly keep
@@ -4110,16 +4115,41 @@ For example, the GCD of 49 and 63 would be 7:
 
 <p>
 What we&rsquo;ve done here is \(GCD(63,49) = GCD(49, 14) = GCD(14, 7) = GCD(7, 0) = 7\)
-(because GCD of a number and 0, is the number itself).w
+(because GCD of a number and 0, is the number itself).
 </p>
 </div>
+</li>
+<li><a id="org98a8f36"></a>Code<br />
+<div class="outline-text-5" id="text-8-3-3-2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(gcd(63,49))
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">gcd</span>(a, b):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> b==0:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> a
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">else</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> gcd(b, a%b)
+     
+main()
+
+</pre>
 </div>
-<div id="outline-container-orgf42b1bb" class="outline-4">
-<h4 id="orgf42b1bb"><span class="section-number-4">8.3.4.</span> Modular Arithmetic Operations</h4>
+
+<div class="org-src-container">
+<pre class="src src-nil">7
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgfadd92c" class="outline-4">
+<h4 id="orgfadd92c"><span class="section-number-4">8.3.4.</span> Modular Arithmetic Operations</h4>
 <div class="outline-text-4" id="text-8-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="orgd9c747f"></a>Standard Rules<br />
+<li><a id="orgaeb5ab2"></a>Standard Rules<br />
 <div class="outline-text-5" id="text-8-3-4-1">
 <p>
 \[[a\mod(n) + (b\mod(n))] \mod(n) = (a+b)\mod(n)\]
@@ -4132,7 +4162,7 @@ What we&rsquo;ve done here is \(GCD(63,49) = GCD(49, 14) = GCD(14, 7) = GCD(7, 0
 </p>
 </div>
 </li>
-<li><a id="orgd84393f"></a>Inferences<br />
+<li><a id="orgd660ae9"></a>Inferences<br />
 <div class="outline-text-5" id="text-8-3-4-2">
 <p>
 Some inferences you can make out from this is:
@@ -4142,7 +4172,7 @@ Some inferences you can make out from this is:
 </ul>
 </div>
 </li>
-<li><a id="orgf05966f"></a>How to do \((\text{negativeNumber})\mod(x)\)<br />
+<li><a id="orgbeaf5be"></a>How to do \((\text{negativeNumber})\mod(x)\)<br />
 <div class="outline-text-5" id="text-8-3-4-3">
 <ul class="org-ul">
 <li>It&rsquo;s simply \((\text{negativeNumber}+nx)\mod(x)\), where \(n\) can be anything
@@ -4150,10 +4180,35 @@ that turns that negative number into a positive one.</li>
 </ul>
 </div>
 </li>
+<li><a id="org0500d73"></a>Program to compute \((a+b)mod(n)\) and \((a*b)mod(n)\)<br />
+<div class="outline-text-5" id="text-8-3-4-4">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(a_plus_b_mod_n(15, 37, 13))
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(a_plus_b_mod_n(15, 37, 13))
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">a_plus_b_mod_n</span>(a, b, n):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> (a%n + b%n)%n
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">a_times_b_mod_n</span>(a, b, n):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> (a%n * b%n)%n
+ 
+main()
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">0
+0
+</pre>
+</div>
+</div>
+</li>
 </ol>
 </div>
-<div id="outline-container-org75cf8c2" class="outline-4">
-<h4 id="org75cf8c2"><span class="section-number-4">8.3.5.</span> Addition Modulo \(n\) table</h4>
+<div id="outline-container-org7633425" class="outline-4">
+<h4 id="org7633425"><span class="section-number-4">8.3.5.</span> Addition Modulo \(n\) table</h4>
 <div class="outline-text-4" id="text-8-3-5">
 <ul class="org-ul">
 <li>We construct a table where each value is \((row + col) \mod (n)\)</li>
@@ -4274,8 +4329,8 @@ For example, let \(n=7\):
 </ul>
 </div>
 </div>
-<div id="outline-container-org3e7d000" class="outline-4">
-<h4 id="org3e7d000"><span class="section-number-4">8.3.6.</span> Congruence</h4>
+<div id="outline-container-org7ef0b7d" class="outline-4">
+<h4 id="org7ef0b7d"><span class="section-number-4">8.3.6.</span> Congruence</h4>
 <div class="outline-text-4" id="text-8-3-6">
 <p>
 \[a \equiv b \mod(n)\]
@@ -4287,19 +4342,19 @@ For example, let \(n=7\):
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcbaf7df" class="outline-4">
-<h4 id="orgcbaf7df"><span class="section-number-4">8.3.7.</span> Inverses</h4>
+<div id="outline-container-org8a72e20" class="outline-4">
+<h4 id="org8a72e20"><span class="section-number-4">8.3.7.</span> Inverses</h4>
 <div class="outline-text-4" id="text-8-3-7">
 </div>
 <ol class="org-ol">
-<li><a id="org48bd197"></a>Additive Inverse<br />
+<li><a id="orgad15405"></a>Additive Inverse<br />
 <div class="outline-text-5" id="text-8-3-7-1">
 <p>
 \[-a + a\mod(m) = 0\]
 </p>
 </div>
 </li>
-<li><a id="orgdc293ac"></a>Multiplicative Inverse<br />
+<li><a id="org4019edd"></a>Multiplicative Inverse<br />
 <div class="outline-text-5" id="text-8-3-7-2">
 <ul class="org-ul">
 <li>Normal multiplicative inverse of \(a\) is a number such that if you multiply \(a\)
@@ -4329,7 +4384,7 @@ such that \(a \times x \mod(m) = 1\).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org25030da"></a>Extended Euclidean Algorithm<br />
+<li><a id="org7f9f455"></a>Extended Euclidean Algorithm<br />
 <div class="outline-text-6" id="text-8-3-7-2-1">
 <ul class="org-ul">
 <li><p>
@@ -4500,7 +4555,7 @@ So the final multiplicative inverse is 9.
 </ul>
 </div>
 </li>
-<li><a id="org694ae39"></a>Multiplicative Inverse Pair<br />
+<li><a id="org86ff6a7"></a>Multiplicative Inverse Pair<br />
 <div class="outline-text-6" id="text-8-3-7-2-2">
 <ul class="org-ul">
 <li>In general, if we have \(a \cdot x \mod(m) = 1\), then \((a,x)\) is a multiplicative inverse pair.</li>
@@ -4532,7 +4587,7 @@ find the pairs of numbers which are multiplicative inverses of each other.
 </ul>
 </div>
 </li>
-<li><a id="org0a896f9"></a>Solving a congruence<br />
+<li><a id="org0699948"></a>Solving a congruence<br />
 <div class="outline-text-6" id="text-8-3-7-2-3">
 <ul class="org-ul">
 <li>Consider the example \[15x \equiv 7\mod(32)\]</li>
@@ -4554,8 +4609,8 @@ find the pairs of numbers which are multiplicative inverses of each other.
 </li>
 </ol>
 </div>
-<div id="outline-container-org89b2f0f" class="outline-4">
-<h4 id="org89b2f0f"><span class="section-number-4">8.3.8.</span> Equivalence Class</h4>
+<div id="outline-container-orgb21ac11" class="outline-4">
+<h4 id="orgb21ac11"><span class="section-number-4">8.3.8.</span> Equivalence Class</h4>
 <div class="outline-text-4" id="text-8-3-8">
 <ul class="org-ul">
 <li><p>
@@ -4590,8 +4645,8 @@ others modulo \(n\).
 </div>
 </div>
 </div>
-<div id="outline-container-org3ccaea1" class="outline-3">
-<h3 id="org3ccaea1"><span class="section-number-3">8.4.</span> Euler&rsquo;s Totient/Phi Function</h3>
+<div id="outline-container-orgc60c6eb" class="outline-3">
+<h3 id="orgc60c6eb"><span class="section-number-3">8.4.</span> Euler&rsquo;s Totient/Phi Function</h3>
 <div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li>\(Z_{m}^{*}\) is the set of numbers, that are relatively prime or coprime with \(m\) in
@@ -4607,8 +4662,8 @@ elements in \(Z_{m}^{*}\).
 \[\phi(n) = |Z_{m}^{*}|\]</li>
 </ul>
 </div>
-<div id="outline-container-orgc163b45" class="outline-4">
-<h4 id="orgc163b45"><span class="section-number-4">8.4.1.</span> Conditions for \(\phi(P)\)</h4>
+<div id="outline-container-org82abf92" class="outline-4">
+<h4 id="org82abf92"><span class="section-number-4">8.4.1.</span> Conditions for \(\phi(P)\)</h4>
 <div class="outline-text-4" id="text-8-4-1">
 <ol class="org-ol">
 <li>\(\phi(p) = p-1\), if \(p\) is a prime number.</li>
@@ -4617,19 +4672,19 @@ elements in \(Z_{m}^{*}\).
 </ol>
 </div>
 </div>
-<div id="outline-container-org27e3aa9" class="outline-4">
-<h4 id="org27e3aa9"><span class="section-number-4">8.4.2.</span> Examples</h4>
+<div id="outline-container-org5d4ad40" class="outline-4">
+<h4 id="org5d4ad40"><span class="section-number-4">8.4.2.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="org4032e4b"></a>\(\phi(27)\)<br />
+<li><a id="org2f470f9"></a>\(\phi(27)\)<br />
 <div class="outline-text-5" id="text-8-4-2-1">
 <ul class="org-ul">
 <li>\(\phi(3^{3}) = 3^{3} - 3^{2} = 18\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orga5f2f0f"></a>\(\phi(630)\)<br />
+<li><a id="orgc9d3541"></a>\(\phi(630)\)<br />
 <div class="outline-text-5" id="text-8-4-2-2">
 <ul class="org-ul">
 <li>\(\phi(630) = \phi(63 \times 10)\)</li>
@@ -4642,8 +4697,8 @@ elements in \(Z_{m}^{*}\).
 </ol>
 </div>
 </div>
-<div id="outline-container-org10da7e2" class="outline-3">
-<h3 id="org10da7e2"><span class="section-number-3">8.5.</span> Fast Exponentiation Algorithm</h3>
+<div id="outline-container-org7923c60" class="outline-3">
+<h3 id="org7923c60"><span class="section-number-3">8.5.</span> Fast Exponentiation Algorithm</h3>
 <div class="outline-text-3" id="text-8-5">
 <blockquote>
 <p>
@@ -4651,12 +4706,12 @@ Squaring and selective multiplication method.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org6f62e2c" class="outline-4">
-<h4 id="org6f62e2c"><span class="section-number-4">8.5.1.</span> Steps</h4>
+<div id="outline-container-org7660817" class="outline-4">
+<h4 id="org7660817"><span class="section-number-4">8.5.1.</span> Steps</h4>
 <div class="outline-text-4" id="text-8-5-1">
 </div>
 <ol class="org-ol">
-<li><a id="org668b655"></a>Convert the number \(B\) into binary. Represent \(B\) as a sum of unique powers of 2.<br />
+<li><a id="orgb4911a5"></a>Convert the number \(B\) into binary. Represent \(B\) as a sum of unique powers of 2.<br />
 <div class="outline-text-5" id="text-8-5-1-1">
 <p>
 Eg. \(B = 11\)
@@ -4667,18 +4722,18 @@ Eg. \(B = 11\)
 </ul>
 </div>
 </li>
-<li><a id="orga76a3fd"></a>\(A^{i}\mod(C)\) such that \(i \le B\)<br /></li>
+<li><a id="org637eb0c"></a>\(A^{i}\mod(C)\) such that \(i \le B\)<br /></li>
 
 
-<li><a id="orge83fbb6"></a>Find \(A^{C}\mod(C)\),<br /></li>
+<li><a id="org9228794"></a>Find \(A^{C}\mod(C)\),<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgb5054c2" class="outline-4">
-<h4 id="orgb5054c2"><span class="section-number-4">8.5.2.</span> Examples</h4>
+<div id="outline-container-org2d8a1fa" class="outline-4">
+<h4 id="org2d8a1fa"><span class="section-number-4">8.5.2.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-5-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgf7dd4b2"></a>\(11^{13}\mod(53)\)<br />
+<li><a id="orgaa4df8c"></a>\(11^{13}\mod(53)\)<br />
 <div class="outline-text-5" id="text-8-5-2-1">
 <ul class="org-ul">
 <li>Step 1:
@@ -4705,9 +4760,36 @@ Eg. \(B = 11\)
 </li>
 </ol>
 </div>
+<div id="outline-container-org34c04c2" class="outline-4">
+<h4 id="org34c04c2"><span class="section-number-4">8.5.3.</span> Code</h4>
+<div class="outline-text-4" id="text-8-5-3">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   fast(3, 50, 7)
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">fast</span>(a, b, n): <span style="color: #5B6268;"># </span><span style="color: #5B6268;">a^b mod(n)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">binary</span> = <span style="color: #c678dd;">bin</span>(b)[2:]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">dp</span> = [0 <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(binary))]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">dp</span>[-1] = a%n
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #c678dd;">len</span>(binary) - 2, 0, -1):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">dp</span>[i] = (dp[i+1]**2)%n
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>       
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">print</span>(dp)
+ 
+main()
+
+</pre>
 </div>
-<div id="outline-container-orga63d2ef" class="outline-3">
-<h3 id="orga63d2ef"><span class="section-number-3">8.6.</span> Fermat&rsquo;s Little Theorem</h3>
+
+<div class="org-src-container">
+<pre class="src src-nil">[0, 4, 2, 4, 2, 3]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org0680040" class="outline-3">
+<h3 id="org0680040"><span class="section-number-3">8.6.</span> Fermat&rsquo;s Little Theorem</h3>
 <div class="outline-text-3" id="text-8-6">
 <blockquote>
 <p>
@@ -4726,12 +4808,12 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 <li>\(3^{(31-1)}\mod(31)\)</li>
 </ul>
 </div>
-<div id="outline-container-orgb0e3d2e" class="outline-4">
-<h4 id="orgb0e3d2e"><span class="section-number-4">8.6.1.</span> Examples</h4>
+<div id="outline-container-org42cb85b" class="outline-4">
+<h4 id="org42cb85b"><span class="section-number-4">8.6.1.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-6-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgc638fc0"></a>Find \(3^{-1}\mod(31)\) using Fermat&rsquo;s Little Theorem<br />
+<li><a id="orgba07bef"></a>Find \(3^{-1}\mod(31)\) using Fermat&rsquo;s Little Theorem<br />
 <div class="outline-text-5" id="text-8-6-1-1">
 <ul class="org-ul">
 <li>By Fermat&rsquo;s little theorem, \(3^{30} \equiv 1\mod(31)\)</li>
@@ -4742,12 +4824,12 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 </ul>
 </div>
 </li>
-<li><a id="org5ef61b2"></a><span class="todo TODO">TODO</span> Compute  \(3^{-592} \mod(1831)\) using Fermat&rsquo;s Little Theorem<br /></li>
+<li><a id="org254c86c"></a><span class="todo TODO">TODO</span> Compute  \(3^{-592} \mod(1831)\) using Fermat&rsquo;s Little Theorem<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgdc991a6" class="outline-3">
-<h3 id="orgdc991a6"><span class="section-number-3">8.7.</span> Euler&rsquo;s Theorem</h3>
+<div id="outline-container-org61bb6eb" class="outline-3">
+<h3 id="org61bb6eb"><span class="section-number-3">8.7.</span> Euler&rsquo;s Theorem</h3>
 <div class="outline-text-3" id="text-8-7">
 <blockquote>
 <p>
@@ -4759,12 +4841,12 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 </ul>
 </blockquote>
 </div>
-<div id="outline-container-org18ed9fb" class="outline-4">
-<h4 id="org18ed9fb"><span class="section-number-4">8.7.1.</span> Examples</h4>
+<div id="outline-container-orgb1e146b" class="outline-4">
+<h4 id="orgb1e146b"><span class="section-number-4">8.7.1.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-7-1">
 </div>
 <ol class="org-ol">
-<li><a id="org72ac833"></a>Find \(6^{24} \mod(35)\) using Euler&rsquo;s Theorem<br />
+<li><a id="org87f6456"></a>Find \(6^{24} \mod(35)\) using Euler&rsquo;s Theorem<br />
 <div class="outline-text-5" id="text-8-7-1-1">
 <ul class="org-ul">
 <li>gcd(6,35) = 1, hence they are coprime</li>
@@ -4773,7 +4855,7 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 </ul>
 </div>
 </li>
-<li><a id="org024c82c"></a>Find \(37^{103}\mod(40)\) using Euler&rsquo;s theorem<br />
+<li><a id="orgfdf45a8"></a>Find \(37^{103}\mod(40)\) using Euler&rsquo;s theorem<br />
 <div class="outline-text-5" id="text-8-7-1-2">
 <ul class="org-ul">
 <li>\(37^{\phi(40)}\mod(40) = 37^{\phi(2^{3}) \times \phi(5)}\mod(40) = 37^{16}\mod(40)\)</li>
@@ -4789,7 +4871,7 @@ directly too, but this is better).</li>
 </ul>
 </div>
 </li>
-<li><a id="orga2cee24"></a>Find \(71^{-1}\mod(100)\) using Euler&rsquo;s Theorem<br />
+<li><a id="org2054514"></a>Find \(71^{-1}\mod(100)\) using Euler&rsquo;s Theorem<br />
 <div class="outline-text-5" id="text-8-7-1-3">
 <ul class="org-ul">
 <li>gcd(71, 100) = 1, hence they are coprime</li>
@@ -4806,12 +4888,12 @@ directly too, but this is better).</li>
 </ul>
 </div>
 </li>
-<li><a id="org9c457ab"></a>Find \(8^{-1} \mod(77)\)<br /></li>
+<li><a id="org8046be5"></a>Find \(8^{-1} \mod(77)\)<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org9691a6b" class="outline-3">
-<h3 id="org9691a6b"><span class="section-number-3">8.8.</span> Discrete Logarithm</h3>
+<div id="outline-container-org0fcd8c1" class="outline-3">
+<h3 id="org0fcd8c1"><span class="section-number-3">8.8.</span> Discrete Logarithm</h3>
 </div>
 </div>
 </div>
