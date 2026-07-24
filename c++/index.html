@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-05-24 Sun 14:12 -->
+<!-- 2026-07-24 Fri 18:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learning C++</title>
@@ -204,275 +204,367 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <style>
-/* General styles */
-body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-margin: 0;
-padding: 0;
-background-color: #f4f4f4;
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
 }
 
-#postamble, #preamble {
-margin-left: 280px;
-padding: 20px 40px;
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
 }
-h1, h2, h3 {
-font-family: 'Helvetica', sans-serif;
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
+}
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
+/* ─── Block Quotes ─────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: 1rem 1.5rem;
+background: #f8f8fc;
+border-left: 4px solid #4444cc;
+border-radius: 8px;
+color: #444;
+font-style: italic;
+position: relative;
+}
+blockquote::before {
+content: "❝";
+position: absolute;
+top: -8px;
+left: 12px;
+font-size: 2.8rem;
+color: #d6d6f5;
+font-family: Georgia, serif;
+line-height: 1;
+}
+blockquote p:last-child {
+margin-bottom: 0;
+}
+blockquote cite,
+blockquote footer {
+display: block;
+margin-top: 0.8rem;
+color: #777;
+font-size: 0.9em;
+font-style: normal;
+text-align: right;
 }
 a {
-color: #0000aa;
+color: #2222cc;
+text-decoration: none;
 }
 a:hover {
-background-color: #0000aa;
-color: #ffffff;
-border-radius: 0.2em;
-transition: background-color 0.3s ease, transform 0.3s ease;
+text-decoration: underline;
+text-underline-offset: 3px;
 }
-pre {
-background-color: #333;
-color: white;
-padding: 10px;
-overflow-x: auto;
-white-space: pre-wrap;
-word-wrap: break-word;
-}
-/* Styling code blocks */
-pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java, pre.src.src-cpp {
-font-family: 'Courier New', monospace;
-background-color: #222;
-color: white;
-padding: 15px;
-font-size: 1.1em;
-border-radius: 0.5em;
-}
-code {
-font-size: 1.5em;
-padding: 0 0.5em;
-}
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto;
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
 }
 
 .header {
-text-align: center;
-margin: 0px;
-background-color: #0000aa;
-color: #ffffff;
-padding: 5px 0;
-flex-shrink: 0;
-word-wrap: break-word;
-font-family: DOSVGA, monospace;
 position: fixed;
-top: 0;
-left: 0;
-right: 0;
+top: 0; left: 0; right: 0;
 z-index: 1000;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .header a {
-color: #ffffff;
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
 text-decoration: none;
-font-size: 1.5em;
-white-space: nowrap;
-transition: all 0.3s ease;
-padding: 0px;
+line-height: 1;
 }
 
-.header a:hover {
-color: #bababa;
-}
-
-@font-face {
-font-family: DOSVGA;
-src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
-}
-
-/* Table of Contents Sidebar */
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
 #table-of-contents {
 position: fixed;
+top: 48px;
 left: 0;
-top: 45px;
-width: 280px;
-height: calc(100vh - 45px);
+width: 260px;
+height: calc(100vh - 48px);
 overflow-y: auto;
-background-color: #f8f8f8;
-border-right: 1px solid #ddd;
-padding: 30px 20px;
-box-sizing: border-box;
-z-index: 10;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
 }
 
 #table-of-contents h2 {
-margin-top: 0;
-color: #0000aa;
-font-size: 1.1em;
-border-bottom: 1px solid #ddd;
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
 padding-bottom: 10px;
-margin-bottom: 15px;
+border-bottom: 0.5px solid #e8e8ee;
 }
 
-/* Search box styles */
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
 #toc-search {
 width: 100%;
-padding: 8px 12px;
-margin-bottom: 15px;
-border: 1px solid #ddd;
-border-radius: 4px;
-font-size: 0.9em;
-box-sizing: border-box;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
 }
 
 #toc-search:focus {
-outline: none;
-border-color: #0000aa;
+border-color: #4444cc;
+background: #ffffff;
 }
 
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
 #table-of-contents ul {
-list-style-type: none;
-padding-left: 0;
+list-style: none;
+padding: 0;
 margin: 0;
 }
 
 #table-of-contents ul ul {
-padding-left: 15px;
-margin-top: 5px;
+padding-left: 14px;
 }
 
 #table-of-contents li {
-margin: 8px 0;
+margin: 2px 0;
 }
 
 #table-of-contents a {
-color: #555;
-text-decoration: none;
 display: block;
 padding: 5px 10px;
-border-radius: 4px;
-transition: all 0.2s ease;
-font-size: 0.95em;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 #table-of-contents a:hover {
-color: #0000aa;
-background-color: #e8e8ff;
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
 }
 
-/* Active TOC link (scroll spy) */
 #table-of-contents a.active {
-color: #0000aa;
-background-color: #e8e8ff;
-font-weight: bold;
-border-left: 3px solid #0000aa;
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
 }
 
-/* Hidden items during search */
 #table-of-contents li.hidden {
 display: none;
 }
 
-/* Main content area */
+/* ─── Main Content ──────────────────────────────────────── */
 #content {
-margin-left: 280px;
-margin-top: 45px;
-padding: 40px;
-background-color: #ffffff;
-min-height: calc(100vh - 45px);
-}
-table {
-border-collapse: collapse;
-margin: 1.5rem auto;
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 1rem;
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
 background: #ffffff;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
 border-radius: 10px;
 overflow: hidden;
 }
 
-table[border] {
-border: none;
-}
-
-td {
-padding: 0.75rem 1.1rem;
-text-align: center;
-border: 1px solid #e5e7eb;
+th {
+background: #f5f5fa;
 font-weight: 500;
-color: #111827;
-}
-
-td.org-left {
-text-align: center;
-}
-
-tbody tr:nth-child(even) {
-background-color: #f9fafb;
-}
-
-tbody tr:hover {
-background-color: #eef2ff;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
 }
 
 td {
-letter-spacing: 0.05em;
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
 #table-of-contents {
 position: static;
 width: 100%;
 height: auto;
 border-right: none;
-border-bottom: 2px solid #0000aa;
-}
-pre.src {
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-width: 100vw;
-border-radius: 0;
-box-sizing: border-box;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
 }
 
 #content {
 margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
 }
 
-body {
-font-size: 14px;
-padding: 10px;
-}
-h1 {
-font-size: 1.5em;
-}
-pre {
-font-size: 1.3em;
-}
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
 }
 
-@media screen and (max-width: 480px) {
-body {
-font-size: 12px;
-padding: 5px;
-}
-h1 {
-font-size: 1.3em;
-}
 pre {
-font-size: 1.3em;
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
 }
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
 }
 </style>
 <div class="header">
-<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -617,34 +709,34 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge563f0e">1. Boilerplate</a>
+<li><a href="#orge45c6fc">1. Boilerplate</a>
 <ul>
-<li><a href="#org272ad4c">1.1. Streams</a></li>
-<li><a href="#org9d93be4">1.2. Namespaces</a></li>
-<li><a href="#orge0e7e27">1.3. Input</a></li>
-<li><a href="#org380bacb">1.4. Headers</a></li>
+<li><a href="#orgc897c33">1.1. Streams</a></li>
+<li><a href="#org561ab9b">1.2. Namespaces</a></li>
+<li><a href="#orge857ed4">1.3. Input</a></li>
+<li><a href="#org80e1841">1.4. Headers</a></li>
 </ul>
 </li>
-<li><a href="#org9c33881">2. Pointers</a>
+<li><a href="#org9c61067">2. Pointers</a>
 <ul>
-<li><a href="#orgfb69618">2.1. Basics</a></li>
-<li><a href="#org8570da9">2.2. Arrays</a></li>
-<li><a href="#org6d400c3">2.3. Pass by reference</a></li>
+<li><a href="#orgeb3e52c">2.1. Basics</a></li>
+<li><a href="#org3f52f0b">2.2. Arrays</a></li>
+<li><a href="#org327ec92">2.3. Pass by reference</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge563f0e" class="outline-2">
-<h2 id="orge563f0e"><span class="section-number-2">1.</span> Boilerplate</h2>
+<div id="outline-container-orge45c6fc" class="outline-2">
+<h2 id="orge45c6fc"><span class="section-number-2">1.</span> Boilerplate</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>To compile: <code>g++ filename.cpp</code></li>
 <li>To run: <code>./a.out</code></li>
 </ul>
 </div>
-<div id="outline-container-org272ad4c" class="outline-3">
-<h3 id="org272ad4c"><span class="section-number-3">1.1.</span> Streams</h3>
+<div id="outline-container-orgc897c33" class="outline-3">
+<h3 id="orgc897c33"><span class="section-number-3">1.1.</span> Streams</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Like "import" &#8212; brings in the standard I/O library
@@ -710,8 +802,8 @@ terminal/screen).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d93be4" class="outline-3">
-<h3 id="org9d93be4"><span class="section-number-3">1.2.</span> Namespaces</h3>
+<div id="outline-container-org561ab9b" class="outline-3">
+<h3 id="org561ab9b"><span class="section-number-3">1.2.</span> Namespaces</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li><p>
@@ -795,8 +887,8 @@ This means you can also make it use the namespace <code>std</code> too:
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0e7e27" class="outline-3">
-<h3 id="orge0e7e27"><span class="section-number-3">1.3.</span> Input</h3>
+<div id="outline-container-orge857ed4" class="outline-3">
+<h3 id="orge857ed4"><span class="section-number-3">1.3.</span> Input</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
@@ -855,14 +947,14 @@ You can also chain inputs:
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">  1332849520 32767
+<pre class="src src-nil">  73728 0
 </pre>
 </div></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org380bacb" class="outline-3">
-<h3 id="org380bacb"><span class="section-number-3">1.4.</span> Headers</h3>
+<div id="outline-container-org80e1841" class="outline-3">
+<h3 id="org80e1841"><span class="section-number-3">1.4.</span> Headers</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li><p>
@@ -881,12 +973,12 @@ production code.
 </div>
 </div>
 </div>
-<div id="outline-container-org9c33881" class="outline-2">
-<h2 id="org9c33881"><span class="section-number-2">2.</span> Pointers</h2>
+<div id="outline-container-org9c61067" class="outline-2">
+<h2 id="org9c61067"><span class="section-number-2">2.</span> Pointers</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfb69618" class="outline-3">
-<h3 id="orgfb69618"><span class="section-number-3">2.1.</span> Basics</h3>
+<div id="outline-container-orgeb3e52c" class="outline-3">
+<h3 id="orgeb3e52c"><span class="section-number-3">2.1.</span> Basics</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
@@ -905,14 +997,14 @@ production code.
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">0x7fff0905a81c
+<pre class="src src-nil">0x7ffe6e595d1c
 10
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org8570da9" class="outline-3">
-<h3 id="org8570da9"><span class="section-number-3">2.2.</span> Arrays</h3>
+<div id="outline-container-org3f52f0b" class="outline-3">
+<h3 id="org3f52f0b"><span class="section-number-3">2.2.</span> Arrays</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
@@ -936,8 +1028,8 @@ production code.
 </div>
 </div>
 </div>
-<div id="outline-container-org6d400c3" class="outline-3">
-<h3 id="org6d400c3"><span class="section-number-3">2.3.</span> Pass by reference</h3>
+<div id="outline-container-org327ec92" class="outline-3">
+<h3 id="org327ec92"><span class="section-number-3">2.3.</span> Pass by reference</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>When you pass a variable to a function, you can <b>pass by value</b> or <b>pass by
