@@ -1,0 +1,148 @@
+#+title: Blockchain Technology
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+** What it is
+- A blockchain is a secure decentralized digital ledger that records
+  transactions as a sequence of linked blocks.
+- It was first proposed by Stuart Haber and W. Scott Stornetta in 1991.
+- In 2008, a paper written by an author 'Satoshi Nakamoto' published the bitcoin
+  whitepaper (blockchain for a digital currency).
+** Advantages
+- More security
+- More transparency
+- No single-point-of-failure
+** Disadvantages
+- Slower
+- High computational cost
+- Transactions are irreversible
+- High storage requirements
+
+** Smart Contracts
+- When you carry out transactions in a blockchain, instead of trusting a
+  company, you trust some deterministic and immutable code stored on the
+  blockchain. This code is called a smart contract.
+- A smart contract is a self-executing program that automates the actions
+  required in a blockchain transaction.
+- They can be thought of as a vending machine.
+  
+** Rough Flow of Blochchain
+- A transaction $T_{x}$ occurs.
+- $T_{x}$ is verified using a *consensus mechanism* (a polling mechanism).
+- Multiple transactions are grouped into a block (a collection of valid transactions).
+- The block is added to the chain (each block is linked to the previous block
+  using cryptographic hashes).
+- The blockchain is updated.
+** Uses of Blockchain
+- Cryptocurrencies
+- Supply Chain Tracking
+- Healthcare
+- Voting Systems
+
+* Hash
+- A hash is a unique digital fingerprint of data. It's a mathematical blender.
+- A hash function will always return *fixed length* output, regardless of the input size.
+- It is *deterministic* (the same input always produces the same hash)
+- Even a tiny change in input produces a completely different hash. This is called the *avalanche effect*.
+- Two inputs can never give the same hash. 
+
+** SHA-256
+- SHA-256 works on 512-bit blocks.
+- The last 64 bits are reserved for storing the length of the original message.
+- The message itself is stored in the rest of the 448 bits.
+
+*** Algorithm
+1. Read the input
+2. Convert it into binary
+3. Append a bit with value 1, to the end of this sequence.
+4. Pad this sequence with enough 0s to span across 448 bits.
+5. Pad the length of the original message with enough 0s to span across 64 bits.
+6. Define the *working variables*:
+   #+begin_src txt
+H0 = 6a09e667
+H1 = bb67ae85
+H2 = 3c6ef372
+H3 = a54ff53a
+H4 = 510e527f
+H5 = 9b05688c
+H6 = 1f83d9ab
+H7 = 5be0cd19
+   #+end_src
+   Initialize variables ~a~, ~b~, ~c~, ~d~, ~e~, ~f~, ~g~, ~h~ with ~H0~, ~H1~, ~H2~, ~H3~, ~H4~, ~H5~, ~H6~,
+   ~H7~ respectively.
+7. Define the *round constants*:
+   - These are 64 words each of size 32 bits.   
+   - These are derived from the decimal part (eg. 2 from the number 1.2) of the
+     cube roots of the first 64 prime numbers.
+      #+begin_src txt
+   K0 = 0x428a2f98
+   K1 = 0x71374491
+   K2 = 0xb5c0fbcf
+   K3 = 0xe9b5dba50x3956c25b
+   K4 = 0x59f111f1
+   K5 = 0x923f82a4
+   K6 = 0xab1c5ed50xd807aa98
+   K7 = 0x12835b01
+   ...
+   K63 = 0xc67178f2
+      #+end_src
+8. Split the block of 512 bits into 16 unsigned words w0, w1, w2, .. w15 (each
+   would be 32 bits).
+9. Expand these 16 words into 64 words (create w16, w17, ... w63) using
+   rotations, shifts and XOR. Each word is created as:
+   \[W_i = \sigma_1(W_{i-2}) + W_{i-7} + \sigma_0(W_{i-15}) + W_{i-16} \]
+   for $16 \le i \le 63$
+   - The current word $w_{i}$ depends on 4 different previous words ($w_{i-2}$,
+     $w_{i-7}$, $w_{i-15}$ and $w_{i-16}$).
+   - The helper functions defined are:
+     - $\operatorname{ROTR}^{n}(x)$: Rotate right (right circular shift) all the bits of
+       word $x$, $n$ times.
+     - $\operatorname{SHR}^{n}(x)$: Logical right shift (bits of the right are discarded on
+       right shifting) all the bits of word $x$, $n$ times.
+     - $\sigma_{0}(x) = \operatorname{ROTR}^{7}(x) \oplus \operatorname{ROTR}^{18}(x) \oplus \operatorname{SHR}^{3}(x)$
+     - $\sigma_{1}(x) = \operatorname{ROTR}^{17}(x) \oplus \operatorname{ROTR}^{19}(x) \oplus \operatorname{SHR}^{10}(x)$
+10. For 64 times:
+    1. Calculate:
+       \[T_1 = h + \Sigma_1(e) + \operatorname{Ch}(e,f,g) + K[i] + W[i] \]
+       \[T_2 = \Sigma_0(a) + \operatorname{Maj}(a,b,c) \]
+       The helper functions/variables are defined as:
+       - $h$: This variable is one of the 8 variables defined earlier
+       - $\Sigma_{0}(x) = \operatorname{ROTR}^{2} \oplus \operatorname{ROTR}^{13} \oplus \operatorname{ROTR}^{22}$
+       - $\Sigma_{1}(x) = \operatorname{ROTR}^{6} \oplus \operatorname{ROTR}^{11} \oplus \operatorname{ROTR}^{25}$
+       - $\operatorname{Ch}(e, f, g) = (e \wedge f) \oplus (\not e \vee g)$ \\
+         - This is called the *Choice function* and $e$, $f$ and $g$ are 3 of the 8
+           working variables.
+         - For every bit position, if the bit of $c$ is 0, then the corresponding
+           bit is taken from $f$ and if the bit of $c$ is 1, then the
+           corresponding bit is taken from $g$.
+       - $\operatorname{Maj}(a, b, c) = (a \wedge b) \oplus (a \wedge c) \oplus (b \wedge c)$
+         - This is the *Majority function* and for each bit position, the output
+           is the bit value (0 or 1) that appears in at least two of the three
+           inputs.
+    2. Update the worker variables as:
+       - $\verb|H7| = \verb|H6|$
+       - $\verb|H6| = \verb|H5|$
+       - $\verb|H5| = \verb|H4|$
+       - $\verb|H4| = (\verb|H3| + T_{1}) \mod(2^{32})$
+       - $\verb|H3| = \verb|H2|$
+       - $\verb|H2| = \verb|H1|$
+       - $\verb|H1| = \verb|H0|$
+       - $\verb|H0| = (T_{1} + T_{2}) \mod(2^{32})$
+11. Concatenate all the worker variables and convert the result into hexadecimal.
+     
+   
+*** Rough Implementation in C++
+   
+#+begin_src cpp :results output raw :wrap src :exports both :tangle sha256.cpp
+#include <iostream>  
+
+int main() {          
+    std::cout << "Hello, World!"; 
+    return 0;        
+}
+#+end_src
+
+#+RESULTS:
+#+begin_src
+Hello, World!
+#+end_src
