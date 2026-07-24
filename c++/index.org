@@ -1,0 +1,256 @@
+#+title: Learning C++
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Boilerplate
+- To compile: ~g++ filename.cpp~
+- To run: ~./a.out~
+** Streams
+#+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>   // Like "import" — brings in the standard I/O library
+
+int main() {          
+    std::cout << "Hello, World!"; 
+    std::cout << "should come on same line" << std::endl;  
+    std::cout << "should come on new line" << ", because of 'std::endl'" << 5 << false; 
+    return 0;        
+}
+#+end_src
+
+#+RESULTS:
+#+begin_src
+Hello, World!should come on same line
+should come on new line, because of 'std::endl'50
+#+end_src
+
+
+- A *stream* is an abstraction of a sequence of bytes, that represents the flow of
+  that data from one place to another.
+- Streams are useful because the lack of it would mean you'd have to load all of
+  the data completely into memory. In case of streams, you can transfer data in
+  small and manageable chunks. When such a small and manageable chunk of memory
+  is stored, we say they're stored in a *buffer*.
+- ~<<~ is actually the bitwise left shift operator, but it's been overloaded. Here's what it does with the operands:
+  - The operand on the left is a ~std:ostream&~ object reference (a stream object)
+  - The operand on the right is any data that should be written to the stream.
+  - $operand$ ~<<~ $operand$, as an operator is overwritten like this:
+    #+begin_src cpp
+operator<<(std::cout, "Hello");
+    #+end_src
+    And it returns the current stream object
+    #+begin_src cpp
+std::ostream& operator<<(std::ostream& stream, const std::string& data) {
+    // ... internal code that writes data into the stream ...
+    return stream;   // and it returns the stream containing the data
+}
+    #+end_src
+  - This is why you're able to chain these commands:
+    #+begin_src cpp
+std::cout << "A" << "B" << "C";
+    #+end_src
+    It evaluates from left to right. ~std::cout << "A"~ runs and this returns a
+    stream object, then the next one return a stream object, and so on.
+- ~std::cout~ is a stream object and ~cout~ stands for *character output* (the
+  terminal/screen).
+** Namespaces
+- A ~namespace~ is container for names (variables, functions, objects) to avoid
+  conflicts.
+  #+begin_src cpp :results output raw :wrap src :exports both
+
+#include <iostream>
+
+namespace myStuff {
+  int count = 5;
+}
+namespace yourStuff {
+  int count = 10;
+}
+
+int main() {
+  std::cout << myStuff::count << std::endl;
+  std::cout << yourStuff::count << std::endl;
+  return 0;
+}
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  5
+  10
+  #+end_src
+
+- The namespaces here are ~myStuff~, ~yourStuff~ (and ~std~ too!).
+- ~myStuff::count~ means asks the compiler to use ~count~ from ~myStuff~. If you want the compiler to always look inside ~myStuff~ whenever ~count~ is referenced, you can make the program *use the namespace* ~myStuff~.
+
+  #+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>
+
+namespace myStuff {
+  int count = 5;
+}
+
+int main() {
+  using namespace myStuff;
+  std::cout << count;  
+  return 0;
+}
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  5
+  #+end_src
+- This means you can also make it use the namespace ~std~ too:
+  #+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>
+
+namespace myStuff {
+  int count = 5;
+}
+
+int main() {
+  using namespace myStuff;
+  using namespace std;
+  cout << count;  
+  return 0;
+}
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  5
+  #+end_src
+** Input
+#+begin_src cpp :results output raw :wrap src :exports both :tangle input.cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  cout << "enter your name: ";
+  string name;
+  cin >> name;
+  cout << endl << name << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+#+begin_src
+enter your name: praanesh balakrishnan nair
+
+praanesh
+#+end_src
+
+- ~cin~ is short for *console input*, and it reads data from the input buffer.
+- ~cin >> name~ stops at the first white space.
+- To stop at a newline character, you use ~getline(cin, name)~ (where ~name~ is a
+  ~string~ variable).
+  - One thing to note is that if you use ~cin~ first, and then you use ~getline~,
+    the input isn't read because the ~\n~ from the previous input gets consumed.
+  - The fix for this is to clear that one character by using ~cin.ignore()~:
+    #+begin_src cpp
+cin.ignore();
+getline(cin, name);
+    #+end_src
+- You can also chain inputs:
+  #+begin_src cpp :results output raw :wrap src :exports both :tangle chain_inputs.cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+  int x, y;
+  cin >> x >> y; // takes two inputs, one after the other
+  cout << x << " " << y;
+  return 0;
+}
+
+  #+end_src
+
+** Headers
+- In competitive programming, people often use this GCC specific header:
+  #+begin_src cpp
+#include <bits/stdc++.h>
+  #+end_src
+  This includes every standard library header at once (vectors, math, strings,
+  etc.), and is used in competitive programming for speed of writing, and not in
+  production code.
+
+
+
+* Pointers
+** Basics
+#+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>
+using namespace std;
+
+int main(){
+  int x = 10;
+  int* p = &x;
+  
+  cout << p << endl;
+  cout << *p << endl;
+  return 0;
+}
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+0x7ffe71c0949c
+10
+#+end_src
+** Arrays
+#+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>
+using namespace std;
+
+int main(){
+  int arr[] = {10, 20, 30}; // arr is nothing but a pointer
+  for(int i=0 ; i<size(arr) ; i++)
+    cout << *(arr+i) << endl;
+  return 0;
+}
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+10
+20
+30
+#+end_src
+** Pass by reference
+- When you pass a variable to a function, you can *pass by value* or *pass by
+  reference*.
+- Pass by value (the function gets a copy of the variable, and any action you do
+  doesn't affected the original variable) happens all the time, until you pass a
+  reference to the variable (if you do this, the original variable is modified).
+  #+begin_src cpp :results output raw :wrap src :exports both
+#include <iostream>
+using namespace std;
+
+void incrementor(int* x){ // function takes a pointer
+  (*x)++;                 // pointer is dereferenced and used
+}
+
+int main(){
+  int a = 4;
+  incrementor(&a); // you're passing the address of 'a'
+  cout << a;
+  return 0;
+}
+
+
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  5
+  #+end_src
+
+  A pointer is a variable that stores a memory address. In C++, a *reference* is a
+  variable that 

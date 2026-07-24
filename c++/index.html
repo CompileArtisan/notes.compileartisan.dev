@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-05-24 Sun 14:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learning C++</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* General styles */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+#postamble, #preamble {
+margin-left: 280px;
+padding: 20px 40px;
+}
+h1, h2, h3 {
+font-family: 'Helvetica', sans-serif;
+}
+a {
+color: #0000aa;
+}
+a:hover {
+background-color: #0000aa;
+color: #ffffff;
+border-radius: 0.2em;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+pre {
+background-color: #333;
+color: white;
+padding: 10px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+/* Styling code blocks */
+pre.src.src-html, pre.src.src-txt, pre.src.src-python, pre.src.src-java, pre.src.src-cpp {
+font-family: 'Courier New', monospace;
+background-color: #222;
+color: white;
+padding: 15px;
+font-size: 1.1em;
+border-radius: 0.5em;
+}
+code {
+font-size: 1.5em;
+padding: 0 0.5em;
+}
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
+
+.header {
+text-align: center;
+margin: 0px;
+background-color: #0000aa;
+color: #ffffff;
+padding: 5px 0;
+flex-shrink: 0;
+word-wrap: break-word;
+font-family: DOSVGA, monospace;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header a {
+color: #ffffff;
+text-decoration: none;
+font-size: 1.5em;
+white-space: nowrap;
+transition: all 0.3s ease;
+padding: 0px;
+}
+
+.header a:hover {
+color: #bababa;
+}
+
+@font-face {
+font-family: DOSVGA;
+src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
+}
+
+/* Table of Contents Sidebar */
+#table-of-contents {
+position: fixed;
+left: 0;
+top: 45px;
+width: 280px;
+height: calc(100vh - 45px);
+overflow-y: auto;
+background-color: #f8f8f8;
+border-right: 1px solid #ddd;
+padding: 30px 20px;
+box-sizing: border-box;
+z-index: 10;
+}
+
+#table-of-contents h2 {
+margin-top: 0;
+color: #0000aa;
+font-size: 1.1em;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+
+/* Search box styles */
+#toc-search {
+width: 100%;
+padding: 8px 12px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 0.9em;
+box-sizing: border-box;
+}
+
+#toc-search:focus {
+outline: none;
+border-color: #0000aa;
+}
+
+#table-of-contents ul {
+list-style-type: none;
+padding-left: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 15px;
+margin-top: 5px;
+}
+
+#table-of-contents li {
+margin: 8px 0;
+}
+
+#table-of-contents a {
+color: #555;
+text-decoration: none;
+display: block;
+padding: 5px 10px;
+border-radius: 4px;
+transition: all 0.2s ease;
+font-size: 0.95em;
+}
+
+#table-of-contents a:hover {
+color: #0000aa;
+background-color: #e8e8ff;
+}
+
+/* Active TOC link (scroll spy) */
+#table-of-contents a.active {
+color: #0000aa;
+background-color: #e8e8ff;
+font-weight: bold;
+border-left: 3px solid #0000aa;
+}
+
+/* Hidden items during search */
+#table-of-contents li.hidden {
+display: none;
+}
+
+/* Main content area */
+#content {
+margin-left: 280px;
+margin-top: 45px;
+padding: 40px;
+background-color: #ffffff;
+min-height: calc(100vh - 45px);
+}
+table {
+border-collapse: collapse;
+margin: 1.5rem auto;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 1rem;
+background: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+border-radius: 10px;
+overflow: hidden;
+}
+
+table[border] {
+border: none;
+}
+
+td {
+padding: 0.75rem 1.1rem;
+text-align: center;
+border: 1px solid #e5e7eb;
+font-weight: 500;
+color: #111827;
+}
+
+td.org-left {
+text-align: center;
+}
+
+tbody tr:nth-child(even) {
+background-color: #f9fafb;
+}
+
+tbody tr:hover {
+background-color: #eef2ff;
+}
+
+td {
+letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 2px solid #0000aa;
+}
+pre.src {
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+width: 100vw;
+border-radius: 0;
+box-sizing: border-box;
+}
+
+#content {
+margin-left: 0;
+}
+
+body {
+font-size: 14px;
+padding: 10px;
+}
+h1 {
+font-size: 1.5em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+
+@media screen and (max-width: 480px) {
+body {
+font-size: 12px;
+padding: 5px;
+}
+h1 {
+font-size: 1.3em;
+}
+pre {
+font-size: 1.3em;
+}
+}
+</style>
+<div class="header">
+<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Learning C++</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge563f0e">1. Boilerplate</a>
+<ul>
+<li><a href="#org272ad4c">1.1. Streams</a></li>
+<li><a href="#org9d93be4">1.2. Namespaces</a></li>
+<li><a href="#orge0e7e27">1.3. Input</a></li>
+<li><a href="#org380bacb">1.4. Headers</a></li>
+</ul>
+</li>
+<li><a href="#org9c33881">2. Pointers</a>
+<ul>
+<li><a href="#orgfb69618">2.1. Basics</a></li>
+<li><a href="#org8570da9">2.2. Arrays</a></li>
+<li><a href="#org6d400c3">2.3. Pass by reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge563f0e" class="outline-2">
+<h2 id="orge563f0e"><span class="section-number-2">1.</span> Boilerplate</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>To compile: <code>g++ filename.cpp</code></li>
+<li>To run: <code>./a.out</code></li>
+</ul>
+</div>
+<div id="outline-container-org272ad4c" class="outline-3">
+<h3 id="org272ad4c"><span class="section-number-3">1.1.</span> Streams</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Like "import" &#8212; brings in the standard I/O library
+</span>
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {          
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"Hello, World!"</span>; 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"should come on same line"</span> &lt;&lt; <span style="color: #a9a1e1;">std</span>::endl;  
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"should come on new line"</span> &lt;&lt; <span style="color: #98be65;">", because of 'std::endl'"</span> &lt;&lt; 5 &lt;&lt; <span style="color: #a9a1e1;">false</span>; 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;        
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">Hello, World!should come on same line
+should come on new line, because of 'std::endl'50
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li>A <b>stream</b> is an abstraction of a sequence of bytes, that represents the flow of
+that data from one place to another.</li>
+<li>Streams are useful because the lack of it would mean you&rsquo;d have to load all of
+the data completely into memory. In case of streams, you can transfer data in
+small and manageable chunks. When such a small and manageable chunk of memory
+is stored, we say they&rsquo;re stored in a <b>buffer</b>.</li>
+<li><code>&lt;&lt;</code> is actually the bitwise left shift operator, but it&rsquo;s been overloaded. Here&rsquo;s what it does with the operands:
+<ul class="org-ul">
+<li>The operand on the left is a <code>std:ostream&amp;</code> object reference (a stream object)</li>
+<li>The operand on the right is any data that should be written to the stream.</li>
+<li><p>
+\(operand\) <code>&lt;&lt;</code> \(operand\), as an operator is overwritten like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef;">operator</span>&lt;&lt;(<span style="color: #a9a1e1;">std</span>::cout, <span style="color: #98be65;">"Hello"</span>);
+</pre>
+</div>
+<p>
+And it returns the current stream object
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #a9a1e1;">std</span>::<span style="color: #ECBE7B;">ostream</span>&amp; <span style="color: #51afef;">operator</span><span style="color: #c678dd;">&lt;&lt;</span>(<span style="color: #a9a1e1;">std</span>::<span style="color: #ECBE7B;">ostream</span>&amp; <span style="color: #dcaeea;">stream</span>, <span style="color: #51afef;">const</span> <span style="color: #a9a1e1;">std</span>::<span style="color: #ECBE7B;">string</span>&amp; <span style="color: #dcaeea;">data</span>) {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">... internal code that writes data into the stream ...
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> stream;   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">and it returns the stream containing the data
+</span>}
+</pre>
+</div></li>
+<li><p>
+This is why you&rsquo;re able to chain these commands:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"A"</span> &lt;&lt; <span style="color: #98be65;">"B"</span> &lt;&lt; <span style="color: #98be65;">"C"</span>;
+</pre>
+</div>
+<p>
+It evaluates from left to right. <code>std::cout &lt;&lt; "A"</code> runs and this returns a
+stream object, then the next one return a stream object, and so on.
+</p></li>
+</ul></li>
+<li><code>std::cout</code> is a stream object and <code>cout</code> stands for <b>character output</b> (the
+terminal/screen).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d93be4" class="outline-3">
+<h3 id="org9d93be4"><span class="section-number-3">1.2.</span> Namespaces</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><p>
+A <code>namespace</code> is container for names (variables, functions, objects) to avoid
+conflicts.
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp">
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+
+<span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">myStuff</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">count</span> = 5;
+}
+<span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">yourStuff</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">count</span> = 10;
+}
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #a9a1e1;">myStuff</span>::count &lt;&lt; <span style="color: #a9a1e1;">std</span>::endl;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #a9a1e1;">yourStuff</span>::count &lt;&lt; <span style="color: #a9a1e1;">std</span>::endl;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  5
+  10
+</pre>
+</div></li>
+
+<li>The namespaces here are <code>myStuff</code>, <code>yourStuff</code> (and <code>std</code> too!).</li>
+<li><p>
+<code>myStuff::count</code> means asks the compiler to use <code>count</code> from <code>myStuff</code>. If you want the compiler to always look inside <code>myStuff</code> whenever <code>count</code> is referenced, you can make the program <b>use the namespace</b> <code>myStuff</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+
+<span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">myStuff</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">count</span> = 5;
+}
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">myStuff</span>;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; count;  
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  5
+</pre>
+</div></li>
+<li><p>
+This means you can also make it use the namespace <code>std</code> too:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+
+<span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">myStuff</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">count</span> = 5;
+}
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">myStuff</span>;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span style="color: #3dea43364a63;"> </span> cout &lt;&lt; count;  
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  5
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge0e7e27" class="outline-3">
+<h3 id="orge0e7e27"><span class="section-number-3">1.3.</span> Input</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span style="color: #3dea43364a63;"> </span> cout &lt;&lt; <span style="color: #98be65;">"enter your name: "</span>;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">string</span> <span style="color: #dcaeea;">name</span>;
+<span style="color: #3dea43364a63;"> </span> cin &gt;&gt; name;
+<span style="color: #3dea43364a63;"> </span> cout &lt;&lt; endl &lt;&lt; name &lt;&lt; endl;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">enter your name: 
+
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>cin</code> is short for <b>console input</b>, and it reads data from the input buffer.</li>
+<li><code>cin &gt;&gt; name</code> stops at the first white space.</li>
+<li>To stop at a newline character, you use <code>getline(cin, name)</code> (where <code>name</code> is a
+<code>string</code> variable).
+<ul class="org-ul">
+<li>One thing to note is that if you use <code>cin</code> first, and then you use <code>getline</code>,
+the input isn&rsquo;t read because the <code>\n</code> from the previous input gets consumed.</li>
+<li><p>
+The fix for this is to clear that one character by using <code>cin.ignore()</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp">cin.ignore();
+getline(cin, name);
+</pre>
+</div></li>
+</ul></li>
+<li><p>
+You can also chain inputs:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>, <span style="color: #dcaeea;">y</span>;
+<span style="color: #3dea43364a63;"> </span> cin &gt;&gt; x &gt;&gt; y; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">takes two inputs, one after the other
+</span><span style="color: #3dea43364a63;"> </span> cout &lt;&lt; x &lt;&lt; <span style="color: #98be65;">" "</span> &lt;&lt; y;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  1332849520 32767
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org380bacb" class="outline-3">
+<h3 id="org380bacb"><span class="section-number-3">1.4.</span> Headers</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><p>
+In competitive programming, people often use this GCC specific header:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;bits/stdc++.h&gt;</span>
+</pre>
+</div>
+<p>
+This includes every standard library header at once (vectors, math, strings,
+etc.), and is used in competitive programming for speed of writing, and not in
+production code.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9c33881" class="outline-2">
+<h2 id="org9c33881"><span class="section-number-2">2.</span> Pointers</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgfb69618" class="outline-3">
+<h3 id="orgfb69618"><span class="section-number-3">2.1.</span> Basics</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span> = 10;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span>* <span style="color: #dcaeea;">p</span> = &amp;x;
+<span style="color: #3dea43364a63;"> </span> 
+<span style="color: #3dea43364a63;"> </span> cout &lt;&lt; p &lt;&lt; endl;
+<span style="color: #3dea43364a63;"> </span> cout &lt;&lt; *p &lt;&lt; endl;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">0x7fff0905a81c
+10
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8570da9" class="outline-3">
+<h3 id="org8570da9"><span class="section-number-3">2.2.</span> Arrays</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">arr</span>[] = {10, 20, 30}; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">arr is nothing but a pointer
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">for</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span>=0 ; i&lt;size(arr) ; i++)
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> cout &lt;&lt; *(arr+i) &lt;&lt; endl;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">10
+20
+30
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6d400c3" class="outline-3">
+<h3 id="org6d400c3"><span class="section-number-3">2.3.</span> Pass by reference</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>When you pass a variable to a function, you can <b>pass by value</b> or <b>pass by
+reference</b>.</li>
+<li><p>
+Pass by value (the function gets a copy of the variable, and any action you do
+doesn&rsquo;t affected the original variable) happens all the time, until you pass a
+reference to the variable (if you do this, the original variable is modified).
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">incrementor</span>(<span style="color: #ECBE7B;">int</span>* <span style="color: #dcaeea;">x</span>){ <span style="color: #5B6268;">// </span><span style="color: #5B6268;">function takes a pointer
+</span><span style="color: #3dea43364a63;"> </span> (*x)++;                 <span style="color: #5B6268;">// </span><span style="color: #5B6268;">pointer is dereferenced and used
+</span>}
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">a</span> = 4;
+<span style="color: #3dea43364a63;"> </span> incrementor(&amp;a); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">you're passing the address of 'a'
+</span><span style="color: #3dea43364a63;"> </span> cout &lt;&lt; a;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  5
+</pre>
+</div>
+
+<p>
+A pointer is a variable that stores a memory address. In C++, a <b>reference</b> is a
+variable that 
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
