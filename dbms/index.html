@@ -1,0 +1,4702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-07-27 Mon 23:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Database Management Systems</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
+}
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
+/* ─── Block Quotes ─────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: 1rem 1.5rem;
+background: #f8f8fc;
+border-left: 4px solid #4444cc;
+border-radius: 8px;
+color: #444;
+font-style: italic;
+position: relative;
+}
+blockquote::before {
+content: "❝";
+position: absolute;
+top: -8px;
+left: 12px;
+font-size: 2.8rem;
+color: #d6d6f5;
+font-family: Georgia, serif;
+line-height: 1;
+}
+blockquote p:last-child {
+margin-bottom: 0;
+}
+blockquote cite,
+blockquote footer {
+display: block;
+margin-top: 0.8rem;
+color: #777;
+font-size: 0.9em;
+font-style: normal;
+text-align: right;
+}
+a {
+color: #2222cc;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+}
+
+.header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header a {
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
+text-decoration: none;
+line-height: 1;
+}
+
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
+#table-of-contents {
+position: fixed;
+top: 48px;
+left: 0;
+width: 260px;
+height: calc(100vh - 48px);
+overflow-y: auto;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
+}
+
+#table-of-contents h2 {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
+padding-bottom: 10px;
+border-bottom: 0.5px solid #e8e8ee;
+}
+
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
+#toc-search {
+width: 100%;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
+}
+
+#toc-search:focus {
+border-color: #4444cc;
+background: #ffffff;
+}
+
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
+#table-of-contents ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 14px;
+}
+
+#table-of-contents li {
+margin: 2px 0;
+}
+
+#table-of-contents a {
+display: block;
+padding: 5px 10px;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+#table-of-contents a:hover {
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
+}
+
+#table-of-contents a.active {
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
+}
+
+#table-of-contents li.hidden {
+display: none;
+}
+
+/* ─── Main Content ──────────────────────────────────────── */
+#content {
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
+background: #ffffff;
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
+border-radius: 10px;
+overflow: hidden;
+}
+
+th {
+background: #f5f5fa;
+font-weight: 500;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
+}
+
+td {
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
+}
+
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
+}
+
+#content {
+margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
+}
+
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
+}
+
+pre {
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
+}
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
+}
+</style>
+<div class="header">
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Database Management Systems</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1481c36">1. Introduction</a></li>
+<li><a href="#orgcc17620">2. Levels of Abstraction</a>
+<ul>
+<li><a href="#orgf0047ac">2.1. View/External Level</a></li>
+<li><a href="#orge94fa02">2.2. Logical/Conceptual Level</a></li>
+<li><a href="#org09fb0ef">2.3. Physical/Internal Level</a></li>
+</ul>
+</li>
+<li><a href="#org00a0d71">3. Schema</a>
+<ul>
+<li><a href="#org564de5a">3.1. What it describes</a>
+<ul>
+<li><a href="#org8057675">3.1.1. Entities</a></li>
+<li><a href="#org40d031d">3.1.2. Attributes</a></li>
+<li><a href="#org3c9ce71">3.1.3. Relationships</a></li>
+<li><a href="#orgdd34464">3.1.4. Data Independence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1ee3c9f">4. Types of SQL Commands</a>
+<ul>
+<li><a href="#org0248bf8">4.1. DDL</a>
+<ul>
+<li><a href="#org7732909">4.1.1. CREATE TABLE</a></li>
+<li><a href="#org72f61a9">4.1.2. ALTER TABLE</a></li>
+<li><a href="#org6743e5a">4.1.3. DROP TABLE</a></li>
+<li><a href="#orga38f0e8">4.1.4. TRUNCATE</a></li>
+<li><a href="#orgfe0f74e">4.1.5. RENAME</a></li>
+</ul>
+</li>
+<li><a href="#org1d974fb">4.2. DML</a>
+<ul>
+<li><a href="#orga954617">4.2.1. INSERT</a></li>
+<li><a href="#org8eaee3a">4.2.2. UPDATE</a></li>
+<li><a href="#orge760ec6">4.2.3. DELETE</a></li>
+<li><a href="#orgf1ecb85">4.2.4. SELECT</a></li>
+<li><a href="#orgc15c496">4.2.5. Correlated Subqueries</a></li>
+</ul>
+</li>
+<li><a href="#orgd1c429a">4.3. DCL</a>
+<ul>
+<li><a href="#orgd988bb1">4.3.1. GRANT</a></li>
+<li><a href="#orgf195636">4.3.2. REVOKE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf90f1b4">5. Relational Algebra</a>
+<ul>
+<li><a href="#orgb3c5464">5.1. Union Compatability Rule Between Two Tables</a></li>
+<li><a href="#org32fcd89">5.2. Types of Operators</a></li>
+<li><a href="#org92f654c">5.3. SELECT (&sigma; )</a></li>
+<li><a href="#orgc94bfa4">5.4. PROJECT (&Pi; )</a></li>
+</ul>
+</li>
+<li><a href="#orgc10a588">6. Joins</a>
+<ul>
+<li><a href="#org8179cfc">6.1. Inner Join</a></li>
+<li><a href="#org193d5ca">6.2. Left Join (or Left Outer Join)</a></li>
+<li><a href="#orgad2b391">6.3. Right Join (Right Outer Join)</a></li>
+<li><a href="#org58545fb">6.4. Full Outer Join</a></li>
+<li><a href="#org05919b9">6.5. Self Join</a></li>
+</ul>
+</li>
+<li><a href="#org2e437c7">7. Functional Dependencies</a>
+<ul>
+<li><a href="#org83298c7">7.1. Armstrong&rsquo;s Axioms</a>
+<ul>
+<li><a href="#orgf5f4a4e">7.1.1. Reflexivity</a></li>
+<li><a href="#orgbb102a2">7.1.2. Augmentation</a></li>
+<li><a href="#orgeb00485">7.1.3. Union and Decomposition</a></li>
+<li><a href="#orgc352035">7.1.4. Transitivity</a></li>
+<li><a href="#orgbe5427d">7.1.5. Psuedotransitivity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0a9bb52">8. Normalization</a>
+<ul>
+<li><a href="#org9fc0a9e">8.1. Database Anomalies</a>
+<ul>
+<li><a href="#orgc113ccc">8.1.1. Insertion Anomaly</a></li>
+<li><a href="#org808314b">8.1.2. Update Anomaly</a></li>
+<li><a href="#org363da18">8.1.3. Deletion Anomaly</a></li>
+</ul>
+</li>
+<li><a href="#org4cdcd00">8.2. What Normalization is</a></li>
+<li><a href="#orgb19722a">8.3. Types</a>
+<ul>
+<li><a href="#orga85efe7">8.3.1. 1NF</a></li>
+<li><a href="#orgf2d9820">8.3.2. 2NF</a></li>
+<li><a href="#org203f980">8.3.3. 3NF</a></li>
+<li><a href="#org1296430">8.3.4. BCNF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge5827c7">9. Transactions</a>
+<ul>
+<li><a href="#org1cc7ce9">9.1. Transaction Processing</a>
+<ul>
+<li><a href="#orgcc0a4f6">9.1.1. Atomicity</a></li>
+<li><a href="#org13292c0">9.1.2. Consistency</a></li>
+<li><a href="#org9d6642a">9.1.3. Isolation</a></li>
+<li><a href="#orgd7868f4">9.1.4. Durability</a></li>
+</ul>
+</li>
+<li><a href="#org13aa146">9.2. How to manage Transactions</a>
+<ul>
+<li><a href="#org2785100">9.2.1. Logging and Recovery</a></li>
+<li><a href="#orga3f583b">9.2.2. Concurrency Control</a></li>
+<li><a href="#orgeebab3b">9.2.3. Transaction Boundaries</a></li>
+</ul>
+</li>
+<li><a href="#org3f4144f">9.3. Simple Model of a Database</a></li>
+<li><a href="#org74a8116">9.4. Read and Write Operations</a>
+<ul>
+<li><a href="#org2f33055">9.4.1. Read</a></li>
+<li><a href="#org467c6d8">9.4.2. Write</a></li>
+</ul>
+</li>
+<li><a href="#orgd7ec979">9.5. Recovery Manager</a>
+<ul>
+<li><a href="#org8e0c49a">9.5.1. begin<sub>transaction</sub></a></li>
+<li><a href="#org33cb949">9.5.2. read/write</a></li>
+<li><a href="#org268e0e9">9.5.3. commit</a></li>
+<li><a href="#org5ea370b">9.5.4. rollback</a></li>
+<li><a href="#org109f2d8">9.5.5. redo</a></li>
+<li><a href="#org83afdaf">9.5.6. end<sub>transaction</sub></a></li>
+</ul>
+</li>
+<li><a href="#org5791ffd">9.6. Why Concurrent Executions</a></li>
+<li><a href="#org68e35ef">9.7. Concurrency Control Schemes</a></li>
+<li><a href="#orgb410b70">9.8. Issues</a>
+<ul>
+<li><a href="#orgef9e150">9.8.1. Lost Update (write-write)</a></li>
+<li><a href="#org9f95ad0">9.8.2. Dirty Read (write-read on uncommitted data)</a></li>
+<li><a href="#orgb246259">9.8.3. Unrepeatable Read (write-read on committed data)</a></li>
+<li><a href="#org6f94c21">9.8.4. Blind Write</a></li>
+<li><a href="#orga37dbb7">9.8.5. Phantom Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org439a87e">10. Schedule</a>
+<ul>
+<li><a href="#orga68f7c0">10.1. Why are Schedules Important</a>
+<ul>
+<li><a href="#orgfbea8d1">10.1.1. Concurrency</a></li>
+<li><a href="#orgca759f2">10.1.2. Consistency</a></li>
+<li><a href="#org4f7aa4b">10.1.3. Integrity</a></li>
+</ul>
+</li>
+<li><a href="#org901659c">10.2. Number of Schedules you can make, given a certain number of transactions</a>
+<ul>
+<li><a href="#orgda96fcf">10.2.1. If there are 2 transactions</a></li>
+<li><a href="#org7562dae">10.2.2. For more than 2 transactions</a></li>
+</ul>
+</li>
+<li><a href="#orgcb0e3c7">10.3. Types of Schedules</a>
+<ul>
+<li><a href="#orgf84fc0d">10.3.1. Serial Schedules</a></li>
+<li><a href="#orge972a6e">10.3.2. Non Serial Schedules</a></li>
+<li><a href="#org7e4ead9">10.3.3. Serializable Schedule</a></li>
+<li><a href="#org5c62ae9">10.3.4. Non-Serializable Schedules</a></li>
+<li><a href="#org263eace">10.3.5. Equivalence of Schedules</a></li>
+</ul>
+</li>
+<li><a href="#org9132e67">10.4. Concurrency Control</a>
+<ul>
+<li><a href="#orgffe4da3">10.4.1. Lock Based Concurrency Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1a16f64">11. Storage Structure</a>
+<ul>
+<li><a href="#org40bc945">11.1. Sequential</a></li>
+<li><a href="#org1134a35">11.2. Heap</a></li>
+<li><a href="#org180237f">11.3. Clustered</a></li>
+<li><a href="#org44a5bc7">11.4. B+ Trees</a>
+<ul>
+<li><a href="#org25eae08">11.4.1. Order of B+ tree</a></li>
+</ul>
+</li>
+<li><a href="#org522e8af">11.5. Hashing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1481c36" class="outline-2">
+<h2 id="org1481c36"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>A file system arranges files into directories in a storage device.</li>
+<li>While a file system is <b>less complex</b>, <b>less expensive</b> than a database management
+system, the issues are:
+<ul class="org-ul">
+<li>data redundancy (duplicates)</li>
+<li>data inconsistency (different locations have different data)</li>
+<li>data isolation (data is accidentally confined to some regions thanks to
+different file formats)</li>
+<li>atomicity issues (operations aren&rsquo;t complete)</li>
+</ul></li>
+<li>A database is a collection of data. A management system is a piece of software
+that manage data.</li>
+<li>A Database Management System is software that stores, retrieves, and manages
+data in structured tables.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcc17620" class="outline-2">
+<h2 id="orgcc17620"><span class="section-number-2">2.</span> Levels of Abstraction</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf0047ac" class="outline-3">
+<h3 id="orgf0047ac"><span class="section-number-3">2.1.</span> View/External Level</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Users and applications can access only the data relevant to them.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge94fa02" class="outline-3">
+<h3 id="orge94fa02"><span class="section-number-3">2.2.</span> Logical/Conceptual Level</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Handles what data is stored in the database and all the relationships between
+them.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09fb0ef" class="outline-3">
+<h3 id="org09fb0ef"><span class="section-number-3">2.3.</span> Physical/Internal Level</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Describes how the data is stored on the disk.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org00a0d71" class="outline-2">
+<h2 id="org00a0d71"><span class="section-number-2">3.</span> Schema</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>A <b>schema</b> is a logical structure that describes how data is stored and used in
+a database.</li>
+</ul>
+</div>
+<div id="outline-container-org564de5a" class="outline-3">
+<h3 id="org564de5a"><span class="section-number-3">3.1.</span> What it describes</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org8057675" class="outline-4">
+<h4 id="org8057675"><span class="section-number-4">3.1.1.</span> Entities</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>An entity is any real world object with well defined property.</li>
+<li><p>
+These are essentially tables in a database.
+</p></li>
+</ul>
+<img src="entity.png" alt="entity">
+</div>
+</div>
+<div id="outline-container-org40d031d" class="outline-4">
+<h4 id="org40d031d"><span class="section-number-4">3.1.2.</span> Attributes</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li>Attributes are columns in a database and they include what datatype they hold.</li>
+</ul>
+
+<p>
+<b>Key</b>: Any set of columns that uniquely identify a row.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org7cbc7f2"></a>Super Key<br />
+<div class="outline-text-6" id="text-3-1-2-0-1">
+<ul class="org-ul">
+<li><b>Any</b> set of columns that can uniquely identify a row.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgd684edb"></a>Candidate Key<br />
+<div class="outline-text-6" id="text-3-1-2-0-2">
+<ul class="org-ul">
+<li>A super key with no unecessary columns.</li>
+<li>They are candidates to be the primary key.</li>
+</ul>
+</div>
+</li>
+<li><a id="org0ce1d63"></a>Primary Key<br />
+<div class="outline-text-6" id="text-3-1-2-0-3">
+<ul class="org-ul">
+<li>The candidate key chosen to be the unique identifier for any row.</li>
+</ul>
+</div>
+</li>
+<li><a id="org43c78a1"></a>Alternate Key<br />
+<div class="outline-text-6" id="text-3-1-2-0-4">
+<ul class="org-ul">
+<li>Every candidate key that wasn&rsquo;t chosen as the primary key.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgb8fc4ec"></a>Foreign Key<br />
+<div class="outline-text-6" id="text-3-1-2-0-5">
+<ul class="org-ul">
+<li>A set of columns in one table, pointing towards the primary key of the
+same/different table.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org3c9ce71" class="outline-4">
+<h4 id="org3c9ce71"><span class="section-number-4">3.1.3.</span> Relationships</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<ul class="org-ul">
+<li>Relationships describe how exactly two tables and their instances are related
+to each other.</li>
+<li>Relationships are represented as Rombuses with markings on and beside them.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org52631cf"></a>Cardinality<br />
+<div class="outline-text-5" id="text-3-1-3-1">
+<img src="1to1.png" alt="">
+<img src="1toM.png" alt="">
+<img src="Mto1.png" alt="">
+<img src="MtoM.png" alt="">
+</div>
+</li>
+<li><a id="orgd29ffe9"></a>Participation Constraints<br />
+<div class="outline-text-5" id="text-3-1-3-2">
+<ul class="org-ul">
+<li><p>
+These are of two types: Total Participation and Partial Participation
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Feature</th>
+<th scope="col" class="org-left">Total Participation</th>
+<th scope="col" class="org-left">Partial Participation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Must participate?</td>
+<td class="org-left">Yes</td>
+<td class="org-left">No</td>
+</tr>
+
+<tr>
+<td class="org-left">ER Diagram symbol</td>
+<td class="org-left">Double line (`=`)</td>
+<td class="org-left">Single line (`—`)</td>
+</tr>
+
+<tr>
+<td class="org-left">Meaning</td>
+<td class="org-left">All entity instances are in the relationship</td>
+<td class="org-left">Some may not be involved</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgdd34464" class="outline-4">
+<h4 id="orgdd34464"><span class="section-number-4">3.1.4.</span> Data Independence</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<ul class="org-ul">
+<li>It&rsquo;s a property of DBMS that allows you to change schema (structure of a
+table) at one level, without having to change the schema as a higher level.</li>
+<li>To add another column to a database, you don&rsquo;t need to change anything in the
+already existing columns.</li>
+<li>The ability to change physical data, without having to change logical schema
+is called <b>physical independence</b>.</li>
+<li>The ability to change logical schema without having to make changes at view
+level is called <b>logical independence</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1ee3c9f" class="outline-2">
+<h2 id="org1ee3c9f"><span class="section-number-2">4.</span> Types of SQL Commands</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org0248bf8" class="outline-3">
+<h3 id="org0248bf8"><span class="section-number-3">4.1.</span> DDL</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><b>Data Definition Language</b> comprises of the languages used to create the
+<b>database schema</b> (the structure).</li>
+</ul>
+</div>
+<div id="outline-container-org7732909" class="outline-4">
+<h4 id="org7732909"><span class="section-number-4">4.1.1.</span> CREATE TABLE</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li><p>
+Here is the basic structure of creating a table:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">CREATE</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span> (
+<span style="color: #3dea43364a63;"> </span>   column1 datatype [<span style="color: #51afef;">constraint</span>],
+<span style="color: #3dea43364a63;"> </span>   column2 datatype [<span style="color: #51afef;">constraint</span>],
+<span style="color: #3dea43364a63;"> </span>   ...
+);
+</pre>
+</div></li>
+<li><p>
+Here <code>datatype</code> can be:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Datatype</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>NUMBER</code></td>
+<td class="org-left">Numeric value (integers or decimals)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>VARCHAR2(n)</code></td>
+<td class="org-left">Text up to n characters, in single quotes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CHAR(n)</code></td>
+<td class="org-left">Fixed-length string of n characters</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>DATE</code></td>
+<td class="org-left">Date and time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CLOB</code></td>
+<td class="org-left">Large text</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+Here, <code>constraint</code> can be:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Constraint</th>
+<th scope="col" class="org-left">What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>NOT NULL</code></td>
+<td class="org-left">Column <b><b>must</b></b> have a value</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg. <code>name VARCHAR2(100) NOT NULL</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>UNIQUE</code></td>
+<td class="org-left">Value <b><b>must not repeat</b></b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg. <code>email VARCHAR2(100) UNIQUE</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>PRIMARY KEY</code></td>
+<td class="org-left">Uniquely identifies a row + can&rsquo;t be null</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg. <code>student_id NUMBER PRIMARY KEY</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>FOREIGN KEY</code></td>
+<td class="org-left">Column that&rsquo;s primary key of another table</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>class_id NUMBER,</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>FOREIGN KEY (class_id) REFERENCES classes (class_id)</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>CHECK</code></td>
+<td class="org-left">Must satisfy a condition</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg. <code>age NUMBER check (age&gt;=5)</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>DEFAULT</code></td>
+<td class="org-left">Sets a default value</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Eg. <code>country VARCHAR2(50) DEFAULT 'India'</code></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+Here is a complete example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">CREATE</span> <span style="color: #51afef;">TABLE</span> <span style="color: #c678dd;">students</span> (
+<span style="color: #3dea43364a63;"> </span> student_id <span style="color: #51afef;">NUMBER</span> <span style="color: #51afef;">PRIMARY</span> <span style="color: #51afef;">KEY</span>,                   <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">unique student number
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">name</span>       VARCHAR2(100) <span style="color: #51afef;">NOT</span> <span style="color: #51afef;">NULL</span>,               <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">name is required
+</span><span style="color: #3dea43364a63;"> </span> age        <span style="color: #51afef;">NUMBER</span> <span style="color: #51afef;">CHECK</span> (age &gt;= 5 <span style="color: #51afef;">AND</span> age &lt;=60), <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">must be 5 or older
+</span><span style="color: #3dea43364a63;"> </span> email      VARCHAR2(100) <span style="color: #51afef;">UNIQUE</span>,                 <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">no two students can share email
+</span><span style="color: #3dea43364a63;"> </span> class_id   <span style="color: #51afef;">NUMBER</span>,                               <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">refers to a class
+</span><span style="color: #3dea43364a63;"> </span> country    VARCHAR2(50) <span style="color: #51afef;">DEFAULT</span> <span style="color: #98be65;">'India'</span>,
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">FOREIGN</span> <span style="color: #51afef;">KEY</span> (class_id) <span style="color: #51afef;">REFERENCES</span> classes(class_id) <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">link to valid class
+</span>);
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org72f61a9" class="outline-4">
+<h4 id="org72f61a9"><span class="section-number-4">4.1.2.</span> ALTER TABLE</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">ADD</span> <span style="color: #51afef;">column_name</span> datatype;
+
+<span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">MODIFY</span> <span style="color: #51afef;">column_name</span> datatype;    <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">used to change datatype/size
+</span>
+<span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
+RENAME <span style="color: #51afef;">column_name</span> <span style="color: #51afef;">TO</span> new_name; <span style="color: #5B6268;">-- </span><span style="color: #5B6268;">used to rename a column
+</span>
+<span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">DROP</span> <span style="color: #51afef;">COLUMN</span> <span style="color: #51afef;">column_name</span>;
+
+</pre>
+</div>
+
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #c678dd;">students</span>
+<span style="color: #51afef;">ADD</span> age <span style="color: #51afef;">NUMBER</span>;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6743e5a" class="outline-4">
+<h4 id="org6743e5a"><span class="section-number-4">4.1.3.</span> DROP TABLE</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+Deletes table and its data altogether.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">DROP</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga38f0e8" class="outline-4">
+<h4 id="orga38f0e8"><span class="section-number-4">4.1.4.</span> TRUNCATE</h4>
+<div class="outline-text-4" id="text-4-1-4">
+<p>
+Deletes all rows, but keeps structure intact.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql">TRUNCATE <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe0f74e" class="outline-4">
+<h4 id="orgfe0f74e"><span class="section-number-4">4.1.5.</span> RENAME</h4>
+<div class="outline-text-4" id="text-4-1-5">
+<p>
+Renames an entire table.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql">RENAME students <span style="color: #51afef;">to</span> imbeciles;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d974fb" class="outline-3">
+<h3 id="org1d974fb"><span class="section-number-3">4.2.</span> DML</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><b>Data Manipulation Language</b> is what we used to read/write on instances of data.</li>
+</ul>
+</div>
+<div id="outline-container-orga954617" class="outline-4">
+<h4 id="orga954617"><span class="section-number-4">4.2.1.</span> INSERT</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">INSERT</span> <span style="color: #51afef;">INTO</span> employees (emp_id, <span style="color: #51afef;">name</span>, salary, dept_id)
+<span style="color: #51afef;">VALUES</span> (101, <span style="color: #98be65;">'Alice'</span>, 50000, 10);
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8eaee3a" class="outline-4">
+<h4 id="org8eaee3a"><span class="section-number-4">4.2.2.</span> UPDATE</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">UPDATE</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">SET</span> column1 = value1, column2 = value2, ...
+<span style="color: #51afef;">WHERE</span> condition;
+
+</pre>
+</div>
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">UPDATE</span> employees
+<span style="color: #51afef;">SET</span> salary = 60000
+<span style="color: #51afef;">WHERE</span> emp_id = 101;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge760ec6" class="outline-4">
+<h4 id="orge760ec6"><span class="section-number-4">4.2.3.</span> DELETE</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">DELETE</span> <span style="color: #51afef;">FROM</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">WHERE</span> condition;
+
+</pre>
+</div>
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">DELETE</span> <span style="color: #51afef;">FROM</span> employees
+<span style="color: #51afef;">WHERE</span> emp_id = 101;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>If you don&rsquo;t give the <code>WHERE</code> clause, it deletes all the rows.</li>
+<li><code>DELETE</code>, deletes all the rows one by one, so if you need to clear the table,
+<code>TRUNCATE</code> is better because it deallocates all of that memory.</li>
+<li>One thing to keep in mind is that <code>TRUNCATE</code> is not logged and it is
+irreversible.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf1ecb85" class="outline-4">
+<h4 id="orgf1ecb85"><span class="section-number-4">4.2.4.</span> SELECT</h4>
+<div class="outline-text-4" id="text-4-2-4">
+</div>
+<ol class="org-ol">
+<li><a id="org476b36f"></a>Syntax<br />
+<div class="outline-text-5" id="text-4-2-4-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> column1, column2 <span style="color: #51afef;">as</span> new_name, ...
+<span style="color: #51afef;">FROM</span> <span style="color: #51afef;">table_name</span>
+<span style="color: #51afef;">WHERE</span> condition
+<span style="color: #51afef;">GROUP</span> <span style="color: #51afef;">BY</span> <span style="color: #51afef;">column_name</span>
+<span style="color: #51afef;">ORDER</span> <span style="color: #51afef;">BY</span> <span style="color: #51afef;">column_name</span> [<span style="color: #51afef;">ASC</span>|<span style="color: #51afef;">DESC</span>];
+
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+For example, consider this table <code>Employees</code>:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">EmpID</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-right">Salary</th>
+<th scope="col" class="org-right">HireDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-right">55000</td>
+<td class="org-right">2023-01-15</td>
+</tr>
+
+<tr>
+<td class="org-right">102</td>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-right">75000</td>
+<td class="org-right">2023-02-20</td>
+</tr>
+
+<tr>
+<td class="org-right">103</td>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-right">60000</td>
+<td class="org-right">2023-03-10</td>
+</tr>
+
+<tr>
+<td class="org-right">104</td>
+<td class="org-left">Diana</td>
+<td class="org-left">NULL</td>
+<td class="org-right">50000</td>
+<td class="org-right">2023-04-05</td>
+</tr>
+
+<tr>
+<td class="org-right">105</td>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-right">80000</td>
+<td class="org-right">2023-05-12</td>
+</tr>
+
+<tr>
+<td class="org-right">106</td>
+<td class="org-left">Farah</td>
+<td class="org-left">D5</td>
+<td class="org-right">45000</td>
+<td class="org-right">2023-06-01</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Run the below command:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">SELECT</span> <span style="color: #51afef;">Name</span> <span style="color: #51afef;">as</span> EmpName, Salary
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">FROM</span> Employees
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">WHERE</span> Salary &gt; 40000
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">ORDER</span> <span style="color: #51afef;">BY</span> Salary <span style="color: #51afef;">DESC</span>;
+
+</pre>
+</div>
+<p>
+The output is:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmpName</th>
+<th scope="col" class="org-right">Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ethan</td>
+<td class="org-right">80000</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-right">75000</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</li>
+<li><a id="org0902aea"></a>Regex<br />
+<div class="outline-text-5" id="text-4-2-4-2">
+<ul class="org-ul">
+<li><p>
+There also exists the <code>LIKE</code> operator for regex:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Find names starting with 'A'
+</span><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> Employees <span style="color: #51afef;">WHERE</span> EmpName <span style="color: #51afef;">LIKE</span> <span style="color: #98be65;">'A%'</span>;
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">% is the wild-card string
+</span>
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Find names with exactly 3 characters
+</span><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> Employees <span style="color: #51afef;">WHERE</span> EmpName <span style="color: #51afef;">LIKE</span> <span style="color: #98be65;">'___'</span>;
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+<li><a id="org5df6748"></a>Between<br />
+<div class="outline-text-5" id="text-4-2-4-3">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> student <span style="color: #51afef;">WHERE</span> age <span style="color: #51afef;">BETWEEN</span> 17 <span style="color: #51afef;">AND</span> 23;
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9826aaa"></a>Adding Columns<br />
+<div class="outline-text-5" id="text-4-2-4-4">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> subject1_marks + subject2_marks + subject3_marks <span style="color: #51afef;">AS</span> tot_marks <span style="color: #51afef;">FROM</span> student;
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org74ebdc7"></a>Aggregate Functions<br />
+<div class="outline-text-5" id="text-4-2-4-5">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Number of rows
+</span><span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">COUNT</span>(*) <span style="color: #51afef;">AS</span> "Total Employees" <span style="color: #51afef;">FROM</span> employees;
+
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Sum of all elements in that row
+</span><span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">SUM</span>(salary) <span style="color: #51afef;">AS</span> "Total Salary Cost" <span style="color: #51afef;">FROM</span> employees;
+
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Average of all elements in that row
+</span><span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">AVG</span>(salary) <span style="color: #51afef;">AS</span> "Average Salary" <span style="color: #51afef;">FROM</span> employees;
+
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">MIN and MAX
+</span><span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">MIN</span>(salary) <span style="color: #51afef;">AS</span> "Lowest Salary",
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #c678dd;">MAX</span>(salary) <span style="color: #51afef;">AS</span> "Highest Salary"
+<span style="color: #51afef;">FROM</span> employees;
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga8d9474"></a>Group By<br />
+<div class="outline-text-5" id="text-4-2-4-6">
+<ul class="org-ul">
+<li><p>
+Say you do something like:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">COUNT</span>(*) <span style="color: #51afef;">AS</span> "Employee <span style="color: #c678dd;">Count</span>",
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #c678dd;">AVG</span>(salary) <span style="color: #51afef;">AS</span> "Average Salary"
+<span style="color: #51afef;">FROM</span> employees;
+</pre>
+</div>
+<p>
+This makes a <code>2x1</code> table that looks like:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Employee Count</th>
+<th scope="col" class="org-left">Average Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">(no. of rows)</td>
+<td class="org-left">(average of salary column)</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+Employee Count just gives the number of rows in the entire table. Instead, if
+you want the number of rows of each department, you do:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Group by department
+</span><span style="color: #51afef;">SELECT</span> dept_id,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #c678dd;">COUNT</span>(*) <span style="color: #51afef;">AS</span> "Employee <span style="color: #c678dd;">Count</span>",
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #c678dd;">AVG</span>(salary) <span style="color: #51afef;">AS</span> "Average Salary"
+<span style="color: #51afef;">FROM</span> employees
+<span style="color: #51afef;">GROUP</span> <span style="color: #51afef;">BY</span> dept_id;
+</pre>
+</div>
+
+<p>
+And you get:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">DEPT<sub>ID</sub></th>
+<th scope="col" class="org-right">Employee Count</th>
+<th scope="col" class="org-right">Average Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">2</td>
+<td class="org-right">53500</td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-right">3</td>
+<td class="org-right">78833.33</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</li>
+<li><a id="org1df7b1e"></a>Having<br />
+<div class="outline-text-5" id="text-4-2-4-7">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">WHERE filters before grouping
+</span><span style="color: #51afef;">SELECT</span> product, <span style="color: #c678dd;">SUM</span>(quantity)
+<span style="color: #51afef;">FROM</span> sales
+<span style="color: #51afef;">WHERE</span> price &gt; 4
+<span style="color: #51afef;">GROUP</span> <span style="color: #51afef;">BY</span> product;
+
+<span style="color: #5B6268;">-- </span><span style="color: #5B6268;">HAVING filters after grouping
+</span><span style="color: #51afef;">SELECT</span> product, <span style="color: #c678dd;">SUM</span>(quantity)
+<span style="color: #51afef;">FROM</span> sales
+<span style="color: #51afef;">GROUP</span> <span style="color: #51afef;">BY</span> product
+<span style="color: #51afef;">HAVING</span> <span style="color: #c678dd;">SUM</span>(quantity) &gt; 10;
+
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgc15c496" class="outline-4">
+<h4 id="orgc15c496"><span class="section-number-4">4.2.5.</span> Correlated Subqueries</h4>
+<div class="outline-text-4" id="text-4-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="org6a1220d"></a>Where<br />
+<div class="outline-text-5" id="text-4-2-5-1">
+<p>
+Find students whose age is above the average age of their class.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> s.<span style="color: #51afef;">name</span>, s.age, s.class_id
+<span style="color: #51afef;">FROM</span> students s
+<span style="color: #51afef;">WHERE</span> s.age &gt; (
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">SELECT</span> <span style="color: #c678dd;">AVG</span>(s_sub.age)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">FROM</span> students s_sub
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">WHERE</span> s_sub.class_id = s.class_id
+);
+
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org1e93cf1"></a>From<br />
+<div class="outline-text-5" id="text-4-2-5-2">
+<p>
+Get Class wise average and then filter it
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> (
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">SELECT</span> class_id, <span style="color: #c678dd;">AVG</span>(age) <span style="color: #51afef;">AS</span> avg_age
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">FROM</span> students
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">GROUP</span> <span style="color: #51afef;">BY</span> class_id
+)
+<span style="color: #51afef;">WHERE</span> avg_age &gt; 17;
+
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd1c429a" class="outline-3">
+<h3 id="orgd1c429a"><span class="section-number-3">4.3.</span> DCL</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><b>Data Control Language</b> manages rights and permissions.</li>
+</ul>
+</div>
+<div id="outline-container-orgd988bb1" class="outline-4">
+<h4 id="orgd988bb1"><span class="section-number-4">4.3.1.</span> GRANT</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">GRANT</span> privilege
+<span style="color: #51afef;">ON</span> <span style="color: #ECBE7B;">object</span>
+<span style="color: #51afef;">TO</span> <span style="color: #c678dd;">user</span>;
+
+</pre>
+</div>
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">GRANT</span> <span style="color: #51afef;">SELECT</span>, <span style="color: #51afef;">INSERT</span>
+<span style="color: #51afef;">ON</span> employees
+<span style="color: #51afef;">TO</span> hr_user;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf195636" class="outline-4">
+<h4 id="orgf195636"><span class="section-number-4">4.3.2.</span> REVOKE</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">REVOKE</span> privilege
+<span style="color: #51afef;">ON</span> <span style="color: #ECBE7B;">object</span>
+<span style="color: #51afef;">TO</span> <span style="color: #c678dd;">user</span>;
+
+</pre>
+</div>
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">REVOKE</span> <span style="color: #51afef;">SELECT</span>, <span style="color: #51afef;">INSERT</span>
+<span style="color: #51afef;">ON</span> employees
+<span style="color: #51afef;">TO</span> hr_user;
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf90f1b4" class="outline-2">
+<h2 id="orgf90f1b4"><span class="section-number-2">5.</span> Relational Algebra</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>Arity</b>: Number of columns in a row</li>
+<li>Relational algebra is a <b>procedural query language</b> that uses a set of
+operations on tables.</li>
+</ul>
+</div>
+<div id="outline-container-orgb3c5464" class="outline-3">
+<h3 id="orgb3c5464"><span class="section-number-3">5.1.</span> Union Compatability Rule Between Two Tables</h3>
+<div class="outline-text-3" id="text-5-1">
+<ol class="org-ol">
+<li>Arity of both tables should be the same.</li>
+<li>Domain (datatype) of the \(i^{th}\) attribute/column should be the same.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org32fcd89" class="outline-3">
+<h3 id="org32fcd89"><span class="section-number-3">5.2.</span> Types of Operators</h3>
+<div class="outline-text-3" id="text-5-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Unary</b></th>
+<th scope="col" class="org-left"><b>Binary</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Uses one operand</td>
+<td class="org-left">Uses two operands</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">A generic example would</td>
+<td class="org-left">A generic example would</td>
+</tr>
+
+<tr>
+<td class="org-left">be <code>x++</code></td>
+<td class="org-left">be <code>a+b</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">An example here would be</td>
+<td class="org-left">An example here would be</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SELECT</code>, <code>PROJECT</code>, <code>RENAME</code></td>
+<td class="org-left"><code>UNION</code>, <code>JOIN</code>, <code>INTERSECT</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org92f654c" class="outline-3">
+<h3 id="org92f654c"><span class="section-number-3">5.3.</span> SELECT (&sigma; )</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+SQL:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> Books <span style="color: #51afef;">WHERE</span> condition
+</pre>
+</div>
+<p>
+Relational Algebra:
+\[\sigma_{condition}(Books)\]
+</p>
+<ul class="org-ul">
+<li><code>SELECT</code> in relational algebra is for the <code>WHERE</code> part of SQL.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc94bfa4" class="outline-3">
+<h3 id="orgc94bfa4"><span class="section-number-3">5.4.</span> PROJECT (&Pi; )</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+SQL:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> a,b,c <span style="color: #51afef;">FROM</span> Books
+</pre>
+</div>
+<p>
+Relational Algebra:
+\[\Pi_{a,b,c}(Books}\]
+</p>
+<ul class="org-ul">
+<li><code>PROJECT</code> is for the <code>SELECT a,b,c</code> part of SQL.</li>
+<li>Union and Intersection is done on this notation.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc10a588" class="outline-2">
+<h2 id="orgc10a588"><span class="section-number-2">6.</span> Joins</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>To combine two databases, you could use a normal cartesian product, but the
+issue is that you&rsquo;ll get meaningless rows which are called <b>spurious tuples</b>.</li>
+<li><p>
+For example, consider this table <code>Employees</code>:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">EmpID</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-right">Salary</th>
+<th scope="col" class="org-right">HireDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-right">55000</td>
+<td class="org-right">2023-01-15</td>
+</tr>
+
+<tr>
+<td class="org-right">102</td>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-right">75000</td>
+<td class="org-right">2023-02-20</td>
+</tr>
+
+<tr>
+<td class="org-right">103</td>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-right">60000</td>
+<td class="org-right">2023-03-10</td>
+</tr>
+
+<tr>
+<td class="org-right">104</td>
+<td class="org-left">Diana</td>
+<td class="org-left">NULL</td>
+<td class="org-right">50000</td>
+<td class="org-right">2023-04-05</td>
+</tr>
+
+<tr>
+<td class="org-right">105</td>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-right">80000</td>
+<td class="org-right">2023-05-12</td>
+</tr>
+
+<tr>
+<td class="org-right">106</td>
+<td class="org-left">Farah</td>
+<td class="org-left">D5</td>
+<td class="org-right">45000</td>
+<td class="org-right">2023-06-01</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+And the table <code>Departments</code>:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-left">DeptName</th>
+<th scope="col" class="org-left">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">D1</td>
+<td class="org-left">HR</td>
+<td class="org-left">Building A</td>
+</tr>
+
+<tr>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+<td class="org-left">Building B</td>
+</tr>
+
+<tr>
+<td class="org-left">D3</td>
+<td class="org-left">Marketing</td>
+<td class="org-left">Building C</td>
+</tr>
+
+<tr>
+<td class="org-left">D4</td>
+<td class="org-left">Finance</td>
+<td class="org-left">Building A</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+<div id="outline-container-org8179cfc" class="outline-3">
+<h3 id="org8179cfc"><span class="section-number-3">6.1.</span> Inner Join</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Selects only common elements in both tables.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.<span style="color: #51afef;">Name</span>, e.DeptID, d.DeptName
+<span style="color: #51afef;">FROM</span> Employees e <span style="color: #51afef;">INNER</span> <span style="color: #51afef;">JOIN</span> Departments d
+<span style="color: #51afef;">ON</span> e.DeptID = d.DeptID;
+</pre>
+</div>
+
+<p>
+Output:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmpName</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-left">DeptName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-left">HR</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-left">Marketing</td>
+</tr>
+
+<tr>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org193d5ca" class="outline-3">
+<h3 id="org193d5ca"><span class="section-number-3">6.2.</span> Left Join (or Left Outer Join)</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Everything from the left table, and only common elements from the right table.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.EmpName, e.DeptID, d.DeptName
+<span style="color: #51afef;">FROM</span> Employees e <span style="color: #51afef;">LEFT</span> <span style="color: #51afef;">JOIN</span> Departments d
+<span style="color: #51afef;">ON</span> e.DeptID = d.DeptID;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmpName</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-left">DeptName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-left">HR</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-left">Marketing</td>
+</tr>
+
+<tr>
+<td class="org-left">Diana</td>
+<td class="org-left">NULL</td>
+<td class="org-left">NULL        <code>← Diana kept, but no dept info</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Farah</td>
+<td class="org-left">D5</td>
+<td class="org-left">NULL        <code>← Farah kept, but D5 doesn't exist</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgad2b391" class="outline-3">
+<h3 id="orgad2b391"><span class="section-number-3">6.3.</span> Right Join (Right Outer Join)</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Everything from the right table, and only common elements from the left table.
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.EmpName, e.DeptID, d.DeptName
+<span style="color: #51afef;">FROM</span> Employees e <span style="color: #51afef;">RIGHT</span> <span style="color: #51afef;">JOIN</span> Departments d
+<span style="color: #51afef;">ON</span> e.DeptID = d.DeptID;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmpName</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-left">DeptName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-left">HR</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-left">Marketing</td>
+</tr>
+
+<tr>
+<td class="org-left">NULL</td>
+<td class="org-left">D4</td>
+<td class="org-left">Finance     <code>← Finance dept kept, but no employees</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org58545fb" class="outline-3">
+<h3 id="org58545fb"><span class="section-number-3">6.4.</span> Full Outer Join</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.EmpName, e.DeptID, d.DeptName
+<span style="color: #51afef;">FROM</span> Employees e <span style="color: #51afef;">FULL</span> <span style="color: #51afef;">OUTER</span> <span style="color: #51afef;">JOIN</span> Departments d
+<span style="color: #51afef;">ON</span> e.DeptID = d.DeptID;
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmpName</th>
+<th scope="col" class="org-left">DeptID</th>
+<th scope="col" class="org-left">DeptName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alice</td>
+<td class="org-left">D1</td>
+<td class="org-left">HR</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Ethan</td>
+<td class="org-left">D2</td>
+<td class="org-left">Engineering</td>
+</tr>
+
+<tr>
+<td class="org-left">Charlie</td>
+<td class="org-left">D3</td>
+<td class="org-left">Marketing</td>
+</tr>
+
+<tr>
+<td class="org-left">Diana</td>
+<td class="org-left">NULL</td>
+<td class="org-left">NULL        <code>← Employee with no dept</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Farah</td>
+<td class="org-left">D5</td>
+<td class="org-left">NULL        <code>← Employee with invalid dept</code></td>
+</tr>
+
+<tr>
+<td class="org-left">NULL</td>
+<td class="org-left">D4</td>
+<td class="org-left">Finance     <code>← Department with no employees</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org05919b9" class="outline-3">
+<h3 id="org05919b9"><span class="section-number-3">6.5.</span> Self Join</h3>
+<div class="outline-text-3" id="text-6-5">
+<ul class="org-ul">
+<li><p>
+You join a table with itself, so that you can compare rows in the same table.
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #51afef;">SELECT</span> a.<span style="color: #51afef;">name</span> <span style="color: #51afef;">AS</span> student1, b.<span style="color: #51afef;">name</span> <span style="color: #51afef;">AS</span> student2, a.class_id
+<span style="color: #51afef;">FROM</span> students a
+<span style="color: #51afef;">JOIN</span> students b
+<span style="color: #51afef;">ON</span> a.class_id = b.class_id
+<span style="color: #51afef;">WHERE</span> a.student_id &lt; b.student_id;
+
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2e437c7" class="outline-2">
+<h2 id="org2e437c7"><span class="section-number-2">7.</span> Functional Dependencies</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Functional dependencies tell us how attributes relate to each other.</li>
+<li><p>
+Consider this example:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>City</b></th>
+<th scope="col" class="org-left"><b>State</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bangalore</td>
+<td class="org-left">Karnataka</td>
+</tr>
+
+<tr>
+<td class="org-left">Mysore</td>
+<td class="org-left">Karnataka</td>
+</tr>
+
+<tr>
+<td class="org-left">Chennai</td>
+<td class="org-left">Tamil Nadu</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The functional dependency here is \[City \rightarrow State\] This is read as <b>City
+determines State</b>.
+</p></li>
+
+<li>City almost always uniquely identifies state. You can&rsquo;t tell the city if you
+are given the state, but you can tell the state given the city.</li>
+</ul>
+</div>
+<div id="outline-container-org83298c7" class="outline-3">
+<h3 id="org83298c7"><span class="section-number-3">7.1.</span> Armstrong&rsquo;s Axioms</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-orgf5f4a4e" class="outline-4">
+<h4 id="orgf5f4a4e"><span class="section-number-4">7.1.1.</span> Reflexivity</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<ul class="org-ul">
+<li>It&rsquo;s always a larger set that determines a smaller set.</li>
+<li>City is a larger set than State because it has more unique elements.</li>
+<li>So if \(Y \subseteq X\), then \(X \rightarrow Y\). This is called <b>reflexivity</b>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbb102a2" class="outline-4">
+<h4 id="orgbb102a2"><span class="section-number-4">7.1.2.</span> Augmentation</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<ul class="org-ul">
+<li>If \(X \rightarrow Y\), then \(XZ \rightarrow YZ\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeb00485" class="outline-4">
+<h4 id="orgeb00485"><span class="section-number-4">7.1.3.</span> Union and Decomposition</h4>
+<div class="outline-text-4" id="text-7-1-3">
+<ul class="org-ul">
+<li>Union: If \(X \rightarrow YZ\), then \(X \rightarrow Y\) and \(X \rightarrow Z\).</li>
+<li>Decomposition is vice versa.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc352035" class="outline-4">
+<h4 id="orgc352035"><span class="section-number-4">7.1.4.</span> Transitivity</h4>
+<div class="outline-text-4" id="text-7-1-4">
+<ul class="org-ul">
+<li>If \(X \rightarrow Y\) and \(Y \rightarrow Z\), then \(X \rightarrow Z\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe5427d" class="outline-4">
+<h4 id="orgbe5427d"><span class="section-number-4">7.1.5.</span> Psuedotransitivity</h4>
+<div class="outline-text-4" id="text-7-1-5">
+<ul class="org-ul">
+<li>If \(X \rightarrow Y\) and \(YA \rightarrow Z\), then \(XA \rightarrow Z\).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org0a9bb52" class="outline-2">
+<h2 id="org0a9bb52"><span class="section-number-2">8.</span> Normalization</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org9fc0a9e" class="outline-3">
+<h3 id="org9fc0a9e"><span class="section-number-3">8.1.</span> Database Anomalies</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Consider the below table with duplicate values:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">StudentID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">CourseID</th>
+<th scope="col" class="org-left">CourseName</th>
+<th scope="col" class="org-left">Instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">C101</td>
+<td class="org-left">DBMS</td>
+<td class="org-left">Dr. Smith</td>
+</tr>
+
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">C102</td>
+<td class="org-left">OS</td>
+<td class="org-left">Dr. Brown</td>
+</tr>
+
+<tr>
+<td class="org-right">102</td>
+<td class="org-left">Bob</td>
+<td class="org-left">C101</td>
+<td class="org-left">DBMS</td>
+<td class="org-left">Dr. Smith</td>
+</tr>
+
+<tr>
+<td class="org-right">103</td>
+<td class="org-left">Charlie</td>
+<td class="org-left">C103</td>
+<td class="org-left">AI</td>
+<td class="org-left">Dr. Wilson</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-orgc113ccc" class="outline-4">
+<h4 id="orgc113ccc"><span class="section-number-4">8.1.1.</span> Insertion Anomaly</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<ul class="org-ul">
+<li>This is when you can&rsquo;t insert data without inserting unrelated data.</li>
+<li>For example, say the college has introduced a new course:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">StudentID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">CourseID</th>
+<th scope="col" class="org-left">CourseName</th>
+<th scope="col" class="org-left">Instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">?</td>
+<td class="org-left">C104</td>
+<td class="org-left">Blockchain</td>
+<td class="org-left">Dr. Johnson</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+But in the table, you also need a <code>studentID</code> and a <code>StudentName</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org808314b" class="outline-4">
+<h4 id="org808314b"><span class="section-number-4">8.1.2.</span> Update Anomaly</h4>
+<div class="outline-text-4" id="text-8-1-2">
+<ul class="org-ul">
+<li>This is when the same data is stored in many places, and you don&rsquo;t update them
+all in case you need to change something.</li>
+<li><p>
+For instance, if <code>Dr. Smith</code> needs to change to <code>Dr. John Smith</code>, you&rsquo;ll have
+inconsistent information:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">StudentID</th>
+<th scope="col" class="org-left">Course</th>
+<th scope="col" class="org-left">Instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">DBMS</td>
+<td class="org-left">Dr. John Smith</td>
+</tr>
+
+<tr>
+<td class="org-right">102</td>
+<td class="org-left">DBMS</td>
+<td class="org-left">Dr. Smith</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org363da18" class="outline-4">
+<h4 id="org363da18"><span class="section-number-4">8.1.3.</span> Deletion Anomaly</h4>
+<div class="outline-text-4" id="text-8-1-3">
+<ul class="org-ul">
+<li>This is when deleting a specific record causes the unintentional loss of other
+records.</li>
+<li><p>
+For instance, if you delete the student <code>Charlie</code>, you&rsquo;ll also lose the <code>AI</code>
+course and the instructor <code>Dr. Wilson</code>.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">StudentID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">CourseID</th>
+<th scope="col" class="org-left">CourseName</th>
+<th scope="col" class="org-left">Instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">103</td>
+<td class="org-left">Charlie</td>
+<td class="org-left">C103</td>
+<td class="org-left">AI</td>
+<td class="org-left">Dr. Wilson</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4cdcd00" class="outline-3">
+<h3 id="org4cdcd00"><span class="section-number-3">8.2.</span> What Normalization is</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+Normalization is the process of splitting a table into smaller linked tables to
+fix database anomalies.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb19722a" class="outline-3">
+<h3 id="orgb19722a"><span class="section-number-3">8.3.</span> Types</h3>
+<div class="outline-text-3" id="text-8-3">
+</div>
+<div id="outline-container-orga85efe7" class="outline-4">
+<h4 id="orga85efe7"><span class="section-number-4">8.3.1.</span> 1NF</h4>
+<div class="outline-text-4" id="text-8-3-1">
+<ul class="org-ul">
+<li>It stands for <b>first normal form</b>.</li>
+<li>The rule is that <b>every column must contain atomic/indivisible values</b>.</li>
+<li>If they don&rsquo;t, you create multiple rows.</li>
+<li><p>
+Eg.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">StudentID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">Courses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">DBMS, AI, OS</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+becomes
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">StudentID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">Course</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">DBMS</td>
+</tr>
+
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">AI</td>
+</tr>
+
+<tr>
+<td class="org-right">101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">OS</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf2d9820" class="outline-4">
+<h4 id="orgf2d9820"><span class="section-number-4">8.3.2.</span> 2NF</h4>
+<div class="outline-text-4" id="text-8-3-2">
+<ul class="org-ul">
+<li>The rule of 2nd normal form is that it must already be in <b>1NF</b>, and <b>every
+non-key attribute must depend on the <i>entire</i> primary key, and not just a part
+of it</b>.</li>
+<li>Basically, 2NF is for resolving partial dependencies.</li>
+<li>Say \((A, B)\) is the primary key. So for any attribute \(C\), \((A, B) \rightarrow C\) holds
+true.</li>
+<li>But if \(A \rightarrow C\) or \(B \rightarrow C\), then \(C\) doesn&rsquo;t depend on the entire primary key.
+It only depends on \(A\) or \(B\).</li>
+<li>This is called a <b>partial dependency</b>.</li>
+<li>This is an issue because that partial attribute to repeat unnecessarily across
+every row that shares that key part.</li>
+<li><p>
+Consider the table:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">StudentID</th>
+<th scope="col" class="org-left">CourseID</th>
+<th scope="col" class="org-left">StudentName</th>
+<th scope="col" class="org-left">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">S101</td>
+<td class="org-left">C101</td>
+<td class="org-left">Alice</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-left">S101</td>
+<td class="org-left">C102</td>
+<td class="org-left">Alice</td>
+<td class="org-left">B</td>
+</tr>
+
+<tr>
+<td class="org-left">S101</td>
+<td class="org-left">C103</td>
+<td class="org-left">Alice</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-left">S101</td>
+<td class="org-left">C104</td>
+<td class="org-left">Alice</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-left">S101</td>
+<td class="org-left">C105</td>
+<td class="org-left">Alice</td>
+<td class="org-left">B</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>The table denotes enrollments into a course.</li>
+<li><code>StudentID</code> &rarr; <code>StudentName</code>, but the primary key is <code>(StudentID, CourseID)</code>. So
+the name of the student doesn&rsquo;t depend on what course he/she takes.</li>
+<li>Hence, for every enrollment, the same details must repeat.</li>
+<li>Ultimately, this leads to update anomaly.</li>
+</ul></li>
+
+<li>To fix this, split the table into:
+<ul class="org-ul">
+<li><b>Students</b> (<code>StudentID</code>, <code>StudentName</code>)</li>
+<li><b>Courses</b> (<code>CourseID</code>, <code>CourseName</code>)</li>
+<li><b>Enrollment</b> (<code>StudentID</code>, <code>CourseID</code>)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org203f980" class="outline-4">
+<h4 id="org203f980"><span class="section-number-4">8.3.3.</span> 3NF</h4>
+<div class="outline-text-4" id="text-8-3-3">
+<ul class="org-ul">
+<li>It must already be in <b>2NF</b>, and there should be no <b>transitive dependency</b>.</li>
+<li>A transitive dependency is when a non-key attribute depends on another non-key
+attribute instead of the primary key.</li>
+<li>For instance, if \(A\) is the primary key and \(A \rightarrow B\), and \(B \rightarrow C\) instead of \(A
+  \rightarrow C\), it&rsquo;s called a transitive dependency (\(A \rightarrow B \rightarrow C\))</li>
+<li><p>
+Consider this example:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">EmployeeID</th>
+<th scope="col" class="org-left">EmployeeName</th>
+<th scope="col" class="org-right">ZipCode</th>
+<th scope="col" class="org-left">City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">E101</td>
+<td class="org-left">Alice</td>
+<td class="org-right">560001</td>
+<td class="org-left">Bangalore</td>
+</tr>
+
+<tr>
+<td class="org-left">E102</td>
+<td class="org-left">Bob</td>
+<td class="org-right">560001</td>
+<td class="org-left">Bangalore</td>
+</tr>
+
+<tr>
+<td class="org-left">E103</td>
+<td class="org-left">Charlie</td>
+<td class="org-right">600001</td>
+<td class="org-left">Chennai</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><code>EmployeeID</code> &rarr; <code>EmployeeID</code>, <code>EmployeeID</code> &rarr; <code>ZipCode</code>, <code>ZipCode</code> &rarr; <code>City</code> holds true.</li>
+<li>But <code>EmployeeID \rightarrow City</code> does <b>not</b> hold true. It has to come through zipcode.</li>
+</ul></li>
+<li>To fix this, just split this into two tables such that no transitive
+dependencies exist.</li>
+<li>Make a table with \(A \rightarrow B\) and \(A \rightarrow C\), and remove \(C\) from the original table.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1296430" class="outline-4">
+<h4 id="org1296430"><span class="section-number-4">8.3.4.</span> BCNF</h4>
+<div class="outline-text-4" id="text-8-3-4">
+<ul class="org-ul">
+<li>It must be in <b>3NF</b>, and for every functional dependency \(X \rightarrow Y\), \(X\) must be a
+superkey.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge5827c7" class="outline-2">
+<h2 id="orge5827c7"><span class="section-number-2">9.</span> Transactions</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>A transaction is a logical unit of work that involves one or more database
+operations.</li>
+</ul>
+</div>
+<div id="outline-container-org1cc7ce9" class="outline-3">
+<h3 id="org1cc7ce9"><span class="section-number-3">9.1.</span> Transaction Processing</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>Ensures that DBMS operations happen as one single indivisible unit with the
+help of ACID properties</li>
+</ul>
+</div>
+<div id="outline-container-orgcc0a4f6" class="outline-4">
+<h4 id="orgcc0a4f6"><span class="section-number-4">9.1.1.</span> Atomicity</h4>
+<div class="outline-text-4" id="text-9-1-1">
+<ul class="org-ul">
+<li>Transaction either completely finishes, or doesn&rsquo;t happen at all. There&rsquo;s no
+partially completed state.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org13292c0" class="outline-4">
+<h4 id="org13292c0"><span class="section-number-4">9.1.2.</span> Consistency</h4>
+<div class="outline-text-4" id="text-9-1-2">
+<ul class="org-ul">
+<li>Changes must reflect everywhere.</li>
+<li>All integrity constraints must satisfy.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d6642a" class="outline-4">
+<h4 id="org9d6642a"><span class="section-number-4">9.1.3.</span> Isolation</h4>
+<div class="outline-text-4" id="text-9-1-3">
+<ul class="org-ul">
+<li>Two transactions shouldn&rsquo;t interfere with each other</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd7868f4" class="outline-4">
+<h4 id="orgd7868f4"><span class="section-number-4">9.1.4.</span> Durability</h4>
+<div class="outline-text-4" id="text-9-1-4">
+<ul class="org-ul">
+<li>Transactions must be permanent.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org13aa146" class="outline-3">
+<h3 id="org13aa146"><span class="section-number-3">9.2.</span> How to manage Transactions</h3>
+<div class="outline-text-3" id="text-9-2">
+</div>
+<div id="outline-container-org2785100" class="outline-4">
+<h4 id="org2785100"><span class="section-number-4">9.2.1.</span> Logging and Recovery</h4>
+</div>
+<div id="outline-container-orga3f583b" class="outline-4">
+<h4 id="orga3f583b"><span class="section-number-4">9.2.2.</span> Concurrency Control</h4>
+<div class="outline-text-4" id="text-9-2-2">
+<ul class="org-ul">
+<li>Locking</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeebab3b" class="outline-4">
+<h4 id="orgeebab3b"><span class="section-number-4">9.2.3.</span> Transaction Boundaries</h4>
+<div class="outline-text-4" id="text-9-2-3">
+<ul class="org-ul">
+<li>Where it started</li>
+<li>Where it ended</li>
+<li>All of them are defined.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f4144f" class="outline-3">
+<h3 id="org3f4144f"><span class="section-number-3">9.3.</span> Simple Model of a Database</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li>A database is a collection of named data items</li>
+<li>Granularity: The properties of database operations don&rsquo;t depend on how
+granular the data is (how much of the database you&rsquo;re operating on)
+<ul class="org-ul">
+<li>A table consists of record</li>
+<li>A record consists of fields</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org74a8116" class="outline-3">
+<h3 id="org74a8116"><span class="section-number-3">9.4.</span> Read and Write Operations</h3>
+<div class="outline-text-3" id="text-9-4">
+</div>
+<div id="outline-container-org2f33055" class="outline-4">
+<h4 id="org2f33055"><span class="section-number-4">9.4.1.</span> Read</h4>
+<div class="outline-text-4" id="text-9-4-1">
+<ul class="org-ul">
+<li>locate in disk</li>
+<li>disk &rarr; buffer in memory</li>
+<li>buffer &rarr; variable</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org467c6d8" class="outline-4">
+<h4 id="org467c6d8"><span class="section-number-4">9.4.2.</span> Write</h4>
+<div class="outline-text-4" id="text-9-4-2">
+<ul class="org-ul">
+<li>locate in disk</li>
+<li>disk &rarr; buffer in memory</li>
+<li>variable &rarr; buffer</li>
+<li>buffer &rarr; disk</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd7ec979" class="outline-3">
+<h3 id="orgd7ec979"><span class="section-number-3">9.5.</span> Recovery Manager</h3>
+<div class="outline-text-3" id="text-9-5">
+<ul class="org-ul">
+<li>It takes care of the below transactions by logging. The syntax given, is
+generally how logs look like.</li>
+<li><b>Write Ahead Logging</b>
+<ul class="org-ul">
+<li>Before writing actual data to the disk, first write the corresponding log
+data to the disk.</li>
+<li>WAL will always happen no matter what.</li>
+<li>This way, a log record is always created before writing data.</li>
+</ul></li>
+<li><b>Force Write</b>
+<ul class="org-ul">
+<li>Before a transaction is committed, any part of the log not written to the
+disk, should be written to the disk.</li>
+<li>Logs may still be in RAM, so every now and then they have to be flushed
+(written to the hard disk).</li>
+<li>If this &ldquo;flushing&rdquo; happens, it should happen before a commit.</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org8e0c49a" class="outline-4">
+<h4 id="org8e0c49a"><span class="section-number-4">9.5.1.</span> begin<sub>transaction</sub></h4>
+<div class="outline-text-4" id="text-9-5-1">
+<ul class="org-ul">
+<li><code>[start_transaction, T]</code>: Transaction <code>T</code> started.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org33cb949" class="outline-4">
+<h4 id="org33cb949"><span class="section-number-4">9.5.2.</span> read/write</h4>
+<div class="outline-text-4" id="text-9-5-2">
+<ul class="org-ul">
+<li><code>[read_item, T, x]</code>: Transaction <code>T</code> read the value of variable <code>x</code></li>
+<li><code>[write_item, T, x, old_value, new_value]</code>: Transaction <code>T</code> replaced value
+<code>old_value</code> of variable <code>x</code> with <code>new_value</code>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org268e0e9" class="outline-4">
+<h4 id="org268e0e9"><span class="section-number-4">9.5.3.</span> commit</h4>
+<div class="outline-text-4" id="text-9-5-3">
+<ul class="org-ul">
+<li><code>[commit, T]</code>: Transaction <code>T</code> has committed.</li>
+<li>This happens when:
+<ul class="org-ul">
+<li>All operations have completed successfully.</li>
+<li>All operations have been logged.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5ea370b" class="outline-4">
+<h4 id="org5ea370b"><span class="section-number-4">9.5.4.</span> rollback</h4>
+<div class="outline-text-4" id="text-9-5-4">
+<ul class="org-ul">
+<li>Undo is for single operation, rollback is for all operations</li>
+<li>This happens when there exists a <code>[start_transaction, T]</code>, but no <code>[commit, T]</code>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org109f2d8" class="outline-4">
+<h4 id="org109f2d8"><span class="section-number-4">9.5.5.</span> redo</h4>
+<div class="outline-text-4" id="text-9-5-5">
+<ul class="org-ul">
+<li>Repeat if you&rsquo;re not sure something has happened</li>
+<li>This basically performs all logged operations again.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org83afdaf" class="outline-4">
+<h4 id="org83afdaf"><span class="section-number-4">9.5.6.</span> end<sub>transaction</sub></h4>
+</div>
+</div>
+<div id="outline-container-org5791ffd" class="outline-3">
+<h3 id="org5791ffd"><span class="section-number-3">9.6.</span> Why Concurrent Executions</h3>
+<div class="outline-text-3" id="text-9-6">
+<ul class="org-ul">
+<li>Better use of processor and disk</li>
+<li>Reduced average response time</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org68e35ef" class="outline-3">
+<h3 id="org68e35ef"><span class="section-number-3">9.7.</span> Concurrency Control Schemes</h3>
+<div class="outline-text-3" id="text-9-7">
+<p>
+Mechanisms to achieve isolation.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb410b70" class="outline-3">
+<h3 id="orgb410b70"><span class="section-number-3">9.8.</span> Issues</h3>
+<div class="outline-text-3" id="text-9-8">
+</div>
+<div id="outline-container-orgef9e150" class="outline-4">
+<h4 id="orgef9e150"><span class="section-number-4">9.8.1.</span> Lost Update (write-write)</h4>
+<div class="outline-text-4" id="text-9-8-1">
+<ul class="org-ul">
+<li>Transactions are typically read &rarr; update &rarr; write</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">Transaction TX</th>
+<th scope="col" class="org-left">Transaction TY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">Reads A = 300</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">Adds 50 → A = 350</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Reads A = 300</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Adds A &rarr; 100 = 400</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left"><b>Write</b> A = 400</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><b>Write</b> A = 400</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>before transaction A could write, transaction B reads and updates too</li>
+<li>transaction A writes (it wrote what B updated, not A)</li>
+<li>So the update that A wanted to make is lost</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9f95ad0" class="outline-4">
+<h4 id="org9f95ad0"><span class="section-number-4">9.8.2.</span> Dirty Read (write-read on uncommitted data)</h4>
+<div class="outline-text-4" id="text-9-8-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">Transaction TX</th>
+<th scope="col" class="org-left">Transaction TY</th>
+<th scope="col" class="org-left">Value of A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">Reads A = 300</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">300</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">Adds 50 → A = 350</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">350 (in TX only)</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left"><b>Writes</b> A = 350</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">350 (uncommitted)</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><b>Reads</b> A = 350</td>
+<td class="org-left">350</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left">TX fails → rollback</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Reverts A = 300</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>TY read an uncommitted value that didn&rsquo;t make it to the final commit.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb246259" class="outline-4">
+<h4 id="orgb246259"><span class="section-number-4">9.8.3.</span> Unrepeatable Read (write-read on committed data)</h4>
+<div class="outline-text-4" id="text-9-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">T₁ (Reads)</th>
+<th scope="col" class="org-left">T₂ (Updates)</th>
+<th scope="col" class="org-right">Value of A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t₁</td>
+<td class="org-left">T₁ reads A =  300</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">300</td>
+</tr>
+
+<tr>
+<td class="org-left">t₂</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T₂ reads A =  300</td>
+<td class="org-right">300</td>
+</tr>
+
+<tr>
+<td class="org-left">t₃</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T₂ adds  100 → A =  400</td>
+<td class="org-right">400 (in memory)</td>
+</tr>
+
+<tr>
+<td class="org-left">t₄</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T₂ <b>writes</b> A =  400 and commits</td>
+<td class="org-right">400</td>
+</tr>
+
+<tr>
+<td class="org-left">t₅</td>
+<td class="org-left">T₁ <b>reads</b> A again =  400</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">400</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>\(T_{1}\) read two times, and read two different values, because it \(T_{2}\) modified
+its value in between.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6f94c21" class="outline-4">
+<h4 id="org6f94c21"><span class="section-number-4">9.8.4.</span> Blind Write</h4>
+<div class="outline-text-4" id="text-9-8-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">T₁</th>
+<th scope="col" class="org-left">T₂</th>
+<th scope="col" class="org-left">Value of X</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t₁</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">X = 10</td>
+</tr>
+
+<tr>
+<td class="org-left">t₂</td>
+<td class="org-left">Reads X = 10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">X = 10</td>
+</tr>
+
+<tr>
+<td class="org-left">t₃</td>
+<td class="org-left">Adds 5 → X = 15</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t₄</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T₂: <b><b>write(X = 20) (blind write)</b></b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t₅</td>
+<td class="org-left">T₁: write(X = 15)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">15</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>If T2 happened before T1 serially, the starting value would be 20 and not 10.</li>
+<li>T<sub>2</sub> wouldn&rsquo;t have been a blind write, if it had read X.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga37dbb7" class="outline-4">
+<h4 id="orga37dbb7"><span class="section-number-4">9.8.5.</span> Phantom Read</h4>
+<div class="outline-text-4" id="text-9-8-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">Transaction TX</th>
+<th scope="col" class="org-left">Transaction TY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">Reads A</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Reads A</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">Deletes A</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Reads A (which doesn&rsquo;t exist anymore)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org439a87e" class="outline-2">
+<h2 id="org439a87e"><span class="section-number-2">10.</span> Schedule</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Transactions can happen interleavingly, or parallely.</li>
+<li>When they happen interleavingly, the actual chronological order of operations
+happening is called a <b>transaction schedule</b>.</li>
+</ul>
+</div>
+<div id="outline-container-orga68f7c0" class="outline-3">
+<h3 id="orga68f7c0"><span class="section-number-3">10.1.</span> Why are Schedules Important</h3>
+<div class="outline-text-3" id="text-10-1">
+</div>
+<div id="outline-container-orgfbea8d1" class="outline-4">
+<h4 id="orgfbea8d1"><span class="section-number-4">10.1.1.</span> Concurrency</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<ul class="org-ul">
+<li>This is the property in which transactions happen interleavingly, giving the
+illusion of simultaneous execution.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgca759f2" class="outline-4">
+<h4 id="orgca759f2"><span class="section-number-4">10.1.2.</span> Consistency</h4>
+<div class="outline-text-4" id="text-10-1-2">
+<ul class="org-ul">
+<li>When the chronological order of operations is well-defined, there is no scope
+for data loss or inconsistency.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4f7aa4b" class="outline-4">
+<h4 id="org4f7aa4b"><span class="section-number-4">10.1.3.</span> Integrity</h4>
+<div class="outline-text-4" id="text-10-1-3">
+<ul class="org-ul">
+<li>Transactions should happen reliably.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org901659c" class="outline-3">
+<h3 id="org901659c"><span class="section-number-3">10.2.</span> Number of Schedules you can make, given a certain number of transactions</h3>
+<div class="outline-text-3" id="text-10-2">
+<ul class="org-ul">
+<li>A transaction is a logical unit of work that involves one or more database
+operations.</li>
+<li>When you have multiple transactions, it simply means you have a bunch of
+database operations.</li>
+<li>Each arrangement of those database operations, is one schedule.</li>
+</ul>
+</div>
+<div id="outline-container-orgda96fcf" class="outline-4">
+<h4 id="orgda96fcf"><span class="section-number-4">10.2.1.</span> If there are 2 transactions</h4>
+<div class="outline-text-4" id="text-10-2-1">
+<ul class="org-ul">
+<li>Say T1 has \(m\) operations and T2 has \(n\) operations.</li>
+<li>The number of arrangements is \(^{(m+n)}C_{n}\) or \(^{(m+n)}C_{m}\).</li>
+<li>The value of either of these, is \(\frac{(m+n)!}{m!n!}\).</li>
+<li>All you have to do is choose the positions of any one transaction. The
+positions of other transactions are automatically there for you.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7562dae" class="outline-4">
+<h4 id="org7562dae"><span class="section-number-4">10.2.2.</span> For more than 2 transactions</h4>
+<div class="outline-text-4" id="text-10-2-2">
+<p>
+\[\frac{(m+n+o+p+q+..)!}{m!n!o!p!q!...}\]
+This is the multinomial coefficient.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb0e3c7" class="outline-3">
+<h3 id="orgcb0e3c7"><span class="section-number-3">10.3.</span> Types of Schedules</h3>
+<div class="outline-text-3" id="text-10-3">
+</div>
+<div id="outline-container-orgf84fc0d" class="outline-4">
+<h4 id="orgf84fc0d"><span class="section-number-4">10.3.1.</span> Serial Schedules</h4>
+<div class="outline-text-4" id="text-10-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">time</th>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">R(A)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">W(A)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">R(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">W(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left">Commit</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(A)</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">W(B)</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Commit</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>There is no interleaving operations happening.</li>
+<li>Once T1 starts, it finishes execution, and then T2 starts and finishes
+executions.</li>
+<li>If there are \(N\) transactions, then the number of serial transactions
+happening is \(N!\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge972a6e" class="outline-4">
+<h4 id="orge972a6e"><span class="section-number-4">10.3.2.</span> Non Serial Schedules</h4>
+<div class="outline-text-4" id="text-10-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">time</th>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">R(A)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">W(A)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(A)</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">R(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left">W(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-left">Commit</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">W(B)</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Commit</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>There is concurrency happening here.</li>
+<li>\(\text{Number of non-serial schedules} = \text{Total number of schedules} - \text{Number of serial schedules}\)</li>
+<li>\(\text{Number of non-serial schedules} = \frac{(m+n+o+p+q+..)!}{m!n!o!p!q!...} - N!\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7e4ead9" class="outline-4">
+<h4 id="org7e4ead9"><span class="section-number-4">10.3.3.</span> Serializable Schedule</h4>
+<div class="outline-text-4" id="text-10-3-3">
+<ul class="org-ul">
+<li>If a non-serial schedule can be converted into a serial schedule, then it&rsquo;s
+called a serializable schedule.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org2cb69c5"></a>Conflicting Operations<br />
+<div class="outline-text-5" id="text-10-3-3-1">
+<ul class="org-ul">
+<li>Two operations from different transactions, conflict when
+<ul class="org-ul">
+<li>at least one of them is a write</li>
+<li>and they access the same data item.</li>
+</ul></li>
+<li>The only non-conflicting pair of operations on the same data item, is when
+they both just read.</li>
+</ul>
+</div>
+</li>
+<li><a id="org4c3dd7d"></a>How to Check Conflict Serializability<br />
+<div class="outline-text-5" id="text-10-3-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">0</td>
+<td class="org-left">1</td>
+<td class="org-left">2</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><b>T1</b></td>
+<td class="org-left"><b>T2</b></td>
+<td class="org-left"><b>T3</b></td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">R(A)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(A)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">R(B)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(B)</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">W(A)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">W(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>For this, we&rsquo;ll be constructing a graph where the nodes are the transactions
+(T1, T2 and T3). The edges represent ordering constraints.</li>
+<li>Make an edge T1 &rarr; T2, labelled as R(B) and W(B). R(B) is at <code>(0,2)</code> and W(B) is
+at <code>(6,1)</code>.</li>
+<li>Make an edge T2 &rarr; T1, labelled as R(A) and W(A). R(A) is at <code>(1,1)</code> and W(A) is
+at <code>(5,0)</code>.</li>
+<li>Make an edge T3 &rarr; T2, labelled as R(B) and W(B). R(B) is at <code>(4,2)</code> and W(B) is
+at <code>(6,1)</code>.</li>
+<li>If there are no cycles, then it&rsquo;s <b>conflict serializable</b>.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgef0e038"></a>Finding Serialized Schedules<br />
+<div class="outline-text-5" id="text-10-3-3-3">
+<ul class="org-ul">
+<li>The edges (ordering constraints), tell us which transaction should come first.</li>
+<li>If the graph is T3 &larr; T1 &rarr; T2, it means that T1 should come before T2 and T3,
+but the order of T2 and T3 with respect to each other don&rsquo;t matter.</li>
+<li>So the possible serial schedules allowed are:
+<ul class="org-ul">
+<li>T1 &rarr; T2 &rarr; T3</li>
+<li>T1 &rarr; T3 &rarr; T2</li>
+</ul></li>
+<li>To find this, you can simply do <a href="https://youtu.be/7J3GadLzydI?si=jui--7Z-UTztAqhv">topological sort</a> starting from any of the
+nodes (preferably the nodes with more outgoing edges).</li>
+</ul>
+</div>
+</li>
+<li><a id="orgff47b6e"></a>View Serializability<br />
+<div class="outline-text-5" id="text-10-3-3-4">
+<ul class="org-ul">
+<li>This means that even if transactions run concurrently, the results will be the
+same as if they ran serially.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org3e3d3dd"></a>Method 1 for checking view serializability of a schedule<br />
+<ol class="org-ol">
+<li><a id="org671055a"></a>First make a serial version of the schedule T1, called T2<br /></li>
+<li><a id="org654039d"></a>Now check for the following rules for view equivalent<br />
+<div class="outline-text-7" id="text-10-3-3-4-1-2">
+<ol class="org-ol">
+<li><b>Initial Read:</b> In both the schedules, it must be the same transaction making the first read.</li>
+<li><b>Update Read:</b> If in one schedule, transaction T1 reads a value written by
+transaction T2, then in the other schedule too, transaction T1 should read the
+value written by transaction T2.</li>
+<li><b>Final Write:</b> In both schedules, the same transaction must make the last
+write.</li>
+</ol>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org573110b"></a>Method 2 for checking view serializability of a schedule<br />
+<ol class="org-ol">
+<li><a id="org8bffea0"></a>Check for Conflict Serializability<br />
+<div class="outline-text-7" id="text-10-3-3-4-2-1">
+<ul class="org-ul">
+<li>If two schedules are conflict serializable, then they&rsquo;re view serializable for sure.</li>
+<li>So first <b>check for conflict serializability</b>.</li>
+<li>If it&rsquo;s not conflict serializable, it doesn&rsquo;t mean it&rsquo;s not view serializable.
+You&rsquo;ll have to use other ways to find out.</li>
+</ul>
+</div>
+</li>
+<li><a id="org318d273"></a>Check for the lack of blind write (to eliminate)<br />
+<div class="outline-text-7" id="text-10-3-3-4-2-2">
+<ul class="org-ul">
+<li>The <b>lack of blind write</b> means <b>no view serializability</b>.</li>
+<li>In other words, if there is no blind write, then it&rsquo;s <b>not view serializable</b>
+for sure.</li>
+<li>If there is a blind write, you&rsquo;ll again have to use other ways to find out.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgddc04a6"></a>Make a dependency graph and check for a cycle (to eliminate)<br />
+<div class="outline-text-7" id="text-10-3-3-4-2-3">
+<ul class="org-ul">
+<li>If transaction T1 reads a value, and transaction T2 writes that value, then
+make an edge T1 &rarr; T2 (T1 should happen before T2).</li>
+<li>Say, among T1, T2, T3, it is T1 that makes the last write on a value, then
+(T2, T3) &rarr; T1, as T1 should happen after T2 and T3.</li>
+<li>If there is a cycle, then this is <b>not view serializable</b>.</li>
+<li>These are extensions to the rules in method 1.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org5c62ae9" class="outline-4">
+<h4 id="org5c62ae9"><span class="section-number-4">10.3.4.</span> Non-Serializable Schedules</h4>
+<div class="outline-text-4" id="text-10-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="org5aa97eb"></a>Recoverable Schedule<br />
+<div class="outline-text-5" id="text-10-3-4-1">
+<ul class="org-ul">
+<li><p>
+If the transaction that did a dirty read, commits after the other transaction
+commits, then it&rsquo;s a recoverable schedule.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">W(X)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(X) &larr; Dirty Read</td>
+</tr>
+
+<tr>
+<td class="org-left">Commit</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Commit (Hence it&rsquo;s recoverable)</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>If there are no dirty reads, then it&rsquo;s a recoverable schedule by default.</li>
+<li>If it&rsquo;s <b>conflict serializable</b>, then it&rsquo;s recoverable for sure. If not, you&rsquo;ll
+have to use other ways.</li>
+</ul>
+</div>
+</li>
+<li><a id="org433ffec"></a>Irrecoverable Schedule<br />
+<div class="outline-text-5" id="text-10-3-4-2">
+<ul class="org-ul">
+<li><p>
+If the transaction that did a dirty read, commits before the other transaction
+commits, then it&rsquo;s a irrecoverable schedule.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">W(X)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(X) &larr; Dirty Read</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Commit (Hence it&rsquo;s irrecoverable)</td>
+</tr>
+
+<tr>
+<td class="org-left">Commit</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</li>
+<li><a id="org1423031"></a>Types of Recoverable Schedules<br />
+<ol class="org-ol">
+<li><a id="org36d140f"></a>Cascadeless Schedule<br />
+<div class="outline-text-6" id="text-10-3-4-3-1">
+<ul class="org-ul">
+<li>Before understanding what cascadeless schedules are, we must know what a
+cascading rollback is.</li>
+<li><p>
+If one transaction fails, all other transactions that read its uncommitted
+data have to roll back.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+<th scope="col" class="org-left">T3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">W(X)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(X)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(X)</td>
+</tr>
+
+<tr>
+<td class="org-left">Abort</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>T2 should rollback because it used T1&rsquo;s uncommitted data.</li>
+<li>T3 should rollback because it used T2&rsquo;s data, which is in turn, T1&rsquo;s
+uncommitted data.</li>
+<li>This is why it&rsquo;s &ldquo;cascading&rdquo;, as it&rsquo;s causing many dependent rollbacks.</li>
+<li>This is still recoverable, because T2 and T3 haven&rsquo;t committed before the
+abort. If they had, it would have been irrecoverable.</li>
+<li>In a <b>cascadeless schedule</b>, every read must be a committed read. A read must
+happen after a commit.</li>
+<li>In other words, there are no dirty reads.</li>
+<li>Every cascadeless schedule is recoverable.</li>
+</ul>
+</div>
+</li>
+<li><a id="org7998943"></a>Strict Schedule<br />
+<div class="outline-text-6" id="text-10-3-4-3-2">
+<ul class="org-ul">
+<li><p>
+Every read must be a committed read, and every write should be a committed
+write too.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">T1</th>
+<th scope="col" class="org-left">T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">W(X)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Commit</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R(X) or W(X) is now possible</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>Every strict schedule is cascadeless and recoverable.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org263eace" class="outline-4">
+<h4 id="org263eace"><span class="section-number-4">10.3.5.</span> Equivalence of Schedules</h4>
+<div class="outline-text-4" id="text-10-3-5">
+</div>
+<ol class="org-ol">
+<li><a id="org180c33a"></a>Result Equivalence<br />
+<div class="outline-text-5" id="text-10-3-5-1">
+<ul class="org-ul">
+<li>If two schedules generate the same result after execution, they&rsquo;re result
+equivalent.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgc3b4893"></a>Conflict Equivalence<br />
+<div class="outline-text-5" id="text-10-3-5-2">
+<ul class="org-ul">
+<li>Two schedules are conflict equivalent if:
+<ul class="org-ul">
+<li>they have the same set of transactions</li>
+<li>and the order of pairs of conflicting operations is the same.</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org9132e67" class="outline-3">
+<h3 id="org9132e67"><span class="section-number-3">10.4.</span> Concurrency Control</h3>
+<div class="outline-text-3" id="text-10-4">
+</div>
+<div id="outline-container-orgffe4da3" class="outline-4">
+<h4 id="orgffe4da3"><span class="section-number-4">10.4.1.</span> Lock Based Concurrency Control</h4>
+<div class="outline-text-4" id="text-10-4-1">
+<p>
+A lock is a variable that is assigned to a data item, to ensure <b>isolation</b> and
+<b>non-interference</b>.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org412d618"></a>Binary Locks<br />
+<div class="outline-text-5" id="text-10-4-1-1">
+<ul class="org-ul">
+<li>The lock variable has only two values: 1 for locked, 0 for unlocked.</li>
+<li>This variable is applied on all data items.</li>
+<li>This works for conflicting operations, but it also locks even if both
+operations are reads. This is a disadvantage.</li>
+</ul>
+</div>
+</li>
+<li><a id="orga10208e"></a>Shared/Exclusive Locks<br />
+<div class="outline-text-5" id="text-10-4-1-2">
+<ul class="org-ul">
+<li>This lock recognizes that read-read is no conflict, and introduces the concept
+of multi-mode locking.</li>
+<li>This time it&rsquo;s not binary (locked or unlocked). It has 3 stages:</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org961ee7d"></a>S-Lock<br />
+<div class="outline-text-6" id="text-10-4-1-2-1">
+<ul class="org-ul">
+<li>This is the read-lock/shared lock.</li>
+<li>If a transaction wants to read and the data item doesn&rsquo;t have a write-lock,
+then the S-lock is granted.</li>
+<li>Different transactions can hold a shared lock each, on the same data item.</li>
+<li><p>
+Algorithm for locking:
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #c678dd;">S</span>(A)  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction requests Shared lock on A
+</span>{
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> L(A) = 0           <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Case 1: A is completely unlocked
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> L(A) = <span style="color: #98be65;">'S'</span>        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Set it to Shared mode
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> N(A) = 1          <span style="color: #5B6268;">// </span><span style="color: #5B6268;">One transaction now has shared lock
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> update lock table 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> L(A) = <span style="color: #98be65;">'S'</span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Case 2: A already has shared lock(s)
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> N(A) = N(A) + 1   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Add one more to the counter
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> update lock table  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Another transaction joins the readers
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">else</span>                  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Case 3: A has Exclusive lock
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> insert T into waiting queue  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Must wait!
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> suspend T          <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction goes to sleep
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }     
+}
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+<li><a id="orgd6a9ce0"></a>X-Lock<br />
+<div class="outline-text-6" id="text-10-4-1-2-2">
+<ul class="org-ul">
+<li>This is the write-lock/exclusive lock.</li>
+<li>If a transaction wants to write/read and the data item doesn&rsquo;t have any lock,
+then the X-lock is granted.</li>
+<li>One data item can only have 1 exclusive lock, and it belongs to only 1
+transaction.</li>
+<li><p>
+Algorithm:
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #c678dd;">X</span>(A)  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction requests Exclusive lock on A
+</span>{
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> L(A) = 0           <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Only if A is completely unlocked
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> then {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> L(A) = <span style="color: #98be65;">'X'</span>        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Set to Exclusive mode
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> update lock table
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">else</span>                  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">A has ANY lock (Shared or Exclusive)
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> Insert T into queue    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Must wait!
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> suspend T              <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction goes to sleep
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+}
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+<li><a id="orgb62e431"></a>Unlocked<br />
+<div class="outline-text-6" id="text-10-4-1-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #c678dd;">U</span>(A)  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction releases lock on A
+</span>{
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> L(A) = <span style="color: #98be65;">'X'</span>         <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Case 1: Releasing an Exclusive lock
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> L(A) = 0          <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Unlock completely
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> Activate a transaction from queue  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Wake up waiting transaction
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> L(A) = <span style="color: #98be65;">'S'</span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Case 2: Releasing a Shared lock
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> N(A) = N(A) - 1   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Decrease the counter
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> N(A) = 0       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">If this was the last shared lock
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> L(A) = 0      <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Unlock completely
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> activate a transaction from queue  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Wake up waiting transaction
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="orga1d9186"></a>2 Phase Locks<br />
+<div class="outline-text-5" id="text-10-4-1-3">
+<ul class="org-ul">
+<li>Traditional locks don&rsquo;t guarantee serializability.</li>
+<li>Here there are 2 phases: growing and shrinking</li>
+<li>Growing phase is when you can only acquire a new lock, or upgrade a lock (S &rarr;
+X), but you can&rsquo;t release.</li>
+<li>Shrinking phase is when you can only release a lock, or downgrade a lock (X
+&rarr; S), but you can&rsquo;t acquire.</li>
+<li>The idea is to simply not release a lock, until you have all the locks needed.
+This forces all operations of one transaction to happen together.</li>
+<li>Here&rsquo;s an example:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">Transaction T1</th>
+<th scope="col" class="org-left">Transaction T2</th>
+<th scope="col" class="org-left">Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">Lock-S(A)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">Read A = 1000</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">Lock-X(A) [upgrade]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">A = 900, Write A</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left">Lock-X(B)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-left">Read B = 500</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">[T1 LOCK POINT]</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-left">B = 600, Write B</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lock-S(A) - WAITS!</td>
+<td class="org-left">T2: Can&rsquo;t proceed</td>
+</tr>
+
+<tr>
+<td class="org-left">t9</td>
+<td class="org-left">Unlock(A)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Shrinking</td>
+</tr>
+
+<tr>
+<td class="org-left">t10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✓ Gets Lock-S(A)</td>
+<td class="org-left">T2: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Read A = 900</td>
+<td class="org-left">T2: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t12</td>
+<td class="org-left">Unlock(B)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">T1: Shrinking</td>
+</tr>
+
+<tr>
+<td class="org-left">t13</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lock-S(B)</td>
+<td class="org-left">T2: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t14</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Read B = 600</td>
+<td class="org-left">[T2 LOCK POINT]</td>
+</tr>
+
+<tr>
+<td class="org-left">t15</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Total = 1500 ✓</td>
+<td class="org-left">T2: Growing</td>
+</tr>
+
+<tr>
+<td class="org-left">t16</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Unlock(A)</td>
+<td class="org-left">T2: Shrinking</td>
+</tr>
+
+<tr>
+<td class="org-left">t17</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Unlock(B)</td>
+<td class="org-left">T2: Shrinking</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Without 2PL:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Time</th>
+<th scope="col" class="org-left">Transaction T1</th>
+<th scope="col" class="org-left">Transaction T2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t1</td>
+<td class="org-left">Lock(A), Read A=1000</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t2</td>
+<td class="org-left">A=900, Write A</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t3</td>
+<td class="org-left">Unlock(A)  &rarr; Issue: Released early!</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lock(A), Read A=900</td>
+</tr>
+
+<tr>
+<td class="org-left">t5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lock(B), Read B=500</td>
+</tr>
+
+<tr>
+<td class="org-left">t6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Total = 1400 &rarr; Issue: WRONG!</td>
+</tr>
+
+<tr>
+<td class="org-left">t7</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Unlock(A), Unlock(B)</td>
+</tr>
+
+<tr>
+<td class="org-left">t8</td>
+<td class="org-left">Lock(B), Read B=500</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t9</td>
+<td class="org-left">B=600, Write B</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t10</td>
+<td class="org-left">Unlock(B)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="orgded3668"></a>Strict 2PL<br />
+<div class="outline-text-5" id="text-10-4-1-4">
+<p>
+Exclusive locks are not released until a commit or abort happens.
+</p>
+</div>
+</li>
+<li><a id="org54eea44"></a>Rigorous 2PM<br />
+<div class="outline-text-5" id="text-10-4-1-5">
+<ul class="org-ul">
+<li>ALL locks are not released until a commit or abort happens.</li>
+<li>Reduces concurrency though.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgdc92f54"></a>Timestamp Ordering Protocol<br />
+<div class="outline-text-5" id="text-10-4-1-6">
+<ul class="org-ul">
+<li>Prioritize based on arrival time. A smaller time stamp means that the
+operation is older, and hence it gets more priority.</li>
+<li>Each data item maintains two time stamps: 
+<ul class="org-ul">
+<li>Read Timestamp R-TS(X)</li>
+<li>Write Timestamp W-TS(X)</li>
+</ul></li>
+<li>This only cares about deadlocks, and not recoverability.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org3961efb"></a>Transaction Ti reading X<br />
+<div class="outline-text-6" id="text-10-4-1-6-1">
+<p>
+First a value should be written. Then a later transaction should be allowed to read it.
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #51afef;">if</span> TS(Ti) &lt; W-TS(X) <span style="color: #5B6268;">// </span><span style="color: #5B6268;">is timestamp(Ti) smaller (older) than timestamp when X was written?
+</span><span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> REJECT;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">Rollback</span> <span style="color: #dcaeea;">Ti</span>;
+<span style="color: #3dea43364a63;"> </span> }
+<span style="color: #51afef;">else</span>
+<span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> Allow -&gt; Execute Read(X)
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> R-TS(X) = max(R-TS(X), TS(Ti)) <span style="color: #5B6268;">// </span><span style="color: #5B6268;">which ever is newer (original read timestamp, or current transaction)
+</span><span style="color: #3dea43364a63;"> </span> }
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2ce400b"></a>Transaction Ti writing X<br />
+<div class="outline-text-6" id="text-10-4-1-6-2">
+<p>
+Older transactions can&rsquo;t write on values being read/written in the future.
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #51afef;">if</span> TS(Ti) &lt; R-TS(X) <span style="color: #5B6268;">// </span><span style="color: #5B6268;">is timestamp(Ti) smaller (older) than timestamp when X was read?
+</span><span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> REJECT;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">Rollback</span> <span style="color: #dcaeea;">Ti</span>;
+<span style="color: #3dea43364a63;"> </span> }
+<span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> TS(Ti) &lt; W-TS(X) <span style="color: #5B6268;">// </span><span style="color: #5B6268;">is timestamp(Ti) smaller (older) than timestamp when X was written?
+</span><span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> REJECT;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">Rollback</span> <span style="color: #dcaeea;">Ti</span>;
+<span style="color: #3dea43364a63;"> </span> }
+<span style="color: #51afef;">else</span>
+<span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> Allow -&gt; Execute Write(X)
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> W-TS(X) = TS(Ti)
+<span style="color: #3dea43364a63;"> </span> }
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org991591b"></a>Deadlocks<br />
+<ol class="org-ol">
+<li><a id="org08d1f50"></a>Wait-Die<br />
+<div class="outline-text-6" id="text-10-4-1-7-1">
+<ul class="org-ul">
+<li>If the older transaction requests a lock held by the younger one, the older
+transaction waits (it keeps aging).</li>
+<li>If the younger transaction requests a lock held by the older one, the younger
+one is killed, and is restarted later with the same timestamp (it won&rsquo;t age,
+it&rsquo;s just being teleported into the future).</li>
+</ul>
+</div>
+</li>
+<li><a id="orgdea9f6d"></a>Wound-Wait<br />
+<div class="outline-text-6" id="text-10-4-1-7-2">
+<ul class="org-ul">
+<li>If the older transaction requests a lock held by the younger one, the younger
+one rolls back to the older one. (younger one won&rsquo;t age, but it goes back to
+the past).</li>
+<li>If the younger transaction requests a lock held by the older one, the younger
+one waits (it keeps aging).</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a16f64" class="outline-2">
+<h2 id="org1a16f64"><span class="section-number-2">11.</span> Storage Structure</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org40bc945" class="outline-3">
+<h3 id="org40bc945"><span class="section-number-3">11.1.</span> Sequential</h3>
+<div class="outline-text-3" id="text-11-1">
+<ul class="org-ul">
+<li>Like Linked List</li>
+<li>Efficient for large sequential Processing</li>
+<li>Slow access and update times</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1134a35" class="outline-3">
+<h3 id="org1134a35"><span class="section-number-3">11.2.</span> Heap</h3>
+<div class="outline-text-3" id="text-11-2">
+<ul class="org-ul">
+<li>Random but fast insertion</li>
+<li>Slow Search</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org180237f" class="outline-3">
+<h3 id="org180237f"><span class="section-number-3">11.3.</span> Clustered</h3>
+<div class="outline-text-3" id="text-11-3">
+<ul class="org-ul">
+<li>Related things are grouped together</li>
+<li>Use Clustering Index
+<ul class="org-ul">
+<li>Index is a data structure used to improve speed of data retrieval</li>
+<li>Primary Index built on primary key, secondary index built on non-primary
+attributes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org44a5bc7" class="outline-3">
+<h3 id="org44a5bc7"><span class="section-number-3">11.4.</span> B+ Trees</h3>
+<div class="outline-text-3" id="text-11-4">
+<ul class="org-ul">
+<li>It&rsquo;s a self-balancing tree</li>
+<li>Faster read/write \((O(log(n))\), less dbms operations</li>
+<li>Actual data only in leaf nodes. All internal nodes just for navigating.</li>
+<li>All leaf nodes are linked as a linked list, hence range queries like <code>WHERE</code> is
+supported.</li>
+</ul>
+</div>
+<div id="outline-container-org25eae08" class="outline-4">
+<h4 id="org25eae08"><span class="section-number-4">11.4.1.</span> Order of B+ tree</h4>
+<div class="outline-text-4" id="text-11-4-1">
+<ul class="org-ul">
+<li>Order is the Max number of children</li>
+<li>Max keys = (order - 1)</li>
+<li>Keys are the data values and they&rsquo;re everywhere.</li>
+<li>If there are two children, the parent is the smallest element of the right
+child. A copy of the smallest element of the right child becomes the parent.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org522e8af" class="outline-3">
+<h3 id="org522e8af"><span class="section-number-3">11.5.</span> Hashing</h3>
+<div class="outline-text-3" id="text-11-5">
+<ul class="org-ul">
+<li>Concept of Buckets</li>
+<li>Good for equality search and large datasets.</li>
+<li>Good for <code>JOIN</code> operations.</li>
+<li>It&rsquo;s bad for <code>RANGE</code> queries.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
