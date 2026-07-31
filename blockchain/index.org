@@ -141,16 +141,19 @@ def main():
     output+= f"{len(message):0{64}b}"
     
     # working variables:
-    H = {
-        '6a09e667',
-        'bb67ae85',
-        '3c6ef372',
-        'a54ff53a',
-        '510e527f',
-        '9b05688c',
-        '1f83d9ab',
-        '5be0cd19'
-    }
+    H = [
+        f"{int(x,16):032b}" for x in
+        [
+             "6a09e667",
+             "bb67ae85",
+             "3c6ef372",
+             "a54ff53a",
+             "510e527f",
+             "9b05688c",
+             "1f83d9ab",
+             "5be0cd19",
+         ]
+    ]
     # round constants
     K = [
          0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
@@ -175,17 +178,27 @@ def main():
     for i in range(0, 512, 32):
         w.append(output[i:i+32])
 
-    # creating words w16, w17, ... w63
-    # (helper functions defined later)
+    # creating words w16, w17, ... w63 (helper functions defined later)
     for i in range(16, 64):
-        value = (sigma_1(w[i-2]) + int(w[i-7], 2) + sigma_0(w[i-15]) + int(w[i-16], 2)) & 0xFFFFFFFF
+        value = (sigma_1(w[i-2]) + int(w[i-7], 2) + sigma_0(w[i-15]) + int(w[i-16], 2)) % (2**32)
         w.append(f"{value:032b}")
-    
-    
-    
-    
-    with open("output.txt", "w", encoding="utf-8") as file:
-        file.writelines(f"{item}\n" for item in w)
+
+    # the 64 rounds (helper functions defined later)
+    for i in range(64):
+        T1 = (int(H[7], 2) + SIGMA_1(H[4]) + Ch(H[4], H[5], H[6]) + K[i] + int(w[i], 2)) % (2**32)
+        T2 = (SIGMA_0(H[0]) + Maj(H[0], H[1], H[2])) % (2**32)
+        H[7] = H[6]
+        H[6] = H[5]
+        H[5] = H[4]
+        H[4] = f"{(int(H[3],2) + T1) % (2**32):032b}"
+        H[3] = H[2]
+        H[2] = H[1]
+        H[1] = H[0]
+        H[0] = f"{(T1 + T2) % (2**32):032b}"
+
+    print(hex(int("".join(H), 2)))
+
+
 
 
 def convert_string_to_binary(txt: str):
@@ -199,7 +212,6 @@ def pad_till_n(txt: str, n):
 
 
 # helper functions for creating words w16, w17, ... w63
-## right circular shift
 def ROTR(w, n): 
     n = n%len(w)
     return w[-n:] + w[:-n]
@@ -214,12 +226,28 @@ def sigma_1(x):
     return int(ROTR(x, 17), 2) ^ int(ROTR(x, 19), 2) ^ int(SHR(x, 10), 2)
         
 
+
+
+# helper functions for the 64 rounds
+def SIGMA_0(x):
+    return int(ROTR(x, 2), 2) ^ int(ROTR(x, 13), 2) ^ int(ROTR(x, 22), 2)
+    
+def SIGMA_1(x):
+    return int(ROTR(x, 6), 2) ^ int(ROTR(x, 11), 2) ^ int(ROTR(x, 25), 2)
+
+def Ch(e, f, g):
+    return (int(e, 2) & int(f, 2)) ^ (~int(e, 2) & int(g, 2))
+    
+def Maj(a, b, c):
+    return (int(a, 2) & int(b, 2)) ^ (int(a, 2) & int(c, 2)) ^ (int(b, 2) & int(c, 2))
+
 main()
 
 #+end_src
 
 #+RESULTS:
 #+begin_src
+0xc072e1042417d4a9c774c9ffeaea3d25440a6479978c2adc1cacdc9a894c35bc
 #+end_src
 
 
