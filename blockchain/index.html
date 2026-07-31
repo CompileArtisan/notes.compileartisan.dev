@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-07-24 Fri 18:57 -->
+<!-- 2026-07-31 Fri 10:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blockchain Technology</title>
@@ -709,22 +709,34 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org72ad082">1. Introduction</a>
+<li><a href="#org4db6cc1">1. Introduction</a>
 <ul>
-<li><a href="#orgbe232ae">1.1. What it is</a></li>
-<li><a href="#org1d99d0e">1.2. Advantages</a></li>
-<li><a href="#org6599fe4">1.3. Disadvantages</a></li>
-<li><a href="#org768000f">1.4. Smart Contracts</a></li>
-<li><a href="#orgae00e36">1.5. Rough Flow of Blochchain</a></li>
-<li><a href="#orge195ad1">1.6. Uses of Blockchain</a></li>
+<li><a href="#org574bfb7">1.1. What it is</a></li>
+<li><a href="#orgf724196">1.2. Advantages</a></li>
+<li><a href="#org5f84e6d">1.3. Disadvantages</a></li>
+<li><a href="#org3b70734">1.4. Smart Contracts</a></li>
+<li><a href="#org677ca46">1.5. Rough Flow of Blochchain</a></li>
+<li><a href="#org2ecbc92">1.6. Uses of Blockchain</a></li>
 </ul>
 </li>
-<li><a href="#org20e3ebe">2. Hash</a>
+<li><a href="#org8e3cbf9">2. Fundamentals</a>
 <ul>
-<li><a href="#org636b0f6">2.1. SHA-256</a>
+<li><a href="#org8002948">2.1. Hash</a>
 <ul>
-<li><a href="#orgae71c5e">2.1.1. Algorithm</a></li>
-<li><a href="#org9c2e955">2.1.2. Rough Implementation in C++</a></li>
+<li><a href="#org39febff">2.1.1. SHA-256</a></li>
+</ul>
+</li>
+<li><a href="#orgff98fad">2.2. Cryptographic Keys</a>
+<ul>
+<li><a href="#org54e99c5">2.2.1. Based on Number of Keys</a></li>
+</ul>
+</li>
+<li><a href="#org022b1cc">2.3. Blockchain Address</a></li>
+<li><a href="#org7bf6dd6">2.4. Message Digest</a></li>
+<li><a href="#orgeb6c824">2.5. Digital Signature</a>
+<ul>
+<li><a href="#orgb5e9641">2.5.1. What it is</a></li>
+<li><a href="#org9a9c04f">2.5.2. How it works</a></li>
 </ul>
 </li>
 </ul>
@@ -732,12 +744,12 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-org72ad082" class="outline-2">
-<h2 id="org72ad082"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org4db6cc1" class="outline-2">
+<h2 id="org4db6cc1"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgbe232ae" class="outline-3">
-<h3 id="orgbe232ae"><span class="section-number-3">1.1.</span> What it is</h3>
+<div id="outline-container-org574bfb7" class="outline-3">
+<h3 id="org574bfb7"><span class="section-number-3">1.1.</span> What it is</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>A blockchain is a secure decentralized digital ledger that records
@@ -748,8 +760,8 @@ whitepaper (blockchain for a digital currency).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1d99d0e" class="outline-3">
-<h3 id="org1d99d0e"><span class="section-number-3">1.2.</span> Advantages</h3>
+<div id="outline-container-orgf724196" class="outline-3">
+<h3 id="orgf724196"><span class="section-number-3">1.2.</span> Advantages</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>More security</li>
@@ -758,8 +770,8 @@ whitepaper (blockchain for a digital currency).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6599fe4" class="outline-3">
-<h3 id="org6599fe4"><span class="section-number-3">1.3.</span> Disadvantages</h3>
+<div id="outline-container-org5f84e6d" class="outline-3">
+<h3 id="org5f84e6d"><span class="section-number-3">1.3.</span> Disadvantages</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Slower</li>
@@ -769,8 +781,8 @@ whitepaper (blockchain for a digital currency).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org768000f" class="outline-3">
-<h3 id="org768000f"><span class="section-number-3">1.4.</span> Smart Contracts</h3>
+<div id="outline-container-org3b70734" class="outline-3">
+<h3 id="org3b70734"><span class="section-number-3">1.4.</span> Smart Contracts</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>When you carry out transactions in a blockchain, instead of trusting a
@@ -782,8 +794,8 @@ required in a blockchain transaction.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgae00e36" class="outline-3">
-<h3 id="orgae00e36"><span class="section-number-3">1.5.</span> Rough Flow of Blochchain</h3>
+<div id="outline-container-org677ca46" class="outline-3">
+<h3 id="org677ca46"><span class="section-number-3">1.5.</span> Rough Flow of Blochchain</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>A transaction \(T_{x}\) occurs.</li>
@@ -795,8 +807,8 @@ using cryptographic hashes).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge195ad1" class="outline-3">
-<h3 id="orge195ad1"><span class="section-number-3">1.6.</span> Uses of Blockchain</h3>
+<div id="outline-container-org2ecbc92" class="outline-3">
+<h3 id="org2ecbc92"><span class="section-number-3">1.6.</span> Uses of Blockchain</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Cryptocurrencies</li>
@@ -807,9 +819,13 @@ using cryptographic hashes).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org20e3ebe" class="outline-2">
-<h2 id="org20e3ebe"><span class="section-number-2">2.</span> Hash</h2>
+<div id="outline-container-org8e3cbf9" class="outline-2">
+<h2 id="org8e3cbf9"><span class="section-number-2">2.</span> Fundamentals</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8002948" class="outline-3">
+<h3 id="org8002948"><span class="section-number-3">2.1.</span> Hash</h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>A hash is a unique digital fingerprint of data. It&rsquo;s a mathematical blender.</li>
 <li>A hash function will always return <b>fixed length</b> output, regardless of the input size.</li>
@@ -818,18 +834,18 @@ using cryptographic hashes).</li>
 <li>Two inputs can never give the same hash.</li>
 </ul>
 </div>
-<div id="outline-container-org636b0f6" class="outline-3">
-<h3 id="org636b0f6"><span class="section-number-3">2.1.</span> SHA-256</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org39febff" class="outline-4">
+<h4 id="org39febff"><span class="section-number-4">2.1.1.</span> SHA-256</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>SHA-256 works on 512-bit blocks.</li>
 <li>The last 64 bits are reserved for storing the length of the original message.</li>
 <li>The message itself is stored in the rest of the 448 bits.</li>
 </ul>
 </div>
-<div id="outline-container-orgae71c5e" class="outline-4">
-<h4 id="orgae71c5e"><span class="section-number-4">2.1.1.</span> Algorithm</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<ol class="org-ol">
+<li><a id="orgb8653f1"></a>Algorithm<br />
+<div class="outline-text-5" id="text-2-1-1-1">
 <ol class="org-ol">
 <li>Read the input</li>
 <li>Convert it into binary</li>
@@ -934,24 +950,185 @@ inputs.</li>
 <li>Concatenate all the worker variables and convert the result into hexadecimal.</li>
 </ol>
 </div>
-</div>
-<div id="outline-container-org9c2e955" class="outline-4">
-<h4 id="org9c2e955"><span class="section-number-4">2.1.2.</span> Rough Implementation in C++</h4>
-<div class="outline-text-4" id="text-2-1-2">
+</li>
+<li><a id="orgf7fa68e"></a>Rough Implementation in Python<br />
+<div class="outline-text-5" id="text-2-1-1-2">
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>  
+<pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">message</span> = <span style="color: #98be65;">"quickbrown"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">output</span> = convert_string_to_binary(message)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">output</span>+=<span style="color: #98be65;">'1'</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">output</span> = pad_till_n(output, 448)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">output</span>+= f<span style="color: #98be65;">"</span>{<span style="color: #c678dd;">len</span>(message):0{64}b}<span style="color: #98be65;">"</span>
+<span style="color: #3dea43364a63;"> </span>   
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">working variables:
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">H</span> = {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'6a09e667'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'bb67ae85'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'3c6ef372'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'a54ff53a'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'510e527f'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'9b05688c'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'1f83d9ab'</span>,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #98be65;">'5be0cd19'</span>
+<span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">round constants
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">K</span> = [
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x3956C25B, 0x59F111F1, 0x923F82A4, 0xAB1C5ED5,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0xD807AA98, 0x12835B01, 0x243185BE, 0x550C7DC3,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x72BE5D74, 0x80DEB1FE, 0x9BDC06A7, 0xC19BF174,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0xE49B69C1, 0xEFBE4786, 0x0FC19DC6, 0x240CA1CC,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x2DE92C6F, 0x4A7484AA, 0x5CB0A9DC, 0x76F988DA,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x983E5152, 0xA831C66D, 0xB00327C8, 0xBF597FC7,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0xC6E00BF3, 0xD5A79147, 0x06CA6351, 0x14292967,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0xD192E819, 0xD6990624, 0xF40E3585, 0x106AA070,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208,
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2
+<span style="color: #3dea43364a63;"> </span>   ]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">split the block into 16 words (w0, w1, ... w15) of 32 bits each
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">w</span> = []
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(0, 512, 32):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   w.append(output[i:i+32])
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">creating words w16, w17, ... w63
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;"># </span><span style="color: #5B6268;">(helper functions defined later)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(16, 64):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">value</span> = (sigma_1(w[i-2]) + <span style="color: #c678dd;">int</span>(w[i-7], 2) + sigma_0(w[i-15]) + <span style="color: #c678dd;">int</span>(w[i-16], 2)) &amp; 0xFFFFFFFF
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   w.append(f<span style="color: #98be65;">"</span>{value:032b}<span style="color: #98be65;">"</span>)
+<span style="color: #3dea43364a63;"> </span>    
+<span style="color: #3dea43364a63;"> </span>    
+<span style="color: #3dea43364a63;"> </span>    
+<span style="color: #3dea43364a63;"> </span>    
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">with</span> <span style="color: #c678dd;">open</span>(<span style="color: #98be65;">"output.txt"</span>, <span style="color: #98be65;">"w"</span>, encoding=<span style="color: #98be65;">"utf-8"</span>) <span style="color: #51afef;">as</span> <span style="color: #c678dd;">file</span>:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">file</span>.writelines(f<span style="color: #98be65;">"</span>{item}<span style="color: #a9a1e1;">\n</span><span style="color: #98be65;">"</span> <span style="color: #51afef;">for</span> item <span style="color: #51afef;">in</span> w)
+     
+     
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">convert_string_to_binary</span>(txt: <span style="color: #c678dd;">str</span>):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">binary</span> = <span style="color: #98be65;">""</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> c <span style="color: #51afef;">in</span> txt:
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">binary</span> += f<span style="color: #98be65;">"</span>{<span style="color: #c678dd;">ord</span>(c)-96:08b}<span style="color: #98be65;">"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> binary
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">pad_till_n</span>(txt: <span style="color: #c678dd;">str</span>, n):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> txt.rjust(n, <span style="color: #98be65;">"0"</span>)
+ 
+ 
+<span style="color: #5B6268;"># </span><span style="color: #5B6268;">helper functions for creating words w16, w17, ... w63
+</span><span style="color: #5B6268;">## </span><span style="color: #5B6268;">right circular shift
+</span><span style="color: #51afef;">def</span> <span style="color: #c678dd;">ROTR</span>(w, n): 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #dcaeea;">n</span> = n%<span style="color: #c678dd;">len</span>(w)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> w[-n:] + w[:-n]
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">SHR</span>(w, n):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> w[:-n].rjust(<span style="color: #c678dd;">len</span>(w), <span style="color: #98be65;">"0"</span>)
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">sigma_0</span>(x):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #c678dd;">int</span>(ROTR(x, 7), 2) ^ <span style="color: #c678dd;">int</span>(ROTR(x, 18), 2) ^ <span style="color: #c678dd;">int</span>(SHR(x, 3), 2)
+ 
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">sigma_1</span>(x):
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #c678dd;">int</span>(ROTR(x, 17), 2) ^ <span style="color: #c678dd;">int</span>(ROTR(x, 19), 2) ^ <span style="color: #c678dd;">int</span>(SHR(x, 10), 2)
+<span style="color: #3dea43364a63;"> </span>       
+ 
+main()
 
-<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {          
-<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"Hello, World!"</span>; 
-<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;        
-}
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-nil">Hello, World!
+<pre class="src src-nil">
 </pre>
 </div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgff98fad" class="outline-3">
+<h3 id="orgff98fad"><span class="section-number-3">2.2.</span> Cryptographic Keys</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>These are mathematical codes verify a user&rsquo;s identify and authorize
+transactions.</li>
+</ul>
+</div>
+<div id="outline-container-org54e99c5" class="outline-4">
+<h4 id="org54e99c5"><span class="section-number-4">2.2.1.</span> Based on Number of Keys</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Asymmetric Cryptography</th>
+<th scope="col" class="org-left">Symmetric Cryptography</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Receiver&rsquo;s public key used for encryption, and receiver&rsquo;s private key is used for decryption</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org022b1cc" class="outline-3">
+<h3 id="org022b1cc"><span class="section-number-3">2.3.</span> Blockchain Address</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>A blockchain address is derived from the public key using hash functions.</li>
+<li>The flow is
+<ul class="org-ul">
+<li><b>Private Key</b> is created</li>
+<li><b>Public Key</b> is derived from the public key.</li>
+<li><b>Hash function</b> transforms the public key to generate the <b>blockchain address</b>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7bf6dd6" class="outline-3">
+<h3 id="org7bf6dd6"><span class="section-number-3">2.4.</span> Message Digest</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>This is a <b>fixed length alphanumeric string</b> that acts as a digital fingerprint.</li>
+<li>It&rsquo;s basically the <b>hash value</b> of the message.</li>
+<li>It ensures <b>data integrity</b>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeb6c824" class="outline-3">
+<h3 id="orgeb6c824"><span class="section-number-3">2.5.</span> Digital Signature</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-orgb5e9641" class="outline-4">
+<h4 id="orgb5e9641"><span class="section-number-4">2.5.1.</span> What it is</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<ul class="org-ul">
+<li>This is created by taking the hashed message and encrypting it using the
+<b>sender&rsquo;s private key</b>.</li>
+<li>Anyone can verify that this message was sent by the actual sender by using the
+<b>sender&rsquo;s public key</b> to decrypt it and get back the original message.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9a9c04f" class="outline-4">
+<h4 id="org9a9c04f"><span class="section-number-4">2.5.2.</span> How it works</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<ol class="org-ol">
+<li></li>
+</ol>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-07-27 Mon 23:23 -->
+<!-- 2026-07-28 Tue 00:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Database Management Systems</title>
@@ -709,200 +709,200 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1481c36">1. Introduction</a></li>
-<li><a href="#orgcc17620">2. Levels of Abstraction</a>
+<li><a href="#orgba3764a">1. Introduction</a></li>
+<li><a href="#orgb6051cc">2. Levels of Abstraction</a>
 <ul>
-<li><a href="#orgf0047ac">2.1. View/External Level</a></li>
-<li><a href="#orge94fa02">2.2. Logical/Conceptual Level</a></li>
-<li><a href="#org09fb0ef">2.3. Physical/Internal Level</a></li>
+<li><a href="#orgf13f666">2.1. View/External Level</a></li>
+<li><a href="#org5cea2ef">2.2. Logical/Conceptual Level</a></li>
+<li><a href="#orgbcb77dd">2.3. Physical/Internal Level</a></li>
 </ul>
 </li>
-<li><a href="#org00a0d71">3. Schema</a>
+<li><a href="#orgaf13b4c">3. Schema</a>
 <ul>
-<li><a href="#org564de5a">3.1. What it describes</a>
+<li><a href="#orgb51fd7d">3.1. What it describes</a>
 <ul>
-<li><a href="#org8057675">3.1.1. Entities</a></li>
-<li><a href="#org40d031d">3.1.2. Attributes</a></li>
-<li><a href="#org3c9ce71">3.1.3. Relationships</a></li>
-<li><a href="#orgdd34464">3.1.4. Data Independence</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org1ee3c9f">4. Types of SQL Commands</a>
-<ul>
-<li><a href="#org0248bf8">4.1. DDL</a>
-<ul>
-<li><a href="#org7732909">4.1.1. CREATE TABLE</a></li>
-<li><a href="#org72f61a9">4.1.2. ALTER TABLE</a></li>
-<li><a href="#org6743e5a">4.1.3. DROP TABLE</a></li>
-<li><a href="#orga38f0e8">4.1.4. TRUNCATE</a></li>
-<li><a href="#orgfe0f74e">4.1.5. RENAME</a></li>
-</ul>
-</li>
-<li><a href="#org1d974fb">4.2. DML</a>
-<ul>
-<li><a href="#orga954617">4.2.1. INSERT</a></li>
-<li><a href="#org8eaee3a">4.2.2. UPDATE</a></li>
-<li><a href="#orge760ec6">4.2.3. DELETE</a></li>
-<li><a href="#orgf1ecb85">4.2.4. SELECT</a></li>
-<li><a href="#orgc15c496">4.2.5. Correlated Subqueries</a></li>
-</ul>
-</li>
-<li><a href="#orgd1c429a">4.3. DCL</a>
-<ul>
-<li><a href="#orgd988bb1">4.3.1. GRANT</a></li>
-<li><a href="#orgf195636">4.3.2. REVOKE</a></li>
+<li><a href="#org90cad22">3.1.1. Entities</a></li>
+<li><a href="#org2652ce5">3.1.2. Attributes</a></li>
+<li><a href="#orgb2f52e7">3.1.3. Relationships</a></li>
+<li><a href="#org7cf0a88">3.1.4. Data Independence</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf90f1b4">5. Relational Algebra</a>
+<li><a href="#org27dbc52">4. Types of SQL Commands</a>
 <ul>
-<li><a href="#orgb3c5464">5.1. Union Compatability Rule Between Two Tables</a></li>
-<li><a href="#org32fcd89">5.2. Types of Operators</a></li>
-<li><a href="#org92f654c">5.3. SELECT (&sigma; )</a></li>
-<li><a href="#orgc94bfa4">5.4. PROJECT (&Pi; )</a></li>
+<li><a href="#orgc55d543">4.1. DDL</a>
+<ul>
+<li><a href="#org74c4f6c">4.1.1. CREATE TABLE</a></li>
+<li><a href="#org3fe501f">4.1.2. ALTER TABLE</a></li>
+<li><a href="#orgef890c7">4.1.3. DROP TABLE</a></li>
+<li><a href="#org23b88d1">4.1.4. TRUNCATE</a></li>
+<li><a href="#org760bcc1">4.1.5. RENAME</a></li>
 </ul>
 </li>
-<li><a href="#orgc10a588">6. Joins</a>
+<li><a href="#orgba92380">4.2. DML</a>
 <ul>
-<li><a href="#org8179cfc">6.1. Inner Join</a></li>
-<li><a href="#org193d5ca">6.2. Left Join (or Left Outer Join)</a></li>
-<li><a href="#orgad2b391">6.3. Right Join (Right Outer Join)</a></li>
-<li><a href="#org58545fb">6.4. Full Outer Join</a></li>
-<li><a href="#org05919b9">6.5. Self Join</a></li>
+<li><a href="#orgbc0ea4d">4.2.1. INSERT</a></li>
+<li><a href="#org531d119">4.2.2. UPDATE</a></li>
+<li><a href="#org91cd471">4.2.3. DELETE</a></li>
+<li><a href="#org7b9f62e">4.2.4. SELECT</a></li>
+<li><a href="#orga6ed851">4.2.5. Correlated Subqueries</a></li>
 </ul>
 </li>
-<li><a href="#org2e437c7">7. Functional Dependencies</a>
+<li><a href="#orgcf6793b">4.3. DCL</a>
 <ul>
-<li><a href="#org83298c7">7.1. Armstrong&rsquo;s Axioms</a>
-<ul>
-<li><a href="#orgf5f4a4e">7.1.1. Reflexivity</a></li>
-<li><a href="#orgbb102a2">7.1.2. Augmentation</a></li>
-<li><a href="#orgeb00485">7.1.3. Union and Decomposition</a></li>
-<li><a href="#orgc352035">7.1.4. Transitivity</a></li>
-<li><a href="#orgbe5427d">7.1.5. Psuedotransitivity</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org0a9bb52">8. Normalization</a>
-<ul>
-<li><a href="#org9fc0a9e">8.1. Database Anomalies</a>
-<ul>
-<li><a href="#orgc113ccc">8.1.1. Insertion Anomaly</a></li>
-<li><a href="#org808314b">8.1.2. Update Anomaly</a></li>
-<li><a href="#org363da18">8.1.3. Deletion Anomaly</a></li>
-</ul>
-</li>
-<li><a href="#org4cdcd00">8.2. What Normalization is</a></li>
-<li><a href="#orgb19722a">8.3. Types</a>
-<ul>
-<li><a href="#orga85efe7">8.3.1. 1NF</a></li>
-<li><a href="#orgf2d9820">8.3.2. 2NF</a></li>
-<li><a href="#org203f980">8.3.3. 3NF</a></li>
-<li><a href="#org1296430">8.3.4. BCNF</a></li>
+<li><a href="#orge56cc56">4.3.1. GRANT</a></li>
+<li><a href="#org5eeb8ff">4.3.2. REVOKE</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge5827c7">9. Transactions</a>
+<li><a href="#orgab410ce">5. Relational Algebra</a>
 <ul>
-<li><a href="#org1cc7ce9">9.1. Transaction Processing</a>
-<ul>
-<li><a href="#orgcc0a4f6">9.1.1. Atomicity</a></li>
-<li><a href="#org13292c0">9.1.2. Consistency</a></li>
-<li><a href="#org9d6642a">9.1.3. Isolation</a></li>
-<li><a href="#orgd7868f4">9.1.4. Durability</a></li>
+<li><a href="#org07aefe4">5.1. Union Compatability Rule Between Two Tables</a></li>
+<li><a href="#org72ba132">5.2. Types of Operators</a></li>
+<li><a href="#org0558caf">5.3. SELECT (&sigma; )</a></li>
+<li><a href="#orgfb76af3">5.4. PROJECT (&Pi; )</a></li>
 </ul>
 </li>
-<li><a href="#org13aa146">9.2. How to manage Transactions</a>
+<li><a href="#orgff645c6">6. Joins</a>
 <ul>
-<li><a href="#org2785100">9.2.1. Logging and Recovery</a></li>
-<li><a href="#orga3f583b">9.2.2. Concurrency Control</a></li>
-<li><a href="#orgeebab3b">9.2.3. Transaction Boundaries</a></li>
+<li><a href="#org4434f9f">6.1. Inner Join</a></li>
+<li><a href="#org9bb7e0a">6.2. Left Join (or Left Outer Join)</a></li>
+<li><a href="#org2a77f13">6.3. Right Join (Right Outer Join)</a></li>
+<li><a href="#orgcbfc82c">6.4. Full Outer Join</a></li>
+<li><a href="#org84714f4">6.5. Self Join</a></li>
 </ul>
 </li>
-<li><a href="#org3f4144f">9.3. Simple Model of a Database</a></li>
-<li><a href="#org74a8116">9.4. Read and Write Operations</a>
+<li><a href="#orgf8c53b0">7. Functional Dependencies</a>
 <ul>
-<li><a href="#org2f33055">9.4.1. Read</a></li>
-<li><a href="#org467c6d8">9.4.2. Write</a></li>
-</ul>
-</li>
-<li><a href="#orgd7ec979">9.5. Recovery Manager</a>
+<li><a href="#orgb06f8dd">7.1. Armstrong&rsquo;s Axioms</a>
 <ul>
-<li><a href="#org8e0c49a">9.5.1. begin<sub>transaction</sub></a></li>
-<li><a href="#org33cb949">9.5.2. read/write</a></li>
-<li><a href="#org268e0e9">9.5.3. commit</a></li>
-<li><a href="#org5ea370b">9.5.4. rollback</a></li>
-<li><a href="#org109f2d8">9.5.5. redo</a></li>
-<li><a href="#org83afdaf">9.5.6. end<sub>transaction</sub></a></li>
-</ul>
-</li>
-<li><a href="#org5791ffd">9.6. Why Concurrent Executions</a></li>
-<li><a href="#org68e35ef">9.7. Concurrency Control Schemes</a></li>
-<li><a href="#orgb410b70">9.8. Issues</a>
-<ul>
-<li><a href="#orgef9e150">9.8.1. Lost Update (write-write)</a></li>
-<li><a href="#org9f95ad0">9.8.2. Dirty Read (write-read on uncommitted data)</a></li>
-<li><a href="#orgb246259">9.8.3. Unrepeatable Read (write-read on committed data)</a></li>
-<li><a href="#org6f94c21">9.8.4. Blind Write</a></li>
-<li><a href="#orga37dbb7">9.8.5. Phantom Read</a></li>
+<li><a href="#org26308c9">7.1.1. Reflexivity</a></li>
+<li><a href="#orgac64de0">7.1.2. Augmentation</a></li>
+<li><a href="#orgb78e9e9">7.1.3. Union and Decomposition</a></li>
+<li><a href="#orgbd04f09">7.1.4. Transitivity</a></li>
+<li><a href="#orgeb03021">7.1.5. Psuedotransitivity</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org439a87e">10. Schedule</a>
+<li><a href="#org49707a9">8. Normalization</a>
 <ul>
-<li><a href="#orga68f7c0">10.1. Why are Schedules Important</a>
+<li><a href="#orgeeaeb52">8.1. Database Anomalies</a>
 <ul>
-<li><a href="#orgfbea8d1">10.1.1. Concurrency</a></li>
-<li><a href="#orgca759f2">10.1.2. Consistency</a></li>
-<li><a href="#org4f7aa4b">10.1.3. Integrity</a></li>
+<li><a href="#orgfe14bc2">8.1.1. Insertion Anomaly</a></li>
+<li><a href="#org631b1fd">8.1.2. Update Anomaly</a></li>
+<li><a href="#orga2733b9">8.1.3. Deletion Anomaly</a></li>
 </ul>
 </li>
-<li><a href="#org901659c">10.2. Number of Schedules you can make, given a certain number of transactions</a>
+<li><a href="#orga738260">8.2. What Normalization is</a></li>
+<li><a href="#org742b832">8.3. Types</a>
 <ul>
-<li><a href="#orgda96fcf">10.2.1. If there are 2 transactions</a></li>
-<li><a href="#org7562dae">10.2.2. For more than 2 transactions</a></li>
-</ul>
-</li>
-<li><a href="#orgcb0e3c7">10.3. Types of Schedules</a>
-<ul>
-<li><a href="#orgf84fc0d">10.3.1. Serial Schedules</a></li>
-<li><a href="#orge972a6e">10.3.2. Non Serial Schedules</a></li>
-<li><a href="#org7e4ead9">10.3.3. Serializable Schedule</a></li>
-<li><a href="#org5c62ae9">10.3.4. Non-Serializable Schedules</a></li>
-<li><a href="#org263eace">10.3.5. Equivalence of Schedules</a></li>
-</ul>
-</li>
-<li><a href="#org9132e67">10.4. Concurrency Control</a>
-<ul>
-<li><a href="#orgffe4da3">10.4.1. Lock Based Concurrency Control</a></li>
+<li><a href="#org846c2d1">8.3.1. 1NF</a></li>
+<li><a href="#org81e980a">8.3.2. 2NF</a></li>
+<li><a href="#org4185d9d">8.3.3. 3NF</a></li>
+<li><a href="#org58485ba">8.3.4. BCNF</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1a16f64">11. Storage Structure</a>
+<li><a href="#orga85a14e">9. Transactions</a>
 <ul>
-<li><a href="#org40bc945">11.1. Sequential</a></li>
-<li><a href="#org1134a35">11.2. Heap</a></li>
-<li><a href="#org180237f">11.3. Clustered</a></li>
-<li><a href="#org44a5bc7">11.4. B+ Trees</a>
+<li><a href="#orgbfb99a7">9.1. Transaction Processing (ACID)</a>
 <ul>
-<li><a href="#org25eae08">11.4.1. Order of B+ tree</a></li>
+<li><a href="#org06d0b8d">9.1.1. Atomicity</a></li>
+<li><a href="#orgeb3c8ef">9.1.2. Consistency</a></li>
+<li><a href="#org2a444df">9.1.3. Isolation</a></li>
+<li><a href="#orgf3104e2">9.1.4. Durability</a></li>
 </ul>
 </li>
-<li><a href="#org522e8af">11.5. Hashing</a></li>
+<li><a href="#org744d277">9.2. How to manage Transactions</a>
+<ul>
+<li><a href="#orgf175d2a">9.2.1. Logging and Recovery</a></li>
+<li><a href="#org7fc68bb">9.2.2. Concurrency Control</a></li>
+<li><a href="#orgd5984b2">9.2.3. Transaction Boundaries</a></li>
+</ul>
+</li>
+<li><a href="#orgd54b062">9.3. Simple Model of a Database</a></li>
+<li><a href="#org188afd0">9.4. Read and Write Operations</a>
+<ul>
+<li><a href="#org939b424">9.4.1. Read</a></li>
+<li><a href="#org51d6ca5">9.4.2. Write</a></li>
+</ul>
+</li>
+<li><a href="#org965db52">9.5. Recovery Manager</a>
+<ul>
+<li><a href="#org16f7f75">9.5.1. begin<sub>transaction</sub></a></li>
+<li><a href="#org7582a31">9.5.2. read/write</a></li>
+<li><a href="#org1d35536">9.5.3. commit</a></li>
+<li><a href="#org329016b">9.5.4. rollback</a></li>
+<li><a href="#org952b9a6">9.5.5. redo</a></li>
+<li><a href="#org7140634">9.5.6. end<sub>transaction</sub></a></li>
+</ul>
+</li>
+<li><a href="#orgdb13bab">9.6. Why Concurrent Executions</a></li>
+<li><a href="#orga6644fa">9.7. Concurrency Control Schemes</a></li>
+<li><a href="#org01fab70">9.8. Issues</a>
+<ul>
+<li><a href="#orgfe95539">9.8.1. Lost Update (write-write)</a></li>
+<li><a href="#orged3012d">9.8.2. Dirty Read (write-read on uncommitted data)</a></li>
+<li><a href="#orga0c46df">9.8.3. Unrepeatable Read (write-read on committed data)</a></li>
+<li><a href="#org113ee06">9.8.4. Blind Write</a></li>
+<li><a href="#org1eee8e2">9.8.5. Phantom Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd5f17b2">10. Schedule</a>
+<ul>
+<li><a href="#orga278bcb">10.1. Why are Schedules Important</a>
+<ul>
+<li><a href="#org518eb10">10.1.1. Concurrency</a></li>
+<li><a href="#orgfe7048e">10.1.2. Consistency</a></li>
+<li><a href="#orgf18feb9">10.1.3. Integrity</a></li>
+</ul>
+</li>
+<li><a href="#org0fb14f4">10.2. Number of Schedules you can make, given a certain number of transactions</a>
+<ul>
+<li><a href="#org575428b">10.2.1. If there are 2 transactions</a></li>
+<li><a href="#orgdfa48f4">10.2.2. For more than 2 transactions</a></li>
+</ul>
+</li>
+<li><a href="#orgefcc6f5">10.3. Types of Schedules</a>
+<ul>
+<li><a href="#orgd8f1c13">10.3.1. Serial Schedules</a></li>
+<li><a href="#org85c1c4b">10.3.2. Non Serial Schedules</a></li>
+<li><a href="#orgbccf5f7">10.3.3. Serializable Schedule</a></li>
+<li><a href="#org57e09c0">10.3.4. Non-Serializable Schedules</a></li>
+<li><a href="#orgd1c57ef">10.3.5. Equivalence of Schedules</a></li>
+</ul>
+</li>
+<li><a href="#orgf9cd2e2">10.4. Concurrency Control</a>
+<ul>
+<li><a href="#org0c15ca0">10.4.1. Lock Based Concurrency Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc79d489">11. Storage Structure</a>
+<ul>
+<li><a href="#org109bacf">11.1. Sequential</a></li>
+<li><a href="#orgb5a3799">11.2. Heap</a></li>
+<li><a href="#org297b411">11.3. Clustered</a></li>
+<li><a href="#orgfd8b665">11.4. B+ Trees</a>
+<ul>
+<li><a href="#org1f9fae4">11.4.1. Order of B+ tree</a></li>
+</ul>
+</li>
+<li><a href="#org7072abb">11.5. Hashing</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1481c36" class="outline-2">
-<h2 id="org1481c36"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgba3764a" class="outline-2">
+<h2 id="orgba3764a"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>A file system arranges files into directories in a storage device.</li>
@@ -922,20 +922,20 @@ data in structured tables.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcc17620" class="outline-2">
-<h2 id="orgcc17620"><span class="section-number-2">2.</span> Levels of Abstraction</h2>
+<div id="outline-container-orgb6051cc" class="outline-2">
+<h2 id="orgb6051cc"><span class="section-number-2">2.</span> Levels of Abstraction</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf0047ac" class="outline-3">
-<h3 id="orgf0047ac"><span class="section-number-3">2.1.</span> View/External Level</h3>
+<div id="outline-container-orgf13f666" class="outline-3">
+<h3 id="orgf13f666"><span class="section-number-3">2.1.</span> View/External Level</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Users and applications can access only the data relevant to them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge94fa02" class="outline-3">
-<h3 id="orge94fa02"><span class="section-number-3">2.2.</span> Logical/Conceptual Level</h3>
+<div id="outline-container-org5cea2ef" class="outline-3">
+<h3 id="org5cea2ef"><span class="section-number-3">2.2.</span> Logical/Conceptual Level</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Handles what data is stored in the database and all the relationships between
@@ -943,8 +943,8 @@ them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org09fb0ef" class="outline-3">
-<h3 id="org09fb0ef"><span class="section-number-3">2.3.</span> Physical/Internal Level</h3>
+<div id="outline-container-orgbcb77dd" class="outline-3">
+<h3 id="orgbcb77dd"><span class="section-number-3">2.3.</span> Physical/Internal Level</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Describes how the data is stored on the disk.</li>
@@ -952,20 +952,20 @@ them.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org00a0d71" class="outline-2">
-<h2 id="org00a0d71"><span class="section-number-2">3.</span> Schema</h2>
+<div id="outline-container-orgaf13b4c" class="outline-2">
+<h2 id="orgaf13b4c"><span class="section-number-2">3.</span> Schema</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>A <b>schema</b> is a logical structure that describes how data is stored and used in
 a database.</li>
 </ul>
 </div>
-<div id="outline-container-org564de5a" class="outline-3">
-<h3 id="org564de5a"><span class="section-number-3">3.1.</span> What it describes</h3>
+<div id="outline-container-orgb51fd7d" class="outline-3">
+<h3 id="orgb51fd7d"><span class="section-number-3">3.1.</span> What it describes</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org8057675" class="outline-4">
-<h4 id="org8057675"><span class="section-number-4">3.1.1.</span> Entities</h4>
+<div id="outline-container-org90cad22" class="outline-4">
+<h4 id="org90cad22"><span class="section-number-4">3.1.1.</span> Entities</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>An entity is any real world object with well defined property.</li>
@@ -976,8 +976,8 @@ These are essentially tables in a database.
 <img src="entity.png" alt="entity">
 </div>
 </div>
-<div id="outline-container-org40d031d" class="outline-4">
-<h4 id="org40d031d"><span class="section-number-4">3.1.2.</span> Attributes</h4>
+<div id="outline-container-org2652ce5" class="outline-4">
+<h4 id="org2652ce5"><span class="section-number-4">3.1.2.</span> Attributes</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li>Attributes are columns in a database and they include what datatype they hold.</li>
@@ -988,14 +988,14 @@ These are essentially tables in a database.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org7cbc7f2"></a>Super Key<br />
+<li><a id="org3eec58a"></a>Super Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-1">
 <ul class="org-ul">
 <li><b>Any</b> set of columns that can uniquely identify a row.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd684edb"></a>Candidate Key<br />
+<li><a id="org0055deb"></a>Candidate Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-2">
 <ul class="org-ul">
 <li>A super key with no unecessary columns.</li>
@@ -1003,21 +1003,21 @@ These are essentially tables in a database.
 </ul>
 </div>
 </li>
-<li><a id="org0ce1d63"></a>Primary Key<br />
+<li><a id="org90333cc"></a>Primary Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-3">
 <ul class="org-ul">
 <li>The candidate key chosen to be the unique identifier for any row.</li>
 </ul>
 </div>
 </li>
-<li><a id="org43c78a1"></a>Alternate Key<br />
+<li><a id="org7e8044d"></a>Alternate Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-4">
 <ul class="org-ul">
 <li>Every candidate key that wasn&rsquo;t chosen as the primary key.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb8fc4ec"></a>Foreign Key<br />
+<li><a id="org4fc5b60"></a>Foreign Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-5">
 <ul class="org-ul">
 <li>A set of columns in one table, pointing towards the primary key of the
@@ -1027,8 +1027,8 @@ same/different table.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org3c9ce71" class="outline-4">
-<h4 id="org3c9ce71"><span class="section-number-4">3.1.3.</span> Relationships</h4>
+<div id="outline-container-orgb2f52e7" class="outline-4">
+<h4 id="orgb2f52e7"><span class="section-number-4">3.1.3.</span> Relationships</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <ul class="org-ul">
 <li>Relationships describe how exactly two tables and their instances are related
@@ -1037,7 +1037,7 @@ to each other.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org52631cf"></a>Cardinality<br />
+<li><a id="org8b272ae"></a>Cardinality<br />
 <div class="outline-text-5" id="text-3-1-3-1">
 <img src="1to1.png" alt="">
 <img src="1toM.png" alt="">
@@ -1045,7 +1045,7 @@ to each other.</li>
 <img src="MtoM.png" alt="">
 </div>
 </li>
-<li><a id="orgd29ffe9"></a>Participation Constraints<br />
+<li><a id="org6c9794b"></a>Participation Constraints<br />
 <div class="outline-text-5" id="text-3-1-3-2">
 <ul class="org-ul">
 <li><p>
@@ -1094,8 +1094,8 @@ These are of two types: Total Participation and Partial Participation
 </li>
 </ol>
 </div>
-<div id="outline-container-orgdd34464" class="outline-4">
-<h4 id="orgdd34464"><span class="section-number-4">3.1.4.</span> Data Independence</h4>
+<div id="outline-container-org7cf0a88" class="outline-4">
+<h4 id="org7cf0a88"><span class="section-number-4">3.1.4.</span> Data Independence</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>It&rsquo;s a property of DBMS that allows you to change schema (structure of a
@@ -1111,20 +1111,20 @@ level is called <b>logical independence</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1ee3c9f" class="outline-2">
-<h2 id="org1ee3c9f"><span class="section-number-2">4.</span> Types of SQL Commands</h2>
+<div id="outline-container-org27dbc52" class="outline-2">
+<h2 id="org27dbc52"><span class="section-number-2">4.</span> Types of SQL Commands</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org0248bf8" class="outline-3">
-<h3 id="org0248bf8"><span class="section-number-3">4.1.</span> DDL</h3>
+<div id="outline-container-orgc55d543" class="outline-3">
+<h3 id="orgc55d543"><span class="section-number-3">4.1.</span> DDL</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><b>Data Definition Language</b> comprises of the languages used to create the
 <b>database schema</b> (the structure).</li>
 </ul>
 </div>
-<div id="outline-container-org7732909" class="outline-4">
-<h4 id="org7732909"><span class="section-number-4">4.1.1.</span> CREATE TABLE</h4>
+<div id="outline-container-org74c4f6c" class="outline-4">
+<h4 id="org74c4f6c"><span class="section-number-4">4.1.1.</span> CREATE TABLE</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <ul class="org-ul">
 <li><p>
@@ -1295,8 +1295,8 @@ Here is a complete example:
 </ul>
 </div>
 </div>
-<div id="outline-container-org72f61a9" class="outline-4">
-<h4 id="org72f61a9"><span class="section-number-4">4.1.2.</span> ALTER TABLE</h4>
+<div id="outline-container-org3fe501f" class="outline-4">
+<h4 id="org3fe501f"><span class="section-number-4">4.1.2.</span> ALTER TABLE</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
@@ -1325,8 +1325,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-org6743e5a" class="outline-4">
-<h4 id="org6743e5a"><span class="section-number-4">4.1.3.</span> DROP TABLE</h4>
+<div id="outline-container-orgef890c7" class="outline-4">
+<h4 id="orgef890c7"><span class="section-number-4">4.1.3.</span> DROP TABLE</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 Deletes table and its data altogether.
@@ -1337,8 +1337,8 @@ Deletes table and its data altogether.
 </div>
 </div>
 </div>
-<div id="outline-container-orga38f0e8" class="outline-4">
-<h4 id="orga38f0e8"><span class="section-number-4">4.1.4.</span> TRUNCATE</h4>
+<div id="outline-container-org23b88d1" class="outline-4">
+<h4 id="org23b88d1"><span class="section-number-4">4.1.4.</span> TRUNCATE</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 Deletes all rows, but keeps structure intact.
@@ -1349,8 +1349,8 @@ Deletes all rows, but keeps structure intact.
 </div>
 </div>
 </div>
-<div id="outline-container-orgfe0f74e" class="outline-4">
-<h4 id="orgfe0f74e"><span class="section-number-4">4.1.5.</span> RENAME</h4>
+<div id="outline-container-org760bcc1" class="outline-4">
+<h4 id="org760bcc1"><span class="section-number-4">4.1.5.</span> RENAME</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 Renames an entire table.
@@ -1362,15 +1362,15 @@ Renames an entire table.
 </div>
 </div>
 </div>
-<div id="outline-container-org1d974fb" class="outline-3">
-<h3 id="org1d974fb"><span class="section-number-3">4.2.</span> DML</h3>
+<div id="outline-container-orgba92380" class="outline-3">
+<h3 id="orgba92380"><span class="section-number-3">4.2.</span> DML</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><b>Data Manipulation Language</b> is what we used to read/write on instances of data.</li>
 </ul>
 </div>
-<div id="outline-container-orga954617" class="outline-4">
-<h4 id="orga954617"><span class="section-number-4">4.2.1.</span> INSERT</h4>
+<div id="outline-container-orgbc0ea4d" class="outline-4">
+<h4 id="orgbc0ea4d"><span class="section-number-4">4.2.1.</span> INSERT</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">INSERT</span> <span style="color: #51afef;">INTO</span> employees (emp_id, <span style="color: #51afef;">name</span>, salary, dept_id)
@@ -1380,8 +1380,8 @@ Renames an entire table.
 </div>
 </div>
 </div>
-<div id="outline-container-org8eaee3a" class="outline-4">
-<h4 id="org8eaee3a"><span class="section-number-4">4.2.2.</span> UPDATE</h4>
+<div id="outline-container-org531d119" class="outline-4">
+<h4 id="org531d119"><span class="section-number-4">4.2.2.</span> UPDATE</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">UPDATE</span> <span style="color: #51afef;">table_name</span>
@@ -1402,8 +1402,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orge760ec6" class="outline-4">
-<h4 id="orge760ec6"><span class="section-number-4">4.2.3.</span> DELETE</h4>
+<div id="outline-container-org91cd471" class="outline-4">
+<h4 id="org91cd471"><span class="section-number-4">4.2.3.</span> DELETE</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">DELETE</span> <span style="color: #51afef;">FROM</span> <span style="color: #51afef;">table_name</span>
@@ -1429,12 +1429,12 @@ irreversible.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf1ecb85" class="outline-4">
-<h4 id="orgf1ecb85"><span class="section-number-4">4.2.4.</span> SELECT</h4>
+<div id="outline-container-org7b9f62e" class="outline-4">
+<h4 id="org7b9f62e"><span class="section-number-4">4.2.4.</span> SELECT</h4>
 <div class="outline-text-4" id="text-4-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="org476b36f"></a>Syntax<br />
+<li><a id="org3fdfdfa"></a>Syntax<br />
 <div class="outline-text-5" id="text-4-2-4-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> column1, column2 <span style="color: #51afef;">as</span> new_name, ...
@@ -1568,7 +1568,7 @@ The output is:
 </ul>
 </div>
 </li>
-<li><a id="org0902aea"></a>Regex<br />
+<li><a id="org9e4aa86"></a>Regex<br />
 <div class="outline-text-5" id="text-4-2-4-2">
 <ul class="org-ul">
 <li><p>
@@ -1586,7 +1586,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </ul>
 </div>
 </li>
-<li><a id="org5df6748"></a>Between<br />
+<li><a id="org4e1a658"></a>Between<br />
 <div class="outline-text-5" id="text-4-2-4-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> student <span style="color: #51afef;">WHERE</span> age <span style="color: #51afef;">BETWEEN</span> 17 <span style="color: #51afef;">AND</span> 23;
@@ -1594,7 +1594,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="org9826aaa"></a>Adding Columns<br />
+<li><a id="orga1d0239"></a>Adding Columns<br />
 <div class="outline-text-5" id="text-4-2-4-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> subject1_marks + subject2_marks + subject3_marks <span style="color: #51afef;">AS</span> tot_marks <span style="color: #51afef;">FROM</span> student;
@@ -1602,7 +1602,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="org74ebdc7"></a>Aggregate Functions<br />
+<li><a id="org5141796"></a>Aggregate Functions<br />
 <div class="outline-text-5" id="text-4-2-4-5">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Number of rows
@@ -1622,7 +1622,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="orga8d9474"></a>Group By<br />
+<li><a id="org56c6ffa"></a>Group By<br />
 <div class="outline-text-5" id="text-4-2-4-6">
 <ul class="org-ul">
 <li><p>
@@ -1713,7 +1713,7 @@ And you get:
 </ul>
 </div>
 </li>
-<li><a id="org1df7b1e"></a>Having<br />
+<li><a id="org56de828"></a>Having<br />
 <div class="outline-text-5" id="text-4-2-4-7">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">WHERE filters before grouping
@@ -1734,12 +1734,12 @@ And you get:
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc15c496" class="outline-4">
-<h4 id="orgc15c496"><span class="section-number-4">4.2.5.</span> Correlated Subqueries</h4>
+<div id="outline-container-orga6ed851" class="outline-4">
+<h4 id="orga6ed851"><span class="section-number-4">4.2.5.</span> Correlated Subqueries</h4>
 <div class="outline-text-4" id="text-4-2-5">
 </div>
 <ol class="org-ol">
-<li><a id="org6a1220d"></a>Where<br />
+<li><a id="org3c47315"></a>Where<br />
 <div class="outline-text-5" id="text-4-2-5-1">
 <p>
 Find students whose age is above the average age of their class.
@@ -1757,7 +1757,7 @@ Find students whose age is above the average age of their class.
 </div>
 </div>
 </li>
-<li><a id="org1e93cf1"></a>From<br />
+<li><a id="org818e86f"></a>From<br />
 <div class="outline-text-5" id="text-4-2-5-2">
 <p>
 Get Class wise average and then filter it
@@ -1777,15 +1777,15 @@ Get Class wise average and then filter it
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd1c429a" class="outline-3">
-<h3 id="orgd1c429a"><span class="section-number-3">4.3.</span> DCL</h3>
+<div id="outline-container-orgcf6793b" class="outline-3">
+<h3 id="orgcf6793b"><span class="section-number-3">4.3.</span> DCL</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><b>Data Control Language</b> manages rights and permissions.</li>
 </ul>
 </div>
-<div id="outline-container-orgd988bb1" class="outline-4">
-<h4 id="orgd988bb1"><span class="section-number-4">4.3.1.</span> GRANT</h4>
+<div id="outline-container-orge56cc56" class="outline-4">
+<h4 id="orge56cc56"><span class="section-number-4">4.3.1.</span> GRANT</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">GRANT</span> privilege
@@ -1806,8 +1806,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf195636" class="outline-4">
-<h4 id="orgf195636"><span class="section-number-4">4.3.2.</span> REVOKE</h4>
+<div id="outline-container-org5eeb8ff" class="outline-4">
+<h4 id="org5eeb8ff"><span class="section-number-4">4.3.2.</span> REVOKE</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">REVOKE</span> privilege
@@ -1830,8 +1830,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf90f1b4" class="outline-2">
-<h2 id="orgf90f1b4"><span class="section-number-2">5.</span> Relational Algebra</h2>
+<div id="outline-container-orgab410ce" class="outline-2">
+<h2 id="orgab410ce"><span class="section-number-2">5.</span> Relational Algebra</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><b>Arity</b>: Number of columns in a row</li>
@@ -1839,8 +1839,8 @@ For example:
 operations on tables.</li>
 </ul>
 </div>
-<div id="outline-container-orgb3c5464" class="outline-3">
-<h3 id="orgb3c5464"><span class="section-number-3">5.1.</span> Union Compatability Rule Between Two Tables</h3>
+<div id="outline-container-org07aefe4" class="outline-3">
+<h3 id="org07aefe4"><span class="section-number-3">5.1.</span> Union Compatability Rule Between Two Tables</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li>Arity of both tables should be the same.</li>
@@ -1848,8 +1848,8 @@ operations on tables.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org32fcd89" class="outline-3">
-<h3 id="org32fcd89"><span class="section-number-3">5.2.</span> Types of Operators</h3>
+<div id="outline-container-org72ba132" class="outline-3">
+<h3 id="org72ba132"><span class="section-number-3">5.2.</span> Types of Operators</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1901,8 +1901,8 @@ operations on tables.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org92f654c" class="outline-3">
-<h3 id="org92f654c"><span class="section-number-3">5.3.</span> SELECT (&sigma; )</h3>
+<div id="outline-container-org0558caf" class="outline-3">
+<h3 id="org0558caf"><span class="section-number-3">5.3.</span> SELECT (&sigma; )</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 SQL:
@@ -1920,8 +1920,8 @@ Relational Algebra:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc94bfa4" class="outline-3">
-<h3 id="orgc94bfa4"><span class="section-number-3">5.4.</span> PROJECT (&Pi; )</h3>
+<div id="outline-container-orgfb76af3" class="outline-3">
+<h3 id="orgfb76af3"><span class="section-number-3">5.4.</span> PROJECT (&Pi; )</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 SQL:
@@ -1941,8 +1941,8 @@ Relational Algebra:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc10a588" class="outline-2">
-<h2 id="orgc10a588"><span class="section-number-2">6.</span> Joins</h2>
+<div id="outline-container-orgff645c6" class="outline-2">
+<h2 id="orgff645c6"><span class="section-number-2">6.</span> Joins</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>To combine two databases, you could use a normal cartesian product, but the
@@ -2074,8 +2074,8 @@ And the table <code>Departments</code>:
 </table></li>
 </ul>
 </div>
-<div id="outline-container-org8179cfc" class="outline-3">
-<h3 id="org8179cfc"><span class="section-number-3">6.1.</span> Inner Join</h3>
+<div id="outline-container-org4434f9f" class="outline-3">
+<h3 id="org4434f9f"><span class="section-number-3">6.1.</span> Inner Join</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Selects only common elements in both tables.
@@ -2136,8 +2136,8 @@ Output:
 </table>
 </div>
 </div>
-<div id="outline-container-org193d5ca" class="outline-3">
-<h3 id="org193d5ca"><span class="section-number-3">6.2.</span> Left Join (or Left Outer Join)</h3>
+<div id="outline-container-org9bb7e0a" class="outline-3">
+<h3 id="org9bb7e0a"><span class="section-number-3">6.2.</span> Left Join (or Left Outer Join)</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Everything from the left table, and only common elements from the right table.
@@ -2206,8 +2206,8 @@ Everything from the left table, and only common elements from the right table.
 </table>
 </div>
 </div>
-<div id="outline-container-orgad2b391" class="outline-3">
-<h3 id="orgad2b391"><span class="section-number-3">6.3.</span> Right Join (Right Outer Join)</h3>
+<div id="outline-container-org2a77f13" class="outline-3">
+<h3 id="org2a77f13"><span class="section-number-3">6.3.</span> Right Join (Right Outer Join)</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Everything from the right table, and only common elements from the left table.
@@ -2270,8 +2270,8 @@ Everything from the right table, and only common elements from the left table.
 </table>
 </div>
 </div>
-<div id="outline-container-org58545fb" class="outline-3">
-<h3 id="org58545fb"><span class="section-number-3">6.4.</span> Full Outer Join</h3>
+<div id="outline-container-orgcbfc82c" class="outline-3">
+<h3 id="orgcbfc82c"><span class="section-number-3">6.4.</span> Full Outer Join</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.EmpName, e.DeptID, d.DeptName
@@ -2343,8 +2343,8 @@ Everything from the right table, and only common elements from the left table.
 </table>
 </div>
 </div>
-<div id="outline-container-org05919b9" class="outline-3">
-<h3 id="org05919b9"><span class="section-number-3">6.5.</span> Self Join</h3>
+<div id="outline-container-org84714f4" class="outline-3">
+<h3 id="org84714f4"><span class="section-number-3">6.5.</span> Self Join</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li><p>
@@ -2364,8 +2364,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-org2e437c7" class="outline-2">
-<h2 id="org2e437c7"><span class="section-number-2">7.</span> Functional Dependencies</h2>
+<div id="outline-container-orgf8c53b0" class="outline-2">
+<h2 id="orgf8c53b0"><span class="section-number-2">7.</span> Functional Dependencies</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Functional dependencies tell us how attributes relate to each other.</li>
@@ -2414,12 +2414,12 @@ determines State</b>.
 are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
-<div id="outline-container-org83298c7" class="outline-3">
-<h3 id="org83298c7"><span class="section-number-3">7.1.</span> Armstrong&rsquo;s Axioms</h3>
+<div id="outline-container-orgb06f8dd" class="outline-3">
+<h3 id="orgb06f8dd"><span class="section-number-3">7.1.</span> Armstrong&rsquo;s Axioms</h3>
 <div class="outline-text-3" id="text-7-1">
 </div>
-<div id="outline-container-orgf5f4a4e" class="outline-4">
-<h4 id="orgf5f4a4e"><span class="section-number-4">7.1.1.</span> Reflexivity</h4>
+<div id="outline-container-org26308c9" class="outline-4">
+<h4 id="org26308c9"><span class="section-number-4">7.1.1.</span> Reflexivity</h4>
 <div class="outline-text-4" id="text-7-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s always a larger set that determines a smaller set.</li>
@@ -2428,16 +2428,16 @@ are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbb102a2" class="outline-4">
-<h4 id="orgbb102a2"><span class="section-number-4">7.1.2.</span> Augmentation</h4>
+<div id="outline-container-orgac64de0" class="outline-4">
+<h4 id="orgac64de0"><span class="section-number-4">7.1.2.</span> Augmentation</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\), then \(XZ \rightarrow YZ\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeb00485" class="outline-4">
-<h4 id="orgeb00485"><span class="section-number-4">7.1.3.</span> Union and Decomposition</h4>
+<div id="outline-container-orgb78e9e9" class="outline-4">
+<h4 id="orgb78e9e9"><span class="section-number-4">7.1.3.</span> Union and Decomposition</h4>
 <div class="outline-text-4" id="text-7-1-3">
 <ul class="org-ul">
 <li>Union: If \(X \rightarrow YZ\), then \(X \rightarrow Y\) and \(X \rightarrow Z\).</li>
@@ -2445,16 +2445,16 @@ are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc352035" class="outline-4">
-<h4 id="orgc352035"><span class="section-number-4">7.1.4.</span> Transitivity</h4>
+<div id="outline-container-orgbd04f09" class="outline-4">
+<h4 id="orgbd04f09"><span class="section-number-4">7.1.4.</span> Transitivity</h4>
 <div class="outline-text-4" id="text-7-1-4">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\) and \(Y \rightarrow Z\), then \(X \rightarrow Z\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbe5427d" class="outline-4">
-<h4 id="orgbe5427d"><span class="section-number-4">7.1.5.</span> Psuedotransitivity</h4>
+<div id="outline-container-orgeb03021" class="outline-4">
+<h4 id="orgeb03021"><span class="section-number-4">7.1.5.</span> Psuedotransitivity</h4>
 <div class="outline-text-4" id="text-7-1-5">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\) and \(YA \rightarrow Z\), then \(XA \rightarrow Z\).</li>
@@ -2463,12 +2463,12 @@ are given the state, but you can tell the state given the city.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0a9bb52" class="outline-2">
-<h2 id="org0a9bb52"><span class="section-number-2">8.</span> Normalization</h2>
+<div id="outline-container-org49707a9" class="outline-2">
+<h2 id="org49707a9"><span class="section-number-2">8.</span> Normalization</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org9fc0a9e" class="outline-3">
-<h3 id="org9fc0a9e"><span class="section-number-3">8.1.</span> Database Anomalies</h3>
+<div id="outline-container-orgeeaeb52" class="outline-3">
+<h3 id="orgeeaeb52"><span class="section-number-3">8.1.</span> Database Anomalies</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 Consider the below table with duplicate values:
@@ -2532,8 +2532,8 @@ Consider the below table with duplicate values:
 </tbody>
 </table>
 </div>
-<div id="outline-container-orgc113ccc" class="outline-4">
-<h4 id="orgc113ccc"><span class="section-number-4">8.1.1.</span> Insertion Anomaly</h4>
+<div id="outline-container-orgfe14bc2" class="outline-4">
+<h4 id="orgfe14bc2"><span class="section-number-4">8.1.1.</span> Insertion Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-1">
 <ul class="org-ul">
 <li>This is when you can&rsquo;t insert data without inserting unrelated data.</li>
@@ -2579,8 +2579,8 @@ But in the table, you also need a <code>studentID</code> and a <code>StudentName
 </p>
 </div>
 </div>
-<div id="outline-container-org808314b" class="outline-4">
-<h4 id="org808314b"><span class="section-number-4">8.1.2.</span> Update Anomaly</h4>
+<div id="outline-container-org631b1fd" class="outline-4">
+<h4 id="org631b1fd"><span class="section-number-4">8.1.2.</span> Update Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-2">
 <ul class="org-ul">
 <li>This is when the same data is stored in many places, and you don&rsquo;t update them
@@ -2624,8 +2624,8 @@ inconsistent information:
 </ul>
 </div>
 </div>
-<div id="outline-container-org363da18" class="outline-4">
-<h4 id="org363da18"><span class="section-number-4">8.1.3.</span> Deletion Anomaly</h4>
+<div id="outline-container-orga2733b9" class="outline-4">
+<h4 id="orga2733b9"><span class="section-number-4">8.1.3.</span> Deletion Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-3">
 <ul class="org-ul">
 <li>This is when deleting a specific record causes the unintentional loss of other
@@ -2672,8 +2672,8 @@ course and the instructor <code>Dr. Wilson</code>.
 </div>
 </div>
 </div>
-<div id="outline-container-org4cdcd00" class="outline-3">
-<h3 id="org4cdcd00"><span class="section-number-3">8.2.</span> What Normalization is</h3>
+<div id="outline-container-orga738260" class="outline-3">
+<h3 id="orga738260"><span class="section-number-3">8.2.</span> What Normalization is</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Normalization is the process of splitting a table into smaller linked tables to
@@ -2681,12 +2681,12 @@ fix database anomalies.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb19722a" class="outline-3">
-<h3 id="orgb19722a"><span class="section-number-3">8.3.</span> Types</h3>
+<div id="outline-container-org742b832" class="outline-3">
+<h3 id="org742b832"><span class="section-number-3">8.3.</span> Types</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
-<div id="outline-container-orga85efe7" class="outline-4">
-<h4 id="orga85efe7"><span class="section-number-4">8.3.1.</span> 1NF</h4>
+<div id="outline-container-org846c2d1" class="outline-4">
+<h4 id="org846c2d1"><span class="section-number-4">8.3.1.</span> 1NF</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <ul class="org-ul">
 <li>It stands for <b>first normal form</b>.</li>
@@ -2766,8 +2766,8 @@ becomes
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf2d9820" class="outline-4">
-<h4 id="orgf2d9820"><span class="section-number-4">8.3.2.</span> 2NF</h4>
+<div id="outline-container-org81e980a" class="outline-4">
+<h4 id="org81e980a"><span class="section-number-4">8.3.2.</span> 2NF</h4>
 <div class="outline-text-4" id="text-8-3-2">
 <ul class="org-ul">
 <li>The rule of 2nd normal form is that it must already be in <b>1NF</b>, and <b>every
@@ -2860,8 +2860,8 @@ the name of the student doesn&rsquo;t depend on what course he/she takes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org203f980" class="outline-4">
-<h4 id="org203f980"><span class="section-number-4">8.3.3.</span> 3NF</h4>
+<div id="outline-container-org4185d9d" class="outline-4">
+<h4 id="org4185d9d"><span class="section-number-4">8.3.3.</span> 3NF</h4>
 <div class="outline-text-4" id="text-8-3-3">
 <ul class="org-ul">
 <li>It must already be in <b>2NF</b>, and there should be no <b>transitive dependency</b>.</li>
@@ -2927,8 +2927,8 @@ dependencies exist.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1296430" class="outline-4">
-<h4 id="org1296430"><span class="section-number-4">8.3.4.</span> BCNF</h4>
+<div id="outline-container-org58485ba" class="outline-4">
+<h4 id="org58485ba"><span class="section-number-4">8.3.4.</span> BCNF</h4>
 <div class="outline-text-4" id="text-8-3-4">
 <ul class="org-ul">
 <li>It must be in <b>3NF</b>, and for every functional dependency \(X \rightarrow Y\), \(X\) must be a
@@ -2938,24 +2938,24 @@ superkey.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge5827c7" class="outline-2">
-<h2 id="orge5827c7"><span class="section-number-2">9.</span> Transactions</h2>
+<div id="outline-container-orga85a14e" class="outline-2">
+<h2 id="orga85a14e"><span class="section-number-2">9.</span> Transactions</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>A transaction is a logical unit of work that involves one or more database
 operations.</li>
 </ul>
 </div>
-<div id="outline-container-org1cc7ce9" class="outline-3">
-<h3 id="org1cc7ce9"><span class="section-number-3">9.1.</span> Transaction Processing</h3>
+<div id="outline-container-orgbfb99a7" class="outline-3">
+<h3 id="orgbfb99a7"><span class="section-number-3">9.1.</span> Transaction Processing (ACID)</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Ensures that DBMS operations happen as one single indivisible unit with the
 help of ACID properties</li>
 </ul>
 </div>
-<div id="outline-container-orgcc0a4f6" class="outline-4">
-<h4 id="orgcc0a4f6"><span class="section-number-4">9.1.1.</span> Atomicity</h4>
+<div id="outline-container-org06d0b8d" class="outline-4">
+<h4 id="org06d0b8d"><span class="section-number-4">9.1.1.</span> Atomicity</h4>
 <div class="outline-text-4" id="text-9-1-1">
 <ul class="org-ul">
 <li>Transaction either completely finishes, or doesn&rsquo;t happen at all. There&rsquo;s no
@@ -2963,8 +2963,8 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org13292c0" class="outline-4">
-<h4 id="org13292c0"><span class="section-number-4">9.1.2.</span> Consistency</h4>
+<div id="outline-container-orgeb3c8ef" class="outline-4">
+<h4 id="orgeb3c8ef"><span class="section-number-4">9.1.2.</span> Consistency</h4>
 <div class="outline-text-4" id="text-9-1-2">
 <ul class="org-ul">
 <li>Changes must reflect everywhere.</li>
@@ -2972,16 +2972,16 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d6642a" class="outline-4">
-<h4 id="org9d6642a"><span class="section-number-4">9.1.3.</span> Isolation</h4>
+<div id="outline-container-org2a444df" class="outline-4">
+<h4 id="org2a444df"><span class="section-number-4">9.1.3.</span> Isolation</h4>
 <div class="outline-text-4" id="text-9-1-3">
 <ul class="org-ul">
 <li>Two transactions shouldn&rsquo;t interfere with each other</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7868f4" class="outline-4">
-<h4 id="orgd7868f4"><span class="section-number-4">9.1.4.</span> Durability</h4>
+<div id="outline-container-orgf3104e2" class="outline-4">
+<h4 id="orgf3104e2"><span class="section-number-4">9.1.4.</span> Durability</h4>
 <div class="outline-text-4" id="text-9-1-4">
 <ul class="org-ul">
 <li>Transactions must be permanent.</li>
@@ -2989,23 +2989,23 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org13aa146" class="outline-3">
-<h3 id="org13aa146"><span class="section-number-3">9.2.</span> How to manage Transactions</h3>
+<div id="outline-container-org744d277" class="outline-3">
+<h3 id="org744d277"><span class="section-number-3">9.2.</span> How to manage Transactions</h3>
 <div class="outline-text-3" id="text-9-2">
 </div>
-<div id="outline-container-org2785100" class="outline-4">
-<h4 id="org2785100"><span class="section-number-4">9.2.1.</span> Logging and Recovery</h4>
+<div id="outline-container-orgf175d2a" class="outline-4">
+<h4 id="orgf175d2a"><span class="section-number-4">9.2.1.</span> Logging and Recovery</h4>
 </div>
-<div id="outline-container-orga3f583b" class="outline-4">
-<h4 id="orga3f583b"><span class="section-number-4">9.2.2.</span> Concurrency Control</h4>
+<div id="outline-container-org7fc68bb" class="outline-4">
+<h4 id="org7fc68bb"><span class="section-number-4">9.2.2.</span> Concurrency Control</h4>
 <div class="outline-text-4" id="text-9-2-2">
 <ul class="org-ul">
 <li>Locking</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeebab3b" class="outline-4">
-<h4 id="orgeebab3b"><span class="section-number-4">9.2.3.</span> Transaction Boundaries</h4>
+<div id="outline-container-orgd5984b2" class="outline-4">
+<h4 id="orgd5984b2"><span class="section-number-4">9.2.3.</span> Transaction Boundaries</h4>
 <div class="outline-text-4" id="text-9-2-3">
 <ul class="org-ul">
 <li>Where it started</li>
@@ -3015,8 +3015,8 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org3f4144f" class="outline-3">
-<h3 id="org3f4144f"><span class="section-number-3">9.3.</span> Simple Model of a Database</h3>
+<div id="outline-container-orgd54b062" class="outline-3">
+<h3 id="orgd54b062"><span class="section-number-3">9.3.</span> Simple Model of a Database</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>A database is a collection of named data items</li>
@@ -3029,12 +3029,12 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </ul>
 </div>
 </div>
-<div id="outline-container-org74a8116" class="outline-3">
-<h3 id="org74a8116"><span class="section-number-3">9.4.</span> Read and Write Operations</h3>
+<div id="outline-container-org188afd0" class="outline-3">
+<h3 id="org188afd0"><span class="section-number-3">9.4.</span> Read and Write Operations</h3>
 <div class="outline-text-3" id="text-9-4">
 </div>
-<div id="outline-container-org2f33055" class="outline-4">
-<h4 id="org2f33055"><span class="section-number-4">9.4.1.</span> Read</h4>
+<div id="outline-container-org939b424" class="outline-4">
+<h4 id="org939b424"><span class="section-number-4">9.4.1.</span> Read</h4>
 <div class="outline-text-4" id="text-9-4-1">
 <ul class="org-ul">
 <li>locate in disk</li>
@@ -3043,8 +3043,8 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </ul>
 </div>
 </div>
-<div id="outline-container-org467c6d8" class="outline-4">
-<h4 id="org467c6d8"><span class="section-number-4">9.4.2.</span> Write</h4>
+<div id="outline-container-org51d6ca5" class="outline-4">
+<h4 id="org51d6ca5"><span class="section-number-4">9.4.2.</span> Write</h4>
 <div class="outline-text-4" id="text-9-4-2">
 <ul class="org-ul">
 <li>locate in disk</li>
@@ -3055,8 +3055,8 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </div>
 </div>
 </div>
-<div id="outline-container-orgd7ec979" class="outline-3">
-<h3 id="orgd7ec979"><span class="section-number-3">9.5.</span> Recovery Manager</h3>
+<div id="outline-container-org965db52" class="outline-3">
+<h3 id="org965db52"><span class="section-number-3">9.5.</span> Recovery Manager</h3>
 <div class="outline-text-3" id="text-9-5">
 <ul class="org-ul">
 <li>It takes care of the below transactions by logging. The syntax given, is
@@ -3078,16 +3078,16 @@ disk, should be written to the disk.</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org8e0c49a" class="outline-4">
-<h4 id="org8e0c49a"><span class="section-number-4">9.5.1.</span> begin<sub>transaction</sub></h4>
+<div id="outline-container-org16f7f75" class="outline-4">
+<h4 id="org16f7f75"><span class="section-number-4">9.5.1.</span> begin<sub>transaction</sub></h4>
 <div class="outline-text-4" id="text-9-5-1">
 <ul class="org-ul">
 <li><code>[start_transaction, T]</code>: Transaction <code>T</code> started.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org33cb949" class="outline-4">
-<h4 id="org33cb949"><span class="section-number-4">9.5.2.</span> read/write</h4>
+<div id="outline-container-org7582a31" class="outline-4">
+<h4 id="org7582a31"><span class="section-number-4">9.5.2.</span> read/write</h4>
 <div class="outline-text-4" id="text-9-5-2">
 <ul class="org-ul">
 <li><code>[read_item, T, x]</code>: Transaction <code>T</code> read the value of variable <code>x</code></li>
@@ -3096,8 +3096,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org268e0e9" class="outline-4">
-<h4 id="org268e0e9"><span class="section-number-4">9.5.3.</span> commit</h4>
+<div id="outline-container-org1d35536" class="outline-4">
+<h4 id="org1d35536"><span class="section-number-4">9.5.3.</span> commit</h4>
 <div class="outline-text-4" id="text-9-5-3">
 <ul class="org-ul">
 <li><code>[commit, T]</code>: Transaction <code>T</code> has committed.</li>
@@ -3109,8 +3109,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5ea370b" class="outline-4">
-<h4 id="org5ea370b"><span class="section-number-4">9.5.4.</span> rollback</h4>
+<div id="outline-container-org329016b" class="outline-4">
+<h4 id="org329016b"><span class="section-number-4">9.5.4.</span> rollback</h4>
 <div class="outline-text-4" id="text-9-5-4">
 <ul class="org-ul">
 <li>Undo is for single operation, rollback is for all operations</li>
@@ -3118,8 +3118,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org109f2d8" class="outline-4">
-<h4 id="org109f2d8"><span class="section-number-4">9.5.5.</span> redo</h4>
+<div id="outline-container-org952b9a6" class="outline-4">
+<h4 id="org952b9a6"><span class="section-number-4">9.5.5.</span> redo</h4>
 <div class="outline-text-4" id="text-9-5-5">
 <ul class="org-ul">
 <li>Repeat if you&rsquo;re not sure something has happened</li>
@@ -3127,12 +3127,12 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org83afdaf" class="outline-4">
-<h4 id="org83afdaf"><span class="section-number-4">9.5.6.</span> end<sub>transaction</sub></h4>
+<div id="outline-container-org7140634" class="outline-4">
+<h4 id="org7140634"><span class="section-number-4">9.5.6.</span> end<sub>transaction</sub></h4>
 </div>
 </div>
-<div id="outline-container-org5791ffd" class="outline-3">
-<h3 id="org5791ffd"><span class="section-number-3">9.6.</span> Why Concurrent Executions</h3>
+<div id="outline-container-orgdb13bab" class="outline-3">
+<h3 id="orgdb13bab"><span class="section-number-3">9.6.</span> Why Concurrent Executions</h3>
 <div class="outline-text-3" id="text-9-6">
 <ul class="org-ul">
 <li>Better use of processor and disk</li>
@@ -3140,20 +3140,20 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org68e35ef" class="outline-3">
-<h3 id="org68e35ef"><span class="section-number-3">9.7.</span> Concurrency Control Schemes</h3>
+<div id="outline-container-orga6644fa" class="outline-3">
+<h3 id="orga6644fa"><span class="section-number-3">9.7.</span> Concurrency Control Schemes</h3>
 <div class="outline-text-3" id="text-9-7">
 <p>
 Mechanisms to achieve isolation.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb410b70" class="outline-3">
-<h3 id="orgb410b70"><span class="section-number-3">9.8.</span> Issues</h3>
+<div id="outline-container-org01fab70" class="outline-3">
+<h3 id="org01fab70"><span class="section-number-3">9.8.</span> Issues</h3>
 <div class="outline-text-3" id="text-9-8">
 </div>
-<div id="outline-container-orgef9e150" class="outline-4">
-<h4 id="orgef9e150"><span class="section-number-4">9.8.1.</span> Lost Update (write-write)</h4>
+<div id="outline-container-orgfe95539" class="outline-4">
+<h4 id="orgfe95539"><span class="section-number-4">9.8.1.</span> Lost Update (write-write)</h4>
 <div class="outline-text-4" id="text-9-8-1">
 <ul class="org-ul">
 <li>Transactions are typically read &rarr; update &rarr; write</li>
@@ -3222,8 +3222,8 @@ Mechanisms to achieve isolation.
 </ul>
 </div>
 </div>
-<div id="outline-container-org9f95ad0" class="outline-4">
-<h4 id="org9f95ad0"><span class="section-number-4">9.8.2.</span> Dirty Read (write-read on uncommitted data)</h4>
+<div id="outline-container-orged3012d" class="outline-4">
+<h4 id="orged3012d"><span class="section-number-4">9.8.2.</span> Dirty Read (write-read on uncommitted data)</h4>
 <div class="outline-text-4" id="text-9-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3288,8 +3288,8 @@ Mechanisms to achieve isolation.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb246259" class="outline-4">
-<h4 id="orgb246259"><span class="section-number-4">9.8.3.</span> Unrepeatable Read (write-read on committed data)</h4>
+<div id="outline-container-orga0c46df" class="outline-4">
+<h4 id="orga0c46df"><span class="section-number-4">9.8.3.</span> Unrepeatable Read (write-read on committed data)</h4>
 <div class="outline-text-4" id="text-9-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3355,8 +3355,8 @@ its value in between.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6f94c21" class="outline-4">
-<h4 id="org6f94c21"><span class="section-number-4">9.8.4.</span> Blind Write</h4>
+<div id="outline-container-org113ee06" class="outline-4">
+<h4 id="org113ee06"><span class="section-number-4">9.8.4.</span> Blind Write</h4>
 <div class="outline-text-4" id="text-9-8-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3422,8 +3422,8 @@ its value in between.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga37dbb7" class="outline-4">
-<h4 id="orga37dbb7"><span class="section-number-4">9.8.5.</span> Phantom Read</h4>
+<div id="outline-container-org1eee8e2" class="outline-4">
+<h4 id="org1eee8e2"><span class="section-number-4">9.8.5.</span> Phantom Read</h4>
 <div class="outline-text-4" id="text-9-8-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3472,8 +3472,8 @@ its value in between.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org439a87e" class="outline-2">
-<h2 id="org439a87e"><span class="section-number-2">10.</span> Schedule</h2>
+<div id="outline-container-orgd5f17b2" class="outline-2">
+<h2 id="orgd5f17b2"><span class="section-number-2">10.</span> Schedule</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Transactions can happen interleavingly, or parallely.</li>
@@ -3481,12 +3481,12 @@ its value in between.</li>
 happening is called a <b>transaction schedule</b>.</li>
 </ul>
 </div>
-<div id="outline-container-orga68f7c0" class="outline-3">
-<h3 id="orga68f7c0"><span class="section-number-3">10.1.</span> Why are Schedules Important</h3>
+<div id="outline-container-orga278bcb" class="outline-3">
+<h3 id="orga278bcb"><span class="section-number-3">10.1.</span> Why are Schedules Important</h3>
 <div class="outline-text-3" id="text-10-1">
 </div>
-<div id="outline-container-orgfbea8d1" class="outline-4">
-<h4 id="orgfbea8d1"><span class="section-number-4">10.1.1.</span> Concurrency</h4>
+<div id="outline-container-org518eb10" class="outline-4">
+<h4 id="org518eb10"><span class="section-number-4">10.1.1.</span> Concurrency</h4>
 <div class="outline-text-4" id="text-10-1-1">
 <ul class="org-ul">
 <li>This is the property in which transactions happen interleavingly, giving the
@@ -3494,8 +3494,8 @@ illusion of simultaneous execution.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgca759f2" class="outline-4">
-<h4 id="orgca759f2"><span class="section-number-4">10.1.2.</span> Consistency</h4>
+<div id="outline-container-orgfe7048e" class="outline-4">
+<h4 id="orgfe7048e"><span class="section-number-4">10.1.2.</span> Consistency</h4>
 <div class="outline-text-4" id="text-10-1-2">
 <ul class="org-ul">
 <li>When the chronological order of operations is well-defined, there is no scope
@@ -3503,8 +3503,8 @@ for data loss or inconsistency.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f7aa4b" class="outline-4">
-<h4 id="org4f7aa4b"><span class="section-number-4">10.1.3.</span> Integrity</h4>
+<div id="outline-container-orgf18feb9" class="outline-4">
+<h4 id="orgf18feb9"><span class="section-number-4">10.1.3.</span> Integrity</h4>
 <div class="outline-text-4" id="text-10-1-3">
 <ul class="org-ul">
 <li>Transactions should happen reliably.</li>
@@ -3512,8 +3512,8 @@ for data loss or inconsistency.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org901659c" class="outline-3">
-<h3 id="org901659c"><span class="section-number-3">10.2.</span> Number of Schedules you can make, given a certain number of transactions</h3>
+<div id="outline-container-org0fb14f4" class="outline-3">
+<h3 id="org0fb14f4"><span class="section-number-3">10.2.</span> Number of Schedules you can make, given a certain number of transactions</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>A transaction is a logical unit of work that involves one or more database
@@ -3523,8 +3523,8 @@ database operations.</li>
 <li>Each arrangement of those database operations, is one schedule.</li>
 </ul>
 </div>
-<div id="outline-container-orgda96fcf" class="outline-4">
-<h4 id="orgda96fcf"><span class="section-number-4">10.2.1.</span> If there are 2 transactions</h4>
+<div id="outline-container-org575428b" class="outline-4">
+<h4 id="org575428b"><span class="section-number-4">10.2.1.</span> If there are 2 transactions</h4>
 <div class="outline-text-4" id="text-10-2-1">
 <ul class="org-ul">
 <li>Say T1 has \(m\) operations and T2 has \(n\) operations.</li>
@@ -3535,8 +3535,8 @@ positions of other transactions are automatically there for you.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7562dae" class="outline-4">
-<h4 id="org7562dae"><span class="section-number-4">10.2.2.</span> For more than 2 transactions</h4>
+<div id="outline-container-orgdfa48f4" class="outline-4">
+<h4 id="orgdfa48f4"><span class="section-number-4">10.2.2.</span> For more than 2 transactions</h4>
 <div class="outline-text-4" id="text-10-2-2">
 <p>
 \[\frac{(m+n+o+p+q+..)!}{m!n!o!p!q!...}\]
@@ -3545,12 +3545,12 @@ This is the multinomial coefficient.
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb0e3c7" class="outline-3">
-<h3 id="orgcb0e3c7"><span class="section-number-3">10.3.</span> Types of Schedules</h3>
+<div id="outline-container-orgefcc6f5" class="outline-3">
+<h3 id="orgefcc6f5"><span class="section-number-3">10.3.</span> Types of Schedules</h3>
 <div class="outline-text-3" id="text-10-3">
 </div>
-<div id="outline-container-orgf84fc0d" class="outline-4">
-<h4 id="orgf84fc0d"><span class="section-number-4">10.3.1.</span> Serial Schedules</h4>
+<div id="outline-container-orgd8f1c13" class="outline-4">
+<h4 id="orgd8f1c13"><span class="section-number-4">10.3.1.</span> Serial Schedules</h4>
 <div class="outline-text-4" id="text-10-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3629,8 +3629,8 @@ happening is \(N!\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge972a6e" class="outline-4">
-<h4 id="orge972a6e"><span class="section-number-4">10.3.2.</span> Non Serial Schedules</h4>
+<div id="outline-container-org85c1c4b" class="outline-4">
+<h4 id="org85c1c4b"><span class="section-number-4">10.3.2.</span> Non Serial Schedules</h4>
 <div class="outline-text-4" id="text-10-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3707,8 +3707,8 @@ happening is \(N!\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e4ead9" class="outline-4">
-<h4 id="org7e4ead9"><span class="section-number-4">10.3.3.</span> Serializable Schedule</h4>
+<div id="outline-container-orgbccf5f7" class="outline-4">
+<h4 id="orgbccf5f7"><span class="section-number-4">10.3.3.</span> Serializable Schedule</h4>
 <div class="outline-text-4" id="text-10-3-3">
 <ul class="org-ul">
 <li>If a non-serial schedule can be converted into a serial schedule, then it&rsquo;s
@@ -3716,7 +3716,7 @@ called a serializable schedule.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org2cb69c5"></a>Conflicting Operations<br />
+<li><a id="org6353328"></a>Conflicting Operations<br />
 <div class="outline-text-5" id="text-10-3-3-1">
 <ul class="org-ul">
 <li>Two operations from different transactions, conflict when
@@ -3729,7 +3729,7 @@ they both just read.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4c3dd7d"></a>How to Check Conflict Serializability<br />
+<li><a id="org6ab2597"></a>How to Check Conflict Serializability<br />
 <div class="outline-text-5" id="text-10-3-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3822,7 +3822,7 @@ at <code>(6,1)</code>.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgef0e038"></a>Finding Serialized Schedules<br />
+<li><a id="org9ffdf6a"></a>Finding Serialized Schedules<br />
 <div class="outline-text-5" id="text-10-3-3-3">
 <ul class="org-ul">
 <li>The edges (ordering constraints), tell us which transaction should come first.</li>
@@ -3838,7 +3838,7 @@ nodes (preferably the nodes with more outgoing edges).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgff47b6e"></a>View Serializability<br />
+<li><a id="org3279f9c"></a>View Serializability<br />
 <div class="outline-text-5" id="text-10-3-3-4">
 <ul class="org-ul">
 <li>This means that even if transactions run concurrently, the results will be the
@@ -3846,10 +3846,10 @@ same as if they ran serially.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org3e3d3dd"></a>Method 1 for checking view serializability of a schedule<br />
+<li><a id="orgf4e414b"></a>Method 1 for checking view serializability of a schedule<br />
 <ol class="org-ol">
-<li><a id="org671055a"></a>First make a serial version of the schedule T1, called T2<br /></li>
-<li><a id="org654039d"></a>Now check for the following rules for view equivalent<br />
+<li><a id="org11cf0ba"></a>First make a serial version of the schedule T1, called T2<br /></li>
+<li><a id="orge847464"></a>Now check for the following rules for view equivalent<br />
 <div class="outline-text-7" id="text-10-3-3-4-1-2">
 <ol class="org-ol">
 <li><b>Initial Read:</b> In both the schedules, it must be the same transaction making the first read.</li>
@@ -3863,9 +3863,9 @@ write.</li>
 </li>
 </ol>
 </li>
-<li><a id="org573110b"></a>Method 2 for checking view serializability of a schedule<br />
+<li><a id="org66ddde0"></a>Method 2 for checking view serializability of a schedule<br />
 <ol class="org-ol">
-<li><a id="org8bffea0"></a>Check for Conflict Serializability<br />
+<li><a id="org289cccf"></a>Check for Conflict Serializability<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-1">
 <ul class="org-ul">
 <li>If two schedules are conflict serializable, then they&rsquo;re view serializable for sure.</li>
@@ -3875,7 +3875,7 @@ You&rsquo;ll have to use other ways to find out.</li>
 </ul>
 </div>
 </li>
-<li><a id="org318d273"></a>Check for the lack of blind write (to eliminate)<br />
+<li><a id="org4471cc8"></a>Check for the lack of blind write (to eliminate)<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-2">
 <ul class="org-ul">
 <li>The <b>lack of blind write</b> means <b>no view serializability</b>.</li>
@@ -3885,7 +3885,7 @@ for sure.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgddc04a6"></a>Make a dependency graph and check for a cycle (to eliminate)<br />
+<li><a id="orgc83e797"></a>Make a dependency graph and check for a cycle (to eliminate)<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-3">
 <ul class="org-ul">
 <li>If transaction T1 reads a value, and transaction T2 writes that value, then
@@ -3903,12 +3903,12 @@ make an edge T1 &rarr; T2 (T1 should happen before T2).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org5c62ae9" class="outline-4">
-<h4 id="org5c62ae9"><span class="section-number-4">10.3.4.</span> Non-Serializable Schedules</h4>
+<div id="outline-container-org57e09c0" class="outline-4">
+<h4 id="org57e09c0"><span class="section-number-4">10.3.4.</span> Non-Serializable Schedules</h4>
 <div class="outline-text-4" id="text-10-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org5aa97eb"></a>Recoverable Schedule<br />
+<li><a id="org4f18101"></a>Recoverable Schedule<br />
 <div class="outline-text-5" id="text-10-3-4-1">
 <ul class="org-ul">
 <li><p>
@@ -3959,7 +3959,7 @@ have to use other ways.</li>
 </ul>
 </div>
 </li>
-<li><a id="org433ffec"></a>Irrecoverable Schedule<br />
+<li><a id="org0ec353c"></a>Irrecoverable Schedule<br />
 <div class="outline-text-5" id="text-10-3-4-2">
 <ul class="org-ul">
 <li><p>
@@ -4006,9 +4006,9 @@ commits, then it&rsquo;s a irrecoverable schedule.
 </ul>
 </div>
 </li>
-<li><a id="org1423031"></a>Types of Recoverable Schedules<br />
+<li><a id="org2d52bab"></a>Types of Recoverable Schedules<br />
 <ol class="org-ol">
-<li><a id="org36d140f"></a>Cascadeless Schedule<br />
+<li><a id="org75c7623"></a>Cascadeless Schedule<br />
 <div class="outline-text-6" id="text-10-3-4-3-1">
 <ul class="org-ul">
 <li>Before understanding what cascadeless schedules are, we must know what a
@@ -4075,7 +4075,7 @@ happen after a commit.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7998943"></a>Strict Schedule<br />
+<li><a id="org0a34bce"></a>Strict Schedule<br />
 <div class="outline-text-6" id="text-10-3-4-3-2">
 <ul class="org-ul">
 <li><p>
@@ -4123,12 +4123,12 @@ write too.
 </li>
 </ol>
 </div>
-<div id="outline-container-org263eace" class="outline-4">
-<h4 id="org263eace"><span class="section-number-4">10.3.5.</span> Equivalence of Schedules</h4>
+<div id="outline-container-orgd1c57ef" class="outline-4">
+<h4 id="orgd1c57ef"><span class="section-number-4">10.3.5.</span> Equivalence of Schedules</h4>
 <div class="outline-text-4" id="text-10-3-5">
 </div>
 <ol class="org-ol">
-<li><a id="org180c33a"></a>Result Equivalence<br />
+<li><a id="org4c64f5a"></a>Result Equivalence<br />
 <div class="outline-text-5" id="text-10-3-5-1">
 <ul class="org-ul">
 <li>If two schedules generate the same result after execution, they&rsquo;re result
@@ -4136,7 +4136,7 @@ equivalent.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc3b4893"></a>Conflict Equivalence<br />
+<li><a id="orgcba1836"></a>Conflict Equivalence<br />
 <div class="outline-text-5" id="text-10-3-5-2">
 <ul class="org-ul">
 <li>Two schedules are conflict equivalent if:
@@ -4150,12 +4150,12 @@ equivalent.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org9132e67" class="outline-3">
-<h3 id="org9132e67"><span class="section-number-3">10.4.</span> Concurrency Control</h3>
+<div id="outline-container-orgf9cd2e2" class="outline-3">
+<h3 id="orgf9cd2e2"><span class="section-number-3">10.4.</span> Concurrency Control</h3>
 <div class="outline-text-3" id="text-10-4">
 </div>
-<div id="outline-container-orgffe4da3" class="outline-4">
-<h4 id="orgffe4da3"><span class="section-number-4">10.4.1.</span> Lock Based Concurrency Control</h4>
+<div id="outline-container-org0c15ca0" class="outline-4">
+<h4 id="org0c15ca0"><span class="section-number-4">10.4.1.</span> Lock Based Concurrency Control</h4>
 <div class="outline-text-4" id="text-10-4-1">
 <p>
 A lock is a variable that is assigned to a data item, to ensure <b>isolation</b> and
@@ -4163,7 +4163,7 @@ A lock is a variable that is assigned to a data item, to ensure <b>isolation</b>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org412d618"></a>Binary Locks<br />
+<li><a id="org53e405c"></a>Binary Locks<br />
 <div class="outline-text-5" id="text-10-4-1-1">
 <ul class="org-ul">
 <li>The lock variable has only two values: 1 for locked, 0 for unlocked.</li>
@@ -4173,7 +4173,7 @@ operations are reads. This is a disadvantage.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga10208e"></a>Shared/Exclusive Locks<br />
+<li><a id="orge0d40b3"></a>Shared/Exclusive Locks<br />
 <div class="outline-text-5" id="text-10-4-1-2">
 <ul class="org-ul">
 <li>This lock recognizes that read-read is no conflict, and introduces the concept
@@ -4182,7 +4182,7 @@ of multi-mode locking.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org961ee7d"></a>S-Lock<br />
+<li><a id="orga0f1027"></a>S-Lock<br />
 <div class="outline-text-6" id="text-10-4-1-2-1">
 <ul class="org-ul">
 <li>This is the read-lock/shared lock.</li>
@@ -4219,7 +4219,7 @@ Algorithm for locking:
 </ul>
 </div>
 </li>
-<li><a id="orgd6a9ce0"></a>X-Lock<br />
+<li><a id="orgb2861bc"></a>X-Lock<br />
 <div class="outline-text-6" id="text-10-4-1-2-2">
 <ul class="org-ul">
 <li>This is the write-lock/exclusive lock.</li>
@@ -4250,7 +4250,7 @@ Algorithm:
 </ul>
 </div>
 </li>
-<li><a id="orgb62e431"></a>Unlocked<br />
+<li><a id="orgcd4145f"></a>Unlocked<br />
 <div class="outline-text-6" id="text-10-4-1-2-3">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #c678dd;">U</span>(A)  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction releases lock on A
@@ -4277,7 +4277,7 @@ Algorithm:
 </li>
 </ol>
 </li>
-<li><a id="orga1d9186"></a>2 Phase Locks<br />
+<li><a id="org5de65d9"></a>2 Phase Locks<br />
 <div class="outline-text-5" id="text-10-4-1-3">
 <ul class="org-ul">
 <li>Traditional locks don&rsquo;t guarantee serializability.</li>
@@ -4518,14 +4518,14 @@ Without 2PL:
 </table>
 </div>
 </li>
-<li><a id="orgded3668"></a>Strict 2PL<br />
+<li><a id="orgeb47a71"></a>Strict 2PL<br />
 <div class="outline-text-5" id="text-10-4-1-4">
 <p>
 Exclusive locks are not released until a commit or abort happens.
 </p>
 </div>
 </li>
-<li><a id="org54eea44"></a>Rigorous 2PM<br />
+<li><a id="orgc03436f"></a>Rigorous 2PM<br />
 <div class="outline-text-5" id="text-10-4-1-5">
 <ul class="org-ul">
 <li>ALL locks are not released until a commit or abort happens.</li>
@@ -4533,7 +4533,7 @@ Exclusive locks are not released until a commit or abort happens.
 </ul>
 </div>
 </li>
-<li><a id="orgdc92f54"></a>Timestamp Ordering Protocol<br />
+<li><a id="orgc1a2265"></a>Timestamp Ordering Protocol<br />
 <div class="outline-text-5" id="text-10-4-1-6">
 <ul class="org-ul">
 <li>Prioritize based on arrival time. A smaller time stamp means that the
@@ -4547,7 +4547,7 @@ operation is older, and hence it gets more priority.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org3961efb"></a>Transaction Ti reading X<br />
+<li><a id="org565d903"></a>Transaction Ti reading X<br />
 <div class="outline-text-6" id="text-10-4-1-6-1">
 <p>
 First a value should be written. Then a later transaction should be allowed to read it.
@@ -4567,7 +4567,7 @@ First a value should be written. Then a later transaction should be allowed to r
 </div>
 </div>
 </li>
-<li><a id="org2ce400b"></a>Transaction Ti writing X<br />
+<li><a id="org37985c5"></a>Transaction Ti writing X<br />
 <div class="outline-text-6" id="text-10-4-1-6-2">
 <p>
 Older transactions can&rsquo;t write on values being read/written in the future.
@@ -4594,9 +4594,9 @@ Older transactions can&rsquo;t write on values being read/written in the future.
 </li>
 </ol>
 </li>
-<li><a id="org991591b"></a>Deadlocks<br />
+<li><a id="orgd77f6ce"></a>Deadlocks<br />
 <ol class="org-ol">
-<li><a id="org08d1f50"></a>Wait-Die<br />
+<li><a id="orgdc11c83"></a>Wait-Die<br />
 <div class="outline-text-6" id="text-10-4-1-7-1">
 <ul class="org-ul">
 <li>If the older transaction requests a lock held by the younger one, the older
@@ -4607,7 +4607,7 @@ it&rsquo;s just being teleported into the future).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgdea9f6d"></a>Wound-Wait<br />
+<li><a id="org81ef551"></a>Wound-Wait<br />
 <div class="outline-text-6" id="text-10-4-1-7-2">
 <ul class="org-ul">
 <li>If the older transaction requests a lock held by the younger one, the younger
@@ -4624,12 +4624,12 @@ one waits (it keeps aging).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1a16f64" class="outline-2">
-<h2 id="org1a16f64"><span class="section-number-2">11.</span> Storage Structure</h2>
+<div id="outline-container-orgc79d489" class="outline-2">
+<h2 id="orgc79d489"><span class="section-number-2">11.</span> Storage Structure</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-org40bc945" class="outline-3">
-<h3 id="org40bc945"><span class="section-number-3">11.1.</span> Sequential</h3>
+<div id="outline-container-org109bacf" class="outline-3">
+<h3 id="org109bacf"><span class="section-number-3">11.1.</span> Sequential</h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li>Like Linked List</li>
@@ -4638,8 +4638,8 @@ one waits (it keeps aging).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1134a35" class="outline-3">
-<h3 id="org1134a35"><span class="section-number-3">11.2.</span> Heap</h3>
+<div id="outline-container-orgb5a3799" class="outline-3">
+<h3 id="orgb5a3799"><span class="section-number-3">11.2.</span> Heap</h3>
 <div class="outline-text-3" id="text-11-2">
 <ul class="org-ul">
 <li>Random but fast insertion</li>
@@ -4647,8 +4647,8 @@ one waits (it keeps aging).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org180237f" class="outline-3">
-<h3 id="org180237f"><span class="section-number-3">11.3.</span> Clustered</h3>
+<div id="outline-container-org297b411" class="outline-3">
+<h3 id="org297b411"><span class="section-number-3">11.3.</span> Clustered</h3>
 <div class="outline-text-3" id="text-11-3">
 <ul class="org-ul">
 <li>Related things are grouped together</li>
@@ -4661,8 +4661,8 @@ attributes</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org44a5bc7" class="outline-3">
-<h3 id="org44a5bc7"><span class="section-number-3">11.4.</span> B+ Trees</h3>
+<div id="outline-container-orgfd8b665" class="outline-3">
+<h3 id="orgfd8b665"><span class="section-number-3">11.4.</span> B+ Trees</h3>
 <div class="outline-text-3" id="text-11-4">
 <ul class="org-ul">
 <li>It&rsquo;s a self-balancing tree</li>
@@ -4672,8 +4672,8 @@ attributes</li>
 supported.</li>
 </ul>
 </div>
-<div id="outline-container-org25eae08" class="outline-4">
-<h4 id="org25eae08"><span class="section-number-4">11.4.1.</span> Order of B+ tree</h4>
+<div id="outline-container-org1f9fae4" class="outline-4">
+<h4 id="org1f9fae4"><span class="section-number-4">11.4.1.</span> Order of B+ tree</h4>
 <div class="outline-text-4" id="text-11-4-1">
 <ul class="org-ul">
 <li>Order is the Max number of children</li>
@@ -4685,8 +4685,8 @@ child. A copy of the smallest element of the right child becomes the parent.</li
 </div>
 </div>
 </div>
-<div id="outline-container-org522e8af" class="outline-3">
-<h3 id="org522e8af"><span class="section-number-3">11.5.</span> Hashing</h3>
+<div id="outline-container-org7072abb" class="outline-3">
+<h3 id="org7072abb"><span class="section-number-3">11.5.</span> Hashing</h3>
 <div class="outline-text-3" id="text-11-5">
 <ul class="org-ul">
 <li>Concept of Buckets</li>
