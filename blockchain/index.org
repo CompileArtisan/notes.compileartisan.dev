@@ -257,10 +257,38 @@ main()
 
 *** Based on Number of Keys
 
-| Asymmetric Cryptography                                                                      | Symmetric Cryptography |
-|----------------------------------------------------------------------------------------------+------------------------|
-| Receiver's public key used for encryption, and receiver's private key is used for decryption |                        |
+| Asymmetric Cryptography                                                                      | Symmetric Cryptography                                     |
+|----------------------------------------------------------------------------------------------+------------------------------------------------------------|
+| Receiver's public key used for encryption, and receiver's private key is used for decryption | A common private key is used for encryption and decryption |
+| It is also known as public key cryptography                                                  | It is also known as private key cryptography               |
 
+
+**** RSA (Rivest Shamir Adelman) Algorithm
+- This is the model widely used Public Key Cryptography (PKC).
+- To encrypt a message there is no need to exchange a secret key separately.
+
+***** Key Generation
+- Select $p$, $q$, where $p$ and $q$ are prime.
+- Calculate $n = p \times q$
+- Select integer $e$, such that $\text{gcd}(\phi(n), e) = 1; 1 < e < \phi(n)$
+- Calculate $d = e^{-1}\mod(\phi(n))$
+- Public Key $\text{KU} = {e,n}$
+- Private Key $\text{KR} = {d,n}$
+
+
+***** Encryption (through an example)
+- $p=3$, $q=11$
+- $n=p \times q = 3 \times 11 = 33$
+- $\phi(n) = \phi(33) = \phi(3 \times 11) = 2 \times 10 = 20$
+  - Verification of \phi(33): $Z_{33}^{*}$ = (all the numbers from 1 to 33, coprime with
+    $33$) = [1,2,4,5,7,8,10,13,14,16,17,19,20,23,25,26,28,29,31,32]
+- Consider $e=7$ (because it satisifies the GCD criteria):
+- $d = e^{-1} \mod(20)$
+  - $d = 7^{-1} \mod(20)$
+  
+  | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
+  |-----+-----+-----+-----+------+------+-----|
+  |   0 |   7 |  20 |   6 |    1 |    0 |   1 |
 ** Blockchain Address
 - A blockchain address is derived from the public key using hash functions.
 - The flow is

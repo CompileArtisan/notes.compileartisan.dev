@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-07-15 Wed 11:34 -->
+<!-- 2026-08-03 Mon 11:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Software Engineering</title>
@@ -235,6 +235,39 @@ margin: 0 0 1rem;
 color: #2a2a2a;
 }
 
+/* ─── Block Quotes ─────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: 1rem 1.5rem;
+background: #f8f8fc;
+border-left: 4px solid #4444cc;
+border-radius: 8px;
+color: #444;
+font-style: italic;
+position: relative;
+}
+blockquote::before {
+content: "❝";
+position: absolute;
+top: -8px;
+left: 12px;
+font-size: 2.8rem;
+color: #d6d6f5;
+font-family: Georgia, serif;
+line-height: 1;
+}
+blockquote p:last-child {
+margin-bottom: 0;
+}
+blockquote cite,
+blockquote footer {
+display: block;
+margin-top: 0.8rem;
+color: #777;
+font-size: 0.9em;
+font-style: normal;
+text-align: right;
+}
 a {
 color: #2222cc;
 text-decoration: none;
@@ -676,55 +709,56 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgeae831f">1. Software Engineering</a>
+<li><a href="#org1d9101b">1. Software Engineering</a>
 <ul>
-<li><a href="#org4f484fe">1.1. Introduction</a>
+<li><a href="#org2a1e5d1">1.1. Introduction</a>
 <ul>
-<li><a href="#org770d8b7">1.1.1. Fundamental Definition of Software</a></li>
-<li><a href="#org809269b">1.1.2. Types of Software Applications</a></li>
-<li><a href="#orgdf17127">1.1.3. Failure Models of Hardware and Software</a></li>
-<li><a href="#org19c8e55">1.1.4. Legacy Software</a></li>
-<li><a href="#orgc8678e4">1.1.5. Newer Categories of Software</a></li>
-<li><a href="#org0b7acdc">1.1.6. IEEE&rsquo;s Definition of Software Engineering</a></li>
-<li><a href="#org6188db1">1.1.7. Layers of technology</a></li>
+<li><a href="#org7935de6">1.1.1. Fundamental Definition of Software</a></li>
+<li><a href="#org63fff58">1.1.2. Types of Software Applications</a></li>
+<li><a href="#orgf8e8ed5">1.1.3. Failure Models of Hardware and Software</a></li>
+<li><a href="#orgab59758">1.1.4. Legacy Software</a></li>
+<li><a href="#orgd6da826">1.1.5. Newer Categories of Software</a></li>
+<li><a href="#org0ba55d9">1.1.6. IEEE&rsquo;s Definition of Software Engineering</a></li>
+<li><a href="#org9983e51">1.1.7. Layers of technology</a></li>
 </ul>
 </li>
-<li><a href="#orge074fb0">1.2. Process Models</a>
+<li><a href="#org9fedec3">1.2. Process Models</a>
 <ul>
-<li><a href="#org8b1935d">1.2.1. Prescriptive/ Traditional</a></li>
-<li><a href="#orge5847e6">1.2.2. Agile Method</a></li>
+<li><a href="#org09449e1">1.2.1. Prescriptive/ Traditional</a></li>
+<li><a href="#orge47e9f2">1.2.2. Agile Method</a></li>
 </ul>
 </li>
-<li><a href="#org271a2a2">1.3. Requirements Engineering</a>
+<li><a href="#org3d3c9ff">1.3. Requirements Engineering</a>
 <ul>
-<li><a href="#org8fb23e4">1.3.1. 7 Tasks of a Requirement Engineer</a></li>
+<li><a href="#org822dee4">1.3.1. 7 Tasks of a Requirement Engineer</a></li>
 </ul>
 </li>
-<li><a href="#orgeacd38b">1.4. Design Engineering</a>
+<li><a href="#orgf94909f">1.4. Design Engineering</a>
 <ul>
-<li><a href="#org9d6ddfa">1.4.1. McGlaughin&rsquo;s Characteristics</a></li>
-<li><a href="#org1785564">1.4.2. Functional Independence</a></li>
+<li><a href="#org27748eb">1.4.1. McGlaughin&rsquo;s Characteristics</a></li>
+<li><a href="#org6422f25">1.4.2. Functional Independence</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org6f0ecc6">2. Software Project Management</a>
+<li><a href="#org7b7a15b">2. Software Project Management</a>
 <ul>
-<li><a href="#org8744be1">2.1. Software Project vs Job</a></li>
-<li><a href="#org7cadc78">2.2. Software Project Management</a></li>
-<li><a href="#org5580e34">2.3. Defining Managment</a></li>
-<li><a href="#org82edb4e">2.4. Objectives</a></li>
+<li><a href="#orgd41956b">2.1. Software Project vs Job</a></li>
+<li><a href="#orgbf4270f">2.2. Software Project Management</a></li>
+<li><a href="#orga791327">2.3. Defining Managment</a></li>
+<li><a href="#org4648e74">2.4. Objectives</a></li>
+<li><a href="#org17672fc">2.5. Cost-Benefit Evaluation Techniques</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeae831f" class="outline-2">
-<h2 id="orgeae831f"><span class="section-number-2">1.</span> Software Engineering</h2>
+<div id="outline-container-org1d9101b" class="outline-2">
+<h2 id="org1d9101b"><span class="section-number-2">1.</span> Software Engineering</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org4f484fe" class="outline-3">
-<h3 id="org4f484fe"><span class="section-number-3">1.1.</span> Introduction</h3>
+<div id="outline-container-org2a1e5d1" class="outline-3">
+<h3 id="org2a1e5d1"><span class="section-number-3">1.1.</span> Introduction</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Software acts as both a product and a vehicle for delivering a product.
@@ -735,8 +769,8 @@ Software acts as both a product and a vehicle for delivering a product.
 System), controls other programs, or helps build new tools.</li>
 </ul>
 </div>
-<div id="outline-container-org770d8b7" class="outline-4">
-<h4 id="org770d8b7"><span class="section-number-4">1.1.1.</span> Fundamental Definition of Software</h4>
+<div id="outline-container-org7935de6" class="outline-4">
+<h4 id="org7935de6"><span class="section-number-4">1.1.1.</span> Fundamental Definition of Software</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 You can define a software as
@@ -748,8 +782,8 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-org809269b" class="outline-4">
-<h4 id="org809269b"><span class="section-number-4">1.1.2.</span> Types of Software Applications</h4>
+<div id="outline-container-org63fff58" class="outline-4">
+<h4 id="org63fff58"><span class="section-number-4">1.1.2.</span> Types of Software Applications</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li><b>System Software</b></li>
@@ -762,12 +796,12 @@ You can define a software as
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdf17127" class="outline-4">
-<h4 id="orgdf17127"><span class="section-number-4">1.1.3.</span> Failure Models of Hardware and Software</h4>
+<div id="outline-container-orgf8e8ed5" class="outline-4">
+<h4 id="orgf8e8ed5"><span class="section-number-4">1.1.3.</span> Failure Models of Hardware and Software</h4>
 <div class="outline-text-4" id="text-1-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org82a0c5d"></a>Hardware<br />
+<li><a id="org8399a0b"></a>Hardware<br />
 <div class="outline-text-5" id="text-1-1-3-1">
 <ul class="org-ul">
 <li>Hardware is a physical system element, which starts with high failure rate
@@ -781,7 +815,7 @@ that doesn&rsquo;t change the failure rate overall.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga8509d8"></a>Software<br />
+<li><a id="org2424467"></a>Software<br />
 <div class="outline-text-5" id="text-1-1-3-2">
 <ul class="org-ul">
 <li>Software can&rsquo;t wear out because it&rsquo;s a logical construct, not a physical
@@ -800,12 +834,12 @@ design or process.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org19c8e55" class="outline-4">
-<h4 id="org19c8e55"><span class="section-number-4">1.1.4.</span> Legacy Software</h4>
+<div id="outline-container-orgab59758" class="outline-4">
+<h4 id="orgab59758"><span class="section-number-4">1.1.4.</span> Legacy Software</h4>
 <div class="outline-text-4" id="text-1-1-4">
 </div>
 <ol class="org-ol">
-<li><a id="orgda6df6a"></a>What are they and why are they unchanged?<br />
+<li><a id="org349f9f7"></a>What are they and why are they unchanged?<br />
 <div class="outline-text-5" id="text-1-1-4-1">
 <ul class="org-ul">
 <li>These are software developed decades ago, but are still used because they&rsquo;re
@@ -817,7 +851,7 @@ history/documentation</b>.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgafc8883"></a>When will you need to change them?<br />
+<li><a id="orgecfb232"></a>When will you need to change them?<br />
 <div class="outline-text-5" id="text-1-1-4-2">
 <ul class="org-ul">
 <li>Software must be adapted to meet new <b>computing needs</b>.</li>
@@ -828,8 +862,8 @@ history/documentation</b>.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc8678e4" class="outline-4">
-<h4 id="orgc8678e4"><span class="section-number-4">1.1.5.</span> Newer Categories of Software</h4>
+<div id="outline-container-orgd6da826" class="outline-4">
+<h4 id="orgd6da826"><span class="section-number-4">1.1.5.</span> Newer Categories of Software</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <ul class="org-ul">
 <li><b>Ubiquitous Computing</b>: The concept of wireless networks</li>
@@ -838,8 +872,8 @@ history/documentation</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b7acdc" class="outline-4">
-<h4 id="org0b7acdc"><span class="section-number-4">1.1.6.</span> IEEE&rsquo;s Definition of Software Engineering</h4>
+<div id="outline-container-org0ba55d9" class="outline-4">
+<h4 id="org0ba55d9"><span class="section-number-4">1.1.6.</span> IEEE&rsquo;s Definition of Software Engineering</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <blockquote>
 <p>
@@ -864,8 +898,8 @@ of software.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org6188db1" class="outline-4">
-<h4 id="org6188db1"><span class="section-number-4">1.1.7.</span> Layers of technology</h4>
+<div id="outline-container-org9983e51" class="outline-4">
+<h4 id="org9983e51"><span class="section-number-4">1.1.7.</span> Layers of technology</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -915,12 +949,12 @@ outcome.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge074fb0" class="outline-3">
-<h3 id="orge074fb0"><span class="section-number-3">1.2.</span> Process Models</h3>
+<div id="outline-container-org9fedec3" class="outline-3">
+<h3 id="org9fedec3"><span class="section-number-3">1.2.</span> Process Models</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org8b1935d" class="outline-4">
-<h4 id="org8b1935d"><span class="section-number-4">1.2.1.</span> Prescriptive/ Traditional</h4>
+<div id="outline-container-org09449e1" class="outline-4">
+<h4 id="org09449e1"><span class="section-number-4">1.2.1.</span> Prescriptive/ Traditional</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>These are for large-scale projects.</li>
@@ -935,9 +969,9 @@ estimates.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org15e66f1"></a>Waterfall<br />
+<li><a id="org4b207f4"></a>Waterfall<br />
 <ol class="org-ol">
-<li><a id="orgdb595c7"></a>What it is<br />
+<li><a id="orgee25021"></a>What it is<br />
 <div class="outline-text-6" id="text-1-2-1-1-1">
 <p>
 \[ \text{Communication} \rightarrow \text{Planning} \rightarrow \text{Modelling} \rightarrow \text{Construction} \rightarrow \text{Deployment} \]
@@ -954,7 +988,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbcc270e"></a>When to use<br />
+<li><a id="org9de77b9"></a>When to use<br />
 <div class="outline-text-6" id="text-1-2-1-1-2">
 <ul class="org-ul">
 <li>When requirements are stable and unlikely to change</li>
@@ -962,7 +996,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="orge076d37"></a>Disadvantages<br />
+<li><a id="org303c429"></a>Disadvantages<br />
 <div class="outline-text-6" id="text-1-2-1-1-3">
 <ul class="org-ul">
 <li>You have to finish a phase to move to the next one.</li>
@@ -973,12 +1007,12 @@ tracking)</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf5bd03b"></a>V-Process<br />
+<li><a id="orgd4d28a5"></a>V-Process<br />
 <ol class="org-ol">
-<li><a id="org841feec"></a>What it is<br />
+<li><a id="org6beada1"></a>What it is<br />
 <div class="outline-text-6" id="text-1-2-1-2-1">
 
-<div id="org4bbdb78" class="figure">
+<div id="orgbf38915" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/v-process.png" alt="v-process.png" />
 </p>
 </div>
@@ -991,7 +1025,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="org4804491"></a>When to use<br />
+<li><a id="org798b3b8"></a>When to use<br />
 <div class="outline-text-6" id="text-1-2-1-2-2">
 <ul class="org-ul">
 <li>Requirements are clear and fixed.</li>
@@ -1002,12 +1036,12 @@ tracking)</li>
 </li>
 </ol>
 </li>
-<li><a id="orgeda83d6"></a>Incremental<br />
+<li><a id="org5595cbb"></a>Incremental<br />
 <ol class="org-ol">
-<li><a id="org5bcd1c4"></a>What it is<br />
+<li><a id="org2f2e8b5"></a>What it is<br />
 <div class="outline-text-6" id="text-1-2-1-3-1">
 
-<div id="org258bb8b" class="figure">
+<div id="orgeb4ac7d" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/incremental.png" alt="incremental.png" />
 </p>
 </div>
@@ -1016,7 +1050,7 @@ tracking)</li>
 </ul>
 </div>
 </li>
-<li><a id="org63f9ef1"></a>Advantages<br />
+<li><a id="org5b52644"></a>Advantages<br />
 <div class="outline-text-6" id="text-1-2-1-3-2">
 <ul class="org-ul">
 <li>Users get working functionality early, even if the complete system isn&rsquo;t
@@ -1024,7 +1058,7 @@ ready. This provides value sooner and allows for feedback.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0d6c405"></a>When to use<br />
+<li><a id="org3867dcf"></a>When to use<br />
 <div class="outline-text-6" id="text-1-2-1-3-3">
 <ul class="org-ul">
 <li>You have a large project that can be broken into modules</li>
@@ -1035,12 +1069,12 @@ ready. This provides value sooner and allows for feedback.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgb430c61"></a>Rapid Application Development<br />
+<li><a id="orgf53239c"></a>Rapid Application Development<br />
 <ol class="org-ol">
-<li><a id="orgf716f29"></a>What it is<br />
+<li><a id="orgf35dd13"></a>What it is<br />
 <div class="outline-text-6" id="text-1-2-1-4-1">
 
-<div id="org474c3fe" class="figure">
+<div id="org7b85515" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/software-engineering/rad.png" alt="rad.png" />
 </p>
 </div>
@@ -1051,9 +1085,9 @@ ready. This provides value sooner and allows for feedback.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgd682b02"></a>Prototypic / Evolutionary Process Models<br />
+<li><a id="org6f0cb7e"></a>Prototypic / Evolutionary Process Models<br />
 <ol class="org-ol">
-<li><a id="org7c510ef"></a>What it is<br />
+<li><a id="org5da64dc"></a>What it is<br />
 <div class="outline-text-6" id="text-1-2-1-5-1">
 <ul class="org-ul">
 <li>Prototypic</li>
@@ -1062,7 +1096,7 @@ ready. This provides value sooner and allows for feedback.</li>
 </ul>
 </div>
 </li>
-<li><a id="org724b426"></a>Disadvantages<br />
+<li><a id="org311b682"></a>Disadvantages<br />
 <div class="outline-text-6" id="text-1-2-1-5-2">
 <ul class="org-ul">
 <li>To impress stakeholders, the prototype is often held together haphazardly,
@@ -1072,7 +1106,7 @@ which means you haven&rsquo;t considered overall software quality.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgb8985a7"></a>Spiral Model<br />
+<li><a id="org94ee0dd"></a>Spiral Model<br />
 <div class="outline-text-5" id="text-1-2-1-6">
 <ul class="org-ul">
 <li>It&rsquo;s evolutionary model, but risk analysis is introduced.</li>
@@ -1090,8 +1124,8 @@ which means you haven&rsquo;t considered overall software quality.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orge5847e6" class="outline-4">
-<h4 id="orge5847e6"><span class="section-number-4">1.2.2.</span> Agile Method</h4>
+<div id="outline-container-orge47e9f2" class="outline-4">
+<h4 id="orge47e9f2"><span class="section-number-4">1.2.2.</span> Agile Method</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>These are for small-scale process.</li>
@@ -1102,11 +1136,11 @@ which means you haven&rsquo;t considered overall software quality.</li>
 after the execution starts.</li>
 <li>Issues are handled by the entire team, and the scrum master facilitates all
 effort estimations.</li>
-<li>Refer to <a href="#org8b1935d">traditional approach</a> to compare.</li>
+<li>Refer to <a href="#org09449e1">traditional approach</a> to compare.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgce0e1ae"></a>4 values of Agile<br />
+<li><a id="org32cfaf4"></a>4 values of Agile<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <p>
 These are 4 values to focus on quality.
@@ -1119,7 +1153,7 @@ These are 4 values to focus on quality.
 </ul>
 </div>
 </li>
-<li><a id="org188e672"></a>12 Principles<br />
+<li><a id="org6bb2734"></a>12 Principles<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <p>
 The 12 principles articulated in the Agile Manifesto emphasize creating a work
@@ -1149,7 +1183,7 @@ Here are those pictorially:
 </p>
 </div>
 </li>
-<li><a id="orgd08f596"></a>Agile Scrum Methodology<br />
+<li><a id="orgb4f086b"></a>Agile Scrum Methodology<br />
 <div class="outline-text-5" id="text-1-2-2-3">
 <ul class="org-ul">
 <li>Scrum is a lightweight framework of Agile Project Management</li>
@@ -1157,7 +1191,7 @@ Here are those pictorially:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgce7ff07"></a>Three Pillars<br />
+<li><a id="orgb1e7881"></a>Three Pillars<br />
 <div class="outline-text-6" id="text-1-2-2-3-1">
 <ul class="org-ul">
 <li>Transparency</li>
@@ -1166,7 +1200,7 @@ Here are those pictorially:
 </ul>
 </div>
 </li>
-<li><a id="org724e155"></a>Scrum Artifacts<br />
+<li><a id="org9855f33"></a>Scrum Artifacts<br />
 <div class="outline-text-6" id="text-1-2-2-3-2">
 <p>
 Scrum artifacts are information the team and stakeholders use to detail
@@ -1205,14 +1239,14 @@ Scrum artifacts are information the team and stakeholders use to detail
 </table>
 </div>
 <ol class="org-ol">
-<li><a id="orgc5f193e"></a>Epics<br />
+<li><a id="orga46a04b"></a>Epics<br />
 <div class="outline-text-7" id="text-1-2-2-3-2-1">
 <ul class="org-ul">
 <li>They represent a big-picture vision</li>
 </ul>
 </div>
 </li>
-<li><a id="org414277a"></a>User Stories<br />
+<li><a id="org22a2f29"></a>User Stories<br />
 <div class="outline-text-7" id="text-1-2-2-3-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s a requirement expressed in end-user POV</li>
@@ -1224,7 +1258,7 @@ of the functions like &ldquo;can I place an order at ANY time?&rdquo;)</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgc2b02c4"></a>Card<br />
+<li><a id="org1fd6714"></a>Card<br />
 <div class="outline-text-8" id="text-1-2-2-3-2-2-1">
 <ul class="org-ul">
 <li>User stories are printed on physical cards.</li>
@@ -1238,14 +1272,14 @@ of the functions like &ldquo;can I place an order at ANY time?&rdquo;)</li>
 </ul>
 </div>
 </li>
-<li><a id="org0309bbf"></a>Conversation<br />
+<li><a id="orgc837502"></a>Conversation<br />
 <div class="outline-text-8" id="text-1-2-2-3-2-2-2">
 <p>
 Discuss details among stakeholders
 </p>
 </div>
 </li>
-<li><a id="orgcaaa9aa"></a>Confirmation<br />
+<li><a id="org23fcf9a"></a>Confirmation<br />
 <div class="outline-text-8" id="text-1-2-2-3-2-2-3">
 <p>
 Define acceptance criteria
@@ -1254,7 +1288,7 @@ Define acceptance criteria
 </li>
 </ol>
 </li>
-<li><a id="org97d783e"></a>Story Points<br />
+<li><a id="org2844cdc"></a>Story Points<br />
 <div class="outline-text-7" id="text-1-2-2-3-2-3">
 <ul class="org-ul">
 <li>They help quantify the complexity of a user story</li>
@@ -1266,9 +1300,9 @@ smaller user stories.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgde023bf"></a>Events<br />
+<li><a id="orgbe5e12a"></a>Events<br />
 <ol class="org-ol">
-<li><a id="org943c99a"></a>Backlog Grooming/Optimization<br />
+<li><a id="org2aeb3b4"></a>Backlog Grooming/Optimization<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-1">
 <ul class="org-ul">
 <li>The product owner optimizes the product backlog using feedback they get from
@@ -1283,7 +1317,7 @@ users and development team.</li>
 </ul>
 </div>
 </li>
-<li><a id="org43747fc"></a>Sprint Planning<br />
+<li><a id="orgb995c14"></a>Sprint Planning<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-2">
 <ul class="org-ul">
 <li>To make the sprint backlog, the development team conducts this meeting.</li>
@@ -1292,7 +1326,7 @@ backlog.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4eeab78"></a>Daily Scrum/ Standup<br />
+<li><a id="org1ef7a9c"></a>Daily Scrum/ Standup<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-3">
 <ul class="org-ul">
 <li>It&rsquo;s a meeting of about 15 minutes every day to make sure everyone is on the
@@ -1306,7 +1340,7 @@ same page.</li>
 </ul>
 </div>
 </li>
-<li><a id="org943418c"></a>Sprint<br />
+<li><a id="org83f262d"></a>Sprint<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-4">
 <ul class="org-ul">
 <li>The time taken to finish an increment</li>
@@ -1315,7 +1349,7 @@ same page.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1e57ada"></a>Sprint Review<br />
+<li><a id="orga5b43fc"></a>Sprint Review<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-5">
 <ul class="org-ul">
 <li>At the end of a sprint, the team showcases the increment to the stakeholders
@@ -1325,7 +1359,7 @@ and teammates.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4305f99"></a>Sprint Retrospective<br />
+<li><a id="org0afea7f"></a>Sprint Retrospective<br />
 <div class="outline-text-7" id="text-1-2-2-3-3-6">
 <ul class="org-ul">
 <li>The team comes together to discuss what went well, what didn&rsquo;t, and how things
@@ -1335,7 +1369,7 @@ can be improved.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgc784b3a"></a>Roles<br />
+<li><a id="orgb7d1810"></a>Roles<br />
 <div class="outline-text-6" id="text-1-2-2-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1381,16 +1415,16 @@ can be improved.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org271a2a2" class="outline-3">
-<h3 id="org271a2a2"><span class="section-number-3">1.3.</span> Requirements Engineering</h3>
+<div id="outline-container-org3d3c9ff" class="outline-3">
+<h3 id="org3d3c9ff"><span class="section-number-3">1.3.</span> Requirements Engineering</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org8fb23e4" class="outline-4">
-<h4 id="org8fb23e4"><span class="section-number-4">1.3.1.</span> 7 Tasks of a Requirement Engineer</h4>
+<div id="outline-container-org822dee4" class="outline-4">
+<h4 id="org822dee4"><span class="section-number-4">1.3.1.</span> 7 Tasks of a Requirement Engineer</h4>
 <div class="outline-text-4" id="text-1-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgf25b639"></a>Inception<br />
+<li><a id="org414b74d"></a>Inception<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <ul class="org-ul">
 <li>Understand the problem</li>
@@ -1398,14 +1432,14 @@ can be improved.</li>
 </ul>
 </div>
 </li>
-<li><a id="org224817f"></a>Elicitation<br />
+<li><a id="orgfca678c"></a>Elicitation<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <p>
 Gather details 
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc85f342"></a>Collaborative Requirements Gathering<br />
+<li><a id="org40f1a0d"></a>Collaborative Requirements Gathering<br />
 <div class="outline-text-6" id="text-1-3-1-2-1">
 <ul class="org-ul">
 <li>A facilitator (customer/developer) conducts a meeting to negotiate different
@@ -1413,7 +1447,7 @@ approaches.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5e4eeef"></a>Quality Function Deployment<br />
+<li><a id="org434a96c"></a>Quality Function Deployment<br />
 <div class="outline-text-6" id="text-1-3-1-2-2">
 <ul class="org-ul">
 <li>Translate needs of customer &rarr; technical requirements for software</li>
@@ -1450,7 +1484,7 @@ Three types of requirements:
 </li>
 </ol>
 </li>
-<li><a id="org086f252"></a>Elaboration<br />
+<li><a id="org34e8049"></a>Elaboration<br />
 <div class="outline-text-5" id="text-1-3-1-3">
 <ul class="org-ul">
 <li>Build a analysis/technical model and develop use cases.</li>
@@ -1465,7 +1499,7 @@ Three types of requirements:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org5880f4b"></a>Use Case Diagram<br />
+<li><a id="orge5baf37"></a>Use Case Diagram<br />
 <div class="outline-text-6" id="text-1-3-1-3-1">
 <p>
 Here&rsquo;s an example of a use case diagram:
@@ -1488,7 +1522,7 @@ it means the use case is optional. Here too, the arrow is dotted.
 </ul>
 </div>
 </li>
-<li><a id="orge608874"></a>State Diagram<br />
+<li><a id="org56ce823"></a>State Diagram<br />
 <div class="outline-text-6" id="text-1-3-1-3-2">
 <ul class="org-ul">
 <li>A <b>state diagram</b> looks like this:
@@ -1496,7 +1530,7 @@ it means the use case is optional. Here too, the arrow is dotted.
 </ul>
 </div>
 </li>
-<li><a id="org6ce86ce"></a>Data Flow Diagram<br />
+<li><a id="org984286e"></a>Data Flow Diagram<br />
 <div class="outline-text-6" id="text-1-3-1-3-3">
 <ul class="org-ul">
 <li><b>Rectangle</b>: Producer of Data</li>
@@ -1510,7 +1544,7 @@ later use.</li>
 </li>
 </ol>
 </li>
-<li><a id="org6fc398a"></a>Negotiation<br />
+<li><a id="org7c09433"></a>Negotiation<br />
 <div class="outline-text-5" id="text-1-3-1-4">
 <ul class="org-ul">
 <li>Using the technical model we&rsquo;ve built, we evaluate the <b>feasibility</b> of what the
@@ -1518,7 +1552,7 @@ customer wants, <b>rank</b> the requirements, and evaluate the <b>risks</b>, ite
 </ul>
 </div>
 </li>
-<li><a id="org1d862ed"></a>Specification<br />
+<li><a id="orga4b0dc1"></a>Specification<br />
 <div class="outline-text-5" id="text-1-3-1-5">
 <ul class="org-ul">
 <li>Make the <b>Software Requirement Specification</b> (SRS) document.</li>
@@ -1526,7 +1560,7 @@ customer wants, <b>rank</b> the requirements, and evaluate the <b>risks</b>, ite
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb508876"></a>Functional Requirements<br />
+<li><a id="orgbee1eb2"></a>Functional Requirements<br />
 <div class="outline-text-6" id="text-1-3-1-5-1">
 <ul class="org-ul">
 <li>Functional requirements list all the functions of the website, and tells us
@@ -1535,7 +1569,7 @@ how it works in general.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd323a09"></a>Non-Functional Requirements<br />
+<li><a id="org79bdc1d"></a>Non-Functional Requirements<br />
 <div class="outline-text-6" id="text-1-3-1-5-2">
 <ul class="org-ul">
 <li>Non-functional requirements list technical implementations of functional
@@ -1546,7 +1580,7 @@ transactions per seconds) are included here.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org66ce65f"></a>Execution Qualities<br />
+<li><a id="orgbd4fd7a"></a>Execution Qualities<br />
 <div class="outline-text-7" id="text-1-3-1-5-2-1">
 <ul class="org-ul">
 <li>These are things observable during runtime.</li>
@@ -1554,7 +1588,7 @@ transactions per seconds) are included here.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcd49749"></a>Evolution Qualities<br />
+<li><a id="org76215e7"></a>Evolution Qualities<br />
 <div class="outline-text-7" id="text-1-3-1-5-2-2">
 <ul class="org-ul">
 <li>These consist of things like testability, maintainability, scalability that
@@ -1566,14 +1600,14 @@ are embodied in the static structure of the system.</li>
 </li>
 </ol>
 </li>
-<li><a id="org91c7dee"></a>Validation<br />
+<li><a id="orgac93bb1"></a>Validation<br />
 <div class="outline-text-5" id="text-1-3-1-6">
 <ul class="org-ul">
 <li>Validate the requirements presented in SRS.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org2c04e90"></a>Decision Tables<br />
+<li><a id="org9455da5"></a>Decision Tables<br />
 <div class="outline-text-6" id="text-1-3-1-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1618,7 +1652,7 @@ Eg.
 </p>
 </div>
 </li>
-<li><a id="org9d15976"></a>Decision Tree<br />
+<li><a id="org4a63827"></a>Decision Tree<br />
 <div class="outline-text-6" id="text-1-3-1-6-2">
 <ul class="org-ul">
 <li>The leaf nodes represent actions to be performed.</li>
@@ -1627,28 +1661,28 @@ Eg.
 </li>
 </ol>
 </li>
-<li><a id="orgc1a0d6d"></a>Requirements Management Task<br />
+<li><a id="org9ee7360"></a>Requirements Management Task<br />
 <div class="outline-text-5" id="text-1-3-1-7">
 <p>
 Make a <b>requirement traceability matrix (RTM)</b>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org18b4748"></a>Forward Traceability Matrix<br />
+<li><a id="org344dfc7"></a>Forward Traceability Matrix<br />
 <div class="outline-text-6" id="text-1-3-1-7-1">
 <p>
 Maps Requirements &rarr; Test Cases and Project Deliverables
 </p>
 </div>
 </li>
-<li><a id="org990e2a2"></a>Backward/Reverse Traceability Matrix<br />
+<li><a id="orgb3c583e"></a>Backward/Reverse Traceability Matrix<br />
 <div class="outline-text-6" id="text-1-3-1-7-2">
 <p>
 Maps Test Cases and Project Deliverables &rarr; Requirements
 </p>
 </div>
 </li>
-<li><a id="org27168d3"></a>Bidirectional<br />
+<li><a id="org8e54e5a"></a>Bidirectional<br />
 <div class="outline-text-6" id="text-1-3-1-7-3">
 <p>
 Maps both ways.
@@ -1660,12 +1694,12 @@ Maps both ways.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgeacd38b" class="outline-3">
-<h3 id="orgeacd38b"><span class="section-number-3">1.4.</span> Design Engineering</h3>
+<div id="outline-container-orgf94909f" class="outline-3">
+<h3 id="orgf94909f"><span class="section-number-3">1.4.</span> Design Engineering</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org9d6ddfa" class="outline-4">
-<h4 id="org9d6ddfa"><span class="section-number-4">1.4.1.</span> McGlaughin&rsquo;s Characteristics</h4>
+<div id="outline-container-org27748eb" class="outline-4">
+<h4 id="org27748eb"><span class="section-number-4">1.4.1.</span> McGlaughin&rsquo;s Characteristics</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>Implement all implicit/explicit requirements by stakeholders.</li>
@@ -1674,12 +1708,12 @@ Maps both ways.
 </ul>
 </div>
 </div>
-<div id="outline-container-org1785564" class="outline-4">
-<h4 id="org1785564"><span class="section-number-4">1.4.2.</span> Functional Independence</h4>
+<div id="outline-container-org6422f25" class="outline-4">
+<h4 id="org6422f25"><span class="section-number-4">1.4.2.</span> Functional Independence</h4>
 <div class="outline-text-4" id="text-1-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="org21e0677"></a>Cohesion<br />
+<li><a id="org71dd214"></a>Cohesion<br />
 <div class="outline-text-5" id="text-1-4-2-1">
 <ul class="org-ul">
 <li>Degree to which elements inside a module work together.</li>
@@ -1690,7 +1724,7 @@ towards the same goal.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org80b1e4d"></a>Functional Cohesion<br />
+<li><a id="orgc1a19d5"></a>Functional Cohesion<br />
 <div class="outline-text-6" id="text-1-4-2-1-1">
 <ul class="org-ul">
 <li>Everything needed is readily available in the module.</li>
@@ -1698,7 +1732,7 @@ towards the same goal.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbb9b916"></a>Sequential Cohesion<br />
+<li><a id="orgcf20ef8"></a>Sequential Cohesion<br />
 <div class="outline-text-6" id="text-1-4-2-1-2">
 <ul class="org-ul">
 <li>The output of an element is the input of another.</li>
@@ -1706,24 +1740,24 @@ towards the same goal.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6729336"></a>Communicational Cohesion<br />
+<li><a id="org66c6ead"></a>Communicational Cohesion<br />
 <div class="outline-text-6" id="text-1-4-2-1-3">
 <ul class="org-ul">
 <li>Two elements operate on the same input data or contribute towards the same output data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1199cd7"></a>Procedural Cohesion<br />
+<li><a id="orgfe7c631"></a>Procedural Cohesion<br />
 <div class="outline-text-6" id="text-1-4-2-1-4">
 <ul class="org-ul">
 <li>It&rsquo;s not data flow, but it&rsquo;s still in order.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcdff90f"></a><br /></li>
+<li><a id="orgab75b61"></a><br /></li>
 </ol>
 </li>
-<li><a id="org53d9ad0"></a>Coupling<br />
+<li><a id="org58d1d5f"></a>Coupling<br />
 <div class="outline-text-5" id="text-1-4-2-2">
 <ul class="org-ul">
 <li>Degree of Interdependence among modules</li>
@@ -1732,7 +1766,7 @@ maintain.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgcac8b8e"></a>Data Coupling<br />
+<li><a id="org0ed09b5"></a>Data Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-1">
 <ul class="org-ul">
 <li>Only data moves around</li>
@@ -1743,7 +1777,7 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org425a4ff"></a>Stamp Coupling<br />
+<li><a id="orgc515736"></a>Stamp Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-2">
 <ul class="org-ul">
 <li>Data structures move around.</li>
@@ -1751,21 +1785,21 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb696e85"></a>Control Coupling<br />
+<li><a id="orgcbce842"></a>Control Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-3">
 <ul class="org-ul">
 <li>Modules communicate via control information/parameters.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3a89f1f"></a>External Coupling<br />
+<li><a id="org0e6c377"></a>External Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-4">
 <ul class="org-ul">
 <li>Depends on external modules, not part of the system.</li>
 </ul>
 </div>
 </li>
-<li><a id="org737a110"></a>Common Coupling<br />
+<li><a id="org5b66cc8"></a>Common Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-5">
 <ul class="org-ul">
 <li>Modules have shared data like global data structures.</li>
@@ -1773,7 +1807,7 @@ data.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf83663e"></a>Content Coupling<br />
+<li><a id="org49cab1b"></a>Content Coupling<br />
 <div class="outline-text-6" id="text-1-4-2-2-6">
 <ul class="org-ul">
 <li>One module can modify the data of another module.</li>
@@ -1787,12 +1821,12 @@ data.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6f0ecc6" class="outline-2">
-<h2 id="org6f0ecc6"><span class="section-number-2">2.</span> Software Project Management</h2>
+<div id="outline-container-org7b7a15b" class="outline-2">
+<h2 id="org7b7a15b"><span class="section-number-2">2.</span> Software Project Management</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org8744be1" class="outline-3">
-<h3 id="org8744be1"><span class="section-number-3">2.1.</span> Software Project vs Job</h3>
+<div id="outline-container-orgd41956b" class="outline-3">
+<h3 id="orgd41956b"><span class="section-number-3">2.1.</span> Software Project vs Job</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>A <b>software project</b> is a planned development of a software product. It includes
@@ -1812,8 +1846,8 @@ a little more exploratory.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7cadc78" class="outline-3">
-<h3 id="org7cadc78"><span class="section-number-3">2.2.</span> Software Project Management</h3>
+<div id="outline-container-orgbf4270f" class="outline-3">
+<h3 id="orgbf4270f"><span class="section-number-3">2.2.</span> Software Project Management</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><p>
@@ -1879,8 +1913,8 @@ or a car.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5580e34" class="outline-3">
-<h3 id="org5580e34"><span class="section-number-3">2.3.</span> Defining Managment</h3>
+<div id="outline-container-orga791327" class="outline-3">
+<h3 id="orga791327"><span class="section-number-3">2.3.</span> Defining Managment</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1934,8 +1968,8 @@ or a car.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org82edb4e" class="outline-3">
-<h3 id="org82edb4e"><span class="section-number-3">2.4.</span> Objectives</h3>
+<div id="outline-container-org4648e74" class="outline-3">
+<h3 id="org4648e74"><span class="section-number-3">2.4.</span> Objectives</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 They should be SMART:
@@ -1976,6 +2010,17 @@ They should be SMART:
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="outline-container-org17672fc" class="outline-3">
+<h3 id="org17672fc"><span class="section-number-3">2.5.</span> Cost-Benefit Evaluation Techniques</h3>
+<div class="outline-text-3" id="text-2-5">
+<blockquote>
+<p>
+<b>Net-Profit</b>: The difference bteween the total costs and the total income over the
+ life of the project.
+</p>
+</blockquote>
 </div>
 </div>
 </div>
