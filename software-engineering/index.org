@@ -568,8 +568,36 @@ They should be SMART:
 | *T* | Time Constrained |
 
 ** Cost-Benefit Evaluation Techniques
-#+begin_quote
-*Net-Profit*: The difference bteween the total costs and the total income over the
- life of the project.
-#+end_quote
+- $\text{Payback Period} = \text{total number of years} + \frac{\text{amount remaining}}{\text{cashflow for next year}}$
+- $\text{Return of Interest} = \frac{\text{Average Annual profit}}{\text{Total Investment}} \times 100$
+- $\text{Discount Factor} = \frac{1}{(1+r)^{t}}$
+- $\text{Discounted Cashflow} = \text{Cashflow} \times \text{Discount Factor}$
+- $\text{Net Profit}  = \text{The difference bteween the total costs and the
+  total income over the life of the project} = \Sigma \text{(Discounted Cashflow)}$
 
+  
+** Example
+XYZ Software solutions has recieved funding to develop only one software project
+this year. The management is evaluating two projects:
+- Project A: Hosptital Management System
+- Project B: Online Learning Management System
+
+| Year | Project A  | Project B |
+|------+------------+-----------|
+|    0 | -10,00,000 | -8,00,000 |
+|    1 | 2,00,000   | 1,50,000  |
+|    2 | 2,50,000   | 2,00,000  |
+|    3 | 3,00,000   | 2,50,000  |
+|    4 | 3,50,500   | 2,50,000  |
+|    5 | 5,00,000   | 3,50,000  |
+
+*** Calculate Cash Inflow
+
+*** Calculate Net Profit 
+- $\text{Net Profit}  = \Sigma(Profit per year) - (Initial amount invested)$
+- $\text{Net Profit}_{A}  = 16,00,000 - 10,00,000$
+- $\text{Net Profit}_{A}  = 6,00,000$
+- $\text{Net Profit}_{B}  = 16,00,000 - 8,00,000$
+- $\text{Net Profit}_{B}  = 8,00,000$
+
+*** 

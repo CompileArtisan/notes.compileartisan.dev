@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-11-12 Wed 00:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mern Template</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+/* General styles */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+h1, h2, h3 {
+font-family: 'Helvetica', sans-serif;
+}
+pre {
+background-color: #333;
+color: white;
+padding: 10px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+/* Styling code blocks */
+.codeblock {
+font-family: 'Courier New', monospace;
+background-color: #222;
+color: white;
+padding: 15px;
+border-radius: 5px;
+}
+img {
+max-width: 100%;      /* Ensure images don't overflow the screen */
+height: auto;         /* Maintain aspect ratio */
+display: block;       /* Remove any extra space below images */
+margin: 0 auto;       /* Center images */
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+body {
+font-size: 14px;
+padding: 10px;
+}
+h1 {
+font-size: 1.5em;
+}
+pre {
+font-size: 0.85em;
+}
+}
+@media screen and (max-width: 480px) {
+body {
+font-size: 12px;
+padding: 5px;
+}
+h1 {
+font-size: 1.3em;
+}
+pre {
+font-size: 0.75em;
+}
+}
+
+.header {
+text-align: center;
+margin: 0px;
+background-color: #0000aa;
+color: #ffffff;
+padding: 0px;
+flex-shrink: 0;
+word-wrap: break-word;
+font-family: DOSVGA, monospace;
+}
+
+.header a {
+color: #ffffff;
+text-decoration: none;
+font-size: 2.04em;
+white-space: nowrap;
+transition: all 0.3s ease;
+padding: 0px;
+}
+
+.header a:hover {
+color: #bababa;
+}
+
+
+@font-face {
+font-family: DOSVGA;
+src: url('/home/praaneshnair/.config/doom/perfect-dos-vga-437-win.ttf') format('truetype');
+}
+</style>
+<div class="header">
+<a href="https://compileartisan.pages.dev/">CompileArtisan</a>
+</div>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Mern Template</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgba3287a">1. Get the Template</a></li>
+<li><a href="#org45f231a">2. Install Dependencies</a>
+<ul>
+<li><a href="#orgac80c1e">2.1. Server Dependencies</a></li>
+<li><a href="#org15aebbe">2.2. Client Dependencies</a></li>
+<li><a href="#orgd892822">2.3. Do this too (while staying in client)</a></li>
+</ul>
+</li>
+<li><a href="#org3c506f6">3. Backend</a>
+<ul>
+<li><a href="#orgb5fb4e2">3.1. Setup Mongo</a>
+<ul>
+<li><a href="#org16a49d6">3.1.1. Get MongoDB and Mongosh</a></li>
+<li><a href="#orgf22f704">3.1.2. Start MongoDB</a></li>
+<li><a href="#orgaa35650">3.1.3. Look at Status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc3476cb">4. Start Backend</a></li>
+<li><a href="#org7a31422">5. Start Frontend</a></li>
+<li><a href="#org64ecc33">6. How Authentication works</a></li>
+<li><a href="#org8a90680">7. How to add something to this</a>
+<ul>
+<li><a href="#org6c1595c">7.1. Make a Mongoose database model (what kind of data you store), at <code>mern-template/server/src/models/note.model.ts</code></a></li>
+<li><a href="#org12b22f5">7.2. Make an Express route (how to get/send that data), at <code>mern-template/server/src/routes/note.routes.ts</code></a></li>
+<li><a href="#org3cb53a0">7.3. Register the Route in the server</a></li>
+<li><a href="#org9f66cb2">7.4. Make frontend API file <code>mern-template/client/src/api/notes.ts</code></a></li>
+<li><a href="#org265256c">7.5. Make React App <code>mern-template/client/src/components/NotesPage.tsx</code> (which can be used in <code>mern-template/client/src/App.tsx</code>)</a></li>
+</ul>
+</li>
+<li><a href="#org3502c2a">8. Where to Change backend URL (if you ever need to)</a>
+<ul>
+<li><a href="#orgf239574">8.1. <code>/server/src/constants/index.ts</code></a></li>
+<li><a href="#org936c1dd">8.2. <code>/client/src/constants/index.ts</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba3287a" class="outline-2">
+<h2 id="orgba3287a"><span class="section-number-2">1.</span> Get the Template</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">git</span> clone https://github.com/BenElferink/mern-template.git
+<span style="color: #ECBE7B;">cd</span> mern-template
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org45f231a" class="outline-2">
+<h2 id="org45f231a"><span class="section-number-2">2.</span> Install Dependencies</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgac80c1e" class="outline-3">
+<h3 id="orgac80c1e"><span class="section-number-3">2.1.</span> Server Dependencies</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">cd</span> server
+npm install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org15aebbe" class="outline-3">
+<h3 id="org15aebbe"><span class="section-number-3">2.2.</span> Client Dependencies</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">cd</span> ../client
+npm install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd892822" class="outline-3">
+<h3 id="orgd892822"><span class="section-number-3">2.3.</span> Do this too (while staying in client)</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">npm install react-router-dom @types/react-router-dom
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3c506f6" class="outline-2">
+<h2 id="org3c506f6"><span class="section-number-2">3.</span> Backend</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb5fb4e2" class="outline-3">
+<h3 id="orgb5fb4e2"><span class="section-number-3">3.1.</span> Setup Mongo</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org16a49d6" class="outline-4">
+<h4 id="org16a49d6"><span class="section-number-4">3.1.1.</span> Get MongoDB and Mongosh</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Do it yourself.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf22f704" class="outline-4">
+<h4 id="orgf22f704"><span class="section-number-4">3.1.2.</span> Start MongoDB</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">sudo</span> systemctl start mongodb
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaa35650" class="outline-4">
+<h4 id="orgaa35650"><span class="section-number-4">3.1.3.</span> Look at Status</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">sudo</span> systemctl status mongodb
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc3476cb" class="outline-2">
+<h2 id="orgc3476cb"><span class="section-number-2">4.</span> Start Backend</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Open a terminal and do this:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">cd</span> ~/mern-template/server
+npm run dev
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7a31422" class="outline-2">
+<h2 id="org7a31422"><span class="section-number-2">5.</span> Start Frontend</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ECBE7B;">cd</span> ~/mern-template/client
+npm run dev
+</pre>
+</div>
+
+<p>
+And on a browser, go to <a href="http://localhost:3000/">http://localhost:3000/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org64ecc33" class="outline-2">
+<h2 id="org64ecc33"><span class="section-number-2">6.</span> How Authentication works</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+When you open <a href="http://localhost:3000">http://localhost:3000</a>:
+</p>
+<ul class="org-ul">
+<li>React loads.</li>
+<li>It shows a login or register modal.</li>
+<li>When you register → React sends your info to <a href="http://localhost:8080/auth/register">http://localhost:8080/auth/register</a>.</li>
+<li>Express stores your user in MongoDB.</li>
+<li>When you log in → Express sends back a JWT token.</li>
+<li>React stores that token → and now you’re “logged in”.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8a90680" class="outline-2">
+<h2 id="org8a90680"><span class="section-number-2">7.</span> How to add something to this</h2>
+<div class="outline-text-2" id="text-7">
+<ol class="org-ol">
+<li>Make mongoose model (mern-template/server/src/models/something.model.ts)</li>
+<li>Make an Express route (how to get/send that data), at mern-template/server/src/routes/note.routes.ts</li>
+<li>Register the Route in the server at mern-template/server/src/index.ts</li>
+<li>Make frontend API file mern-template/client/src/api/notes.ts</li>
+<li>Make React App mern-template/client/src/components/NotesPage.tsx (which can be used in mern-template/client/src/App.tsx)</li>
+</ol>
+</div>
+<div id="outline-container-org6c1595c" class="outline-3">
+<h3 id="org6c1595c"><span class="section-number-3">7.1.</span> Make a Mongoose database model (what kind of data you store), at <code>mern-template/server/src/models/note.model.ts</code></h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">import</span> mongoose <span style="color: #51afef;">from</span> <span style="color: #98be65;">"mongoose"</span>;
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">noteSchema</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">mongoose.</span><span style="color: #c678dd;">Schema</span>(
+<span style="color: #3dea43364a63;"> </span> {
+<span style="color: #3dea43364a63;"> </span>   title: { <span style="color: #bbc2cf; background-color: #21242b;">type</span>: <span style="color: #ECBE7B;">String</span>, required: <span style="color: #a9a1e1;">true</span> },
+<span style="color: #3dea43364a63;"> </span>   content: { <span style="color: #bbc2cf; background-color: #21242b;">type</span>: <span style="color: #ECBE7B;">String</span>, required: <span style="color: #a9a1e1;">true</span> },
+<span style="color: #3dea43364a63;"> </span>   userId: { <span style="color: #bbc2cf; background-color: #21242b;">type</span>: mongoose.Schema.Types.ObjectId, ref: <span style="color: #98be65;">"User"</span>, required: <span style="color: #a9a1e1;">true</span> },
+<span style="color: #3dea43364a63;"> </span> },
+<span style="color: #3dea43364a63;"> </span> { timestamps: <span style="color: #a9a1e1;">true</span> }
+);
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">default</span> mongoose.<span style="color: #c678dd;">model</span>(<span style="color: #98be65;">"Note"</span>, noteSchema);
+
+</pre>
+</div>
+<p>
+This would look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">MongoDB "notes" collection
+ ├─ { title: "Buy milk", content: "At 5 PM", userId: 642ad... }
+ ├─ { title: "Workout", content: "Leg day", userId: 642ad... }
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org12b22f5" class="outline-3">
+<h3 id="org12b22f5"><span class="section-number-3">7.2.</span> Make an Express route (how to get/send that data), at <code>mern-template/server/src/routes/note.routes.ts</code></h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">import</span> { Router } <span style="color: #51afef;">from</span> <span style="color: #98be65;">"express"</span>;
+<span style="color: #51afef;">import</span> Note <span style="color: #51afef;">from</span> <span style="color: #98be65;">"../models/note.model"</span>;
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">router</span> = <span style="color: #c678dd;">Router</span>();
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">GET /notes &#8594; fetch all notes for a user
+</span>router.<span style="color: #c678dd;">get</span>(<span style="color: #98be65;">"/"</span>, <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">req</span>, <span style="color: #dcaeea;">res</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> { userId } = req.query; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">later this comes from the logged-in user
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">notes</span> = <span style="color: #51afef;">await</span> Note.<span style="color: #c678dd;">find</span>({ userId });
+<span style="color: #3dea43364a63;"> </span> res.<span style="color: #c678dd;">json</span>(notes);
+});
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">POST /notes &#8594; create a new note
+</span>router.<span style="color: #c678dd;">post</span>(<span style="color: #98be65;">"/"</span>, <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">req</span>, <span style="color: #dcaeea;">res</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> { title, content, userId } = req.body;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">note</span> = <span style="color: #51afef;">await</span> Note.<span style="color: #c678dd;">create</span>({ title, content, userId });
+<span style="color: #3dea43364a63;"> </span> res.<span style="color: #c678dd;">status</span>(201).<span style="color: #c678dd;">json</span>(note);
+});
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">DELETE /notes/:id &#8594; delete a note
+</span>router.<span style="color: #c678dd;">delete</span>(<span style="color: #98be65;">"/:id"</span>, <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">req</span>, <span style="color: #dcaeea;">res</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">await</span> Note.<span style="color: #c678dd;">findByIdAndDelete</span>(req.params.id);
+<span style="color: #3dea43364a63;"> </span> res.<span style="color: #c678dd;">json</span>({ message: <span style="color: #98be65;">"Deleted"</span> });
+});
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">default</span> router;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3cb53a0" class="outline-3">
+<h3 id="org3cb53a0"><span class="section-number-3">7.3.</span> Register the Route in the server</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+At <code>mern-template/server/src/index.ts</code>, add:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">import</span> noteRoutes <span style="color: #51afef;">from</span> <span style="color: #98be65;">"./routes/note.routes"</span>;
+app.<span style="color: #c678dd;">use</span>(<span style="color: #98be65;">"/notes"</span>, noteRoutes);
+
+</pre>
+</div>
+
+<p>
+And so now the backend supports:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">GET    /notes?userId=123
+POST   /notes
+DELETE /notes/:id
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9f66cb2" class="outline-3">
+<h3 id="org9f66cb2"><span class="section-number-3">7.4.</span> Make frontend API file <code>mern-template/client/src/api/notes.ts</code></h3>
+<div class="outline-text-3" id="text-7-4">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">import</span> axios <span style="color: #51afef;">from</span> <span style="color: #98be65;">"axios"</span>;
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">API_URL</span> = <span style="color: #51afef;">import</span>.meta.env.VITE_BACKEND_URL || <span style="color: #98be65;">"http://localhost:8080"</span>;
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">getNotes</span> = <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">userId</span>: <span style="color: #51afef;">string</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">res</span> = <span style="color: #51afef;">await</span> axios.<span style="color: #c678dd;">get</span>(<span style="color: #98be65;">`</span><span style="color: #51afef;">${</span><span style="color: #bbc2cf; background-color: #21242b;">API_URL</span><span style="color: #51afef;">}</span><span style="color: #98be65;">/notes`</span>, { params: { userId } });
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> res.data;
+};
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">addNote</span> = <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">note</span>: { title: <span style="color: #51afef;">string</span>; content: <span style="color: #51afef;">string</span>; userId: <span style="color: #51afef;">string</span> }) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">res</span> = <span style="color: #51afef;">await</span> axios.<span style="color: #c678dd;">post</span>(<span style="color: #98be65;">`</span><span style="color: #51afef;">${</span><span style="color: #bbc2cf; background-color: #21242b;">API_URL</span><span style="color: #51afef;">}</span><span style="color: #98be65;">/notes`</span>, note);
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> res.data;
+};
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">deleteNote</span> = <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">id</span>: <span style="color: #51afef;">string</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">await</span> axios.<span style="color: #c678dd;">delete</span>(<span style="color: #98be65;">`</span><span style="color: #51afef;">${</span><span style="color: #bbc2cf; background-color: #21242b;">API_URL</span><span style="color: #51afef;">}</span><span style="color: #98be65;">/notes/</span><span style="color: #51afef;">${</span><span style="color: #bbc2cf; background-color: #21242b;">id</span><span style="color: #51afef;">}</span><span style="color: #98be65;">`</span>);
+};
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org265256c" class="outline-3">
+<h3 id="org265256c"><span class="section-number-3">7.5.</span> Make React App <code>mern-template/client/src/components/NotesPage.tsx</code> (which can be used in <code>mern-template/client/src/App.tsx</code>)</h3>
+<div class="outline-text-3" id="text-7-5">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">import</span> { useEffect, useState } <span style="color: #51afef;">from</span> <span style="color: #98be65;">"react"</span>;
+<span style="color: #51afef;">import</span> { getNotes, addNote, deleteNote } <span style="color: #51afef;">from</span> <span style="color: #98be65;">"../api/notes"</span>;
+
+<span style="color: #51afef;">export</span> <span style="color: #51afef;">default</span> <span style="color: #51afef;">function</span> <span style="color: #c678dd;">NotesPage</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> [<span style="color: #dcaeea;">notes</span>, <span style="color: #dcaeea;">setNotes</span>] = <span style="color: #c678dd;">useState</span>&lt;<span style="color: #51afef;">any</span>[]&gt;([]);
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> [<span style="color: #dcaeea;">title</span>, <span style="color: #dcaeea;">setTitle</span>] = <span style="color: #c678dd;">useState</span>(<span style="color: #98be65;">""</span>);
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> [<span style="color: #dcaeea;">content</span>, <span style="color: #dcaeea;">setContent</span>] = <span style="color: #c678dd;">useState</span>(<span style="color: #98be65;">""</span>);
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">userId</span> = <span style="color: #98be65;">"123"</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">later: from AuthContext
+ 
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">fetch notes when page loads
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #c678dd;">useEffect</span>(() <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">getNotes</span>(userId).<span style="color: #c678dd;">then</span>(setNotes);
+<span style="color: #3dea43364a63;"> </span> }, []);
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">handleAdd</span> = <span style="color: #51afef;">async</span> () <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">newNote</span> = <span style="color: #51afef;">await</span> <span style="color: #c678dd;">addNote</span>({ title, content, userId });
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">setNotes</span>([...notes, newNote]);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">setTitle</span>(<span style="color: #98be65;">""</span>);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">setContent</span>(<span style="color: #98be65;">""</span>);
+<span style="color: #3dea43364a63;"> </span> };
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">handleDelete</span> = <span style="color: #51afef;">async</span> (<span style="color: #dcaeea;">id</span>: <span style="color: #51afef;">string</span>) <span style="color: #51afef;">=&gt;</span> {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">await</span> <span style="color: #c678dd;">deleteNote</span>(id);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #c678dd;">setNotes</span>(notes.<span style="color: #c678dd;">filter</span>((n) <span style="color: #51afef;">=&gt;</span> n._id !== id));
+<span style="color: #3dea43364a63;"> </span> };
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> (
+<span style="color: #3dea43364a63;"> </span>   &lt;div className=<span style="color: #98be65;">"p-4"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;h2 className=<span style="color: #98be65;">"text-xl font-bold"</span>&gt;My Notes&lt;/h2&gt;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;div className=<span style="color: #98be65;">"flex gap-2 my-3"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;input
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> placeholder=<span style="color: #98be65;">"Title"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> className=<span style="color: #98be65;">"border p-2"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> value={title}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> onChange={(e) <span style="color: #51afef;">=&gt;</span> <span style="color: #c678dd;">setTitle</span>(e.target.value)}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   /&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;input
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> placeholder=<span style="color: #98be65;">"Content"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> className=<span style="color: #98be65;">"border p-2"</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> value={content}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> onChange={(e) <span style="color: #51afef;">=&gt;</span> <span style="color: #c678dd;">setContent</span>(e.target.value)}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   /&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;button onClick={handleAdd} className=<span style="color: #98be65;">"bg-blue-500 text-white px-4 py-2 rounded"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> Add
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;/button&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;/div&gt;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;ul&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   {notes.<span style="color: #c678dd;">map</span>((n) <span style="color: #51afef;">=&gt;</span> (
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;li key={n._id} className=<span style="color: #98be65;">"flex justify-between items-center border-b py-2"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;div&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;strong&gt;{n.title}&lt;/strong&gt;: {n.content}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;/div&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;button onClick={() <span style="color: #51afef;">=&gt;</span> <span style="color: #c678dd;">handleDelete</span>(n._id)} className=<span style="color: #98be65;">"text-red-500"</span>&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &#10005;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   &lt;/button&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;/li&gt;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   ))}
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> &lt;/ul&gt;
+<span style="color: #3dea43364a63;"> </span>   &lt;/div&gt;
+<span style="color: #3dea43364a63;"> </span> );
+}
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3502c2a" class="outline-2">
+<h2 id="org3502c2a"><span class="section-number-2">8.</span> Where to Change backend URL (if you ever need to)</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orgf239574" class="outline-3">
+<h3 id="orgf239574"><span class="section-number-3">8.1.</span> <code>/server/src/constants/index.ts</code></h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">ORIGIN</span> = <span style="color: #98be65;">'*'</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">PORT</span> = process.env.PORT || 8080
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">For "MongoDB Atlas": edit MONGO_URI in -&gt; .env file
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">For "MongoDB Community Server": edit &lt;DB_NAME&gt; in -&gt; MONGO_URI below
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">MONGO_URI</span> = process.env.MONGO_URI || <span style="color: #98be65;">'mongodb://localhost:27017/&lt;DB_NAME&gt;'</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">MONGO_OPTIONS</span> = {}
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">JWT_SECRET</span> = process.env.JWT_SECRET || <span style="color: #98be65;">'unsafe_secret'</span>
+
+<span style="color: #51afef;">export</span> { ORIGIN, PORT, MONGO_URI, MONGO_OPTIONS, JWT_SECRET }
+</pre>
+</div>
+<p>
+This is where you change stuff.
+</p>
+</div>
+</div>
+<div id="outline-container-org936c1dd" class="outline-3">
+<h3 id="org936c1dd"><span class="section-number-3">8.2.</span> <code>/client/src/constants/index.ts</code></h3>
+<div class="outline-text-3" id="text-8-2">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">api url (where your server is hosted at)
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">BACKEND_URL</span> = process.env.REACT_APP_BACKEND_URL || <span style="color: #98be65;">'http://localhost:8080'</span>
+
+<span style="color: #51afef;">export</span> { BACKEND_URL }
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
