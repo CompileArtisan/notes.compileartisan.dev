@@ -3,11 +3,25 @@
 
 * Introduction
 ** What it is
+#+begin_quote
+A blockchain is a cryptographically secure, append-only distributed database
+structured as a chain of blocks maintained through decentralized consensus.
+#+end_quote
 - A blockchain is a secure decentralized digital ledger that records
   transactions as a sequence of linked blocks.
 - It was first proposed by Stuart Haber and W. Scott Stornetta in 1991.
 - In 2008, a paper written by an author 'Satoshi Nakamoto' published the bitcoin
   whitepaper (blockchain for a digital currency).
+- *Byzantine node*: a node exhibiting arbitrary behavior
+** Transaction
+- A transaction is a single record of some action, mostly some transfer of
+  *value*. 
+- A block is a container that bundles multiple transactions into a single unit.
+  Each block contains:
+  - Block header
+  - Transaction Data
+  - Hash
+  
 ** Advantages
 - More security
 - More transparency
@@ -308,6 +322,9 @@ main()
   *sender's private key*.
 - Anyone can verify that this message was sent by the actual sender by using the
   *sender's public key* to decrypt it and get back the original message.
+- A message digest verifies the integrity of data only.
+- A digital signature verifies authenticity, integrity, AND ownership of a
+  transaction (broader purpose)
 *** How it works
 1. 
 
