@@ -1,0 +1,68 @@
+#+title: Reinforcement Learning
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Introduction
+ - Reinforcement learning is a branch of AI where an agent learns how to make
+   decisions by interacting with its environment.
+ - The goal is to learn how to take actions in order to maximize reward.
+ - *Self-play* is a training method where an AI agent improves its skills by
+   repeatedly competing against itself or its past versions.
+** Components of RL
+- Agent
+- Environment 
+- State (S)
+- Action (A)
+- Policy (\pi)
+- Value
+- Reward (R)
+
+** SL vs UL vs RL
+   
+   | Type                        | Data                                         | Goal                                    | Example                                  |
+   |-----------------------------+----------------------------------------------+-----------------------------------------+------------------------------------------|
+   | *Supervised Learning (SL)*    | Labeled data (x, y)                          | Learn function y = f(x); *Generalize*     | Classification, regression               |
+   | *Unsupervised Learning (UL)*  | Unlabeled data (x only)                      | Find hidden structure; *Compress*         | Clustering, dimensionality reduction     |
+   | *Reinforcement Learning (RL)* | Trial-and-error interaction with environment | Learn actions that maximize reward; *Act* | Learning tasks, navigation, game playing |
+** Foundational Pillars of Reinforcement Learning
+
+| Pillars                                                      | Arcade Minds 2015                         | AlphaGo 2016                            |
+|--------------------------------------------------------------+-------------------------------------------+-----------------------------------------|
+| *Objective* (Final Goal)                                       | Complete the game with the highest score  | Win the game                            |
+| *State*    (Current Condition of the Environment)              | Raw pixels inputs                         | Position of all pieces                  |
+| *Action*   (A Valid Move the Agent can Take)                   | Left, right, up, down                     | Where to put the next piece down        |
+| *Reward*   (A Scalar feedback signal the Environment Provides) | Score increase/decrease at each time step | 1 if you win the game and 0 if you lose |
+
+The last 3 (state, action and reward) are components of RL.
+
+** Key Features of RL
+- It's a trial and error search where you *explore* and *exploit*.
+- Exploring is finding new options to maximize the reward.
+- Exploiting is using options known to give a good reward.
+
+** Elements of RL
+
+| *Policy* | *What to do* i.e. how the agent should behave at a given point of time  |
+| *Reward* | *What is good* i.e. the immediate goal of the RL agent                  |
+| *Value*  | *What is good because it predicts reward* i.e. total accumulated reward |
+| *Model*  | *What follows what* i.e. the implementation                             |
+
+The first 3 (policy, reward and value) are components of RL. 
+
+* Multi-Armed Bandit Problem
+** One-Arm Bandit
+- This is a slot machine, which is basically a gambling device with spinning
+  reels each with a bunch of symbols.
+- If the symbol shown by each reel aligns and forms a certain desirable
+  combination, you win a jackpot.
+- The machine is called a one-arm bandit:
+  - One arm because it has one lever.
+  - Bandit because they were designed to take your money quickly while rarely
+    repaying you with the jackpot.
+    
+** What the Multi-armed bandit problem means
+- Here, you sit in front of a row of one-arm bandits.
+- You don't know which slot machine is more rewarding.
+- You have to strike a balance between:
+  - *Exploit*: pull the arm that has paid off best so far
+  - *Explore*: pull a different arm to learn more about it, even though it might pay less right now
+

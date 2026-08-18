@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-04 Tue 19:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reinforcement Learning</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
+}
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
+/* ─── Block Quotes ─────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: 1rem 1.5rem;
+background: #f8f8fc;
+border-left: 4px solid #4444cc;
+border-radius: 8px;
+color: #444;
+font-style: italic;
+position: relative;
+}
+blockquote::before {
+content: "❝";
+position: absolute;
+top: -8px;
+left: 12px;
+font-size: 2.8rem;
+color: #d6d6f5;
+font-family: Georgia, serif;
+line-height: 1;
+}
+blockquote p:last-child {
+margin-bottom: 0;
+}
+blockquote cite,
+blockquote footer {
+display: block;
+margin-top: 0.8rem;
+color: #777;
+font-size: 0.9em;
+font-style: normal;
+text-align: right;
+}
+a {
+color: #2222cc;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+}
+
+.header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header a {
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
+text-decoration: none;
+line-height: 1;
+}
+
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
+#table-of-contents {
+position: fixed;
+top: 48px;
+left: 0;
+width: 260px;
+height: calc(100vh - 48px);
+overflow-y: auto;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
+}
+
+#table-of-contents h2 {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
+padding-bottom: 10px;
+border-bottom: 0.5px solid #e8e8ee;
+}
+
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
+#toc-search {
+width: 100%;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
+}
+
+#toc-search:focus {
+border-color: #4444cc;
+background: #ffffff;
+}
+
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
+#table-of-contents ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 14px;
+}
+
+#table-of-contents li {
+margin: 2px 0;
+}
+
+#table-of-contents a {
+display: block;
+padding: 5px 10px;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+#table-of-contents a:hover {
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
+}
+
+#table-of-contents a.active {
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
+}
+
+#table-of-contents li.hidden {
+display: none;
+}
+
+/* ─── Main Content ──────────────────────────────────────── */
+#content {
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
+background: #ffffff;
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
+border-radius: 10px;
+overflow: hidden;
+}
+
+th {
+background: #f5f5fa;
+font-weight: 500;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
+}
+
+td {
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
+}
+
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
+}
+
+#content {
+margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
+}
+
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
+}
+
+pre {
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
+}
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
+}
+</style>
+<div class="header">
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Reinforcement Learning</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge05ddb1">1. Introduction</a>
+<ul>
+<li><a href="#org37418a5">1.1. Components of RL</a></li>
+<li><a href="#org610dba0">1.2. SL vs UL vs RL</a></li>
+<li><a href="#org39ebf11">1.3. Foundational Pillars of Reinforcement Learning</a></li>
+<li><a href="#orgaebdda6">1.4. Key Features of RL</a></li>
+<li><a href="#org3d2007f">1.5. Elements of RL</a></li>
+</ul>
+</li>
+<li><a href="#orga9dc993">2. Multi-Armed Bandit Problem</a>
+<ul>
+<li><a href="#orgb6437ff">2.1. One-Arm Bandit</a></li>
+<li><a href="#orgd4bb24b">2.2. What the Multi-armed bandit problem means</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge05ddb1" class="outline-2">
+<h2 id="orge05ddb1"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Reinforcement learning is a branch of AI where an agent learns how to make
+decisions by interacting with its environment.</li>
+<li>The goal is to learn how to take actions in order to maximize reward.</li>
+<li><b>Self-play</b> is a training method where an AI agent improves its skills by
+repeatedly competing against itself or its past versions.</li>
+</ul>
+</div>
+<div id="outline-container-org37418a5" class="outline-3">
+<h3 id="org37418a5"><span class="section-number-3">1.1.</span> Components of RL</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Agent</li>
+<li>Environment</li>
+<li>State (S)</li>
+<li>Action (A)</li>
+<li>Policy (&pi;)</li>
+<li>Value</li>
+<li>Reward (R)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org610dba0" class="outline-3">
+<h3 id="org610dba0"><span class="section-number-3">1.2.</span> SL vs UL vs RL</h3>
+<div class="outline-text-3" id="text-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Data</th>
+<th scope="col" class="org-left">Goal</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Supervised Learning (SL)</b></td>
+<td class="org-left">Labeled data (x, y)</td>
+<td class="org-left">Learn function y = f(x); <b>Generalize</b></td>
+<td class="org-left">Classification, regression</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Unsupervised Learning (UL)</b></td>
+<td class="org-left">Unlabeled data (x only)</td>
+<td class="org-left">Find hidden structure; <b>Compress</b></td>
+<td class="org-left">Clustering, dimensionality reduction</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Reinforcement Learning (RL)</b></td>
+<td class="org-left">Trial-and-error interaction with environment</td>
+<td class="org-left">Learn actions that maximize reward; <b>Act</b></td>
+<td class="org-left">Learning tasks, navigation, game playing</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org39ebf11" class="outline-3">
+<h3 id="org39ebf11"><span class="section-number-3">1.3.</span> Foundational Pillars of Reinforcement Learning</h3>
+<div class="outline-text-3" id="text-1-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Pillars</th>
+<th scope="col" class="org-left">Arcade Minds 2015</th>
+<th scope="col" class="org-left">AlphaGo 2016</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Objective</b> (Final Goal)</td>
+<td class="org-left">Complete the game with the highest score</td>
+<td class="org-left">Win the game</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>State</b>    (Current Condition of the Environment)</td>
+<td class="org-left">Raw pixels inputs</td>
+<td class="org-left">Position of all pieces</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Action</b>   (A Valid Move the Agent can Take)</td>
+<td class="org-left">Left, right, up, down</td>
+<td class="org-left">Where to put the next piece down</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Reward</b>   (A Scalar feedback signal the Environment Provides)</td>
+<td class="org-left">Score increase/decrease at each time step</td>
+<td class="org-left">1 if you win the game and 0 if you lose</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The last 3 (state, action and reward) are components of RL.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaebdda6" class="outline-3">
+<h3 id="orgaebdda6"><span class="section-number-3">1.4.</span> Key Features of RL</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>It&rsquo;s a trial and error search where you <b>explore</b> and <b>exploit</b>.</li>
+<li>Exploring is finding new options to maximize the reward.</li>
+<li>Exploiting is using options known to give a good reward.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3d2007f" class="outline-3">
+<h3 id="org3d2007f"><span class="section-number-3">1.5.</span> Elements of RL</h3>
+<div class="outline-text-3" id="text-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Policy</b></td>
+<td class="org-left"><b>What to do</b> i.e. how the agent should behave at a given point of time</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Reward</b></td>
+<td class="org-left"><b>What is good</b> i.e. the immediate goal of the RL agent</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Value</b></td>
+<td class="org-left"><b>What is good because it predicts reward</b> i.e. total accumulated reward</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Model</b></td>
+<td class="org-left"><b>What follows what</b> i.e. the implementation</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The first 3 (policy, reward and value) are components of RL. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga9dc993" class="outline-2">
+<h2 id="orga9dc993"><span class="section-number-2">2.</span> Multi-Armed Bandit Problem</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb6437ff" class="outline-3">
+<h3 id="orgb6437ff"><span class="section-number-3">2.1.</span> One-Arm Bandit</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>This is a slot machine, which is basically a gambling device with spinning
+reels each with a bunch of symbols.</li>
+<li>If the symbol shown by each reel aligns and forms a certain desirable
+combination, you win a jackpot.</li>
+<li>The machine is called a one-arm bandit:
+<ul class="org-ul">
+<li>One arm because it has one lever.</li>
+<li>Bandit because they were designed to take your money quickly while rarely
+repaying you with the jackpot.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd4bb24b" class="outline-3">
+<h3 id="orgd4bb24b"><span class="section-number-3">2.2.</span> What the Multi-armed bandit problem means</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Here, you sit in front of a row of one-arm bandits.</li>
+<li>You don&rsquo;t know which slot machine is more rewarding.</li>
+<li>You have to strike a balance between:
+<ul class="org-ul">
+<li><b>Exploit</b>: pull the arm that has paid off best so far</li>
+<li><b>Explore</b>: pull a different arm to learn more about it, even though it might pay less right now</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
