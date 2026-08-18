@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-04 Tue 19:10 -->
+<!-- 2026-08-19 Wed 00:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reinforcement Learning</title>
@@ -677,26 +677,46 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge05ddb1">1. Introduction</a>
+<li><a href="#org69a5e8c">1. Introduction</a>
 <ul>
-<li><a href="#org37418a5">1.1. Components of RL</a></li>
-<li><a href="#org610dba0">1.2. SL vs UL vs RL</a></li>
-<li><a href="#org39ebf11">1.3. Foundational Pillars of Reinforcement Learning</a></li>
-<li><a href="#orgaebdda6">1.4. Key Features of RL</a></li>
-<li><a href="#org3d2007f">1.5. Elements of RL</a></li>
+<li><a href="#org5c15be4">1.1. Components of RL</a></li>
+<li><a href="#orgc1a5868">1.2. Deterministic vs Stochastic Policies</a>
+<ul>
+<li><a href="#orgd16b393">1.2.1. Deterministic</a></li>
+<li><a href="#orge071ddc">1.2.2. Stochastic / Probabilistic</a></li>
 </ul>
 </li>
-<li><a href="#orga9dc993">2. Multi-Armed Bandit Problem</a>
+<li><a href="#org474dc2a">1.3. RL as a 3rd Maching Learning Paradigm</a></li>
+<li><a href="#org507359b">1.4. Foundational Pillars of Reinforcement Learning</a></li>
+<li><a href="#org0ee8fb2">1.5. Key Features of RL</a>
 <ul>
-<li><a href="#orgb6437ff">2.1. One-Arm Bandit</a></li>
-<li><a href="#orgd4bb24b">2.2. What the Multi-armed bandit problem means</a></li>
+<li><a href="#org8490afb">1.5.1. Closed Loop Interaction</a></li>
+<li><a href="#org6172b59">1.5.2. No Direct Instructions</a></li>
+<li><a href="#org2ab4e14">1.5.3. Extended Consequences</a></li>
+</ul>
+</li>
+<li><a href="#org8101b91">1.6. Elements of RL</a></li>
+<li><a href="#orgd69f08e">1.7. Exploration and Exploitation</a></li>
+<li><a href="#orgdaf0ec7">1.8. Main RL Approaches</a>
+<ul>
+<li><a href="#orgb0b5436">1.8.1. Value-based methods</a></li>
+<li><a href="#org4e46ddf">1.8.2. Policy-based methods</a></li>
+<li><a href="#org903d765">1.8.3. Actor-Critic methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5772289">2. Multi-Armed Bandit Problem</a>
+<ul>
+<li><a href="#orgba26191">2.1. One-Arm Bandit</a></li>
+<li><a href="#orgaa033c0">2.2. What the Multi-armed bandit problem means</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge05ddb1" class="outline-2">
-<h2 id="orge05ddb1"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org69a5e8c" class="outline-2">
+<h2 id="org69a5e8c"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Reinforcement learning is a branch of AI where an agent learns how to make
@@ -706,23 +726,61 @@ decisions by interacting with its environment.</li>
 repeatedly competing against itself or its past versions.</li>
 </ul>
 </div>
-<div id="outline-container-org37418a5" class="outline-3">
-<h3 id="org37418a5"><span class="section-number-3">1.1.</span> Components of RL</h3>
+<div id="outline-container-org5c15be4" class="outline-3">
+<h3 id="org5c15be4"><span class="section-number-3">1.1.</span> Components of RL</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Agent</li>
 <li>Environment</li>
 <li>State (S)</li>
 <li>Action (A)</li>
-<li>Policy (&pi;)</li>
-<li>Value</li>
-<li>Reward (R)</li>
+<li>Policy (&pi;)
+<ul class="org-ul">
+<li>This is the agent&rsquo;s way of behaving at a given time.</li>
+<li>It roughly maps <i>states</i> with <i>the action to be taken in those states</i>.</li>
+</ul></li>
+<li>Reward (R)
+<ul class="org-ul">
+<li>This is a single number sent by the environment to the agent.</li>
+<li>It depends on the current <b>state</b> and <b>action</b> of the agent.</li>
+</ul></li>
+<li>Value
+<ul class="org-ul">
+<li>Rewards tell us what is good immediately, but value function tells us what
+is good in the long run.</li>
+<li>It&rsquo;s the total reward an agent can expect to accumlate over the future,
+<i>starting from that state</i>.</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org610dba0" class="outline-3">
-<h3 id="org610dba0"><span class="section-number-3">1.2.</span> SL vs UL vs RL</h3>
+<div id="outline-container-orgc1a5868" class="outline-3">
+<h3 id="orgc1a5868"><span class="section-number-3">1.2.</span> Deterministic vs Stochastic Policies</h3>
 <div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgd16b393" class="outline-4">
+<h4 id="orgd16b393"><span class="section-number-4">1.2.1.</span> Deterministic</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Produces the exact same output for a given input</li>
+<li>π(s) = a</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge071ddc" class="outline-4">
+<h4 id="orge071ddc"><span class="section-number-4">1.2.2.</span> Stochastic / Probabilistic</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>Same input can result in a varying output</li>
+<li>π(a|s)</li>
+<li>Probability of action a, given state s</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org474dc2a" class="outline-3">
+<h3 id="org474dc2a"><span class="section-number-3">1.3.</span> RL as a 3rd Maching Learning Paradigm</h3>
+<div class="outline-text-3" id="text-1-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -766,11 +824,17 @@ repeatedly competing against itself or its past versions.</li>
 </tr>
 </tbody>
 </table>
+
+<ul class="org-ul">
+<li>Supervised learning is insufficient as it&rsquo;s impractical to obtain correct
+labelled examples representative of all situations in which the agent must
+act.</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org39ebf11" class="outline-3">
-<h3 id="org39ebf11"><span class="section-number-3">1.3.</span> Foundational Pillars of Reinforcement Learning</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org507359b" class="outline-3">
+<h3 id="org507359b"><span class="section-number-3">1.4.</span> Foundational Pillars of Reinforcement Learning</h3>
+<div class="outline-text-3" id="text-1-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -820,19 +884,39 @@ The last 3 (state, action and reward) are components of RL.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaebdda6" class="outline-3">
-<h3 id="orgaebdda6"><span class="section-number-3">1.4.</span> Key Features of RL</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org0ee8fb2" class="outline-3">
+<h3 id="org0ee8fb2"><span class="section-number-3">1.5.</span> Key Features of RL</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org8490afb" class="outline-4">
+<h4 id="org8490afb"><span class="section-number-4">1.5.1.</span> Closed Loop Interaction</h4>
+<div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
-<li>It&rsquo;s a trial and error search where you <b>explore</b> and <b>exploit</b>.</li>
-<li>Exploring is finding new options to maximize the reward.</li>
-<li>Exploiting is using options known to give a good reward.</li>
+<li>Output or response is fed back to the sender or system.</li>
+<li>This helps influence its later inputs.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d2007f" class="outline-3">
-<h3 id="org3d2007f"><span class="section-number-3">1.5.</span> Elements of RL</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-org6172b59" class="outline-4">
+<h4 id="org6172b59"><span class="section-number-4">1.5.2.</span> No Direct Instructions</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li>It must discover which actions yield the most reward by trying them.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ab4e14" class="outline-4">
+<h4 id="org2ab4e14"><span class="section-number-4">1.5.3.</span> Extended Consequences</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li>Actions can affect immediate rewards and subsequence rewards.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8101b91" class="outline-3">
+<h3 id="org8101b91"><span class="section-number-3">1.6.</span> Elements of RL</h3>
+<div class="outline-text-3" id="text-1-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -869,13 +953,62 @@ The first 3 (policy, reward and value) are components of RL.
 </p>
 </div>
 </div>
+<div id="outline-container-orgd69f08e" class="outline-3">
+<h3 id="orgd69f08e"><span class="section-number-3">1.7.</span> Exploration and Exploitation</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Choosing actions that yield the highest immediate reward based on past
+experience is called <b>exploitation</b>.</li>
+<li>Trying new or less-frequent actions to discover better long-term strategies is
+called <b>exploration</b>.</li>
+<li>The goal is to balance exploring and exploiting.</li>
+</ul>
 </div>
-<div id="outline-container-orga9dc993" class="outline-2">
-<h2 id="orga9dc993"><span class="section-number-2">2.</span> Multi-Armed Bandit Problem</h2>
+</div>
+<div id="outline-container-orgdaf0ec7" class="outline-3">
+<h3 id="orgdaf0ec7"><span class="section-number-3">1.8.</span> Main RL Approaches</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+RL splits into three broad approaches:
+</p>
+</div>
+<div id="outline-container-orgb0b5436" class="outline-4">
+<h4 id="orgb0b5436"><span class="section-number-4">1.8.1.</span> Value-based methods</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li>Learn V(s) or Q(s,a) — how good is each possible action</li>
+<li>Learn the values, then derive a policy from them</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4e46ddf" class="outline-4">
+<h4 id="org4e46ddf"><span class="section-number-4">1.8.2.</span> Policy-based methods</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<ul class="org-ul">
+<li>Instead of learning how good every action is, you learn the policy itself</li>
+<li>Learn the mapping between state → action
+(&ldquo;for this state, do this action&rdquo;)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org903d765" class="outline-4">
+<h4 id="org903d765"><span class="section-number-4">1.8.3.</span> Actor-Critic methods</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<ul class="org-ul">
+<li>Combine the two ideas above</li>
+<li>Actor learns the policy: a = π(s)</li>
+<li>Critic learns the value: Q(s,a)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5772289" class="outline-2">
+<h2 id="org5772289"><span class="section-number-2">2.</span> Multi-Armed Bandit Problem</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb6437ff" class="outline-3">
-<h3 id="orgb6437ff"><span class="section-number-3">2.1.</span> One-Arm Bandit</h3>
+<div id="outline-container-orgba26191" class="outline-3">
+<h3 id="orgba26191"><span class="section-number-3">2.1.</span> One-Arm Bandit</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>This is a slot machine, which is basically a gambling device with spinning
@@ -891,8 +1024,8 @@ repaying you with the jackpot.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd4bb24b" class="outline-3">
-<h3 id="orgd4bb24b"><span class="section-number-3">2.2.</span> What the Multi-armed bandit problem means</h3>
+<div id="outline-container-orgaa033c0" class="outline-3">
+<h3 id="orgaa033c0"><span class="section-number-3">2.2.</span> What the Multi-armed bandit problem means</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Here, you sit in front of a row of one-arm bandits.</li>

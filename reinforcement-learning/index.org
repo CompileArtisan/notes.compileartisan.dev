@@ -13,16 +13,39 @@
 - State (S)
 - Action (A)
 - Policy (\pi)
-- Value
+  - This is the agent's way of behaving at a given time.
+  - It roughly maps /states/ with /the action to be taken in those states/.
 - Reward (R)
+  - This is a single number sent by the environment to the agent.
+  - It depends on the current *state* and *action* of the agent.
+- Value
+  - Rewards tell us what is good immediately, but value function tells us what
+    is good in the long run.
+  - It's the total reward an agent can expect to accumlate over the future,
+    /starting from that state/.
+  
+** Deterministic vs Stochastic Policies
 
-** SL vs UL vs RL
+*** Deterministic
+- Produces the exact same output for a given input
+- π(s) = a
+*** Stochastic / Probabilistic
+- Same input can result in a varying output
+- π(a|s)
+- Probability of action a, given state s
+
+** RL as a 3rd Maching Learning Paradigm
    
    | Type                        | Data                                         | Goal                                    | Example                                  |
    |-----------------------------+----------------------------------------------+-----------------------------------------+------------------------------------------|
    | *Supervised Learning (SL)*    | Labeled data (x, y)                          | Learn function y = f(x); *Generalize*     | Classification, regression               |
    | *Unsupervised Learning (UL)*  | Unlabeled data (x only)                      | Find hidden structure; *Compress*         | Clustering, dimensionality reduction     |
    | *Reinforcement Learning (RL)* | Trial-and-error interaction with environment | Learn actions that maximize reward; *Act* | Learning tasks, navigation, game playing |
+
+- Supervised learning is insufficient as it's impractical to obtain correct
+  labelled examples representative of all situations in which the agent must
+  act.
+   
 ** Foundational Pillars of Reinforcement Learning
 
 | Pillars                                                      | Arcade Minds 2015                         | AlphaGo 2016                            |
@@ -35,9 +58,15 @@
 The last 3 (state, action and reward) are components of RL.
 
 ** Key Features of RL
-- It's a trial and error search where you *explore* and *exploit*.
-- Exploring is finding new options to maximize the reward.
-- Exploiting is using options known to give a good reward.
+*** Closed Loop Interaction
+- Output or response is fed back to the sender or system.
+- This helps influence its later inputs.
+  
+*** No Direct Instructions
+- It must discover which actions yield the most reward by trying them.
+
+*** Extended Consequences
+- Actions can affect immediate rewards and subsequence rewards.
 
 ** Elements of RL
 
@@ -48,6 +77,31 @@ The last 3 (state, action and reward) are components of RL.
 
 The first 3 (policy, reward and value) are components of RL. 
 
+** Exploration and Exploitation
+- Choosing actions that yield the highest immediate reward based on past
+  experience is called *exploitation*.
+- Trying new or less-frequent actions to discover better long-term strategies is
+  called *exploration*.
+- The goal is to balance exploring and exploiting.
+
+** Main RL Approaches
+
+RL splits into three broad approaches:
+
+*** Value-based methods
+- Learn V(s) or Q(s,a) — how good is each possible action
+- Learn the values, then derive a policy from them
+
+*** Policy-based methods
+- Instead of learning how good every action is, you learn the policy itself
+- Learn the mapping between state → action
+  ("for this state, do this action")
+
+*** Actor-Critic methods
+- Combine the two ideas above
+- Actor learns the policy: a = π(s)
+- Critic learns the value: Q(s,a)
+  
 * Multi-Armed Bandit Problem
 ** One-Arm Bandit
 - This is a slot machine, which is basically a gambling device with spinning
