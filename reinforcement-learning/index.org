@@ -9,12 +9,20 @@
    repeatedly competing against itself or its past versions.
 ** Components of RL
 - Agent
+  - This is the learner/decision maker.
 - Environment 
+  - Everything the agents interact with.
 - State (S)
+  - Current situation of the environment.
+  - For example, in Tic Tac Toe it's a $3 \times 3$ grid (so 9 boxes) and each box
+    can be ~X~, ~O~ or empty. Hence the number of states are $3^{3 \times 3}$
 - Action (A)
-- Policy (\pi)
+  - Choices available to the agent.
+- Policy (\pi(a|s))
   - This is the agent's way of behaving at a given time.
   - It roughly maps /states/ with /the action to be taken in those states/.
+  - This is called the *actor* as it takes the current state and decides what
+    action to take.
 - Reward (R)
   - This is a single number sent by the environment to the agent.
   - It depends on the current *state* and *action* of the agent.
@@ -23,7 +31,29 @@
     is good in the long run.
   - It's the total reward an agent can expect to accumlate over the future,
     /starting from that state/.
-  
+  - This is called the *critic* as it scores the actions.
+    
+** Environment Adaptor
+- These are interfaces/translators between RL agents and their environment. 
+- They provide common functions across different agents and environments to make
+  it normalized and consistent.
+- Some common methods provided look like:
+  #+begin_src python
+env.reset()
+env.step(action)
+env.action_space
+env.observation_space
+  #+end_src
+- Some common environment adaptors are:
+  - Arcade learning Environment
+  - CARLA
+  - OpenAI Gym
+  - OpenAI Retro
+  - Opensim
+  - PyGame Learning Environment
+  - ViZDoom
+
+
 ** Deterministic vs Stochastic Policies
 
 *** Deterministic
@@ -102,6 +132,16 @@ RL splits into three broad approaches:
 - Actor learns the policy: a = π(s)
 - Critic learns the value: Q(s,a)
   
+** Episode
+- An episode is a single, complete cycle of interaction between an agent and its
+  environment.
+- An episode starts with the starting state, and is said to have completed once
+  a final state is encountered.
+- If any task naturally ends, it is called *episodic*.
+- For instance, a game of chess is episodic as the game does end.
+- Something like managing CPU resources is *non-episodic* as there's no end.
+        
+
 * Multi-Armed Bandit Problem
 ** One-Arm Bandit
 - This is a slot machine, which is basically a gambling device with spinning
@@ -120,3 +160,55 @@ RL splits into three broad approaches:
   - *Exploit*: pull the arm that has paid off best so far
   - *Explore*: pull a different arm to learn more about it, even though it might pay less right now
 
+* Markov Decision Process
+
+| Symbol | Meaning                |
+|--------+------------------------|
+| S      | State space            |
+| A      | Action space           |
+| P      | Transition probability |
+| R      | Reward function        |
+| \gamma      | Discount factor        |
+
+** Discount Factor
+- Discount factor (0 \le \gamma < 1) tells us how much of the future rewards should the
+  system be aware of.
+  - \gamma = 0 would mean the system would only care about immediate rewards and
+    won't care about later consequences.
+  - \gamma = 1 would mean the system is 50% concerned about immediate rewards
+    and 50% concerned about later consequences.
+- The *finite return* (total reward considering discount factor) is calculated as:
+  $$G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots$$
+  where $R_{t+1}$, $R_{t+2}$, ... are rewards at each time step.
+- Example: \gamma = 0.9,  $R_{t+1} = 10$, $R_{t+2} = 20$, $R_{t+3} = 30$
+  $$G_{0} = 10 + (0.9)(20) + (0.9)^{2}(30)$$
+
+** Transition Probability
+- It is given as $P(s' \vert s, a)$
+
+** Reward
+\[\mathbb{E}[R_{t+1}\mid s,a] = \sum_{s'} P(s'\mid s,a)R(s,a,s') \]
+Say we have:
+
+| Next state | Probability | Reward |
+|------------+-------------+--------|
+| S_{1}         |         0.7 |    +10 |
+| S_{2}         |         0.3 |     -5 |
+| S_{3}         |         0.6 |     +5 |
+
+$\mathbb{E}[R_{t+1}\mid s,a] = (0.7)(10) + (0.3)(-5) + (0.6)(5) = 8.5$
+
+** Stochastic Transition Paths
+- Deterministic environments might have $P(s' \vert s, a) = 1$. 
+- On the other hand, stochastic environments have multiple next states like:
+  $$P(B \vert A, \text{Right}) = 0.8$$
+  $$P(C \vert A, \text{Right}) = 0.2$$
+  
+#+begin_src mermaid :file stochastic_transition_paths.png :results file
+flowchart LR
+    A -->|Right, 0.8| B
+    A -->|Right, 0.2| C
+#+end_src
+
+#+RESULTS:
+[[file:stochastic_transition_paths.png]]
