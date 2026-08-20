@@ -1509,6 +1509,28 @@ value = "hello";
 value = true;
 value = { x: 10 };
 #+end_src
+** Arrays
+- This is one way of declaring the type:
+  #+begin_src typescript :results output raw :wrap src :exports both
+let numbers: number[] = [1, 2, 3];
+console.log(numbers)
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [ 1, 2, 3 ]
+  #+end_src
+
+- You can also declare the type as:
+  #+begin_src typescript :results output raw :wrap src :exports both
+let numbers: Array<number> = [1, 2, 3];
+
+  #+end_src
+
+
+
+
 ** Classes and Objects
 #+begin_src typescript
 class Point {
@@ -1520,20 +1542,112 @@ const p = new Point();
 p.x = 10;
 p.y = 20;
 #+end_src
-These are JavaScript Objects (but with types), hence they're TypeScript. 
+These are JavaScript Objects (but with types), hence they're TypeScript.
 
-** Interfaces
+*** Types
+A plain JavasScript Object with assignment then and there itself would look like:
+#+begin_src typescript
+const person = {
+    name: "Alice",
+    age: 20
+};
+#+end_src
+The same object with its type explictly mentioned in TypeScript:
+#+begin_src typescript
+const person: {
+    name: string;
+    age: number;
+} = {
+    name: "Alice",
+    age: 20
+};
+// const variable: TYPE = VALUE;
+// person's type = object with name:string and age:number
+#+end_src
+Instead you can do:
+#+begin_src typescript
+type Person = {
+    name: string;
+    age: number;
+};
+// and then the same syntax as in JavaScript
+const person: Person = {
+    name: "Alice",
+    age: 20
+};
+#+end_src
+
+*** Interfaces and how they're different from Types
 #+begin_src typescript
 interface Point {
   x: number;
   y: number;
 }
 #+end_src
-This creates a primitive type called ~Point~.
+This creates an object type called ~Point~.
 #+begin_src typescript
 const point: Point = {x: 100, y: 200};
 #+end_src
 
+Interfaces and types are almost the same thing. It's just that with types, you
+can have *unions*:
+
+#+begin_src typescript
+type ID = string | number;
+#+end_src
+
+On the other hand, interfaces are strictly for describing object shapes.
+
+Here's another example:
+#+begin_src typescript
+export type ElementRole = "primary" | "hero" | "action";
+#+end_src
+This means any variable of type ~ElementRole~ can have only these values:
+#+begin_src typescript
+let role: ElementRole;
+
+role = "primary";    // ✅
+role = "hero";       // ✅
+role = "action";     // ✅
+role = "header";     // ❌ Error
+role = 123;          // ❌ Error
+#+end_src
+
+*** Optional Properties
+Both type and interfaces support optional properties:
+#+begin_src typescript :results output raw :wrap src :exports both
+
+interface Person {
+    name: string;
+    age?: number;
+}
+#+end_src
+
+So you can do this:
+#+begin_src typescript :results output raw :wrap src :exports both 
+const p1: Person = {
+    name: "Alice"
+};
+const p2: Person = {
+    name: "Alice",
+    age: 20
+};
+#+end_src
+
+
+*** keyof Operator
+- ~keyof~ operator takes an object type and produces a union type of its keys
+  (property names).
+- For instance:
+  #+begin_src typescript :results output raw :wrap src :exports both
+type Person = {
+    name: string;
+    age: number;
+};
+
+type PersonKeys = keyof Person;
+  #+end_src
+ ~keyof Person~ returns a union type ~"name" | "age"~ . So ~PersonKeys~ can be of value ~name~ or ~age~.
 
 ** Array
 *** Array of Strings
@@ -1553,6 +1667,36 @@ const points: Point[] = [
     { x: 50, y: 60 }
 ];
 #+end_src
+
+** Generics
+- These are how to make the datatype itself parameterized.
+- Say we have one function for numbers:
+  #+begin_src typescript
+function identity(value: number): number {
+    return value;
+}
+  #+end_src
+  And another function for strings:
+  #+begin_src typescript
+function identityString(value: string): string {
+    return value;
+}
+  #+end_src
+  Instead, you can make the datatype parameterized:
+  #+begin_src typescript
+function identity<T>(value: T): T {
+    return value;
+}
+  #+end_src
+  So you can call the function as:
+  #+begin_src typescript
+identity<number>(10);
+  #+end_src
+  But usually TypeScript can infer it too:
+  #+begin_src typescript
+identity(10);
+identity("hello");
+  #+end_src
 
 * ExpressJS
 

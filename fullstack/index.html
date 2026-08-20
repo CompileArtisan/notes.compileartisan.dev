@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-15 Sat 20:45 -->
+<!-- 2026-08-21 Fri 00:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Notes on Full-Stack</title>
@@ -709,180 +709,181 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgefedd14">1. Version Control</a>
+<li><a href="#orgdcdd8d2">1. Version Control</a>
 <ul>
-<li><a href="#org07fc072">1.1. Types</a></li>
-<li><a href="#org606ffa5">1.2. Branches</a>
+<li><a href="#org47f26f5">1.1. Types</a></li>
+<li><a href="#org9bf905a">1.2. Branches</a>
 <ul>
-<li><a href="#org7211f32">1.2.1. Creating New Branch</a></li>
-<li><a href="#orgf1a5a0f">1.2.2. Switching to a Branch Already Created</a></li>
-<li><a href="#org4ec282e">1.2.3. Merging</a></li>
+<li><a href="#orgf0a1291">1.2.1. Creating New Branch</a></li>
+<li><a href="#orge349c8f">1.2.2. Switching to a Branch Already Created</a></li>
+<li><a href="#org7e9de4b">1.2.3. Merging</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge53f52f">2. HTML Refresher</a>
+<li><a href="#org8b47fba">2. HTML Refresher</a>
 <ul>
-<li><a href="#org1e4c94a">2.1. Forms</a></li>
+<li><a href="#org21fd96c">2.1. Forms</a></li>
 </ul>
 </li>
-<li><a href="#org8ff8193">3. CSS Refresher</a>
+<li><a href="#org4a2cc83">3. CSS Refresher</a>
 <ul>
-<li><a href="#orgb017b35">3.1. Box Model</a></li>
-<li><a href="#orge96dafc">3.2. Flexbox</a></li>
-<li><a href="#org590c035">3.3. CSS Grid</a></li>
-<li><a href="#org175d399">3.4. Positioning</a></li>
-<li><a href="#orgb667931">3.5. CSS Variables</a></li>
-<li><a href="#org177701c">3.6. Psuedoclasses</a></li>
-<li><a href="#orgc2aa56d">3.7. Pseudo-elements</a></li>
-<li><a href="#org31a6713">3.8. Media Queries</a></li>
+<li><a href="#orgffe1f66">3.1. Box Model</a></li>
+<li><a href="#org72f12b0">3.2. Flexbox</a></li>
+<li><a href="#orgbdb2209">3.3. CSS Grid</a></li>
+<li><a href="#org34407af">3.4. Positioning</a></li>
+<li><a href="#orgc9153be">3.5. CSS Variables</a></li>
+<li><a href="#org792b952">3.6. Psuedoclasses</a></li>
+<li><a href="#org282616e">3.7. Pseudo-elements</a></li>
+<li><a href="#orgfc33fe1">3.8. Media Queries</a></li>
 </ul>
 </li>
-<li><a href="#org009c6f7">4. Tailwind CSS</a>
+<li><a href="#orgde56a26">4. Tailwind CSS</a>
 <ul>
-<li><a href="#orgc8b7554">4.1. Margin and Padding</a></li>
-<li><a href="#orgc2266ba">4.2. Colors</a></li>
-<li><a href="#orgaac5299">4.3. Fonts</a></li>
-<li><a href="#orgdb61d2e">4.4. Layouts</a>
+<li><a href="#org450c958">4.1. Margin and Padding</a></li>
+<li><a href="#org0ceb5c1">4.2. Colors</a></li>
+<li><a href="#org1421342">4.3. Fonts</a></li>
+<li><a href="#org55b0ca0">4.4. Layouts</a>
 <ul>
-<li><a href="#org825b325">4.4.1. Flexbox</a></li>
-<li><a href="#org1758eea">4.4.2. Grid</a></li>
-<li><a href="#org4a3bbb5">4.4.3. Real-World Constructs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org402b480">5. Fundamentals of JavaScript</a>
-<ul>
-<li><a href="#org1ea00ca">5.1. Document Object Model</a></li>
-<li><a href="#orgf8057ae">5.2. Variables</a></li>
-<li><a href="#org28c6f3c">5.3. Unary Plus</a></li>
-<li><a href="#org2e2839e">5.4. Template Literals</a></li>
-<li><a href="#org9d0dff5">5.5. Date</a></li>
-<li><a href="#orga42df11">5.6. Functions</a>
-<ul>
-<li><a href="#org692ebd1">5.6.1. Normal Functions</a></li>
-<li><a href="#org21c1fa7">5.6.2. Arrow Functions</a></li>
-<li><a href="#org7efc8b5">5.6.3. Callback functions</a></li>
-<li><a href="#org0b1b5d7">5.6.4. Generator</a></li>
-</ul>
-</li>
-<li><a href="#org40f8f7a">5.7. Modules</a>
-<ul>
-<li><a href="#org82473f9">5.7.1. Exporting</a></li>
-<li><a href="#orgdd7df19">5.7.2. Importing</a></li>
-<li><a href="#org3186ebd">5.7.3. Default Export and Import</a></li>
-<li><a href="#org89064cb">5.7.4. CommonJS</a></li>
-</ul>
-</li>
-<li><a href="#org8ea9952">5.8. NodeJS</a></li>
-<li><a href="#orgdc51873">5.9. Working with Files</a></li>
-<li><a href="#orgc603d12">5.10. Working with Paths</a></li>
-<li><a href="#orgc902d8e">5.11. Objects</a>
-<ul>
-<li><a href="#org2e70641">5.11.1. Instance Variables</a></li>
-<li><a href="#orgbd03144">5.11.2. Object Destructuring</a></li>
-<li><a href="#orgcdef05f">5.11.3. Methods</a></li>
-<li><a href="#org0f08622">5.11.4. Object References</a></li>
-<li><a href="#orgfe657f8">5.11.5. Classes</a></li>
-<li><a href="#org786de77">5.11.6. Keys and Values as Array</a></li>
-</ul>
-</li>
-<li><a href="#org3913f8b">5.12. Arrays</a>
-<ul>
-<li><a href="#org1594449">5.12.1. Extending Arrays</a></li>
-<li><a href="#orgb5684c1">5.12.2. map()</a></li>
-<li><a href="#org23ecd0d">5.12.3. filter()</a></li>
-<li><a href="#org9c0938f">5.12.4. Sort</a></li>
-<li><a href="#org0e05418">5.12.5. Destructuring</a></li>
-<li><a href="#org6013f8a">5.12.6. Common Array Methods</a></li>
-</ul>
-</li>
-<li><a href="#org6c80ca2">5.13. Strings</a>
-<ul>
-<li><a href="#org9ec4817">5.13.1. Substring</a></li>
-<li><a href="#org03b6d6d">5.13.2. charAt</a></li>
-<li><a href="#orge638a00">5.13.3. Palindrome Checker</a></li>
-</ul>
-</li>
-<li><a href="#orgaab2ba6">5.14. Asynchronous JavaScript</a>
-<ul>
-<li><a href="#org94c2dfd">5.14.1. Promise</a></li>
-<li><a href="#org7f024f1">5.14.2. Async and Await</a></li>
-<li><a href="#org97015cf">5.14.3. JavaScript Runtime Explained</a></li>
+<li><a href="#orgb75a9ea">4.4.1. Flexbox</a></li>
+<li><a href="#org4bbc086">4.4.2. Grid</a></li>
+<li><a href="#orga519c89">4.4.3. Real-World Constructs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org749fe7f">6. TypeScript</a>
+<li><a href="#orgc020b44">5. Fundamentals of JavaScript</a>
 <ul>
-<li><a href="#org4db8bc7">6.1. Types</a>
+<li><a href="#org9908cc5">5.1. Document Object Model</a></li>
+<li><a href="#orgecffd3b">5.2. Variables</a></li>
+<li><a href="#org6838630">5.3. Unary Plus</a></li>
+<li><a href="#org79fa384">5.4. Template Literals</a></li>
+<li><a href="#org064afe1">5.5. Date</a></li>
+<li><a href="#org32d876a">5.6. Functions</a>
 <ul>
-<li><a href="#orga040489">6.1.1. Union Types</a></li>
-<li><a href="#org0b53e66">6.1.2. Any</a></li>
+<li><a href="#org7742898">5.6.1. Normal Functions</a></li>
+<li><a href="#orge192799">5.6.2. Arrow Functions</a></li>
+<li><a href="#org1e6fc86">5.6.3. Callback functions</a></li>
+<li><a href="#org79f7e5a">5.6.4. Generator</a></li>
 </ul>
 </li>
-<li><a href="#orge6a51c9">6.2. Classes and Objects</a></li>
-<li><a href="#org841ec3d">6.3. Interfaces</a></li>
-<li><a href="#org75263d1">6.4. Array</a>
+<li><a href="#org21c756a">5.7. Modules</a>
 <ul>
-<li><a href="#org8adeb40">6.4.1. Array of Strings</a></li>
-<li><a href="#orgbe0502e">6.4.2. Array of Objects</a></li>
+<li><a href="#orgcad6a7a">5.7.1. Exporting</a></li>
+<li><a href="#org3d01cd0">5.7.2. Importing</a></li>
+<li><a href="#org68bf03f">5.7.3. Default Export and Import</a></li>
+<li><a href="#org6a231a1">5.7.4. CommonJS</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgda3fbe9">7. ExpressJS</a>
+<li><a href="#org6216b06">5.8. NodeJS</a></li>
+<li><a href="#org57661ed">5.9. Working with Files</a></li>
+<li><a href="#org6e2373d">5.10. Working with Paths</a></li>
+<li><a href="#org2a93b01">5.11. Objects</a>
 <ul>
-<li><a href="#org7ccd963">7.1. Networking</a></li>
-<li><a href="#org6042a8b">7.2. What Express.js is</a></li>
-<li><a href="#org5682f79">7.3. Static Files</a></li>
-<li><a href="#org61ff08e">7.4. HTTP Requests</a>
+<li><a href="#org21e1d55">5.11.1. Instance Variables</a></li>
+<li><a href="#orgad627e3">5.11.2. Object Destructuring</a></li>
+<li><a href="#org972e475">5.11.3. Methods</a></li>
+<li><a href="#orgb669854">5.11.4. Object References</a></li>
+<li><a href="#orge7212fd">5.11.5. Classes</a></li>
+<li><a href="#orgc75a646">5.11.6. Keys and Values as Array</a></li>
+</ul>
+</li>
+<li><a href="#org05494b0">5.12. Arrays</a>
 <ul>
-<li><a href="#orged44a99">7.4.1. GET Requests</a></li>
-<li><a href="#orgd01cf56">7.4.2. POST Requests</a></li>
-<li><a href="#org1f4842a">7.4.3. PUT, DELETE</a></li>
-<li><a href="#orge0c54b2">7.4.4. Why these different HTTP methods matter:</a></li>
+<li><a href="#org06ed1cf">5.12.1. Extending Arrays</a></li>
+<li><a href="#org831abff">5.12.2. map()</a></li>
+<li><a href="#org804aa25">5.12.3. filter()</a></li>
+<li><a href="#org708c691">5.12.4. Sort</a></li>
+<li><a href="#org4a81f6f">5.12.5. Destructuring</a></li>
+<li><a href="#orgc0ed8f0">5.12.6. Common Array Methods</a></li>
 </ul>
 </li>
-<li><a href="#org86322d0">7.5. Variables in URLS</a>
+<li><a href="#orgdaa5d4c">5.13. Strings</a>
 <ul>
-<li><a href="#org7314280">7.5.1. Slug</a></li>
-<li><a href="#orgc056798">7.5.2. Query Parameters</a></li>
+<li><a href="#orgc286891">5.13.1. Substring</a></li>
+<li><a href="#orgda333d2">5.13.2. charAt</a></li>
+<li><a href="#orgb0eacef">5.13.3. Palindrome Checker</a></li>
 </ul>
 </li>
-<li><a href="#orgcae85ff">7.6. Extras</a></li>
-<li><a href="#org74ae537">7.7. Routing</a></li>
-<li><a href="#org3cee491">7.8. Middleware</a></li>
-<li><a href="#org39122fd">7.9. Template Engine</a></li>
-</ul>
-</li>
-<li><a href="#orgf8871ab">8. React</a>
+<li><a href="#org990b5c2">5.14. Asynchronous JavaScript</a>
 <ul>
-<li><a href="#org48c5ed7">8.1. What is it</a></li>
-<li><a href="#org5110935">8.2. Making a React Project</a></li>
-<li><a href="#org8610b89">8.3. React Components</a></li>
-<li><a href="#orgde6d3ff">8.4. More on JavaScript/TypeScript XML</a></li>
-<li><a href="#org01f63ad">8.5. Props</a></li>
-<li><a href="#org3d8f5bf">8.6. States and Hooks</a>
+<li><a href="#org32d4049">5.14.1. Promise</a></li>
+<li><a href="#orgad55e07">5.14.2. Async and Await</a></li>
+<li><a href="#org594e7be">5.14.3. JavaScript Runtime Explained</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org342f8d7">6. TypeScript</a>
 <ul>
-<li><a href="#org7deb6dd">8.6.1. useEffect Hook</a></li>
-<li><a href="#org44f7684">8.6.2. useRef</a></li>
+<li><a href="#org3e2101e">6.1. Types</a>
+<ul>
+<li><a href="#orge9694cb">6.1.1. Union Types</a></li>
+<li><a href="#orge1e4800">6.1.2. Any</a></li>
 </ul>
 </li>
-<li><a href="#org2f9d09e">8.7. Conditional Rendering</a></li>
+<li><a href="#orgda22c1b">6.2. Arrays</a></li>
+<li><a href="#org3d70a44">6.3. Classes and Objects</a></li>
+<li><a href="#org70ed4ac">6.4. Interfaces and how they&rsquo;re different from Types</a></li>
+<li><a href="#org76b3638">6.5. Array</a>
+<ul>
+<li><a href="#orgd3c5e20">6.5.1. Array of Strings</a></li>
+<li><a href="#org3f61cde">6.5.2. Array of Objects</a></li>
 </ul>
 </li>
-<li><a href="#org68007dd">9. MongoDB</a></li>
+</ul>
+</li>
+<li><a href="#org52bbbe1">7. ExpressJS</a>
+<ul>
+<li><a href="#org54d0220">7.1. Networking</a></li>
+<li><a href="#org8d30962">7.2. What Express.js is</a></li>
+<li><a href="#orgeea78f7">7.3. Static Files</a></li>
+<li><a href="#orgf05703a">7.4. HTTP Requests</a>
+<ul>
+<li><a href="#org01c32ae">7.4.1. GET Requests</a></li>
+<li><a href="#org4646c7c">7.4.2. POST Requests</a></li>
+<li><a href="#org910b5b1">7.4.3. PUT, DELETE</a></li>
+<li><a href="#org975c7cc">7.4.4. Why these different HTTP methods matter:</a></li>
+</ul>
+</li>
+<li><a href="#orgbbaf1a2">7.5. Variables in URLS</a>
+<ul>
+<li><a href="#orge049da8">7.5.1. Slug</a></li>
+<li><a href="#orgb3ae872">7.5.2. Query Parameters</a></li>
+</ul>
+</li>
+<li><a href="#org34c1245">7.6. Extras</a></li>
+<li><a href="#orge727451">7.7. Routing</a></li>
+<li><a href="#org22f62e8">7.8. Middleware</a></li>
+<li><a href="#org6fa0ead">7.9. Template Engine</a></li>
+</ul>
+</li>
+<li><a href="#org6005eaa">8. React</a>
+<ul>
+<li><a href="#org0239506">8.1. What is it</a></li>
+<li><a href="#org043d258">8.2. Making a React Project</a></li>
+<li><a href="#org4e6dd6e">8.3. React Components</a></li>
+<li><a href="#orgfb5fa40">8.4. More on JavaScript/TypeScript XML</a></li>
+<li><a href="#org51e6a9c">8.5. Props</a></li>
+<li><a href="#orge08bb65">8.6. States and Hooks</a>
+<ul>
+<li><a href="#org2177e0e">8.6.1. useEffect Hook</a></li>
+<li><a href="#orgc1ff80f">8.6.2. useRef</a></li>
+</ul>
+</li>
+<li><a href="#org62972da">8.7. Conditional Rendering</a></li>
+</ul>
+</li>
+<li><a href="#org786126a">9. MongoDB</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgefedd14" class="outline-2">
-<h2 id="orgefedd14"><span class="section-number-2">1.</span> Version Control</h2>
+<div id="outline-container-orgdcdd8d2" class="outline-2">
+<h2 id="orgdcdd8d2"><span class="section-number-2">1.</span> Version Control</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org07fc072" class="outline-3">
-<h3 id="org07fc072"><span class="section-number-3">1.1.</span> Types</h3>
+<div id="outline-container-org47f26f5" class="outline-3">
+<h3 id="org47f26f5"><span class="section-number-3">1.1.</span> Types</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -930,12 +931,12 @@ updateActiveLink();
 </table>
 </div>
 </div>
-<div id="outline-container-org606ffa5" class="outline-3">
-<h3 id="org606ffa5"><span class="section-number-3">1.2.</span> Branches</h3>
+<div id="outline-container-org9bf905a" class="outline-3">
+<h3 id="org9bf905a"><span class="section-number-3">1.2.</span> Branches</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org7211f32" class="outline-4">
-<h4 id="org7211f32"><span class="section-number-4">1.2.1.</span> Creating New Branch</h4>
+<div id="outline-container-orgf0a1291" class="outline-4">
+<h4 id="orgf0a1291"><span class="section-number-4">1.2.1.</span> Creating New Branch</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #ECBE7B;">git</span> checkout -b <span style="color: #98be65;">"new-branch"</span>
@@ -943,8 +944,8 @@ updateActiveLink();
 </div>
 </div>
 </div>
-<div id="outline-container-orgf1a5a0f" class="outline-4">
-<h4 id="orgf1a5a0f"><span class="section-number-4">1.2.2.</span> Switching to a Branch Already Created</h4>
+<div id="outline-container-orge349c8f" class="outline-4">
+<h4 id="orge349c8f"><span class="section-number-4">1.2.2.</span> Switching to a Branch Already Created</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #ECBE7B;">git</span> checkout <span style="color: #98be65;">"main"</span>
@@ -952,8 +953,8 @@ updateActiveLink();
 </div>
 </div>
 </div>
-<div id="outline-container-org4ec282e" class="outline-4">
-<h4 id="org4ec282e"><span class="section-number-4">1.2.3.</span> Merging</h4>
+<div id="outline-container-org7e9de4b" class="outline-4">
+<h4 id="org7e9de4b"><span class="section-number-4">1.2.3.</span> Merging</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 If you&rsquo;re in <code>main</code> branch, and you want to include the changes of <code>new-branch</code>, you
@@ -968,12 +969,12 @@ do:
 </div>
 </div>
 </div>
-<div id="outline-container-orge53f52f" class="outline-2">
-<h2 id="orge53f52f"><span class="section-number-2">2.</span> HTML Refresher</h2>
+<div id="outline-container-org8b47fba" class="outline-2">
+<h2 id="org8b47fba"><span class="section-number-2">2.</span> HTML Refresher</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org1e4c94a" class="outline-3">
-<h3 id="org1e4c94a"><span class="section-number-3">2.1.</span> Forms</h3>
+<div id="outline-container-org21fd96c" class="outline-3">
+<h3 id="org21fd96c"><span class="section-number-3">2.1.</span> Forms</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><p>
@@ -1024,12 +1025,12 @@ You can also use buttons as checkboxes:
 </div>
 </div>
 </div>
-<div id="outline-container-org8ff8193" class="outline-2">
-<h2 id="org8ff8193"><span class="section-number-2">3.</span> CSS Refresher</h2>
+<div id="outline-container-org4a2cc83" class="outline-2">
+<h2 id="org4a2cc83"><span class="section-number-2">3.</span> CSS Refresher</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgb017b35" class="outline-3">
-<h3 id="orgb017b35"><span class="section-number-3">3.1.</span> Box Model</h3>
+<div id="outline-container-orgffe1f66" class="outline-3">
+<h3 id="orgffe1f66"><span class="section-number-3">3.1.</span> Box Model</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Your content is the inner-most box, and you have a border around it.
@@ -1055,8 +1056,8 @@ content, you use:
 </ul>
 </div>
 </div>
-<div id="outline-container-orge96dafc" class="outline-3">
-<h3 id="orge96dafc"><span class="section-number-3">3.2.</span> Flexbox</h3>
+<div id="outline-container-org72f12b0" class="outline-3">
+<h3 id="org72f12b0"><span class="section-number-3">3.2.</span> Flexbox</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><p>
@@ -1242,8 +1243,8 @@ by the parent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org590c035" class="outline-3">
-<h3 id="org590c035"><span class="section-number-3">3.3.</span> CSS Grid</h3>
+<div id="outline-container-orgbdb2209" class="outline-3">
+<h3 id="orgbdb2209"><span class="section-number-3">3.3.</span> CSS Grid</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li><p>
@@ -1295,8 +1296,8 @@ You can also use fractional units:
 </ul>
 </div>
 </div>
-<div id="outline-container-org175d399" class="outline-3">
-<h3 id="org175d399"><span class="section-number-3">3.4.</span> Positioning</h3>
+<div id="outline-container-org34407af" class="outline-3">
+<h3 id="org34407af"><span class="section-number-3">3.4.</span> Positioning</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li><p>
@@ -1375,8 +1376,8 @@ forward it is in z-axis.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb667931" class="outline-3">
-<h3 id="orgb667931"><span class="section-number-3">3.5.</span> CSS Variables</h3>
+<div id="outline-container-orgc9153be" class="outline-3">
+<h3 id="orgc9153be"><span class="section-number-3">3.5.</span> CSS Variables</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #5B6268;">/* </span><span style="color: #5B6268;">This is how you declare variables</span><span style="color: #5B6268;"> */</span>
@@ -1394,8 +1395,8 @@ forward it is in z-axis.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org177701c" class="outline-3">
-<h3 id="org177701c"><span class="section-number-3">3.6.</span> Psuedoclasses</h3>
+<div id="outline-container-org792b952" class="outline-3">
+<h3 id="org792b952"><span class="section-number-3">3.6.</span> Psuedoclasses</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li><p>
@@ -1511,8 +1512,8 @@ The nth-child(n) selector also supports patterns:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc2aa56d" class="outline-3">
-<h3 id="orgc2aa56d"><span class="section-number-3">3.7.</span> Pseudo-elements</h3>
+<div id="outline-container-org282616e" class="outline-3">
+<h3 id="org282616e"><span class="section-number-3">3.7.</span> Pseudo-elements</h3>
 <div class="outline-text-3" id="text-3-7">
 <ul class="org-ul">
 <li><p>
@@ -1567,8 +1568,8 @@ Here are some common psuedo-elements:
 </ul>
 </div>
 </div>
-<div id="outline-container-org31a6713" class="outline-3">
-<h3 id="org31a6713"><span class="section-number-3">3.8.</span> Media Queries</h3>
+<div id="outline-container-orgfc33fe1" class="outline-3">
+<h3 id="orgfc33fe1"><span class="section-number-3">3.8.</span> Media Queries</h3>
 <div class="outline-text-3" id="text-3-8">
 <ul class="org-ul">
 <li><p>
@@ -1598,8 +1599,8 @@ For mobile screens:
 </div>
 </div>
 </div>
-<div id="outline-container-org009c6f7" class="outline-2">
-<h2 id="org009c6f7"><span class="section-number-2">4.</span> Tailwind CSS</h2>
+<div id="outline-container-orgde56a26" class="outline-2">
+<h2 id="orgde56a26"><span class="section-number-2">4.</span> Tailwind CSS</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Tailwind allows you to use a combination of predefined styles, together as the
@@ -1607,8 +1608,8 @@ name of a HTML class. So the name of the class itself will contain all of the
 styles.
 </p>
 </div>
-<div id="outline-container-orgc8b7554" class="outline-3">
-<h3 id="orgc8b7554"><span class="section-number-3">4.1.</span> Margin and Padding</h3>
+<div id="outline-container-org450c958" class="outline-3">
+<h3 id="org450c958"><span class="section-number-3">4.1.</span> Margin and Padding</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><p>
@@ -1723,8 +1724,8 @@ You can limit the padding to different sides, by adding a letter to &rsquo;p&rsq
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc2266ba" class="outline-3">
-<h3 id="orgc2266ba"><span class="section-number-3">4.2.</span> Colors</h3>
+<div id="outline-container-org0ceb5c1" class="outline-3">
+<h3 id="org0ceb5c1"><span class="section-number-3">4.2.</span> Colors</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Colors are generally in the form <b>entity-color-intensity</b>, where:
@@ -1741,8 +1742,8 @@ text-[#0000ac]</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaac5299" class="outline-3">
-<h3 id="orgaac5299"><span class="section-number-3">4.3.</span> Fonts</h3>
+<div id="outline-container-org1421342" class="outline-3">
+<h3 id="org1421342"><span class="section-number-3">4.3.</span> Fonts</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><p>
@@ -1841,12 +1842,12 @@ from Tailwind.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdb61d2e" class="outline-3">
-<h3 id="orgdb61d2e"><span class="section-number-3">4.4.</span> Layouts</h3>
+<div id="outline-container-org55b0ca0" class="outline-3">
+<h3 id="org55b0ca0"><span class="section-number-3">4.4.</span> Layouts</h3>
 <div class="outline-text-3" id="text-4-4">
 </div>
-<div id="outline-container-org825b325" class="outline-4">
-<h4 id="org825b325"><span class="section-number-4">4.4.1.</span> Flexbox</h4>
+<div id="outline-container-orgb75a9ea" class="outline-4">
+<h4 id="orgb75a9ea"><span class="section-number-4">4.4.1.</span> Flexbox</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <ul class="org-ul">
 <li><p>
@@ -1900,8 +1901,8 @@ To space out children, use gap in the container:
 </ul>
 </div>
 </div>
-<div id="outline-container-org1758eea" class="outline-4">
-<h4 id="org1758eea"><span class="section-number-4">4.4.2.</span> Grid</h4>
+<div id="outline-container-org4bbc086" class="outline-4">
+<h4 id="org4bbc086"><span class="section-number-4">4.4.2.</span> Grid</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #c678dd;">div</span> <span style="color: #dcaeea;">class</span>=<span style="color: #98be65;">"grid grid-cols-2"</span>&gt; <span style="color: #5B6268;">&lt;!-- </span><span style="color: #5B6268;">grid-rows-2 for rows layout</span><span style="color: #5B6268;">--&gt;</span>
@@ -1912,8 +1913,8 @@ To space out children, use gap in the container:
 </div>
 </div>
 </div>
-<div id="outline-container-org4a3bbb5" class="outline-4">
-<h4 id="org4a3bbb5"><span class="section-number-4">4.4.3.</span> Real-World Constructs</h4>
+<div id="outline-container-orga519c89" class="outline-4">
+<h4 id="orga519c89"><span class="section-number-4">4.4.3.</span> Real-World Constructs</h4>
 <div class="outline-text-4" id="text-4-4-3">
 <ul class="org-ul">
 <li><p>
@@ -2056,12 +2057,12 @@ Aligning items:
 </div>
 </div>
 </div>
-<div id="outline-container-org402b480" class="outline-2">
-<h2 id="org402b480"><span class="section-number-2">5.</span> Fundamentals of JavaScript</h2>
+<div id="outline-container-orgc020b44" class="outline-2">
+<h2 id="orgc020b44"><span class="section-number-2">5.</span> Fundamentals of JavaScript</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org1ea00ca" class="outline-3">
-<h3 id="org1ea00ca"><span class="section-number-3">5.1.</span> Document Object Model</h3>
+<div id="outline-container-org9908cc5" class="outline-3">
+<h3 id="org9908cc5"><span class="section-number-3">5.1.</span> Document Object Model</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 It&rsquo;s a programming interface for web documents, that arranges all the elements
@@ -2071,8 +2072,8 @@ page.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf8057ae" class="outline-3">
-<h3 id="orgf8057ae"><span class="section-number-3">5.2.</span> Variables</h3>
+<div id="outline-container-orgecffd3b" class="outline-3">
+<h3 id="orgecffd3b"><span class="section-number-3">5.2.</span> Variables</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>var is global while let and const are limited to the scope of the block.</li>
@@ -2113,8 +2114,8 @@ sayHi();
 </ul>
 </div>
 </div>
-<div id="outline-container-org28c6f3c" class="outline-3">
-<h3 id="org28c6f3c"><span class="section-number-3">5.3.</span> Unary Plus</h3>
+<div id="outline-container-org6838630" class="outline-3">
+<h3 id="org6838630"><span class="section-number-3">5.3.</span> Unary Plus</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li><p>
@@ -2129,8 +2130,8 @@ This converts any primitive that&rsquo;s not a string, into a number. For instan
 </ul>
 </div>
 </div>
-<div id="outline-container-org2e2839e" class="outline-3">
-<h3 id="org2e2839e"><span class="section-number-3">5.4.</span> Template Literals</h3>
+<div id="outline-container-org79fa384" class="outline-3">
+<h3 id="org79fa384"><span class="section-number-3">5.4.</span> Template Literals</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li><p>
@@ -2185,8 +2186,8 @@ avoid precision loss.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d0dff5" class="outline-3">
-<h3 id="org9d0dff5"><span class="section-number-3">5.5.</span> Date</h3>
+<div id="outline-container-org064afe1" class="outline-3">
+<h3 id="org064afe1"><span class="section-number-3">5.5.</span> Date</h3>
 <div class="outline-text-3" id="text-5-5">
 <ul class="org-ul">
 <li><p>
@@ -2235,12 +2236,12 @@ etc.
 </p>
 </div>
 </div>
-<div id="outline-container-orga42df11" class="outline-3">
-<h3 id="orga42df11"><span class="section-number-3">5.6.</span> Functions</h3>
+<div id="outline-container-org32d876a" class="outline-3">
+<h3 id="org32d876a"><span class="section-number-3">5.6.</span> Functions</h3>
 <div class="outline-text-3" id="text-5-6">
 </div>
-<div id="outline-container-org692ebd1" class="outline-4">
-<h4 id="org692ebd1"><span class="section-number-4">5.6.1.</span> Normal Functions</h4>
+<div id="outline-container-org7742898" class="outline-4">
+<h4 id="org7742898"><span class="section-number-4">5.6.1.</span> Normal Functions</h4>
 <div class="outline-text-4" id="text-5-6-1">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #c678dd;">html</span>&gt;
@@ -2260,8 +2261,8 @@ etc.
 </div>
 </div>
 </div>
-<div id="outline-container-org21c1fa7" class="outline-4">
-<h4 id="org21c1fa7"><span class="section-number-4">5.6.2.</span> Arrow Functions</h4>
+<div id="outline-container-orge192799" class="outline-4">
+<h4 id="orge192799"><span class="section-number-4">5.6.2.</span> Arrow Functions</h4>
 <div class="outline-text-4" id="text-5-6-2">
 <ul class="org-ul">
 <li>The code below does the exact same thing as the code above. They&rsquo;re just two different representations of the same thing.</li>
@@ -2316,8 +2317,8 @@ the same purpose as lambdas in Python.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7efc8b5" class="outline-4">
-<h4 id="org7efc8b5"><span class="section-number-4">5.6.3.</span> Callback functions</h4>
+<div id="outline-container-org1e6fc86" class="outline-4">
+<h4 id="org1e6fc86"><span class="section-number-4">5.6.3.</span> Callback functions</h4>
 <div class="outline-text-4" id="text-5-6-3">
 <ul class="org-ul">
 <li>You can pass a function <i>a</i> as an argument to another function <i>b</i>, and in <i>b</i> you
@@ -2358,8 +2359,8 @@ console.log(<span style="color: #98be65;">"End"</span>);
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b1b5d7" class="outline-4">
-<h4 id="org0b1b5d7"><span class="section-number-4">5.6.4.</span> Generator</h4>
+<div id="outline-container-org79f7e5a" class="outline-4">
+<h4 id="org79f7e5a"><span class="section-number-4">5.6.4.</span> Generator</h4>
 <div class="outline-text-4" id="text-5-6-4">
 <p>
 JavaScript generator functions are a special type of function that can pause and
@@ -2422,8 +2423,8 @@ console.log(count.next().value); <span style="color: #5B6268;">// </span><span s
 </div>
 </div>
 </div>
-<div id="outline-container-org40f8f7a" class="outline-3">
-<h3 id="org40f8f7a"><span class="section-number-3">5.7.</span> Modules</h3>
+<div id="outline-container-org21c756a" class="outline-3">
+<h3 id="org21c756a"><span class="section-number-3">5.7.</span> Modules</h3>
 <div class="outline-text-3" id="text-5-7">
 <ul class="org-ul">
 <li>Instead of putting all of the JavaScript code into one big file, you can split
@@ -2432,8 +2433,8 @@ the code into seperate JavaScript files called modules.</li>
 somewhere else), you should &ldquo;export&rdquo; the code.</li>
 </ul>
 </div>
-<div id="outline-container-org82473f9" class="outline-4">
-<h4 id="org82473f9"><span class="section-number-4">5.7.1.</span> Exporting</h4>
+<div id="outline-container-orgcad6a7a" class="outline-4">
+<h4 id="orgcad6a7a"><span class="section-number-4">5.7.1.</span> Exporting</h4>
 <div class="outline-text-4" id="text-5-7-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #5B6268;">/*     </span><span style="color: #5B6268;">math.js</span><span style="color: #5B6268;">     */</span>
@@ -2470,8 +2471,8 @@ individually, you can export everything all at once in a single line.
 </div>
 </div>
 </div>
-<div id="outline-container-orgdd7df19" class="outline-4">
-<h4 id="orgdd7df19"><span class="section-number-4">5.7.2.</span> Importing</h4>
+<div id="outline-container-org3d01cd0" class="outline-4">
+<h4 id="org3d01cd0"><span class="section-number-4">5.7.2.</span> Importing</h4>
 <div class="outline-text-4" id="text-5-7-2">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #5B6268;">/*     </span><span style="color: #5B6268;">script.js</span><span style="color: #5B6268;">    */</span>
@@ -2485,8 +2486,8 @@ console.log(add(2, 3));  <span style="color: #5B6268;">// </span><span style="co
 </div>
 </div>
 </div>
-<div id="outline-container-org3186ebd" class="outline-4">
-<h4 id="org3186ebd"><span class="section-number-4">5.7.3.</span> Default Export and Import</h4>
+<div id="outline-container-org68bf03f" class="outline-4">
+<h4 id="org68bf03f"><span class="section-number-4">5.7.3.</span> Default Export and Import</h4>
 <div class="outline-text-4" id="text-5-7-3">
 <ul class="org-ul">
 <li>In a module, you can have a &ldquo;default export&rdquo;. This export is imported by
@@ -2518,8 +2519,8 @@ And in another file:
 </ul>
 </div>
 </div>
-<div id="outline-container-org89064cb" class="outline-4">
-<h4 id="org89064cb"><span class="section-number-4">5.7.4.</span> CommonJS</h4>
+<div id="outline-container-org6a231a1" class="outline-4">
+<h4 id="org6a231a1"><span class="section-number-4">5.7.4.</span> CommonJS</h4>
 <div class="outline-text-4" id="text-5-7-4">
 <p>
 In older versions of JavaScript, you&rsquo;d had to export like this:
@@ -2551,8 +2552,8 @@ Modules.
 </div>
 </div>
 </div>
-<div id="outline-container-org8ea9952" class="outline-3">
-<h3 id="org8ea9952"><span class="section-number-3">5.8.</span> NodeJS</h3>
+<div id="outline-container-org6216b06" class="outline-3">
+<h3 id="org6216b06"><span class="section-number-3">5.8.</span> NodeJS</h3>
 <div class="outline-text-3" id="text-5-8">
 <ul class="org-ul">
 <li><p>
@@ -2576,8 +2577,8 @@ where you pick between commonJS and ES modules:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc51873" class="outline-3">
-<h3 id="orgdc51873"><span class="section-number-3">5.9.</span> Working with Files</h3>
+<div id="outline-container-org57661ed" class="outline-3">
+<h3 id="org57661ed"><span class="section-number-3">5.9.</span> Working with Files</h3>
 <div class="outline-text-3" id="text-5-9">
 <ul class="org-ul">
 <li><p>
@@ -2651,8 +2652,8 @@ console.log(content.toString());
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc603d12" class="outline-3">
-<h3 id="orgc603d12"><span class="section-number-3">5.10.</span> Working with Paths</h3>
+<div id="outline-container-org6e2373d" class="outline-3">
+<h3 id="org6e2373d"><span class="section-number-3">5.10.</span> Working with Paths</h3>
 <div class="outline-text-3" id="text-5-10">
 <p>
 For this, we use the path module:
@@ -2670,8 +2671,8 @@ console.log(myPath); <span style="color: #5B6268;">// </span><span style="color:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc902d8e" class="outline-3">
-<h3 id="orgc902d8e"><span class="section-number-3">5.11.</span> Objects</h3>
+<div id="outline-container-org2a93b01" class="outline-3">
+<h3 id="org2a93b01"><span class="section-number-3">5.11.</span> Objects</h3>
 <div class="outline-text-3" id="text-5-11">
 <ul class="org-ul">
 <li>Objects are the equivalents of dictionaries in Python. They&rsquo;re enclosed in curly braces and are comma separated.</li>
@@ -2680,8 +2681,8 @@ across multiple lines; It&rsquo;s not really a block of code. (So this means tha
 after the curly braces are closed, it ends with a comma)</li>
 </ul>
 </div>
-<div id="outline-container-org2e70641" class="outline-4">
-<h4 id="org2e70641"><span class="section-number-4">5.11.1.</span> Instance Variables</h4>
+<div id="outline-container-org21e1d55" class="outline-4">
+<h4 id="org21e1d55"><span class="section-number-4">5.11.1.</span> Instance Variables</h4>
 <div class="outline-text-4" id="text-5-11-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span> = {
@@ -2734,8 +2735,8 @@ tagy.innerHTML = man.name + <span style="color: #98be65;">"&lt;br&gt; and "</spa
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbd03144" class="outline-4">
-<h4 id="orgbd03144"><span class="section-number-4">5.11.2.</span> Object Destructuring</h4>
+<div id="outline-container-orgad627e3" class="outline-4">
+<h4 id="orgad627e3"><span class="section-number-4">5.11.2.</span> Object Destructuring</h4>
 <div class="outline-text-4" id="text-5-11-2">
 <ul class="org-ul">
 <li>You can directly access the object in two ways:
@@ -2772,8 +2773,8 @@ different value:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcdef05f" class="outline-4">
-<h4 id="orgcdef05f"><span class="section-number-4">5.11.3.</span> Methods</h4>
+<div id="outline-container-org972e475" class="outline-4">
+<h4 id="org972e475"><span class="section-number-4">5.11.3.</span> Methods</h4>
 <div class="outline-text-4" id="text-5-11-3">
 <p>
 You can use regular functions like this:
@@ -2823,8 +2824,8 @@ is the newer standard and is preferred.
 </p>
 </div>
 </div>
-<div id="outline-container-org0f08622" class="outline-4">
-<h4 id="org0f08622"><span class="section-number-4">5.11.4.</span> Object References</h4>
+<div id="outline-container-orgb669854" class="outline-4">
+<h4 id="orgb669854"><span class="section-number-4">5.11.4.</span> Object References</h4>
 <div class="outline-text-4" id="text-5-11-4">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">c</span> = { greeting: <span style="color: #98be65;">'initial for d and c'</span> };
@@ -2856,8 +2857,8 @@ console.log(d.greeting);
 </div>
 </div>
 </div>
-<div id="outline-container-orgfe657f8" class="outline-4">
-<h4 id="orgfe657f8"><span class="section-number-4">5.11.5.</span> Classes</h4>
+<div id="outline-container-orge7212fd" class="outline-4">
+<h4 id="orge7212fd"><span class="section-number-4">5.11.5.</span> Classes</h4>
 <div class="outline-text-4" id="text-5-11-5">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">class</span> Praanesh {
@@ -2878,8 +2879,8 @@ console.log(y.hi());
 </div>
 </div>
 </div>
-<div id="outline-container-org786de77" class="outline-4">
-<h4 id="org786de77"><span class="section-number-4">5.11.6.</span> Keys and Values as Array</h4>
+<div id="outline-container-orgc75a646" class="outline-4">
+<h4 id="orgc75a646"><span class="section-number-4">5.11.6.</span> Keys and Values as Array</h4>
 <div class="outline-text-4" id="text-5-11-6">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">x</span> = {
@@ -2898,8 +2899,8 @@ console.log(Object.values(x));
 </div>
 </div>
 </div>
-<div id="outline-container-org3913f8b" class="outline-3">
-<h3 id="org3913f8b"><span class="section-number-3">5.12.</span> Arrays</h3>
+<div id="outline-container-org05494b0" class="outline-3">
+<h3 id="org05494b0"><span class="section-number-3">5.12.</span> Arrays</h3>
 <div class="outline-text-3" id="text-5-12">
 <ul class="org-ul">
 <li><p>
@@ -2912,8 +2913,8 @@ let, const or var too)
 </div></li>
 </ul>
 </div>
-<div id="outline-container-org1594449" class="outline-4">
-<h4 id="org1594449"><span class="section-number-4">5.12.1.</span> Extending Arrays</h4>
+<div id="outline-container-org06ed1cf" class="outline-4">
+<h4 id="org06ed1cf"><span class="section-number-4">5.12.1.</span> Extending Arrays</h4>
 <div class="outline-text-4" id="text-5-12-1">
 <div class="org-src-container">
 <pre class="src src-javascript">
@@ -2939,8 +2940,8 @@ anotherElement.innerHTML = food + [<span style="color: #98be65;">'bajji'</span>,
 </div>
 </div>
 </div>
-<div id="outline-container-orgb5684c1" class="outline-4">
-<h4 id="orgb5684c1"><span class="section-number-4">5.12.2.</span> map()</h4>
+<div id="outline-container-org831abff" class="outline-4">
+<h4 id="org831abff"><span class="section-number-4">5.12.2.</span> map()</h4>
 <div class="outline-text-4" id="text-5-12-2">
 <ul class="org-ul">
 <li>The return value of map() is an array.</li>
@@ -2970,8 +2971,8 @@ plural.innerHTML = <span style="color: #98be65;">"plurals = "</span> + food;
 </div>
 </div>
 </div>
-<div id="outline-container-org23ecd0d" class="outline-4">
-<h4 id="org23ecd0d"><span class="section-number-4">5.12.3.</span> filter()</h4>
+<div id="outline-container-org804aa25" class="outline-4">
+<h4 id="org804aa25"><span class="section-number-4">5.12.3.</span> filter()</h4>
 <div class="outline-text-4" id="text-5-12-3">
 <ul class="org-ul">
 <li>The return value of filter() is an array.</li>
@@ -2996,8 +2997,8 @@ haha.innerHTML = names;
 </div>
 </div>
 </div>
-<div id="outline-container-org9c0938f" class="outline-4">
-<h4 id="org9c0938f"><span class="section-number-4">5.12.4.</span> Sort</h4>
+<div id="outline-container-org708c691" class="outline-4">
+<h4 id="org708c691"><span class="section-number-4">5.12.4.</span> Sort</h4>
 <div class="outline-text-4" id="text-5-12-4">
 <p>
 Sort works only for strings. For integers, you&rsquo;d have to do:
@@ -3116,8 +3117,8 @@ For example:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0e05418" class="outline-4">
-<h4 id="org0e05418"><span class="section-number-4">5.12.5.</span> Destructuring</h4>
+<div id="outline-container-org4a81f6f" class="outline-4">
+<h4 id="org4a81f6f"><span class="section-number-4">5.12.5.</span> Destructuring</h4>
 <div class="outline-text-4" id="text-5-12-5">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arr</span> = [1, 2, 3];
@@ -3126,8 +3127,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-org6013f8a" class="outline-4">
-<h4 id="org6013f8a"><span class="section-number-4">5.12.6.</span> Common Array Methods</h4>
+<div id="outline-container-orgc0ed8f0" class="outline-4">
+<h4 id="orgc0ed8f0"><span class="section-number-4">5.12.6.</span> Common Array Methods</h4>
 <div class="outline-text-4" id="text-5-12-6">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">a</span> = [];
@@ -3149,12 +3150,12 @@ console.log(a.pop()); <span style="color: #5B6268;">// </span><span style="color
 </div>
 </div>
 </div>
-<div id="outline-container-org6c80ca2" class="outline-3">
-<h3 id="org6c80ca2"><span class="section-number-3">5.13.</span> Strings</h3>
+<div id="outline-container-orgdaa5d4c" class="outline-3">
+<h3 id="orgdaa5d4c"><span class="section-number-3">5.13.</span> Strings</h3>
 <div class="outline-text-3" id="text-5-13">
 </div>
-<div id="outline-container-org9ec4817" class="outline-4">
-<h4 id="org9ec4817"><span class="section-number-4">5.13.1.</span> Substring</h4>
+<div id="outline-container-orgc286891" class="outline-4">
+<h4 id="orgc286891"><span class="section-number-4">5.13.1.</span> Substring</h4>
 <div class="outline-text-4" id="text-5-13-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">s</span> = <span style="color: #98be65;">"Connie Client"</span>;
@@ -3166,8 +3167,8 @@ console.log(a.pop()); <span style="color: #5B6268;">// </span><span style="color
 </div>
 </div>
 </div>
-<div id="outline-container-org03b6d6d" class="outline-4">
-<h4 id="org03b6d6d"><span class="section-number-4">5.13.2.</span> charAt</h4>
+<div id="outline-container-orgda333d2" class="outline-4">
+<h4 id="orgda333d2"><span class="section-number-4">5.13.2.</span> charAt</h4>
 <div class="outline-text-4" id="text-5-13-2">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">s</span> = <span style="color: #98be65;">"Connie Client"</span>;
@@ -3194,8 +3195,8 @@ However in JavaScript for <b>both strings and arrays</b>, it&rsquo;s a <b>proper
 </ul>
 </div>
 </div>
-<div id="outline-container-orge638a00" class="outline-4">
-<h4 id="orge638a00"><span class="section-number-4">5.13.3.</span> Palindrome Checker</h4>
+<div id="outline-container-orgb0eacef" class="outline-4">
+<h4 id="orgb0eacef"><span class="section-number-4">5.13.3.</span> Palindrome Checker</h4>
 <div class="outline-text-4" id="text-5-13-3">
 <ul class="org-ul">
 <li>We <code>split("")</code> the string into an array of characters.</li>
@@ -3218,8 +3219,8 @@ console.log(isPalindrome(<span style="color: #98be65;">"madam"</span>)); <span s
 </div>
 </div>
 </div>
-<div id="outline-container-orgaab2ba6" class="outline-3">
-<h3 id="orgaab2ba6"><span class="section-number-3">5.14.</span> Asynchronous JavaScript</h3>
+<div id="outline-container-org990b5c2" class="outline-3">
+<h3 id="org990b5c2"><span class="section-number-3">5.14.</span> Asynchronous JavaScript</h3>
 <div class="outline-text-3" id="text-5-14">
 <p>
 Generally in single-threaded models there are two types of programming
@@ -3234,8 +3235,8 @@ it&rsquo;d freeze the entire page because of some demanding instruction.</li>
 instructions, and then moves on to the next line.</li>
 </ul>
 </div>
-<div id="outline-container-org94c2dfd" class="outline-4">
-<h4 id="org94c2dfd"><span class="section-number-4">5.14.1.</span> Promise</h4>
+<div id="outline-container-org32d4049" class="outline-4">
+<h4 id="org32d4049"><span class="section-number-4">5.14.1.</span> Promise</h4>
 <div class="outline-text-4" id="text-5-14-1">
 <ul class="org-ul">
 <li><p>
@@ -3318,8 +3319,8 @@ To sum up, you retrieve data using a Promise like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org7f024f1" class="outline-4">
-<h4 id="org7f024f1"><span class="section-number-4">5.14.2.</span> Async and Await</h4>
+<div id="outline-container-orgad55e07" class="outline-4">
+<h4 id="orgad55e07"><span class="section-number-4">5.14.2.</span> Async and Await</h4>
 <div class="outline-text-4" id="text-5-14-2">
 <ul class="org-ul">
 <li><p>
@@ -3363,15 +3364,15 @@ conventional try-catch block.
 </p>
 </div>
 </div>
-<div id="outline-container-org97015cf" class="outline-4">
-<h4 id="org97015cf"><span class="section-number-4">5.14.3.</span> JavaScript Runtime Explained</h4>
+<div id="outline-container-org594e7be" class="outline-4">
+<h4 id="org594e7be"><span class="section-number-4">5.14.3.</span> JavaScript Runtime Explained</h4>
 <div class="outline-text-4" id="text-5-14-3">
 <p>
 The runtime consists of all the components needed to run JavaScript code.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org7818814"></a>JavaScript Engine<br />
+<li><a id="orgd827ee2"></a>JavaScript Engine<br />
 <div class="outline-text-5" id="text-5-14-3-1">
 <ul class="org-ul">
 <li>The JavaScript Engine consists of two components: the <b>Call Stack</b> and the <b>Heap</b>
@@ -3392,7 +3393,7 @@ SpiderMonkey (Firefox uses this).</li>
 </ul>
 </div>
 </li>
-<li><a id="org6b627fd"></a>Web APIs<br />
+<li><a id="org415787d"></a>Web APIs<br />
 <div class="outline-text-5" id="text-5-14-3-2">
 <ul class="org-ul">
 <li>These are interfaces to control various features of the browser. For Example:
@@ -3414,7 +3415,7 @@ removeItem(key).</li>
 </ul>
 </div>
 </li>
-<li><a id="org19d6aa4"></a>Callback/ Task Queue<br />
+<li><a id="orge9a15e1"></a>Callback/ Task Queue<br />
 <div class="outline-text-5" id="text-5-14-3-3">
 <ul class="org-ul">
 <li>After an asynchronous operation (like setTimeOut()) finishes, the callback
@@ -3469,7 +3470,7 @@ particular iteration.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8e16baa"></a>Microtask Queue<br />
+<li><a id="org561e7c3"></a>Microtask Queue<br />
 <div class="outline-text-5" id="text-5-14-3-4">
 <ul class="org-ul">
 <li>This is a special Queue dedicated to .then(), .catch(), and .finally()
@@ -3480,7 +3481,7 @@ microtask independently.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcc7f234"></a>Event Loop<br />
+<li><a id="org024a186"></a>Event Loop<br />
 <div class="outline-text-5" id="text-5-14-3-5">
 <ul class="org-ul">
 <li>The Event Loop is a loop (for, while, whatever it is internally) that
@@ -3498,12 +3499,12 @@ indefinitely.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org749fe7f" class="outline-2">
-<h2 id="org749fe7f"><span class="section-number-2">6.</span> TypeScript</h2>
+<div id="outline-container-org342f8d7" class="outline-2">
+<h2 id="org342f8d7"><span class="section-number-2">6.</span> TypeScript</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org4db8bc7" class="outline-3">
-<h3 id="org4db8bc7"><span class="section-number-3">6.1.</span> Types</h3>
+<div id="outline-container-org3e2101e" class="outline-3">
+<h3 id="org3e2101e"><span class="section-number-3">6.1.</span> Types</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><p>
@@ -3532,8 +3533,8 @@ You can implicitly assign a type:
 </div></li>
 </ul>
 </div>
-<div id="outline-container-orga040489" class="outline-4">
-<h4 id="orga040489"><span class="section-number-4">6.1.1.</span> Union Types</h4>
+<div id="outline-container-orge9694cb" class="outline-4">
+<h4 id="orge9694cb"><span class="section-number-4">6.1.1.</span> Union Types</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">id</span>: <span style="color: #51afef;">number</span> | <span style="color: #51afef;">string</span>;
@@ -3541,8 +3542,8 @@ You can implicitly assign a type:
 </div>
 </div>
 </div>
-<div id="outline-container-org0b53e66" class="outline-4">
-<h4 id="org0b53e66"><span class="section-number-4">6.1.2.</span> Any</h4>
+<div id="outline-container-orge1e4800" class="outline-4">
+<h4 id="orge1e4800"><span class="section-number-4">6.1.2.</span> Any</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">value</span>: <span style="color: #51afef;">any</span> = 10;
@@ -3561,9 +3562,44 @@ value = { x: 10 };
 </div>
 </div>
 </div>
-<div id="outline-container-orge6a51c9" class="outline-3">
-<h3 id="orge6a51c9"><span class="section-number-3">6.2.</span> Classes and Objects</h3>
+<div id="outline-container-orgda22c1b" class="outline-3">
+<h3 id="orgda22c1b"><span class="section-number-3">6.2.</span> Arrays</h3>
 <div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li><p>
+This is one way of declaring the type:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">numbers</span>: <span style="color: #51afef;">number</span>[] = [1, 2, 3];
+<span style="color: #ECBE7B;">console</span>.<span style="color: #c678dd;">log</span>(numbers)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  [ 1, 2, 3 ]
+</pre>
+</div></li>
+
+<li><p>
+You can also declare the type as:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">numbers</span>: <span style="color: #ECBE7B;">Array</span>&lt;<span style="color: #51afef;">number</span>&gt; = [1, 2, 3];
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3d70a44" class="outline-3">
+<h3 id="org3d70a44"><span class="section-number-3">6.3.</span> Classes and Objects</h3>
+<div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> {
 <span style="color: #3dea43364a63;"> </span> x: <span style="color: #51afef;">number</span>;
@@ -3576,13 +3612,54 @@ p.y = 20;
 </pre>
 </div>
 <p>
-These are JavaScript Objects (but with types), hence they&rsquo;re TypeScript. 
+These are JavaScript Objects (but with types), hence they&rsquo;re TypeScript.
 </p>
+
+<p>
+A plain JavasScript Object with assignment then and there itself would look like:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span> = {
+<span style="color: #3dea43364a63;"> </span>   name: <span style="color: #98be65;">"Alice"</span>,
+<span style="color: #3dea43364a63;"> </span>   age: 20
+};
+</pre>
+</div>
+<p>
+The same object with its type explictly mentioned in TypeScript:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span>: {
+<span style="color: #3dea43364a63;"> </span>   name: <span style="color: #51afef;">string</span>;
+<span style="color: #3dea43364a63;"> </span>   age: <span style="color: #51afef;">number</span>;
+} = {
+<span style="color: #3dea43364a63;"> </span>   name: <span style="color: #98be65;">"Alice"</span>,
+<span style="color: #3dea43364a63;"> </span>   age: 20
+};
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">const variable: TYPE = VALUE;
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">person's type = object with name:string and age:number</span>
+</pre>
+</div>
+<p>
+Instead you can do:
+</p>
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">Person</span> = {
+<span style="color: #3dea43364a63;"> </span>   name: <span style="color: #51afef;">string</span>;
+<span style="color: #3dea43364a63;"> </span>   age: <span style="color: #51afef;">number</span>;
+};
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">and then the same syntax as in JavaScript
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span>: <span style="color: #ECBE7B;">Person</span> = {
+<span style="color: #3dea43364a63;"> </span>   name: <span style="color: #98be65;">"Alice"</span>,
+<span style="color: #3dea43364a63;"> </span>   age: 20
+};
+</pre>
 </div>
 </div>
-<div id="outline-container-org841ec3d" class="outline-3">
-<h3 id="org841ec3d"><span class="section-number-3">6.3.</span> Interfaces</h3>
-<div class="outline-text-3" id="text-6-3">
+</div>
+<div id="outline-container-org70ed4ac" class="outline-3">
+<h3 id="org70ed4ac"><span class="section-number-3">6.4.</span> Interfaces and how they&rsquo;re different from Types</h3>
+<div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">interface</span> <span style="color: #ECBE7B;">Point</span> {
 <span style="color: #3dea43364a63;"> </span> x: <span style="color: #51afef;">number</span>;
@@ -3591,30 +3668,44 @@ These are JavaScript Objects (but with types), hence they&rsquo;re TypeScript.
 </pre>
 </div>
 <p>
-This creates a primitive type called <code>Point</code>.
+This creates an object type called <code>Point</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">point</span>: <span style="color: #ECBE7B;">Point</span> = {x: 100, y: 200};
 </pre>
 </div>
+
+<p>
+Interfaces and types are almost the same thing. It&rsquo;s just that with types, you
+can have <b>unions</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #51afef;">type</span> <span style="color: #ECBE7B;">ID</span> = <span style="color: #51afef;">string</span> | <span style="color: #51afef;">number</span>;
+</pre>
+</div>
+
+<p>
+On the other hand, interfaces are strictly for describing object shapes.
+</p>
 </div>
 </div>
-<div id="outline-container-org75263d1" class="outline-3">
-<h3 id="org75263d1"><span class="section-number-3">6.4.</span> Array</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-org76b3638" class="outline-3">
+<h3 id="org76b3638"><span class="section-number-3">6.5.</span> Array</h3>
+<div class="outline-text-3" id="text-6-5">
 </div>
-<div id="outline-container-org8adeb40" class="outline-4">
-<h4 id="org8adeb40"><span class="section-number-4">6.4.1.</span> Array of Strings</h4>
-<div class="outline-text-4" id="text-6-4-1">
+<div id="outline-container-orgd3c5e20" class="outline-4">
+<h4 id="orgd3c5e20"><span class="section-number-4">6.5.1.</span> Array of Strings</h4>
+<div class="outline-text-4" id="text-6-5-1">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">names</span>: <span style="color: #51afef;">string</span>[] = [<span style="color: #98be65;">"Alice"</span>, <span style="color: #98be65;">"Bob"</span>, <span style="color: #98be65;">"Charlie"</span>];
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbe0502e" class="outline-4">
-<h4 id="orgbe0502e"><span class="section-number-4">6.4.2.</span> Array of Objects</h4>
-<div class="outline-text-4" id="text-6-4-2">
+<div id="outline-container-org3f61cde" class="outline-4">
+<h4 id="org3f61cde"><span class="section-number-4">6.5.2.</span> Array of Objects</h4>
+<div class="outline-text-4" id="text-6-5-2">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">interface</span> <span style="color: #ECBE7B;">Point</span> {
 <span style="color: #3dea43364a63;"> </span>   x: <span style="color: #51afef;">number</span>;
@@ -3632,12 +3723,12 @@ This creates a primitive type called <code>Point</code>.
 </div>
 </div>
 </div>
-<div id="outline-container-orgda3fbe9" class="outline-2">
-<h2 id="orgda3fbe9"><span class="section-number-2">7.</span> ExpressJS</h2>
+<div id="outline-container-org52bbbe1" class="outline-2">
+<h2 id="org52bbbe1"><span class="section-number-2">7.</span> ExpressJS</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org7ccd963" class="outline-3">
-<h3 id="org7ccd963"><span class="section-number-3">7.1.</span> Networking</h3>
+<div id="outline-container-org54d0220" class="outline-3">
+<h3 id="org54d0220"><span class="section-number-3">7.1.</span> Networking</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li><p>
@@ -3756,8 +3847,8 @@ these response.end() statements happen in the client side.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6042a8b" class="outline-3">
-<h3 id="org6042a8b"><span class="section-number-3">7.2.</span> What Express.js is</h3>
+<div id="outline-container-org8d30962" class="outline-3">
+<h3 id="org8d30962"><span class="section-number-3">7.2.</span> What Express.js is</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Express.js is a JavaScript Framework that provides a robust set of features
@@ -3807,8 +3898,8 @@ app.listen(port, <span style="color: #98be65;">'127.0.0.1'</span>, () =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-org5682f79" class="outline-3">
-<h3 id="org5682f79"><span class="section-number-3">7.3.</span> Static Files</h3>
+<div id="outline-container-orgeea78f7" class="outline-3">
+<h3 id="orgeea78f7"><span class="section-number-3">7.3.</span> Static Files</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li><p>
@@ -3827,12 +3918,12 @@ Middleware functions will be covered later on
 </p>
 </div>
 </div>
-<div id="outline-container-org61ff08e" class="outline-3">
-<h3 id="org61ff08e"><span class="section-number-3">7.4.</span> HTTP Requests</h3>
+<div id="outline-container-orgf05703a" class="outline-3">
+<h3 id="orgf05703a"><span class="section-number-3">7.4.</span> HTTP Requests</h3>
 <div class="outline-text-3" id="text-7-4">
 </div>
-<div id="outline-container-orged44a99" class="outline-4">
-<h4 id="orged44a99"><span class="section-number-4">7.4.1.</span> GET Requests</h4>
+<div id="outline-container-org01c32ae" class="outline-4">
+<h4 id="org01c32ae"><span class="section-number-4">7.4.1.</span> GET Requests</h4>
 <div class="outline-text-4" id="text-7-4-1">
 <ul class="org-ul">
 <li>GET Requests are used when the client wants data from the server without
@@ -3905,8 +3996,8 @@ are cached by the browser.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd01cf56" class="outline-4">
-<h4 id="orgd01cf56"><span class="section-number-4">7.4.2.</span> POST Requests</h4>
+<div id="outline-container-org4646c7c" class="outline-4">
+<h4 id="org4646c7c"><span class="section-number-4">7.4.2.</span> POST Requests</h4>
 <div class="outline-text-4" id="text-7-4-2">
 <ul class="org-ul">
 <li>POST Requests are used to send data to the server.</li>
@@ -3983,8 +4074,8 @@ app.post(<span style="color: #98be65;">"/"</span>, (request, response) =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f4842a" class="outline-4">
-<h4 id="org1f4842a"><span class="section-number-4">7.4.3.</span> PUT, DELETE</h4>
+<div id="outline-container-org910b5b1" class="outline-4">
+<h4 id="org910b5b1"><span class="section-number-4">7.4.3.</span> PUT, DELETE</h4>
 <div class="outline-text-4" id="text-7-4-3">
 <ul class="org-ul">
 <li>PUT requests are used to replace an entity completely, while delete deletes
@@ -3993,8 +4084,8 @@ the entity.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0c54b2" class="outline-4">
-<h4 id="orge0c54b2"><span class="section-number-4">7.4.4.</span> Why these different HTTP methods matter:</h4>
+<div id="outline-container-org975c7cc" class="outline-4">
+<h4 id="org975c7cc"><span class="section-number-4">7.4.4.</span> Why these different HTTP methods matter:</h4>
 <div class="outline-text-4" id="text-7-4-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -4056,12 +4147,12 @@ the entity.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org86322d0" class="outline-3">
-<h3 id="org86322d0"><span class="section-number-3">7.5.</span> Variables in URLS</h3>
+<div id="outline-container-orgbbaf1a2" class="outline-3">
+<h3 id="orgbbaf1a2"><span class="section-number-3">7.5.</span> Variables in URLS</h3>
 <div class="outline-text-3" id="text-7-5">
 </div>
-<div id="outline-container-org7314280" class="outline-4">
-<h4 id="org7314280"><span class="section-number-4">7.5.1.</span> Slug</h4>
+<div id="outline-container-orge049da8" class="outline-4">
+<h4 id="orge049da8"><span class="section-number-4">7.5.1.</span> Slug</h4>
 <div class="outline-text-4" id="text-7-5-1">
 <ul class="org-ul">
 <li><p>
@@ -4087,8 +4178,8 @@ seperated by hyphens.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc056798" class="outline-4">
-<h4 id="orgc056798"><span class="section-number-4">7.5.2.</span> Query Parameters</h4>
+<div id="outline-container-orgb3ae872" class="outline-4">
+<h4 id="orgb3ae872"><span class="section-number-4">7.5.2.</span> Query Parameters</h4>
 <div class="outline-text-4" id="text-7-5-2">
 <ul class="org-ul">
 <li><p>
@@ -4118,8 +4209,8 @@ for get requests.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgcae85ff" class="outline-3">
-<h3 id="orgcae85ff"><span class="section-number-3">7.6.</span> Extras</h3>
+<div id="outline-container-org34c1245" class="outline-3">
+<h3 id="org34c1245"><span class="section-number-3">7.6.</span> Extras</h3>
 <div class="outline-text-3" id="text-7-6">
 <ul class="org-ul">
 <li><p>
@@ -4148,8 +4239,8 @@ object/router.
 </ul>
 </div>
 </div>
-<div id="outline-container-org74ae537" class="outline-3">
-<h3 id="org74ae537"><span class="section-number-3">7.7.</span> Routing</h3>
+<div id="outline-container-orge727451" class="outline-3">
+<h3 id="orge727451"><span class="section-number-3">7.7.</span> Routing</h3>
 <div class="outline-text-3" id="text-7-7">
 <ul class="org-ul">
 <li><p>
@@ -4193,8 +4284,8 @@ app.listen(3000, <span style="color: #98be65;">"0.0.0.0"</span>, () =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-org3cee491" class="outline-3">
-<h3 id="org3cee491"><span class="section-number-3">7.8.</span> Middleware</h3>
+<div id="outline-container-org22f62e8" class="outline-3">
+<h3 id="org22f62e8"><span class="section-number-3">7.8.</span> Middleware</h3>
 <div class="outline-text-3" id="text-7-8">
 <ul class="org-ul">
 <li>In case of method routes (aka. route handlers) like app.get(), app.post(),
@@ -4238,16 +4329,16 @@ router.use()).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org39122fd" class="outline-3">
-<h3 id="org39122fd"><span class="section-number-3">7.9.</span> Template Engine</h3>
+<div id="outline-container-org6fa0ead" class="outline-3">
+<h3 id="org6fa0ead"><span class="section-number-3">7.9.</span> Template Engine</h3>
 </div>
 </div>
-<div id="outline-container-orgf8871ab" class="outline-2">
-<h2 id="orgf8871ab"><span class="section-number-2">8.</span> React</h2>
+<div id="outline-container-org6005eaa" class="outline-2">
+<h2 id="org6005eaa"><span class="section-number-2">8.</span> React</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org48c5ed7" class="outline-3">
-<h3 id="org48c5ed7"><span class="section-number-3">8.1.</span> What is it</h3>
+<div id="outline-container-org0239506" class="outline-3">
+<h3 id="org0239506"><span class="section-number-3">8.1.</span> What is it</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>As we know, JavaScript/TypeScript can create, access or modify nodes from the
@@ -4275,8 +4366,8 @@ The overall skeletal file structure looks like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org5110935" class="outline-3">
-<h3 id="org5110935"><span class="section-number-3">8.2.</span> Making a React Project</h3>
+<div id="outline-container-org043d258" class="outline-3">
+<h3 id="org043d258"><span class="section-number-3">8.2.</span> Making a React Project</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><b>Package Managers</b>: npm stands for Node Package Manager and it&rsquo;s used to install
@@ -4371,8 +4462,8 @@ And to run the production site you just built, you&rsquo;d use:
 </ul>
 </div>
 </div>
-<div id="outline-container-org8610b89" class="outline-3">
-<h3 id="org8610b89"><span class="section-number-3">8.3.</span> React Components</h3>
+<div id="outline-container-org4e6dd6e" class="outline-3">
+<h3 id="org4e6dd6e"><span class="section-number-3">8.3.</span> React Components</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>A React Component is essentially a TypeScript-XML module with a function as
@@ -4432,8 +4523,8 @@ createRoot(document.getElementById(<span style="color: #98be65;">"root"</span>)!
 </ul>
 </div>
 </div>
-<div id="outline-container-orgde6d3ff" class="outline-3">
-<h3 id="orgde6d3ff"><span class="section-number-3">8.4.</span> More on JavaScript/TypeScript XML</h3>
+<div id="outline-container-orgfb5fa40" class="outline-3">
+<h3 id="orgfb5fa40"><span class="section-number-3">8.4.</span> More on JavaScript/TypeScript XML</h3>
 <div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li><p>
@@ -4468,8 +4559,8 @@ curly braces. Here&rsquo;s an example:
 </ul>
 </div>
 </div>
-<div id="outline-container-org01f63ad" class="outline-3">
-<h3 id="org01f63ad"><span class="section-number-3">8.5.</span> Props</h3>
+<div id="outline-container-org51e6a9c" class="outline-3">
+<h3 id="org51e6a9c"><span class="section-number-3">8.5.</span> Props</h3>
 <div class="outline-text-3" id="text-8-5">
 <ul class="org-ul">
 <li><p>
@@ -4499,8 +4590,8 @@ component. This is how the component would look like:
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d8f5bf" class="outline-3">
-<h3 id="org3d8f5bf"><span class="section-number-3">8.6.</span> States and Hooks</h3>
+<div id="outline-container-orge08bb65" class="outline-3">
+<h3 id="orge08bb65"><span class="section-number-3">8.6.</span> States and Hooks</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>A state is some information belonging to a component, that can change from
@@ -4546,8 +4637,8 @@ this {count} times) will change too.</li>
 <li>States help component <b>remember</b> information</li>
 </ul>
 </div>
-<div id="outline-container-org7deb6dd" class="outline-4">
-<h4 id="org7deb6dd"><span class="section-number-4">8.6.1.</span> useEffect Hook</h4>
+<div id="outline-container-org2177e0e" class="outline-4">
+<h4 id="org2177e0e"><span class="section-number-4">8.6.1.</span> useEffect Hook</h4>
 <div class="outline-text-4" id="text-8-6-1">
 <ul class="org-ul">
 <li><p>
@@ -4664,8 +4755,8 @@ a component is unmounted.
 </ul>
 </div>
 </div>
-<div id="outline-container-org44f7684" class="outline-4">
-<h4 id="org44f7684"><span class="section-number-4">8.6.2.</span> useRef</h4>
+<div id="outline-container-orgc1ff80f" class="outline-4">
+<h4 id="orgc1ff80f"><span class="section-number-4">8.6.2.</span> useRef</h4>
 <div class="outline-text-4" id="text-8-6-2">
 <ul class="org-ul">
 <li><p>
@@ -4746,12 +4837,12 @@ not needed for rendering.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org2f9d09e" class="outline-3">
-<h3 id="org2f9d09e"><span class="section-number-3">8.7.</span> Conditional Rendering</h3>
+<div id="outline-container-org62972da" class="outline-3">
+<h3 id="org62972da"><span class="section-number-3">8.7.</span> Conditional Rendering</h3>
 </div>
 </div>
-<div id="outline-container-org68007dd" class="outline-2">
-<h2 id="org68007dd"><span class="section-number-2">9.</span> MongoDB</h2>
+<div id="outline-container-org786126a" class="outline-2">
+<h2 id="org786126a"><span class="section-number-2">9.</span> MongoDB</h2>
 </div>
 </div>
 </body>
