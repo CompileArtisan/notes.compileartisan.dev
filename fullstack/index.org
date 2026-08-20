@@ -1613,6 +1613,7 @@ role = "header";     // ❌ Error
 role = 123;          // ❌ Error
 #+end_src
 
+
 *** Optional Properties
 Both type and interfaces support optional properties:
 #+begin_src typescript :results output raw :wrap src :exports both
@@ -1624,7 +1625,7 @@ interface Person {
 #+end_src
 
 So you can do this:
-#+begin_src typescript :results output raw :wrap src :exports both 
+#+begin_src typescript
 const p1: Person = {
     name: "Alice"
 };
