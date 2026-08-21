@@ -1483,8 +1483,8 @@ for (let i = 0; i < 3; i++) {
   indefinitely.
   
 * TypeScript
-** Types
-- It's JavaScript but with types:
+** Brief Introduction to how Types work
+- TypeScript is just JavaScript but with data types:
   #+begin_src typescript :results output raw :wrap src :exports both
 let width = 320;
   #+end_src
@@ -1509,28 +1509,36 @@ value = "hello";
 value = true;
 value = { x: 10 };
 #+end_src
-** Arrays
-- This is one way of declaring the type:
-  #+begin_src typescript :results output raw :wrap src :exports both
-let numbers: number[] = [1, 2, 3];
-console.log(numbers)
 
+** How to run TypeScript
+- Basically, you have to turn strip types off of the TypeScript code to turn it
+  into JavaScript, and then use node to run the JavaScript file.
+*** The Traditional Way
+- Install the TypeScript Compiler:
+  #+begin_src bash
+npm install -g typescript
   #+end_src
-
-  #+RESULTS:
-  #+begin_src
-  [ 1, 2, 3 ]
+- Compile the TypeScript file into JavaScript
+  #+begin_src bash
+tsc filename.ts
   #+end_src
-
-- You can also declare the type as:
-  #+begin_src typescript :results output raw :wrap src :exports both
-let numbers: Array<number> = [1, 2, 3];
-
+- Run the generated JavaScript file using node:
+  #+begin_src bash
+node filename.js
   #+end_src
-
-
-
-
+*** Using tsx
+- esbuild is a very fast JavaScript/TypeScript build tool that is written in Go. 
+- tsx (TypeScript Execute) is a CLI tool that executes TypeScript files directly
+  without using precompilation, by using esbuild.
+- To run files:
+  #+begin_src bash
+npm install -g tsx
+tsx filename.ts
+  #+end_src
+- There are older alternatives like ts-node:
+#+begin_src bash
+npx ts-node filename.ts
+#+end_src
 ** Classes and Objects
 #+begin_src typescript
 class Point {
@@ -1651,10 +1659,27 @@ type PersonKeys = keyof Person;
  ~keyof Person~ returns a union type ~"name" | "age"~ . So ~PersonKeys~ can be of value ~name~ or ~age~.
 
 ** Array
-*** Array of Strings
+*** Array of Primitives
 #+begin_src typescript
 const names: string[] = ["Alice", "Bob", "Charlie"];
 #+end_src
+- This is one way of declaring the type:
+  #+begin_src typescript :results output raw :wrap src :exports both
+let numbers: number[] = [1, 2, 3];
+console.log(numbers)
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [ 1, 2, 3 ]
+  #+end_src
+
+- You can also declare the type as:
+  #+begin_src typescript :results output raw :wrap src :exports both
+let numbers: Array<number> = [1, 2, 3];
+
+  #+end_src
 *** Array of Objects
 #+begin_src typescript
 interface Point {
