@@ -692,6 +692,35 @@ console.log(new Date().getTime()); // number of milliseconds since UNIX Epoch
 - The arrow function notation is generally preferred, and they're helpful in case of callback functions (covered later.)
 - An arrow function can be used to replace the name of a function. They serve
   the same purpose as lambdas in Python.
+- Youc an use an arrow function without the curly braces too. The value will be
+  implicitly returned. For example:
+  #+begin_src typescript :results output raw :wrap src :exports both
+const arr = ['apple', 'orange', 'mango'];
+let fruits1 = arr.map(x => {
+    return x+'s';  
+});
+console.log(fruits1);
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [ 'apples', 'oranges', 'mangos' ]
+  #+end_src
+  The above code had curly braces inside the map function and needed an explicit
+  return line. But since it's only a return statement and doesn't need a /block/
+  of code, you can also do this:
+  #+begin_src typescript :results output raw :wrap src :exports both
+const arr = ['apple', 'orange', 'mango'];
+let fruits = arr.map(x => x+'s');
+console.log(fruits);
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  [ 'apples', 'oranges', 'mangos' ]
+  #+end_src
 
 *** Callback functions
 - You can pass a function /a/ as an argument to another function /b/, and in /b/ you
@@ -1535,6 +1564,11 @@ node filename.js
 npm install -g tsx
 tsx filename.ts
   #+end_src
+- You can run a TypeScript file using tsx and automatically restart the process
+  whenever you save changes to that file:
+  #+begin_src bash
+tsx watch filename.ts
+  #+end_src
 - There are older alternatives like ts-node:
 #+begin_src bash
 npx ts-node filename.ts
@@ -1553,7 +1587,7 @@ p.y = 20;
 These are JavaScript Objects (but with types), hence they're TypeScript.
 
 *** Types
-A plain JavasScript Object with assignment then and there itself would look like:
+A plain JavaScript Object with assignment then and there itself would look like:
 #+begin_src typescript
 const person = {
     name: "Alice",
@@ -1644,6 +1678,24 @@ const p2: Person = {
 #+end_src
 
 
+*** Syntax to be noted in Interfaces and Types
+- Note that when you declare the type/shape, you use semicolons (commas work
+  here too), but the actual object creation involves commas:
+  #+begin_src typescript :results output raw :wrap src :exports both
+const person: {name: string; age: number} = {
+    name: "praanesh",
+    age: 21
+};
+
+console.log(person);
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  { name: 'praanesh', age: 21 }
+  #+end_src
+
 *** keyof Operator
 - ~keyof~ operator takes an object type and produces a union type of its keys
   (property names).
@@ -1657,6 +1709,17 @@ type Person = {
 type PersonKeys = keyof Person;
   #+end_src
  ~keyof Person~ returns a union type ~"name" | "age"~ . So ~PersonKeys~ can be of value ~name~ or ~age~.
+
+*** Indexing Types
+- You can index a type like you're indexing a dictionary:
+  #+begin_src typescript :results output raw :wrap src :exports both
+type Person = {
+    name: string;
+    age: number;
+};
+type nameType = Person["name"];
+
+  #+end_src
 
 ** Array
 *** Array of Primitives
