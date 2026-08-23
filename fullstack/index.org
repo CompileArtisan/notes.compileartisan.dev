@@ -803,6 +803,36 @@ console.log(count.next().value); // 0
 console.log(count.next().value); // 1
 
 #+end_src
+** Events
+- An event is a signal given by the browser indicating something has happened.
+*** Debounce
+- Say we have a function for printing the value of a textbox:
+  #+begin_src html
+<body>
+  <input id="search">
+  <script>
+   const input = document.getElementById("search");
+   input.addEventListener("input", () => {
+     console.log(input.value);
+   });
+  </script>
+</body>
+  #+end_src
+  The issue is that every time the value of the textbox changes, an event is
+  fired and the function executes once.
+- *Debounce* is where you control how often a function executes during rapidly
+  triggered events.
+- Essentially, you keep a timer for each event fire, and you run your code only
+  after that timer. 
+  - Let's say it's 2 seconds.
+  - If they type another character before the 2 seconds get over, the timer is
+    reset, and another setTimeout() is set for 2 seconds.
+  - It's only if there's no change in the value of the textbox for 2 seconds,
+    does the intended code run.
+  
+*** Throttle
+
+
 ** Modules
 - Instead of putting all of the JavaScript code into one big file, you can split
   the code into seperate JavaScript files called modules.
@@ -893,7 +923,6 @@ So yes, you can only export and import 1 function. This style is called
 CommonJS. The python-like import statements are how we do it in modern versions
 of JavaScript. If we import modules like that, then those modules are called ES
 Modules.
-
 ** NodeJS
 
 - The below command creates a new node project. Creating a node project is
