@@ -2573,4 +2573,177 @@ export default HiButton;
 
 ** Conditional Rendering
 
-* MongoDB
+* Web Graphics
+#+begin_src mermaid :file big_picture_webgraphics.png :results file
+flowchart TB
+    A["STATIC PICTURES<br/><br/>Raster images<br/>(JPEG/PNG/WebP)<br/><br/>SVG<br/>(vector XML)"]
+    B["PROGRAMMABLE DRAWING<br/><br/>Canvas 2D<br/>(pixel drawing)<br/><br/>WebGL / WebGPU<br/>(GPU / 3D)"]
+    C["STYLING LAYER<br/><br/>CSS visual FX<br/>(gradients, shadows,<br/>filters, transforms)"]
+
+    A --> D["ANIMATION LAYER<br/><br/>CSS transitions/animations<br/>Web Animations API<br/>requestAnimationFrame<br/>SVG SMIL"]
+
+    B --> D
+    C --> D
+
+    D -.-> E["Glues everything together:<br/>these technologies render INTO the page;<br/>animation makes them move over time"]
+
+#+end_src
+
+#+RESULTS:
+[[file:big_picture_webgraphics.png]]
+
+** Coordinates and Vector Space
+- Pixels start from the top-left, Y grows downward. This is how Canvas 2D and
+  CSS work.
+- In computer graphics, *Normalized Device Coordinates (NDC)* are used.
+  - This models the screen as a cartesian plane
+  - Here the *bottom-left-rear* point is (-1, -1, -1) and the *top-right-front*
+    point is (1, 1, 1).
+
+** Canvas 2D
+- Canvas 2D is a web feature that lets you draw shapes, text, and images on a
+  web page using JavaScript.
+- You add a ~<canvas>~ element to the page:
+  #+begin_src html
+<canvas id="c" width="800" height="600"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+</script>
+  #+end_src
+- This uses the coordinate system that starts from top-left, and Y growing
+  downward.
+- For instance:
+  #+begin_src html
+<body>
+  <canvas id="c" width="800" height="600"></canvas>
+  <script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+    // Rectangles
+    ctx.fillStyle = '#00aaaa';
+    ctx.fillRect(50, 50, 200, 100);     // x, y, w, h
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(50, 50, 200, 100);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height); // erase
+  </script>
+</body>
+  #+end_src
+  This makes something like:
+
+#+begin_export html
+  <canvas id="c" width="800" height="600"></canvas>
+  <script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+    // Rectangles
+    ctx.fillStyle = '#00aaaa';
+    ctx.fillRect(50, 50, 200, 100);     // x, y, w, h
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(50, 50, 200, 100);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height); // erase
+  </script>
+#+end_export
+
+** WebGL
+- While Canvas2D is a high-level drawing API, WebGL is a low-level GPU
+  programming API.
+  #+begin_src mermaid :file webgl.png :results file
+flowchart TD
+    A[JavaScript] --> B[Vertices]
+    B --> C[Float32Array]
+    C --> D[WebGL Buffer]
+    D --> E[Vertex Attribute]
+    E --> F[Vertex Shader]
+    F --> G[gl_Position]
+    G --> H[Rasterization]
+    H --> I[Fragments]
+    I --> J[Fragment Shader]
+    J --> K[Color]
+    K --> L[Canvas]
+  #+end_src
+
+  #+RESULTS:
+  [[file:webgl.png]]
+
+*** Getting Context
+WebGL context is the specialized toolkit that connects your JavaScript code
+directly to the computer's GPU.
+#+begin_src typescript
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl2'); // or 'webgl' for WebGL1
+#+end_src
+
+*** Vertices
+ - WebGL uses triangles as its core building block because they are always flat,
+   mathematically simple, and fast for graphics hardware to process.
+ - A 3D object is represented using 3 vertices just like a triangle:
+   #+begin_src typescript
+const vertices = new Float32Array([
+    0.0,  0.5, // x, y for vertex 1
+   -0.5, -0.5, // x, y for vertex 2
+    0.5, -0.5  // x, y for vertex 3
+]);
+   #+end_src
+   Note that these coordinates are normalized device coordinates.
+
+*** Create and Use Buffer
+#+begin_src typescript
+const buffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+#+end_src
+
+*** Sending Vertices to GPU
+#+begin_src typescript
+gl.bufferData(
+    gl.ARRAY_BUFFER,
+    vertices,
+    gl.STATIC_DRAW
+);
+#+end_src
+
+*** Shader
+- A shader is a small program that runs on the GPU. The GPU can process many
+  vertices/fragments in parallel.
+  | Vertex Shader      | Fragment Shader  |
+  |--------------------+------------------|
+  | Processes Vertices | Processes pixels |
+ \[\text{Vertex Data} \;\longrightarrow\; \text{Vertex Shader} \;\longrightarrow\; \text{Triangle Geometry} \;\longrightarrow\; \text{Rasterization} \;\longrightarrow\; \text{Fragments} \;\longrightarrow\; \text{Fragment Shader} \;\longrightarrow\; \text{Pixels} \]
+- A shader is written in *GLSL* (OpenGL Shading Language), and not JavaScript.
+**** Vertex Shader
+  #+begin_src glsl
+attribute vec2 position;
+
+void main() {
+    gl_Position = vec4(position, 0.0, 1.0);
+}
+  #+end_src
+  - ~attribute vec2 position~ declared input coming from vertex buffer, where
+    ~position~ is a variable, and ~vec2~ is a datatype (vector of 2 values x and y).
+  - ~gl_Position~ is a built-in GLSL variable and the vertex shader must
+    ultimately provide the position of the vertex through it. It's a vector of 4
+    variables ~x y z w~ (w is the *homogeneous coordinate*).
+
+**** Fragment Shader
+#+begin_src glsl
+precision mediump float;
+
+void main() {
+    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+#+end_src
+Here ~gl_FragColor~ is a built-in GLSL variable that stores ~R G B A~.
+
+**** Sourcing the Shader in JavaScript
+- We store the GLSL code as multiline JavaScript strings (template literals):
+  #+begin_src javascript
+const vertexShaderSource = `
+    attribute vec2 position;
+
+    void main() {
+        gl_Position = vec4(position, 0.0, 1.0);
+    }
+`;
+  #+end_src
