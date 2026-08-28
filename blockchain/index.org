@@ -1,5 +1,21 @@
 #+title: Blockchain Technology
 #+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+#+PROPERTY: header-args:python :eval never-export
+#+name: venv-python
+#+begin_src bash :results output none :exports none
+#!/usr/bin/env sh
+
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+uv venv .venv
+uv pip install hashlib
+
+
+printf "%s\n" "$(pwd)/.venv/bin/python"
+#+end_src
+#+begin_src elisp :exports none
+(setq org-babel-python-command
+      (string-trim (org-babel-ref-resolve "venv-python")))
+      #+end_src
 
 * Introduction
 ** What it is
@@ -146,7 +162,7 @@ H7 = 5be0cd19
      
    
 **** Rough Implementation in Python
-#+begin_src python :results output raw :wrap src :exports both
+#+begin_src python :results output raw :wrap src :exports both :tangle sha256.py
 def main():
     message = "quickbrown"
     output = convert_string_to_binary(message)
@@ -265,6 +281,20 @@ main()
 #+end_src
 
 
+**** Using ~hashlib~
+#+begin_src python :results output raw :wrap src :exports both
+import hashlib
+hash_value = hashlib.sha256("text".encode()).hexdigest()
+print(hash_value)
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1
+#+end_src
+
+
 ** Cryptographic Keys
 - These are mathematical codes verify a user's identify and authorize
   transactions.
@@ -336,11 +366,18 @@ main()
   blockchain.
 - This process secures the blockchain, prevents fraud and enables decentralized
   consensus.
+- Mining is used to secure transactions utilizing high performance computing
+  systems.
 
 ** Nonce
 - It stands for number used only once.
-- It is a number such that the hash of the block satisfies the netwrok's
+- It is a 32 bit number such that the hash of the block satisfies the netwrok's
   difficulty requirement.
+- A golden nonce is the specific number a cryptocurrency miner finds that
+  produces a valid block hash below the network's required target difficulty.
+- If a miner obtains the golden nonce, they obtain the
+  - Block Reward
+  - Gas
 
   
 ** Consensus
@@ -361,3 +398,74 @@ main()
 - 
 
 *** Proof of Stake
+
+
+* Execution Flow of a Blockchain
+\[\text{Transaction} \rightarrow \text{Mempool} \rightarrow \text{Mining / Block Creation} \rightarrow \text{Blockchain} \rightarrow \text{Validation} \]
+
+** How Blockchains Accumulate Blocks
+1. A node starts at transaction by signing it with its private key.
+2. The transaction is propagated by using much desirable gossip protocol to
+   peers, which validates the transaction based on pre-set criteria.
+3. Once the transaction is validated, it is included in a block, which is then
+   propagated on to the network. At this point, the transaction is considered confirmed.
+4. The newly created block now becomes part of the ledger and the next block
+   links itself cryptographically back to this block.
+
+** Example
+Implement a simple blockchain where miners find a valid nonce by repeatedly
+changing it until the block hash satisfies a predefined difficulty condition.
+*** 
+#+begin_src python :results output raw :wrap src :exports both :session hello
+import hashlib
+
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+#+end_src
+
+
+#+begin_src python :results output raw :wrap src :exports both :session hello
+
+#+end_src
+
+
+** Example
+ Build a blockchain network consisting of 3 independent university nodes (A, B
+ and C). Each university has a public-private key pair that acts as its
+ blockchain identity. Design and implement a simplified and decentralized
+ blockchain based certificate verification system in which the university's
+ issue digitally signed certificates and employers can independently verify
+ them without relying on a central database. When a university issues a
+ certificate:
+ - The certificate details forms a transaction.
+ - The transaction is digitally signed using the university's private key.
+ - Other nodes can verify signatures using the university's public key.
+ - Valid transactions are grouped into a block
+   
+ The attributes of the block contains:
+ - Blocknumber
+ - Timestamp
+ - Transactions
+ - Previous block hash
+ - Transaction hash
+ - Current block hash
+   
+ The participating nodes reach agreement using a consensus mechanism.
+
+ The validated block is replicated across peer to peer network.
+
+ An employer can verify a certificate using the student's certificate ID and
+ the issuing university's public key.
+   
+  
+** Example
+Implement a simple public blockchain for agriculture supply chain where:
+1. A farmer registers products on the blockchain.
+2. The supply chain team updates the produce status during transportation.
+3. The customer receives the produce.
+4. The produce reaches the customer
+5. The farmer recieves the benefit of the reward.
+6. All transactions must be stored in blocks linked using cryptographic hashes.

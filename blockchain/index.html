@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-08-18 Tue 00:18 -->
+<!-- 2026-08-28 Fri 10:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blockchain Technology</title>
@@ -709,56 +709,68 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org84918bc">1. Introduction</a>
+<li><a href="#org36673c7">1. Introduction</a>
 <ul>
-<li><a href="#orgea15adc">1.1. What it is</a></li>
-<li><a href="#org3590e04">1.2. Transaction</a></li>
-<li><a href="#org787adba">1.3. Advantages</a></li>
-<li><a href="#org9fa7aca">1.4. Disadvantages</a></li>
-<li><a href="#org3ed9b99">1.5. Smart Contracts</a></li>
-<li><a href="#orge499fb9">1.6. Rough Flow of Blochchain</a></li>
-<li><a href="#orgf2d1c50">1.7. Uses of Blockchain</a></li>
+<li><a href="#orgbce9cca">1.1. What it is</a></li>
+<li><a href="#orgb4cc309">1.2. Transaction</a></li>
+<li><a href="#org944f1d1">1.3. Advantages</a></li>
+<li><a href="#org9575118">1.4. Disadvantages</a></li>
+<li><a href="#org146d66a">1.5. Smart Contracts</a></li>
+<li><a href="#orgdecbad8">1.6. Rough Flow of Blochchain</a></li>
+<li><a href="#orgf02b4b8">1.7. Uses of Blockchain</a></li>
 </ul>
 </li>
-<li><a href="#orgc7b9209">2. Fundamentals</a>
+<li><a href="#orga4d5cf1">2. Fundamentals</a>
 <ul>
-<li><a href="#orgedc8750">2.1. Hash</a>
+<li><a href="#org7e10f5a">2.1. Hash</a>
 <ul>
-<li><a href="#org815cfcc">2.1.1. SHA-256</a></li>
+<li><a href="#org2bce3c8">2.1.1. SHA-256</a></li>
 </ul>
 </li>
-<li><a href="#org618c9d1">2.2. Cryptographic Keys</a>
+<li><a href="#org337922a">2.2. Cryptographic Keys</a>
 <ul>
-<li><a href="#orgb3c90a4">2.2.1. Based on Number of Keys</a></li>
+<li><a href="#orgf6082ed">2.2.1. Based on Number of Keys</a></li>
 </ul>
 </li>
-<li><a href="#org4ce7529">2.3. Blockchain Address</a></li>
-<li><a href="#org39dcc10">2.4. Message Digest</a></li>
-<li><a href="#org472d20c">2.5. Digital Signature</a>
+<li><a href="#org629196e">2.3. Blockchain Address</a></li>
+<li><a href="#orgbec43d4">2.4. Message Digest</a></li>
+<li><a href="#org71f9b58">2.5. Digital Signature</a>
 <ul>
-<li><a href="#org710ba2d">2.5.1. What it is</a></li>
-<li><a href="#org4cc6bbb">2.5.2. How it works</a></li>
+<li><a href="#org7ddd73d">2.5.1. What it is</a></li>
+<li><a href="#org5c2f4d2">2.5.2. How it works</a></li>
 </ul>
 </li>
-<li><a href="#org1ec0770">2.6. Miner</a></li>
-<li><a href="#orgb527cb0">2.7. Nonce</a></li>
-<li><a href="#org33840ca">2.8. Consensus</a>
+<li><a href="#org0b11b81">2.6. Miner</a></li>
+<li><a href="#org31ebf57">2.7. Nonce</a></li>
+<li><a href="#org0a9a6ef">2.8. Consensus</a>
 <ul>
-<li><a href="#org4daf39a">2.8.1. Proof of Work</a></li>
-<li><a href="#org5e19391">2.8.2. Proof of Stake</a></li>
+<li><a href="#org451c00e">2.8.1. Proof of Work</a></li>
+<li><a href="#orgb2ec9d7">2.8.2. Proof of Stake</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#org4ce5f6d">3. Execution Flow of a Blockchain</a>
+<ul>
+<li><a href="#orga2d5d72">3.1. How Blockchains Accumulate Blocks</a></li>
+<li><a href="#org3fbb2cc">3.2. Example</a>
+<ul>
+<li><a href="#orgb269469">3.2.1. </a></li>
+</ul>
+</li>
+<li><a href="#orgab47817">3.3. Example</a></li>
+<li><a href="#orgba0d07a">3.4. Example</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org84918bc" class="outline-2">
-<h2 id="org84918bc"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org36673c7" class="outline-2">
+<h2 id="org36673c7"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgea15adc" class="outline-3">
-<h3 id="orgea15adc"><span class="section-number-3">1.1.</span> What it is</h3>
+<div id="outline-container-orgbce9cca" class="outline-3">
+<h3 id="orgbce9cca"><span class="section-number-3">1.1.</span> What it is</h3>
 <div class="outline-text-3" id="text-1-1">
 <blockquote>
 <p>
@@ -776,8 +788,8 @@ whitepaper (blockchain for a digital currency).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3590e04" class="outline-3">
-<h3 id="org3590e04"><span class="section-number-3">1.2.</span> Transaction</h3>
+<div id="outline-container-orgb4cc309" class="outline-3">
+<h3 id="orgb4cc309"><span class="section-number-3">1.2.</span> Transaction</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>A transaction is a single record of some action, mostly some transfer of
@@ -792,8 +804,8 @@ Each block contains:
 </ul>
 </div>
 </div>
-<div id="outline-container-org787adba" class="outline-3">
-<h3 id="org787adba"><span class="section-number-3">1.3.</span> Advantages</h3>
+<div id="outline-container-org944f1d1" class="outline-3">
+<h3 id="org944f1d1"><span class="section-number-3">1.3.</span> Advantages</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>More security</li>
@@ -802,8 +814,8 @@ Each block contains:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9fa7aca" class="outline-3">
-<h3 id="org9fa7aca"><span class="section-number-3">1.4.</span> Disadvantages</h3>
+<div id="outline-container-org9575118" class="outline-3">
+<h3 id="org9575118"><span class="section-number-3">1.4.</span> Disadvantages</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Slower</li>
@@ -813,8 +825,8 @@ Each block contains:
 </ul>
 </div>
 </div>
-<div id="outline-container-org3ed9b99" class="outline-3">
-<h3 id="org3ed9b99"><span class="section-number-3">1.5.</span> Smart Contracts</h3>
+<div id="outline-container-org146d66a" class="outline-3">
+<h3 id="org146d66a"><span class="section-number-3">1.5.</span> Smart Contracts</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>When you carry out transactions in a blockchain, instead of trusting a
@@ -826,8 +838,8 @@ required in a blockchain transaction.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge499fb9" class="outline-3">
-<h3 id="orge499fb9"><span class="section-number-3">1.6.</span> Rough Flow of Blochchain</h3>
+<div id="outline-container-orgdecbad8" class="outline-3">
+<h3 id="orgdecbad8"><span class="section-number-3">1.6.</span> Rough Flow of Blochchain</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>A transaction \(T_{x}\) occurs.</li>
@@ -839,8 +851,8 @@ using cryptographic hashes).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf2d1c50" class="outline-3">
-<h3 id="orgf2d1c50"><span class="section-number-3">1.7.</span> Uses of Blockchain</h3>
+<div id="outline-container-orgf02b4b8" class="outline-3">
+<h3 id="orgf02b4b8"><span class="section-number-3">1.7.</span> Uses of Blockchain</h3>
 <div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>Cryptocurrencies</li>
@@ -851,12 +863,12 @@ using cryptographic hashes).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc7b9209" class="outline-2">
-<h2 id="orgc7b9209"><span class="section-number-2">2.</span> Fundamentals</h2>
+<div id="outline-container-orga4d5cf1" class="outline-2">
+<h2 id="orga4d5cf1"><span class="section-number-2">2.</span> Fundamentals</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgedc8750" class="outline-3">
-<h3 id="orgedc8750"><span class="section-number-3">2.1.</span> Hash</h3>
+<div id="outline-container-org7e10f5a" class="outline-3">
+<h3 id="org7e10f5a"><span class="section-number-3">2.1.</span> Hash</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>A hash is a unique digital fingerprint of data. It&rsquo;s a mathematical blender.</li>
@@ -866,8 +878,8 @@ using cryptographic hashes).</li>
 <li>Two inputs can never give the same hash.</li>
 </ul>
 </div>
-<div id="outline-container-org815cfcc" class="outline-4">
-<h4 id="org815cfcc"><span class="section-number-4">2.1.1.</span> SHA-256</h4>
+<div id="outline-container-org2bce3c8" class="outline-4">
+<h4 id="org2bce3c8"><span class="section-number-4">2.1.1.</span> SHA-256</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>SHA-256 works on 512-bit blocks.</li>
@@ -876,7 +888,7 @@ using cryptographic hashes).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgfb8b118"></a>Algorithm<br />
+<li><a id="org0367748"></a>Algorithm<br />
 <div class="outline-text-5" id="text-2-1-1-1">
 <ol class="org-ol">
 <li>Read the input</li>
@@ -983,7 +995,7 @@ inputs.</li>
 </ol>
 </div>
 </li>
-<li><a id="org0b01666"></a>Rough Implementation in Python<br />
+<li><a id="org630a39c"></a>Rough Implementation in Python<br />
 <div class="outline-text-5" id="text-2-1-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -1105,19 +1117,35 @@ main()
 </div>
 </div>
 </li>
+<li><a id="orgece52be"></a>Using <code>hashlib</code><br />
+<div class="outline-text-5" id="text-2-1-1-3">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">import</span> hashlib
+<span style="color: #dcaeea;">hash_value</span> = hashlib.sha256(<span style="color: #98be65;">"text"</span>.encode()).hexdigest()
+<span style="color: #c678dd;">print</span>(hash_value)
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1
+</pre>
+</div>
+</div>
+</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org618c9d1" class="outline-3">
-<h3 id="org618c9d1"><span class="section-number-3">2.2.</span> Cryptographic Keys</h3>
+<div id="outline-container-org337922a" class="outline-3">
+<h3 id="org337922a"><span class="section-number-3">2.2.</span> Cryptographic Keys</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>These are mathematical codes verify a user&rsquo;s identify and authorize
 transactions.</li>
 </ul>
 </div>
-<div id="outline-container-orgb3c90a4" class="outline-4">
-<h4 id="orgb3c90a4"><span class="section-number-4">2.2.1.</span> Based on Number of Keys</h4>
+<div id="outline-container-orgf6082ed" class="outline-4">
+<h4 id="orgf6082ed"><span class="section-number-4">2.2.1.</span> Based on Number of Keys</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1147,7 +1175,7 @@ transactions.</li>
 </table>
 </div>
 <ol class="org-ol">
-<li><a id="orgdfcb405"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
+<li><a id="orgd322844"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
 <div class="outline-text-5" id="text-2-2-1-1">
 <ul class="org-ul">
 <li>This is the model widely used Public Key Cryptography (PKC).</li>
@@ -1155,7 +1183,7 @@ transactions.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge929ff1"></a>Key Generation<br />
+<li><a id="org73377d8"></a>Key Generation<br />
 <div class="outline-text-6" id="text-2-2-1-1-1">
 <ul class="org-ul">
 <li>Select \(p\), \(q\), where \(p\) and \(q\) are prime.</li>
@@ -1167,7 +1195,7 @@ transactions.</li>
 </ul>
 </div>
 </li>
-<li><a id="orge2ef94f"></a>Encryption (through an example)<br />
+<li><a id="org1d329b4"></a>Encryption (through an example)<br />
 <div class="outline-text-6" id="text-2-2-1-1-2">
 <ul class="org-ul">
 <li>\(p=3\), \(q=11\)</li>
@@ -1234,8 +1262,8 @@ transactions.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org4ce7529" class="outline-3">
-<h3 id="org4ce7529"><span class="section-number-3">2.3.</span> Blockchain Address</h3>
+<div id="outline-container-org629196e" class="outline-3">
+<h3 id="org629196e"><span class="section-number-3">2.3.</span> Blockchain Address</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>A blockchain address is derived from the public key using hash functions.</li>
@@ -1248,8 +1276,8 @@ transactions.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org39dcc10" class="outline-3">
-<h3 id="org39dcc10"><span class="section-number-3">2.4.</span> Message Digest</h3>
+<div id="outline-container-orgbec43d4" class="outline-3">
+<h3 id="orgbec43d4"><span class="section-number-3">2.4.</span> Message Digest</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>This is a <b>fixed length alphanumeric string</b> that acts as a digital fingerprint.</li>
@@ -1258,12 +1286,12 @@ transactions.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org472d20c" class="outline-3">
-<h3 id="org472d20c"><span class="section-number-3">2.5.</span> Digital Signature</h3>
+<div id="outline-container-org71f9b58" class="outline-3">
+<h3 id="org71f9b58"><span class="section-number-3">2.5.</span> Digital Signature</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org710ba2d" class="outline-4">
-<h4 id="org710ba2d"><span class="section-number-4">2.5.1.</span> What it is</h4>
+<div id="outline-container-org7ddd73d" class="outline-4">
+<h4 id="org7ddd73d"><span class="section-number-4">2.5.1.</span> What it is</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <ul class="org-ul">
 <li>This is created by taking the hashed message and encrypting it using the
@@ -1276,8 +1304,8 @@ transaction (broader purpose)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4cc6bbb" class="outline-4">
-<h4 id="org4cc6bbb"><span class="section-number-4">2.5.2.</span> How it works</h4>
+<div id="outline-container-org5c2f4d2" class="outline-4">
+<h4 id="org5c2f4d2"><span class="section-number-4">2.5.2.</span> How it works</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <ol class="org-ol">
 <li></li>
@@ -1285,8 +1313,8 @@ transaction (broader purpose)</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1ec0770" class="outline-3">
-<h3 id="org1ec0770"><span class="section-number-3">2.6.</span> Miner</h3>
+<div id="outline-container-org0b11b81" class="outline-3">
+<h3 id="org0b11b81"><span class="section-number-3">2.6.</span> Miner</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>A miner is an individual or a company that computationally validate
@@ -1296,21 +1324,30 @@ computational work before they are allowed to add a new block to the
 blockchain.</li>
 <li>This process secures the blockchain, prevents fraud and enables decentralized
 consensus.</li>
+<li>Mining is used to secure transactions utilizing high performance computing
+systems.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb527cb0" class="outline-3">
-<h3 id="orgb527cb0"><span class="section-number-3">2.7.</span> Nonce</h3>
+<div id="outline-container-org31ebf57" class="outline-3">
+<h3 id="org31ebf57"><span class="section-number-3">2.7.</span> Nonce</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>It stands for number used only once.</li>
-<li>It is a number such that the hash of the block satisfies the netwrok&rsquo;s
+<li>It is a 32 bit number such that the hash of the block satisfies the netwrok&rsquo;s
 difficulty requirement.</li>
+<li>A golden nonce is the specific number a cryptocurrency miner finds that
+produces a valid block hash below the network&rsquo;s required target difficulty.</li>
+<li>If a miner obtains the golden nonce, they obtain the
+<ul class="org-ul">
+<li>Block Reward</li>
+<li>Gas</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org33840ca" class="outline-3">
-<h3 id="org33840ca"><span class="section-number-3">2.8.</span> Consensus</h3>
+<div id="outline-container-org0a9a6ef" class="outline-3">
+<h3 id="org0a9a6ef"><span class="section-number-3">2.8.</span> Consensus</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>It is the procss by which all the nodes in a blockchain agree on the validity
@@ -1349,16 +1386,130 @@ ledger.</li>
 </tbody>
 </table>
 </div>
-<div id="outline-container-org4daf39a" class="outline-4">
-<h4 id="org4daf39a"><span class="section-number-4">2.8.1.</span> Proof of Work</h4>
+<div id="outline-container-org451c00e" class="outline-4">
+<h4 id="org451c00e"><span class="section-number-4">2.8.1.</span> Proof of Work</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e19391" class="outline-4">
-<h4 id="org5e19391"><span class="section-number-4">2.8.2.</span> Proof of Stake</h4>
+<div id="outline-container-orgb2ec9d7" class="outline-4">
+<h4 id="orgb2ec9d7"><span class="section-number-4">2.8.2.</span> Proof of Stake</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org4ce5f6d" class="outline-2">
+<h2 id="org4ce5f6d"><span class="section-number-2">3.</span> Execution Flow of a Blockchain</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+\[\text{Transaction} \rightarrow \text{Mempool} \rightarrow \text{Mining / Block Creation} \rightarrow \text{Blockchain} \rightarrow \text{Validation} \]
+</p>
+</div>
+<div id="outline-container-orga2d5d72" class="outline-3">
+<h3 id="orga2d5d72"><span class="section-number-3">3.1.</span> How Blockchains Accumulate Blocks</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>A node starts at transaction by signing it with its private key.</li>
+<li>The transaction is propagated by using much desirable gossip protocol to
+peers, which validates the transaction based on pre-set criteria.</li>
+<li>Once the transaction is validated, it is included in a block, which is then
+propagated on to the network. At this point, the transaction is considered confirmed.</li>
+<li>The newly created block now becomes part of the ledger and the next block
+links itself cryptographically back to this block.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org3fbb2cc" class="outline-3">
+<h3 id="org3fbb2cc"><span class="section-number-3">3.2.</span> Example</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Implement a simple blockchain where miners find a valid nonce by repeatedly
+changing it until the block hash satisfies a predefined difficulty condition.
+</p>
+</div>
+<div id="outline-container-orgb269469" class="outline-4">
+<h4 id="orgb269469"><span class="section-number-4">3.2.1.</span> </h4>
+<div class="outline-text-4" id="text-3-2-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #51afef;">import</span> hashlib
+
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-python">
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgab47817" class="outline-3">
+<h3 id="orgab47817"><span class="section-number-3">3.3.</span> Example</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Build a blockchain network consisting of 3 independent university nodes (A, B
+and C). Each university has a public-private key pair that acts as its
+blockchain identity. Design and implement a simplified and decentralized
+blockchain based certificate verification system in which the university&rsquo;s
+issue digitally signed certificates and employers can independently verify
+them without relying on a central database. When a university issues a
+certificate:
+</p>
+<ul class="org-ul">
+<li>The certificate details forms a transaction.</li>
+<li>The transaction is digitally signed using the university&rsquo;s private key.</li>
+<li>Other nodes can verify signatures using the university&rsquo;s public key.</li>
+<li>Valid transactions are grouped into a block</li>
+</ul>
+
+<p>
+The attributes of the block contains:
+</p>
+<ul class="org-ul">
+<li>Blocknumber</li>
+<li>Timestamp</li>
+<li>Transactions</li>
+<li>Previous block hash</li>
+<li>Transaction hash</li>
+<li>Current block hash</li>
+</ul>
+
+<p>
+The participating nodes reach agreement using a consensus mechanism.
+</p>
+
+<p>
+The validated block is replicated across peer to peer network.
+</p>
+
+<p>
+An employer can verify a certificate using the student&rsquo;s certificate ID and
+the issuing university&rsquo;s public key.
+</p>
+</div>
+</div>
+<div id="outline-container-orgba0d07a" class="outline-3">
+<h3 id="orgba0d07a"><span class="section-number-3">3.4.</span> Example</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Implement a simple public blockchain for agriculture supply chain where:
+</p>
+<ol class="org-ol">
+<li>A farmer registers products on the blockchain.</li>
+<li>The supply chain team updates the produce status during transportation.</li>
+<li>The customer receives the produce.</li>
+<li>The produce reaches the customer</li>
+<li>The farmer recieves the benefit of the reward.</li>
+<li>All transactions must be stored in blocks linked using cryptographic hashes.</li>
+</ol>
 </div>
 </div>
 </div>
