@@ -282,18 +282,78 @@ main()
 
 
 **** Using ~hashlib~
-#+begin_src python :results output raw :wrap src :exports both
+The steps in which this works is given below:
+***** Make ~bytes~ Object
+- A ~bytes~ object in Python is an immutable sequence of integers ranging from 0
+  to 255.
+- You can make it using by passing a list of integers as the parameter to the
+  ~bytes~ function:
+  #+begin_src python :results output raw :wrap src :exports both
+list_bytes = bytes([72, 101, 108, 108, 111])
+print(list_bytes)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  b'Hello'
+  #+end_src
+- You can also use a ~b~ suffix to a string:
+  #+begin_src python :results output raw :wrap src :exports both
+list_bytes = b'hello'
+print(list_bytes)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  b'hello'
+  #+end_src
+- You can also use the ~.encode()~ method and it gives the same thing:
+  #+begin_src python :results output raw :wrap src :exports both
+list_bytes = 'hello'.encode()
+print(list_bytes)
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  b'hello'
+  #+end_src
+- If you index a ~bytes~ object, you get the ASCII value:
+  #+begin_src python :results output raw :wrap src :exports both
+print(b'ABC'[0])
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  65
+  #+end_src
+
+  
+***** Use ~.sha256()~ method
+- From the ~hashlib~ module, the ~.sha256()~ method takes a ~bytes~ object as a
+  parameter, and returns a ~HASH~ object:
+  #+begin_src python :results output raw :wrap src :exports both
+import hashlib
+print(type(hashlib.sha256(b'ABC')))
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  <class '_hashlib.HASH'>
+  #+end_src
+
+***** Use ~.hexdigest()~ method
+- On the ~HASH~ object, you can call the ~.hexdigest()~ method to return the hashed
+  value as hexadecimal characters:
+  #+begin_src python :results output raw :wrap src :exports both
 import hashlib
 hash_value = hashlib.sha256("text".encode()).hexdigest()
 print(hash_value)
+  #+end_src
 
-#+end_src
-
-#+RESULTS:
-#+begin_src
-982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1
-#+end_src
-
+  #+RESULTS:
+  #+begin_src
+  982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1
+  #+end_src
 
 ** Cryptographic Keys
 - These are mathematical codes verify a user's identify and authorize
@@ -369,15 +429,28 @@ print(hash_value)
 - Mining is used to secure transactions utilizing high performance computing
   systems.
 
-** Nonce
-- It stands for number used only once.
-- It is a 32 bit number such that the hash of the block satisfies the netwrok's
+** Difficulty
+- 
+
+** Nonce 
+- Nonce stands for number used only once.
+- It is a 32 bit number such that the hash of the block satisfies the network's
   difficulty requirement.
 - A golden nonce is the specific number a cryptocurrency miner finds that
   produces a valid block hash below the network's required target difficulty.
 - If a miner obtains the golden nonce, they obtain the
   - Block Reward
   - Gas
+- The basic algorithm is:
+  #+begin_src txt
+nonce = 0
+
+while hash doesn't satisfy difficulty:
+    nonce += 1
+    calculate hash
+
+stop when valid
+  #+end_src
 
   
 ** Consensus
@@ -415,11 +488,19 @@ print(hash_value)
 ** Example
 Implement a simple blockchain where miners find a valid nonce by repeatedly
 changing it until the block hash satisfies a predefined difficulty condition.
-*** 
+
 #+begin_src python :results output raw :wrap src :exports both :session hello
 import hashlib
+import time
 
+class Block:
 
+    def __init__(self, data, previous_hash):
+        self.data = data
+        self.timestamp = time.time() # import time
+        self.previous_hash = previous_hash
+        self.nonce = 0
+        self.hash = ""
 #+end_src
 
 #+RESULTS:
@@ -428,7 +509,10 @@ import hashlib
 
 
 #+begin_src python :results output raw :wrap src :exports both :session hello
+#+end_src
 
+#+RESULTS:
+#+begin_src
 #+end_src
 
 
