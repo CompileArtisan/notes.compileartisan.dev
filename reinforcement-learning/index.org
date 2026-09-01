@@ -26,6 +26,8 @@
 - Reward (R)
   - This is a single number sent by the environment to the agent.
   - It depends on the current *state* and *action* of the agent.
+  - A negative reward is called a *penalty*. Eg. hitting a wall, losing a game,
+    etc. are unfavourable results and must be penalized.
 - Value
   - Rewards tell us what is good immediately, but value function tells us what
     is good in the long run.
@@ -66,16 +68,29 @@ env.observation_space
 
 ** RL as a 3rd Maching Learning Paradigm
    
-   | Type                        | Data                                         | Goal                                    | Example                                  |
-   |-----------------------------+----------------------------------------------+-----------------------------------------+------------------------------------------|
-   | *Supervised Learning (SL)*    | Labeled data (x, y)                          | Learn function y = f(x); *Generalize*     | Classification, regression               |
-   | *Unsupervised Learning (UL)*  | Unlabeled data (x only)                      | Find hidden structure; *Compress*         | Clustering, dimensionality reduction     |
-   | *Reinforcement Learning (RL)* | Trial-and-error interaction with environment | Learn actions that maximize reward; *Act* | Learning tasks, navigation, game playing |
-
+*** Supervised Learning
+- This is where you have *labeled data* $(x,y)$, where $x$ is the input, and $y$
+  is the label (or correct answer).
+- The model learns a function $y = f(x)$. In other words it can map $f(x) \rightarrow y$.
+- Here the model is being told the correct answer at every step, and hence tries
+  to *generalize*.
+- Eg. Linear/Logistic Regression, Decision Trees, Neural Networks, etc.
 - Supervised learning is insufficient as it's impractical to obtain correct
   labelled examples representative of all situations in which the agent must
   act.
-   
+
+*** Unsupervised Learning
+- This is where you have *unlabeled data* $x$.
+- The model finds patterns in the data.
+- Here you have a large amount of data, and you're trying to narrow it down to
+  more abstract qualities to make clusters. In a way, it tries to *compress* the
+  data.
+
+*** Reinforcement Learning
+- Here you have a series of actions that unfold over time.
+- You're not told how good/bad each action was. You're told how good the *result*
+  was.
+
 ** Foundational Pillars of Reinforcement Learning
 
 | Pillars                                                      | Arcade Minds 2015                         | AlphaGo 2016                            |
@@ -121,6 +136,73 @@ RL splits into three broad approaches:
 *** Value-based methods
 - Learn V(s) or Q(s,a) — how good is each possible action
 - Learn the values, then derive a policy from them
+
+**** Sample Average Method
+- The value is calculated by taking running average of all the rewards you've
+  gotten till now:
+
+  \[
+  Q_t(a) = \frac{r_1 + r_2 + \cdots + r_k}{k}
+  \]
+
+- If you expand this \(Q_t(a)\) for \(k+1\) terms, it'd be:
+
+  \[
+  Q_t(a) = \frac{r_1 + r_2 + \cdots + r_k + r_{k+1}}{k+1}
+  \]
+
+- We know that:
+
+  \[
+  Q_k(a) = \frac{r_1 + r_2 + \cdots + r_k}{k}
+  \]
+
+  Therefore:
+
+  \[
+  r_1 + r_2 + \cdots + r_k = kQ_k(a)
+  \]
+
+- Substituting this into the \(k+1\) average:
+
+  \[
+  Q_{k+1}(a)
+  = \frac{kQ_k(a) + r_{k+1}}{k+1}
+  \]
+
+- Expanding: $kQ_k(a) + r_{k+1} = \underbrace{(k+1)Q_k(a)}_{\text{old value part}} + \underbrace{\left[r_{k+1} - Q_k(a)\right]}_{\text{correction}}$
+
+- So rearranging the original equation:
+
+  \[
+  Q_{k+1}(a)
+  = Q_k(a) + \frac{1}{k+1}
+  \left[r_{k+1} - Q_k(a)\right]
+  \]
+
+- Hence, the incremental update rule is:
+
+  \[\boxed{Q_{k+1}(a) = Q_k(a) + \frac{1}{k+1} \left[r_{k+1} - Q_k(a)\right]} \]
+
+- This can be understood as:
+
+  \[
+  \boxed{\text{New value} = \text{Old value} + \text{Correction}}
+  \]
+
+  where the correction is:
+
+  \[
+  \frac{1}{k+1}\left[r_{k+1} - Q_k(a)\right]
+  \]
+
+**** Exponentially Recency Weighted Average
+- In sample average method, the value was: 
+  \[\boxed{Q_{k+1}(a) = Q_k(a) + \frac{1}{k+1} \left[r_{k+1} - Q_k(a)\right]} \]
+- Here, in place of $\frac{1}{k+1}$, you have a constant \alpha:
+  \[\boxed{Q_{k+1}(a) = Q_k(a) + \alpha \left[r_{k+1} - Q_k(a)\right]} \]
+
+
 
 *** Policy-based methods
 - Instead of learning how good every action is, you learn the policy itself
