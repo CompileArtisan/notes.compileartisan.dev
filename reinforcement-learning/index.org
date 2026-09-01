@@ -5,8 +5,10 @@
  - Reinforcement learning is a branch of AI where an agent learns how to make
    decisions by interacting with its environment.
  - The goal is to learn how to take actions in order to maximize reward.
- - *Self-play* is a training method where an AI agent improves its skills by
-   repeatedly competing against itself or its past versions.
+   #+begin_quote
+Note: *Self-play* is a training method where an AI agent improves its skills by
+ repeatedly competing against itself or its past versions.
+   #+end_quote
 ** Components of RL
 - Agent
   - This is the learner/decision maker.
@@ -73,11 +75,12 @@ env.observation_space
   is the label (or correct answer).
 - The model learns a function $y = f(x)$. In other words it can map $f(x) \rightarrow y$.
 - Here the model is being told the correct answer at every step, and hence tries
-  to *generalize*.
+  to *generalize*, using *instructive feedback*.
 - Eg. Linear/Logistic Regression, Decision Trees, Neural Networks, etc.
 - Supervised learning is insufficient as it's impractical to obtain correct
   labelled examples representative of all situations in which the agent must
   act.
+
 
 *** Unsupervised Learning
 - This is where you have *unlabeled data* $x$.
@@ -90,6 +93,10 @@ env.observation_space
 - Here you have a series of actions that unfold over time.
 - You're not told how good/bad each action was. You're told how good the *result*
   was.
+- Supervised or unsupervised learning uses *non-interactive* learning, whereas
+  reinforcement learning uses *interactive learning*.
+- While supervised learning used instructive feedback, reinforcement learning
+  uses *evaluative feedback*.
 
 ** Foundational Pillars of Reinforcement Learning
 
@@ -222,8 +229,50 @@ RL splits into three broad approaches:
 - If any task naturally ends, it is called *episodic*.
 - For instance, a game of chess is episodic as the game does end.
 - Something like managing CPU resources is *non-episodic* as there's no end.
+- Episodes are also known as trial, period or stage.
         
 
+* Tic-Tac-Toe as a Reinforcement Leaning Problem
+- In Tic Tac Toe it's a $3 \times 3$ grid (so 9 boxes) and each box can be ~X~, ~O~ or
+  empty. Hence the number of states are $3^{3 \times 3}$
+
+| RL element   | Tic-Tac-Toe instance                                                           |
+|--------------+--------------------------------------------------------------------------------|
+| Agent        | The player being trained                                                       |
+| Environment  | The board + opponent's moves                                                   |
+| State (s)    | The current 3\times3 board configuration ($3^{3 \times 3}$ = 19,683 possible board layouts) |
+| Action (a)   | Placing your mark in any empty cell                                            |
+| Reward       | +1 for a win, -1 for a loss, 0 for a draw (or intermediate non-terminal move)  |
+| Policy ($\pi$) | Which cell to play given the current board                                     |
+| Episode      | One full game, from empty board to win/loss/draw                               |
+| Value V(s)   | Estimated **probability of eventually winning** from board state s               |
+
+- The value function for each state is initialized to 0.5. 
+  - If it's a state of victory, $V(s) = 1$.
+  - If it's a state of defeat, $V(s) = 0$.
+- If you're playing greedy, you'd look at every possible next state and choose
+  the state with the highest V(s). This is *100% exploitation*.
+- If you're playing exploratory, you pick a random move.
+- The value function is updated regardless of what sort of move you pick, and
+  it's given as:
+  
+  $$V(s) \leftarrow V(s) + \alpha\big[V(s') - V(s)\big]$$
+  
+  where \alpha is the learning rate.
+- This isn't the best RL example because:
+  - The number of states is limited.
+  - The next state is FULLY visible to the agent. Most RL problems have the
+    environment or state partially observable. Say we're talking about self-driving:
+    
+    |                      | Tic-Tac-Toe          | Self-driving          |
+    |----------------------+----------------------+-----------------------|
+    | True state visible?  | Yes                  | No                    |
+    | Observation = state? | Essentially yes      | No                    |
+    | Type                 | Fully observable     | Partially observable  |
+    | Example              | Entire board visible | Objects can be hidden |
+
+
+  
 * Multi-Armed Bandit Problem
 ** One-Arm Bandit
 - This is a slot machine, which is basically a gambling device with spinning
@@ -242,15 +291,21 @@ RL splits into three broad approaches:
   - *Exploit*: pull the arm that has paid off best so far
   - *Explore*: pull a different arm to learn more about it, even though it might pay less right now
 
-* Markov Decision Process
+* MDP: Markov Decision Process
+- This is a mathematical framework for modeling sequential decision-making
+  problems where the outcome is partly random and partly in control of an agent.
+- The markov property is that the future only depends on the current state, and
+  not any of the previous states.
 
-| Symbol | Meaning                |
-|--------+------------------------|
-| S      | State space            |
-| A      | Action space           |
-| P      | Transition probability |
-| R      | Reward function        |
-| \gamma      | Discount factor        |
+| Symbol | Meaning                    |
+|--------+----------------------------|
+| S      | State space                |
+| A      | Action space               |
+| P      | Transition probability     |
+| R      | Reward function            |
+| \gamma      | Discount factor            |
+| S_{0}     | Initial State Distribution |
+| H      | Horizon                    |
 
 ** Discount Factor
 - Discount factor (0 \le \gamma < 1) tells us how much of the future rewards should the
@@ -267,6 +322,24 @@ RL splits into three broad approaches:
 
 ** Transition Probability
 - It is given as $P(s' \vert s, a)$
+
+** Horizon
+- The number of time steps an agent plans for or interacts with the environment
+  before the decision-making process ends or resets.
+- It's how far into the future the agent is planning/acting before the task
+  ends.
+
+*** Finite Horizon
+- These tasks have a finite number of steps.
+
+*** Infinite Horizon
+- There are no predetermined number of steps.
+- If an infinite horizon can terminate naturally, it's called an *indefinite
+  horizon*.
+
+*** Greedy Horizon
+- Here the horizon is 1.
+- The episode ends after a single interaciton
 
 ** Reward
 \[\mathbb{E}[R_{t+1}\mid s,a] = \sum_{s'} P(s'\mid s,a)R(s,a,s') \]
