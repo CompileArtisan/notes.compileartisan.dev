@@ -210,6 +210,18 @@ RL splits into three broad approaches:
   \[\boxed{Q_{k+1}(a) = Q_k(a) + \alpha \left[r_{k+1} - Q_k(a)\right]} \]
 
 
+**** Bellman Optimality Equation
+$$V_{k+1}(s) = \max_a \big[R(s, a, s') + \gamma V_k(s')\big]$$
+- For each next state, you find the sum of the current reward and the
+  (discounted) value of that next state you're considering.
+- The value of the current state $s$ at the $k+1^{th}$ iteration is given as the
+  max of the sums of each state.
+- You calculate this value for every non-terminal state. This is one iterations.
+- You have as many iterations as you need till you have non-changing values for
+  the $V(s)$ at every state.
+- If the problem is episodic, \gamma = 1 (meaning you won't have to discount the
+  value of the next state).
+
 
 *** Policy-based methods
 - Instead of learning how good every action is, you learn the policy itself
@@ -231,6 +243,35 @@ RL splits into three broad approaches:
 - Something like managing CPU resources is *non-episodic* as there's no end.
 - Episodes are also known as trial, period or stage.
         
+
+** Transition Table
+- You make a table like:
+  
+  | State | Action | Next State | Probability | Reward |
+  |-------+--------+------------+-------------+--------|
+  | ..    | ..     | ..         | ..          | ..     |
+
+  The notations are given as:
+  - State: $s$
+  - Action: $a$
+  - Next State: $s'$
+  - Probability: $P(s' \vert s, a)$ or $T(s, a, s')$
+  - Reward: $R(s, a, s')$
+
+- The sum of the Probability column should be 1. This is because:
+  $$\Sigma P(s' \vert s, a) = 1$$
+
+- For example:
+  
+  | State | Action | Next State | Probability |
+  |-------+--------+------------+-------------|
+  | S2    | Down   | S4         |         0.8 |
+  | S2    | Down   | S2         |         0.2 |
+
+- *Stationarity* means that the same table applies at each and every time step.
+  The transition probabilities and the reward don't change over time.
+
+
 
 * Tic-Tac-Toe as a Reinforcement Leaning Problem
 - In Tic Tac Toe it's a $3 \times 3$ grid (so 9 boxes) and each box can be ~X~, ~O~ or
