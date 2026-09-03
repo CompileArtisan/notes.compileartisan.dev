@@ -17,11 +17,35 @@ printf "%s\n" "$(pwd)/.venv/bin/python"
       (string-trim (org-babel-ref-resolve "venv-python")))
       #+end_src
 
-* Introduction
+* Distributed Systems
+- This is a computing paradigm where two or more nodes work with each other in a
+  coordinated fashion, to achieve a common outcome.
+- The main challenges are:
+  - Coordination between nodes
+  - Fault tolerance
+
+** Brewer's Cap Theorem
+- *Consistency*: Every node gets the same latest data.
+- *Availability*: Every request gets a response.
+- *Partition Tolerance*: The system keeps functioning even if the network gets
+  split into isolated but functional groups of nodes.
+
+  
+Brewers' CAP theorem states that 
+  #+begin_quote
+You can only have CP or AP systems. During a partition, you must sacrifice either consistency or availability.  
+  #+end_quote
+- Blockchains commonly choose AP, but they get *eventual consistency*.
+  - In case of a partition, the two groups may not sync with each other at the
+    moment
+  - However, when the partition heals, the nodes communicate with each other
+    (gossip protocol).
+* Introduction to Blockchain
 ** What it is
 #+begin_quote
-A blockchain is a cryptographically secure, append-only distributed database
-structured as a chain of blocks maintained through decentralized consensus.
+A blockchain is a cryptographically secure, append-only, peer-to-peer
+distributed database structured as a chain of blocks maintained through
+decentralized consensus.
 #+end_quote
 - A blockchain is a secure decentralized digital ledger that records
   transactions as a sequence of linked blocks.
@@ -29,6 +53,9 @@ structured as a chain of blocks maintained through decentralized consensus.
 - In 2008, a paper written by an author 'Satoshi Nakamoto' published the bitcoin
   whitepaper (blockchain for a digital currency).
 - *Byzantine node*: a node exhibiting arbitrary behavior
+** Gossip Protocol
+- This is where nodes constantly keep communicating with each other in a
+  peer-to-peer network.
 ** Transaction
 - A transaction is a single record of some action, mostly some transfer of
   *value*. 
@@ -38,16 +65,27 @@ structured as a chain of blocks maintained through decentralized consensus.
   - Transaction Data
   - Hash
   
-** Advantages
+** Blockchain Vs Tradition Ledger
+
+| Traditional (centralized) ledger                                            | Blockchain distributed ledger                                                                               |
+|-----------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------|
+| One central authority (e.g., a bank) holds *the* official copy                | Every node holds an identical copy                                                                          |
+| If the central server goes down, the system stops (*single point of failure*) | Even if some nodes are cut off, the rest of the system keep functioning (*Partition tolerance*, *Availability*) |
+| *Consistency is guaranteed* because there's only one copy to begin with       | Consistency must be *actively re-earned* through consensus after a partition, it's temporarily sacrificed     |
+| Trust is placed in the *institution*                                          | Trust is placed in the *consensus mechanism*, not any single party                                            |
+
+In short: a traditional ledger sidesteps the CAP theorem entirely by having only one copy, while a blockchain's distributed ledger must consciously trade off Consistency for Availability + Partition tolerance, then recover consistency over time via consensus.
+
+*** Advantages of a Blockchain
 - More security
 - More transparency
 - No single-point-of-failure
-** Disadvantages
+*** Disadvantages of a Blockchain
 - Slower
 - High computational cost
 - Transactions are irreversible
 - High storage requirements
-
+  
 ** Smart Contracts
 - When you carry out transactions in a blockchain, instead of trusting a
   company, you trust some deterministic and immutable code stored on the
@@ -63,11 +101,18 @@ structured as a chain of blocks maintained through decentralized consensus.
 - The block is added to the chain (each block is linked to the previous block
   using cryptographic hashes).
 - The blockchain is updated.
+
+** Mempool
+A mempool (short for "memory pool") is a temporary holding area on a blockchain
+node where unconfirmed or pending transactions wait before being selected by a
+miner or validator
+
 ** Uses of Blockchain
 - Cryptocurrencies
 - Supply Chain Tracking
 - Healthcare
 - Voting Systems
+
 * Fundamentals
 ** Hash
 - A hash is a unique digital fingerprint of data. It's a mathematical blender.
@@ -467,10 +512,14 @@ stop when valid
 | Explains trade offs | achieves agreement |
 |                     |                    |
 
-*** Proof of Work
-- 
-
-*** Proof of Stake
+| Feature                 | Proof of Work (PoW)                                              | Proof of Stake (PoS)                                                    |
+|-------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------|
+| Basis of selection      | Computational puzzle-solving (brute-force nonce guessing)        | Amount of cryptocurrency staked as collateral                           |
+| Resource cost           | Huge electricity + specialized hardware (ASICs)                  | Minimal energy; no special hardware needed                              |
+| Security mechanism      | Attacker must out-compute the entire honest network's hash power | Malicious validators get **slashed** — their staked funds are confiscated |
+| Speed / throughput      | Slower (Bitcoin ≈ 10 min/block, ~7 tx/sec)                       | Faster validation, higher throughput                                    |
+| Sybil-attack resistance | Strong — fake identities are cheap, but computing power isn't    | Strong — fake identities are cheap, but staking real capital isn't      |
+| Example networks        | Bitcoin                                                          | Ethereum (post-2022), Cardano                                           |
 
 
 * Execution Flow of a Blockchain
