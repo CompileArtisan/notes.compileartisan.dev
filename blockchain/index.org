@@ -86,6 +86,14 @@ In short: a traditional ledger sidesteps the CAP theorem entirely by having only
 - Transactions are irreversible
 - High storage requirements
   
+** Types of Blockchain based on governance
+
+| Public                    | Private                  | Consortium                                                | Hybrid                    |
+|---------------------------+--------------------------+-----------------------------------------------------------+---------------------------|
+| Open to Anyone            | Single Organization      | Group of organizations who don't need to trust each other | Mix of Public and Private |
+| Fully Decentralized       | Centrally Controlled     | Many organizations each have central control              | Depends                   |
+| Very Transparent but Slow | Not Transparant but Fast | Medium at Both                                            | Depends                   |
+
 ** Smart Contracts
 - When you carry out transactions in a blockchain, instead of trusting a
   company, you trust some deterministic and immutable code stored on the
@@ -94,10 +102,20 @@ In short: a traditional ledger sidesteps the CAP theorem entirely by having only
   required in a blockchain transaction.
 - They can be thought of as a vending machine.
   
+** Node
+- A node is a computer on the peer-to-peer / blockchain network.
+- There are 3 types of nodes on a blockchain.
+
+  | Full Node                           | Simple Payment Verification (SPV/Light) Node                 | Mining Node                                                                         |
+  |-------------------------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------|
+  | Stores the complete blockchain data | They only verify and store specific transactions when needed | They participate in validating transactions and adding new blocks to the blockchain |
+  |                                     | They store only block headers                                |                                                                                     |
+
 ** Rough Flow of Blochchain
 - A transaction $T_{x}$ occurs.
 - $T_{x}$ is verified using a *consensus mechanism* (a polling mechanism).
-- Multiple transactions are grouped into a block (a collection of valid transactions).
+- Multiple transactions are grouped into a block (a collection of valid
+  transactions). They're arranged as a merkel tree.
 - The block is added to the chain (each block is linked to the previous block
   using cryptographic hashes).
 - The blockchain is updated.
@@ -105,7 +123,7 @@ In short: a traditional ledger sidesteps the CAP theorem entirely by having only
 ** Mempool
 A mempool (short for "memory pool") is a temporary holding area on a blockchain
 node where unconfirmed or pending transactions wait before being selected by a
-miner or validator
+miner or validator.
 
 ** Uses of Blockchain
 - Cryptocurrencies
@@ -118,8 +136,15 @@ miner or validator
 - A hash is a unique digital fingerprint of data. It's a mathematical blender.
 - A hash function will always return *fixed length* output, regardless of the input size.
 - It is *deterministic* (the same input always produces the same hash)
-- Even a tiny change in input produces a completely different hash. This is called the *avalanche effect*.
+- Even a tiny change in input produces a completely different hash. This is
+  called the *avalanche effect*.
+- Hashes are *puzzle-friendly* because the avalanche effect makes sure there are
+  no shortcuts.
 - Two inputs can never give the same hash. 
+- Hashes provide:
+  - *Authentication*: Verifies identity of sender
+  - *Integrity*: Ensures data wasn't tampered
+  - *Non-Repudiation*: Makes sure that the sender can't deny sending it
 
 *** SHA-256
 - SHA-256 works on 512-bit blocks.
@@ -403,6 +428,9 @@ print(hash_value)
 ** Cryptographic Keys
 - These are mathematical codes verify a user's identify and authorize
   transactions.
+- They keys are generated as a pair (public key and private key).
+- You can mathematically derive public key from private key but never private
+  key from public key.
 
 *** Based on Number of Keys
 
@@ -521,6 +549,15 @@ stop when valid
 | Sybil-attack resistance | Strong — fake identities are cheap, but computing power isn't    | Strong — fake identities are cheap, but staking real capital isn't      |
 | Example networks        | Bitcoin                                                          | Ethereum (post-2022), Cardano                                           |
 
+*Slashing (the enforcement mechanism):* If a validator behaves maliciously, like
+approving fraudulent transactions, breaking protocol rules, the network can
+*confiscate part or all of their staked assets*. 
+
+** Generations of Blockchain
+
+| Blockchain 1.0          | Blockchain 2.0                   | Blockchain 3.0                                                            | Blockchain X                                     |
+|-------------------------+----------------------------------+---------------------------------------------------------------------------+--------------------------------------------------|
+| Only for cryptocurrency | Cryptocurrency + Smart Contracts | Blockchain used not only for finance but for health care, governance, etc | Future use case of blockchain as a search engine |
 
 * Execution Flow of a Blockchain
 \[\text{Transaction} \rightarrow \text{Mempool} \rightarrow \text{Mining / Block Creation} \rightarrow \text{Blockchain} \rightarrow \text{Validation} \]
