@@ -415,6 +415,34 @@ GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLI
 
 
 
+****** Multiplicative Cipher
+- Ceasar cipher was the additive cipher.
+- Here, for each character plaintext character $p$, the cipher text character
+  $c$ is given as:
+  
+  $$c = (a \times p) \mod(26)$$
+  
+  where $a$ is the key.
+- Decrypting the cipher text is given as:
+  $$p = (a^{-1} \times c) \mod(26)$$
+  
+  
+****** Affine Cipher
+- This is a combination of multiplicative and additive. 
+- After doing $(a \times p)$, you also add a second key $b$ before in the modular
+  arithmetic expression.
+- Encryption is given as:
+
+  $$c = (a \times p + b)\mod(26)$$
+- And decryption is:
+
+  $$p = a^{-1}(c - b)\mod(26)$$
+- The number of keys (pairs of $(a,b)$) possible are $\phi(26) \times 26 = 12 \times 26 =
+  312$ keys. There are 26 keys possible for $b$, and $\phi(26)$ keys possible for
+  $a$ because only the numbers coprime with 26 can be used for $a^{-1}\mod(26)$.
+  
+
+
 
 ***** Simple Substitution/ Monoalphabetic
 - Rather than shifting the alphabets, you shuffle the alphabets randomly.
@@ -953,6 +981,8 @@ meetmeaftertheparty
 *** Based on Number of Keys
 
 **** Single/Private Key or Symmetric Cryptography
+- Here the same key is used for both encryption and decryption.
+- Both the sender and the receiver shares this private key.
 
 $$\text{Plain Text} \xrightarrow[\small{+key}]{\text{Encryption Algorithm (DES)}} \text{Transmitted Cipher Text}  \xrightarrow[\text{Decryption Algorithm}]{}  \text{Plain Text}$$
 
@@ -1280,6 +1310,10 @@ file:/home/praaneshnair/gitProjects/org-notes/computer-security/One_round_of_DES
 **** Stream
 - The encryption is done bit by bit
 - The principle applied is only confusion (no diffusion).
+- Block ciphers like vernam needs such a big key to be stored and sent safely.
+  Instead, you have a smaller key that generates a larger keystream.
+- A simple stream cipher is where you keep repeating the smaller key till it
+  matches the input size.
 
 * Number Theory
 
@@ -1296,17 +1330,87 @@ $$a \times (b+c) = ab + ac$$
 ** Division
 - When we say $a | b$ (a divides b), we're doing $\frac{b}{a}$.
 - $b$ is the dividend and $a$ is the divisor.
-- Divident is the number that is getting split up.
-- Divisor is the number that does the dividing/splitting.
-- $\text{Divisor}|\text{Divident}$ implies that the remainder of this division
+  $$divident = quotient \times divisor + remainder$$ 
+  - Divident is the number that is getting split up.
+  - Divisor is the number that does the dividing/splitting.
+- $\text{Divisor}|\text{Divident}$ literally reads "the divisor perfectly
+  divides the divident" and this implies that the remainder of this division
   process is 0. (Obvious facts, but I still chose to put them here).
 
 ** Prime Numbers
+- A prime number is a natural number greater than 1 that has no positive
+  divisors other than 1 and itself.
+- Euclid states that there are infinitely many prime numbers.
 
+*** Twin Primes
+- Pairs of primes which differ by 2.
+- Eg. 3 and 5
+
+*** Primality Test
+- To test if a number $n$ is prime, you check if it's divisible with any prime
+  number from 2 to $\sqrt{n}$.
+- For example, checking 97:
+  - $\sqrt{97} \approx 9$
+  - We check if 97 is divisible by 2, 3, 5, 7.
+  - Since it's not, we can conclude that 97 is a prime number.
+- You can use this test for numbers as big as those with magnitude of $10^{12}$.
+  This is the safe upperbound widely taught in computer science, as beyond this
+  finding square root takes time.
+  
 *** Fundamental Theorem of Arithmetic
 #+begin_quote
 Every positive integer is uniquely a product of prime numbers.
 #+end_quote
+
+*** Sieve of Eratosthenes
+
+- This is one of the fastest ways to find *all prime numbers up to a given number N*.
+
+- The key idea is:
+  - If a number =p= is prime, then *all multiples of p greater than p are composite*.
+  - Therefore, we can find primes by repeatedly *eliminating the multiples of known primes*.
+  - This process is called the *Sieve of Eratosthenes*.
+
+**** Algorithm
+
+Initially, write down all numbers from 2 to N:
+
+#+begin_src txt
+2  3  4  5  6  7  8  9  10
+11 12 13 14 15 16 17 18 19 20
+21 22 23 24 25 26 27 28 29 30
+#+end_src
+
+1. Start with the first number, =2=.
+2. Since 2 has not been crossed out, it is *prime*.
+3. Cross out all multiples of 2, because they are composite:
+   #+begin_src txt
+2  3  X  5  X  7  X  9  X
+11 X  13 X  15 X  17 X  19 X
+21 X  23 X  25 X  27 X  29 X
+   #+end_src
+
+4. Move to the next number that has not been crossed out: =3=.
+5. 3 is prime, so cross out all of its multiples:
+   #+begin_src txt
+2  3  X  5  X  7  X  X  X
+11 X  13 X  14 X  17 X  19 X
+X  22 23 24 25 X  X  28 29 X
+   #+end_src
+
+6. Continue this process for the next uncrossed number. You only need to perform
+   the crossing-out process for prime numbers up to $\sqrt{N}$.
+
+7. In the actual process, we start crossing multiples from $p^{2}$. When processing
+   a prime number =p=, you start crossing out from $p^{2}$ rather than from $2p$. For
+   example, when p=5, its multiples are:
+   \[10,\ 15,\ 20,\ 25,\ 30,\ldots \]
+   
+   But 10, 15, and 20 have *already been crossed out* when we processed 2 and 3.
+   The first multiple that could still be uncrossed is $5^{2} = 25$. In general, we cross out:
+   \[p^2,\ p(p+1),\ p(p+2),\ldots \]
+
+
 
 *** GCD
 **** What it is
@@ -1353,11 +1457,10 @@ The answer is *1*.
 
 *** Euclidean Algorithm
 **** What it is
-$$divident = quotient \times divisor + remainder$$ Basically, the property used is
-that $GCD(a,b) = GCD(a\mod(b), b)$, given that $a>b$. You can endlessly keep
-replacing the larger of the two numbers, with the remainder they form on
-dividing. You keep doing this until the remainder is 0 (the value of the smaller
-number is the GCD).
+Basically, the property used is that $GCD(a,b) = GCD(a\mod(b), b)$, given that
+$a>b$. You can endlessly keep replacing the larger of the two numbers, with the
+remainder they form on dividing. You keep doing this until the remainder is 0
+(the value of the smaller number is the GCD).
 
 For example, the GCD of 49 and 63 would be 7:
 
@@ -1391,10 +1494,23 @@ main()
 #+end_src
 
 *** Modular Arithmetic Operations
+- *Modular arithmetic* is the arithmetic performed on remainders after division by
+  a fixed positive integer.
+- So in $a\mod(n)$, $n$ must be positive.
+  
 **** Standard Rules
-$$[a\mod(n) + (b\mod(n))] \mod(n) = (a+b)\mod(n)$$
-$$[a\mod(n) - (b\mod(n))] \mod(n) = (a-b)\mod(n)$$
-$$[a\mod(n) \times (b\mod(n))] \mod(n) = (a \times b)\mod(n)$$
+$$[a\mod(n) + (b\mod(n))]\mod(n) = (a+b)\mod(n)$$
+$$[a\mod(n) - (b\mod(n))]\mod(n) = (a-b)\mod(n)$$
+$$[a\mod(n) \times (b\mod(n))]\mod(n) = (a \times b)\mod(n)$$
+
+In the above example, if $b = a$, then you'd have
+$$[a\mod(n) \times (a\mod(n))]\mod(n) = a^{2} \mod(n)$$
+So to generalize it:
+$$[(a\mod(n))^{b}]\mod(n) = a^{b} \mod(n)$$
+
+
+
+
 
 *Note*: The notation of modulo $m$ is $Z_{m}$
 
@@ -1641,6 +1757,8 @@ $a^{p-1} \equiv 1\mod(p)$, if
 - $a$ is an integer, $p$ is a prime number
 - $p \nmid a$ ($p$ doesn't divide $a$)
 #+end_quote
+You can check if a number is prime by putting its value as $p$. If it doesn't
+satisfy fermat's theorm, it's composite.
 
 For example, verifying Fermat's little theorem for $p = 31$ and $a = 3$.
 - $3^{(31-1)}\mod(31)$
