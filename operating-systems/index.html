@@ -1,0 +1,2301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-09-15 Tue 10:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Operating Systems</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notes - CompileArtisan">
+<meta property="og:description" content="Notes from CompileArtisan">
+<meta property="og:url" content="https://notes.compileartisan.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<style>
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+body {
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 15px;
+line-height: 1.7;
+margin: 0;
+padding: 0;
+background-color: #f5f5f7;
+color: #1a1a1a;
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+h1, h2, h3, h4 {
+font-weight: 500;
+line-height: 1.3;
+color: #111;
+margin: 2rem 0 0.75rem;
+}
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem;  }
+
+p {
+margin: 0 0 1rem;
+color: #2a2a2a;
+}
+
+/* ─── Block Quotes ─────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: 1rem 1.5rem;
+background: #f8f8fc;
+border-left: 4px solid #4444cc;
+border-radius: 8px;
+color: #444;
+font-style: italic;
+position: relative;
+}
+blockquote::before {
+content: "❝";
+position: absolute;
+top: -8px;
+left: 12px;
+font-size: 2.8rem;
+color: #d6d6f5;
+font-family: Georgia, serif;
+line-height: 1;
+}
+blockquote p:last-child {
+margin-bottom: 0;
+}
+blockquote cite,
+blockquote footer {
+display: block;
+margin-top: 0.8rem;
+color: #777;
+font-size: 0.9em;
+font-style: normal;
+text-align: right;
+}
+a {
+color: #2222cc;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* ─── Header Bar ────────────────────────────────────────── */
+@font-face {
+font-family: 'DOSVGA';
+src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+}
+
+.header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+height: 48px;
+background: #1a1a2e;
+display: flex;
+align-items: center;
+padding: 0 24px;
+border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header a {
+font-family: 'DOSVGA', 'Courier New', monospace;
+font-size: 1rem;
+letter-spacing: 0.03em;
+text-decoration: none;
+line-height: 1;
+}
+
+.header a .dim   { color: #7878aa; }
+.header a .bright { color: #d8d8ff; }
+/* ─── Sidebar ───────────────────────────────────────────── */
+#table-of-contents {
+position: fixed;
+top: 48px;
+left: 0;
+width: 260px;
+height: calc(100vh - 48px);
+overflow-y: auto;
+background: #ffffff;
+border-right: 0.5px solid #e0e0e6;
+padding: 20px 12px;
+scrollbar-width: thin;
+scrollbar-color: #d0d0d8 transparent;
+}
+
+#table-of-contents::-webkit-scrollbar {
+width: 4px;
+}
+#table-of-contents::-webkit-scrollbar-thumb {
+background: #d0d0d8;
+border-radius: 4px;
+}
+
+#table-of-contents h2 {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #999;
+margin: 0 8px 12px;
+padding-bottom: 10px;
+border-bottom: 0.5px solid #e8e8ee;
+}
+
+/* Search box */
+.toc-search-wrap {
+position: relative;
+margin: 0 0 12px;
+}
+
+.toc-search-wrap::before {
+content: "";
+position: absolute;
+left: 10px;
+top: 50%;
+transform: translateY(-50%);
+width: 14px;
+height: 14px;
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+}
+
+#toc-search {
+width: 100%;
+padding: 7px 10px 7px 30px;
+font-size: 13px;
+border: 0.5px solid #e0e0e6;
+border-radius: 8px;
+background: #f8f8fc;
+color: #1a1a1a;
+outline: none;
+transition: border-color 0.15s, background 0.15s;
+}
+
+#toc-search:focus {
+border-color: #4444cc;
+background: #ffffff;
+}
+
+#toc-search::placeholder {
+color: #bbb;
+}
+
+/* TOC links */
+#table-of-contents ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+#table-of-contents ul ul {
+padding-left: 14px;
+}
+
+#table-of-contents li {
+margin: 2px 0;
+}
+
+#table-of-contents a {
+display: block;
+padding: 5px 10px;
+font-size: 13px;
+color: #555;
+border-radius: 6px;
+transition: background 0.12s, color 0.12s;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+#table-of-contents a:hover {
+background: #f0f0fa;
+color: #2222cc;
+text-decoration: none;
+}
+
+#table-of-contents a.active {
+background: #ededff;
+color: #2222aa;
+font-weight: 500;
+border-left: 2.5px solid #2222aa;
+padding-left: 8px;
+}
+
+#table-of-contents li.hidden {
+display: none;
+}
+
+/* ─── Main Content ──────────────────────────────────────── */
+#content {
+margin-left: 260px;
+margin-top: 48px;
+padding: 40px 48px;
+max-width: 900px;
+min-height: calc(100vh - 48px);
+background: #ffffff;
+}
+
+#postamble, #preamble {
+margin-left: 260px;
+padding: 20px 48px;
+font-size: 13px;
+color: #999;
+border-top: 0.5px solid #e8e8ee;
+}
+
+/* ─── Code ──────────────────────────────────────────────── */
+code {
+font-family: 'Courier New', Courier, monospace;
+font-size: 0.88em;
+background: #f2f2f8;
+border: 0.5px solid #e0e0ec;
+border-radius: 4px;
+padding: 1px 5px;
+color: #1a1a1a;
+}
+
+pre {
+background: #16161e;
+color: #d0d0e0;
+border-radius: 10px;
+padding: 16px 20px;
+overflow-x: auto;
+font-size: 13.5px;
+line-height: 1.6;
+border: 0.5px solid rgba(255,255,255,0.06);
+margin: 1.5rem 0;
+}
+
+pre code {
+font-size: inherit;
+background: none;
+border: none;
+padding: 0;
+color: inherit;
+border-radius: 0;
+}
+
+pre.src {
+position: relative;
+}
+
+/* ─── Tables ────────────────────────────────────────────── */
+table {
+width: 100%;
+border-collapse: collapse;
+font-size: 14px;
+margin: 1.5rem 0;
+border: 0.5px solid #e0e0e8;
+border-radius: 10px;
+overflow: hidden;
+}
+
+th {
+background: #f5f5fa;
+font-weight: 500;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #666;
+padding: 10px 16px;
+text-align: left;
+border-bottom: 0.5px solid #e0e0e8;
+}
+
+td {
+padding: 10px 16px;
+border-bottom: 0.5px solid #f0f0f4;
+color: #1a1a1a;
+font-weight: 400;
+}
+
+td.org-left { text-align: left; }
+td.org-right { text-align: right; }
+td.org-center { text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: #f7f7fd; }
+
+/* ─── Images ────────────────────────────────────────────── */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 1.5rem auto;
+border-radius: 8px;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+#table-of-contents {
+position: static;
+width: 100%;
+height: auto;
+border-right: none;
+border-bottom: 1px solid #e0e0e8;
+padding: 16px;
+}
+
+#content {
+margin-left: 0;
+margin-top: 48px;
+padding: 24px 20px;
+}
+
+#postamble, #preamble {
+margin-left: 0;
+padding: 16px 20px;
+}
+
+pre {
+border-radius: 0;
+margin-left: -20px;
+margin-right: -20px;
+}
+
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+body { font-size: 14px; }
+#content { padding: 20px 16px; }
+h1 { font-size: 1.25rem; }
+}
+</style>
+<div class="header">
+<a href="https://notes.compileartisan.dev">
+<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
+</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Add search box to TOC
+const toc = document.getElementById('table-of-contents');
+if (toc) {
+const h2 = toc.querySelector('h2');
+if (h2) {
+const searchBox = document.createElement('input');
+searchBox.type = 'text';
+searchBox.id = 'toc-search';
+searchBox.placeholder = 'Search headings...';
+h2.insertAdjacentElement('afterend', searchBox);
+
+// Search functionality
+searchBox.addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const tocLinks = toc.querySelectorAll('li');
+
+tocLinks.forEach(li => {
+const text = li.textContent.toLowerCase();
+if (text.includes(searchTerm)) {
+li.classList.remove('hidden');
+} else {
+li.classList.add('hidden');
+}
+});
+});
+}
+}
+
+// Scroll spy functionality
+const sections = [];
+const tocLinks = document.querySelectorAll('#table-of-contents a');
+
+// Build sections array
+tocLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (href && href.startsWith('#')) {
+const target = document.querySelector(href);
+if (target) {
+sections.push({
+id: href,
+element: target,
+link: link
+});
+}
+}
+});
+
+function updateActiveLink() {
+const scrollPos = window.scrollY + 100; // Offset for header
+
+let currentSection = null;
+
+// Find the current section
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = sections[i];
+if (section.element.offsetTop <= scrollPos) {
+currentSection = section;
+break;
+}
+}
+
+// Remove all active classes
+tocLinks.forEach(link => link.classList.remove('active'));
+
+// Add active class to current section
+if (currentSection) {
+currentSection.link.classList.add('active');
+
+// Scroll TOC to show active link
+const tocContainer = document.getElementById('table-of-contents');
+if (tocContainer) {
+const linkTop = currentSection.link.offsetTop;
+const linkHeight = currentSection.link.offsetHeight;
+const containerHeight = tocContainer.clientHeight;
+const containerScroll = tocContainer.scrollTop;
+
+// Check if link is out of view
+if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
+// Smooth scroll the TOC to center the active link
+tocContainer.scrollTo({
+top: linkTop - containerHeight / 2,
+behavior: 'smooth'
+});
+}
+}
+}
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+if (scrollTimeout) {
+window.cancelAnimationFrame(scrollTimeout);
+}
+scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+});
+
+// Initial call
+updateActiveLink();
+});
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Operating Systems</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd748ce1">1. Introduction</a>
+<ul>
+<li><a href="#org849ba59">1.1. What is an OS</a>
+<ul>
+<li><a href="#orge73ff6d">1.1.1. Resource Allocator</a></li>
+<li><a href="#org47e14f7">1.1.2. Control Program</a></li>
+</ul>
+</li>
+<li><a href="#org300ba9f">1.2. Kernel</a></li>
+<li><a href="#orgc6bea96">1.3. Bootstrap</a></li>
+<li><a href="#orgd9ee3ad">1.4. Moore&rsquo;s Law</a></li>
+<li><a href="#org674f140">1.5. Interrupt</a></li>
+<li><a href="#org59e9632">1.6. Bus</a>
+<ul>
+<li><a href="#orgaaf9a5d">1.6.1. Data Bus</a></li>
+<li><a href="#org54b738b">1.6.2. Address Bus</a></li>
+<li><a href="#org716af92">1.6.3. Control Bus</a></li>
+</ul>
+</li>
+<li><a href="#org7884193">1.7. Storage Structure (From fastest to slowest)</a>
+<ul>
+<li><a href="#org61fbf28">1.7.1. Registers</a></li>
+<li><a href="#orgfd3c86b">1.7.2. Cache</a></li>
+<li><a href="#org0d3b8f2">1.7.3. RAM</a></li>
+<li><a href="#org92451a5">1.7.4. ROM</a></li>
+<li><a href="#org848bb07">1.7.5. Solid State Drive</a></li>
+<li><a href="#orgc13753c">1.7.6. Hard Disk Drive</a></li>
+<li><a href="#org7268d5a">1.7.7. Optical Discs and Tape</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc9d07f2">2. I/O Structure</a>
+<ul>
+<li><a href="#org0ac4563">2.1. Device Controller</a></li>
+<li><a href="#org3f7b5bd">2.2. Device Driver</a></li>
+<li><a href="#org94a2996">2.3. How they work together: Interrupt Driven I/O</a></li>
+<li><a href="#org88460e0">2.4. Direct Memory Access</a></li>
+</ul>
+</li>
+<li><a href="#org93b720f">3. OS Operations</a>
+<ul>
+<li><a href="#org7d74f66">3.1. Thread Concepts</a>
+<ul>
+<li><a href="#org475f079">3.1.1. Single-threaded process</a></li>
+<li><a href="#org4a6cb56">3.1.2. Multi-threaded process</a></li>
+</ul>
+</li>
+<li><a href="#org683fdb3">3.2. I/O Subsystem</a>
+<ul>
+<li><a href="#org54fdc36">3.2.1. Buffering</a></li>
+<li><a href="#orge6cda71">3.2.2. Caching</a></li>
+<li><a href="#org7d9a9db">3.2.3. Spooling</a></li>
+</ul>
+</li>
+<li><a href="#orge933ef4">3.3. Swap Memory</a></li>
+</ul>
+</li>
+<li><a href="#orgf77db2a">4. UNIX File Permissions</a></li>
+<li><a href="#org85087a0">5. System Calls in Unix/Linux</a>
+<ul>
+<li><a href="#orga00312f">5.1. What a System Call is</a></li>
+<li><a href="#org4596a79">5.2. How System Calls Work</a></li>
+<li><a href="#orgcd2801d">5.3. Fork</a></li>
+<li><a href="#org0d838bf">5.4. Open</a></li>
+<li><a href="#orga384dba">5.5. Read</a></li>
+<li><a href="#org17dd264">5.6. Write</a></li>
+</ul>
+</li>
+<li><a href="#org98d7e1f">6. System Programs</a>
+<ul>
+<li><a href="#org7d1aab4">6.1. File Management</a></li>
+<li><a href="#orgf9a028e">6.2. Status Information</a></li>
+<li><a href="#orgc6b365f">6.3. File Modification</a></li>
+<li><a href="#org00aaa1e">6.4. Programming Support</a></li>
+<li><a href="#org6063944">6.5. Program Loading and Execution</a>
+<ul>
+<li><a href="#org2c94e80">6.5.1. Linker</a></li>
+<li><a href="#org001a3f0">6.5.2. Loader</a></li>
+</ul>
+</li>
+<li><a href="#org4c7d5e5">6.6. Communications</a></li>
+<li><a href="#org343ef14">6.7. Background Services (daemons/services)</a></li>
+<li><a href="#org2871648">6.8. Application Programs</a></li>
+</ul>
+</li>
+<li><a href="#orgca0b833">7. Operating System Structures</a>
+<ul>
+<li><a href="#org21037ba">7.1. Simple/Monolithic Structure</a></li>
+<li><a href="#org043333c">7.2. Unix Approach</a></li>
+<li><a href="#orged0911d">7.3. Layered Approach</a></li>
+<li><a href="#org9eb640c">7.4. Microkernel Approach</a></li>
+<li><a href="#org06378ce">7.5. Module Approach</a></li>
+<li><a href="#orgf463676">7.6. Hybrid</a></li>
+</ul>
+</li>
+<li><a href="#orgc3c2ce6">8. Process Management</a>
+<ul>
+<li><a href="#orgae2318b">8.1. Process Control Block</a></li>
+<li><a href="#org361267e">8.2. Thread</a></li>
+<li><a href="#orgfcb2303">8.3. States of a Process</a></li>
+<li><a href="#org7e82a83">8.4. Timestamps of a Process</a></li>
+<li><a href="#org403e800">8.5. Processes based on their limitation</a>
+<ul>
+<li><a href="#org59f89ef">8.5.1. I/O bound processes</a></li>
+<li><a href="#orga9aaed1">8.5.2. CPU bound processes</a></li>
+</ul>
+</li>
+<li><a href="#org2f7153e">8.6. CPU Scheduling</a>
+<ul>
+<li><a href="#orgbae396a">8.6.1. Types of Schedulers based on Process Lifetime</a></li>
+<li><a href="#org4ad9055">8.6.2. Types of Schedulers based on Preemption</a></li>
+<li><a href="#org4c8579c">8.6.3. Scheduling Algorithms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd748ce1" class="outline-2">
+<h2 id="orgd748ce1"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org849ba59" class="outline-3">
+<h3 id="org849ba59"><span class="section-number-3">1.1.</span> What is an OS</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orge73ff6d" class="outline-4">
+<h4 id="orge73ff6d"><span class="section-number-4">1.1.1.</span> Resource Allocator</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>Manages CPU, RAM, ROM (short for Electronically Erasable Programmable Read
+Only Memory), I/O Devices</li>
+<li>Decides how to allocate them to specific users and programs</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org47e14f7" class="outline-4">
+<h4 id="org47e14f7"><span class="section-number-4">1.1.2.</span> Control Program</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>Prevents error or improper use of the computer</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org300ba9f" class="outline-3">
+<h3 id="org300ba9f"><span class="section-number-3">1.2.</span> Kernel</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>When you define an operating system as the one program that keeps running all
+the time on the computer, and has control over everything, it&rsquo;s called a
+<b>kernel</b>.</li>
+<li>An OS is the kernel, along with drivers and user interfaces.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6bea96" class="outline-3">
+<h3 id="orgc6bea96"><span class="section-number-3">1.3.</span> Bootstrap</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>It&rsquo;s a program stored in ROM, and this is the first piece of software that
+runs on the system.</li>
+<li>It initializes the hardware, and then loads the OS kernel into the RAM.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd9ee3ad" class="outline-3">
+<h3 id="orgd9ee3ad"><span class="section-number-3">1.4.</span> Moore&rsquo;s Law</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Number of transistors double every 18 months.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org674f140" class="outline-3">
+<h3 id="org674f140"><span class="section-number-3">1.5.</span> Interrupt</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>An interrupt is a hardware or software signal that demands instant attention by an OS.</li>
+<li>Hardware interrupts are either done to let the OS know that it has completed
+some task (like printing), or it can request a service from the OS (like
+hitting a key on a keyboard should trigger some software action).</li>
+<li>Software interrupts are triggered by an operation called <b>system/monitor call</b>.</li>
+<li>Modern operating systems are <b>interrupt-driven</b>.</li>
+<li><b>Interrupt Service Routine (ISR)</b> is a function that responds to an interrupt.</li>
+<li>An <b>interrupt vector</b> is a memory address that points to an ISR.</li>
+<li>Operating systems handle interrupts by looking up an <b>interrupt vector table</b> (a
+table full of interrupt vectors).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org59e9632" class="outline-3">
+<h3 id="org59e9632"><span class="section-number-3">1.6.</span> Bus</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>It&rsquo;s a communication system within the hardware of a computer, or between
+computers themselves.</li>
+</ul>
+</div>
+<div id="outline-container-orgaaf9a5d" class="outline-4">
+<h4 id="orgaaf9a5d"><span class="section-number-4">1.6.1.</span> Data Bus</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li>Carries data</li>
+<li>Bidirectional</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org54b738b" class="outline-4">
+<h4 id="org54b738b"><span class="section-number-4">1.6.2.</span> Address Bus</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li>Carries addresses</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org716af92" class="outline-4">
+<h4 id="org716af92"><span class="section-number-4">1.6.3.</span> Control Bus</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<ul class="org-ul">
+<li>Carries control and timing signals from CPU to the rest of the hardware.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7884193" class="outline-3">
+<h3 id="org7884193"><span class="section-number-3">1.7.</span> Storage Structure (From fastest to slowest)</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-org61fbf28" class="outline-4">
+<h4 id="org61fbf28"><span class="section-number-4">1.7.1.</span> Registers</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li>These are storage spaces present inside the CPU itself.</li>
+<li>A register stores one assembly level instruction.</li>
+<li>It&rsquo;s either 32 bits or 64 bits (hence, 32 bit CPU or 64 bit CPU).</li>
+<li>This means that the amount of information that can be stored is \(2^{32}\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfd3c86b" class="outline-4">
+<h4 id="orgfd3c86b"><span class="section-number-4">1.7.2.</span> Cache</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li>It&rsquo;s a high-speed memory, which is just a buffer between CPU and RAM.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgac4df65"></a>L1<br />
+<div class="outline-text-5" id="text-1-7-2-1">
+<ul class="org-ul">
+<li>Built into the CPU</li>
+<li>Each core has its own L1 cache.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgc46e4bb"></a>L2<br />
+<div class="outline-text-5" id="text-1-7-2-2">
+<ul class="org-ul">
+<li>Embedded on the CPU</li>
+<li>Connected to CPU via high-speed bus.</li>
+</ul>
+</div>
+</li>
+<li><a id="orgfd907c0"></a>L3<br />
+<div class="outline-text-5" id="text-1-7-2-3">
+<ul class="org-ul">
+<li>Slower than L2, but faster than RAM.</li>
+<li>L3 cache is shared among all cores of the CPU.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0d3b8f2" class="outline-4">
+<h4 id="org0d3b8f2"><span class="section-number-4">1.7.3.</span> RAM</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<ul class="org-ul">
+<li>Volatile Memory</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org92451a5" class="outline-4">
+<h4 id="org92451a5"><span class="section-number-4">1.7.4.</span> ROM</h4>
+<div class="outline-text-4" id="text-1-7-4">
+<ul class="org-ul">
+<li>ROM is a small integrated circuit on the mother board, and all it contains are
+low level instructions for the device to boot.</li>
+<li>Hard Drive is a separate physical entity altogether.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org848bb07" class="outline-4">
+<h4 id="org848bb07"><span class="section-number-4">1.7.5.</span> Solid State Drive</h4>
+<div class="outline-text-4" id="text-1-7-5">
+<ul class="org-ul">
+<li>Flash memory is a type of non-volatile memory.</li>
+<li>EEPROM can be erased/reprogrammed one byte at a time, while flash memory does
+it one block at a time. (Eg. 32 KB sized blocks)</li>
+<li>Flash memory uses lower transistors per bit, and it&rsquo;s more faster and
+efficient for large amounts of data.</li>
+<li>EEPROM would be better for small/frequent updates as only that specific byte
+needs to be changed.</li>
+<li><p>
+There are two types of flash memory:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">NAND Flash Memory</th>
+<th scope="col" class="org-left">Nor Flash Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Blocks in series</td>
+<td class="org-left">Blocks in parallel</td>
+</tr>
+
+<tr>
+<td class="org-left">Better for more storage</td>
+<td class="org-left">Not meant for more storage</td>
+</tr>
+
+<tr>
+<td class="org-left">Faster for sequential reads</td>
+<td class="org-left">Slower for sequential reads</td>
+</tr>
+
+<tr>
+<td class="org-left">Slower random access</td>
+<td class="org-left">FASTER random access</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>SSDs use NAND flash memory.</li>
+<li>All forms of ROM are called <b>firmware</b>, because it&rsquo;s somewhere between hardware
+and software. The information stored in ROM is purely executable code.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc13753c" class="outline-4">
+<h4 id="orgc13753c"><span class="section-number-4">1.7.6.</span> Hard Disk Drive</h4>
+<div class="outline-text-4" id="text-1-7-6">
+<ul class="org-ul">
+<li>They use magnetic disks and mechanical read/write heads.</li>
+<li>Slower than SSDs, but HDDs are more safe in case of a data wipe-out.</li>
+<li>Used for archival storage, as they&rsquo;re cheaper and safer.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7268d5a" class="outline-4">
+<h4 id="org7268d5a"><span class="section-number-4">1.7.7.</span> Optical Discs and Tape</h4>
+<div class="outline-text-4" id="text-1-7-7">
+<ul class="org-ul">
+<li>Uses laser to read/write</li>
+<li>Slower and cheaper than HDD.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc9d07f2" class="outline-2">
+<h2 id="orgc9d07f2"><span class="section-number-2">2.</span> I/O Structure</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0ac4563" class="outline-3">
+<h3 id="org0ac4563"><span class="section-number-3">2.1.</span> Device Controller</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>This is the physical interface between the computer&rsquo;s I/O bus and the
+peripheral devices.</li>
+<li>They have their own special purpose registers, and their own amount of local
+buffer storage in RAM.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3f7b5bd" class="outline-3">
+<h3 id="org3f7b5bd"><span class="section-number-3">2.2.</span> Device Driver</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>It&rsquo;s the software associated with device controller.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org94a2996" class="outline-3">
+<h3 id="org94a2996"><span class="section-number-3">2.3.</span> How they work together: Interrupt Driven I/O</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>First, the device driver loads instructions into registers for the device
+controller.</li>
+<li>The device controller reads all instructions given inside these registers and
+performs them.</li>
+<li>Once it&rsquo;s done (or the device has new data which will be communicated via an
+interrupt), the CPU runs a part of the device driver called the <b>interrupt
+handler</b>.</li>
+<li>This processes the event (data copied between RAM and device), after which the
+CPU will get back to what it was doing before this.</li>
+<li>Interrupt Driven I/O is what&rsquo;s used in keyboards and mice because they deal
+with low-data volume.</li>
+<li>This isn&rsquo;t very efficient for large amounts of data, because the CPU does the
+data copy only after an interrupt.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88460e0" class="outline-3">
+<h3 id="org88460e0"><span class="section-number-3">2.4.</span> Direct Memory Access</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Inside the computer, there are 3 hardware components:
+<ul class="org-ul">
+<li>CPU</li>
+<li>Device Controller</li>
+<li>DMA Controller</li>
+</ul></li>
+<li>The DMA controller is a small processor whose job is to copy data between RAM
+and the device.</li>
+<li>High speed I/O devices can transfer blocks of data directly to/from RAM,
+without involving CPU.</li>
+<li>The CPU gets an interrupt after a bunch of bytes, not after every byte.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org93b720f" class="outline-2">
+<h2 id="org93b720f"><span class="section-number-2">3.</span> OS Operations</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org7d74f66" class="outline-3">
+<h3 id="org7d74f66"><span class="section-number-3">3.1.</span> Thread Concepts</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>A program counter is a register in a computer&rsquo;s CPU that holds the memory
+address of the next instruction to be executed.</li>
+<li>Memory is allocated to a process, and a process can have one or more threads.</li>
+</ul>
+</div>
+<div id="outline-container-org475f079" class="outline-4">
+<h4 id="org475f079"><span class="section-number-4">3.1.1.</span> Single-threaded process</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>One program counter (executes one instruction at a time)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4a6cb56" class="outline-4">
+<h4 id="org4a6cb56"><span class="section-number-4">3.1.2.</span> Multi-threaded process</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li>One program counter per thread (can do multiple things simultaneously)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org683fdb3" class="outline-3">
+<h3 id="org683fdb3"><span class="section-number-3">3.2.</span> I/O Subsystem</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org54fdc36" class="outline-4">
+<h4 id="org54fdc36"><span class="section-number-4">3.2.1.</span> Buffering</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>Temporarily storing data during transfer</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge6cda71" class="outline-4">
+<h4 id="orge6cda71"><span class="section-number-4">3.2.2.</span> Caching</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>Storing parts of data in faster storage</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7d9a9db" class="outline-4">
+<h4 id="org7d9a9db"><span class="section-number-4">3.2.3.</span> Spooling</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ul class="org-ul">
+<li>Overlapping output of one job with input of another (like print queues)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge933ef4" class="outline-3">
+<h3 id="orge933ef4"><span class="section-number-3">3.3.</span> Swap Memory</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>When the computer runs out of RAM, inactive or less-used parts of programs
+like process data and kernel data.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf77db2a" class="outline-2">
+<h2 id="orgf77db2a"><span class="section-number-2">4.</span> UNIX File Permissions</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>There are mainly 3 types of operations which you can allow for a file:
+<ul class="org-ul">
+<li><code>r</code>: read</li>
+<li><code>w</code>: write</li>
+<li><code>x</code>: execute</li>
+</ul></li>
+<li>These operations should be granted or denied to 3 categories of users:
+<ul class="org-ul">
+<li>Owner/User</li>
+<li>Group</li>
+<li>Others</li>
+</ul></li>
+<li>The permissions granted to a group is always 3 characters (in the exact order
+of read, write, execute). If an operation is granted, the character is
+present. If an operation is denied, you have a hyphen <code>-</code>.</li>
+<li>Eg. For any one of the above categories of users, if you grant read and write
+access, and deny the ability to execute, it would look like <code>rw-</code>.</li>
+<li>For any file in UNIX, a 10 character string is used to represent file type and
+permissions.
+<ul class="org-ul">
+<li>The first character is for file type. <code>-</code> is for regular file, <code>d</code> is for
+directory, <code>s</code> is for socket, <code>b</code> is for block device (disk partitions).</li>
+<li>The rest of the 9 characters are the operations granted to each of the 3
+categories of users.</li>
+</ul></li>
+<li><p>
+For example, consider a file <code>a.out</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">-rwxr-xr-x 
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">-</th>
+<th scope="col" class="org-left">rwx</th>
+<th scope="col" class="org-left">r-x</th>
+<th scope="col" class="org-left">r-x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">File Type</td>
+<td class="org-left">Owner can read,</td>
+<td class="org-left">Group Users</td>
+<td class="org-left">Other Users</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">write and</td>
+<td class="org-left">can only</td>
+<td class="org-left">can only</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">execute</td>
+<td class="org-left">read and</td>
+<td class="org-left">read and</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">execute</td>
+<td class="org-left">execute</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+The operations granted to each category can also be represented in binary:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">rwx</th>
+<th scope="col" class="org-right">r-x</th>
+<th scope="col" class="org-right">r-x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">111</td>
+<td class="org-right">101</td>
+<td class="org-right">101</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+Since 3 binary digits make 1 octal number (base 8), you can represent the
+entire 10 character string as an octal number:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">rwx</th>
+<th scope="col" class="org-right">r-x</th>
+<th scope="col" class="org-right">r-x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+So the octal number for <code>a.out</code> would be 0755 (octal numbers have to start
+ from 0. If they don&rsquo;t they&rsquo;d be considered binary).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org85087a0" class="outline-2">
+<h2 id="org85087a0"><span class="section-number-2">5.</span> System Calls in Unix/Linux</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orga00312f" class="outline-3">
+<h3 id="orga00312f"><span class="section-number-3">5.1.</span> What a System Call is</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>When a process needs to do something only a kernel can do, it makes a <b>system
+call</b> to the OS, and transfers control to the kernel.</li>
+<li>It switches the mode bit from 1 (User mode) to 0 (kernel mode).</li>
+<li>System interrupt also switches mode bit from 1 to 0, but this is for, say,
+notifying CPU for I/O events.</li>
+<li>These usually written in C/C++ (or any other high level language).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4596a79" class="outline-3">
+<h3 id="org4596a79"><span class="section-number-3">5.2.</span> How System Calls Work</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>User program runs in user mode</li>
+<li>When it needs OS services, it makes a system call</li>
+<li>System call switches to kernel mode</li>
+<li>OS executes the request</li>
+<li>Returns to user mode</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcd2801d" class="outline-3">
+<h3 id="orgcd2801d"><span class="section-number-3">5.3.</span> Fork</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li><code>fork()</code> is a system call in Unix/Linux used to create a new process, by
+duplicating the current process at whatever state of execution it&rsquo;s in.</li>
+<li><p>
+This is what happens when you call fork:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">          Parent
+            |
+            | fork()
+            |
+   ---------------------
+   |                   |
+Parent continues     Child continues
+(pid &gt; 0)            (pid = 0)
+
+</pre>
+</div>
+<p>
+If you&rsquo;re running a program, and there&rsquo;s a <code>fork()</code> happening, the current
+process (the parent) continues to execute, but there&rsquo;s also a child process
+which resumes execution from that point.
+</p></li>
+<li>Both the parent and the child process runs simultaneously, regardless of
+whether you have a multicore CPU or not. This also means that the order of
+execution is not guaranteed.</li>
+<li>The way we distinguish between the two processes is by using the return value
+of <code>fork()</code> (it returns the process id).</li>
+<li>The process ID of a parent process could be any value greater than 0, but the
+process ID of the child process is always 0.</li>
+<li><p>
+Consider the below example:
+</p>
+<div class="org-src-container">
+<pre class="src src-C">
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;unistd.h&gt;</span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">This is needed for fork()
+</span>
+<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">num</span>, <span style="color: #dcaeea;">pid</span>, <span style="color: #dcaeea;">square</span>, <span style="color: #dcaeea;">half</span>;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> num = 6;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> pid = fork();     <span style="color: #5B6268;">// </span><span style="color: #5B6268;">child is created
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">both of the processes resume execution from this line in the program
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> (pid == 0) {   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">child process
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> square = num * num;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> printf(<span style="color: #98be65;">"The square of the number is %d\n"</span>, square);
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> } <span style="color: #51afef;">else</span> {          <span style="color: #5B6268;">// </span><span style="color: #5B6268;">parent process
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> half = num / 2;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> printf(<span style="color: #98be65;">"The half of the number is %d\n"</span>, half);
+<span style="color: #3dea43364a63;"> </span> <span style="color: #3dea43364a63;"> </span> }
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">  The half of the number is 3
+  The square of the number is 36
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0d838bf" class="outline-3">
+<h3 id="org0d838bf"><span class="section-number-3">5.4.</span> Open</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li><code>open()</code> is a system call that enables you to open a file.</li>
+<li>It returns a <b>file descriptor</b>, which is a whole number used to represent an
+open I/O resource.</li>
+<li><p>
+These are possible values a file descriptor:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">FD</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">stdin (keyboard input)</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">stdout (terminal output)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">stderr (error output)</td>
+</tr>
+
+<tr>
+<td class="org-right">&ge; 3</td>
+<td class="org-left">user-opened files</td>
+</tr>
+</tbody>
+</table></li>
+<li>So for files, the file descriptor is likely 3.</li>
+<li><p>
+This is the basic syntax for <code>open()</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">fd</span> = open(<span style="color: #98be65;">"file.txt"</span>, x);
+</pre>
+</div>
+<p>
+where x can be:
+</p>
+<ul class="org-ul">
+<li><code>O_RDONLY</code>: Only reads. The file must exist.</li>
+<li><code>O_WRONLY</code>: Only writes. The file must exist.</li>
+<li><code>O_RDWR</code>: Reads or writes. The file must exist.</li>
+</ul></li>
+<li><p>
+If you need to create the file in case it doesn&rsquo;t exist, you&rsquo;d have to do:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">fd</span> = open(<span style="color: #98be65;">"file.txt"</span>, O_WRONLY | O_CREAT, 0644); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0644 is permissions: rw-r--r--</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>The third argument is called the <b>mode</b>, and that&rsquo;s to grant permissions to
+the file once created.</li>
+
+<li><code>open()</code> returns <code>-1</code> in case of failure, or some non-negative number in case of
+success.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga384dba" class="outline-3">
+<h3 id="orga384dba"><span class="section-number-3">5.5.</span> Read</h3>
+<div class="outline-text-3" id="text-5-5">
+<ul class="org-ul">
+<li><p>
+This is the basic syntax for <code>read()</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = read(fd, buffer, <span style="color: #51afef;">sizeof</span>(buffer));
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">where the buffer is some array</span>
+</pre>
+</div>
+<p>
+This take the file associated with file descriptor <code>fd</code>, and copies the contents
+into the array <code>buffer</code>.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org17dd264" class="outline-3">
+<h3 id="org17dd264"><span class="section-number-3">5.6.</span> Write</h3>
+<div class="outline-text-3" id="text-5-6">
+<ul class="org-ul">
+<li><p>
+This is the basic syntax for <code>write()</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = write(fd, buffer, <span style="color: #51afef;">sizeof</span>(buffer));
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">where the buffer is some array</span>
+</pre>
+</div>
+<p>
+<code>write()</code> copies the contents of the array <code>buffer</code>, into wherever the file
+descriptor <code>fd</code> says so.
+</p></li>
+
+<li>The return value of <code>write()</code> is the number of bytes actually written by
+<code>write()</code>.</li>
+
+<li><p>
+Here&rsquo;s an example of printing characters to <code>stdout</code> (<code>fd = 1</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;unistd.h&gt;</span>
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">msg</span>[] = <span style="color: #98be65;">"Hello! This is a test.\n"</span>;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">len</span> = strlen(msg);            <span style="color: #5B6268;">// </span><span style="color: #5B6268;">= 23
+ 
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">written</span> = write(1, msg, len);
+<span style="color: #3dea43364a63;"> </span> printf(<span style="color: #98be65;">"\n\n%d"</span>, written);        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Output: 23%
+</span><span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> 0;
+}
+
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org98d7e1f" class="outline-2">
+<h2 id="org98d7e1f"><span class="section-number-2">6.</span> System Programs</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>These are also called <b>system utilities</b> and these are all the programs which
+run in <b>user mode</b>.</li>
+<li>These are absolutely not related to system calls.</li>
+</ul>
+</div>
+<div id="outline-container-org7d1aab4" class="outline-3">
+<h3 id="org7d1aab4"><span class="section-number-3">6.1.</span> File Management</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Commands to
+</p>
+<ul class="org-ul">
+<li>Create</li>
+<li>Delete</li>
+<li>Copy</li>
+<li>Rename files</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf9a028e" class="outline-3">
+<h3 id="orgf9a028e"><span class="section-number-3">6.2.</span> Status Information</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>Date, time, memory available, disk space</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6b365f" class="outline-3">
+<h3 id="orgc6b365f"><span class="section-number-3">6.3.</span> File Modification</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>Text editors</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org00aaa1e" class="outline-3">
+<h3 id="org00aaa1e"><span class="section-number-3">6.4.</span> Programming Support</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>Compilers, assemblers, debuggers</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6063944" class="outline-3">
+<h3 id="org6063944"><span class="section-number-3">6.5.</span> Program Loading and Execution</h3>
+<div class="outline-text-3" id="text-6-5">
+</div>
+<div id="outline-container-org2c94e80" class="outline-4">
+<h4 id="org2c94e80"><span class="section-number-4">6.5.1.</span> Linker</h4>
+<div class="outline-text-4" id="text-6-5-1">
+<ul class="org-ul">
+<li>Linker is a system program that runs right after compilation.</li>
+<li>It traces all external references present in a program and connects them.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org001a3f0" class="outline-4">
+<h4 id="org001a3f0"><span class="section-number-4">6.5.2.</span> Loader</h4>
+<div class="outline-text-4" id="text-6-5-2">
+<ul class="org-ul">
+<li>Loader is another system program that runs during runtime.</li>
+<li>This is the thing that allocates memory and loads a program into memory for
+execution.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4c7d5e5" class="outline-3">
+<h3 id="org4c7d5e5"><span class="section-number-3">6.6.</span> Communications</h3>
+<div class="outline-text-3" id="text-6-6">
+<ul class="org-ul">
+<li>Email, web browsers, remote login, file transfer</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org343ef14" class="outline-3">
+<h3 id="org343ef14"><span class="section-number-3">6.7.</span> Background Services (daemons/services)</h3>
+<div class="outline-text-3" id="text-6-7">
+<ul class="org-ul">
+<li>Launch at boot</li>
+<li>Run continuously (disk checking, process scheduling, printing)</li>
+<li>Important: Run in user context, NOT kernel context</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2871648" class="outline-3">
+<h3 id="org2871648"><span class="section-number-3">6.8.</span> Application Programs</h3>
+<div class="outline-text-3" id="text-6-8">
+<ul class="org-ul">
+<li>User applications (not part of OS)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgca0b833" class="outline-2">
+<h2 id="orgca0b833"><span class="section-number-2">7.</span> Operating System Structures</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org21037ba" class="outline-3">
+<h3 id="org21037ba"><span class="section-number-3">7.1.</span> Simple/Monolithic Structure</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>It consisted of 
+<ul class="org-ul">
+<li>Application Programs</li>
+<li>System Programs</li>
+<li>Device Drivers</li>
+</ul></li>
+<li>Note that these aren&rsquo;t layers.</li>
+<li>Only one process can execute at a time.</li>
+<li>There are no user modes and no hardware protection. Any program can do
+anything to the system.</li>
+<li>Every new process overwrites the previous process upon completion.</li>
+<li>It&rsquo;s called monolithic as there is no seperation between system programs and
+kernel.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org043333c" class="outline-3">
+<h3 id="org043333c"><span class="section-number-3">7.2.</span> Unix Approach</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>Introduced User mode and kernel mode, which were essentially 2 layers of access.</li>
+<li>This is ever-so-slightly slower than a monolithic structure, but now the
+hardware is better protected.</li>
+<li>User mode was the layer on the top, which had all system programs.</li>
+<li>Kernel mode had everything else that would directly affect the hardware like
+I/O, CPU Scheduling or interrupt handling.</li>
+<li>The issue is that the kernel mode has too much of functionality.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orged0911d" class="outline-3">
+<h3 id="orged0911d"><span class="section-number-3">7.3.</span> Layered Approach</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>The same idea as before, but now we have multiple layers.</li>
+<li>Every layer can only access functions from a layer below.</li>
+<li>Now every layer can make changes independent to other layers.</li>
+<li>Furthermore, this is more modular.</li>
+<li>The issue is that it&rsquo;s harder to define the layers, and it&rsquo;s visibly more
+slower than having two layers.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9eb640c" class="outline-3">
+<h3 id="org9eb640c"><span class="section-number-3">7.4.</span> Microkernel Approach</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li>You keep the same Unix approach of having just 2 layers (user mode and kernel
+mode).</li>
+<li>This time, instead of defining system programs and pushing everything else to
+kernel, you do the opposite.</li>
+<li>You ensure that the kernel has minimal process and memory managment software,
+and everything else is in user mode.</li>
+<li>In the Unix approach, kernel mode used to be faster, but going from kernel to
+user mode is slow.</li>
+<li>Here in the microkernel approach, the user mode is fast because all functions
+are in the same layer, but moving to kernel mode is slower.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org06378ce" class="outline-3">
+<h3 id="org06378ce"><span class="section-number-3">7.5.</span> Module Approach</h3>
+<div class="outline-text-3" id="text-7-5">
+<ul class="org-ul">
+<li>Kernel operations are no longer in a single layer, but they are modules which
+are loaded as and when required.</li>
+<li>An example is Solaris (A unix based distribution that&rsquo;s not linux).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf463676" class="outline-3">
+<h3 id="orgf463676"><span class="section-number-3">7.6.</span> Hybrid</h3>
+<div class="outline-text-3" id="text-7-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>macOS kernel</code></td>
+<td class="org-left">\(=\)</td>
+<td class="org-left"><code>Mach Kernel</code></td>
+<td class="org-left">+</td>
+<td class="org-left"><code>BSD kernel</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">microkernel</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">monolithic</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>Windows Kernel</code></td>
+<td class="org-left">\(=\)</td>
+<td class="org-left">monolithic</td>
+<td class="org-left">+</td>
+<td class="org-left">microkernel</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>Linux Kernel</code></td>
+<td class="org-left">\(=\)</td>
+<td class="org-left">monolithic</td>
+<td class="org-left">+</td>
+<td class="org-left">moduled</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc3c2ce6" class="outline-2">
+<h2 id="orgc3c2ce6"><span class="section-number-2">8.</span> Process Management</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>A process is a program in execution.</li>
+<li>A thread is the smallest unit of execution within a process.</li>
+</ul>
+
+<div id="org64be142" class="figure">
+<p><img src="file:///home/praaneshnair/gitProjects/org-notes/operating-systems/what_is_a_process.png" alt="what_is_a_process.png" />
+</p>
+</div>
+</div>
+<div id="outline-container-orgae2318b" class="outline-3">
+<h3 id="orgae2318b"><span class="section-number-3">8.1.</span> Process Control Block</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>Usually data is moved from RAM to CPU Registers, then execution happens, and
+then the output moves from CPU Registers to the required spot in RAM.</li>
+<li>If there&rsquo;s an interrupt, the intermediary output can&rsquo;t go to this required
+spot, hence this intermediary output along with the state of the process is
+stored in PCB (a place in RAM).</li>
+<li>If the process has to be resumed, the data from PCB is moved back into CPU
+registers.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org361267e" class="outline-3">
+<h3 id="org361267e"><span class="section-number-3">8.2.</span> Thread</h3>
+<div class="outline-text-3" id="text-8-2">
+
+<div id="org8bf2a63" class="figure">
+<p><img src="file:///home/praaneshnair/gitProjects/org-notes/operating-systems/process_vs_threads.png" alt="process_vs_threads.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>All the threads of a process have one common PCB, heap segment, data segment
+and code segment.</li>
+<li>A process is the changeable entity (it contains heap, stack, etc.) while a
+thread is the scheduleable entity (these deal with the actual sequence of
+instructions).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfcb2303" class="outline-3">
+<h3 id="orgfcb2303"><span class="section-number-3">8.3.</span> States of a Process</h3>
+<div class="outline-text-3" id="text-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">State</th>
+<th scope="col" class="org-left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>new</code></td>
+<td class="org-left">When process is launched, PCB is initialized, and is in <code>new queue</code> (present in the hard disk).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ready</code></td>
+<td class="org-left">Loaded in memory, and is in <code>ready queue</code> (waiting for CPU time).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>running</code></td>
+<td class="org-left">When it has been allocated CPU time. No queue because one CPU thread can have only one process.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>waiting</code></td>
+<td class="org-left">If in case of any system call, the process goes to <code>waiting/blocked queue</code>. After waiting state, a process will go to <code>ready</code> state, and not back to <code>running</code> state immediately</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>terminated</code></td>
+<td class="org-left">Process completed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7e82a83" class="outline-3">
+<h3 id="org7e82a83"><span class="section-number-3">8.4.</span> Timestamps of a Process</h3>
+<div class="outline-text-3" id="text-8-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Timestamp</th>
+<th scope="col" class="org-left">Explanation</th>
+<th scope="col" class="org-left">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Arrival Time</td>
+<td class="org-left"><code>new</code> &rarr; <code>ready</code> for the first time</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Completion Time</td>
+<td class="org-left">The timestamp when <code>running</code> &rarr; <code>terminated</code></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Turn Around Time</td>
+<td class="org-left">Duration of time from <code>new</code> &rarr; <code>terminated</code></td>
+<td class="org-left">\(\text{Completion Time} - \text{Arrival Time}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Burst Time</td>
+<td class="org-left">Time spent by process to execute completely in CPU</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Waiting Time</td>
+<td class="org-left">Total time spent in <code>waiting</code> state (waiting queue)</td>
+<td class="org-left">\(\text{Turnaround Time} - \text{Burst Time}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Response Time</td>
+<td class="org-left">Time spent in <code>waiting</code> state till it first got CPU</td>
+<td class="org-left">\(\text{Time at which it first got CPU} - \text{Arrival Time}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org403e800" class="outline-3">
+<h3 id="org403e800"><span class="section-number-3">8.5.</span> Processes based on their limitation</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+The time taken by processes involve their burst time, and the time taken for the
+corresponding I/O operation.
+</p>
+</div>
+<div id="outline-container-org59f89ef" class="outline-4">
+<h4 id="org59f89ef"><span class="section-number-4">8.5.1.</span> I/O bound processes</h4>
+<div class="outline-text-4" id="text-8-5-1">
+<ul class="org-ul">
+<li>This is a collection of many processes with short burst time.</li>
+<li>This means there are a lot of I/O time because there are that many number of
+processes.</li>
+<li>The burst time is already less so reducing that won&rsquo;t help in performance.
+What you can reduce, is the I/O time.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9aaed1" class="outline-4">
+<h4 id="orga9aaed1"><span class="section-number-4">8.5.2.</span> CPU bound processes</h4>
+<div class="outline-text-4" id="text-8-5-2">
+<ul class="org-ul">
+<li>This is a collection of a lesser number of processes with large burst time.</li>
+<li>Since the number of processes is less, the amount of I/O time is less and
+hence they don&rsquo;t impact performance as much.</li>
+<li>What does impact performance is how you schedule the I/O operations and the
+operations which use CPU.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2f7153e" class="outline-3">
+<h3 id="org2f7153e"><span class="section-number-3">8.6.</span> CPU Scheduling</h3>
+<div class="outline-text-3" id="text-8-6">
+<ul class="org-ul">
+<li>CPU Scheduler is a part of the kernel that schedules processes to be run on
+the CPU.</li>
+<li><b>Throughput</b> is the number of processes completed per unit time.</li>
+</ul>
+</div>
+<div id="outline-container-orgbae396a" class="outline-4">
+<h4 id="orgbae396a"><span class="section-number-4">8.6.1.</span> Types of Schedulers based on Process Lifetime</h4>
+<div class="outline-text-4" id="text-8-6-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Job / Long-Term Scheduler</th>
+<th scope="col" class="org-left">Medium-Term / Mid-Term Scheduler</th>
+<th scope="col" class="org-left">Short-Term Scheduler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Admits processes from <b>job pool</b> (hard disk) to the <b>ready queue</b></td>
+<td class="org-left">Swaps processes in and out of RAM</td>
+<td class="org-left">Admits processes from the ready queue to CPU</td>
+</tr>
+
+<tr>
+<td class="org-left">Controls the degree of multiprogramming (many processes using one single CPU)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org4ad9055" class="outline-4">
+<h4 id="org4ad9055"><span class="section-number-4">8.6.2.</span> Types of Schedulers based on Preemption</h4>
+<div class="outline-text-4" id="text-8-6-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Cooperative</th>
+<th scope="col" class="org-left">Preemptive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Runs processes one after the other, and every process is run without interruption</td>
+<td class="org-left">Runs processes but can interrupt with another process</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org4c8579c" class="outline-4">
+<h4 id="org4c8579c"><span class="section-number-4">8.6.3.</span> Scheduling Algorithms</h4>
+<div class="outline-text-4" id="text-8-6-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgdf9148c"></a>First Come First Serve<br />
+<div class="outline-text-5" id="text-8-6-3-1">
+<ul class="org-ul">
+<li>Each job is run to completion (non-preemptive).</li>
+<li>The issue is that the <b>convoy effect</b> (a long process can delay all subsequent
+processes) can happen.</li>
+</ul>
+</div>
+</li>
+<li><a id="org793c24e"></a>Shortest Job First<br />
+<div class="outline-text-5" id="text-8-6-3-2">
+<ul class="org-ul">
+<li>Shortest Job First selects the process with the smallest CPU burst time from
+the ready queue.</li>
+<li>This is also non-preemptive.</li>
+</ul>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Process No</th>
+<th scope="col" class="org-right">Arrival Time</th>
+<th scope="col" class="org-right">Burst Time</th>
+<th scope="col" class="org-right">Completion Time</th>
+<th scope="col" class="org-right">TAT</th>
+<th scope="col" class="org-right">WT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P<sub>1</sub></td>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>2</sub></td>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">10</td>
+<td class="org-right">8</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>3</sub></td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>4</sub></td>
+<td class="org-right">4</td>
+<td class="org-right">4</td>
+<td class="org-right">14</td>
+<td class="org-right">10</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org8e6af71" class="figure">
+<p><img src="gantt.png" alt="gantt.png" />
+</p>
+</div>
+</div>
+</li>
+<li><a id="org77155d8"></a>Shortest Remaining Time First<br />
+<div class="outline-text-5" id="text-8-6-3-3">
+<ul class="org-ul">
+<li>Shortest Remaining Time First is the preemptive version of SJF.</li>
+<li>At every process arrival, the scheduler compares the remaining execution time
+of the currently running process with that of the newly arrived process.</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Process No</th>
+<th scope="col" class="org-right">Arrival Time</th>
+<th scope="col" class="org-right">Burst Time</th>
+<th scope="col" class="org-right">Completion Time</th>
+<th scope="col" class="org-right">TAT</th>
+<th scope="col" class="org-right">WT</th>
+<th scope="col" class="org-right">RT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">P<sub>1</sub></td>
+<td class="org-right">0</td>
+<td class="org-right">5</td>
+<td class="org-right">9</td>
+<td class="org-right">9</td>
+<td class="org-right">4</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>2</sub></td>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>3</sub></td>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">11</td>
+<td class="org-right">7</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">P<sub>4</sub></td>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">5</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+In square brackets, we represent the <b>ready queue</b>.
+</p>
+
+
+<div id="org2836b86" class="figure">
+<p><img src="srtf.png" alt="srtf.png" />
+</p>
+</div>
+</div>
+</li>
+<li><a id="orged838a8"></a>Round Robin<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
