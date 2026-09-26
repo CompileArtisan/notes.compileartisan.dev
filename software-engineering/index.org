@@ -600,4 +600,153 @@ this year. The management is evaluating two projects:
 - $\text{Net Profit}_{B}  = 16,00,000 - 8,00,000$
 - $\text{Net Profit}_{B}  = 8,00,000$
 
-*** 
+
+** Network Planning Model
+- It is used to plan and schedule project activities and their relationship as a
+  network.
+- The flow is from left to right.
+- Identify which activity to complete first. There are many techniques for this.
+*** Types
+**** Critical Path Method (CPM)
+**** Program Evaluation and Review Technique (PERT)
+**** Activity on Arrow (AoA) approach.
+- Arrows represent activities
+- Nodes (circles) represent events
+
+
+*** Formulating a Network Model
+- A project network should have only one start node.
+  #+begin_src mermaid :file network_model.png :results file
+graph LR
+    start_node --> A
+    start_node --> B
+
+  #+end_src
+
+  #+RESULTS:
+  [[file:network_model.png]]
+
+- A node has a duration.
+- Time moves from left to right and the flow represented as flow. 
+- Immediately preceding activities are called *precedents*.
+  #+begin_src mermaid :file precedence_graph.png :results file
+graph LR
+    code --> program_test
+    data_take_on --> program_test
+    program_test --> correct_errors
+    program_test --> diagnose_errors
+    program_test --> install
+  #+end_src
+
+  #+RESULTS:
+  [[file:precedence_graph.png]]
+- A loop is an error that represents a situation that cannot happen in practise.
+  (there can't be loops coz time only move forward).
+- Here's what a typical precedence graph looks like:
+  #+begin_src mermaid :file typical.png :results file
+graph LR
+    %% Define Node Styles
+    classDef critical stroke:#333,stroke-width:2px,fill:#ffcccc;
+    classDef standard stroke:#333,stroke-width:1px,fill:#f9f9f9;
+
+    %% Nodes with internal layout
+    A["<b>Activity A</b><hr>ES: 0 | EF: 3<br>LS: 0 | LF: 3<br>D: 3 | TF: 0"]:::critical
+    B["<b>Activity B</b><hr>ES: 3 | EF: 8<br>LS: 5 | LF: 10<br>D: 5 | TF: 2"]:::standard
+    C["<b>Activity C</b><hr>ES: 3 | EF: 5<br>LS: 3 | LF: 5<br>D: 2 | TF: 0"]:::critical
+    D["<b>Activity D</b><hr>ES: 8 | EF: 12<br>LS: 10 | LF: 14<br>D: 4 | TF: 2"]:::standard
+    E["<b>Activity E</b><hr>ES: 5 | EF: 14<br>LS: 5 | LF: 14<br>D: 9 | TF: 0"]:::critical
+
+    %% Dependencies
+    A --> B
+    A --> C
+    B --> D
+    C --> E
+    D --> End[Project Finish]
+    E --> End
+
+  #+end_src
+
+  #+RESULTS:
+  [[file:typical.png]]
+
+*** Information within a Block
+
+**** Early Start: $ES$
+- The earliest possible time a task can begin, assuming all previous tasks are
+  finished.
+- Earliest start time for the current activity is basically the earliest start
+  time of the precendent activity.
+- The earliest start time for activities with no precedents is 0.
+
+
+**** Early Finish: $EF = ES + \text{Duration}$
+
+**** Late Start:
+
+
+**** Late Finish:
+
+*** Forward Pass
+- The forward pass is carried out to calculate the earliest dates on which each
+  activity may be started and completed.
+- It's a technique used in project scheduling/ critical path method (cpm) to
+  determine the earliest time at which any activity is started.
+- Calculating ~ES EF~ is one forward pass.
+
+*** Backward Pass
+- The backward pass is performed from Finish back toward the start. 
+- Its purpose is to calcualte the lates dates on which each activity can start
+  and finish without delaying the project.
+
+*** A project comprises of the following activities given in the table
+
+| Activity ID | Description      | Duration | Intermediate Predecessor |
+|-------------+------------------+----------+--------------------------|
+| A           | Product Design   |        4 | None                     |
+| B           | Market Research  |        7 | A                        |
+| C           | Product Analysis |        5 | A                        |
+| D           | Product Model    |        8 | B                        |
+| E           | Sales Brochure   |        5 | B, C                     |
+| F           | Cost Analysis    |        2 | C                        |
+| G           | Product Testing  |        1 | D, E, F                  |
+
+**** Construct an Activity on Node Network which will provide an overview of the planned project?
+#+begin_src mermaid :file ques.png :results file
+flowchart LR
+    S((Start)) --> A[A: Product Design<br/>4]
+    
+    A --> B[B: Market Research<br/>7]
+    A --> C[C: Product Analysis<br/>5]
+    
+    B --> D[D: Product Model<br/>8]
+    B --> E[E: Sales Brochure<br/>5]
+    
+    C --> E
+    C --> F[F: Cost Analysis<br/>2]
+    
+    D --> G[G: Product Testing<br/>1]
+    E --> G
+    F --> G
+    
+    G --> T((Finish))
+#+end_src
+
+#+RESULTS:
+[[file:ques.png]]
+
+**** How soon could the project be completed?
+
+| Activity | Duration | ES | EF |
+|----------+----------+----+----|
+| A        |        4 |  0 |  4 |
+| B        |        7 |  4 | 11 |
+| C        |        5 |  4 |  9 |
+| D        |        8 | 11 | 19 |
+| E        |        5 | 11 | 16 |
+| F        |        2 |  9 | 11 |
+| G        |        1 | 19 | 20 |
+
+
+**** Which activities need to be completed on time in order to ensure that the projectis completed without delay any overdue on time?
+
+**** Compute the free float and interfereing float for each activity.

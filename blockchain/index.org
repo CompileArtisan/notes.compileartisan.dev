@@ -640,8 +640,10 @@ Implement a simple public blockchain for agriculture supply chain where:
 5. The farmer recieves the benefit of the reward.
 6. All transactions must be stored in blocks linked using cryptographic hashes.
 
+
+
 * Merkle Tree
-- It's a tree where every node is the hash of its child. 
+- It's a binary tree where every node is the hash of its child.
   - The leaf nodes (the lowest nodes in the tree) contain the hash of a
     transaction.
   - The non-leaf nodes contain the hash of its child.
@@ -668,3 +670,103 @@ graph TD
 [[file:merkletree.png]]
 
 # digital fingerprint
+
+** Example
+Create a simple blockchain framework for the agricultural domain, where the
+participating entities are:
+- A farmer
+- Manufacturing unit
+- Distributer
+- Retail
+- Consumer
+
+The framework's block should contain:
+- Hash of the previous block's header
+- Hash of the current block
+- Timestamp
+- Nonce
+- Merkle Root
+  
+Use Hash Pointers and Blockchain mining to establish a transparent peer-to-peer
+communication across the framework.
+
+* Bitcoin
+- Bitcoin is a digital/encrypted currency.
+- Bitcoin transactions happen with the help of operands, operators and OP CODES
+  using scripts.
+- In order to exeecute bitcoin transactions te spending condition mst be verified first.
+- To spend a bitcoin, you must provide the correct public key and a valid
+  digital signature using the corresponding private key.
+- Here are the OP CODES:
+
+  | Part             | Meaning                                |
+  |------------------+----------------------------------------|
+  | ~OP_DUP~           | Makes a copy of the public key         |
+  | ~OP_HASH160~       | Convert the public key into its hash   |
+  | ~<Public KeyHash>~ | Compare it with the expected hash      |
+  | ~OP_EQUAL~         | Check whether the two hashes are equal |
+  | ~OP_CHECKING~      | Check whether the signature is valid   |
+- ~ScriptPubKey~ locks the bitcoin and d4efines who is allowed to spend the
+  bitcoin.
+- ~ScriptSig~ provides the signature and the public key needed to satisfy the
+  condition.
+
+** Electronic Cash
+- *DigiCash* was the first form of electronic cash created by a cryptographer
+  *David Chaum*.
+
+** Example
+Write a bitcoin program using ~SHA-256~ hashing, merkle tree, mining and Proof of
+Work.
+
+* Software Stack
+This is a possible software stack to adopt for blockchain 
+
+** Frontend
+- React.js
+- Next.js
+- HTML
+- CSS
+- Tailwind CSS
+- Bootstrap
+- JavaScript/TypeScript
+
+** Blockchain Infrastructure
+
+*** MetaMask
+- These are used to create user wallets and signatures.
+
+*** Wagmi + Diem
+- These are used to create React \rightarrow EVM (Ethereum Virtual Machine) blockchain interactions.
+
+*** Bitcoin Wallets
+
+*** Middleware
+- Fabric Gateway
+
+*** UI Components
+- Ethers.js
+- Webley.js ?
+
+*** Blockchain Languages
+- Solidity
+- Hyperledger fabric (for designing permission or consortium blockchain)
+
+*** Ethereum or Sepolia 
+
+*** Polygon Amoy
+
+*** Ganache / Hardhat local network
+- These are for local development and testing.
+  
+** Backend
+- Node.js for server-side applications
+- Express.js 
+- Fast API with Python
+- PostgreSQL / MongoDB / MySQL 
+
+* Case Study Topics
+- Proof of Working
+- Mining
+
+  Note: Requires Live Demo
