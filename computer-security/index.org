@@ -1880,6 +1880,7 @@ $$-a + a\mod(m) = 0$$
   such that $a \times x \mod(m) = 1$.
 
 ***** Extended Euclidean Algorithm
+****** What it is
 - Consider this example of finding multiplicative inverse of $356\mod(45)$ or
   $356$ in $Z_{45}$ (different ways of asking the same thing):
 
@@ -1912,6 +1913,32 @@ $$-a + a\mod(m) = 0$$
 
  The multiplicative inverse is -1. So it's $-1\mod(10) = (-1+10)\mod(10) = 9$
  So the final multiplicative inverse is 9.
+ 
+****** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(extended_euclidean(9, 10))
+
+
+def extended_euclidean(a, m):
+    return rec(a, m, 1, 0)
+
+
+def rec(a, m, u0, u1):
+    if m == 0:
+        return u0
+    else:
+        q = a // m
+        return rec(m, a % m, u1, u0 - q * u1)
+
+
+main()
+#+end_src
+
+#+RESULTS:
+#+begin_src
+-1
+#+end_src
 
 ***** Multiplicative Inverse Pair
 
@@ -2026,7 +2053,6 @@ def main():
     fast(11, 13, 53)
 
 def fast(a, b, n):
-    binary = bin(b)[2:]
     modval = (a**1) % n
     power = 1
     dp = []
