@@ -2023,16 +2023,28 @@ Eg. $B = 11$
 *** Code
 #+begin_src python :results output raw :wrap src :exports both
 def main():
-    fast(3, 50, 7)
+    fast(11, 13, 53)
 
-def fast(a, b, n): # a^b mod(n)
+def fast(a, b, n):
     binary = bin(b)[2:]
-    dp = [0 for i in range(len(binary))]
-    dp[-1] = a%n
-    for i in range(len(binary) - 2, 0, -1):
-        dp[i] = (dp[i+1]**2)%n
-            
+    modval = (a**1) % n
+    power = 1
+    dp = []
+    
+    while power <= b:
+        dp.append((power, modval))
+
+        power*=2
+        modval = (modval**2) % n
     print(dp)
+
+    
+    result = 1
+    for powr, val in dp:
+       if b & powr:
+          result = (result * val) % n
+
+    print(result) 
 
 main()
 
@@ -2040,7 +2052,8 @@ main()
 
 #+RESULTS:
 #+begin_src
-[0, 4, 2, 4, 2, 3]
+[(1, 11), (2, 15), (4, 13), (8, 10)]
+52
 #+end_src
 
 ** Fermat's Little Theorem
