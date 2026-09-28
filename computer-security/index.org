@@ -416,6 +416,7 @@ GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLI
 
 
 ****** Multiplicative Cipher
+******* What it is
 - Ceasar cipher was the additive cipher.
 - Here, for each character plaintext character $p$, the cipher text character
   $c$ is given as:
@@ -434,8 +435,48 @@ GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLI
 | *Number of useful keys* | *25*                                                                 | *12*                                         |
 | *Key condition*         | No special restriction                                             | \(\gcd(k,26)=1\)                           |
 
-  
-  
+******* Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    x = encrypt("COMPUTERSCIENCE", 7)
+    y = decrypt(x, 7)
+    print(f"enc:{x}, dec:{y}")
+
+def encrypt(plaintext, key):
+    output = ""
+    for c in plaintext:
+        output += chr(((ord(c) - ord('A')) * key) % 26 + ord('A'))
+    return output
+
+
+def mult_inv(a, m):
+    return rec(a, m, 1, 0)
+
+
+def rec(a, m, u0, u1):
+    if m == 0:
+        return u0
+    else:
+        q = a // m
+        return rec(m, a % m, u1, u0 - q * u1)
+
+
+def decrypt(ciphertext, key):
+    inverse = mult_inv(key, 26) % 26
+    output = ""
+    for c in ciphertext:
+        output += chr(((ord(c) - ord('A')) * inverse) % 26 + ord('A'))
+    return output
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+enc:OUGBKDCPWOECNOC, dec:COMPUTERSCIENCE
+#+end_src
+
 ****** Affine Cipher
 - This is a combination of multiplicative and additive. 
 - After doing $(a \times p)$, you also add a second key $b$ before in the modular
