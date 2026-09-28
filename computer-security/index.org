@@ -425,6 +425,15 @@ GWTBS, FVSAR, EURZQ, DTQYP, CSPXO, BROWN, AQNVM, ZPMUL, YOLTK, XNKSJ, WMJRI, VLI
   where $a$ is the key.
 - Decrypting the cipher text is given as:
   $$p = (a^{-1} \times c) \mod(26)$$
+
+| Feature               | Caesar Cipher                                                      | Multiplicative Cipher                      |
+|-----------------------+--------------------------------------------------------------------+--------------------------------------------|
+| *Encryption*            | \(C = (P + k) \bmod 26\)                                           | \(C = (P \times k) \bmod 26\)                   |
+| *Key space*             | 26 possible keys, but \(k=0\) gives no encryption → *25 useful keys* | Only keys *coprime with 26* are valid        |
+| *Valid keys*            | \(k = 0,1,\dots,25\)                                                   | \(k \in \{1,3,5,7,9,11,15,17,19,21,23,25\}\) |
+| *Number of useful keys* | *25*                                                                 | *12*                                         |
+| *Key condition*         | No special restriction                                             | \(\gcd(k,26)=1\)                           |
+
   
   
 ****** Affine Cipher
@@ -1021,6 +1030,35 @@ file:/home/praaneshnair/gitProjects/org-notes/computer-security/One_round_of_DES
 - The output is the binary number of the cell value.
 - Note that this box is indexed from 0.
 
+#+begin_src python :results output raw :wrap src :exports both
+S1 = [
+    [14, 4, 13, 1, 2, 15, 11, 8,
+     3, 10, 6, 12, 5, 9, 0, 7],
+
+    [0, 15, 7, 4, 14, 2, 13, 1,
+     10, 6, 12, 11, 9, 5, 3, 8],
+
+    [4, 1, 14, 8, 13, 6, 2, 11,
+     15, 12, 9, 7, 3, 10, 5, 0],
+
+    [15, 12, 8, 2, 4, 9, 1, 7,
+     5, 11, 3, 14, 10, 0, 6, 13]
+]
+
+def sbox(S, bits):
+    row = int(bits[0] + bits[5], 2)
+    column = int(bits[1:5], 2)
+    return f"{S[row][column]:04b}"
+    
+print(sbox(S1, "101010"))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+0110
+#+end_src
+
 ****** Decryption
 - DES decryption is encryption in reverse order.
 - The output of encryption generated from the 16th round with be the input to
@@ -1568,6 +1606,53 @@ print(hash_value)
   #+end_src
 
 
+******* HMAC
+This is assuming the hash function where each character’s ASCII value is
+multiplied by a large prime number, added to the running hash value, and reduced
+using modulo arithmetic. The resulting number acts as the hash of the message.
+#+begin_src python :results output raw :wrap src :exports both
+def simple_hash(message):
+    prime = 1000003
+    mod = 1000000007
+
+    result = 0
+
+    for ch in message:
+        result = (result + ord(ch) * prime) % mod
+
+    return result
+
+
+def hmac_simple(key, message):
+    ipad = 0x36
+    opad = 0x5C
+
+    inner_key = ""
+
+    for ch in key:
+        inner_key += chr(ord(ch) ^ ipad)
+
+    inner = simple_hash(inner_key + message)
+
+    outer_key = ""
+
+    for ch in key:
+        outer_key += chr(ord(ch) ^ opad)
+
+    result = simple_hash(outer_key + str(inner))
+
+    return result
+
+
+print(hmac_simple("SECRET", "AUTHENTICATE"))
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+577001731
+#+end_src
+
 *** Based on how plaintext is processed
 
 **** Block
@@ -1639,6 +1724,7 @@ $$a \times (b+c) = ab + ac$$
 - Eg. 3 and 5
 
 *** Primality Test
+**** What it is
 - To test if a number $n$ is prime, you check if it's divisible with any prime
   number from 2 to $\sqrt{n}$.
 - For example, checking 97:
@@ -1649,6 +1735,30 @@ $$a \times (b+c) = ab + ac$$
   This is the safe upperbound widely taught in computer science, as beyond this
   finding square root takes time.
   
+**** Code for Trial Division Method
+#+begin_src python :results output raw :wrap src :exports both
+from math import sqrt
+
+def main():
+    print(is_prime(97))
+
+def is_prime(n):
+    if n%2==0:
+        return False
+    for i in range(3, 1+int(sqrt(n)), 2):
+        if n%i == 0:
+            return False
+    return True
+    
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+True
+#+end_src
+
 *** Fundamental Theorem of Arithmetic
 #+begin_quote
 Every positive integer is uniquely a product of prime numbers.
@@ -2106,6 +2216,26 @@ For example, verifying Fermat's little theorem for $p = 31$ and $a = 3$.
 
 **** TODO Compute  $3^{-592} \mod(1831)$ using Fermat's Little Theorem
 
+
+*** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(is_prime(31))
+
+def is_prime(p):
+    if (3**(p-1))%p == 1: # arbitrarily chose a=3
+        return True
+    return False
+
+main()
+    
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+True
+#+end_src
 
 ** Euler's Theorem
 #+begin_quote
