@@ -408,3 +408,27 @@ flowchart LR
 
 #+RESULTS:
 [[file:stochastic_transition_paths.png]]
+
+* Q-Learning 
+- It's a model-free RL algorithm that trains an agent to find the optimal action
+  selection policy by maximizing cumulative future rewards through trial and
+  error.
+- The core concepts addition to agent-state-action-reward include:
+
+** Q Value
+- The quality or expected long term total reward of taking a specific action in
+  a given state.
+
+** Q Table
+- A lookup table mapping states to actions.
+- It stores and updates Q values.
+
+** Advantages
+- It works without leaving an environmental model and handles unpredictable
+  transitions effectively.
+
+** Disadvantages
+- It suffers from the curse of dimensionality.
+- This means that large space action spaces make traditional Q tables unstable.
+
+

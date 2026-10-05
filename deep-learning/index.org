@@ -1053,6 +1053,8 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
 - A CNN is used to *encode* an image into text.
 - An RNN learns from the text and serves as a *decoder*.
 
+* Transformer
+
 * Attention
 - This concept was introduced specifically for sequential data i.e. for natural
   language processing.
@@ -1064,3 +1066,14 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
    | am    | [] |
    | going | [] |
    | home  | [] |
+
+* CLIP
+- CLIP stands for Contrastive Language Image Pairs.
+- You have a Vision Transformer that finds embeddings of images.
+- You also have another textual transformer that finds embeddings of texts and
+  they're mapped with the embeddings of the images.
+- So if an image and a piece of text mean the same thing, they're captured by
+  the same embedding.
+- Essentially you'll have this massive matrix where rows are texts and columns
+  are images, and the value of each cell is the cosine similarity between their
+  meanings.

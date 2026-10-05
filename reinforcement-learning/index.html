@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-02 Wed 01:04 -->
+<!-- 2026-09-29 Tue 09:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reinforcement Learning</title>
@@ -709,71 +709,80 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgff3222b">1. Introduction</a>
+<li><a href="#org4772397">1. Introduction</a>
 <ul>
-<li><a href="#org1dee8b0">1.1. Components of RL</a></li>
-<li><a href="#org255b92a">1.2. Environment Adaptor</a></li>
-<li><a href="#orgf5eb976">1.3. Deterministic vs Stochastic Policies</a>
+<li><a href="#org75bc950">1.1. Components of RL</a></li>
+<li><a href="#orgd1aaeda">1.2. Environment Adaptor</a></li>
+<li><a href="#orgeb6f775">1.3. Deterministic vs Stochastic Policies</a>
 <ul>
-<li><a href="#org593cff6">1.3.1. Deterministic</a></li>
-<li><a href="#org018bbbb">1.3.2. Stochastic / Probabilistic</a></li>
+<li><a href="#orge42a2f7">1.3.1. Deterministic</a></li>
+<li><a href="#orgccb7a73">1.3.2. Stochastic / Probabilistic</a></li>
 </ul>
 </li>
-<li><a href="#org222f17c">1.4. RL as a 3rd Maching Learning Paradigm</a>
+<li><a href="#orgd705d4a">1.4. RL as a 3rd Maching Learning Paradigm</a>
 <ul>
-<li><a href="#orga4d08ed">1.4.1. Supervised Learning</a></li>
-<li><a href="#org11b99ee">1.4.2. Unsupervised Learning</a></li>
-<li><a href="#org93585bd">1.4.3. Reinforcement Learning</a></li>
+<li><a href="#org33263ed">1.4.1. Supervised Learning</a></li>
+<li><a href="#org8ca4aca">1.4.2. Unsupervised Learning</a></li>
+<li><a href="#orgc54ae5f">1.4.3. Reinforcement Learning</a></li>
 </ul>
 </li>
-<li><a href="#orgf0b0a47">1.5. Foundational Pillars of Reinforcement Learning</a></li>
-<li><a href="#org922542c">1.6. Key Features of RL</a>
+<li><a href="#org236cc04">1.5. Foundational Pillars of Reinforcement Learning</a></li>
+<li><a href="#org2c4c529">1.6. Key Features of RL</a>
 <ul>
-<li><a href="#org148d1c1">1.6.1. Closed Loop Interaction</a></li>
-<li><a href="#org8a8d6f4">1.6.2. No Direct Instructions</a></li>
-<li><a href="#org29af427">1.6.3. Extended Consequences</a></li>
+<li><a href="#org854182d">1.6.1. Closed Loop Interaction</a></li>
+<li><a href="#org32aa389">1.6.2. No Direct Instructions</a></li>
+<li><a href="#org62da91a">1.6.3. Extended Consequences</a></li>
 </ul>
 </li>
-<li><a href="#orga9a1264">1.7. Elements of RL</a></li>
-<li><a href="#org572bc43">1.8. Exploration and Exploitation</a></li>
-<li><a href="#org268aee9">1.9. Main RL Approaches</a>
+<li><a href="#org7336539">1.7. Elements of RL</a></li>
+<li><a href="#org660d62c">1.8. Exploration and Exploitation</a></li>
+<li><a href="#orgaf5f970">1.9. Main RL Approaches</a>
 <ul>
-<li><a href="#org4060368">1.9.1. Value-based methods</a></li>
-<li><a href="#org7bbaa16">1.9.2. Policy-based methods</a></li>
-<li><a href="#orgf19267b">1.9.3. Actor-Critic methods</a></li>
+<li><a href="#org69f153c">1.9.1. Value-based methods</a></li>
+<li><a href="#orgbee1045">1.9.2. Policy-based methods</a></li>
+<li><a href="#org1c6ebbb">1.9.3. Actor-Critic methods</a></li>
 </ul>
 </li>
-<li><a href="#orgd706410">1.10. Episode</a></li>
-<li><a href="#org1cfb664">1.11. Transition Table</a></li>
+<li><a href="#org482ed5d">1.10. Episode</a></li>
+<li><a href="#orgb53944c">1.11. Transition Table</a></li>
 </ul>
 </li>
-<li><a href="#orge277af6">2. Tic-Tac-Toe as a Reinforcement Leaning Problem</a></li>
-<li><a href="#org6607abd">3. Multi-Armed Bandit Problem</a>
+<li><a href="#org71038a3">2. Tic-Tac-Toe as a Reinforcement Leaning Problem</a></li>
+<li><a href="#orge118560">3. Multi-Armed Bandit Problem</a>
 <ul>
-<li><a href="#org1ae93ec">3.1. One-Arm Bandit</a></li>
-<li><a href="#org62b7d28">3.2. What the Multi-armed bandit problem means</a></li>
+<li><a href="#org9ff46f8">3.1. One-Arm Bandit</a></li>
+<li><a href="#orgdd2a95c">3.2. What the Multi-armed bandit problem means</a></li>
 </ul>
 </li>
-<li><a href="#org89c5ec8">4. MDP: Markov Decision Process</a>
+<li><a href="#org3592253">4. MDP: Markov Decision Process</a>
 <ul>
-<li><a href="#org7f7e47b">4.1. Discount Factor</a></li>
-<li><a href="#org8f03cf4">4.2. Transition Probability</a></li>
-<li><a href="#org3286100">4.3. Horizon</a>
+<li><a href="#org620b2d8">4.1. Discount Factor</a></li>
+<li><a href="#orga6cb466">4.2. Transition Probability</a></li>
+<li><a href="#org9882084">4.3. Horizon</a>
 <ul>
-<li><a href="#org6d0880f">4.3.1. Finite Horizon</a></li>
-<li><a href="#org840742d">4.3.2. Infinite Horizon</a></li>
-<li><a href="#org2d9fa87">4.3.3. Greedy Horizon</a></li>
+<li><a href="#org4cdb9c1">4.3.1. Finite Horizon</a></li>
+<li><a href="#orgd5ad07e">4.3.2. Infinite Horizon</a></li>
+<li><a href="#org6051d98">4.3.3. Greedy Horizon</a></li>
 </ul>
 </li>
-<li><a href="#orga2f2147">4.4. Reward</a></li>
-<li><a href="#org8b976e2">4.5. Stochastic Transition Paths</a></li>
+<li><a href="#org11e39da">4.4. Reward</a></li>
+<li><a href="#org4495b5e">4.5. Stochastic Transition Paths</a></li>
+</ul>
+</li>
+<li><a href="#org3bb96dc">5. Q-Learning</a>
+<ul>
+<li><a href="#orgc218732">5.1. Q Value</a></li>
+<li><a href="#orge145b8c">5.2. Q Table</a></li>
+<li><a href="#orgf2d045d">5.3. Advantages</a></li>
+<li><a href="#orgc5d3b97">5.4. Disadvantages</a></li>
+<li><a href="#org307902c">5.5. Python program that implements Q-Learning in some scenario</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff3222b" class="outline-2">
-<h2 id="orgff3222b"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org4772397" class="outline-2">
+<h2 id="org4772397"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Reinforcement learning is a branch of AI where an agent learns how to make
@@ -789,8 +798,8 @@ Note: <b>Self-play</b> is a training method where an AI agent improves its skill
 </blockquote></li>
 </ul>
 </div>
-<div id="outline-container-org1dee8b0" class="outline-3">
-<h3 id="org1dee8b0"><span class="section-number-3">1.1.</span> Components of RL</h3>
+<div id="outline-container-org75bc950" class="outline-3">
+<h3 id="org75bc950"><span class="section-number-3">1.1.</span> Components of RL</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Agent
@@ -836,8 +845,8 @@ is good in the long run.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org255b92a" class="outline-3">
-<h3 id="org255b92a"><span class="section-number-3">1.2.</span> Environment Adaptor</h3>
+<div id="outline-container-orgd1aaeda" class="outline-3">
+<h3 id="orgd1aaeda"><span class="section-number-3">1.2.</span> Environment Adaptor</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>These are interfaces/translators between RL agents and their environment.</li>
@@ -866,12 +875,12 @@ env.observation_space
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf5eb976" class="outline-3">
-<h3 id="orgf5eb976"><span class="section-number-3">1.3.</span> Deterministic vs Stochastic Policies</h3>
+<div id="outline-container-orgeb6f775" class="outline-3">
+<h3 id="orgeb6f775"><span class="section-number-3">1.3.</span> Deterministic vs Stochastic Policies</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org593cff6" class="outline-4">
-<h4 id="org593cff6"><span class="section-number-4">1.3.1.</span> Deterministic</h4>
+<div id="outline-container-orge42a2f7" class="outline-4">
+<h4 id="orge42a2f7"><span class="section-number-4">1.3.1.</span> Deterministic</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Produces the exact same output for a given input</li>
@@ -879,8 +888,8 @@ env.observation_space
 </ul>
 </div>
 </div>
-<div id="outline-container-org018bbbb" class="outline-4">
-<h4 id="org018bbbb"><span class="section-number-4">1.3.2.</span> Stochastic / Probabilistic</h4>
+<div id="outline-container-orgccb7a73" class="outline-4">
+<h4 id="orgccb7a73"><span class="section-number-4">1.3.2.</span> Stochastic / Probabilistic</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Same input can result in a varying output</li>
@@ -890,12 +899,12 @@ env.observation_space
 </div>
 </div>
 </div>
-<div id="outline-container-org222f17c" class="outline-3">
-<h3 id="org222f17c"><span class="section-number-3">1.4.</span> RL as a 3rd Maching Learning Paradigm</h3>
+<div id="outline-container-orgd705d4a" class="outline-3">
+<h3 id="orgd705d4a"><span class="section-number-3">1.4.</span> RL as a 3rd Maching Learning Paradigm</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orga4d08ed" class="outline-4">
-<h4 id="orga4d08ed"><span class="section-number-4">1.4.1.</span> Supervised Learning</h4>
+<div id="outline-container-org33263ed" class="outline-4">
+<h4 id="org33263ed"><span class="section-number-4">1.4.1.</span> Supervised Learning</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>This is where you have <b>labeled data</b> \((x,y)\), where \(x\) is the input, and \(y\)
@@ -910,8 +919,8 @@ act.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org11b99ee" class="outline-4">
-<h4 id="org11b99ee"><span class="section-number-4">1.4.2.</span> Unsupervised Learning</h4>
+<div id="outline-container-org8ca4aca" class="outline-4">
+<h4 id="org8ca4aca"><span class="section-number-4">1.4.2.</span> Unsupervised Learning</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>This is where you have <b>unlabeled data</b> \(x\).</li>
@@ -922,8 +931,8 @@ data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org93585bd" class="outline-4">
-<h4 id="org93585bd"><span class="section-number-4">1.4.3.</span> Reinforcement Learning</h4>
+<div id="outline-container-orgc54ae5f" class="outline-4">
+<h4 id="orgc54ae5f"><span class="section-number-4">1.4.3.</span> Reinforcement Learning</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <ul class="org-ul">
 <li>Here you have a series of actions that unfold over time.</li>
@@ -937,8 +946,8 @@ uses <b>evaluative feedback</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf0b0a47" class="outline-3">
-<h3 id="orgf0b0a47"><span class="section-number-3">1.5.</span> Foundational Pillars of Reinforcement Learning</h3>
+<div id="outline-container-org236cc04" class="outline-3">
+<h3 id="org236cc04"><span class="section-number-3">1.5.</span> Foundational Pillars of Reinforcement Learning</h3>
 <div class="outline-text-3" id="text-1-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -989,12 +998,12 @@ The last 3 (state, action and reward) are components of RL.
 </p>
 </div>
 </div>
-<div id="outline-container-org922542c" class="outline-3">
-<h3 id="org922542c"><span class="section-number-3">1.6.</span> Key Features of RL</h3>
+<div id="outline-container-org2c4c529" class="outline-3">
+<h3 id="org2c4c529"><span class="section-number-3">1.6.</span> Key Features of RL</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org148d1c1" class="outline-4">
-<h4 id="org148d1c1"><span class="section-number-4">1.6.1.</span> Closed Loop Interaction</h4>
+<div id="outline-container-org854182d" class="outline-4">
+<h4 id="org854182d"><span class="section-number-4">1.6.1.</span> Closed Loop Interaction</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <ul class="org-ul">
 <li>Output or response is fed back to the sender or system.</li>
@@ -1002,16 +1011,16 @@ The last 3 (state, action and reward) are components of RL.
 </ul>
 </div>
 </div>
-<div id="outline-container-org8a8d6f4" class="outline-4">
-<h4 id="org8a8d6f4"><span class="section-number-4">1.6.2.</span> No Direct Instructions</h4>
+<div id="outline-container-org32aa389" class="outline-4">
+<h4 id="org32aa389"><span class="section-number-4">1.6.2.</span> No Direct Instructions</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <ul class="org-ul">
 <li>It must discover which actions yield the most reward by trying them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org29af427" class="outline-4">
-<h4 id="org29af427"><span class="section-number-4">1.6.3.</span> Extended Consequences</h4>
+<div id="outline-container-org62da91a" class="outline-4">
+<h4 id="org62da91a"><span class="section-number-4">1.6.3.</span> Extended Consequences</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <ul class="org-ul">
 <li>Actions can affect immediate rewards and subsequence rewards.</li>
@@ -1019,8 +1028,8 @@ The last 3 (state, action and reward) are components of RL.
 </div>
 </div>
 </div>
-<div id="outline-container-orga9a1264" class="outline-3">
-<h3 id="orga9a1264"><span class="section-number-3">1.7.</span> Elements of RL</h3>
+<div id="outline-container-org7336539" class="outline-3">
+<h3 id="org7336539"><span class="section-number-3">1.7.</span> Elements of RL</h3>
 <div class="outline-text-3" id="text-1-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1058,8 +1067,8 @@ The first 3 (policy, reward and value) are components of RL.
 </p>
 </div>
 </div>
-<div id="outline-container-org572bc43" class="outline-3">
-<h3 id="org572bc43"><span class="section-number-3">1.8.</span> Exploration and Exploitation</h3>
+<div id="outline-container-org660d62c" class="outline-3">
+<h3 id="org660d62c"><span class="section-number-3">1.8.</span> Exploration and Exploitation</h3>
 <div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li>Choosing actions that yield the highest immediate reward based on past
@@ -1070,15 +1079,15 @@ called <b>exploration</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org268aee9" class="outline-3">
-<h3 id="org268aee9"><span class="section-number-3">1.9.</span> Main RL Approaches</h3>
+<div id="outline-container-orgaf5f970" class="outline-3">
+<h3 id="orgaf5f970"><span class="section-number-3">1.9.</span> Main RL Approaches</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 RL splits into three broad approaches:
 </p>
 </div>
-<div id="outline-container-org4060368" class="outline-4">
-<h4 id="org4060368"><span class="section-number-4">1.9.1.</span> Value-based methods</h4>
+<div id="outline-container-org69f153c" class="outline-4">
+<h4 id="org69f153c"><span class="section-number-4">1.9.1.</span> Value-based methods</h4>
 <div class="outline-text-4" id="text-1-9-1">
 <ul class="org-ul">
 <li>Learn V(s) or Q(s,a) — how good is each possible action</li>
@@ -1086,7 +1095,7 @@ RL splits into three broad approaches:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb00b9a9"></a>Sample Average Method<br />
+<li><a id="org88687ad"></a>Sample Average Method<br />
 <div class="outline-text-5" id="text-1-9-1-1">
 <ul class="org-ul">
 <li><p>
@@ -1185,7 +1194,7 @@ where the correction is:
 </ul>
 </div>
 </li>
-<li><a id="org519ff83"></a>Exponentially Recency Weighted Average<br />
+<li><a id="orgf89c439"></a>Exponentially Recency Weighted Average<br />
 <div class="outline-text-5" id="text-1-9-1-2">
 <ul class="org-ul">
 <li>In sample average method, the value was: 
@@ -1195,7 +1204,7 @@ where the correction is:
 </ul>
 </div>
 </li>
-<li><a id="org27b7811"></a>Bellman Optimality Equation<br />
+<li><a id="orgcbca375"></a>Bellman Optimality Equation<br />
 <div class="outline-text-5" id="text-1-9-1-3">
 <p>
 \[V_{k+1}(s) = \max_a \big[R(s, a, s') + \gamma V_k(s')\big]\]
@@ -1215,8 +1224,8 @@ value of the next state).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org7bbaa16" class="outline-4">
-<h4 id="org7bbaa16"><span class="section-number-4">1.9.2.</span> Policy-based methods</h4>
+<div id="outline-container-orgbee1045" class="outline-4">
+<h4 id="orgbee1045"><span class="section-number-4">1.9.2.</span> Policy-based methods</h4>
 <div class="outline-text-4" id="text-1-9-2">
 <ul class="org-ul">
 <li>Instead of learning how good every action is, you learn the policy itself</li>
@@ -1225,8 +1234,8 @@ value of the next state).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf19267b" class="outline-4">
-<h4 id="orgf19267b"><span class="section-number-4">1.9.3.</span> Actor-Critic methods</h4>
+<div id="outline-container-org1c6ebbb" class="outline-4">
+<h4 id="org1c6ebbb"><span class="section-number-4">1.9.3.</span> Actor-Critic methods</h4>
 <div class="outline-text-4" id="text-1-9-3">
 <ul class="org-ul">
 <li>Combine the two ideas above</li>
@@ -1236,8 +1245,8 @@ value of the next state).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd706410" class="outline-3">
-<h3 id="orgd706410"><span class="section-number-3">1.10.</span> Episode</h3>
+<div id="outline-container-org482ed5d" class="outline-3">
+<h3 id="org482ed5d"><span class="section-number-3">1.10.</span> Episode</h3>
 <div class="outline-text-3" id="text-1-10">
 <ul class="org-ul">
 <li>An episode is a single, complete cycle of interaction between an agent and its
@@ -1251,8 +1260,8 @@ a final state is encountered.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1cfb664" class="outline-3">
-<h3 id="org1cfb664"><span class="section-number-3">1.11.</span> Transition Table</h3>
+<div id="outline-container-orgb53944c" class="outline-3">
+<h3 id="orgb53944c"><span class="section-number-3">1.11.</span> Transition Table</h3>
 <div class="outline-text-3" id="text-1-11">
 <ul class="org-ul">
 <li><p>
@@ -1354,8 +1363,8 @@ The transition probabilities and the reward don&rsquo;t change over time.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge277af6" class="outline-2">
-<h2 id="orge277af6"><span class="section-number-2">2.</span> Tic-Tac-Toe as a Reinforcement Leaning Problem</h2>
+<div id="outline-container-org71038a3" class="outline-2">
+<h2 id="org71038a3"><span class="section-number-2">2.</span> Tic-Tac-Toe as a Reinforcement Leaning Problem</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>In Tic Tac Toe it&rsquo;s a \(3 \times 3\) grid (so 9 boxes) and each box can be <code>X</code>, <code>O</code> or
@@ -1495,12 +1504,12 @@ environment or state partially observable. Say we&rsquo;re talking about self-dr
 </ul>
 </div>
 </div>
-<div id="outline-container-org6607abd" class="outline-2">
-<h2 id="org6607abd"><span class="section-number-2">3.</span> Multi-Armed Bandit Problem</h2>
+<div id="outline-container-orge118560" class="outline-2">
+<h2 id="orge118560"><span class="section-number-2">3.</span> Multi-Armed Bandit Problem</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org1ae93ec" class="outline-3">
-<h3 id="org1ae93ec"><span class="section-number-3">3.1.</span> One-Arm Bandit</h3>
+<div id="outline-container-org9ff46f8" class="outline-3">
+<h3 id="org9ff46f8"><span class="section-number-3">3.1.</span> One-Arm Bandit</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>This is a slot machine, which is basically a gambling device with spinning
@@ -1516,8 +1525,8 @@ repaying you with the jackpot.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org62b7d28" class="outline-3">
-<h3 id="org62b7d28"><span class="section-number-3">3.2.</span> What the Multi-armed bandit problem means</h3>
+<div id="outline-container-orgdd2a95c" class="outline-3">
+<h3 id="orgdd2a95c"><span class="section-number-3">3.2.</span> What the Multi-armed bandit problem means</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Here, you sit in front of a row of one-arm bandits.</li>
@@ -1531,8 +1540,8 @@ repaying you with the jackpot.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org89c5ec8" class="outline-2">
-<h2 id="org89c5ec8"><span class="section-number-2">4.</span> MDP: Markov Decision Process</h2>
+<div id="outline-container-org3592253" class="outline-2">
+<h2 id="org3592253"><span class="section-number-2">4.</span> MDP: Markov Decision Process</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>This is a mathematical framework for modeling sequential decision-making
@@ -1593,8 +1602,8 @@ not any of the previous states.</li>
 </tbody>
 </table>
 </div>
-<div id="outline-container-org7f7e47b" class="outline-3">
-<h3 id="org7f7e47b"><span class="section-number-3">4.1.</span> Discount Factor</h3>
+<div id="outline-container-org620b2d8" class="outline-3">
+<h3 id="org620b2d8"><span class="section-number-3">4.1.</span> Discount Factor</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Discount factor (0 &le; &gamma; &lt; 1) tells us how much of the future rewards should the
@@ -1613,16 +1622,16 @@ where \(R_{t+1}\), \(R_{t+2}\), &#x2026; are rewards at each time step.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8f03cf4" class="outline-3">
-<h3 id="org8f03cf4"><span class="section-number-3">4.2.</span> Transition Probability</h3>
+<div id="outline-container-orga6cb466" class="outline-3">
+<h3 id="orga6cb466"><span class="section-number-3">4.2.</span> Transition Probability</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>It is given as \(P(s' \vert s, a)\)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3286100" class="outline-3">
-<h3 id="org3286100"><span class="section-number-3">4.3.</span> Horizon</h3>
+<div id="outline-container-org9882084" class="outline-3">
+<h3 id="org9882084"><span class="section-number-3">4.3.</span> Horizon</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>The number of time steps an agent plans for or interacts with the environment
@@ -1631,16 +1640,16 @@ before the decision-making process ends or resets.</li>
 ends.</li>
 </ul>
 </div>
-<div id="outline-container-org6d0880f" class="outline-4">
-<h4 id="org6d0880f"><span class="section-number-4">4.3.1.</span> Finite Horizon</h4>
+<div id="outline-container-org4cdb9c1" class="outline-4">
+<h4 id="org4cdb9c1"><span class="section-number-4">4.3.1.</span> Finite Horizon</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <ul class="org-ul">
 <li>These tasks have a finite number of steps.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org840742d" class="outline-4">
-<h4 id="org840742d"><span class="section-number-4">4.3.2.</span> Infinite Horizon</h4>
+<div id="outline-container-orgd5ad07e" class="outline-4">
+<h4 id="orgd5ad07e"><span class="section-number-4">4.3.2.</span> Infinite Horizon</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <ul class="org-ul">
 <li>There are no predetermined number of steps.</li>
@@ -1649,8 +1658,8 @@ horizon</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d9fa87" class="outline-4">
-<h4 id="org2d9fa87"><span class="section-number-4">4.3.3.</span> Greedy Horizon</h4>
+<div id="outline-container-org6051d98" class="outline-4">
+<h4 id="org6051d98"><span class="section-number-4">4.3.3.</span> Greedy Horizon</h4>
 <div class="outline-text-4" id="text-4-3-3">
 <ul class="org-ul">
 <li>Here the horizon is 1.</li>
@@ -1659,8 +1668,8 @@ horizon</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga2f2147" class="outline-3">
-<h3 id="orga2f2147"><span class="section-number-3">4.4.</span> Reward</h3>
+<div id="outline-container-org11e39da" class="outline-3">
+<h3 id="org11e39da"><span class="section-number-3">4.4.</span> Reward</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 \[\mathbb{E}[R_{t+1}\mid s,a] = \sum_{s'} P(s'\mid s,a)R(s,a,s') \]
@@ -1710,8 +1719,8 @@ Say we have:
 </p>
 </div>
 </div>
-<div id="outline-container-org8b976e2" class="outline-3">
-<h3 id="org8b976e2"><span class="section-number-3">4.5.</span> Stochastic Transition Paths</h3>
+<div id="outline-container-org4495b5e" class="outline-3">
+<h3 id="org4495b5e"><span class="section-number-3">4.5.</span> Stochastic Transition Paths</h3>
 <div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>Deterministic environments might have \(P(s' \vert s, a) = 1\).</li>
@@ -1721,11 +1730,61 @@ Say we have:
 </ul>
 
 
-<div id="orga613dfa" class="figure">
+<div id="org3151dd8" class="figure">
 <p><img src="stochastic_transition_paths.png" alt="stochastic_transition_paths.png" />
 </p>
 </div>
 </div>
+</div>
+</div>
+<div id="outline-container-org3bb96dc" class="outline-2">
+<h2 id="org3bb96dc"><span class="section-number-2">5.</span> Q-Learning</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>It&rsquo;s a model-free RL algorithm that trains an agent to find the optimal action
+selection policy by maximizing cumulative future rewards through trial and
+error.</li>
+<li>The core concepts addition to agent-state-action-reward include:</li>
+</ul>
+</div>
+<div id="outline-container-orgc218732" class="outline-3">
+<h3 id="orgc218732"><span class="section-number-3">5.1.</span> Q Value</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>The quality or expected long term total reward of taking a specific action in
+a given state.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge145b8c" class="outline-3">
+<h3 id="orge145b8c"><span class="section-number-3">5.2.</span> Q Table</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>A lookup table mapping states to actions.</li>
+<li>It stores and updates Q values.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf2d045d" class="outline-3">
+<h3 id="orgf2d045d"><span class="section-number-3">5.3.</span> Advantages</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li>It works without leaving an environmental model and handles unpredictable
+transitions effectively.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc5d3b97" class="outline-3">
+<h3 id="orgc5d3b97"><span class="section-number-3">5.4.</span> Disadvantages</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li>It suffers from the curse of dimensionality.</li>
+<li>This means that large space action spaces make traditional Q tables unstable.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org307902c" class="outline-3">
+<h3 id="org307902c"><span class="section-number-3">5.5.</span> Python program that implements Q-Learning in some scenario</h3>
 </div>
 </div>
 </div>
