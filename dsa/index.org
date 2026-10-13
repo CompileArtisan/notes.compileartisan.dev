@@ -1100,6 +1100,53 @@ public class Main {
 
 
 
+*** Longest Substring Without Repeating Characters
+- Input: ~s = "abcabcbb"~
+- Output: ~3~
+- Explanation: The answer is ~"abc"~ , with the length of ~3~.
+  
+**** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(length_of_lswrc("pwwkey"))
+
+def length_of_lswrc(s):
+    mapping = {}
+    i = 0
+    ans = 0
+
+    for j in range(len(s)):
+        if s[j] in mapping and mapping[s[j]] > i:
+            i = mapping[s[j]]
+        if j-i+1 > ans:
+            ans = j-i+1
+        mapping[s[j]] = j+1
+    return ans
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+4
+#+end_src
+
+**** How it works
+- You have a dictionary ~mapping~. For each character in the string ~s~, it stores
+  ~(position of last occurance) + 1~.
+- The variable that contains the position of each character is ~j~. So
+  ~mapping[s[j]] = j + 1~ and not ~mapping[s[j]] = j~.
+- ~i~ is the position of the start of longest substring without repeating
+  characters, and ~j~ is the end.
+- The length of the substring we have in the current iteration is ~j-i+1~ and if
+  that's greater than the length we have so far ( ~ans~ ), we update the value of
+  ~ans~ with ~j-1+1~.
+- If by chance ~j~ reaches a character we've already seen (checked by ~if s[j] in
+  mapping~), then we'd have to move ~i~ to the character *after* the previous
+  occurance. This is why ~mapping[s[j]] = j + 1~ as ~mapping[s[j]]~ stores the
+  position ~i~ should move to in case a character is repeated.
+
 ** Prefix Sum
 - A prefix array is an array with cumulative summation.
 - For example:
