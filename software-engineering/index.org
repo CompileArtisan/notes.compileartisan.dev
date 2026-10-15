@@ -377,12 +377,11 @@ Gather details
   dotted.
 - Similarly if we include a label ~<< extend >>~ on an association/relationship,
   it means the use case is optional. Here too, the arrow is dotted.
-  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/uml.png
+ [[file:///home/praaneshnair/gitProjects/notes.compileartisan.dev/software-engineering/uml.png]] 
   
 ***** State Diagram
 - A *state diagram* looks like this:
-  file:/home/praaneshnair/gitProjects/org-notes/software-engineering/statediagram.png
-  
+[[file:///home/praaneshnair/gitProjects/notes.compileartisan.dev/software-engineering/statediagram.png]]  
 ***** Data Flow Diagram
 - *Rectangle*: Producer of Data
 - *Circle*: This is a function that takes data as input, processes it and gives
@@ -445,6 +444,7 @@ Maps Test Cases and Project Deliverables \rightarrow Requirements
 ***** Bidirectional
 Maps both ways.
 
+
 ** Design Engineering
 
 *** McGlaughin's Characteristics
@@ -506,6 +506,7 @@ Maps both ways.
 ***** Content Coupling
 - One module can modify the data of another module.
 - This is the worst form of coupling.
+
 
 * Software Project Management
 
@@ -601,6 +602,50 @@ this year. The management is evaluating two projects:
 - $\text{Net Profit}_{B}  = 8,00,000$
 
 
+** What is Planning?
+#+begin_quote
+Planning is an ongoing process of refinement
+#+end_quote
+
+** Objectives of Activity Planning
+- Feasibility Assessment
+- Resource Allocation
+- Detailed Costing
+- Motivation
+- Co-ordination
+
+** How to create a Project Schedule
+- Find the right activity plan
+- Risk analysis (find what could go wrong)
+- Resource allocation
+- Schedule Production
+
+** 3 Approaches for Defining Activities
+*** Activity Based
+- You build a *work breakdown structure* where:
+  - Project \rightarrow Analyze, Design, Build
+  - Design \rightarrow Data, Process, Physical Design
+- A child is added only if it directly contributes to its parent.
+- You keep breaking down these nodes into tasks that can be assigned to one
+  person or section.
+- The leaf nodes are the actual activities.
+  
+*** Product Based
+- You build a *product breakdown structure*, where each node is a product and each
+  arrow is a transformation activity.
+
+*** Hybrid
+- The work breakdown structure is organized into deliverables.
+- IBM in their MITP methodology recommends the levels as:
+  1. Project
+  2. Deliverables
+  3. Components
+  4. Work-Packages
+  5. Tasks
+
+  
+
+
 ** Network Planning Model
 - It is used to plan and schedule project activities and their relationship as a
   network.
@@ -612,8 +657,14 @@ this year. The management is evaluating two projects:
 **** Activity on Arrow (AoA) approach.
 - Arrows represent activities
 - Nodes (circles) represent events
-
-
+  
+*** Hammock Activities
+#+begin_quote
+These are activities with zero duration themselves, and are assumed to start at
+the same time as the last hammocked activity and end as the same time as the
+last one too.
+#+end_quote
+  
 *** Formulating a Network Model
 - A project network should have only one start node.
   #+begin_src mermaid :file network_model.png :results file
@@ -626,7 +677,8 @@ graph LR
   #+RESULTS:
   [[file:network_model.png]]
 
-- A node has a duration.
+- A node has a duration. Links don't.
+- Numbers on the link tells you the logical order.
 - Time moves from left to right and the flow represented as flow. 
 - Immediately preceding activities are called *precedents*.
   #+begin_src mermaid :file precedence_graph.png :results file
@@ -670,6 +722,8 @@ graph LR
   [[file:typical.png]]
 
 *** Information within a Block
+- In general, what you need to know is:
+  $$\text{Finish Time} = \text{Start Time} + \text{Duration}$$
 
 **** Early Start: $ES$
 - The earliest possible time a task can begin, assuming all previous tasks are
@@ -698,7 +752,7 @@ graph LR
 - Its purpose is to calcualte the lates dates on which each activity can start
   and finish without delaying the project.
 
-*** A project comprises of the following activities given in the table
+*** Example: A project comprises of the following activities given in the table
 
 | Activity ID | Description      | Duration | Intermediate Predecessor |
 |-------------+------------------+----------+--------------------------|
@@ -749,7 +803,24 @@ flowchart LR
 
 **** Which activities need to be completed on time in order to ensure that the projectis completed without delay any overdue on time?
 
-**** Compute the free float and interfereing float for each activity.
+
+*** Float
+- It tells you how long the project can be delayed without delaying the
+  finishing time.
+  $$\text{Total Float} = \text{LS} - \text{ES} = \text{LF} - \text{EF}$$
+- *Critial Path* is the longest path where every activity has 0 float.
+
+**** Free Float
+- It's the time by which an activity can be delayed without affecting any subsequent activity.
+  $$\text{Free Float} = \text{ES of earliest successor/ next activity} - \text{EF of current activity}$$
+
+**** Interfering Float
+- Difference between total float and free float.
+
+*** Activity Span
+$$\text{Activity Span} = \text{LF} - \text{ES}$$
+Both float and span belongs to one activity.
+
 
 ** Risk Assessment
 - It's the process of identifying potential risks in a software project.
