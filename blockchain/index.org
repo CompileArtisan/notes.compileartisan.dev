@@ -17,6 +17,9 @@ printf "%s\n" "$(pwd)/.venv/bin/python"
       (string-trim (org-babel-ref-resolve "venv-python")))
       #+end_src
 
+      #+RESULTS:
+      : /home/praaneshnair/gitProjects/notes.compileartisan.dev/blockchain/.venv/bin/python
+
 * Distributed Systems
 - This is a computing paradigm where two or more nodes work with each other in a
   coordinated fashion, to achieve a common outcome.
@@ -425,6 +428,55 @@ print(hash_value)
   982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1
   #+end_src
 
+*** Hashing a dictionary
+- In Python, you'd have to convert the dictionary into a string i.e. JSON.
+  #+begin_src python :results output raw :wrap src :exports both
+import json
+
+a = {"sender": "Alice", "amount": 10}
+
+x = json.dumps(a)
+print(x)
+print(type(x))
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  {"sender": "Alice", "amount": 10}
+  <class 'str'>
+  #+end_src
+
+- To make sure the order in which the key-value pairs are placed is uniform, we
+  use the ~sort_keys=True~ argument:
+  #+begin_src python :results output raw :wrap src :exports both
+import json
+import hashlib
+
+
+a = {"sender": "Alice", "amount": 10}
+x = json.dumps(a, sort_keys=True)
+hash_x = hashlib.sha256(x.encode('utf-8')).hexdigest()
+
+
+b = {"amount": 10, "sender": "Alice"}
+y = json.dumps(b, sort_keys=True)
+hash_y = hashlib.sha256(y.encode('utf-8')).hexdigest()
+
+print(hash_x)
+print(hash_y)
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_src
+  f1bcf16a3b21c0d70dac5cc5459ebd54ab103a910ba94f6f11da93fcfc8993c5
+  f1bcf16a3b21c0d70dac5cc5459ebd54ab103a910ba94f6f11da93fcfc8993c5
+  #+end_src
+
+  As seen, both ~a~ and ~b~ have the same hashes.
+
+
 ** Cryptographic Keys
 - These are mathematical codes verify a user's identify and authorize
   transactions.
@@ -575,31 +627,212 @@ approving fraudulent transactions, breaking protocol rules, the network can
 Implement a simple blockchain where miners find a valid nonce by repeatedly
 changing it until the block hash satisfies a predefined difficulty condition.
 
-#+begin_src python :results output raw :wrap src :exports both :session hello
+#+begin_src python :results output raw :wrap src :exports both
+
 import hashlib
+import json
 import time
 
+def main():
+    blockchain = Blockchain()
+
+    transactions = [
+        {"sender": "Alice", "receiver": "Bob", "amount": 10},
+        {"sender": "Bob", "receiver": "Charlie", "amount": 5}
+    ]
+
+    blockchain.add_block(transactions)
+
+    transactions = [
+        {"sender": "Charlie", "receiver": "Alice", "amount": 2}
+    ]
+
+    blockchain.add_block(transactions)
+
+    for block in blockchain.chain:
+        print("\nBlock Number:", block.block_no)
+        print("Timestamp:", block.timestamp)
+        print("Transactions:", block.transactions)
+        print("Transaction Hashes:", block.transaction_hashes)
+        print("Previous Hash:", block.previous_hash)
+        print("Merkle Root:", block.merkle_root)
+        print("Nonce:", block.nonce)
+        print("Current Hash:", block.current_hash)
+
+    print("\nIs chain valid?", blockchain.is_chain_valid())
+
+    # Test tampering
+    blockchain.chain[1].transactions[0]["amount"] = 999
+
+    print("Is chain valid after tampering?",
+          blockchain.is_chain_valid())
+
+
+def hash(data):
+    data = str(data).encode("utf-8")
+    return hashlib.sha256(data).hexdigest()
+
+
+def hash_tx(tx):
+    tx = json.dumps(tx, sort_keys=True) # convert into json
+    return hash(tx)
+
+
 class Block:
-
-    def __init__(self, data, previous_hash):
-        self.data = data
-        self.timestamp = time.time() # import time
+    def __init__(self, block_no, transactions, previous_hash):
+        self.block_no = block_no
+        self.transactions = transactions
         self.previous_hash = previous_hash
+        self.transaction_hashes = [hash_tx(tx) for tx in transactions]
+        self.timestamp = time.time()
+        self.merkle_root = self.calculate_merkle_root()
         self.nonce = 0
-        self.hash = ""
+        self.difficulty = 2
+        self.current_hash = self.calculate_block_hash()
+
+    def calculate_block_hash(self):
+        block_data = {
+            "block_number": self.block_no,
+            "timestamp": self.timestamp,
+            "transactions": self.transactions,
+            "transaction_hashes": self.transaction_hashes,
+            "previous_hash": self.previous_hash,
+            "merkle_root": self.merkle_root,
+            "difficulty": self.difficulty,
+            "nonce": self.nonce
+        }
+
+        serialized_data = json.dumps(block_data, sort_keys=True)
+        return hashlib.sha256(serialized_data.encode('utf-8')).hexdigest()
+
+    def mine(self):
+        target = "0" * self.difficulty
+        attempts = 0
+
+        while True:
+            attempts += 1
+            self.current_hash = self.calculate_block_hash()
+
+            if self.current_hash.startswith(target):
+                return (attempts, self.current_hash)
+            else:
+                self.nonce += 1
+
+    def calculate_merkle_root(self):
+        leaves = self.transaction_hashes.copy()
+
+        if len(leaves) == 0:
+            return hash("")
+
+        while len(leaves) > 1:
+            if len(leaves) % 2 != 0:
+                leaves.append(leaves[-1])
+
+            next_level = []
+
+            for i in range(0, len(leaves), 2):
+                next_level.append(
+                    hashlib.sha256(
+                        (leaves[i] + leaves[i+1]).encode('utf-8')
+                    ).hexdigest()
+                )
+
+            leaves = next_level
+
+        return leaves[0]
+
+
+class Blockchain:
+    def __init__(self):
+        self.chain = []
+
+        genesis = Block(0, [], "0" * 64)
+        genesis.mine()
+        self.chain.append(genesis)
+
+    def get_latest_block(self):
+        return self.chain[-1]
+
+    def add_block(self, transactions):
+        previous_block = self.get_latest_block()
+
+        new_block = Block(
+            len(self.chain),
+            transactions,
+            previous_block.current_hash
+        )
+
+        attempts, block_hash = new_block.mine()
+        self.chain.append(new_block)
+
+        print(
+            f"Block mined in {attempts} attempts. "
+            f"Hash: {block_hash}"
+        )
+
+    def is_chain_valid(self):
+        for i, block in enumerate(self.chain):
+            if block.current_hash != block.calculate_block_hash():
+                return False
+
+            if not block.current_hash.startswith("0" * block.difficulty):
+                return False
+
+            if block.transaction_hashes != [
+                hash_tx(tx) for tx in block.transactions
+            ]:
+                return False
+
+            if block.merkle_root != block.calculate_merkle_root():
+                return False
+
+            if i > 0:
+                if block.previous_hash != self.chain[i-1].current_hash:
+                    return False
+
+        return True
+
+
+main()
+
 #+end_src
 
 #+RESULTS:
 #+begin_src
+Block mined in 213 attempts. Hash: 00816af415bbd5e200e31f38ecf5c71a049f90ed4f7f17298082f8bb0b27f19f
+Block mined in 345 attempts. Hash: 002eff61b3ab3bb63791b12616dfc82b0af7360e32482b0b7bd1bc98efee2cfb
+
+Block Number: 0
+Timestamp: 1792175317.6662347
+Transactions: []
+Transaction Hashes: []
+Previous Hash: 0000000000000000000000000000000000000000000000000000000000000000
+Merkle Root: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Nonce: 99
+Current Hash: 0056b6712bdbee19a01fe20822ee6d81f105d13b8fc0ba2f372f4ea0ed582bec
+
+Block Number: 1
+Timestamp: 1792175317.673822
+Transactions: [{'sender': 'Alice', 'receiver': 'Bob', 'amount': 10}, {'sender': 'Bob', 'receiver': 'Charlie', 'amount': 5}]
+Transaction Hashes: ['634205f68815df3adbe60b160bba9809e72b3fdf6ca15e3bf164508616fd7d6b', '0c338b26dc95cb386b5e9b4de6e04dba43785b23d30fd56bf683a66e0215dbf4']
+Previous Hash: 0056b6712bdbee19a01fe20822ee6d81f105d13b8fc0ba2f372f4ea0ed582bec
+Merkle Root: 00f653f3b7be4c01cde1c1a003de09a6586673b62324c65fc3fd86984e8492a8
+Nonce: 212
+Current Hash: 00816af415bbd5e200e31f38ecf5c71a049f90ed4f7f17298082f8bb0b27f19f
+
+Block Number: 2
+Timestamp: 1792175317.6748114
+Transactions: [{'sender': 'Charlie', 'receiver': 'Alice', 'amount': 2}]
+Transaction Hashes: ['66e3643203078e3ff27fd1aaf73354f807e20cb7be3d39a2239a466a3e2d6767']
+Previous Hash: 00816af415bbd5e200e31f38ecf5c71a049f90ed4f7f17298082f8bb0b27f19f
+Merkle Root: 66e3643203078e3ff27fd1aaf73354f807e20cb7be3d39a2239a466a3e2d6767
+Nonce: 344
+Current Hash: 002eff61b3ab3bb63791b12616dfc82b0af7360e32482b0b7bd1bc98efee2cfb
+
+Is chain valid? True
+Is chain valid after tampering? False
 #+end_src
 
-
-#+begin_src python :results output raw :wrap src :exports both :session hello
-#+end_src
-
-#+RESULTS:
-#+begin_src
-#+end_src
 
 
 ** Example
@@ -622,6 +855,7 @@ class Block:
  - Previous block hash
  - Transaction hash
  - Current block hash
+ - Merkel Root
    
  The participating nodes reach agreement using a consensus mechanism.
 
