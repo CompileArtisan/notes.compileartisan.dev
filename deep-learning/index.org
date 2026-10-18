@@ -1054,20 +1054,55 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
 - An RNN learns from the text and serves as a *decoder*.
 
 * Transformer
-
-* Attention
+- A transformer is a DL architecture that analyzes an entire sequence of data
+  all at once.
 - This concept was introduced specifically for sequential data i.e. for natural
   language processing.
-- For example, let's say we have to translate "Main ghar ja raha hoon" to "I am
-  going home".
-  - The machine translation would look like this:
-    
-   | I     | [] |
-   | am    | [] |
-   | going | [] |
-   | home  | [] |
+- It introduced a mechanism called *attention*, where it looks at all the words of
+  a sentence at once and can tell how much each word affects each other.
+- For example, in the sentence "The animal crossed the road because it was
+  tired", only a transformer would know that the word "it" refers to the animal
+  and not the road.
 
-* CLIP
+** Embedding
+- First each word is converted into an embedding, which is basically a vector
+  (of say, ~n~ dimensions) where each dimension encodes some sort of feature.
+- For example "The king is hungry":
+  - The vector would be $\text{king} = \begin{bmatrix} 2.9 \\ 8.1 \\ 19 \\ \cdots \\ 0.2 \end{bmatrix}$
+  - The first row could be talking about *royalty*, the second row could be
+    talking about *male*, etc.
+  - These features may/may not be human-readable like the example above, but
+    this is the gist of it.
+    
+** Query
+- A query is a vector that a token uses to decide which other tokens are
+  relevant to it.
+- It asks questions and for simplicity, they could be:
+  - "For this word "king", are there any adjectives?"
+  - "For this word "king", are there any clauses?"
+- Again, these may/may not be human-readable like the example above, but this is
+  the gist of it.
+- For a word $\text{word}$, the query vector $Q_{\text{word}}$ is obtained by:
+  $$Q_{\text{word}} = W_{Q} \cdot x_{\text{word}}$$
+  where
+  - $x_{\text{word}}$ is the embedding of $\text{word}$.
+  - $W_{Q}$ is the *query weight matrix* and it's a learnable matrix that transforms
+    input token embeddings into queries (vectors that can look for relevant
+    tokens near it).
+
+** Key
+- A key is a vector that a token uses to answer the queries, by actually telling
+  you which are those tokens relevant to it.
+- For a word $\text{word}$, the key vector $K_{\text{word}}$ is obtained by:
+  $$K_{\text{word}} = W_{K} \cdot x_{\text{word}}$$
+  where
+  - $x_{\text{word}}$ is the embedding of $\text{word}$.
+  - $W_{K}$ is the *key weight matrix* and it's a learnable matrix that transforms
+    input token embeddings into keys. 
+
+
+
+** CLIP
 - CLIP stands for Contrastive Language Image Pairs.
 - You have a Vision Transformer that finds embeddings of images.
 - You also have another textual transformer that finds embeddings of texts and
