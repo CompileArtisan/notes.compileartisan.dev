@@ -2114,7 +2114,7 @@ for (Map.Entry<String, Integer> entry : entries) {
 
 
 ** Function to find if an array contains duplicates or not
-*** Without Builtin Functions
+*** Java Implementation Without Builtin Functions
   #+begin_src java :results output
 public class Main {
     public static boolean hasDuplicate(int[] nums) {
@@ -2149,7 +2149,7 @@ class MyMap {
   #+end_src
 
 
-*** With Builtin functions
+*** Java Implementation With Builtin functions
   #+begin_src java :results output
 import java.util.Set;
 import java.util.HashSet;
@@ -2204,11 +2204,46 @@ public class Main {
 
 
 ** Two Sum
-- Given an array of integers nums and an integer target, return indices of the
+- Given an array of integers ~nums~ and an integer ~target~, return indices of the
   two numbers such that they add up to target.
 
 - We can assume that each input would have exactly one solution, and you may not
   use the same element twice.
+*** Python Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(two_sum([3, 2, 4], 6))
+
+def two_sum(arr, target):
+    visited = {}
+    for i in range(len(arr)):
+        if target - arr[i] in visited:
+            return visited[target - arr[i]], i
+        visited[arr[i]] = i
+    return -1, -1
+
+main()
+#+end_src
+
+#+RESULTS:
+#+begin_src
+(1, 2)
+#+end_src
+
+*** Explanation
+- For each element ~arr[i]~ in the array,
+  #+begin_src python
+if arr[i] + arr[j] == target:
+    return i, j
+  #+end_src
+- You can rearrange it as ~arr[j] = target - arr[i]~.
+- You keep storing every element and its index in a ~visited~ dictionary where the
+  key is any element of the array, and the value is its index. So ~visited[x]~ is
+  basically the index of ~x~ in the array ~arr~.
+- If for ~arr[i]~, you find that you've already come across a value that is
+  ~target - arr[i]~, you have your indices ~visited[target - arr[i]]~ and ~i~. 
+
+*** Java Implementation of a HashMap
   #+begin_src java :results output
 public class Main {
     public int[] twoSum(int[] nums, int target) {
@@ -2233,7 +2268,7 @@ public class Main {
 
   #+RESULTS:
   : success
-
+  
 * Algorithms which 'Divide and Conquer'
 ** Karatsuba's Integer Multiplication using Divide and Conquer Approach
 *** How it works
