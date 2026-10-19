@@ -1147,6 +1147,42 @@ main()
   occurance. This is why ~mapping[s[j]] = j + 1~ as ~mapping[s[j]]~ stores the
   position ~i~ should move to in case a character is repeated.
 
+*** Longest Palindromic substring
+
+**** Code
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(lps("racecar"))
+
+def lps(s):
+    length = 0; left = 0; right = 0; max_len = 0
+    for i in range(len(s)):
+        length = max(len_of_palindrome(s, i, i), len_of_palindrome(s, i, i+1))
+        if length > max_len:
+            max_len = length
+            left = i - (length-1)//2
+            right = i + length//2
+    return s[left:right+1]
+        
+        
+
+def len_of_palindrome(s, left, right):
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        left -= 1
+        right += 1
+    return right - left - 1
+
+    
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+racecar
+#+end_src
+
+
 ** Prefix Sum
 - A prefix array is an array with cumulative summation.
 - For example:

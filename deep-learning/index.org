@@ -1101,6 +1101,38 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
     input token embeddings into keys. 
 
 
+** Value
+- 
+- For a word $\text{word}$, the key vector $V_{\text{word}}$ is obtained by:
+  $$V_{\text{word}} = W_{V} \cdot x_{\text{word}}$$
+  where
+  - $x_{\text{word}}$ is the embedding of $\text{word}$.
+  - $W_{V}$ is the *value weight matrix* and it's a learnable matrix that transforms
+    input token embeddings into value vectors.
+
+
+** Attention
+- The *attention pattern matrix* is a square matrix that tells you how much each
+  token in a sequence "attends to" every other token in the sequence.
+- When you say "The animal crossed the road because it was tired", the word
+  $\text{it}$ *attends to* $\text{animal}$ rather than $\text{road}$.
+- You start off by making a matrix where:
+  - Row $i$ is $Q_{\text{word}_{i}}$
+  - Column $i$ is $K_{\text{word}_{i}}$
+  - Value of ~M[i][j]~ is $Q_{\text{word}_{i}} \cdot K_{\text{word}_{i}}$
+    \[ M = \begin{bmatrix} Q_1 \cdot K_1 & Q_1 \cdot K_2 & \cdots & Q_1 \cdot K_n \\ Q_2 \cdot K_1 & Q_2 \cdot K_2 & \cdots & Q_2 \cdot K_n \\ \vdots & \vdots & \ddots & \vdots \\ Q_n \cdot K_1 & Q_n \cdot K_2 & \cdots & Q_n \cdot K_n \end{bmatrix} \]
+- Right now, numbers could range from -\infty to +\infty. We need each row to be a
+  probability distribution.
+  - Row \(i\) represents the token doing the attending (the searcher), and
+    column \(j\) represents the token being attended to (the token being
+    searched).
+  - So each element in the column represents the probability of being relevant
+    to the token that's attending (searching for relevant tokens).
+- We apply softmax to each row of the matrix. Before softmaxing, the dot product
+  is additionally divided by $\sqrt{d_{k}}$ to keep the values tamed.
+- The equation for this is given as:
+  $$\text{Attention}(Q, K, V) = \text{softmax}(\frac{QK^{T}}{\sqrt{d_{k}}})V$$
+
 
 ** CLIP
 - CLIP stands for Contrastive Language Image Pairs.
