@@ -1183,6 +1183,34 @@ racecar
 #+end_src
 
 
+**** Explanation
+- The ~lps~ function is the solution and the main loop ~for i in range(len(s))~
+  basically goes through each character in the string and considers them as the
+  center of a palindrome.
+- For each character in the string, you expand outwards (keep moving a left
+  pointer towards the left and a right pointer towards the right together) as
+  long as it remains a palindrome.
+- This way you get the length of the largest palindrome with ~i~ as the center,
+  and it is done with the help of ~len_of_palindrome~.
+- For every index position ~i~ in the string, two types of palindromes are checked:
+  - Odd-length palindrome, centered at ~i~ and is found using ~len_of_palindrome(s, i, i)~
+  - Even-length palindrome, with two centers ~i~ and ~i+1~, and is found using
+    ~len_of_palindrome(s, i, i+1)~.
+- The length of the longest palindrome at ~i~ (given by ~length~) is the maximum of
+  the lengths of the odd-length palindrome and the even-length palindrome.
+- Once you have that, you have to update the indexes of the ~left~ pointer and the
+  ~right~ pointer to actually obtain the substring.
+  - ~right = i + length//2~ is the same for both odd and even length palindromes.
+    This is because the right half in both cases is same.
+  - ~left = i + (length-1)//2~, because in even-length palindromes, the left half
+    is 1 less than in the case of odd-length palindromes.
+  - In both cases you do floor division because we need an integer index.
+- In the ~len_of_palindrome~ function, the final length is given as ~right - left -
+  1~ instead of ~right - left + 1~, because even after the palindrome is obtained,
+  the left and right pointers move one extra step. So the substring is actually
+  2 longer than what it's supposed to be.
+  
+
 ** Prefix Sum
 - A prefix array is an array with cumulative summation.
 - For example:
