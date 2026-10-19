@@ -1089,6 +1089,9 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
   - $W_{Q}$ is the *query weight matrix* and it's a learnable matrix that transforms
     input token embeddings into queries (vectors that can look for relevant
     tokens near it).
+- So for example, for the sentence "The animal crossed the road because it was
+  tired", you could think of the query vector for the word "it" to be asking
+  "what word does 'it' refer to?".
 
 ** Key
 - A key is a vector that a token uses to answer the queries, by actually telling
@@ -1099,17 +1102,30 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
   - $x_{\text{word}}$ is the embedding of $\text{word}$.
   - $W_{K}$ is the *key weight matrix* and it's a learnable matrix that transforms
     input token embeddings into keys. 
+- So in the sentence "The animal crossed the road because it was tired", the key
+  vector of animal might match the query of it more strongly than the key vector
+  of road does.
 
 
 ** Value
-- 
+- A value is a vector that represents the amount of information a token can
+  provide to all other tokens.
 - For a word $\text{word}$, the key vector $V_{\text{word}}$ is obtained by:
   $$V_{\text{word}} = W_{V} \cdot x_{\text{word}}$$
   where
   - $x_{\text{word}}$ is the embedding of $\text{word}$.
   - $W_{V}$ is the *value weight matrix* and it's a learnable matrix that transforms
     input token embeddings into value vectors.
-
+- For instance, if in the sentence "The animal crossed the road because it was
+  tired", $V_{\text{animal}} = \begin{bmatrix} 2.9 \\ 8.1 \\ 19 \\ \cdots \\ 0.2
+  \end{bmatrix}$
+  - In this example, $V_{\text{animal}}$ is scaled by a constant called the
+    *attention weight* and this scaled vector, say $0.75V_{\text{animal}}$,
+    represents its contribution to the word "it".
+  - The word "it" is influenced by every other token in the sequence with the
+    help of their value vector scaled accordingly.
+  - $x_{\text{word}}$ is a weighted mixture of the value vectors from the sentence,
+    and this is how it incoorporates contextual information.
 
 ** Attention
 - The *attention pattern matrix* is a square matrix that tells you how much each
@@ -1132,6 +1148,8 @@ $$f_{t} = tanh(U_{f}x_{t} + W_{f}h_{t-1} + b_{f})$$
   is additionally divided by $\sqrt{d_{k}}$ to keep the values tamed.
 - The equation for this is given as:
   $$\text{Attention}(Q, K, V) = \text{softmax}(\frac{QK^{T}}{\sqrt{d_{k}}})V$$
+- The meaning is given as:
+   \[\underbrace{\operatorname{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)}_{\text{How much to take from each token}} \qquad \underbrace{V}_{\text{What information each token offers}} \]
 
 
 ** CLIP
