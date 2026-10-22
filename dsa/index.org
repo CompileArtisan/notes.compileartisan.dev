@@ -2178,6 +2178,47 @@ public class Main {
 - To check if two strings are anagrams (same alphabets, but in different order),
   we can use a hashmap that stores frequencies of alphabets. If both the strings
   have the same frequency of the same alphabets, they're anagrams.
+*** Python Implementation
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(isAnagram("tar", "rat"))
+
+def isAnagram(s, t):
+    if len(s) != len(t):
+        return False
+    freq = [0 for i in range(26)]
+    s = s.lower()
+    t = t.lower()
+    for i in range(len(s)):
+        freq[ord(s[i])-ord('a')] += 1
+        freq[ord(t[i])-ord('a')] -= 1
+    for x in freq:
+        if x != 0:
+            return False
+    return True
+
+main()
+        
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+True
+#+end_src
+
+- Basically, you make an array which stores the frequency of the 26 alphabets.
+  For every character you visit in one of the strings, increment the frequency
+  and in the other string, you decrement the frequency.
+- In the end, the array should be back to being full of zeroes.
+- Normally, you'd maintain two frequency arrays (one for each string), and check
+  if they're equal. In other words, if the difference of both the arrays are 0,
+  they're equal.
+- Here, we're directly finding that difference by working on the same array and
+  doing the opposite operation.
+
+  
+*** Java Implementation
   #+begin_src java :results output
 public class Main {
     public static boolean isAnagram(String s, String t) {
@@ -2201,8 +2242,6 @@ public class Main {
 
   #+RESULTS:
   : true
-
-
 ** Two Sum
 - Given an array of integers ~nums~ and an integer ~target~, return indices of the
   two numbers such that they add up to target.
