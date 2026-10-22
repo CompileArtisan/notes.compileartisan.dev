@@ -2174,11 +2174,81 @@ public class Main {
   #+RESULTS:
   : false
 
-** Anagram Checker
-- To check if two strings are anagrams (same alphabets, but in different order),
-  we can use a hashmap that stores frequencies of alphabets. If both the strings
-  have the same frequency of the same alphabets, they're anagrams.
-*** Python Implementation
+** Anagrams
+- A bunch of strings are anagrams if they are the essentially the same alphabets
+  and with same frequency, but with different order.
+- "cat", "tac", "act" are anagrams because the frequency of alphabets in each of
+  the strings are the same.
+- A property of anagrams to note is that all anagrams produce the same
+  alphabetically sorted string.
+  
+
+*** Valid Anagram Checker
+**** The Pythonic Way 
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(isAnagram('cat', 'act'))
+
+def isAnagram(s, t):
+    if ''.join(sorted(s)) == ''.join(sorted(t)):
+        return True
+    return False
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+True
+#+end_src
+- This is using the property of anagrams producing the same sorted string.
+- ~sorted(s)~ returns an array of all the characters of string ~s~, alphabetically
+  sorted. 
+- ~''.join(someArray)~ takes all the elements of ~someArray~, and turns them into a
+  string, where each character is seperated by ~''~. 
+- So essentially, ~''.join(sorted(s))~ is the alphabetically sorted version of ~s~.
+
+**** Java Implementation
+- To check if two strings are anagrams, we can use a hashmap that stores
+  frequencies of alphabets. If both the strings have the same frequency of the
+  same alphabets, they're anagrams.
+  #+begin_src java :results output
+public class Main {
+    public static boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()) return false;
+        int[] freq = new int[26];
+        for(int i=0 ; i<s.length() ; i++){
+            freq[s.charAt(i)-'a']++;
+            freq[t.charAt(i)-'a']--;
+        }
+        for(int i=0 ; i<freq.length ; i++)
+            if(freq[i]!=0)
+                return false;
+        return true;
+    }
+    public static void main(String[] args){
+        System.out.println(isAnagram("carrace", "racecar"));
+    }
+}
+
+  #+end_src
+
+  #+RESULTS:
+  : true
+  
+
+- Basically, you make an array which stores the frequency of the 26 alphabets.
+  For every character you visit in one of the strings, increment the frequency
+  and in the other string, you decrement the frequency.
+- In the end, the array should be back to being full of zeroes.
+- Normally, you'd maintain two frequency arrays (one for each string), and check
+  if they're equal. In other words, if the difference of both the arrays are 0,
+  they're equal.
+- Here, we're directly finding that difference by working on the same array and
+  doing the opposite operation.
+
+**** Direct Python Translation of the Above Code (Still Valid Code)
 #+begin_src python :results output raw :wrap src :exports both
 def main():
     print(isAnagram("tar", "rat"))
@@ -2207,41 +2277,39 @@ main()
 True
 #+end_src
 
-- Basically, you make an array which stores the frequency of the 26 alphabets.
-  For every character you visit in one of the strings, increment the frequency
-  and in the other string, you decrement the frequency.
-- In the end, the array should be back to being full of zeroes.
-- Normally, you'd maintain two frequency arrays (one for each string), and check
-  if they're equal. In other words, if the difference of both the arrays are 0,
-  they're equal.
-- Here, we're directly finding that difference by working on the same array and
-  doing the opposite operation.
-
   
-*** Java Implementation
-  #+begin_src java :results output
-public class Main {
-    public static boolean isAnagram(String s, String t) {
-        if(s.length()!=t.length()) return false;
-        int[] freq = new int[26];
-        for(int i=0 ; i<s.length() ; i++){
-            freq[s.charAt(i)-'a']++;
-            freq[t.charAt(i)-'a']--;
-        }
-        for(int i=0 ; i<freq.length ; i++)
-            if(freq[i]!=0)
-                return false;
-        return true;
-    }
-    public static void main(String[] args){
-        System.out.println(isAnagram("carrace", "racecar"));
-    }
-}
+*** Group Anagrams
+- Given an array of strings ~["eat", "tea", "tan", "ate", "nat", "bat"]~, you have
+  to output ~[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]~
+#+begin_src python :results output raw :wrap src :exports both
+def main():
+    print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 
-  #+end_src
+def group_anagrams(strs):
+    anagrams = {}
+    for x in strs:
+        sorted_x = ''.join(sorted(x))
+        if sorted_x not in anagrams:
+            anagrams[sorted_x] = [x]
+        else:
+            anagrams[sorted_x].append(x)
+    return sorted(list(anagrams.values()), key=len)
+    
 
-  #+RESULTS:
-  : true
+
+main()
+
+#+end_src
+
+#+RESULTS:
+#+begin_src
+[['bat'], ['tan', 'nat'], ['eat', 'tea', 'ate']]
+#+end_src
+- Basically, you make a dictionary where the keys are the alphabetically sorted
+  strings, and the values are a list of strings of the original list itself.
+- The values of the dictionary presented as a list is the required output.
+  
+
 ** Two Sum
 - Given an array of integers ~nums~ and an integer ~target~, return indices of the
   two numbers such that they add up to target.
