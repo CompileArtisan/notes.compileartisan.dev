@@ -35,6 +35,43 @@ git push
 
 
 
+* API
+- API stands for Application Programming Interface.
+** Understanding the URL
+\[\underbrace{\texttt{https://}}_{\text{Scheme}} \underbrace{\texttt{api.example.com}}_{\text{Hostname}} \underbrace{\texttt{:443}}_{\text{Port}} \underbrace{\texttt{/profile}}_{\text{Path}} \]
+- HTTPS uses port ~443~ by default.
+- ~/profile~ identifies the resource to request. It is not part of the DNS lookup.  
+
+** DNS
+- When you type ~https://api.example.com/profile~, a computer only understands the
+  DNS Address (Domain Name System) behind it.
+  - The *recursive resolver*, aka *DNS recurser*, managed by the ISP(Internet
+    Service Provider), queries a *Root Nameserver* that points it to the correct
+    *Top-Level Domain Nameserver* (TLD, eg. ~.com~, ~.org~, etc).
+  - The TLD Nameserver points to the *authoritative nameserver*, and this holds
+    the DNS records for the domain. 
+  - The authoritative nameserver returns the IP address to the resolver, which
+    then provides it to the browser.
+** TCP
+- TCP meaning Transmission Control Protocol, is a communications standard for
+  delivering data and messages through networks.
+- It tracks data packets using sequence numbers and asks for retransmission if
+  any packet is lost or corrupted.
+- It operates at Layer 4 of the OSI Model.
+- TCP works using a *three-way handshake*:
+  1. SYN
+     #+begin_src txt
+     Your computer: “I'd like to establish a connection.”
+     #+end_src
+  2. SYN-ACK
+     #+begin_src txt
+     Server: “I received your request, and I agree. Here's my acknowledgment.”
+     #+end_src
+  3. ACK
+     #+begin_src txt
+     Your computer: “I received your acknowledgment. The connection is established.”
+     #+end_src
+
 * HTML Refresher
 ** Forms
 - This is how a general form looks like:
