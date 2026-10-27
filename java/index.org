@@ -1,0 +1,327 @@
+#+title: Java and OOPS
+#+SETUPFILE: /home/praaneshnair/.config/doom/templates/org/html-preamble.org
+
+* Java's Memory Model
+** Stack vs Heap
+#+begin_src java
+int age = 25;
+String a = "hey";
+String b = "hey";
+String c = new String("hey");
+#+end_src
+
+- Primitive declarations like ~age = 25~ , are stored on the *stack*.
+- For object declarations like ~a = "hey"~ or ~c = new String("hey")~, *the stack
+  stores object references (addresses)*.
+- The main object itself (in this case, the string "hey"), is stored in the *heap
+  memory*.
+- Heap memory stores dynamically allocated objects.
+  
+** String Pool
+- For similar string literals, Java reuses the same object. Continuing from the above example:
+  #+begin_src java
+System.out.println(a==b);        //output is true
+System.out.println(a==c);        //output is false
+System.out.println(a.equals(c)); //output is true
+
+  #+end_src
+
+** 
+#+begin_src java :results output raw :wrap src :exports both
+
+#+end_src
+
+* Object Oriented Programming
+** Access Modifiers
+
+| Modifier  | Same Class | Same Package | Sub-Class in a different package | Everywhere |
+|-----------+------------+--------------+----------------------------------+------------|
+| ~private~   | Yes        |              |                                  |            |
+| ~default~   | Yes        | Yes          |                                  |            |
+| ~protected~ | Yes        | Yes          | Yes                              |            |
+| ~public~    | Yes        | Yes          | Yes                              | Yes        |
+
+- ~protected~ is a good way to provide inheritance across packages, without
+  exposing implementation details (because you'd have to be a subclass to be
+  able to access information).
+- One more thing to note is that constructors can never be inherited.
+** Inheritance
+#+begin_src java
+class Animal {                     // superclass (parent)
+    String name;
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {        // Dog IS-A Animal
+    void fetch() {                  // Dog's own new method
+        System.out.println(name + " fetches the ball!");
+        // 'name' is inherited from Animal — no redeclaration needed
+    }
+}
+
+Dog d = new Dog();
+d.name = "Bruno";     // inherited field
+d.makeSound();       // inherited method
+d.fetch();           // Dog's own method
+#+end_src
+Dog *IS-A* Animal. "IS-A" is the name of the relationship.
+*** Method Overriding
+#+begin_src java
+class Animal {
+    void makeSound() {
+        System.out.println("Generic animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override                       // annotation — tells compiler to verify this IS an override
+    void makeSound() {              // same name, same parameters
+        System.out.println("Woof!"); // Dog's own behaviour
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+Dog d = new Dog();
+d.makeSound();  // "Woof!" — Dog's version is called
+#+end_src
+- This is when a subclass provides a different implementation for a function
+  declared by its parent.
+- The method name, parameters, return type should be the exact same. 
+- The access modifier used in the subclass' implementation should be the same or
+  wider in scope.
+  
+*** ~super~
+- ~super~ is a keyword that is synonymous to the parent class name.
+- You can call the parent's constructor with the ~super~ keyword.
+- Note that when you do, it must be the first line of whatever method you're
+  calling it in.
+  #+begin_src java
+class Animal {
+    String name;
+    int    age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age  = age;
+    }
+}
+
+class Dog extends Animal {
+    String breed;
+
+    public Dog(String name, int age, String breed) {
+        super(name, age);  // MUST be first line — calls Animal's constructor
+        this.breed = breed; // then initialise Dog's own fields
+    }
+}
+// If you forget super(), Java inserts super() automatically.
+// But if the parent has constructor with arguments, you MUST call super(args) yourself.
+  #+end_src
+- Let's say you're overriding a method. Instead of making an object out of the
+  parent class, and calling the method that you're overriding, you can directly
+  use ~super.methodName()~.
+  #+begin_src java
+class Animal {
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age  = age;
+    }
+    
+    void describe() {
+        System.out.println("I am an animal named " + name);
+    }
+}
+
+class Dog extends Animal {
+    public Dog(String name, int age, String breed) {
+        super(name, age); 
+        this.breed = breed;
+    }
+    
+    @Override
+    void describe() {
+        super.describe();           // first print Animal's description
+        System.out.println("I am a " + breed + " breed."); // then add Dog's info
+    }
+}
+// Output:
+// I am an animal named Bruno
+// I am a Labrador breed.
+  #+end_src
+
+*** Runtime Polymorphism aka. Dynamic Dispatch
+- Runtime polymorphism is a concept in OOP, where the method implementation to
+  execute is decided at runtime, based on the object created and not the
+  reference variable used.
+- Basically, you can use the reference variable of the parent, but you can
+  assign an object of a child of any hierarchy to it.
+  #+begin_src java
+class Shape {
+    void draw(){
+        System.out.println("generic shape");
+    }
+}
+
+class Rectangle extends Shape {
+    @override
+    void draw(){
+        // code to draw a rectangle
+    }
+}
+
+
+class Circle extends Shape {
+    @override
+    void draw(){
+        // code to draw a circle
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args){
+        Shape s;
+        
+        s = new Rectangle();
+        s.draw(); // Rectangle's implementation of draw will be chosen at runtime
+
+        s = new Circle();
+        s.draw(); // Circle's implementation of draw will be chosen at runtime
+        
+    }
+}
+  #+end_src
+
+- You can't override static methods.
+- Only *single-inheritance* is possible, as in a class can extend only one class.
+  
+
+*** Abstract Classes
+- ~abstract~ classes can't be instantiated. They have to be extended. 
+- They may contain a mix of implemented and unimplemented / ~abstract~ methods
+  (meaning, only a function definition is given, and the child class must
+  provide the implementation).
+  #+begin_src java
+abstract class Animal {
+    String name;
+
+    Animal(String name) {       // can have constructors
+        this.name = name;
+    }
+
+    void breathe() {            // concrete method (shared behavior)
+        System.out.println("inhale... exhale...");
+    }
+
+    abstract void speak();      // subclasses MUST implement this
+}
+
+class Dog extends Animal {
+    Dog(String name) { super(name); }
+
+    @Override
+    void speak() { System.out.println("Woof!"); }
+}
+  #+end_src
+
+*** Interfaces
+- This is also a way for classes to follow some behaviour.
+  #+begin_src java
+interface Flyable {
+    double MAX_ALTITUDE = 40000; // implicitly public static final
+
+    void fly();                  // implicitly public abstract
+    void land();
+
+    default void checkWeather() {   // default method (Java 8+)
+        System.out.println("Checking weather...");
+    }
+
+}
+
+class Airplane implements Flyable {
+    public void fly()  { System.out.println("Jet engines on"); }
+    public void land() { System.out.println("Deploying landing gear"); }
+}
+  #+end_src
+- Every field in an ~interface~ is ~public static final~, meaning it's one global variable for all classes and their instances.
+- ~fly()~ and ~land()~ are method signatures. The body is given in the class that
+  ~implements~ this interface.
+- If you want a body in the interface itself, you have to declare it as ~default~.
+- Just like with single inheritance, you can use the reference of the interface,
+  but an object of the child class.
+- This is an example of *multiple inheritance*:
+  #+begin_src java
+interface Flyable { void fly(); void land(); }
+interface Swimmable { void swim(); }
+
+class Duck implements Flyable, Swimmable {
+    public void fly()  { System.out.println("Duck flying"); }
+    public void land() { System.out.println("Duck landing"); }
+    public void swim() { System.out.println("Duck swimming"); }
+}
+  #+end_src
+
+*** When to use Interface over Abstract Class
+- Use abstract class if the classes share a true "is-a" relationship. For
+  example, ~Dog~, ~Cat~ and ~Bird~ should all extend ~Animal~.
+- If you have unrelated types, you should use an interface. Being unrelated also
+  hints at having multiple inheritance, and again this points to interfaces. For
+  example, ~Airplane~, ~Bird~ and ~Superman~ can ~implement Flyable~.
+  
+** Encapsulation
+- The steps to achieve encapsulation is:
+  - Make all fields ~private~
+  - Initialize them using the constructor
+  - Use Getters and Setters.
+- Here's an example:
+  #+begin_src java
+class Employee {
+    private String name;           // pattern 1: read-write (getter + setter)
+    private final int id;          // pattern 2: read-only (getter only, set in constructor)
+    private double salary;         // pattern 3: write-only (setter only — e.g. password hash)
+    private String internalCode;   // pattern 4: no access (fully hidden — internal use only)
+
+    public Employee(int id, String name, double salary) {
+        this.id = id;              // id set once — no setter provided
+        setName(name);
+        setSalary(salary);
+    }
+
+    // Pattern 1: read-write
+    public String  getName()                 { return name; }
+    public void    setName(String n)           { if(n!=null)this.name=n; }
+
+    // Pattern 2: read-only (no setter)
+    public int     getId()                    { return id; }
+
+    // Pattern 3: write-only (no getter — salary is sensitive)
+    public void    setSalary(double s)         { if(s>=0)this.salary=s; }
+
+    // Pattern 4: internalCode has no getter or setter — fully encapsulated
+}
+  #+end_src
+    
+** JavaBean
+- A JavaBean is a class that follows three conventions:
+  - all fields are private
+  - it provides public getters and setters following the get/set/is naming standard
+  - it has a public no-argument constructor.
+- Many Java frameworks (Spring, Hibernate, JSP) rely on JavaBean conventions to
+  automatically read and write object properties via reflection.
+  
+** Defensive Copying
+
+** All 4 pillars
+| Inheritance                                                                         | Abstraction                                                         | Encapsulation                                                                                             | Polymorphism/ Dynamic Dispatch                                                                  |
+|-------------------------------------------------------------------------------------+---------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------|
+| Subclass aquiring fields and methods of a super class and forming *is-a* relationship | Hiding implementation details by using ~interface~ and ~abstract~ class | Bundling data and methods together by making fields private and enabling access using getters and setters | One parent reference invokes different behaviours during runtime based on object assigned to it |
+
