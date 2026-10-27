@@ -40,6 +40,36 @@
 *** Epoch
 - One iteration over the entire dataset.
 
+*** Confusion Matrix
+- Matrix where:
+  - rows signify Ground truth (Row1: +, Row2: -)
+  - columns signify predicted output (Column1: +, Column2: -)
+- If row and column have same sign, it means the model has predicted correctly (it's a *true output*).
+- If row and column have opposite signs, it means the model has predicted incorrectly (it's a *false output*).
+  |          | Predicted +      | Predicted -      |
+  | Actual + | *True Positive*  | *False Negative* |
+  | Actual - | *False Positive* | *True Negative*  |
+
+- Here are things you can derive from the confusion matrix:
+
+  |          | Predicted +    | Predicted -               |                    |
+  | Actual + | *True Positive*  | *False Negative*            | Sensitivity/Recall |
+  | Actual - | *False Positive* | *True Negative*             | Specificity        |
+  |          | Precision      | Negative Predictive Value | Accuracy           |
+
+  - \( \textbf{Sensitivity / Recall} = \frac{\textbf{Diag. Element of Row 0}}{\textbf{Row 0}} = \frac{TP}{TP+FN} \)
+  - \( \textbf{Specificity} = \frac{\textbf{Diag. Element of Row 1}}{\textbf{Row 1}} = \frac{TN}{FP+TN} \)
+  - \( \textbf{Precision} =  \frac{\textbf{Diag. Element of Column 0}}{\textbf{Column 0}} = \frac{TP}{TP+FP} \)
+  - \( \textbf{Negative Predictive Value} = \frac{\textbf{Diag. Element of Column 1}}{\textbf{Column 1}}  = \frac{TN}{FN+TN} \)
+  - \( \textbf{Accuracy} = \frac{\textbf{Diagonal Elements}}{\textbf{All Elements}} = \frac{TP+TN}{TP+FN+FP+TN} \)
+
+    \\ Here are some other formulae that can be derived:
+\[
+\text{F}_{\beta} = \frac{(1 + \beta^2) \times \text{Precision} \times \text{Recall}}{\beta^2 \times \text{Precision} + \text{Recall}}
+\]
+
+- The more the value of \(\beta\), the more emphasis recall gets (hence, more true positives captured).
+\[  R^{2} = \frac{MSE}{variance} \]
 
 
 * McCulloch Pitts Neuron
