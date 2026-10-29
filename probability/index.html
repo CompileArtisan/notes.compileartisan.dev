@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-06-12 Fri 21:25 -->
+<!-- 2026-10-29 Thu 10:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Probability</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,437 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
-
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
-
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
-}
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
+h1.title::after {
 content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
 }
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
 text-decoration: none;
+transition: opacity .15s;
 }
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
 
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
 
-#table-of-contents li.hidden {
-display: none;
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
 }
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
 
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
 
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
 }
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
+font-style: italic;
+border-left: 3px solid var(--accent);
+}
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
+display: block;
+margin-top: .6rem;
+font-size: .88em;
+font-style: normal;
+text-align: right;
+}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
+
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
+}
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
+display: block;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
+}
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
+
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -676,71 +871,71 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga9ef79a">1. Basics of Probability</a>
+<li><a href="#orgeda363d">1. Basics of Probability</a>
 <ul>
-<li><a href="#org6ae3f81">1.1. First Order Logic</a>
+<li><a href="#orge9e348f">1.1. First Order Logic</a>
 <ul>
-<li><a href="#org97e5125">1.1.1. Affirming the Consequent</a></li>
-<li><a href="#org1431e56">1.1.2. Standard Laws</a></li>
+<li><a href="#org2c6f524">1.1.1. Affirming the Consequent</a></li>
+<li><a href="#org3517061">1.1.2. Standard Laws</a></li>
 </ul>
 </li>
-<li><a href="#org97f5283">1.2. Basic Probability</a>
+<li><a href="#org37a8db7">1.2. Basic Probability</a>
 <ul>
-<li><a href="#org77c888b">1.2.1. Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</a></li>
-<li><a href="#org63b03b6">1.2.2. A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</a></li>
-<li><a href="#orgd786288">1.2.3. An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</a></li>
-<li><a href="#org5caf739">1.2.4. A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</a></li>
-<li><a href="#orge8ce6b1">1.2.5. A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</a></li>
-<li><a href="#orgee08b64">1.2.6. An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</a></li>
-<li><a href="#orgbb0fa4b">1.2.7. There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</a></li>
+<li><a href="#org3b90d1a">1.2.1. Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</a></li>
+<li><a href="#orgd85947e">1.2.2. A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</a></li>
+<li><a href="#org8d89569">1.2.3. An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</a></li>
+<li><a href="#org462c418">1.2.4. A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</a></li>
+<li><a href="#org83dcc4f">1.2.5. A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</a></li>
+<li><a href="#orgf57a0c8">1.2.6. An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</a></li>
+<li><a href="#org75abb19">1.2.7. There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</a></li>
 </ul>
 </li>
-<li><a href="#org83f708e">1.3. Frequentest Approach to find Probability</a></li>
-<li><a href="#org7e95c6d">1.4. Joint Probability</a></li>
-<li><a href="#org94ef35b">1.5. Marginal Probability</a></li>
-<li><a href="#orgf5a352a">1.6. Conditional Probability</a></li>
-<li><a href="#org852b650">1.7. Chain Rule</a></li>
-<li><a href="#org144a0eb">1.8. Bayes Theorem</a>
+<li><a href="#org3d86f99">1.3. Frequentest Approach to find Probability</a></li>
+<li><a href="#org55e30da">1.4. Joint Probability</a></li>
+<li><a href="#org1c4a3c4">1.5. Marginal Probability</a></li>
+<li><a href="#org03b3bbc">1.6. Conditional Probability</a></li>
+<li><a href="#org937b70e">1.7. Chain Rule</a></li>
+<li><a href="#orgec1d919">1.8. Bayes Theorem</a>
 <ul>
-<li><a href="#org108b0b4">1.8.1. Why do we need Bayes Theorem</a></li>
-<li><a href="#orga262c5e">1.8.2. Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</a></li>
-<li><a href="#orgb532efe">1.8.3. Same Question But Expanded</a></li>
+<li><a href="#org2866163">1.8.1. Why do we need Bayes Theorem</a></li>
+<li><a href="#orge6e0d7e">1.8.2. Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</a></li>
+<li><a href="#org306af6d">1.8.3. Same Question But Expanded</a></li>
 </ul>
 </li>
-<li><a href="#org7274604">1.9. Independent Random Variables</a></li>
-<li><a href="#org045e4e7">1.10. Chain Rule</a></li>
+<li><a href="#org06674dc">1.9. Independent Random Variables</a></li>
+<li><a href="#orgafeda17">1.10. Chain Rule</a></li>
 </ul>
 </li>
-<li><a href="#org8e05c52">2. Graphs to Model Probability</a>
+<li><a href="#orgdf721ea">2. Graphs to Model Probability</a>
 <ul>
-<li><a href="#orgb71de56">2.1. Associative Relations</a></li>
-<li><a href="#orga4c0ce8">2.2. Causal Relation</a></li>
-<li><a href="#orgee21403">2.3. Strongly Connected Graphs</a></li>
+<li><a href="#orgabdd72c">2.1. Associative Relations</a></li>
+<li><a href="#orgc5a0d1f">2.2. Causal Relation</a></li>
+<li><a href="#org8e0468e">2.3. Strongly Connected Graphs</a></li>
 </ul>
 </li>
-<li><a href="#orgbac9aa0">3. Bayesian Network</a>
+<li><a href="#org737eba5">3. Bayesian Network</a>
 <ul>
-<li><a href="#orga13c630">3.1. General Naive Bayes Model</a></li>
-<li><a href="#org970a755">3.2. What a Bayesian Network is</a></li>
-<li><a href="#orgb3d77b5">3.3. D-Seperation</a>
+<li><a href="#org4586f73">3.1. General Naive Bayes Model</a></li>
+<li><a href="#org790f203">3.2. What a Bayesian Network is</a></li>
+<li><a href="#orgb71b5b0">3.3. D-Seperation</a>
 <ul>
-<li><a href="#org79c92b0">3.3.1. Serial Connection</a></li>
-<li><a href="#orgf2a8963">3.3.2. Divergent Connection</a></li>
-<li><a href="#orge272d4e">3.3.3. Convergent Connection</a></li>
+<li><a href="#orgdc6f215">3.3.1. Serial Connection</a></li>
+<li><a href="#org08bbd08">3.3.2. Divergent Connection</a></li>
+<li><a href="#orgbc879c9">3.3.3. Convergent Connection</a></li>
 </ul>
 </li>
-<li><a href="#org5fe2861">3.4. Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</a></li>
-<li><a href="#org4cf6d8a">3.5. Question</a></li>
-<li><a href="#org5868fe5">3.6. Question</a></li>
-<li><a href="#org5aaa70c">3.7. Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</a>
+<li><a href="#org91a4b0c">3.4. Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</a></li>
+<li><a href="#orge5904ea">3.5. Question</a></li>
+<li><a href="#org0b60ddd">3.6. Question</a></li>
+<li><a href="#org614a87c">3.7. Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</a>
 <ul>
-<li><a href="#org66b6426">3.7.1. Using Permutations and Combinations</a></li>
+<li><a href="#org5faa4e6">3.7.1. Using Permutations and Combinations</a></li>
 </ul>
 </li>
-<li><a href="#org7df3289">3.8. Common Causes of Error in Bayesian Networks</a>
+<li><a href="#org70a24b4">3.8. Common Causes of Error in Bayesian Networks</a>
 <ul>
-<li><a href="#org72ff5cc">3.8.1. Zero Probabilities</a></li>
-<li><a href="#org8d86cd7">3.8.2. Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</a></li>
+<li><a href="#orgfdf3c6d">3.8.1. Zero Probabilities</a></li>
+<li><a href="#orgf68f9f9">3.8.2. Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</a></li>
 </ul>
 </li>
 </ul>
@@ -748,16 +943,16 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-orga9ef79a" class="outline-2">
-<h2 id="orga9ef79a"><span class="section-number-2">1.</span> Basics of Probability</h2>
+<div id="outline-container-orgeda363d" class="outline-2">
+<h2 id="orgeda363d"><span class="section-number-2">1.</span> Basics of Probability</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6ae3f81" class="outline-3">
-<h3 id="org6ae3f81"><span class="section-number-3">1.1.</span> First Order Logic</h3>
+<div id="outline-container-orge9e348f" class="outline-3">
+<h3 id="orge9e348f"><span class="section-number-3">1.1.</span> First Order Logic</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org97e5125" class="outline-4">
-<h4 id="org97e5125"><span class="section-number-4">1.1.1.</span> Affirming the Consequent</h4>
+<div id="outline-container-org2c6f524" class="outline-4">
+<h4 id="org2c6f524"><span class="section-number-4">1.1.1.</span> Affirming the Consequent</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li><code>If P then Q</code> is given as <code>P</code> &rarr; <code>Q</code></li>
@@ -831,8 +1026,8 @@ If it&rsquo;s raining, the ground is wet.
 </ul>
 </div>
 </div>
-<div id="outline-container-org1431e56" class="outline-4">
-<h4 id="org1431e56"><span class="section-number-4">1.1.2.</span> Standard Laws</h4>
+<div id="outline-container-org3517061" class="outline-4">
+<h4 id="org3517061"><span class="section-number-4">1.1.2.</span> Standard Laws</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li><b>Implication Elimination:</b> a &rarr; b is the same as ~a &or; b</li>
@@ -841,28 +1036,28 @@ If it&rsquo;s raining, the ground is wet.
 </div>
 </div>
 </div>
-<div id="outline-container-org97f5283" class="outline-3">
-<h3 id="org97f5283"><span class="section-number-3">1.2.</span> Basic Probability</h3>
+<div id="outline-container-org37a8db7" class="outline-3">
+<h3 id="org37a8db7"><span class="section-number-3">1.2.</span> Basic Probability</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org77c888b" class="outline-4">
-<h4 id="org77c888b"><span class="section-number-4">1.2.1.</span> Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</h4>
+<div id="outline-container-org3b90d1a" class="outline-4">
+<h4 id="org3b90d1a"><span class="section-number-4">1.2.1.</span> Eight horses are entered in a race. You randomly predict a particular for the horses to complete the race. What is the probability that your prediction is correct?</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>\(\frac{1}{8!} \)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org63b03b6" class="outline-4">
-<h4 id="org63b03b6"><span class="section-number-4">1.2.2.</span> A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</h4>
+<div id="outline-container-orgd85947e" class="outline-4">
+<h4 id="orgd85947e"><span class="section-number-4">1.2.2.</span> A bag contains 6 white and 4 red balls. Three balls are drawn one by one with replacement. What is the probability that all 3 balls are red?</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 \(P(red) = \frac{4}{10} \times \frac{4}{10} \times \frac{4}{10}\)
 </p>
 </div>
 </div>
-<div id="outline-container-orgd786288" class="outline-4">
-<h4 id="orgd786288"><span class="section-number-4">1.2.3.</span> An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</h4>
+<div id="outline-container-org8d89569" class="outline-4">
+<h4 id="org8d89569"><span class="section-number-4">1.2.3.</span> An urn contains 9 blue, 7 white and 4 black balls. If 2 balls are drawn at random, then what is the probability that only one ball is white?</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li>\(\text{Probability that only one is white} = \frac{\text{(Number of ways to pick a white ball)} \times \text{(Number of ways to pick non-white ball)}}{\text{Total number of ways to pick 2 balls}}\)</li>
@@ -870,8 +1065,8 @@ If it&rsquo;s raining, the ground is wet.
 </ul>
 </div>
 </div>
-<div id="outline-container-org5caf739" class="outline-4">
-<h4 id="org5caf739"><span class="section-number-4">1.2.4.</span> A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</h4>
+<div id="outline-container-org462c418" class="outline-4">
+<h4 id="org462c418"><span class="section-number-4">1.2.4.</span> A and B play a game where each is asked to select a number from 1 to 5. If the two numbers match, both of them win a prize. What is the probability that they will not win a prize in a single trial?</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
 <li><p>
@@ -942,8 +1137,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge8ce6b1" class="outline-4">
-<h4 id="orge8ce6b1"><span class="section-number-4">1.2.5.</span> A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</h4>
+<div id="outline-container-org83dcc4f" class="outline-4">
+<h4 id="org83dcc4f"><span class="section-number-4">1.2.5.</span> A can solve 80% of the problems given in an exam, and B can solve 70%. What is the probability that at least one of them will solve a problem at random from the exam?</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -989,8 +1184,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee08b64" class="outline-4">
-<h4 id="orgee08b64"><span class="section-number-4">1.2.6.</span> An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</h4>
+<div id="outline-container-orgf57a0c8" class="outline-4">
+<h4 id="orgf57a0c8"><span class="section-number-4">1.2.6.</span> An anti aircrafft gun can fire 4 shots at a time. If the probabilities of the 1st, 2nd, 3rd and the last shot hitting the enemy aircract are 0.7, 0.6, 0.5, 0.4, what is the probability that 4 shots aimed at an enemy aircraft will bring the aircraft down?</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1122,8 +1317,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbb0fa4b" class="outline-4">
-<h4 id="orgbb0fa4b"><span class="section-number-4">1.2.7.</span> There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</h4>
+<div id="outline-container-org75abb19" class="outline-4">
+<h4 id="org75abb19"><span class="section-number-4">1.2.7.</span> There are two bags - one containing 3 one rupee coins, 6 five rupee coins, and the other containing 7 five rupee contains and 2 one rupee coings. One bag is chosen at random and from that one rupee coin is drawn at random. What is the probability that it&rsquo;s a one rupee coin?</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1160,8 +1355,8 @@ The probability for this is \(\frac{5}{25} = \frac{1}{5}\)
 </div>
 </div>
 </div>
-<div id="outline-container-org83f708e" class="outline-3">
-<h3 id="org83f708e"><span class="section-number-3">1.3.</span> Frequentest Approach to find Probability</h3>
+<div id="outline-container-org3d86f99" class="outline-3">
+<h3 id="org3d86f99"><span class="section-number-3">1.3.</span> Frequentest Approach to find Probability</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Essentially, you conduct a large number of experiments and you calculate the
@@ -1171,8 +1366,8 @@ probabilities of the events calculated will be accurate.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e95c6d" class="outline-3">
-<h3 id="org7e95c6d"><span class="section-number-3">1.4.</span> Joint Probability</h3>
+<div id="outline-container-org55e30da" class="outline-3">
+<h3 id="org55e30da"><span class="section-number-3">1.4.</span> Joint Probability</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Joint probability is the probability of two events happening together.</li>
@@ -1180,7 +1375,7 @@ probabilities of the events calculated will be accurate.</li>
 in New York.</li>
 </ul>
 
-<div id="org6ce967a" class="figure">
+<div id="org79852b8" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/joint-probability.png" alt="joint-probability.png" />
 </p>
 </div>
@@ -1188,17 +1383,17 @@ in New York.</li>
 
 
 
-<div id="orgefcf289" class="figure">
+<div id="orga4ff7fc" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/joint-probability-distribution.png" alt="joint-probability-distribution.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org94ef35b" class="outline-3">
-<h3 id="org94ef35b"><span class="section-number-3">1.5.</span> Marginal Probability</h3>
+<div id="outline-container-org1c4a3c4" class="outline-3">
+<h3 id="org1c4a3c4"><span class="section-number-3">1.5.</span> Marginal Probability</h3>
 <div class="outline-text-3" id="text-1-5">
 
-<div id="org96a0c29" class="figure">
+<div id="org2af3017" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/marginal-probability.png" alt="marginal-probability.png" />
 </p>
 </div>
@@ -1209,7 +1404,7 @@ in New York.</li>
 <li>It&rsquo;s the probability of one event happening regardless of the other event.</li>
 </ul>
 
-<div id="org10dbb4d" class="figure">
+<div id="orgdcc2474" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/marginal-probability-2.png" alt="marginal-probability-2.png" />
 </p>
 </div>
@@ -1219,7 +1414,7 @@ in New York.</li>
 <li>You simply sum up all the probabilities of this one event occuring.</li>
 </ul>
 
-<div id="org53a886a" class="figure">
+<div id="org937467a" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/marginal-probability-3.png" alt="marginal-probability-3.png" />
 </p>
 </div>
@@ -1291,8 +1486,8 @@ To find P(B=Yes):
 </table>
 </div>
 </div>
-<div id="outline-container-orgf5a352a" class="outline-3">
-<h3 id="orgf5a352a"><span class="section-number-3">1.6.</span> Conditional Probability</h3>
+<div id="outline-container-org03b3bbc" class="outline-3">
+<h3 id="org03b3bbc"><span class="section-number-3">1.6.</span> Conditional Probability</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Joint probability would be &ldquo;what&rsquo;s the probability of selling a T-shirt in New
@@ -1303,7 +1498,7 @@ where \(P(A,B)\) is the probabilty of getting a T-shirt from New York.
 \(P(B)\) would be the probability of the location being New York.</li>
 </ul>
 
-<div id="org1de0b84" class="figure">
+<div id="org0a97c13" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/conditional-probability.png" alt="conditional-probability.png" />
 </p>
 </div>
@@ -1329,8 +1524,8 @@ then finding that cell from that column (conditional)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org852b650" class="outline-3">
-<h3 id="org852b650"><span class="section-number-3">1.7.</span> Chain Rule</h3>
+<div id="outline-container-org937b70e" class="outline-3">
+<h3 id="org937b70e"><span class="section-number-3">1.7.</span> Chain Rule</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 \[P(A, B, C, D) = P(A) \times  P(B|A) \times  P(C|A,B) \times  P(D|A,B,C)\]
@@ -1344,16 +1539,16 @@ then finding that cell from that column (conditional)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org144a0eb" class="outline-3">
-<h3 id="org144a0eb"><span class="section-number-3">1.8.</span> Bayes Theorem</h3>
+<div id="outline-container-orgec1d919" class="outline-3">
+<h3 id="orgec1d919"><span class="section-number-3">1.8.</span> Bayes Theorem</h3>
 <div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li>This is used to find joint probability of two events X and Y
 \[ P(X|Y) = \frac{P(Y|X)*P(X)}{P(Y)} \]</li>
 </ul>
 </div>
-<div id="outline-container-org108b0b4" class="outline-4">
-<h4 id="org108b0b4"><span class="section-number-4">1.8.1.</span> Why do we need Bayes Theorem</h4>
+<div id="outline-container-org2866163" class="outline-4">
+<h4 id="org2866163"><span class="section-number-4">1.8.1.</span> Why do we need Bayes Theorem</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <ul class="org-ul">
 <li>For example:
@@ -1432,8 +1627,8 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga262c5e" class="outline-4">
-<h4 id="orga262c5e"><span class="section-number-4">1.8.2.</span> Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</h4>
+<div id="outline-container-orge6e0d7e" class="outline-4">
+<h4 id="orge6e0d7e"><span class="section-number-4">1.8.2.</span> Suppose that a tuberculosis (TB) skin test is 95 percent accurate. That is, if the patient is TB-infected, then the test will be positive with probability 0.95, and if the patient is not infected, then the test will be negative with probability 0.95. Suppose that 1 in 1000 of the subjects who get tested is infected. What is the probability of getting a positive test result?</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <ul class="org-ul">
 <li>Given:
@@ -1448,8 +1643,8 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb532efe" class="outline-4">
-<h4 id="orgb532efe"><span class="section-number-4">1.8.3.</span> Same Question But Expanded</h4>
+<div id="outline-container-org306af6d" class="outline-4">
+<h4 id="org306af6d"><span class="section-number-4">1.8.3.</span> Same Question But Expanded</h4>
 <div class="outline-text-4" id="text-1-8-3">
 <ul class="org-ul">
 <li>P[A|C] = 0.95 (If you have cancer, probability test says positive = 95%)</li>
@@ -1468,8 +1663,8 @@ disease!</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7274604" class="outline-3">
-<h3 id="org7274604"><span class="section-number-3">1.9.</span> Independent Random Variables</h3>
+<div id="outline-container-org06674dc" class="outline-3">
+<h3 id="org06674dc"><span class="section-number-3">1.9.</span> Independent Random Variables</h3>
 <div class="outline-text-3" id="text-1-9">
 <ul class="org-ul">
 <li>Assume we have two disjoint sets X and Y
@@ -1482,8 +1677,8 @@ disease!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org045e4e7" class="outline-3">
-<h3 id="org045e4e7"><span class="section-number-3">1.10.</span> Chain Rule</h3>
+<div id="outline-container-orgafeda17" class="outline-3">
+<h3 id="orgafeda17"><span class="section-number-3">1.10.</span> Chain Rule</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 \[P(A, B, C, D, ...) = P(A)*P(B|A)*P(C|A,B)*P(D|A,B,C)\]
@@ -1492,8 +1687,8 @@ This is always true
 </div>
 </div>
 </div>
-<div id="outline-container-org8e05c52" class="outline-2">
-<h2 id="org8e05c52"><span class="section-number-2">2.</span> Graphs to Model Probability</h2>
+<div id="outline-container-orgdf721ea" class="outline-2">
+<h2 id="orgdf721ea"><span class="section-number-2">2.</span> Graphs to Model Probability</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Here we work with graphs, where nodes are events, and edges tell you if these
@@ -1501,8 +1696,8 @@ events are dependent or independent of each other.</li>
 <li>The probability values that a node can take are called <b>attributes</b>.</li>
 </ul>
 </div>
-<div id="outline-container-orgb71de56" class="outline-3">
-<h3 id="orgb71de56"><span class="section-number-3">2.1.</span> Associative Relations</h3>
+<div id="outline-container-orgabdd72c" class="outline-3">
+<h3 id="orgabdd72c"><span class="section-number-3">2.1.</span> Associative Relations</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>In a graph, associative relations are represented by undirected edges. This
@@ -1516,8 +1711,8 @@ means that two nodes are related, but follow no meaningful relation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga4c0ce8" class="outline-3">
-<h3 id="orga4c0ce8"><span class="section-number-3">2.2.</span> Causal Relation</h3>
+<div id="outline-container-orgc5a0d1f" class="outline-3">
+<h3 id="orgc5a0d1f"><span class="section-number-3">2.2.</span> Causal Relation</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>A directed edge between two nodes, which signifies one event likely to cause
@@ -1530,8 +1725,8 @@ the other.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee21403" class="outline-3">
-<h3 id="orgee21403"><span class="section-number-3">2.3.</span> Strongly Connected Graphs</h3>
+<div id="outline-container-org8e0468e" class="outline-3">
+<h3 id="org8e0468e"><span class="section-number-3">2.3.</span> Strongly Connected Graphs</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>A directed graph where any node can be reached from any other node.</li>
@@ -1540,12 +1735,12 @@ the other.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbac9aa0" class="outline-2">
-<h2 id="orgbac9aa0"><span class="section-number-2">3.</span> Bayesian Network</h2>
+<div id="outline-container-org737eba5" class="outline-2">
+<h2 id="org737eba5"><span class="section-number-2">3.</span> Bayesian Network</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga13c630" class="outline-3">
-<h3 id="orga13c630"><span class="section-number-3">3.1.</span> General Naive Bayes Model</h3>
+<div id="outline-container-org4586f73" class="outline-3">
+<h3 id="org4586f73"><span class="section-number-3">3.1.</span> General Naive Bayes Model</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Bayes Theorem on machine learning is:
@@ -1563,8 +1758,8 @@ total probability of the observed features across all possible classes.
 </ul>
 </div>
 </div>
-<div id="outline-container-org970a755" class="outline-3">
-<h3 id="org970a755"><span class="section-number-3">3.2.</span> What a Bayesian Network is</h3>
+<div id="outline-container-org790f203" class="outline-3">
+<h3 id="org790f203"><span class="section-number-3">3.2.</span> What a Bayesian Network is</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>It&rsquo;s a skeleton data structure that attaches local probability models.</li>
@@ -1585,7 +1780,7 @@ know about your children.</li>
 <li>Here&rsquo;s an example</li>
 </ul>
 
-<div id="org495645f" class="figure">
+<div id="org49cd41e" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/studentbayesian.png" alt="studentbayesian.png" />
 </p>
 </div>
@@ -1596,12 +1791,12 @@ know about your children.</li>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb3d77b5" class="outline-3">
-<h3 id="orgb3d77b5"><span class="section-number-3">3.3.</span> D-Seperation</h3>
+<div id="outline-container-orgb71b5b0" class="outline-3">
+<h3 id="orgb71b5b0"><span class="section-number-3">3.3.</span> D-Seperation</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org79c92b0" class="outline-4">
-<h4 id="org79c92b0"><span class="section-number-4">3.3.1.</span> Serial Connection</h4>
+<div id="outline-container-orgdc6f215" class="outline-4">
+<h4 id="orgdc6f215"><span class="section-number-4">3.3.1.</span> Serial Connection</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <ul class="org-ul">
 <li>Say you have a causal chain <b>A</b> &rarr; <b>B</b> &rarr; <b>C</b></li>
@@ -1615,8 +1810,8 @@ path is blocked.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf2a8963" class="outline-4">
-<h4 id="orgf2a8963"><span class="section-number-4">3.3.2.</span> Divergent Connection</h4>
+<div id="outline-container-org08bbd08" class="outline-4">
+<h4 id="org08bbd08"><span class="section-number-4">3.3.2.</span> Divergent Connection</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>Say you have a network <b>A</b> &larr; <b>B</b> &rarr; <b>C</b>
@@ -1630,8 +1825,8 @@ blocked.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge272d4e" class="outline-4">
-<h4 id="orge272d4e"><span class="section-number-4">3.3.3.</span> Convergent Connection</h4>
+<div id="outline-container-orgbc879c9" class="outline-4">
+<h4 id="orgbc879c9"><span class="section-number-4">3.3.3.</span> Convergent Connection</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <ul class="org-ul">
 <li>Say you have a network <b>A</b> &rarr; <b>B</b> &larr; <b>C</b></li>
@@ -1652,11 +1847,11 @@ called <b>observing it</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5fe2861" class="outline-3">
-<h3 id="org5fe2861"><span class="section-number-3">3.4.</span> Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</h3>
+<div id="outline-container-org91a4b0c" class="outline-3">
+<h3 id="org91a4b0c"><span class="section-number-3">3.4.</span> Let G be a Bayesian network structure over a set of random variables X as shown in Fig. 3, and let P be the joint distribution over the same space.  If P factorises according to the graph G, then show that P(S|I,D,G,L) = P(S|I)</h3>
 <div class="outline-text-3" id="text-3-4">
 
-<div id="org9a26d3d" class="figure">
+<div id="org50fe585" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/satScore.png" alt="satScore.png" />
 </p>
 </div>
@@ -1669,8 +1864,8 @@ called <b>observing it</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4cf6d8a" class="outline-3">
-<h3 id="org4cf6d8a"><span class="section-number-3">3.5.</span> Question</h3>
+<div id="outline-container-orge5904ea" class="outline-3">
+<h3 id="orge5904ea"><span class="section-number-3">3.5.</span> Question</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>If
@@ -1693,11 +1888,11 @@ hence you can remove it)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5868fe5" class="outline-3">
-<h3 id="org5868fe5"><span class="section-number-3">3.6.</span> Question</h3>
+<div id="outline-container-org0b60ddd" class="outline-3">
+<h3 id="org0b60ddd"><span class="section-number-3">3.6.</span> Question</h3>
 <div class="outline-text-3" id="text-3-6">
 
-<div id="orgeeac34d" class="figure">
+<div id="org8f13563" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/probability/salmon.png" alt="salmon.png" />
 </p>
 </div>
@@ -1724,12 +1919,12 @@ And now expand the denominator.
 </p>
 </div>
 </div>
-<div id="outline-container-org5aaa70c" class="outline-3">
-<h3 id="org5aaa70c"><span class="section-number-3">3.7.</span> Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</h3>
+<div id="outline-container-org614a87c" class="outline-3">
+<h3 id="org614a87c"><span class="section-number-3">3.7.</span> Consider a person standing at position 0 on the number line. The person tosses a coin, which can land heads with probability p and tails with probability 1-p. At each second, he tosses the coin. If it lands heads, he takes one step forward. If it lands tails, he moves one step backward. Compute, without using Markov chain libraries, the probability that the person will be at</h3>
 <div class="outline-text-3" id="text-3-7">
 </div>
-<div id="outline-container-org66b6426" class="outline-4">
-<h4 id="org66b6426"><span class="section-number-4">3.7.1.</span> Using Permutations and Combinations</h4>
+<div id="outline-container-org5faa4e6" class="outline-4">
+<h4 id="org5faa4e6"><span class="section-number-4">3.7.1.</span> Using Permutations and Combinations</h4>
 <div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
 <li>Let \(x\) be the number of events you get H, and \(y\) be the number of events
@@ -1737,7 +1932,7 @@ you get T.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org5c13957"></a>Position 0 after ten coin tosses<br />
+<li><a id="orgdc92b8b"></a>Position 0 after ten coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-1">
 <ul class="org-ul">
 <li>Given \(x+y=10\) and \(x-y=0\)</li>
@@ -1747,7 +1942,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf63d282"></a>Position 5 after ten coin tosses<br />
+<li><a id="orgf258353"></a>Position 5 after ten coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-2">
 <ul class="org-ul">
 <li>Given \(x+y=10\) and \(x-y=5\)</li>
@@ -1756,7 +1951,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb1322a0"></a>Position 10 after twenty coin tosses<br />
+<li><a id="org5ca4f96"></a>Position 10 after twenty coin tosses<br />
 <div class="outline-text-5" id="text-3-7-1-3">
 <ul class="org-ul">
 <li>Given \(x+y=20\) and \(x-y=10\)</li>
@@ -1766,7 +1961,7 @@ you get T.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd0a8b3b"></a>Position -5 after fifteen coin tosse<br />
+<li><a id="orge65af4f"></a>Position -5 after fifteen coin tosse<br />
 <div class="outline-text-5" id="text-3-7-1-4">
 <ul class="org-ul">
 <li>Given \(x+y=15\) and \(x-y=-5\)</li>
@@ -1779,20 +1974,20 @@ you get T.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7df3289" class="outline-3">
-<h3 id="org7df3289"><span class="section-number-3">3.8.</span> Common Causes of Error in Bayesian Networks</h3>
+<div id="outline-container-org70a24b4" class="outline-3">
+<h3 id="org70a24b4"><span class="section-number-3">3.8.</span> Common Causes of Error in Bayesian Networks</h3>
 <div class="outline-text-3" id="text-3-8">
 </div>
-<div id="outline-container-org72ff5cc" class="outline-4">
-<h4 id="org72ff5cc"><span class="section-number-4">3.8.1.</span> Zero Probabilities</h4>
+<div id="outline-container-orgfdf3c6d" class="outline-4">
+<h4 id="orgfdf3c6d"><span class="section-number-4">3.8.1.</span> Zero Probabilities</h4>
 <div class="outline-text-4" id="text-3-8-1">
 <ul class="org-ul">
 <li>Probabilities with value <b>zero</b> can break the network</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8d86cd7" class="outline-4">
-<h4 id="org8d86cd7"><span class="section-number-4">3.8.2.</span> Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</h4>
+<div id="outline-container-orgf68f9f9" class="outline-4">
+<h4 id="orgf68f9f9"><span class="section-number-4">3.8.2.</span> Can&rsquo;t Represent Both A &perp; C | B, D and B &perp; D | A, C</h4>
 <div class="outline-text-4" id="text-3-8-2">
 <ul class="org-ul">
 <li>In a Bayesian Network, independencies are modeled as blocking paths (found

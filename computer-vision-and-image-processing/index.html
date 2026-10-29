@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-06-12 Fri 21:23 -->
+<!-- 2026-10-29 Thu 10:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Vision and Image Processing</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,437 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
-
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
-
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
-}
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
+h1.title::after {
 content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
 }
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
 text-decoration: none;
+transition: opacity .15s;
 }
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
 
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
 
-#table-of-contents li.hidden {
-display: none;
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
 }
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
 
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
 
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
 }
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
+font-style: italic;
+border-left: 3px solid var(--accent);
+}
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
+display: block;
+margin-top: .6rem;
+font-size: .88em;
+font-style: normal;
+text-align: right;
+}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
+
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
+}
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
+display: block;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
+}
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
+
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -676,193 +871,193 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfce0c31">1. Introduction</a>
+<li><a href="#org63ccb66">1. Introduction</a>
 <ul>
-<li><a href="#org7378fe7">1.1. What is Computer Vision</a></li>
-<li><a href="#org75cf6e9">1.2. What is Machine Vision</a></li>
-<li><a href="#org0711e4f">1.3. Machine Vision or Computer Vision</a></li>
-<li><a href="#orgd7974ac">1.4. What is Cognitive Vision</a></li>
-<li><a href="#org67f79d8">1.5. Computer Vision or Cognitive Vision</a></li>
-<li><a href="#org1baed0b">1.6. Why Computer Vision is Challenging</a>
+<li><a href="#org34b649a">1.1. What is Computer Vision</a></li>
+<li><a href="#orgd61aeb0">1.2. What is Machine Vision</a></li>
+<li><a href="#org59fa546">1.3. Machine Vision or Computer Vision</a></li>
+<li><a href="#org1eda40a">1.4. What is Cognitive Vision</a></li>
+<li><a href="#orge9dcb4f">1.5. Computer Vision or Cognitive Vision</a></li>
+<li><a href="#org7095b98">1.6. Why Computer Vision is Challenging</a>
 <ul>
-<li><a href="#org21dd33f">1.6.1. Many-to-one Mapping</a></li>
-<li><a href="#org234d2b5">1.6.2. Computationally Expensive</a></li>
-<li><a href="#org59a20ac">1.6.3. We don&rsquo;t understand the recognition problem</a></li>
+<li><a href="#org0cbb659">1.6.1. Many-to-one Mapping</a></li>
+<li><a href="#org52070a1">1.6.2. Computationally Expensive</a></li>
+<li><a href="#orgeeeb8ce">1.6.3. We don&rsquo;t understand the recognition problem</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8f52de7">2. Digital Image Processing</a>
+<li><a href="#orgd311d8f">2. Digital Image Processing</a>
 <ul>
-<li><a href="#org8b30548">2.1. What is a Digital Image?</a></li>
-<li><a href="#orgfc8b9d0">2.2. Operations on Images</a>
+<li><a href="#orga4c079c">2.1. What is a Digital Image?</a></li>
+<li><a href="#orgfe78610">2.2. Operations on Images</a>
 <ul>
-<li><a href="#orgc02d02f">2.2.1. Computer Vision</a></li>
-<li><a href="#orgf9270d5">2.2.2. Image Processing</a></li>
-<li><a href="#org7a95e31">2.2.3. Computer Graphics</a></li>
+<li><a href="#org45c06b1">2.2.1. Computer Vision</a></li>
+<li><a href="#org7c1889b">2.2.2. Image Processing</a></li>
+<li><a href="#orgf9ff909">2.2.3. Computer Graphics</a></li>
 </ul>
 </li>
-<li><a href="#org8ea1812">2.3. Electromagnetic Spectrum</a></li>
-<li><a href="#org2407df4">2.4. Abstract Image</a></li>
-<li><a href="#orgee71a0f">2.5. Factors in Image Formation</a>
+<li><a href="#org0cd38ea">2.3. Electromagnetic Spectrum</a></li>
+<li><a href="#org0e06b6e">2.4. Abstract Image</a></li>
+<li><a href="#org593b291">2.5. Factors in Image Formation</a>
 <ul>
-<li><a href="#orgc7534f4">2.5.1. Geometry</a></li>
-<li><a href="#org4891b92">2.5.2. Radiometry</a></li>
-<li><a href="#org8b09ef7">2.5.3. Photometry</a></li>
-<li><a href="#org6aa0571">2.5.4. Digitization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org34f616c">3. How Image Processing Typically Works</a>
-<ul>
-<li><a href="#org185cc8c">3.1. Optics</a></li>
-<li><a href="#org58ab003">3.2. Aperture</a></li>
-<li><a href="#orgc36fb5d">3.3. Shutter</a></li>
-<li><a href="#orgfa9c162">3.4. Sensor (CCD/ CMOS)</a>
-<ul>
-<li><a href="#org7550b9f">3.4.1. Direction by Angles</a></li>
-<li><a href="#org9ebd757">3.4.2. Photon Detection</a></li>
-<li><a href="#org734a095">3.4.3. Photon Energy to Radiant Power</a></li>
-<li><a href="#orgd30c06c">3.4.4. Summary of Light to Electrical Signal</a></li>
-</ul>
-</li>
-<li><a href="#org9c63c2f">3.5. Gain (ISO)</a></li>
-<li><a href="#org39b18a4">3.6. Bayers Filter</a>
-<ul>
-<li><a href="#orgdad387f">3.6.1. Types of Bayer Filters</a></li>
-<li><a href="#orge0457b6">3.6.2. Extracting RGB matrices from Bayer Pattern</a></li>
-</ul>
-</li>
-<li><a href="#org8fa175d">3.7. Demosaicing / Debayering</a>
-<ul>
-<li><a href="#org130bc3c">3.7.1. Nearest Neighbour Interpolation</a></li>
-<li><a href="#org5aaf016">3.7.2. Bilinear Interpolation</a></li>
-<li><a href="#org864613b">3.7.3. Gradient Based Interpolation</a></li>
-</ul>
-</li>
-<li><a href="#orgba423c4">3.8. Sharpen</a>
-<ul>
-<li><a href="#orgb51c22b">3.8.1. Unsharp Masking</a></li>
-</ul>
-</li>
-<li><a href="#org80fc89c">3.9. White Balance</a></li>
-<li><a href="#orgd4ba0f5">3.10. Gamma/Curve Correction</a>
-<ul>
-<li><a href="#org64b2da4">3.10.1. Inverse Gamma (Gamma Encoding)</a></li>
-<li><a href="#org2315bbf">3.10.2. Gamma Decoding</a></li>
-</ul>
-</li>
-<li><a href="#org6a5026b">3.11. Compress</a>
-<ul>
-<li><a href="#org55c5567">3.11.1. <code>.jpeg</code></a></li>
-<li><a href="#org8ad2e0f">3.11.2. Chrominance Reduction</a></li>
-<li><a href="#org3e1f2cd">3.11.3. Quantization</a></li>
+<li><a href="#org80235e9">2.5.1. Geometry</a></li>
+<li><a href="#org544f45c">2.5.2. Radiometry</a></li>
+<li><a href="#org6de080f">2.5.3. Photometry</a></li>
+<li><a href="#orge389d2b">2.5.4. Digitization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgdddec0a">4. Camera Calibration</a>
+<li><a href="#org434a855">3. How Image Processing Typically Works</a>
 <ul>
-<li><a href="#orgd81a6cf">4.1. Fundamental Problem</a></li>
-<li><a href="#orga358805">4.2. Essential Parameters</a>
+<li><a href="#orga61a789">3.1. Optics</a></li>
+<li><a href="#org4cfe64c">3.2. Aperture</a></li>
+<li><a href="#orga9ca309">3.3. Shutter</a></li>
+<li><a href="#org521383d">3.4. Sensor (CCD/ CMOS)</a>
 <ul>
-<li><a href="#org09d2349">4.2.1. Intrinsics</a></li>
-<li><a href="#orgfb72ac9">4.2.2. Extrinsics</a></li>
-<li><a href="#orge32fb74">4.2.3. How they all come together</a></li>
+<li><a href="#org2a483ed">3.4.1. Direction by Angles</a></li>
+<li><a href="#org3577068">3.4.2. Photon Detection</a></li>
+<li><a href="#org2e8767d">3.4.3. Photon Energy to Radiant Power</a></li>
+<li><a href="#orgb235470">3.4.4. Summary of Light to Electrical Signal</a></li>
+</ul>
+</li>
+<li><a href="#org1bc29a5">3.5. Gain (ISO)</a></li>
+<li><a href="#org3e204c9">3.6. Bayers Filter</a>
+<ul>
+<li><a href="#org4a10adb">3.6.1. Types of Bayer Filters</a></li>
+<li><a href="#orgff0671f">3.6.2. Extracting RGB matrices from Bayer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#orga371ebd">3.7. Demosaicing / Debayering</a>
+<ul>
+<li><a href="#org9d656a6">3.7.1. Nearest Neighbour Interpolation</a></li>
+<li><a href="#org1e83d51">3.7.2. Bilinear Interpolation</a></li>
+<li><a href="#org1d44448">3.7.3. Gradient Based Interpolation</a></li>
+</ul>
+</li>
+<li><a href="#org30142f9">3.8. Sharpen</a>
+<ul>
+<li><a href="#orgd7ecda9">3.8.1. Unsharp Masking</a></li>
+</ul>
+</li>
+<li><a href="#orgdacf7eb">3.9. White Balance</a></li>
+<li><a href="#org1a80318">3.10. Gamma/Curve Correction</a>
+<ul>
+<li><a href="#orgd86da2a">3.10.1. Inverse Gamma (Gamma Encoding)</a></li>
+<li><a href="#org9870f19">3.10.2. Gamma Decoding</a></li>
+</ul>
+</li>
+<li><a href="#org2f93540">3.11. Compress</a>
+<ul>
+<li><a href="#org0bbef8f">3.11.1. <code>.jpeg</code></a></li>
+<li><a href="#org67fb1da">3.11.2. Chrominance Reduction</a></li>
+<li><a href="#org13fa53d">3.11.3. Quantization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org12e473d">5. Segmentation</a>
+<li><a href="#org4f09a7d">4. Camera Calibration</a>
 <ul>
-<li><a href="#org1ffff1d">5.1. Simplest form of Segmentation: Binary Segmentation</a></li>
-<li><a href="#orga569a42">5.2. Gestalt Theory of Perception</a>
+<li><a href="#orge5d43ed">4.1. Fundamental Problem</a></li>
+<li><a href="#orgc563836">4.2. Essential Parameters</a>
 <ul>
-<li><a href="#orga6bc621">5.2.1. Proximity Principles</a></li>
-<li><a href="#org986b66c">5.2.2. Similarity</a></li>
-<li><a href="#org062fa88">5.2.3. Common Fate</a></li>
-<li><a href="#orge9cd575">5.2.4. Common Region / Connectivity</a></li>
-<li><a href="#org238e329">5.2.5. Continuity Principle</a></li>
-<li><a href="#org4eeddbf">5.2.6. Symmetry Principle</a></li>
-<li><a href="#org19ecc6c">5.2.7. Illusory Contours - Illusions&rsquo; grouping</a></li>
-</ul>
-</li>
-<li><a href="#org0bf0e44">5.3. Two approaches towards Segmentation</a>
-<ul>
-<li><a href="#orgbc57f07">5.3.1. Top Down</a></li>
-<li><a href="#org1df5d89">5.3.2. Bottom Up</a></li>
+<li><a href="#orgfcacb20">4.2.1. Intrinsics</a></li>
+<li><a href="#org82afba5">4.2.2. Extrinsics</a></li>
+<li><a href="#org65ff107">4.2.3. How they all come together</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8a4beff">6. Feature Extraction</a>
+<li><a href="#orgab6a789">5. Segmentation</a>
 <ul>
-<li><a href="#org5b305ca">6.1. Main Components of Feature Detection and Matching</a>
+<li><a href="#org29b8d72">5.1. Simplest form of Segmentation: Binary Segmentation</a></li>
+<li><a href="#org4c7e64b">5.2. Gestalt Theory of Perception</a>
 <ul>
-<li><a href="#org6e5fd44">6.1.1. Detection</a></li>
-<li><a href="#org9166606">6.1.2. Description</a></li>
-<li><a href="#org2b78166">6.1.3. Matching</a></li>
+<li><a href="#org5626a82">5.2.1. Proximity Principles</a></li>
+<li><a href="#orgf83fe32">5.2.2. Similarity</a></li>
+<li><a href="#org021b3d4">5.2.3. Common Fate</a></li>
+<li><a href="#orgcb7635a">5.2.4. Common Region / Connectivity</a></li>
+<li><a href="#orgc7d07f7">5.2.5. Continuity Principle</a></li>
+<li><a href="#orgaaa0936">5.2.6. Symmetry Principle</a></li>
+<li><a href="#orgcfab791">5.2.7. Illusory Contours - Illusions&rsquo; grouping</a></li>
 </ul>
 </li>
-<li><a href="#org8851978">6.2. SIFT</a>
+<li><a href="#org0dcaced">5.3. Two approaches towards Segmentation</a>
 <ul>
-<li><a href="#org5b973a5">6.2.1. Detecting Interest Points/ Blobs</a></li>
-<li><a href="#org42168ac">6.2.2. Finding the Descriptor</a></li>
-<li><a href="#org982a430">6.2.3. Matching</a></li>
-</ul>
-</li>
-<li><a href="#org18e6d59">6.3. How SIFT is used in places?</a>
-<ul>
-<li><a href="#orga820c96">6.3.1. How SIFT is used in Image registration or alignment</a></li>
-<li><a href="#org5967190">6.3.2. How SIFT is used in Object Recognition</a></li>
-<li><a href="#org33798af">6.3.3. How SIFT is used in Image Stitching</a></li>
-<li><a href="#org509a0f9">6.3.4. SIFT vs YOLO</a></li>
+<li><a href="#org8d2405a">5.3.1. Top Down</a></li>
+<li><a href="#org5fe60b2">5.3.2. Bottom Up</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd37d12e">7. Pose Estimation</a>
+<li><a href="#orgc04e52b">6. Feature Extraction</a>
 <ul>
-<li><a href="#orgaf9ce72">7.1. What it is</a></li>
-<li><a href="#orgf6e76cb">7.2. Types of Pose Estimation</a></li>
-<li><a href="#org498e70e">7.3. Applications</a></li>
-<li><a href="#orgd43a3ef">7.4. How it works</a></li>
-<li><a href="#orgc586e20">7.5. Approaches for Pose Estimation</a></li>
-<li><a href="#org1a69712">7.6. OpenPose</a></li>
+<li><a href="#orga18f3c6">6.1. Main Components of Feature Detection and Matching</a>
+<ul>
+<li><a href="#org6eff0d6">6.1.1. Detection</a></li>
+<li><a href="#orgb39f82e">6.1.2. Description</a></li>
+<li><a href="#orgc635b35">6.1.3. Matching</a></li>
 </ul>
 </li>
-<li><a href="#orga1becf1">8. Motion Detection</a>
+<li><a href="#org089afdd">6.2. SIFT</a>
 <ul>
-<li><a href="#org67f7c49">8.1. Motion Field</a></li>
-<li><a href="#orgaf26107">8.2. Optical Flow</a></li>
+<li><a href="#org2cbd04f">6.2.1. Detecting Interest Points/ Blobs</a></li>
+<li><a href="#org048b5f4">6.2.2. Finding the Descriptor</a></li>
+<li><a href="#org8d41a0c">6.2.3. Matching</a></li>
 </ul>
 </li>
-<li><a href="#orgdc1a897">9. Object Recognition and Detection</a>
+<li><a href="#org6587efa">6.3. How SIFT is used in places?</a>
 <ul>
-<li><a href="#orgcd7d55c">9.1. Early Approaches for Human Detection</a>
-<ul>
-<li><a href="#orgc07585c">9.1.1. Haar Cascades</a></li>
-<li><a href="#org0254a7f">9.1.2. Histogram of Oriented Gradients</a></li>
-<li><a href="#org491ac1b">9.1.3. Shape-based Methods</a></li>
+<li><a href="#org1d2d636">6.3.1. How SIFT is used in Image registration or alignment</a></li>
+<li><a href="#org571590a">6.3.2. How SIFT is used in Object Recognition</a></li>
+<li><a href="#orgf7cb0d8">6.3.3. How SIFT is used in Image Stitching</a></li>
+<li><a href="#orgb47d8fe">6.3.4. SIFT vs YOLO</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge673e59">10. Stereo Matching</a>
+<li><a href="#org8b8d717">7. Pose Estimation</a>
 <ul>
-<li><a href="#org4c1b27b">10.1. Code</a></li>
+<li><a href="#orgdfe0007">7.1. What it is</a></li>
+<li><a href="#orgd4ecd40">7.2. Types of Pose Estimation</a></li>
+<li><a href="#org72499d1">7.3. Applications</a></li>
+<li><a href="#org8e7f6f5">7.4. How it works</a></li>
+<li><a href="#org814a1ac">7.5. Approaches for Pose Estimation</a></li>
+<li><a href="#org6881168">7.6. OpenPose</a></li>
+</ul>
+</li>
+<li><a href="#orgbac879e">8. Motion Detection</a>
+<ul>
+<li><a href="#org30ef49f">8.1. Motion Field</a></li>
+<li><a href="#org33bc83c">8.2. Optical Flow</a></li>
+</ul>
+</li>
+<li><a href="#orga021391">9. Object Recognition and Detection</a>
+<ul>
+<li><a href="#org100033d">9.1. Early Approaches for Human Detection</a>
+<ul>
+<li><a href="#org06ac8bc">9.1.1. Haar Cascades</a></li>
+<li><a href="#org9d38828">9.1.2. Histogram of Oriented Gradients</a></li>
+<li><a href="#org522fa00">9.1.3. Shape-based Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3d8f6c8">10. Stereo Matching</a>
+<ul>
+<li><a href="#org5871d4e">10.1. Code</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfce0c31" class="outline-2">
-<h2 id="orgfce0c31"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org63ccb66" class="outline-2">
+<h2 id="org63ccb66"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7378fe7" class="outline-3">
-<h3 id="org7378fe7"><span class="section-number-3">1.1.</span> What is Computer Vision</h3>
+<div id="outline-container-org34b649a" class="outline-3">
+<h3 id="org34b649a"><span class="section-number-3">1.1.</span> What is Computer Vision</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Computer Vision is a field of computer science, that helps computers
@@ -875,8 +1070,8 @@ like humans and possibly even better than humans.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org75cf6e9" class="outline-3">
-<h3 id="org75cf6e9"><span class="section-number-3">1.2.</span> What is Machine Vision</h3>
+<div id="outline-container-orgd61aeb0" class="outline-3">
+<h3 id="orgd61aeb0"><span class="section-number-3">1.2.</span> What is Machine Vision</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a branch of engineering that uses computer vision in industrial and
@@ -890,8 +1085,8 @@ be used for fast decisions. Eg. Currency Counting Machines.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0711e4f" class="outline-3">
-<h3 id="org0711e4f"><span class="section-number-3">1.3.</span> Machine Vision or Computer Vision</h3>
+<div id="outline-container-org59fa546" class="outline-3">
+<h3 id="org59fa546"><span class="section-number-3">1.3.</span> Machine Vision or Computer Vision</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Robot Guidance in Manufacturing <b>- Machine Vision</b></li>
@@ -903,8 +1098,8 @@ be used for fast decisions. Eg. Currency Counting Machines.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7974ac" class="outline-3">
-<h3 id="orgd7974ac"><span class="section-number-3">1.4.</span> What is Cognitive Vision</h3>
+<div id="outline-container-org1eda40a" class="outline-3">
+<h3 id="org1eda40a"><span class="section-number-3">1.4.</span> What is Cognitive Vision</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>It can refer to CV systems that can adapt to changes in a visual environment,
@@ -918,8 +1113,8 @@ attention, memory and pattern recognition.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org67f79d8" class="outline-3">
-<h3 id="org67f79d8"><span class="section-number-3">1.5.</span> Computer Vision or Cognitive Vision</h3>
+<div id="outline-container-orge9dcb4f" class="outline-3">
+<h3 id="orge9dcb4f"><span class="section-number-3">1.5.</span> Computer Vision or Cognitive Vision</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>Detecting a Pedestrian Crossing the road <b>- Computer Vision</b></li>
@@ -933,12 +1128,12 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1baed0b" class="outline-3">
-<h3 id="org1baed0b"><span class="section-number-3">1.6.</span> Why Computer Vision is Challenging</h3>
+<div id="outline-container-org7095b98" class="outline-3">
+<h3 id="org7095b98"><span class="section-number-3">1.6.</span> Why Computer Vision is Challenging</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org21dd33f" class="outline-4">
-<h4 id="org21dd33f"><span class="section-number-4">1.6.1.</span> Many-to-one Mapping</h4>
+<div id="outline-container-org0cbb659" class="outline-4">
+<h4 id="org0cbb659"><span class="section-number-4">1.6.1.</span> Many-to-one Mapping</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <ul class="org-ul">
 <li>A picture is a 2D representation of a 3D world.</li>
@@ -946,8 +1141,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org234d2b5" class="outline-4">
-<h4 id="org234d2b5"><span class="section-number-4">1.6.2.</span> Computationally Expensive</h4>
+<div id="outline-container-org52070a1" class="outline-4">
+<h4 id="org52070a1"><span class="section-number-4">1.6.2.</span> Computationally Expensive</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <ul class="org-ul">
 <li>A \(1920 \times 1080\) image has \(1920 \times 1080 \times 3\) values (which is 6220800).</li>
@@ -955,8 +1150,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org59a20ac" class="outline-4">
-<h4 id="org59a20ac"><span class="section-number-4">1.6.3.</span> We don&rsquo;t understand the recognition problem</h4>
+<div id="outline-container-orgeeeb8ce" class="outline-4">
+<h4 id="orgeeeb8ce"><span class="section-number-4">1.6.3.</span> We don&rsquo;t understand the recognition problem</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <ul class="org-ul">
 <li>We don&rsquo;t understand how human beings recognize.</li>
@@ -966,24 +1161,24 @@ reasoning. <b>- Cognitive Vision</b></li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8f52de7" class="outline-2">
-<h2 id="org8f52de7"><span class="section-number-2">2.</span> Digital Image Processing</h2>
+<div id="outline-container-orgd311d8f" class="outline-2">
+<h2 id="orgd311d8f"><span class="section-number-2">2.</span> Digital Image Processing</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org8b30548" class="outline-3">
-<h3 id="org8b30548"><span class="section-number-3">2.1.</span> What is a Digital Image?</h3>
+<div id="outline-container-orga4c079c" class="outline-3">
+<h3 id="orga4c079c"><span class="section-number-3">2.1.</span> What is a Digital Image?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s a 2D array of numbers (each called a pixel).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfc8b9d0" class="outline-3">
-<h3 id="orgfc8b9d0"><span class="section-number-3">2.2.</span> Operations on Images</h3>
+<div id="outline-container-orgfe78610" class="outline-3">
+<h3 id="orgfe78610"><span class="section-number-3">2.2.</span> Operations on Images</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgc02d02f" class="outline-4">
-<h4 id="orgc02d02f"><span class="section-number-4">2.2.1.</span> Computer Vision</h4>
+<div id="outline-container-org45c06b1" class="outline-4">
+<h4 id="org45c06b1"><span class="section-number-4">2.2.1.</span> Computer Vision</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>Understanding Images</li>
@@ -991,8 +1186,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf9270d5" class="outline-4">
-<h4 id="orgf9270d5"><span class="section-number-4">2.2.2.</span> Image Processing</h4>
+<div id="outline-container-org7c1889b" class="outline-4">
+<h4 id="org7c1889b"><span class="section-number-4">2.2.2.</span> Image Processing</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>Manipulating Images</li>
@@ -1000,8 +1195,8 @@ reasoning. <b>- Cognitive Vision</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7a95e31" class="outline-4">
-<h4 id="org7a95e31"><span class="section-number-4">2.2.3.</span> Computer Graphics</h4>
+<div id="outline-container-orgf9ff909" class="outline-4">
+<h4 id="orgf9ff909"><span class="section-number-4">2.2.3.</span> Computer Graphics</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
 <li>Generating Images</li>
@@ -1016,16 +1211,16 @@ reasoning. <b>- Cognitive Vision</b></li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8ea1812" class="outline-3">
-<h3 id="org8ea1812"><span class="section-number-3">2.3.</span> Electromagnetic Spectrum</h3>
+<div id="outline-container-org0cd38ea" class="outline-3">
+<h3 id="org0cd38ea"><span class="section-number-3">2.3.</span> Electromagnetic Spectrum</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>The human eye can see light with wavelengths from around 400 nm to 750 nm.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2407df4" class="outline-3">
-<h3 id="org2407df4"><span class="section-number-3">2.4.</span> Abstract Image</h3>
+<div id="outline-container-org0e06b6e" class="outline-3">
+<h3 id="org0e06b6e"><span class="section-number-3">2.4.</span> Abstract Image</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>An image can be represented by an image function \(f(x,y)\), where \(x\) and \(y\)
@@ -1034,12 +1229,12 @@ represent the pixel location.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee71a0f" class="outline-3">
-<h3 id="orgee71a0f"><span class="section-number-3">2.5.</span> Factors in Image Formation</h3>
+<div id="outline-container-org593b291" class="outline-3">
+<h3 id="org593b291"><span class="section-number-3">2.5.</span> Factors in Image Formation</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orgc7534f4" class="outline-4">
-<h4 id="orgc7534f4"><span class="section-number-4">2.5.1.</span> Geometry</h4>
+<div id="outline-container-org80235e9" class="outline-4">
+<h4 id="org80235e9"><span class="section-number-4">2.5.1.</span> Geometry</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <ul class="org-ul">
 <li>It&rsquo;s the mathematical study of shapes, sizes and spacial images.</li>
@@ -1049,8 +1244,8 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4891b92" class="outline-4">
-<h4 id="org4891b92"><span class="section-number-4">2.5.2.</span> Radiometry</h4>
+<div id="outline-container-org544f45c" class="outline-4">
+<h4 id="org544f45c"><span class="section-number-4">2.5.2.</span> Radiometry</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <ul class="org-ul">
 <li>Total amount of light radiating off a surface.</li>
@@ -1058,7 +1253,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org897fb59"></a>Radiant Power/Flux ( &phi; )<br />
+<li><a id="org8052467"></a>Radiant Power/Flux ( &phi; )<br />
 <div class="outline-text-5" id="text-2-5-2-1">
 <ul class="org-ul">
 <li>Radiant Flux is the total <b>optical power</b> emitted from a source.</li>
@@ -1066,7 +1261,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd234f45"></a>Radient Intensity (I)<br />
+<li><a id="org56113ab"></a>Radient Intensity (I)<br />
 <div class="outline-text-5" id="text-2-5-2-2">
 <ul class="org-ul">
 <li>Radiant Power &phi; per unit solid angle &Omega; from the source.</li>
@@ -1074,7 +1269,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgefa421b"></a>Irradiance (E)<br />
+<li><a id="org7f801d4"></a>Irradiance (E)<br />
 <div class="outline-text-5" id="text-2-5-2-3">
 <ul class="org-ul">
 <li>Radiant power &phi; incident on a surface area A.</li>
@@ -1083,7 +1278,7 @@ has to pick up 3-Dimensional features from the 2D image it has captured.</li>
 </ul>
 </div>
 </li>
-<li><a id="org15846a2"></a>Radiance (L)<br />
+<li><a id="orgb97c186"></a>Radiance (L)<br />
 <div class="outline-text-5" id="text-2-5-2-4">
 <ul class="org-ul">
 <li>Radiant flux/power emitted or reflected from a surface A, per unit solid angle
@@ -1099,7 +1294,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf44e8c8"></a>Summary<br />
+<li><a id="org87432a3"></a>Summary<br />
 <div class="outline-text-5" id="text-2-5-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1148,8 +1343,8 @@ direction.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org8b09ef7" class="outline-4">
-<h4 id="org8b09ef7"><span class="section-number-4">2.5.3.</span> Photometry</h4>
+<div id="outline-container-org6de080f" class="outline-4">
+<h4 id="org6de080f"><span class="section-number-4">2.5.3.</span> Photometry</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <ul class="org-ul">
 <li>Amount of <b>visible</b> light radiating off a surface.</li>
@@ -1157,7 +1352,7 @@ direction.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge8a04c2"></a>Luminous Flux &phi;<br />
+<li><a id="org7fa2edd"></a>Luminous Flux &phi;<br />
 <div class="outline-text-5" id="text-2-5-3-1">
 <ul class="org-ul">
 <li>Total <b>visible power</b> emitted from a source.</li>
@@ -1165,7 +1360,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7e01553"></a>Luminous Intensity (I)<br />
+<li><a id="orga30599a"></a>Luminous Intensity (I)<br />
 <div class="outline-text-5" id="text-2-5-3-2">
 <ul class="org-ul">
 <li>Total <b>visible power</b> per unit solid angle &Omega; from the source.</li>
@@ -1173,7 +1368,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0477d9c"></a>Illuminance (E)<br />
+<li><a id="org92ea1f1"></a>Illuminance (E)<br />
 <div class="outline-text-5" id="text-2-5-3-3">
 <ul class="org-ul">
 <li>Luminous power &phi; incident on a surface area A.</li>
@@ -1182,7 +1377,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="org49c5372"></a>Luminance (L)<br />
+<li><a id="org8df18df"></a>Luminance (L)<br />
 <div class="outline-text-5" id="text-2-5-3-4">
 <ul class="org-ul">
 <li>Luminous flux/power emitted or reflected from a surface A, per unit solid angle
@@ -1193,7 +1388,7 @@ direction.</li>
 </p>
 </div>
 </li>
-<li><a id="org69d0b0a"></a>Summary<br />
+<li><a id="org8086687"></a>Summary<br />
 <div class="outline-text-5" id="text-2-5-3-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1240,7 +1435,7 @@ direction.</li>
 </table>
 </div>
 </li>
-<li><a id="org9e0283d"></a>For example, a point source emits a total radiant power of &phi; = 12W uniformly in all directions. Find its radiant intensity.<br />
+<li><a id="org963db5f"></a>For example, a point source emits a total radiant power of &phi; = 12W uniformly in all directions. Find its radiant intensity.<br />
 <div class="outline-text-5" id="text-2-5-3-6">
 <ul class="org-ul">
 <li>Total solid angle for a sphere
@@ -1259,7 +1454,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgeedc954"></a>A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.<br />
+<li><a id="orgd048a6b"></a>A square white board of side length 1.5 meters is uniformly illumined by a lamp emitting 900 lumens. Calculate illuminance on the board.<br />
 <div class="outline-text-5" id="text-2-5-3-7">
 <ul class="org-ul">
 <li>Luminance flux \(L = 900 lm  \)</li>
@@ -1267,7 +1462,7 @@ direction.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf7ba74d"></a>A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.<br />
+<li><a id="org529f7ee"></a>A small diffuse light course emits 20 lumens of light uniformly into a solid angle of 1 steradian. The emitted light falls onto a rectangular emitting surface of dimensions length = 0.2 m, width = 0.1 m. Calculate the luminance.<br />
 <div class="outline-text-5" id="text-2-5-3-8">
 <ul class="org-ul">
 <li>\(\text{Luminance Intensity} = 20\frac{lm}{Sr}\)</li>
@@ -1278,16 +1473,16 @@ direction.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org6aa0571" class="outline-4">
-<h4 id="org6aa0571"><span class="section-number-4">2.5.4.</span> Digitization</h4>
+<div id="outline-container-orge389d2b" class="outline-4">
+<h4 id="orge389d2b"><span class="section-number-4">2.5.4.</span> Digitization</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org34f616c" class="outline-2">
-<h2 id="org34f616c"><span class="section-number-2">3.</span> How Image Processing Typically Works</h2>
+<div id="outline-container-org434a855" class="outline-2">
+<h2 id="org434a855"><span class="section-number-2">3.</span> How Image Processing Typically Works</h2>
 <div class="outline-text-2" id="text-3">
 
-<div id="orgecfdcfb" class="figure">
+<div id="org43d6dc3" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/imageSummary.png" alt="imageSummary.png" />
 </p>
 </div>
@@ -1296,8 +1491,8 @@ direction.</li>
 Here, DSP stands for Digital Signal Processing.
 </p>
 </div>
-<div id="outline-container-org185cc8c" class="outline-3">
-<h3 id="org185cc8c"><span class="section-number-3">3.1.</span> Optics</h3>
+<div id="outline-container-orga61a789" class="outline-3">
+<h3 id="orga61a789"><span class="section-number-3">3.1.</span> Optics</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>First light falls on the object.</li>
@@ -1308,24 +1503,24 @@ radiance intensity. It&rsquo;s for the rest of the quantities.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org58ab003" class="outline-3">
-<h3 id="org58ab003"><span class="section-number-3">3.2.</span> Aperture</h3>
+<div id="outline-container-org4cfe64c" class="outline-3">
+<h3 id="org4cfe64c"><span class="section-number-3">3.2.</span> Aperture</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>This adjusts how much light enters the camera.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc36fb5d" class="outline-3">
-<h3 id="orgc36fb5d"><span class="section-number-3">3.3.</span> Shutter</h3>
+<div id="outline-container-orga9ca309" class="outline-3">
+<h3 id="orga9ca309"><span class="section-number-3">3.3.</span> Shutter</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>This adjusts how long the light can enter the camera.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa9c162" class="outline-3">
-<h3 id="orgfa9c162"><span class="section-number-3">3.4.</span> Sensor (CCD/ CMOS)</h3>
+<div id="outline-container-org521383d" class="outline-3">
+<h3 id="org521383d"><span class="section-number-3">3.4.</span> Sensor (CCD/ CMOS)</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>The image capturing system (Charge-Coupled Device or Complementary Metal-Oxide
@@ -1336,8 +1531,8 @@ signals.</li>
 \[ \text{Light} \xrightarrow[\text{}]{\text{CCD / CMOS}}  \text{Electrical Signals}\]
 </p>
 </div>
-<div id="outline-container-org7550b9f" class="outline-4">
-<h4 id="org7550b9f"><span class="section-number-4">3.4.1.</span> Direction by Angles</h4>
+<div id="outline-container-org2a483ed" class="outline-4">
+<h4 id="org2a483ed"><span class="section-number-4">3.4.1.</span> Direction by Angles</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <ul class="org-ul">
 <li>The angle of a ray in a 3D plane is represented by two angles: 
@@ -1371,8 +1566,8 @@ irrelevant for this course).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9ebd757" class="outline-4">
-<h4 id="org9ebd757"><span class="section-number-4">3.4.2.</span> Photon Detection</h4>
+<div id="outline-container-org3577068" class="outline-4">
+<h4 id="org3577068"><span class="section-number-4">3.4.2.</span> Photon Detection</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 \[ E = h \times f \]
@@ -1389,8 +1584,8 @@ where:
 </ul>
 </div>
 </div>
-<div id="outline-container-org734a095" class="outline-4">
-<h4 id="org734a095"><span class="section-number-4">3.4.3.</span> Photon Energy to Radiant Power</h4>
+<div id="outline-container-org2e8767d" class="outline-4">
+<h4 id="org2e8767d"><span class="section-number-4">3.4.3.</span> Photon Energy to Radiant Power</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 \[\phi = NE_{photon}\]
@@ -1403,8 +1598,8 @@ where:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd30c06c" class="outline-4">
-<h4 id="orgd30c06c"><span class="section-number-4">3.4.4.</span> Summary of Light to Electrical Signal</h4>
+<div id="outline-container-orgb235470" class="outline-4">
+<h4 id="orgb235470"><span class="section-number-4">3.4.4.</span> Summary of Light to Electrical Signal</h4>
 <div class="outline-text-4" id="text-3-4-4">
 <p>
 \[ \text{Photon Energy} \xrightarrow[\text{}]{\phi = NE_{photon}}  \text{Radiant power} \xrightarrow[\text{}]{E = \frac{\phi}{A}} \text{Irradiance}  \xrightarrow[\text{}]{L = \text{BRDF} \times E} \text{Radiance} \xrightarrow[\text{}]{I = L \times A \cos(\theta)}  \text{Intensity} \rightarrow \text{Sensor Signal}\]
@@ -1412,8 +1607,8 @@ where:
 </div>
 </div>
 </div>
-<div id="outline-container-org9c63c2f" class="outline-3">
-<h3 id="org9c63c2f"><span class="section-number-3">3.5.</span> Gain (ISO)</h3>
+<div id="outline-container-org1bc29a5" class="outline-3">
+<h3 id="org1bc29a5"><span class="section-number-3">3.5.</span> Gain (ISO)</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>This amplifies the signal to combat low-light.</li>
@@ -1430,8 +1625,8 @@ Higher sensitivity to light, basically means it can capture light better.
 </ul>
 </div>
 </div>
-<div id="outline-container-org39b18a4" class="outline-3">
-<h3 id="org39b18a4"><span class="section-number-3">3.6.</span> Bayers Filter</h3>
+<div id="outline-container-org3e204c9" class="outline-3">
+<h3 id="org3e204c9"><span class="section-number-3">3.6.</span> Bayers Filter</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li>Instead of having 3 sensors (each for one color), Kodak found a way to use one
@@ -1450,8 +1645,8 @@ remove one among red and blue, and then from the second row you remove the
 other. Green stays in both the rows.</li>
 </ul>
 </div>
-<div id="outline-container-orgdad387f" class="outline-4">
-<h4 id="orgdad387f"><span class="section-number-4">3.6.1.</span> Types of Bayer Filters</h4>
+<div id="outline-container-org4a10adb" class="outline-4">
+<h4 id="org4a10adb"><span class="section-number-4">3.6.1.</span> Types of Bayer Filters</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <ul class="org-ul">
 <li>There are different types of bayers filter (most commonly RGGB or R-G-R or
@@ -1461,8 +1656,8 @@ R-G-B-G pattern), which also include GRBG (aka G-R-G patter), GBRG and BGGR.</li
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0457b6" class="outline-4">
-<h4 id="orge0457b6"><span class="section-number-4">3.6.2.</span> Extracting RGB matrices from Bayer Pattern</h4>
+<div id="outline-container-orgff0671f" class="outline-4">
+<h4 id="orgff0671f"><span class="section-number-4">3.6.2.</span> Extracting RGB matrices from Bayer Pattern</h4>
 <div class="outline-text-4" id="text-3-6-2">
 <p>
 In our example, we&rsquo;ll use a sample GRBG matrix.
@@ -1553,8 +1748,8 @@ A more Pythonic way would be:
 </div>
 </div>
 </div>
-<div id="outline-container-org8fa175d" class="outline-3">
-<h3 id="org8fa175d"><span class="section-number-3">3.7.</span> Demosaicing / Debayering</h3>
+<div id="outline-container-orga371ebd" class="outline-3">
+<h3 id="orga371ebd"><span class="section-number-3">3.7.</span> Demosaicing / Debayering</h3>
 <div class="outline-text-3" id="text-3-7">
 <ul class="org-ul">
 <li>This is an algorithm to generate the full RGB image, from a Bayers Image (each
@@ -1568,8 +1763,8 @@ neighbouring green and blue pixels. There are other ways for this
 interpolation though.</li>
 </ul>
 </div>
-<div id="outline-container-org130bc3c" class="outline-4">
-<h4 id="org130bc3c"><span class="section-number-4">3.7.1.</span> Nearest Neighbour Interpolation</h4>
+<div id="outline-container-org9d656a6" class="outline-4">
+<h4 id="org9d656a6"><span class="section-number-4">3.7.1.</span> Nearest Neighbour Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
 <li>Here, we copy the missing values from the neighbouring pixel of the same
@@ -1629,8 +1824,8 @@ main()
 </ul>
 </div>
 </div>
-<div id="outline-container-org5aaf016" class="outline-4">
-<h4 id="org5aaf016"><span class="section-number-4">3.7.2.</span> Bilinear Interpolation</h4>
+<div id="outline-container-org1e83d51" class="outline-4">
+<h4 id="org1e83d51"><span class="section-number-4">3.7.2.</span> Bilinear Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-2">
 <ul class="org-ul">
 <li>You consider all of the neighbours, and take the average.</li>
@@ -1648,8 +1843,8 @@ images.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org864613b" class="outline-4">
-<h4 id="org864613b"><span class="section-number-4">3.7.3.</span> Gradient Based Interpolation</h4>
+<div id="outline-container-org1d44448" class="outline-4">
+<h4 id="org1d44448"><span class="section-number-4">3.7.3.</span> Gradient Based Interpolation</h4>
 <div class="outline-text-4" id="text-3-7-3">
 <ul class="org-ul">
 <li>Instead of taking average of all neighbours, you take the average along one
@@ -1678,12 +1873,12 @@ neighbors along the same vertical and horizontal line.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgba423c4" class="outline-3">
-<h3 id="orgba423c4"><span class="section-number-3">3.8.</span> Sharpen</h3>
+<div id="outline-container-org30142f9" class="outline-3">
+<h3 id="org30142f9"><span class="section-number-3">3.8.</span> Sharpen</h3>
 <div class="outline-text-3" id="text-3-8">
 </div>
-<div id="outline-container-orgb51c22b" class="outline-4">
-<h4 id="orgb51c22b"><span class="section-number-4">3.8.1.</span> Unsharp Masking</h4>
+<div id="outline-container-orgd7ecda9" class="outline-4">
+<h4 id="orgd7ecda9"><span class="section-number-4">3.8.1.</span> Unsharp Masking</h4>
 <div class="outline-text-4" id="text-3-8-1">
 <ul class="org-ul">
 <li>Blur the image using a Gaussian filter</li>
@@ -1723,8 +1918,8 @@ cv2.destroyAllWindows()
 </div>
 </div>
 </div>
-<div id="outline-container-org80fc89c" class="outline-3">
-<h3 id="org80fc89c"><span class="section-number-3">3.9.</span> White Balance</h3>
+<div id="outline-container-orgdacf7eb" class="outline-3">
+<h3 id="orgdacf7eb"><span class="section-number-3">3.9.</span> White Balance</h3>
 <div class="outline-text-3" id="text-3-9">
 <ul class="org-ul">
 <li>Different light sources create different color casts on the sensor output.</li>
@@ -1733,8 +1928,8 @@ warmer colors create a reddish tone and cooler colors create a blueish tone.</li
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd4ba0f5" class="outline-3">
-<h3 id="orgd4ba0f5"><span class="section-number-3">3.10.</span> Gamma/Curve Correction</h3>
+<div id="outline-container-org1a80318" class="outline-3">
+<h3 id="org1a80318"><span class="section-number-3">3.10.</span> Gamma/Curve Correction</h3>
 <div class="outline-text-3" id="text-3-10">
 <ul class="org-ul">
 <li>Ideally, the graph between light signals input to a monitor, and the output
@@ -1781,8 +1976,8 @@ white is unaffected).</li>
 <li><b>Higher</b> the value of gamma, <b>darker</b> the midtones appear to be.</li>
 </ul>
 </div>
-<div id="outline-container-org64b2da4" class="outline-4">
-<h4 id="org64b2da4"><span class="section-number-4">3.10.1.</span> Inverse Gamma (Gamma Encoding)</h4>
+<div id="outline-container-orgd86da2a" class="outline-4">
+<h4 id="orgd86da2a"><span class="section-number-4">3.10.1.</span> Inverse Gamma (Gamma Encoding)</h4>
 <div class="outline-text-4" id="text-3-10-1">
 <ul class="org-ul">
 <li>Before transmission, we apply inverse value of gamma:
@@ -1790,8 +1985,8 @@ white is unaffected).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2315bbf" class="outline-4">
-<h4 id="org2315bbf"><span class="section-number-4">3.10.2.</span> Gamma Decoding</h4>
+<div id="outline-container-org9870f19" class="outline-4">
+<h4 id="org9870f19"><span class="section-number-4">3.10.2.</span> Gamma Decoding</h4>
 <div class="outline-text-4" id="text-3-10-2">
 <ul class="org-ul">
 <li>When the image is displayed, we substitute \(V = L^{\frac{1}{\gamma}}\), in the above
@@ -1804,12 +1999,12 @@ human vision.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6a5026b" class="outline-3">
-<h3 id="org6a5026b"><span class="section-number-3">3.11.</span> Compress</h3>
+<div id="outline-container-org2f93540" class="outline-3">
+<h3 id="org2f93540"><span class="section-number-3">3.11.</span> Compress</h3>
 <div class="outline-text-3" id="text-3-11">
 </div>
-<div id="outline-container-org55c5567" class="outline-4">
-<h4 id="org55c5567"><span class="section-number-4">3.11.1.</span> <code>.jpeg</code></h4>
+<div id="outline-container-org0bbef8f" class="outline-4">
+<h4 id="org0bbef8f"><span class="section-number-4">3.11.1.</span> <code>.jpeg</code></h4>
 <div class="outline-text-4" id="text-3-11-1">
 <ul class="org-ul">
 <li>JPEG stands for <b>Joint Photographic Experts Group</b>, and this is a <b>lossy
@@ -1818,8 +2013,8 @@ decomposition</b> (as in image data is permanently discarded).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8ad2e0f" class="outline-4">
-<h4 id="org8ad2e0f"><span class="section-number-4">3.11.2.</span> Chrominance Reduction</h4>
+<div id="outline-container-org67fb1da" class="outline-4">
+<h4 id="org67fb1da"><span class="section-number-4">3.11.2.</span> Chrominance Reduction</h4>
 <div class="outline-text-4" id="text-3-11-2">
 <ul class="org-ul">
 <li>Chrominance reduction is the process of reducing the amount of color in the
@@ -1835,7 +2030,7 @@ smaller in size.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org26ebb9e"></a>Luminance and Chrominance<br />
+<li><a id="org80050c9"></a>Luminance and Chrominance<br />
 <div class="outline-text-5" id="text-3-11-2-1">
 <ul class="org-ul">
 <li>In video systems, \(Y\) is <b>luminance</b> (brightness) and both \(Cb\) and \(Cr\)
@@ -1851,7 +2046,7 @@ represent <b>chrominance</b> (color information).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc4f98bf"></a>Chroma Downsampling<br />
+<li><a id="org6d5e0a6"></a>Chroma Downsampling<br />
 <div class="outline-text-5" id="text-3-11-2-2">
 <ul class="org-ul">
 <li>This is what you call it when you store less color information that brightness
@@ -1895,28 +2090,28 @@ horizontal pixels:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgbc80d26"></a>4:4:4<br />
+<li><a id="org9d92cca"></a>4:4:4<br />
 <div class="outline-text-6" id="text-3-11-2-2-1">
 
-<div id="org3310391" class="figure">
+<div id="org71953f8" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/444.png" alt="444.png" />
 </p>
 </div>
 </div>
 </li>
-<li><a id="org218b468"></a>4:2:2<br />
+<li><a id="org48185e4"></a>4:2:2<br />
 <div class="outline-text-6" id="text-3-11-2-2-2">
 
-<div id="org2513d88" class="figure">
+<div id="org2076126" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/422.png" alt="422.png" />
 </p>
 </div>
 </div>
 </li>
-<li><a id="org5c60fbd"></a>4:2:0<br />
+<li><a id="org9cba45e"></a>4:2:0<br />
 <div class="outline-text-6" id="text-3-11-2-2-3">
 
-<div id="orgf78164f" class="figure">
+<div id="orgef130e2" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-vision-and-image-processing/420.png" alt="420.png" />
 </p>
 </div>
@@ -1926,8 +2121,8 @@ horizontal pixels:
 </li>
 </ol>
 </div>
-<div id="outline-container-org3e1f2cd" class="outline-4">
-<h4 id="org3e1f2cd"><span class="section-number-4">3.11.3.</span> Quantization</h4>
+<div id="outline-container-org13fa53d" class="outline-4">
+<h4 id="org13fa53d"><span class="section-number-4">3.11.3.</span> Quantization</h4>
 <div class="outline-text-4" id="text-3-11-3">
 <ul class="org-ul">
 <li>This is later <b>sampled spacially</b> into pixels.</li>
@@ -1939,15 +2134,15 @@ manipulated. This process is called <b>quantization</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdddec0a" class="outline-2">
-<h2 id="orgdddec0a"><span class="section-number-2">4.</span> Camera Calibration</h2>
+<div id="outline-container-org4f09a7d" class="outline-2">
+<h2 id="org4f09a7d"><span class="section-number-2">4.</span> Camera Calibration</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>It&rsquo;s the process of estimating camera parameters.</li>
 </ul>
 </div>
-<div id="outline-container-orgd81a6cf" class="outline-3">
-<h3 id="orgd81a6cf"><span class="section-number-3">4.1.</span> Fundamental Problem</h3>
+<div id="outline-container-orge5d43ed" class="outline-3">
+<h3 id="orge5d43ed"><span class="section-number-3">4.1.</span> Fundamental Problem</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 A real camera is not an ideal pinhole camera. The principle is same but the
@@ -1958,12 +2153,12 @@ difference is that, a real camera has:
 </ul>
 </div>
 </div>
-<div id="outline-container-orga358805" class="outline-3">
-<h3 id="orga358805"><span class="section-number-3">4.2.</span> Essential Parameters</h3>
+<div id="outline-container-orgc563836" class="outline-3">
+<h3 id="orgc563836"><span class="section-number-3">4.2.</span> Essential Parameters</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org09d2349" class="outline-4">
-<h4 id="org09d2349"><span class="section-number-4">4.2.1.</span> Intrinsics</h4>
+<div id="outline-container-orgfcacb20" class="outline-4">
+<h4 id="orgfcacb20"><span class="section-number-4">4.2.1.</span> Intrinsics</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>These are the parameters inside the camera.</li>
@@ -1995,7 +2190,7 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org31c2e0f"></a>Radial Distortion<br />
+<li><a id="org17c2244"></a>Radial Distortion<br />
 <div class="outline-text-5" id="text-4-2-1-1">
 <ul class="org-ul">
 <li>This occurs when the lens is not spherical.</li>
@@ -2003,7 +2198,7 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </ul>
 </div>
 </li>
-<li><a id="org76c2919"></a>Tangential Distortion<br />
+<li><a id="orge1fed17"></a>Tangential Distortion<br />
 <div class="outline-text-5" id="text-4-2-1-2">
 <ul class="org-ul">
 <li>This occurs when the lens and the image plane are not parallel.</li>
@@ -2013,8 +2208,8 @@ firmware itself, while in others, the user will have to explicitly calibrate.</l
 </li>
 </ol>
 </div>
-<div id="outline-container-orgfb72ac9" class="outline-4">
-<h4 id="orgfb72ac9"><span class="section-number-4">4.2.2.</span> Extrinsics</h4>
+<div id="outline-container-org82afba5" class="outline-4">
+<h4 id="org82afba5"><span class="section-number-4">4.2.2.</span> Extrinsics</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <ul class="org-ul">
 <li>These define camera position (translation) and orientation (Rotation matrix).</li>
@@ -2026,8 +2221,8 @@ matrix</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge32fb74" class="outline-4">
-<h4 id="orge32fb74"><span class="section-number-4">4.2.3.</span> How they all come together</h4>
+<div id="outline-container-org65ff107" class="outline-4">
+<h4 id="org65ff107"><span class="section-number-4">4.2.3.</span> How they all come together</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 \[ \begin{bmatrix} u \\ v \\ 1\end{bmatrix} =  \begin{bmatrix} f_{x} & 0 & c_{x}\\ 0 & f_{y} & c_{y}\\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11} & r_{12} & r_{13} & t_x \\ r_{21} & r_{22} & r_{23} & t_y \\ r_{31} & r_{32} & r_{33} & t_z  \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1\end{bmatrix} \]
@@ -2036,15 +2231,15 @@ matrix</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org12e473d" class="outline-2">
-<h2 id="org12e473d"><span class="section-number-2">5.</span> Segmentation</h2>
+<div id="outline-container-orgab6a789" class="outline-2">
+<h2 id="orgab6a789"><span class="section-number-2">5.</span> Segmentation</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Image segmentation is the task of finding group of pixels that &ldquo;go together&rdquo;.</li>
 </ul>
 </div>
-<div id="outline-container-org1ffff1d" class="outline-3">
-<h3 id="org1ffff1d"><span class="section-number-3">5.1.</span> Simplest form of Segmentation: Binary Segmentation</h3>
+<div id="outline-container-org29b8d72" class="outline-3">
+<h3 id="org29b8d72"><span class="section-number-3">5.1.</span> Simplest form of Segmentation: Binary Segmentation</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Having a fixed threshold for all pixels.</li>
@@ -2053,8 +2248,8 @@ matrix</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga569a42" class="outline-3">
-<h3 id="orga569a42"><span class="section-number-3">5.2.</span> Gestalt Theory of Perception</h3>
+<div id="outline-container-org4c7e64b" class="outline-3">
+<h3 id="org4c7e64b"><span class="section-number-3">5.2.</span> Gestalt Theory of Perception</h3>
 <div class="outline-text-3" id="text-5-2">
 <blockquote>
 <p>
@@ -2062,8 +2257,8 @@ The mind perceives objects as unified wholes (Gestalts) rather than just collect
 </p>
 </blockquote>
 </div>
-<div id="outline-container-orga6bc621" class="outline-4">
-<h4 id="orga6bc621"><span class="section-number-4">5.2.1.</span> Proximity Principles</h4>
+<div id="outline-container-org5626a82" class="outline-4">
+<h4 id="org5626a82"><span class="section-number-4">5.2.1.</span> Proximity Principles</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 Here, we perceive 4 objects.
@@ -2082,8 +2277,8 @@ But here we perceive two objects, because we group based on distance.
 </div>
 </div>
 </div>
-<div id="outline-container-org986b66c" class="outline-4">
-<h4 id="org986b66c"><span class="section-number-4">5.2.2.</span> Similarity</h4>
+<div id="outline-container-orgf83fe32" class="outline-4">
+<h4 id="orgf83fe32"><span class="section-number-4">5.2.2.</span> Similarity</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 Here, we perceive 4 objects.
@@ -2116,8 +2311,8 @@ It&rsquo;s a human tendancy to pick proximity over similarity.
 </p>
 </div>
 </div>
-<div id="outline-container-org062fa88" class="outline-4">
-<h4 id="org062fa88"><span class="section-number-4">5.2.3.</span> Common Fate</h4>
+<div id="outline-container-org021b3d4" class="outline-4">
+<h4 id="org021b3d4"><span class="section-number-4">5.2.3.</span> Common Fate</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li>You group based on what action the objects are performing.</li>
@@ -2126,16 +2321,16 @@ stationary objects would be grouped together too.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9cd575" class="outline-4">
-<h4 id="orge9cd575"><span class="section-number-4">5.2.4.</span> Common Region / Connectivity</h4>
+<div id="outline-container-orgcb7635a" class="outline-4">
+<h4 id="orgcb7635a"><span class="section-number-4">5.2.4.</span> Common Region / Connectivity</h4>
 <div class="outline-text-4" id="text-5-2-4">
 <ul class="org-ul">
 <li>If you draw a boundary around some objects, you perceive them as one group.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org238e329" class="outline-4">
-<h4 id="org238e329"><span class="section-number-4">5.2.5.</span> Continuity Principle</h4>
+<div id="outline-container-orgc7d07f7" class="outline-4">
+<h4 id="orgc7d07f7"><span class="section-number-4">5.2.5.</span> Continuity Principle</h4>
 <div class="outline-text-4" id="text-5-2-5">
 <ul class="org-ul">
 <li>Our eyes naturally folow smooth paths, even if the path are constituted by
@@ -2144,16 +2339,16 @@ separate parts.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4eeddbf" class="outline-4">
-<h4 id="org4eeddbf"><span class="section-number-4">5.2.6.</span> Symmetry Principle</h4>
+<div id="outline-container-orgaaa0936" class="outline-4">
+<h4 id="orgaaa0936"><span class="section-number-4">5.2.6.</span> Symmetry Principle</h4>
 <div class="outline-text-4" id="text-5-2-6">
 <ul class="org-ul">
 <li>Two symmetrical objects are perceived to be a group.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org19ecc6c" class="outline-4">
-<h4 id="org19ecc6c"><span class="section-number-4">5.2.7.</span> Illusory Contours - Illusions&rsquo; grouping</h4>
+<div id="outline-container-orgcfab791" class="outline-4">
+<h4 id="orgcfab791"><span class="section-number-4">5.2.7.</span> Illusory Contours - Illusions&rsquo; grouping</h4>
 <div class="outline-text-4" id="text-5-2-7">
 <ul class="org-ul">
 <li>Our brains fill in missing parts of an image.</li>
@@ -2161,12 +2356,12 @@ separate parts.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0bf0e44" class="outline-3">
-<h3 id="org0bf0e44"><span class="section-number-3">5.3.</span> Two approaches towards Segmentation</h3>
+<div id="outline-container-org0dcaced" class="outline-3">
+<h3 id="org0dcaced"><span class="section-number-3">5.3.</span> Two approaches towards Segmentation</h3>
 <div class="outline-text-3" id="text-5-3">
 </div>
-<div id="outline-container-orgbc57f07" class="outline-4">
-<h4 id="orgbc57f07"><span class="section-number-4">5.3.1.</span> Top Down</h4>
+<div id="outline-container-org8d2405a" class="outline-4">
+<h4 id="org8d2405a"><span class="section-number-4">5.3.1.</span> Top Down</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Here, you already have prior knowledge about objects and you use this to
@@ -2176,7 +2371,7 @@ perform segmentation.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org6a93a55"></a>Active Contours - Snake<br />
+<li><a id="orga988a26"></a>Active Contours - Snake<br />
 <div class="outline-text-5" id="text-5-3-1-1">
 <ul class="org-ul">
 <li>You segment using <b>curves</b>, not pixels.</li>
@@ -2196,7 +2391,7 @@ of your lips when you speak, or a car based on the angle you&rsquo;re viewing it
 </ul>
 </div>
 </li>
-<li><a id="org3badb28"></a>Intelligent Scissors<br />
+<li><a id="org4c45bb0"></a>Intelligent Scissors<br />
 <div class="outline-text-5" id="text-5-3-1-2">
 <ul class="org-ul">
 <li>The user has to click some points around the boundaries, using which the
@@ -2206,8 +2401,8 @@ algorithm finds a curve that follows strong boundaries.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org1df5d89" class="outline-4">
-<h4 id="org1df5d89"><span class="section-number-4">5.3.2.</span> Bottom Up</h4>
+<div id="outline-container-org5fe60b2" class="outline-4">
+<h4 id="org5fe60b2"><span class="section-number-4">5.3.2.</span> Bottom Up</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Uses only image evidence, where you group pixels based on similarity.</li>
@@ -2218,16 +2413,16 @@ information from this.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org079146c"></a>Clustering Based Segmentation<br />
+<li><a id="org208a9a2"></a>Clustering Based Segmentation<br />
 <div class="outline-text-5" id="text-5-3-2-1">
 <ul class="org-ul">
 <li>The disadvantages are that a cluster doesn&rsquo;t necessarily mean an object.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgf928ab1"></a>K-Means<br />
+<li><a id="org6cac715"></a>K-Means<br />
 <ol class="org-ol">
-<li><a id="orgba63057"></a>Example: <code>Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]</code>, <code>k = 2</code>, <code>Random Centroids = [(1,1), (5, 5)]</code><br />
+<li><a id="orgd72496e"></a>Example: <code>Data Points = [(1,1), (1,2), (2,1), (4,4), (5,6), (7,7), (8,9), (9,8)]</code>, <code>k = 2</code>, <code>Random Centroids = [(1,1), (5, 5)]</code><br />
 <div class="outline-text-7" id="text-5-3-2-1-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2407,7 +2602,7 @@ the average of the points is the same point as the cluster centroid.
 </table>
 </div>
 </li>
-<li><a id="org6c15c93"></a>Disadvantage<br />
+<li><a id="orgafa2830"></a>Disadvantage<br />
 <div class="outline-text-7" id="text-5-3-2-1-1-2">
 <ul class="org-ul">
 <li>The issue is that you need to find the right value of \(k\).</li>
@@ -2417,14 +2612,14 @@ the average of the points is the same point as the cluster centroid.
 </li>
 </ol>
 </li>
-<li><a id="org2f2f5b1"></a>Mean Shift Segmentation (Hill Climb)<br />
+<li><a id="org804adf2"></a>Mean Shift Segmentation (Hill Climb)<br />
 <div class="outline-text-6" id="text-5-3-2-1-2">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </li>
-<li><a id="org00f470b"></a>Graph Based Segmentation<br />
+<li><a id="org18b45f7"></a>Graph Based Segmentation<br />
 <div class="outline-text-6" id="text-5-3-2-1-3">
 <ul class="org-ul">
 <li>You denote an image as a graph, where 
@@ -2436,7 +2631,7 @@ the weight, more the similarity).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org3e791bd"></a>Measuring Affinity<br />
+<li><a id="org7dc541c"></a>Measuring Affinity<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-1">
 <ul class="org-ul">
 <li>Pixel Dissimilarity:</li>
@@ -2446,7 +2641,7 @@ the weight, more the similarity).</li>
 </p>
 </div>
 </li>
-<li><a id="orge2b3a51"></a>Graph Cut<br />
+<li><a id="orge90071a"></a>Graph Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-2">
 <ul class="org-ul">
 <li>Cut \((V_{A},V_{B})\) is a partition of vertices \(V\) of a graph into two disjoint
@@ -2456,7 +2651,7 @@ groups (hence being segmented).</li>
 </ul>
 </div>
 </li>
-<li><a id="org663b0e7"></a>Min-Cut<br />
+<li><a id="org4ac4251"></a>Min-Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-3">
 <ul class="org-ul">
 <li><b>Min-Cut</b> algorithm is where you cut the graph only the pair of vertices have
@@ -2468,7 +2663,7 @@ It&rsquo;s the sum of weights of all edges starting from A</li>
 </ul>
 </div>
 </li>
-<li><a id="org4c85371"></a>Normalized Cut<br />
+<li><a id="org81349ae"></a>Normalized Cut<br />
 <div class="outline-text-7" id="text-5-3-2-1-3-4">
 <ul class="org-ul">
 <li>The value of a normalized cut ranges from 0 to 2 (lower the number, better the
@@ -2494,14 +2689,14 @@ segments, and strong internal connection within the segments.</li>
 </li>
 </ol>
 </li>
-<li><a id="org43695b6"></a>Edge Based Segmentation<br />
+<li><a id="org0946582"></a>Edge Based Segmentation<br />
 <div class="outline-text-5" id="text-5-3-2-2">
 <ul class="org-ul">
 <li>Here, you separate an object based on edges.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org335f466"></a>Edges<br />
+<li><a id="orgc1872ad"></a>Edges<br />
 <div class="outline-text-6" id="text-5-3-2-2-1">
 <ul class="org-ul">
 <li>An edge is a rapid change in image intensity within a small region.</li>
@@ -2515,14 +2710,14 @@ segments, and strong internal connection within the segments.</li>
 </ul>
 </div>
 </li>
-<li><a id="org2562fcf"></a>Edge Detection<br />
+<li><a id="orgc051f17"></a>Edge Detection<br />
 <div class="outline-text-6" id="text-5-3-2-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s a method of segmenting an image into regions of discontinuity.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org7d0a65e"></a>Using Convolution<br />
+<li><a id="orgbc1ebdd"></a>Using Convolution<br />
 <div class="outline-text-7" id="text-5-3-2-2-2-1">
 <ul class="org-ul">
 <li>For edge detection, you have to run a kernel across the image, before which
@@ -2532,7 +2727,7 @@ segments, and strong internal connection within the segments.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org6c8835a"></a>Different Mask/Kernels<br />
+<li><a id="orgb39f49b"></a>Different Mask/Kernels<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-1-1">
 <p>
 \[ \begin{bmatrix} -1 & -1 & -1\\ G & B & G\\ R & G & R\end{bmatrix}\]
@@ -2541,9 +2736,9 @@ segments, and strong internal connection within the segments.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf5ae12e"></a>Edge Detection Operators<br />
+<li><a id="orga8d338e"></a>Edge Detection Operators<br />
 <ol class="org-ol">
-<li><a id="org5227b3b"></a>Gradient<br />
+<li><a id="org2a5bf91"></a>Gradient<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-2-1">
 <ul class="org-ul">
 <li>They are based on first-order derivative.</li>
@@ -2563,7 +2758,7 @@ the pixel in the middle is an edge.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org854f014"></a>Sobel<br />
+<li><a id="org0e84731"></a>Sobel<br />
 <div class="outline-text-9" id="text-5-3-2-2-2-2-1-1">
 <ul class="org-ul">
 <li>For detecting Vertical Edges, you use horizontal matrix.
@@ -2600,7 +2795,7 @@ else assign <code>0</code>. The path along the <code>1</code>&rsquo;s trace the 
 </li>
 </ol>
 </li>
-<li><a id="orgf1212fa"></a>Gaussian<br />
+<li><a id="org971af85"></a>Gaussian<br />
 <div class="outline-text-8" id="text-5-3-2-2-2-2-2">
 <ul class="org-ul">
 <li>Examples, Canny, Laplacian</li>
@@ -2617,8 +2812,8 @@ else assign <code>0</code>. The path along the <code>1</code>&rsquo;s trace the 
 </div>
 </div>
 </div>
-<div id="outline-container-org8a4beff" class="outline-2">
-<h2 id="org8a4beff"><span class="section-number-2">6.</span> Feature Extraction</h2>
+<div id="outline-container-orgc04e52b" class="outline-2">
+<h2 id="orgc04e52b"><span class="section-number-2">6.</span> Feature Extraction</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>A feature is a piece of information relevant for solving a computational task.</li>
@@ -2631,19 +2826,19 @@ things which don&rsquo;t depend on the scale, intensity and orientation, and the
 are called features.</li>
 </ul>
 </div>
-<div id="outline-container-org5b305ca" class="outline-3">
-<h3 id="org5b305ca"><span class="section-number-3">6.1.</span> Main Components of Feature Detection and Matching</h3>
+<div id="outline-container-orga18f3c6" class="outline-3">
+<h3 id="orga18f3c6"><span class="section-number-3">6.1.</span> Main Components of Feature Detection and Matching</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org6e5fd44" class="outline-4">
-<h4 id="org6e5fd44"><span class="section-number-4">6.1.1.</span> Detection</h4>
+<div id="outline-container-org6eff0d6" class="outline-4">
+<h4 id="org6eff0d6"><span class="section-number-4">6.1.1.</span> Detection</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>This is where you identify the <b>interest point</b> or <b>blob</b>.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgbe6e7a2"></a>Interest Point<br />
+<li><a id="org8fd6818"></a>Interest Point<br />
 <div class="outline-text-5" id="text-6-1-1-1">
 <ul class="org-ul">
 <li>The interest point is the point at which the direction of the boundary of the
@@ -2657,7 +2852,7 @@ interest point.</li>
 </ul>
 </div>
 </li>
-<li><a id="org2455b0a"></a>Blob<br />
+<li><a id="org4ee38fc"></a>Blob<br />
 <div class="outline-text-5" id="text-6-1-1-2">
 <ul class="org-ul">
 <li>Instead of using a single point, you use a collection/plane of interest points
@@ -2668,8 +2863,8 @@ called a <b>blob</b> (essentially, a sub-image).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org9166606" class="outline-4">
-<h4 id="org9166606"><span class="section-number-4">6.1.2.</span> Description</h4>
+<div id="outline-container-orgb39f82e" class="outline-4">
+<h4 id="orgb39f82e"><span class="section-number-4">6.1.2.</span> Description</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>The local appearance of the surroundings of the interest point is described
@@ -2681,8 +2876,8 @@ Feature Transform</b> (SIFT), <b>SURF</b>, <b>Binary Robust Invariant Scalable K
 </ul>
 </div>
 </div>
-<div id="outline-container-org2b78166" class="outline-4">
-<h4 id="org2b78166"><span class="section-number-4">6.1.3.</span> Matching</h4>
+<div id="outline-container-orgc635b35" class="outline-4">
+<h4 id="orgc635b35"><span class="section-number-4">6.1.3.</span> Matching</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>This is establishing correspondence between two points.</li>
@@ -2690,19 +2885,19 @@ Feature Transform</b> (SIFT), <b>SURF</b>, <b>Binary Robust Invariant Scalable K
 </div>
 </div>
 </div>
-<div id="outline-container-org8851978" class="outline-3">
-<h3 id="org8851978"><span class="section-number-3">6.2.</span> SIFT</h3>
+<div id="outline-container-org089afdd" class="outline-3">
+<h3 id="org089afdd"><span class="section-number-3">6.2.</span> SIFT</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>This can both select the interest point, and give the descriptor vector.</li>
 </ul>
 </div>
-<div id="outline-container-org5b973a5" class="outline-4">
-<h4 id="org5b973a5"><span class="section-number-4">6.2.1.</span> Detecting Interest Points/ Blobs</h4>
+<div id="outline-container-org2cbd04f" class="outline-4">
+<h4 id="org2cbd04f"><span class="section-number-4">6.2.1.</span> Detecting Interest Points/ Blobs</h4>
 <div class="outline-text-4" id="text-6-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org3025594"></a>Laplacian of Gaussian (LoG)<br />
+<li><a id="org7a17b3f"></a>Laplacian of Gaussian (LoG)<br />
 <div class="outline-text-5" id="text-6-2-1-1">
 <ul class="org-ul">
 <li>We use and image processing operator called <b>Normalized Laplacian of Gaussian</b>
@@ -2725,7 +2920,7 @@ negative curvature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4a2f3dd"></a>Difference of Gaussian (DoG)<br />
+<li><a id="orgce5673e"></a>Difference of Gaussian (DoG)<br />
 <div class="outline-text-5" id="text-6-2-1-2">
 <ul class="org-ul">
 <li>Since laplacian is an expensive operation, SIFT uses DoG.</li>
@@ -2735,41 +2930,41 @@ negative curvature.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org42168ac" class="outline-4">
-<h4 id="org42168ac"><span class="section-number-4">6.2.2.</span> Finding the Descriptor</h4>
+<div id="outline-container-org048b5f4" class="outline-4">
+<h4 id="org048b5f4"><span class="section-number-4">6.2.2.</span> Finding the Descriptor</h4>
 </div>
 
-<div id="outline-container-org982a430" class="outline-4">
-<h4 id="org982a430"><span class="section-number-4">6.2.3.</span> Matching</h4>
+<div id="outline-container-org8d41a0c" class="outline-4">
+<h4 id="org8d41a0c"><span class="section-number-4">6.2.3.</span> Matching</h4>
 </div>
 </div>
-<div id="outline-container-org18e6d59" class="outline-3">
-<h3 id="org18e6d59"><span class="section-number-3">6.3.</span> How SIFT is used in places?</h3>
+<div id="outline-container-org6587efa" class="outline-3">
+<h3 id="org6587efa"><span class="section-number-3">6.3.</span> How SIFT is used in places?</h3>
 <div class="outline-text-3" id="text-6-3">
 </div>
-<div id="outline-container-orga820c96" class="outline-4">
-<h4 id="orga820c96"><span class="section-number-4">6.3.1.</span> How SIFT is used in Image registration or alignment</h4>
+<div id="outline-container-org1d2d636" class="outline-4">
+<h4 id="org1d2d636"><span class="section-number-4">6.3.1.</span> How SIFT is used in Image registration or alignment</h4>
 </div>
 
-<div id="outline-container-org5967190" class="outline-4">
-<h4 id="org5967190"><span class="section-number-4">6.3.2.</span> How SIFT is used in Object Recognition</h4>
+<div id="outline-container-org571590a" class="outline-4">
+<h4 id="org571590a"><span class="section-number-4">6.3.2.</span> How SIFT is used in Object Recognition</h4>
 </div>
 
-<div id="outline-container-org33798af" class="outline-4">
-<h4 id="org33798af"><span class="section-number-4">6.3.3.</span> How SIFT is used in Image Stitching</h4>
+<div id="outline-container-orgf7cb0d8" class="outline-4">
+<h4 id="orgf7cb0d8"><span class="section-number-4">6.3.3.</span> How SIFT is used in Image Stitching</h4>
 </div>
 
-<div id="outline-container-org509a0f9" class="outline-4">
-<h4 id="org509a0f9"><span class="section-number-4">6.3.4.</span> SIFT vs YOLO</h4>
+<div id="outline-container-orgb47d8fe" class="outline-4">
+<h4 id="orgb47d8fe"><span class="section-number-4">6.3.4.</span> SIFT vs YOLO</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd37d12e" class="outline-2">
-<h2 id="orgd37d12e"><span class="section-number-2">7.</span> Pose Estimation</h2>
+<div id="outline-container-org8b8d717" class="outline-2">
+<h2 id="org8b8d717"><span class="section-number-2">7.</span> Pose Estimation</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgaf9ce72" class="outline-3">
-<h3 id="orgaf9ce72"><span class="section-number-3">7.1.</span> What it is</h3>
+<div id="outline-container-orgdfe0007" class="outline-3">
+<h3 id="orgdfe0007"><span class="section-number-3">7.1.</span> What it is</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Pose estimation is the process of determining the position and orientation of
@@ -2782,8 +2977,8 @@ spactial arrangement (eg. distance between two eyes).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf6e76cb" class="outline-3">
-<h3 id="orgf6e76cb"><span class="section-number-3">7.2.</span> Types of Pose Estimation</h3>
+<div id="outline-container-orgd4ecd40" class="outline-3">
+<h3 id="orgd4ecd40"><span class="section-number-3">7.2.</span> Types of Pose Estimation</h3>
 <div class="outline-text-3" id="text-7-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2808,8 +3003,8 @@ spactial arrangement (eg. distance between two eyes).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org498e70e" class="outline-3">
-<h3 id="org498e70e"><span class="section-number-3">7.3.</span> Applications</h3>
+<div id="outline-container-org72499d1" class="outline-3">
+<h3 id="org72499d1"><span class="section-number-3">7.3.</span> Applications</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Augmented Reality and Virtual Reality</li>
@@ -2819,8 +3014,8 @@ spactial arrangement (eg. distance between two eyes).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd43a3ef" class="outline-3">
-<h3 id="orgd43a3ef"><span class="section-number-3">7.4.</span> How it works</h3>
+<div id="outline-container-org8e7f6f5" class="outline-3">
+<h3 id="org8e7f6f5"><span class="section-number-3">7.4.</span> How it works</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>Detect Key points</li>
@@ -2829,8 +3024,8 @@ spactial arrangement (eg. distance between two eyes).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc586e20" class="outline-3">
-<h3 id="orgc586e20"><span class="section-number-3">7.5.</span> Approaches for Pose Estimation</h3>
+<div id="outline-container-org814a1ac" class="outline-3">
+<h3 id="org814a1ac"><span class="section-number-3">7.5.</span> Approaches for Pose Estimation</h3>
 <div class="outline-text-3" id="text-7-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2870,8 +3065,8 @@ spactial arrangement (eg. distance between two eyes).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org1a69712" class="outline-3">
-<h3 id="org1a69712"><span class="section-number-3">7.6.</span> OpenPose</h3>
+<div id="outline-container-org6881168" class="outline-3">
+<h3 id="org6881168"><span class="section-number-3">7.6.</span> OpenPose</h3>
 <div class="outline-text-3" id="text-7-6">
 <ul class="org-ul">
 <li>It uses a CNN and extracts &rsquo;feature maps&rsquo; (detailed layers of the image that
@@ -2881,12 +3076,12 @@ highlight various aspects like edges, textures of shapes).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga1becf1" class="outline-2">
-<h2 id="orga1becf1"><span class="section-number-2">8.</span> Motion Detection</h2>
+<div id="outline-container-orgbac879e" class="outline-2">
+<h2 id="orgbac879e"><span class="section-number-2">8.</span> Motion Detection</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org67f7c49" class="outline-3">
-<h3 id="org67f7c49"><span class="section-number-3">8.1.</span> Motion Field</h3>
+<div id="outline-container-org30ef49f" class="outline-3">
+<h3 id="org30ef49f"><span class="section-number-3">8.1.</span> Motion Field</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>It&rsquo;s a 3D vector field that represents the velocity of points in 3D, as they
@@ -2902,8 +3097,8 @@ motion field tells you.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaf26107" class="outline-3">
-<h3 id="orgaf26107"><span class="section-number-3">8.2.</span> Optical Flow</h3>
+<div id="outline-container-org33bc83c" class="outline-3">
+<h3 id="org33bc83c"><span class="section-number-3">8.2.</span> Optical Flow</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>It&rsquo;s a 2D vector field that represents the apparent motion of brightness
@@ -2929,8 +3124,8 @@ frame.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdc1a897" class="outline-2">
-<h2 id="orgdc1a897"><span class="section-number-2">9.</span> Object Recognition and Detection</h2>
+<div id="outline-container-orga021391" class="outline-2">
+<h2 id="orga021391"><span class="section-number-2">9.</span> Object Recognition and Detection</h2>
 <div class="outline-text-2" id="text-9">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2959,12 +3154,12 @@ frame.</li>
 </tbody>
 </table>
 </div>
-<div id="outline-container-orgcd7d55c" class="outline-3">
-<h3 id="orgcd7d55c"><span class="section-number-3">9.1.</span> Early Approaches for Human Detection</h3>
+<div id="outline-container-org100033d" class="outline-3">
+<h3 id="org100033d"><span class="section-number-3">9.1.</span> Early Approaches for Human Detection</h3>
 <div class="outline-text-3" id="text-9-1">
 </div>
-<div id="outline-container-orgc07585c" class="outline-4">
-<h4 id="orgc07585c"><span class="section-number-4">9.1.1.</span> Haar Cascades</h4>
+<div id="outline-container-org06ac8bc" class="outline-4">
+<h4 id="org06ac8bc"><span class="section-number-4">9.1.1.</span> Haar Cascades</h4>
 <div class="outline-text-4" id="text-9-1-1">
 <ul class="org-ul">
 <li>A <b>haar filter</b> is a type of edge-detection matrix.</li>
@@ -2976,7 +3171,7 @@ frame.</li>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org5aa10ce"></a>Viola-Jones Algorithm<br />
+<li><a id="org2b3e3cb"></a>Viola-Jones Algorithm<br />
 <div class="outline-text-5" id="text-9-1-1-1">
 <p>
 Face Image &rarr; Haar Like Feature &rarr; Integral Images &rarr; Adaptive Boosting or Adaboost &rarr; Cascades of classifier
@@ -2985,8 +3180,8 @@ Face Image &rarr; Haar Like Feature &rarr; Integral Images &rarr; Adaptive Boost
 </li>
 </ol>
 </div>
-<div id="outline-container-org0254a7f" class="outline-4">
-<h4 id="org0254a7f"><span class="section-number-4">9.1.2.</span> Histogram of Oriented Gradients</h4>
+<div id="outline-container-org9d38828" class="outline-4">
+<h4 id="org9d38828"><span class="section-number-4">9.1.2.</span> Histogram of Oriented Gradients</h4>
 <div class="outline-text-4" id="text-9-1-2">
 <p>
 Histograms are used to represent object shape and these are more robust than
@@ -3033,8 +3228,8 @@ the other cells in the block.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org491ac1b" class="outline-4">
-<h4 id="org491ac1b"><span class="section-number-4">9.1.3.</span> Shape-based Methods</h4>
+<div id="outline-container-org522fa00" class="outline-4">
+<h4 id="org522fa00"><span class="section-number-4">9.1.3.</span> Shape-based Methods</h4>
 <div class="outline-text-4" id="text-9-1-3">
 <p>
 These methods model the human form using geoemetric shapes only. They are
@@ -3044,12 +3239,12 @@ invariant to color, and they&rsquo;re also slightly computationally expensive.
 </div>
 </div>
 </div>
-<div id="outline-container-orge673e59" class="outline-2">
-<h2 id="orge673e59"><span class="section-number-2">10.</span> Stereo Matching</h2>
+<div id="outline-container-org3d8f6c8" class="outline-2">
+<h2 id="org3d8f6c8"><span class="section-number-2">10.</span> Stereo Matching</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org4c1b27b" class="outline-3">
-<h3 id="org4c1b27b"><span class="section-number-3">10.1.</span> Code</h3>
+<div id="outline-container-org5871d4e" class="outline-3">
+<h3 id="org5871d4e"><span class="section-number-3">10.1.</span> Code</h3>
 <div class="outline-text-3" id="text-10-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">import</span> cv2          <span style="color: #5B6268;"># </span><span style="color: #5B6268;">OpenCV: image reading, display, grayscale

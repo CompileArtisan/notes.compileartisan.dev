@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-09-28 Mon 20:56 -->
+<!-- 2026-10-29 Thu 10:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Security</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,470 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
+h1.title::after {
+content: "";
+display: block;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
+}
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-/* ─── Block Quotes ─────────────────────────────────────── */
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
+text-decoration: none;
+transition: opacity .15s;
+}
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
+
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
+
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
+}
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
+
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
+}
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
 blockquote {
 margin: 1.8rem 0;
-padding: 1rem 1.5rem;
-background: #f8f8fc;
-border-left: 4px solid #4444cc;
-border-radius: 8px;
-color: #444;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
 font-style: italic;
-position: relative;
+border-left: 3px solid var(--accent);
 }
-blockquote::before {
-content: "❝";
-position: absolute;
-top: -8px;
-left: 12px;
-font-size: 2.8rem;
-color: #d6d6f5;
-font-family: Georgia, serif;
-line-height: 1;
-}
-blockquote p:last-child {
-margin-bottom: 0;
-}
-blockquote cite,
-blockquote footer {
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
 display: block;
-margin-top: 0.8rem;
-color: #777;
-font-size: 0.9em;
+margin-top: .6rem;
+font-size: .88em;
 font-style: normal;
 text-align: right;
 }
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
 
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
 }
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
-content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
 }
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
-text-decoration: none;
-}
-
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
-
-#table-of-contents li.hidden {
-display: none;
-}
-
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
-
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
-}
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -709,162 +871,162 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org68ab46c">1. Introduction</a>
+<li><a href="#orgb55a31b">1. Introduction</a>
 <ul>
-<li><a href="#orgb30fdf9">1.1. Types of Security</a>
+<li><a href="#orgec6e2fe">1.1. Types of Security</a>
 <ul>
-<li><a href="#orgceed841">1.1.1. Computer Security</a></li>
-<li><a href="#org3cce0c7">1.1.2. Network Security</a></li>
-<li><a href="#org3d05f04">1.1.3. Internet Security</a></li>
+<li><a href="#orgd4c531c">1.1.1. Computer Security</a></li>
+<li><a href="#org7ad7002">1.1.2. Network Security</a></li>
+<li><a href="#org23e2327">1.1.3. Internet Security</a></li>
 </ul>
 </li>
-<li><a href="#org2d6fb51">1.2. What is an information system?</a></li>
-<li><a href="#orge3ac9f6">1.3. Who is an intruder?</a></li>
+<li><a href="#org102d511">1.2. What is an information system?</a></li>
+<li><a href="#orgc28283c">1.3. Who is an intruder?</a></li>
 </ul>
 </li>
-<li><a href="#orga0ffd24">2. CIA Triad: What is Computer Security?</a>
+<li><a href="#org00de3bf">2. CIA Triad: What is Computer Security?</a>
 <ul>
-<li><a href="#orgd5280bf">2.1. Confidentiality</a>
+<li><a href="#orgd55f05a">2.1. Confidentiality</a>
 <ul>
-<li><a href="#org8ea1d89">2.1.1. Data Confidentiality</a></li>
-<li><a href="#org32c3403">2.1.2. Privacy</a></li>
-<li><a href="#org054529a">2.1.3. Authentication</a></li>
+<li><a href="#org0ccf0c2">2.1.1. Data Confidentiality</a></li>
+<li><a href="#org2b67003">2.1.2. Privacy</a></li>
+<li><a href="#org1f2b2d5">2.1.3. Authentication</a></li>
 </ul>
 </li>
-<li><a href="#org1b3dc0e">2.2. Integrity</a>
+<li><a href="#orgf4fefa3">2.2. Integrity</a>
 <ul>
-<li><a href="#org9fae65a">2.2.1. Data Integrity</a></li>
-<li><a href="#org832f8de">2.2.2. System Integrity</a></li>
+<li><a href="#orgf663187">2.2.1. Data Integrity</a></li>
+<li><a href="#org2d88b9a">2.2.2. System Integrity</a></li>
 </ul>
 </li>
-<li><a href="#orgcd705ed">2.3. Availability</a></li>
+<li><a href="#org63eb043">2.3. Availability</a></li>
 </ul>
 </li>
-<li><a href="#org0712139">3. Three Aspects of Information Security</a>
+<li><a href="#org3018e13">3. Three Aspects of Information Security</a>
 <ul>
-<li><a href="#org9f28ffc">3.1. Security Attack</a>
+<li><a href="#org3f681b2">3.1. Security Attack</a>
 <ul>
-<li><a href="#org2c53378">3.1.1. Security Threat</a></li>
-<li><a href="#org0ac7a88">3.1.2. Two types of Attacks</a></li>
+<li><a href="#orgdaba13b">3.1.1. Security Threat</a></li>
+<li><a href="#org9df1ef4">3.1.2. Two types of Attacks</a></li>
 </ul>
 </li>
-<li><a href="#org71a533c">3.2. Security Service</a>
+<li><a href="#orgc941a1e">3.2. Security Service</a>
 <ul>
-<li><a href="#orgfd7d7ca">3.2.1. Definitions by different standards</a></li>
-<li><a href="#org9088cf4">3.2.2. Notorization</a></li>
+<li><a href="#orgf96fbfb">3.2.1. Definitions by different standards</a></li>
+<li><a href="#org0840bd3">3.2.2. Notorization</a></li>
 </ul>
 </li>
-<li><a href="#org9f76258">3.3. Security Mechanism</a></li>
+<li><a href="#orgf681cac">3.3. Security Mechanism</a></li>
 </ul>
 </li>
-<li><a href="#org3b08a3a">4. OSI Security Architecture</a></li>
-<li><a href="#org0c4a055">5. Models for the Security of Network</a>
+<li><a href="#org31a1705">4. OSI Security Architecture</a></li>
+<li><a href="#org4166de5">5. Models for the Security of Network</a>
 <ul>
-<li><a href="#orge5e30c2">5.1. Model for Network Security</a></li>
-<li><a href="#org36bdd83">5.2. Model for Network Access Security</a>
+<li><a href="#orgfa0e1ef">5.1. Model for Network Security</a></li>
+<li><a href="#org68cf02d">5.2. Model for Network Access Security</a>
 <ul>
-<li><a href="#org623ac83">5.2.1. Types of attacks on access controls</a></li>
-<li><a href="#orgc37be1c">5.2.2. Layered Security Tools/Devices</a></li>
-<li><a href="#org03979eb">5.2.3. Zero-Day Attack</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgb672643">6. Malicious Program</a>
-<ul>
-<li><a href="#org91a94e0">6.1. Host Dependent Malicious Programs</a>
-<ul>
-<li><a href="#orgd54f7da">6.1.1. Virus</a></li>
-<li><a href="#org104357c">6.1.2. Trojan Horse</a></li>
-<li><a href="#orgc3de6ed">6.1.3. Trapdoors/Backdoor</a></li>
-<li><a href="#org1ce1a28">6.1.4. Logic Bomb</a></li>
-</ul>
-</li>
-<li><a href="#orgd7349d6">6.2. Host independent Malicious Programs</a>
-<ul>
-<li><a href="#orga69170d">6.2.1. Worms</a></li>
-<li><a href="#org87196f3">6.2.2. Zombie</a></li>
+<li><a href="#org4f813f0">5.2.1. Types of attacks on access controls</a></li>
+<li><a href="#orgc091963">5.2.2. Layered Security Tools/Devices</a></li>
+<li><a href="#org70d4742">5.2.3. Zero-Day Attack</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5513268">7. Cryptography</a>
+<li><a href="#org3946d13">6. Malicious Program</a>
 <ul>
-<li><a href="#orgc3c4979">7.1. Basic Terminology</a></li>
-<li><a href="#orgf31b216">7.2. Types of Cryptography</a>
+<li><a href="#org9d4cf8e">6.1. Host Dependent Malicious Programs</a>
 <ul>
-<li><a href="#org2cbb361">7.2.1. Based on Encryption Techniques</a></li>
-<li><a href="#orgeccf74a">7.2.2. Based on Number of Keys</a></li>
-<li><a href="#org17d51d9">7.2.3. Based on how plaintext is processed</a></li>
+<li><a href="#org9ea59ae">6.1.1. Virus</a></li>
+<li><a href="#org3314d28">6.1.2. Trojan Horse</a></li>
+<li><a href="#org435aca5">6.1.3. Trapdoors/Backdoor</a></li>
+<li><a href="#org21f9f37">6.1.4. Logic Bomb</a></li>
+</ul>
+</li>
+<li><a href="#org1bc641d">6.2. Host independent Malicious Programs</a>
+<ul>
+<li><a href="#orgdf5ef27">6.2.1. Worms</a></li>
+<li><a href="#org2c2a8f5">6.2.2. Zombie</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf79e50b">8. Number Theory</a>
+<li><a href="#org6db679d">7. Cryptography</a>
 <ul>
-<li><a href="#orgf277323">8.1. Basic Properties</a>
+<li><a href="#org775ed16">7.1. Basic Terminology</a></li>
+<li><a href="#org3267aae">7.2. Types of Cryptography</a>
 <ul>
-<li><a href="#orge59d002">8.1.1. Commutative</a></li>
-<li><a href="#orgde4249e">8.1.2. Associative</a></li>
-<li><a href="#orgb50afd4">8.1.3. Distributive</a></li>
+<li><a href="#org06d402b">7.2.1. Based on Encryption Techniques</a></li>
+<li><a href="#org9763f2d">7.2.2. Based on Number of Keys</a></li>
+<li><a href="#orgccc1e9e">7.2.3. Based on how plaintext is processed</a></li>
 </ul>
 </li>
-<li><a href="#org7f3978a">8.2. Division</a></li>
-<li><a href="#org4ac283c">8.3. Prime Numbers</a>
-<ul>
-<li><a href="#org808ef48">8.3.1. Twin Primes</a></li>
-<li><a href="#org03082ca">8.3.2. Primality Test</a></li>
-<li><a href="#orgd4988f3">8.3.3. Fundamental Theorem of Arithmetic</a></li>
-<li><a href="#orga458a48">8.3.4. Sieve of Eratosthenes</a></li>
-<li><a href="#orgca153b8">8.3.5. GCD</a></li>
-<li><a href="#orgc1d6e29">8.3.6. Euclidean Algorithm</a></li>
-<li><a href="#org29ccddc">8.3.7. Modular Arithmetic Operations</a></li>
-<li><a href="#org5abbc18">8.3.8. Addition Modulo \(n\) table</a></li>
-<li><a href="#org690bf08">8.3.9. Congruence</a></li>
-<li><a href="#orgc84aa9c">8.3.10. Inverses</a></li>
-<li><a href="#orga8e663f">8.3.11. Equivalence Class</a></li>
 </ul>
 </li>
-<li><a href="#org890684e">8.4. Euler&rsquo;s Totient/Phi Function</a>
+<li><a href="#org1b761d3">8. Number Theory</a>
 <ul>
-<li><a href="#org2a96f7c">8.4.1. Conditions for \(\phi(P)\)</a></li>
-<li><a href="#org969fa92">8.4.2. Examples</a></li>
+<li><a href="#orgc02531e">8.1. Basic Properties</a>
+<ul>
+<li><a href="#org49f8185">8.1.1. Commutative</a></li>
+<li><a href="#orge7104fe">8.1.2. Associative</a></li>
+<li><a href="#org55314f8">8.1.3. Distributive</a></li>
 </ul>
 </li>
-<li><a href="#org22d925a">8.5. Fast Exponentiation Algorithm</a>
+<li><a href="#orgd8fd87c">8.2. Division</a></li>
+<li><a href="#org4f4bfa7">8.3. Prime Numbers</a>
 <ul>
-<li><a href="#org1cff1db">8.5.1. Steps</a></li>
-<li><a href="#org3fe391e">8.5.2. Examples</a></li>
-<li><a href="#org01266ea">8.5.3. Code</a></li>
+<li><a href="#org1bc41ee">8.3.1. Twin Primes</a></li>
+<li><a href="#org55a083f">8.3.2. Primality Test</a></li>
+<li><a href="#org55f2ba5">8.3.3. Fundamental Theorem of Arithmetic</a></li>
+<li><a href="#org1e49511">8.3.4. Sieve of Eratosthenes</a></li>
+<li><a href="#org2a2f45c">8.3.5. GCD</a></li>
+<li><a href="#org0fb3156">8.3.6. Euclidean Algorithm</a></li>
+<li><a href="#orgaade49c">8.3.7. Modular Arithmetic Operations</a></li>
+<li><a href="#org89201bb">8.3.8. Addition Modulo \(n\) table</a></li>
+<li><a href="#org855e39c">8.3.9. Congruence</a></li>
+<li><a href="#org65218bd">8.3.10. Inverses</a></li>
+<li><a href="#org2a0979c">8.3.11. Equivalence Class</a></li>
 </ul>
 </li>
-<li><a href="#org1ff2116">8.6. Fermat&rsquo;s Little Theorem</a>
+<li><a href="#orge029b1c">8.4. Euler&rsquo;s Totient/Phi Function</a>
 <ul>
-<li><a href="#org07fac7f">8.6.1. Examples</a></li>
-<li><a href="#orgc019f6e">8.6.2. Code</a></li>
+<li><a href="#org90a9ede">8.4.1. Conditions for \(\phi(P)\)</a></li>
+<li><a href="#org562746f">8.4.2. Examples</a></li>
 </ul>
 </li>
-<li><a href="#org3e2af84">8.7. Euler&rsquo;s Theorem</a>
+<li><a href="#org3c0c829">8.5. Fast Exponentiation Algorithm</a>
 <ul>
-<li><a href="#org9a8190a">8.7.1. Examples</a></li>
+<li><a href="#orgcff1d61">8.5.1. Steps</a></li>
+<li><a href="#org3147020">8.5.2. Examples</a></li>
+<li><a href="#orgc61c259">8.5.3. Code</a></li>
 </ul>
 </li>
-<li><a href="#org1e32fb8">8.8. Discrete Logarithm</a></li>
+<li><a href="#org8a2d6cc">8.6. Fermat&rsquo;s Little Theorem</a>
+<ul>
+<li><a href="#org6f87022">8.6.1. Examples</a></li>
+<li><a href="#org5f54631">8.6.2. Code</a></li>
+</ul>
+</li>
+<li><a href="#org69deeeb">8.7. Euler&rsquo;s Theorem</a>
+<ul>
+<li><a href="#org4d5a1d3">8.7.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#orgbdeb79a">8.8. Discrete Logarithm</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org68ab46c" class="outline-2">
-<h2 id="org68ab46c"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgb55a31b" class="outline-2">
+<h2 id="orgb55a31b"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgb30fdf9" class="outline-3">
-<h3 id="orgb30fdf9"><span class="section-number-3">1.1.</span> Types of Security</h3>
+<div id="outline-container-orgec6e2fe" class="outline-3">
+<h3 id="orgec6e2fe"><span class="section-number-3">1.1.</span> Types of Security</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgceed841" class="outline-4">
-<h4 id="orgceed841"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
+<div id="outline-container-orgd4c531c" class="outline-4">
+<h4 id="orgd4c531c"><span class="section-number-4">1.1.1.</span> Computer Security</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>It is designed to protect data which is stored in a device with the help of
@@ -872,16 +1034,16 @@ tools.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3cce0c7" class="outline-4">
-<h4 id="org3cce0c7"><span class="section-number-4">1.1.2.</span> Network Security</h4>
+<div id="outline-container-org7ad7002" class="outline-4">
+<h4 id="org7ad7002"><span class="section-number-4">1.1.2.</span> Network Security</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>It is designed to protect data during transmission using LAN, WAN.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d05f04" class="outline-4">
-<h4 id="org3d05f04"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
+<div id="outline-container-org23e2327" class="outline-4">
+<h4 id="org23e2327"><span class="section-number-4">1.1.3.</span> Internet Security</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>It is designed to protect data during their transmission over an
@@ -890,8 +1052,8 @@ interconnected network.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org2d6fb51" class="outline-3">
-<h3 id="org2d6fb51"><span class="section-number-3">1.2.</span> What is an information system?</h3>
+<div id="outline-container-org102d511" class="outline-3">
+<h3 id="org102d511"><span class="section-number-3">1.2.</span> What is an information system?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Any form of hardware or software used to store information.</li>
@@ -900,8 +1062,8 @@ processes, software.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge3ac9f6" class="outline-3">
-<h3 id="orge3ac9f6"><span class="section-number-3">1.3.</span> Who is an intruder?</h3>
+<div id="outline-container-orgc28283c" class="outline-3">
+<h3 id="orgc28283c"><span class="section-number-3">1.3.</span> Who is an intruder?</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Anyone who tries to get unauthorized access of an information system.
@@ -909,8 +1071,8 @@ Anyone who tries to get unauthorized access of an information system.
 </div>
 </div>
 </div>
-<div id="outline-container-orga0ffd24" class="outline-2">
-<h2 id="orga0ffd24"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
+<div id="outline-container-org00de3bf" class="outline-2">
+<h2 id="org00de3bf"><span class="section-number-2">2.</span> CIA Triad: What is Computer Security?</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>The protection provided to an automated information system in order to attain
@@ -918,8 +1080,8 @@ the applicable objectives of preserving the <b>confidentiality</b>, <b>integrity
 <b>availability</b> of information system resources.</li>
 </ul>
 </div>
-<div id="outline-container-orgd5280bf" class="outline-3">
-<h3 id="orgd5280bf"><span class="section-number-3">2.1.</span> Confidentiality</h3>
+<div id="outline-container-orgd55f05a" class="outline-3">
+<h3 id="orgd55f05a"><span class="section-number-3">2.1.</span> Confidentiality</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>This is the <b>protection of information</b> from <b>unauthorized disclosure</b>.</li>
@@ -927,8 +1089,8 @@ the applicable objectives of preserving the <b>confidentiality</b>, <b>integrity
 <li>Confidentiality covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-org8ea1d89" class="outline-4">
-<h4 id="org8ea1d89"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
+<div id="outline-container-org0ccf0c2" class="outline-4">
+<h4 id="org0ccf0c2"><span class="section-number-4">2.1.1.</span> Data Confidentiality</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>Confidentiality tells us that if you have the authorization, you can access
@@ -938,8 +1100,8 @@ assignment&rdquo;. Mary&rsquo;s work was exposed to an unauthorized party.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org32c3403" class="outline-4">
-<h4 id="org32c3403"><span class="section-number-4">2.1.2.</span> Privacy</h4>
+<div id="outline-container-org2b67003" class="outline-4">
+<h4 id="org2b67003"><span class="section-number-4">2.1.2.</span> Privacy</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li>Privacy tells us that even if you are authorized, you may not be able to
@@ -947,8 +1109,8 @@ access all of the data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org054529a" class="outline-4">
-<h4 id="org054529a"><span class="section-number-4">2.1.3.</span> Authentication</h4>
+<div id="outline-container-org1f2b2d5" class="outline-4">
+<h4 id="org1f2b2d5"><span class="section-number-4">2.1.3.</span> Authentication</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>This ensures that someone&rsquo;s identify is verified.</li>
@@ -958,8 +1120,8 @@ address to gain access to her computer&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1b3dc0e" class="outline-3">
-<h3 id="org1b3dc0e"><span class="section-number-3">2.2.</span> Integrity</h3>
+<div id="outline-container-orgf4fefa3" class="outline-3">
+<h3 id="orgf4fefa3"><span class="section-number-3">2.2.</span> Integrity</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>This is the <b>protection of information</b> from <b>unauthorized modification</b>.</li>
@@ -968,16 +1130,16 @@ be manipulated or destroyed in the process.</li>
 <li>Again, integrity covers two concepts:</li>
 </ul>
 </div>
-<div id="outline-container-org9fae65a" class="outline-4">
-<h4 id="org9fae65a"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
+<div id="outline-container-orgf663187" class="outline-4">
+<h4 id="orgf663187"><span class="section-number-4">2.2.1.</span> Data Integrity</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>The data in a database should be complete and consistent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org832f8de" class="outline-4">
-<h4 id="org832f8de"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
+<div id="outline-container-org2d88b9a" class="outline-4">
+<h4 id="org2d88b9a"><span class="section-number-4">2.2.2.</span> System Integrity</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>The information system should not be tamper-able.</li>
@@ -989,8 +1151,8 @@ $1000&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgcd705ed" class="outline-3">
-<h3 id="orgcd705ed"><span class="section-number-3">2.3.</span> Availability</h3>
+<div id="outline-container-org63eb043" class="outline-3">
+<h3 id="org63eb043"><span class="section-number-3">2.3.</span> Availability</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>The data should be available without any hurdles.</li>
@@ -998,32 +1160,32 @@ $1000&rdquo;.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0712139" class="outline-2">
-<h2 id="org0712139"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
+<div id="outline-container-org3018e13" class="outline-2">
+<h2 id="org3018e13"><span class="section-number-2">3.</span> Three Aspects of Information Security</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9f28ffc" class="outline-3">
-<h3 id="org9f28ffc"><span class="section-number-3">3.1.</span> Security Attack</h3>
+<div id="outline-container-org3f681b2" class="outline-3">
+<h3 id="org3f681b2"><span class="section-number-3">3.1.</span> Security Attack</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Actions which compromise on security information.</li>
 <li>It is an assualt on system security that derives from an intelligent threat.</li>
 </ul>
 </div>
-<div id="outline-container-org2c53378" class="outline-4">
-<h4 id="org2c53378"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
+<div id="outline-container-orgdaba13b" class="outline-4">
+<h4 id="orgdaba13b"><span class="section-number-4">3.1.1.</span> Security Threat</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a potential danger that might exploit vulnerability.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0ac7a88" class="outline-4">
-<h4 id="org0ac7a88"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
+<div id="outline-container-org9df1ef4" class="outline-4">
+<h4 id="org9df1ef4"><span class="section-number-4">3.1.2.</span> Two types of Attacks</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org976ae56"></a>Active Attack<br />
+<li><a id="org23a0f47"></a>Active Attack<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
 <li>An attacker tries to modify the content of the messages.</li>
@@ -1039,7 +1201,7 @@ computer&rdquo;</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgecd312d"></a>Masquerade (pronounced mask-er-ade)<br />
+<li><a id="orgf184519"></a>Masquerade (pronounced mask-er-ade)<br />
 <div class="outline-text-6" id="text-3-1-2-1-1">
 <ul class="org-ul">
 <li>Pretending to be someone else</li>
@@ -1047,21 +1209,21 @@ computer&rdquo;</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc0b7c2f"></a>Replay<br />
+<li><a id="org9c2992f"></a>Replay<br />
 <div class="outline-text-6" id="text-3-1-2-1-2">
 <p>
 Retransmitting valid data
 </p>
 </div>
 </li>
-<li><a id="orgec24205"></a>Modification of Messages<br />
+<li><a id="org36f1781"></a>Modification of Messages<br />
 <div class="outline-text-6" id="text-3-1-2-1-3">
 <p>
 Modifying messages before they reach the target.
 </p>
 </div>
 </li>
-<li><a id="orgc137411"></a>Denial of Service<br />
+<li><a id="org7f6f6a7"></a>Denial of Service<br />
 <div class="outline-text-6" id="text-3-1-2-1-4">
 <p>
 Making a system unavailable to users by flooding it with traffic.
@@ -1070,7 +1232,7 @@ Making a system unavailable to users by flooding it with traffic.
 </li>
 </ol>
 </li>
-<li><a id="org927b242"></a>Passive Attack<br />
+<li><a id="org19c3b9c"></a>Passive Attack<br />
 <div class="outline-text-5" id="text-3-1-2-2">
 <ul class="org-ul">
 <li>An attacker observes the messages, and uses them for malicious purposes
@@ -1122,8 +1284,8 @@ assignment wasn&rsquo;t changed - it&rsquo;s an act of eavesdropping.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org71a533c" class="outline-3">
-<h3 id="org71a533c"><span class="section-number-3">3.2.</span> Security Service</h3>
+<div id="outline-container-orgc941a1e" class="outline-3">
+<h3 id="orgc941a1e"><span class="section-number-3">3.2.</span> Security Service</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>It is intended to counter security attacks by using security mechanisms.</li>
@@ -1132,27 +1294,27 @@ assignment wasn&rsquo;t changed - it&rsquo;s an act of eavesdropping.</li>
 protected system.</li>
 </ul>
 </div>
-<div id="outline-container-orgfd7d7ca" class="outline-4">
-<h4 id="orgfd7d7ca"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
+<div id="outline-container-orgf96fbfb" class="outline-4">
+<h4 id="orgf96fbfb"><span class="section-number-4">3.2.1.</span> Definitions by different standards</h4>
 <div class="outline-text-4" id="text-3-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org2d4343f"></a>X.800<br />
+<li><a id="orgdfcfd19"></a>X.800<br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgffd1165"></a>Authentication<br /></li>
+<li><a id="org5374478"></a>Authentication<br /></li>
 
-<li><a id="org5f05ff7"></a>Access Control (Data Privacy)<br /></li>
+<li><a id="org8217292"></a>Access Control (Data Privacy)<br /></li>
 
-<li><a id="org5fdc902"></a>Confidentiality<br /></li>
+<li><a id="org27fb5b4"></a>Confidentiality<br /></li>
 
-<li><a id="org3850dcf"></a>Data Integrity<br /></li>
+<li><a id="orgf0eefe1"></a>Data Integrity<br /></li>
 
-<li><a id="orgdbb37d4"></a>Non-Repudiation (Rejection)<br />
+<li><a id="orgb198e01"></a>Non-Repudiation (Rejection)<br />
 <div class="outline-text-6" id="text-3-2-1-1-5">
 <ul class="org-ul">
 <li>Protection against Denial of Service.</li>
@@ -1163,8 +1325,8 @@ protected system.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org9088cf4" class="outline-4">
-<h4 id="org9088cf4"><span class="section-number-4">3.2.2.</span> Notorization</h4>
+<div id="outline-container-org0840bd3" class="outline-4">
+<h4 id="org0840bd3"><span class="section-number-4">3.2.2.</span> Notorization</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s an official witness for signing a document. The person/body who does this
@@ -1173,8 +1335,8 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org9f76258" class="outline-3">
-<h3 id="org9f76258"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
+<div id="outline-container-orgf681cac" class="outline-3">
+<h3 id="orgf681cac"><span class="section-number-3">3.3.</span> Security Mechanism</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>These are HOW to counter security attacks (detect one, or recover from one).</li>
@@ -1183,23 +1345,23 @@ is called a notary.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org3b08a3a" class="outline-2">
-<h2 id="org3b08a3a"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
+<div id="outline-container-org31a1705" class="outline-2">
+<h2 id="org31a1705"><span class="section-number-2">4.</span> OSI Security Architecture</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>It&rsquo;s a standard framework of</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0c4a055" class="outline-2">
-<h2 id="org0c4a055"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
+<div id="outline-container-org4166de5" class="outline-2">
+<h2 id="org4166de5"><span class="section-number-2">5.</span> Models for the Security of Network</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are two models for security of networks
 </p>
 </div>
-<div id="outline-container-orge5e30c2" class="outline-3">
-<h3 id="orge5e30c2"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
+<div id="outline-container-orgfa0e1ef" class="outline-3">
+<h3 id="orgfa0e1ef"><span class="section-number-3">5.1.</span> Model for Network Security</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>The sender passes <b>secret information</b> (key) as an argument, and runs a
@@ -1215,15 +1377,15 @@ The keys and the information channel is provided by a <b>trusted third party</b>
 </p>
 
 
-<div id="org7b52afd" class="figure">
+<div id="org30acc20" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/network_security.png" alt="network_security.png" />
 </p>
 </div></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org36bdd83" class="outline-3">
-<h3 id="org36bdd83"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
+<div id="outline-container-org68cf02d" class="outline-3">
+<h3 id="org68cf02d"><span class="section-number-3">5.2.</span> Model for Network Access Security</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>This model requires to select an appropriate <b>gatekeeper function</b> to identify
@@ -1234,12 +1396,12 @@ and what actions are allowed.</li>
 <b>access control</b>, <b>file-permissions</b>, and <b>login</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org623ac83" class="outline-4">
-<h4 id="org623ac83"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
+<div id="outline-container-org4f813f0" class="outline-4">
+<h4 id="org4f813f0"><span class="section-number-4">5.2.1.</span> Types of attacks on access controls</h4>
 <div class="outline-text-4" id="text-5-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org2c7d677"></a>Brute-Force Attacks<br />
+<li><a id="orgb9c903f"></a>Brute-Force Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-1">
 <ul class="org-ul">
 <li>You keep trying all combinations of characters in all possible lengths, until
@@ -1247,7 +1409,7 @@ you actually crack the password.</li>
 </ul>
 </div>
 </li>
-<li><a id="org688b8fd"></a>Dictionary Attacks<br />
+<li><a id="org1f2ef9d"></a>Dictionary Attacks<br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <ul class="org-ul">
 <li>Guessing passwords from a predefined dictionary of common words, phrases and
@@ -1257,8 +1419,8 @@ passwords,</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc37be1c" class="outline-4">
-<h4 id="orgc37be1c"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
+<div id="outline-container-orgc091963" class="outline-4">
+<h4 id="orgc091963"><span class="section-number-4">5.2.2.</span> Layered Security Tools/Devices</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1299,8 +1461,8 @@ passwords,</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org03979eb" class="outline-4">
-<h4 id="org03979eb"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
+<div id="outline-container-org70d4742" class="outline-4">
+<h4 id="org70d4742"><span class="section-number-4">5.2.3.</span> Zero-Day Attack</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li>It&rsquo;s an attack that can happen at any point of time, without any prior signs.</li>
@@ -1311,16 +1473,16 @@ malware.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb672643" class="outline-2">
-<h2 id="orgb672643"><span class="section-number-2">6.</span> Malicious Program</h2>
+<div id="outline-container-org3946d13" class="outline-2">
+<h2 id="org3946d13"><span class="section-number-2">6.</span> Malicious Program</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org91a94e0" class="outline-3">
-<h3 id="org91a94e0"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
+<div id="outline-container-org9d4cf8e" class="outline-3">
+<h3 id="org9d4cf8e"><span class="section-number-3">6.1.</span> Host Dependent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-orgd54f7da" class="outline-4">
-<h4 id="orgd54f7da"><span class="section-number-4">6.1.1.</span> Virus</h4>
+<div id="outline-container-org9ea59ae" class="outline-4">
+<h4 id="org9ea59ae"><span class="section-number-4">6.1.1.</span> Virus</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself and spread across the files of
@@ -1328,8 +1490,8 @@ the same system.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org104357c" class="outline-4">
-<h4 id="org104357c"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
+<div id="outline-container-org3314d28" class="outline-4">
+<h4 id="org3314d28"><span class="section-number-4">6.1.2.</span> Trojan Horse</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>These are malware that are disguised as legitimate programs/softwares to trick
@@ -1337,16 +1499,16 @@ the users into installing them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc3de6ed" class="outline-4">
-<h4 id="orgc3de6ed"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
+<div id="outline-container-org435aca5" class="outline-4">
+<h4 id="org435aca5"><span class="section-number-4">6.1.3.</span> Trapdoors/Backdoor</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>Malware which enter using undocumented entry points.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1ce1a28" class="outline-4">
-<h4 id="org1ce1a28"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
+<div id="outline-container-org21f9f37" class="outline-4">
+<h4 id="org21f9f37"><span class="section-number-4">6.1.4.</span> Logic Bomb</h4>
 <div class="outline-text-4" id="text-6-1-4">
 <ul class="org-ul">
 <li>Malware that remain inactive until some conditions are met.</li>
@@ -1354,12 +1516,12 @@ the users into installing them.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd7349d6" class="outline-3">
-<h3 id="orgd7349d6"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
+<div id="outline-container-org1bc641d" class="outline-3">
+<h3 id="org1bc641d"><span class="section-number-3">6.2.</span> Host independent Malicious Programs</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-orga69170d" class="outline-4">
-<h4 id="orga69170d"><span class="section-number-4">6.2.1.</span> Worms</h4>
+<div id="outline-container-orgdf5ef27" class="outline-4">
+<h4 id="orgdf5ef27"><span class="section-number-4">6.2.1.</span> Worms</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <ul class="org-ul">
 <li>It&rsquo;s a malicious program that replicates itself (just like viruses), but they
@@ -1369,8 +1531,8 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org87196f3" class="outline-4">
-<h4 id="org87196f3"><span class="section-number-4">6.2.2.</span> Zombie</h4>
+<div id="outline-container-org2c2a8f5" class="outline-4">
+<h4 id="org2c2a8f5"><span class="section-number-4">6.2.2.</span> Zombie</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <ul class="org-ul">
 <li>It takes control of an entire system.</li>
@@ -1380,12 +1542,12 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5513268" class="outline-2">
-<h2 id="org5513268"><span class="section-number-2">7.</span> Cryptography</h2>
+<div id="outline-container-org6db679d" class="outline-2">
+<h2 id="org6db679d"><span class="section-number-2">7.</span> Cryptography</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgc3c4979" class="outline-3">
-<h3 id="orgc3c4979"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
+<div id="outline-container-org775ed16" class="outline-3">
+<h3 id="org775ed16"><span class="section-number-3">7.1.</span> Basic Terminology</h3>
 <div class="outline-text-3" id="text-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1450,18 +1612,18 @@ November 1988 by Robert Morris (Not Robert Worm).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-orgf31b216" class="outline-3">
-<h3 id="orgf31b216"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
+<div id="outline-container-org3267aae" class="outline-3">
+<h3 id="org3267aae"><span class="section-number-3">7.2.</span> Types of Cryptography</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
-<div id="outline-container-org2cbb361" class="outline-4">
-<h4 id="org2cbb361"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
+<div id="outline-container-org06d402b" class="outline-4">
+<h4 id="org06d402b"><span class="section-number-4">7.2.1.</span> Based on Encryption Techniques</h4>
 <div class="outline-text-4" id="text-7-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org9abcd36"></a>Substitution<br />
+<li><a id="orgeb4a720"></a>Substitution<br />
 <ol class="org-ol">
-<li><a id="org54c305f"></a>Classical Substitution Cipher<br />
+<li><a id="org1420477"></a>Classical Substitution Cipher<br />
 <div class="outline-text-6" id="text-7-2-1-1-1">
 <ul class="org-ul">
 <li>Every occurrence of a plain text symbol is replaced by a corresponding
@@ -1469,7 +1631,7 @@ ciphertext character.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org877c1ab"></a>Ceaser/Shift Cipher<br />
+<li><a id="orgefb54e3"></a>Ceaser/Shift Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-1-1">
 <p>
 This is the earliest known subsitution cipher.
@@ -1477,7 +1639,7 @@ This is the earliest known subsitution cipher.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org7124751"></a>For example, let m = college, k = 3 and s = 26.<br />
+<li><a id="org44a001b"></a>For example, let m = college, k = 3 and s = 26.<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-1">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;c&rsquo;) + 3mod(26) = f</li>
@@ -1491,7 +1653,7 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="org160ddbc"></a>In general, for alphabets, Ceasar Cipher is given as<br />
+<li><a id="org89330bb"></a>In general, for alphabets, Ceasar Cipher is given as<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1515,7 +1677,7 @@ This is the earliest known subsitution cipher.
 </table>
 </div>
 </li>
-<li><a id="org5cddf1d"></a>For example, Encrypt KHOOR with k=4<br />
+<li><a id="org4f0b4e8"></a>For example, Encrypt KHOOR with k=4<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-3">
 <ul class="org-ul">
 <li>C<sub>1</sub>[1] = (position of &rsquo;K&rsquo;) + 4mod(26) = O</li>
@@ -1527,14 +1689,14 @@ This is the earliest known subsitution cipher.
 </ul>
 </div>
 </li>
-<li><a id="org8d7fd99"></a>Decrypt Ciphertext ABC, k=3<br />
+<li><a id="orgd264892"></a>Decrypt Ciphertext ABC, k=3<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-4">
 <ul class="org-ul">
 <li>A: \((0-3)\mod26 = -3\mod(26) = (-3+26)\mod(26) = 23\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd211047"></a>Code for Encryption<br />
+<li><a id="orgfdc6b65"></a>Code for Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, k: <span style="color: #c678dd;">int</span>, alphabet_size: <span style="color: #c678dd;">int</span>):
@@ -1569,7 +1731,7 @@ encrypt(<span style="color: #98be65;">"Hello World3!"</span>, 2, 26)
 </div>
 </div>
 </li>
-<li><a id="orga45abfa"></a>Code for Decryption<br />
+<li><a id="org8f76a6c"></a>Code for Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-1-6">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">decrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, k: <span style="color: #c678dd;">int</span>, alphabet_size: <span style="color: #c678dd;">int</span>):
@@ -1610,9 +1772,9 @@ character.</li>
 </ul>
 </div>
 </li>
-<li><a id="org53948ff"></a>Cryptanalysis<br />
+<li><a id="org3445ce1"></a>Cryptanalysis<br />
 <ol class="org-ol">
-<li><a id="orgbbca46b"></a>Break the ciphertext WKLV using cryptanalysis<br />
+<li><a id="org53d90fe"></a>Break the ciphertext WKLV using cryptanalysis<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-7-1">
 <p>
 The program given below is a very simple Python Script to generate all possible
@@ -1653,7 +1815,7 @@ character, by passing it into the <code>chr()</code> function.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc37d1f6"></a>Break the ciphertext GWTBS<br />
+<li><a id="org39d31b4"></a>Break the ciphertext GWTBS<br />
 <div class="outline-text-9" id="text-7-2-1-1-1-1-7-2">
 <div class="org-src-container">
 <pre class="src src-python">breakCaesar(<span style="color: #98be65;">"GWTBS"</span>)
@@ -1670,9 +1832,9 @@ character, by passing it into the <code>chr()</code> function.</li>
 </li>
 </ol>
 </li>
-<li><a id="org4ed7dd8"></a>Multiplicative Cipher<br />
+<li><a id="org5f46c31"></a>Multiplicative Cipher<br />
 <ol class="org-ol">
-<li><a id="orge089369"></a>What it is<br />
+<li><a id="org3d6f407"></a>What it is<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-2-1">
 <ul class="org-ul">
 <li>Ceasar cipher was the additive cipher.</li>
@@ -1743,7 +1905,7 @@ where \(a\) is the key.
 </table>
 </div>
 </li>
-<li><a id="org0f306ff"></a>Code<br />
+<li><a id="orge76b7e9"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-1-1-2-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -1790,7 +1952,7 @@ main()
 </li>
 </ol>
 </li>
-<li><a id="org1fed708"></a>Affine Cipher<br />
+<li><a id="orgc485775"></a>Affine Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-1-3">
 <ul class="org-ul">
 <li>This is a combination of multiplicative and additive.</li>
@@ -1818,7 +1980,7 @@ And decryption is:
 </li>
 </ol>
 </li>
-<li><a id="orged61253"></a>Simple Substitution/ Monoalphabetic<br />
+<li><a id="org4a785be"></a>Simple Substitution/ Monoalphabetic<br />
 <div class="outline-text-6" id="text-7-2-1-1-2">
 <ul class="org-ul">
 <li>Rather than shifting the alphabets, you shuffle the alphabets randomly.</li>
@@ -1829,7 +1991,7 @@ And decryption is:
 </ul>
 </div>
 </li>
-<li><a id="org0115743"></a>Polygram<br />
+<li><a id="orgf3a2a17"></a>Polygram<br />
 <div class="outline-text-6" id="text-7-2-1-1-3">
 <ul class="org-ul">
 <li>A block of plain text symbols is replaced by a corresponding ciphertext block
@@ -1853,9 +2015,9 @@ This can become, say (random, just for example):
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org23f5f2f"></a>Playfair Cipher<br />
+<li><a id="org55a78b0"></a>Playfair Cipher<br />
 <ol class="org-ol">
-<li><a id="org4eb122e"></a>Explanation<br />
+<li><a id="org75e4efc"></a>Explanation<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-1">
 <ul class="org-ul">
 <li>Make a \(5 \times 5\) matrix. In these 25 spaces, you&rsquo;ll have to fill all 26
@@ -1867,7 +2029,7 @@ the rest of the gaps in order without repetition.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgd9d58af"></a>Example we&rsquo;ll be using to learn the rules<br />
+<li><a id="org9086d6d"></a>Example we&rsquo;ll be using to learn the rules<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-1">
 <ul class="org-ul">
 <li>keyword: CRYPTOGRAPHY CLASS SPRING</li>
@@ -1931,7 +2093,7 @@ the rest of the gaps in order without repetition.</li>
 </table>
 </div>
 </li>
-<li><a id="org763adb5"></a>How to Encrypt a given plain text<br />
+<li><a id="orgd7000cf"></a>How to Encrypt a given plain text<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-2">
 <ol class="org-ol">
 <li>If letters of a pair are both same, then add an x after the first letter and
@@ -2039,7 +2201,7 @@ by the original pair.</li>
 </ol>
 </div>
 </li>
-<li><a id="orgfd9f8f6"></a>Demonstration of the plain text being encrypted<br />
+<li><a id="org988b12c"></a>Demonstration of the plain text being encrypted<br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-1-3">
 <ul class="org-ul">
 <li>Consider the plain text &ldquo;Hello find the solution&rdquo;.</li>
@@ -2062,7 +2224,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="org5e20ff6"></a>Solving another Example<br />
+<li><a id="org437e4d3"></a>Solving another Example<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-2">
 <ul class="org-ul">
 <li><p>
@@ -2128,7 +2290,7 @@ Keyword: KEYWORD
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org38a19b9"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
+<li><a id="org0b4e689"></a>Plain Text: <b>Why don&rsquo;t you</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-1">
 <ul class="org-ul">
 <li><p>
@@ -2148,7 +2310,7 @@ And the encrypted text will look like:
 </ul>
 </div>
 </li>
-<li><a id="org79a43c0"></a>Plain Text: <b>Come to the window</b><br />
+<li><a id="org3c52a67"></a>Plain Text: <b>Come to the window</b><br />
 <div class="outline-text-9" id="text-7-2-1-1-3-1-2-2">
 <ul class="org-ul">
 <li><p>
@@ -2170,7 +2332,7 @@ And the encrypted text will look like:
 </li>
 </ol>
 </li>
-<li><a id="org1ec4a74"></a>Code for Encryption<br />
+<li><a id="org45611ff"></a>Code for Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, keyword: <span style="color: #c678dd;">str</span>):
@@ -2229,7 +2391,7 @@ encrypt(<span style="color: #98be65;">'WHYDONTYOU'</span>,<span style="color: #9
 </div>
 </div>
 </li>
-<li><a id="orgb99c06f"></a>Code for Decryption<br />
+<li><a id="org17ee87a"></a>Code for Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-1-4">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -2308,14 +2470,14 @@ Hence the row is modified.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf66cc34"></a>Hill Cipher<br />
+<li><a id="org40cfc91"></a>Hill Cipher<br />
 <div class="outline-text-7" id="text-7-2-1-1-3-2">
 <p>
 Consider the Example: Plaintext = <code>CODE</code>, Key =   \(\begin{bmatrix} 3 & 3 \\ 2 & 5  \end{bmatrix}\)
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org716fbe6"></a>Encryption<br />
+<li><a id="org2c036ed"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-2-1">
 <p>
 \[\text{Cipher Text} = \begin{bmatrix} \text{Key} \end{bmatrix} \times \text{Plain Text} \mod(26)\]
@@ -2345,7 +2507,7 @@ In alphabetic form:
 </ul>
 </div>
 </li>
-<li><a id="org29c93dc"></a>Decryption<br />
+<li><a id="org1c4dffd"></a>Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-3-2-2">
 <p>
 \[\text{Plain Text} = \begin{bmatrix} \text{Key} \end{bmatrix}^{-1} \times \text{Cipher Text} \mod(26)\]
@@ -2358,7 +2520,7 @@ In alphabetic form:
 <li>\([ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} 9^{-1} \mod(26)] \times \text{(Cipher Text)} \mod(26)\)</li>
 </ul>
 <p>
-Refer to <a href="#orgc2e9983">Extended Euclidean Algorithm</a>
+Refer to <a href="#org7d2a202">Extended Euclidean Algorithm</a>
 </p>
 <ul class="org-ul">
 <li>\([ \begin{bmatrix} 5 & -3 \\ -2 & 3  \end{bmatrix} \times 3] \times \text{(Cipher Text)} \mod(26)\)</li>
@@ -2371,7 +2533,7 @@ Refer to <a href="#orgc2e9983">Extended Euclidean Algorithm</a>
 </li>
 </ol>
 </li>
-<li><a id="orgd5416a1"></a>Homophonic<br />
+<li><a id="orge05f318"></a>Homophonic<br />
 <div class="outline-text-6" id="text-7-2-1-1-4">
 <ul class="org-ul">
 <li>If a letter \(x\) appears for \(y\%\) of all characters, we assign \(y\) number of
@@ -2379,7 +2541,7 @@ symbols to represent it.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf0dd33b"></a>Polyalphabetic<br />
+<li><a id="orgd121565"></a>Polyalphabetic<br />
 <div class="outline-text-6" id="text-7-2-1-1-5">
 <ul class="org-ul">
 <li>In Caesar cipher, the key was a single number.</li>
@@ -2390,9 +2552,9 @@ length of the plain text.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org0795cf6"></a>Vigenere Cipher<br />
+<li><a id="org06539a8"></a>Vigenere Cipher<br />
 <ol class="org-ol">
-<li><a id="org014d489"></a>Encryption<br />
+<li><a id="orgac9b632"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-1-1">
 <ul class="org-ul">
 <li>This is one of the simplest polyalphabetic substitution cipher.</li>
@@ -2534,7 +2696,7 @@ _____________________________________________________
 </ul>
 </div>
 </li>
-<li><a id="org63e77e1"></a>Code<br />
+<li><a id="org1397f41"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, key: <span style="color: #c678dd;">str</span>):
@@ -2564,9 +2726,9 @@ WEAREDISCOVEREDSAVEYOURSELF
 </div>
 </div>
 </li>
-<li><a id="orgf444aac"></a>Cryptanalysis<br />
+<li><a id="org82665fb"></a>Cryptanalysis<br />
 <ol class="org-ol">
-<li><a id="org0d2d598"></a>Example 1: Plain Text = &ldquo;acbxzcb&rdquo;, Cipher Text = &ldquo;bxbywdb&rdquo;<br />
+<li><a id="orgae278d2"></a>Example 1: Plain Text = &ldquo;acbxzcb&rdquo;, Cipher Text = &ldquo;bxbywdb&rdquo;<br />
 <div class="outline-text-9" id="text-7-2-1-1-5-1-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2629,7 +2791,7 @@ WEAREDISCOVEREDSAVEYOURSELF
 </li>
 </ol>
 </li>
-<li><a id="org7b74dc5"></a>Vernam Cipher aka. One Time Padding (OTP)<br />
+<li><a id="org0a5a300"></a>Vernam Cipher aka. One Time Padding (OTP)<br />
 <div class="outline-text-7" id="text-7-2-1-1-5-2">
 <ul class="org-ul">
 <li>You perform bitwise XOR on the ASCII value of the characters of the plain text
@@ -2738,7 +2900,7 @@ purely random.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org76f2d7b"></a>Code<br />
+<li><a id="orgf2c52be"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-1-5-2-1">
 <div class="org-src-container">
 <pre class="src src-python">
@@ -2775,7 +2937,7 @@ purely random.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgf707695"></a>Transposition / Permutation Cipher<br />
+<li><a id="orgf04844f"></a>Transposition / Permutation Cipher<br />
 <div class="outline-text-5" id="text-7-2-1-2">
 <ul class="org-ul">
 <li>This cipher hides the message by rearranging the letters of the plain text
@@ -2783,9 +2945,9 @@ without changing the actual letters.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgbe3bf75"></a>Railfence Cipher<br />
+<li><a id="org2e2ea97"></a>Railfence Cipher<br />
 <ol class="org-ol">
-<li><a id="org14ec59f"></a>Encryption<br />
+<li><a id="orga0791f5"></a>Encryption<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-1">
 <ul class="org-ul">
 <li>Here you write message&rsquo;s letters diagonally over the rows, then read the
@@ -2910,7 +3072,7 @@ is 3 (this is the key).
 </ul>
 </div>
 </li>
-<li><a id="orgc5f95bf"></a>Decryption<br />
+<li><a id="org05e5332"></a>Decryption<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-2">
 <ul class="org-ul">
 <li>For example, let the cipher text be &ldquo;mtahaeyemfrereettpt&rdquo;</li>
@@ -3109,14 +3271,14 @@ Now that we&rsquo;ve mapped the correct indices, we can find the plain text:
 </ul>
 </div>
 </li>
-<li><a id="org40e4aa0"></a>Cryptanalysis<br />
+<li><a id="org7cf746e"></a>Cryptanalysis<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-3">
 <ul class="org-ul">
 <li>The only way is to brute force and try different key lengths.</li>
 </ul>
 </div>
 </li>
-<li><a id="org1bdf23c"></a>Code<br />
+<li><a id="org7f54350"></a>Code<br />
 <div class="outline-text-8" id="text-7-2-1-2-0-1-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">encrypt</span>(plaintext: <span style="color: #c678dd;">str</span>, rails: <span style="color: #c678dd;">int</span>):
@@ -3157,7 +3319,7 @@ meetmeaftertheparty
 </li>
 </ol>
 </li>
-<li><a id="org417fe70"></a>Columnar Transposition<br />
+<li><a id="org1e7cab2"></a>Columnar Transposition<br />
 <div class="outline-text-7" id="text-7-2-1-2-0-2">
 <ul class="org-ul">
 <li>Write the characters of the message in rows over a specified number of
@@ -3251,15 +3413,15 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </li>
 </ol>
 </li>
-<li><a id="org23e753e"></a>Product<br /></li>
+<li><a id="org6e85793"></a>Product<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgeccf74a" class="outline-4">
-<h4 id="orgeccf74a"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
+<div id="outline-container-org9763f2d" class="outline-4">
+<h4 id="org9763f2d"><span class="section-number-4">7.2.2.</span> Based on Number of Keys</h4>
 <div class="outline-text-4" id="text-7-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org3acf271"></a>Single/Private Key or Symmetric Cryptography<br />
+<li><a id="org5f953ee"></a>Single/Private Key or Symmetric Cryptography<br />
 <div class="outline-text-5" id="text-7-2-2-1">
 <ul class="org-ul">
 <li>Here the same key is used for both encryption and decryption.</li>
@@ -3271,11 +3433,11 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org2401da3"></a>Feistel Cipher Structure<br />
+<li><a id="org5829a02"></a>Feistel Cipher Structure<br />
 <div class="outline-text-6" id="text-7-2-2-1-1">
 <ul class="org-ul">
 <li>There are \(2^{n}\) ways of mapping for plain text</li>
-<li>Here, we use <a href="#orgb523c1a">Block</a> cipher</li>
+<li>Here, we use <a href="#org17578ff">Block</a> cipher</li>
 <li>For a plain text block of \(n\) bits, the key length has to be \(n \times 2^{n}\) bits.</li>
 <li><b>Design Principles</b>:
 <ul class="org-ul">
@@ -3287,7 +3449,7 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </ul>
 </div>
 </li>
-<li><a id="org2f1cd1e"></a>Data Encryption Standard (DES)<br />
+<li><a id="orgdbb07b0"></a>Data Encryption Standard (DES)<br />
 <div class="outline-text-6" id="text-7-2-2-1-2">
 <ul class="org-ul">
 <li>This is the most widely used block cipher in the world.</li>
@@ -3308,13 +3470,13 @@ The cipher text would be &ldquo;ttnaaptmtsuoaodwcoixknlypetz&rdquo;.
 </ul>
 
 
-<div id="orgdc35b0e" class="figure">
+<div id="org7f8489e" class="figure">
 <p><img src="file:///home/praaneshnair/gitProjects/org-notes/computer-security/One_round_of_DES.jpeg" alt="One_round_of_DES.jpeg" />
 </p>
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org6722e2b"></a>S-Box<br />
+<li><a id="org3dcfde1"></a>S-Box<br />
 <div class="outline-text-7" id="text-7-2-2-1-2-1">
 <ul class="org-ul">
 <li>Given a \(4 \times 16\) box of 4 bit numbers, and a 6 bit number, you locate a number
@@ -3358,7 +3520,7 @@ as:
 </div>
 </div>
 </li>
-<li><a id="orgdb3a93f"></a>Decryption<br />
+<li><a id="orge93ce66"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-1-2-2">
 <ul class="org-ul">
 <li>DES decryption is encryption in reverse order.</li>
@@ -3396,7 +3558,7 @@ the first round.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgeb08d85"></a>Two-key or Public Key cryptography or Asymmetric Cryptography<br />
+<li><a id="org17b0aa8"></a>Two-key or Public Key cryptography or Asymmetric Cryptography<br />
 <div class="outline-text-5" id="text-7-2-2-2">
 <ul class="org-ul">
 <li>It&rsquo;s called <b>asymmetric key encryption</b>.</li>
@@ -3408,7 +3570,7 @@ the first round.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8f034fc"></a>Encryption/Decryption<br />
+<li><a id="orgccd0435"></a>Encryption/Decryption<br />
 <div class="outline-text-6" id="text-7-2-2-2-1">
 <ul class="org-ul">
 <li>If you know the private key, you automatically get the public key too. But
@@ -3469,7 +3631,7 @@ the applications.</li>
 </table>
 </div>
 </li>
-<li><a id="org5db13d1"></a>Security of Public key algorithms<br />
+<li><a id="orgb3dfa1d"></a>Security of Public key algorithms<br />
 <div class="outline-text-6" id="text-7-2-2-2-2">
 <ul class="org-ul">
 <li>Brute force is always possible, so make sure you:
@@ -3482,7 +3644,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7a7e1f9"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
+<li><a id="orgf88cb71"></a>RSA (Rivest Shamir Adelman) Algorithm<br />
 <div class="outline-text-6" id="text-7-2-2-2-3">
 <ul class="org-ul">
 <li>This is the model widely used Public Key Cryptography (PKC).</li>
@@ -3490,7 +3652,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org207ee16"></a>Key Generation<br />
+<li><a id="orge81a16f"></a>Key Generation<br />
 <div class="outline-text-7" id="text-7-2-2-2-3-1">
 <ul class="org-ul">
 <li>Select \(p\), \(q\), where \(p\) and \(q\) are prime.</li>
@@ -3502,9 +3664,9 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgbc40b94"></a>Encryption<br />
+<li><a id="orgef65c63"></a>Encryption<br />
 <ol class="org-ol">
-<li><a id="org3b3feb5"></a>Rules<br />
+<li><a id="org39ff416"></a>Rules<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-2-1">
 <ul class="org-ul">
 <li>Plaintext \(M < n\)</li>
@@ -3512,9 +3674,9 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd5b6a49"></a>Examples<br />
+<li><a id="orgaf99472"></a>Examples<br />
 <ol class="org-ol">
-<li><a id="orgd8c4a29"></a>Example 1<br />
+<li><a id="org40d1bca"></a>Example 1<br />
 <div class="outline-text-9" id="text-7-2-2-2-3-2-2-1">
 <ul class="org-ul">
 <li>\(p=3\), \(q=11\)</li>
@@ -3576,12 +3738,12 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org98d7565"></a>Example 2<br /></li>
+<li><a id="org7e8fdf1"></a>Example 2<br /></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><a id="orgc69717c"></a>Decryption<br />
+<li><a id="org46c4718"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-3-3">
 <ul class="org-ul">
 <li>Ciphertext = \(C\)</li>
@@ -3589,12 +3751,12 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org9430626"></a>Attacks against RSA<br />
+<li><a id="org32ecd2a"></a>Attacks against RSA<br />
 <ol class="org-ol">
-<li><a id="org6b5d3ad"></a>Brute Force<br /></li>
+<li><a id="org4ec8d0e"></a>Brute Force<br /></li>
 
 
-<li><a id="org933fae2"></a>Mathematical Attakcs<br />
+<li><a id="orgfbe50b8"></a>Mathematical Attakcs<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-4-2">
 <ul class="org-ul">
 <li>Factor n</li>
@@ -3602,7 +3764,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org76e08fc"></a>Timings Attack<br />
+<li><a id="org0105dd1"></a>Timings Attack<br />
 <div class="outline-text-8" id="text-7-2-2-2-3-4-3">
 <ul class="org-ul">
 <li>Use the running time of the algorithm to determine the key</li>
@@ -3613,7 +3775,7 @@ be much larger the symmetric crypto keys.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgb61fd57"></a>ElGamal Encryption Algorithm<br />
+<li><a id="org58ebeab"></a>ElGamal Encryption Algorithm<br />
 <div class="outline-text-6" id="text-7-2-2-2-4">
 <ul class="org-ul">
 <li>It&rsquo;s also a public-key cryptosystem like RSA.</li>
@@ -3621,7 +3783,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgfef509f"></a>Algorithm<br />
+<li><a id="org99d54af"></a>Algorithm<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-1">
 <ul class="org-ul">
 <li>Select a large prime \(q\).</li>
@@ -3634,7 +3796,7 @@ be much larger the symmetric crypto keys.</li>
 </ul>
 </div>
 </li>
-<li><a id="org62b8311"></a>Encryption<br />
+<li><a id="org1951c8e"></a>Encryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-2">
 <ul class="org-ul">
 <li>Select a random number \(r\) from \(Z_{q}^{*}\)</li>
@@ -3651,18 +3813,18 @@ involved.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5ee030f"></a>Decryption<br />
+<li><a id="org444de8b"></a>Decryption<br />
 <div class="outline-text-7" id="text-7-2-2-2-4-3">
 <ul class="org-ul">
 <li>\(P = [C_{2} (C_{1}^{x})^{-1}]\mod(q)\)</li>
 <li>Encrypted message along with shared secret is needed for decryption.</li>
-<li>Use <a href="#org1e32fb8">Discrete Logarithm</a></li>
+<li>Use <a href="#orgbdeb79a">Discrete Logarithm</a></li>
 </ul>
 </div>
 </li>
-<li><a id="org0b487a7"></a>Examples<br />
+<li><a id="orgbc2e168"></a>Examples<br />
 <ol class="org-ol">
-<li><a id="org3505d47"></a>Encrypt a message \(m\) having value 10 using a public key \(9\), where a random number generated is \(3\) and primitive root \(11\) and a prime number \(23\)<br />
+<li><a id="org664ca12"></a>Encrypt a message \(m\) having value 10 using a public key \(9\), where a random number generated is \(3\) and primitive root \(11\) and a prime number \(23\)<br />
 <div class="outline-text-8" id="text-7-2-2-2-4-4-1">
 <ul class="org-ul">
 <li>Given:
@@ -3687,7 +3849,7 @@ involved.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd1e4b50"></a>\(q = 23\), \(g = 7\), \(x = 9\), \(r = 3\), \(m = 20\)<br />
+<li><a id="org9d6a615"></a>\(q = 23\), \(g = 7\), \(x = 9\), \(r = 3\), \(m = 20\)<br />
 <div class="outline-text-8" id="text-7-2-2-2-4-4-2">
 <ul class="org-ul">
 <li></li>
@@ -3698,7 +3860,7 @@ involved.</li>
 </li>
 </ol>
 </li>
-<li><a id="org43f7e76"></a>Diffie Hellman<br />
+<li><a id="orgff09e5f"></a>Diffie Hellman<br />
 <div class="outline-text-6" id="text-7-2-2-2-5">
 <ul class="org-ul">
 <li>This is used for key-exchange where both the parties jointly establish a
@@ -3864,10 +4026,10 @@ Calculate shared secret key:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgd5938e0"></a>Man in the Middle Attack<br /></li>
+<li><a id="org3d62ae4"></a>Man in the Middle Attack<br /></li>
 </ol>
 </li>
-<li><a id="org3b644f0"></a>Digital Signature<br />
+<li><a id="org4bcaca0"></a>Digital Signature<br />
 <div class="outline-text-6" id="text-7-2-2-2-6">
 <ul class="org-ul">
 <li>It&rsquo;s an authentication mechanism that enables the creator of a maessage to
@@ -3880,7 +4042,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgaeffde4"></a>Properties of Digital Signature<br />
+<li><a id="orgc5fab43"></a>Properties of Digital Signature<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-1">
 <ul class="org-ul">
 <li>It must verify <b>author</b>, <b>date</b> and <b>time</b> of the signature.</li>
@@ -3889,7 +4051,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4e87c7a"></a>RSA Approach to Digital Signature<br />
+<li><a id="orgf65f38a"></a>RSA Approach to Digital Signature<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3914,7 +4076,7 @@ digital signature.</li>
 </table>
 </div>
 </li>
-<li><a id="org795bf31"></a>DSS (Digital Signature Standard)<br />
+<li><a id="org05690c2"></a>DSS (Digital Signature Standard)<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-3">
 <ul class="org-ul">
 <li>Digital signatures are generated using <b>Secure Hash Algorithm</b> (SHA).</li>
@@ -3922,7 +4084,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga1390f2"></a>Sender Side/ Signing<br />
+<li><a id="org02fbc75"></a>Sender Side/ Signing<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-3-1">
 <ul class="org-ul">
 <li>A hash value is generated from the message.</li>
@@ -3938,7 +4100,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgef9b65f"></a>Receiver Side<br />
+<li><a id="org4b89f9f"></a>Receiver Side<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-3-2">
 <ul class="org-ul">
 <li>The hash value is generated from the message.</li>
@@ -3956,7 +4118,7 @@ digital signature.</li>
 </li>
 </ol>
 </li>
-<li><a id="org4ee2bfd"></a>DSA (Digital Signature Algorithm)<br />
+<li><a id="org623ec28"></a>DSA (Digital Signature Algorithm)<br />
 <div class="outline-text-7" id="text-7-2-2-2-6-4">
 <ul class="org-ul">
 <li>The values used here are:
@@ -3969,7 +4131,7 @@ digital signature.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org57c3b00"></a>Sender Side/ Signing<br />
+<li><a id="org6ab1191"></a>Sender Side/ Signing<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-4-1">
 <ul class="org-ul">
 <li>Pick a random number \(k\) such that \(0 < k < q\)</li>
@@ -3979,7 +4141,7 @@ digital signature.</li>
 </ul>
 </div>
 </li>
-<li><a id="org81b67da"></a>Verification<br />
+<li><a id="orgc804cca"></a>Verification<br />
 <div class="outline-text-8" id="text-7-2-2-2-6-4-2">
 <ul class="org-ul">
 <li>\(w = s^{-1}\mod(q)\)</li>
@@ -3994,7 +4156,7 @@ digital signature.</li>
 </li>
 </ol>
 </li>
-<li><a id="org5b41c7e"></a>Hash Function<br />
+<li><a id="org54c6912"></a>Hash Function<br />
 <div class="outline-text-6" id="text-7-2-2-2-7">
 <ul class="org-ul">
 <li>A hash is a unique digital fingerprint of data. It&rsquo;s a mathematical blender.</li>
@@ -4014,7 +4176,7 @@ no shortcuts.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge857d24"></a>Properties<br />
+<li><a id="org3121243"></a>Properties<br />
 <div class="outline-text-7" id="text-7-2-2-2-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -4059,7 +4221,7 @@ no shortcuts.</li>
 </table>
 </div>
 <ol class="org-ol">
-<li><a id="org64a3e87"></a>SHA-256<br />
+<li><a id="org3dd80eb"></a>SHA-256<br />
 <div class="outline-text-8" id="text-7-2-2-2-7-1-1">
 <ul class="org-ul">
 <li>SHA-256 works on 512-bit blocks.</li>
@@ -4068,7 +4230,7 @@ no shortcuts.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgb5b358c"></a>Algorithm<br />
+<li><a id="org5bc41cf"></a>Algorithm<br />
 <div class="outline-text-9" id="text-7-2-2-2-7-1-1-1">
 <ol class="org-ol">
 <li>Read the input</li>
@@ -4175,7 +4337,7 @@ inputs.</li>
 </ol>
 </div>
 </li>
-<li><a id="org8a95712"></a>Rough Implementation in Python<br />
+<li><a id="org41947f0"></a>Rough Implementation in Python<br />
 <div class="outline-text-9" id="text-7-2-2-2-7-1-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -4297,14 +4459,14 @@ main()
 </div>
 </div>
 </li>
-<li><a id="orgec38faa"></a>Using <code>hashlib</code><br />
+<li><a id="org94b9321"></a>Using <code>hashlib</code><br />
 <div class="outline-text-9" id="text-7-2-2-2-7-1-1-3">
 <p>
 The steps in which this works is given below:
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc52b2b1"></a>Make <code>bytes</code> Object<br />
+<li><a id="org6ecbc78"></a>Make <code>bytes</code> Object<br />
 <div class="outline-text-10" id="text-7-2-2-2-7-1-1-3-1">
 <ul class="org-ul">
 <li>A <code>bytes</code> object in Python is an immutable sequence of integers ranging from 0
@@ -4364,7 +4526,7 @@ If you index a <code>bytes</code> object, you get the ASCII value:
 </ul>
 </div>
 </li>
-<li><a id="orgbd78fb0"></a>Use <code>.sha256()</code> method<br />
+<li><a id="org7d1899c"></a>Use <code>.sha256()</code> method<br />
 <div class="outline-text-10" id="text-7-2-2-2-7-1-1-3-2">
 <ul class="org-ul">
 <li><p>
@@ -4384,7 +4546,7 @@ parameter, and returns a <code>HASH</code> object:
 </ul>
 </div>
 </li>
-<li><a id="org18a7151"></a>Use <code>.hexdigest()</code> method<br />
+<li><a id="org828b00c"></a>Use <code>.hexdigest()</code> method<br />
 <div class="outline-text-10" id="text-7-2-2-2-7-1-1-3-3">
 <ul class="org-ul">
 <li><p>
@@ -4409,7 +4571,7 @@ value as hexadecimal characters:
 </li>
 </ol>
 </li>
-<li><a id="orgda32053"></a>HMAC<br />
+<li><a id="org5d9b800"></a>HMAC<br />
 <div class="outline-text-8" id="text-7-2-2-2-7-1-2">
 <p>
 This is assuming the hash function where each character’s ASCII value is
@@ -4469,12 +4631,12 @@ using modulo arithmetic. The resulting number acts as the hash of the message.
 </li>
 </ol>
 </div>
-<div id="outline-container-org17d51d9" class="outline-4">
-<h4 id="org17d51d9"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
+<div id="outline-container-orgccc1e9e" class="outline-4">
+<h4 id="orgccc1e9e"><span class="section-number-4">7.2.3.</span> Based on how plaintext is processed</h4>
 <div class="outline-text-4" id="text-7-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgb523c1a"></a>Block<br />
+<li><a id="org17578ff"></a>Block<br />
 <div class="outline-text-5" id="text-7-2-3-1">
 <ul class="org-ul">
 <li>Block Cipher transforms a fixed length of plaintext data into a block of
@@ -4496,16 +4658,16 @@ ciphertext of the same length, with the help of a secret key.</li>
 <li>To overcome this, an <b>arbitrary reversible substitution cipher</b> can be used,
 where the statistical characteristics of the plain text is masked.</li>
 <li>Using a large block size increases security but is impractical to implement.</li>
-<li>For example, in <a href="#org2401da3">Feistel Cipher Structure</a> a plain text block of \(n\) bits, the
+<li>For example, in <a href="#org5829a02">Feistel Cipher Structure</a> a plain text block of \(n\) bits, the
 key length has to be \(n \times 2^{n}\) bits.</li>
 <li>The ideal block cipher uses the concept of <b>product cipher</b> where product cipher
-is a combination of substitution and permutation. <a href="#org2401da3">Feistel Cipher Structure</a>
+is a combination of substitution and permutation. <a href="#org5829a02">Feistel Cipher Structure</a>
 proposed this concept.</li>
-<li>Most ciphers are based on <a href="#org2401da3">Feistel Cipher Structure</a>.</li>
+<li>Most ciphers are based on <a href="#org5829a02">Feistel Cipher Structure</a>.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org99f7a71"></a>Confusion and Diffusion<br />
+<li><a id="orgc421e54"></a>Confusion and Diffusion<br />
 <div class="outline-text-6" id="text-7-2-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -4532,7 +4694,7 @@ proposed this concept.</li>
 </li>
 </ol>
 </li>
-<li><a id="org1915f49"></a>Stream<br />
+<li><a id="org9d13e71"></a>Stream<br />
 <div class="outline-text-5" id="text-7-2-3-2">
 <ul class="org-ul">
 <li>The encryption is done bit by bit</li>
@@ -4548,24 +4710,24 @@ matches the input size.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf79e50b" class="outline-2">
-<h2 id="orgf79e50b"><span class="section-number-2">8.</span> Number Theory</h2>
+<div id="outline-container-org1b761d3" class="outline-2">
+<h2 id="org1b761d3"><span class="section-number-2">8.</span> Number Theory</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgf277323" class="outline-3">
-<h3 id="orgf277323"><span class="section-number-3">8.1.</span> Basic Properties</h3>
+<div id="outline-container-orgc02531e" class="outline-3">
+<h3 id="orgc02531e"><span class="section-number-3">8.1.</span> Basic Properties</h3>
 <div class="outline-text-3" id="text-8-1">
 </div>
-<div id="outline-container-orge59d002" class="outline-4">
-<h4 id="orge59d002"><span class="section-number-4">8.1.1.</span> Commutative</h4>
+<div id="outline-container-org49f8185" class="outline-4">
+<h4 id="org49f8185"><span class="section-number-4">8.1.1.</span> Commutative</h4>
 <div class="outline-text-4" id="text-8-1-1">
 <p>
 \[a + b = b + a\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgde4249e" class="outline-4">
-<h4 id="orgde4249e"><span class="section-number-4">8.1.2.</span> Associative</h4>
+<div id="outline-container-orge7104fe" class="outline-4">
+<h4 id="orge7104fe"><span class="section-number-4">8.1.2.</span> Associative</h4>
 <div class="outline-text-4" id="text-8-1-2">
 <p>
 \[a + (b+c) = (a+b)+c\]
@@ -4573,8 +4735,8 @@ Same applies to multiplication too.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb50afd4" class="outline-4">
-<h4 id="orgb50afd4"><span class="section-number-4">8.1.3.</span> Distributive</h4>
+<div id="outline-container-org55314f8" class="outline-4">
+<h4 id="org55314f8"><span class="section-number-4">8.1.3.</span> Distributive</h4>
 <div class="outline-text-4" id="text-8-1-3">
 <p>
 \[a \times (b+c) = ab + ac\]
@@ -4582,8 +4744,8 @@ Same applies to multiplication too.
 </div>
 </div>
 </div>
-<div id="outline-container-org7f3978a" class="outline-3">
-<h3 id="org7f3978a"><span class="section-number-3">8.2.</span> Division</h3>
+<div id="outline-container-orgd8fd87c" class="outline-3">
+<h3 id="orgd8fd87c"><span class="section-number-3">8.2.</span> Division</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>When we say \(a | b\) (a divides b), we&rsquo;re doing \(\frac{b}{a}\).</li>
@@ -4599,8 +4761,8 @@ process is 0. (Obvious facts, but I still chose to put them here).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ac283c" class="outline-3">
-<h3 id="org4ac283c"><span class="section-number-3">8.3.</span> Prime Numbers</h3>
+<div id="outline-container-org4f4bfa7" class="outline-3">
+<h3 id="org4f4bfa7"><span class="section-number-3">8.3.</span> Prime Numbers</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>A prime number is a natural number greater than 1 that has no positive
@@ -4608,8 +4770,8 @@ divisors other than 1 and itself.</li>
 <li>Euclid states that there are infinitely many prime numbers.</li>
 </ul>
 </div>
-<div id="outline-container-org808ef48" class="outline-4">
-<h4 id="org808ef48"><span class="section-number-4">8.3.1.</span> Twin Primes</h4>
+<div id="outline-container-org1bc41ee" class="outline-4">
+<h4 id="org1bc41ee"><span class="section-number-4">8.3.1.</span> Twin Primes</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <ul class="org-ul">
 <li>Pairs of primes which differ by 2.</li>
@@ -4617,12 +4779,12 @@ divisors other than 1 and itself.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org03082ca" class="outline-4">
-<h4 id="org03082ca"><span class="section-number-4">8.3.2.</span> Primality Test</h4>
+<div id="outline-container-org55a083f" class="outline-4">
+<h4 id="org55a083f"><span class="section-number-4">8.3.2.</span> Primality Test</h4>
 <div class="outline-text-4" id="text-8-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org26cd40d"></a>What it is<br />
+<li><a id="orgcd0c51e"></a>What it is<br />
 <div class="outline-text-5" id="text-8-3-2-1">
 <ul class="org-ul">
 <li>To test if a number \(n\) is prime, you check if it&rsquo;s divisible with any prime
@@ -4639,7 +4801,7 @@ finding square root takes time.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb80fe53"></a>Code for Trial Division Method<br />
+<li><a id="orgd852570"></a>Code for Trial Division Method<br />
 <div class="outline-text-5" id="text-8-3-2-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">from</span> math <span style="color: #51afef;">import</span> sqrt
@@ -4668,8 +4830,8 @@ main()
 </li>
 </ol>
 </div>
-<div id="outline-container-orgd4988f3" class="outline-4">
-<h4 id="orgd4988f3"><span class="section-number-4">8.3.3.</span> Fundamental Theorem of Arithmetic</h4>
+<div id="outline-container-org55f2ba5" class="outline-4">
+<h4 id="org55f2ba5"><span class="section-number-4">8.3.3.</span> Fundamental Theorem of Arithmetic</h4>
 <div class="outline-text-4" id="text-8-3-3">
 <blockquote>
 <p>
@@ -4678,8 +4840,8 @@ Every positive integer is uniquely a product of prime numbers.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orga458a48" class="outline-4">
-<h4 id="orga458a48"><span class="section-number-4">8.3.4.</span> Sieve of Eratosthenes</h4>
+<div id="outline-container-org1e49511" class="outline-4">
+<h4 id="org1e49511"><span class="section-number-4">8.3.4.</span> Sieve of Eratosthenes</h4>
 <div class="outline-text-4" id="text-8-3-4">
 <ul class="org-ul">
 <li>This is one of the fastest ways to find <b>all prime numbers up to a given number N</b>.</li>
@@ -4693,7 +4855,7 @@ Every positive integer is uniquely a product of prime numbers.
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga5f383d"></a>Algorithm<br />
+<li><a id="org1050259"></a>Algorithm<br />
 <div class="outline-text-5" id="text-8-3-4-1">
 <p>
 Initially, write down all numbers from 2 to N:
@@ -4750,12 +4912,12 @@ The first multiple that could still be uncrossed is \(5^{2} = 25\). In general, 
 </li>
 </ol>
 </div>
-<div id="outline-container-orgca153b8" class="outline-4">
-<h4 id="orgca153b8"><span class="section-number-4">8.3.5.</span> GCD</h4>
+<div id="outline-container-org2a2f45c" class="outline-4">
+<h4 id="org2a2f45c"><span class="section-number-4">8.3.5.</span> GCD</h4>
 <div class="outline-text-4" id="text-8-3-5">
 </div>
 <ol class="org-ol">
-<li><a id="org8cd8d22"></a>What it is<br />
+<li><a id="orgf205ee3"></a>What it is<br />
 <div class="outline-text-5" id="text-8-3-5-1">
 <ul class="org-ul">
 <li>Greatest common divisor is the largest number that divides both numbers.</li>
@@ -4791,7 +4953,7 @@ whole.</li>
 </ul>
 </div>
 </li>
-<li><a id="org00ae9d3"></a>How to find<br />
+<li><a id="org8ecc1ef"></a>How to find<br />
 <div class="outline-text-5" id="text-8-3-5-2">
 <p>
 For example, the GCD for 24598 and 7895 would be:
@@ -4872,12 +5034,12 @@ The answer is <b>1</b>.
 </li>
 </ol>
 </div>
-<div id="outline-container-orgc1d6e29" class="outline-4">
-<h4 id="orgc1d6e29"><span class="section-number-4">8.3.6.</span> Euclidean Algorithm</h4>
+<div id="outline-container-org0fb3156" class="outline-4">
+<h4 id="org0fb3156"><span class="section-number-4">8.3.6.</span> Euclidean Algorithm</h4>
 <div class="outline-text-4" id="text-8-3-6">
 </div>
 <ol class="org-ol">
-<li><a id="org148bdd5"></a>What it is<br />
+<li><a id="org932ff9e"></a>What it is<br />
 <div class="outline-text-5" id="text-8-3-6-1">
 <p>
 Basically, the property used is that \(GCD(a,b) = GCD(a\mod(b), b)\), given that
@@ -4940,7 +5102,7 @@ What we&rsquo;ve done here is \(GCD(63,49) = GCD(49, 14) = GCD(14, 7) = GCD(7, 0
 </p>
 </div>
 </li>
-<li><a id="orgb4c3bc5"></a>Code<br />
+<li><a id="orgfa3bc49"></a>Code<br />
 <div class="outline-text-5" id="text-8-3-6-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -4965,8 +5127,8 @@ main()
 </li>
 </ol>
 </div>
-<div id="outline-container-org29ccddc" class="outline-4">
-<h4 id="org29ccddc"><span class="section-number-4">8.3.7.</span> Modular Arithmetic Operations</h4>
+<div id="outline-container-orgaade49c" class="outline-4">
+<h4 id="orgaade49c"><span class="section-number-4">8.3.7.</span> Modular Arithmetic Operations</h4>
 <div class="outline-text-4" id="text-8-3-7">
 <ul class="org-ul">
 <li><b>Modular arithmetic</b> is the arithmetic performed on remainders after division by
@@ -4975,7 +5137,7 @@ a fixed positive integer.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgc4005dc"></a>Standard Rules<br />
+<li><a id="org57821c8"></a>Standard Rules<br />
 <div class="outline-text-5" id="text-8-3-7-1">
 <p>
 \[[a\mod(n) + (b\mod(n))]\mod(n) = (a+b)\mod(n)\]
@@ -4999,7 +5161,7 @@ So to generalize it:
 </p>
 </div>
 </li>
-<li><a id="org39185b2"></a>Inferences<br />
+<li><a id="org8be5913"></a>Inferences<br />
 <div class="outline-text-5" id="text-8-3-7-2">
 <p>
 Some inferences you can make out from this is:
@@ -5009,7 +5171,7 @@ Some inferences you can make out from this is:
 </ul>
 </div>
 </li>
-<li><a id="org3a893a4"></a>How to do \((\text{negativeNumber})\mod(x)\)<br />
+<li><a id="org84b1ce3"></a>How to do \((\text{negativeNumber})\mod(x)\)<br />
 <div class="outline-text-5" id="text-8-3-7-3">
 <ul class="org-ul">
 <li>It&rsquo;s simply \((\text{negativeNumber}+nx)\mod(x)\), where \(n\) can be anything
@@ -5017,7 +5179,7 @@ that turns that negative number into a positive one.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc38caa1"></a>Program to compute \((a+b)mod(n)\) and \((a*b)mod(n)\)<br />
+<li><a id="orgd402e22"></a>Program to compute \((a+b)mod(n)\) and \((a*b)mod(n)\)<br />
 <div class="outline-text-5" id="text-8-3-7-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -5044,8 +5206,8 @@ main()
 </li>
 </ol>
 </div>
-<div id="outline-container-org5abbc18" class="outline-4">
-<h4 id="org5abbc18"><span class="section-number-4">8.3.8.</span> Addition Modulo \(n\) table</h4>
+<div id="outline-container-org89201bb" class="outline-4">
+<h4 id="org89201bb"><span class="section-number-4">8.3.8.</span> Addition Modulo \(n\) table</h4>
 <div class="outline-text-4" id="text-8-3-8">
 <ul class="org-ul">
 <li>We construct a table where each value is \((row + col) \mod (n)\)</li>
@@ -5166,8 +5328,8 @@ For example, let \(n=7\):
 </ul>
 </div>
 </div>
-<div id="outline-container-org690bf08" class="outline-4">
-<h4 id="org690bf08"><span class="section-number-4">8.3.9.</span> Congruence</h4>
+<div id="outline-container-org855e39c" class="outline-4">
+<h4 id="org855e39c"><span class="section-number-4">8.3.9.</span> Congruence</h4>
 <div class="outline-text-4" id="text-8-3-9">
 <p>
 \[a \equiv b \mod(n)\]
@@ -5179,19 +5341,19 @@ For example, let \(n=7\):
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc84aa9c" class="outline-4">
-<h4 id="orgc84aa9c"><span class="section-number-4">8.3.10.</span> Inverses</h4>
+<div id="outline-container-org65218bd" class="outline-4">
+<h4 id="org65218bd"><span class="section-number-4">8.3.10.</span> Inverses</h4>
 <div class="outline-text-4" id="text-8-3-10">
 </div>
 <ol class="org-ol">
-<li><a id="orge01962a"></a>Additive Inverse<br />
+<li><a id="org9b1ba4b"></a>Additive Inverse<br />
 <div class="outline-text-5" id="text-8-3-10-1">
 <p>
 \[-a + a\mod(m) = 0\]
 </p>
 </div>
 </li>
-<li><a id="org3e599ba"></a>Multiplicative Inverse<br />
+<li><a id="org2bfa53c"></a>Multiplicative Inverse<br />
 <div class="outline-text-5" id="text-8-3-10-2">
 <ul class="org-ul">
 <li>Normal multiplicative inverse of \(a\) is a number such that if you multiply \(a\)
@@ -5221,9 +5383,9 @@ such that \(a \times x \mod(m) = 1\).</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgc2e9983"></a>Extended Euclidean Algorithm<br />
+<li><a id="org7d2a202"></a>Extended Euclidean Algorithm<br />
 <ol class="org-ol">
-<li><a id="org8398a5d"></a>What it is<br />
+<li><a id="orgfb48a1e"></a>What it is<br />
 <div class="outline-text-7" id="text-8-3-10-2-1-1">
 <ul class="org-ul">
 <li><p>
@@ -5394,7 +5556,7 @@ So the final multiplicative inverse is 9.
 </ul>
 </div>
 </li>
-<li><a id="orgb5671ee"></a>Code<br />
+<li><a id="org2bf919e"></a>Code<br />
 <div class="outline-text-7" id="text-8-3-10-2-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -5425,7 +5587,7 @@ main()
 </li>
 </ol>
 </li>
-<li><a id="org313e8f4"></a>Multiplicative Inverse Pair<br />
+<li><a id="orga64709d"></a>Multiplicative Inverse Pair<br />
 <div class="outline-text-6" id="text-8-3-10-2-2">
 <ul class="org-ul">
 <li>In general, if we have \(a \cdot x \mod(m) = 1\), then \((a,x)\) is a multiplicative inverse pair.</li>
@@ -5457,7 +5619,7 @@ find the pairs of numbers which are multiplicative inverses of each other.
 </ul>
 </div>
 </li>
-<li><a id="org9358d1e"></a>Solving a congruence<br />
+<li><a id="org803e379"></a>Solving a congruence<br />
 <div class="outline-text-6" id="text-8-3-10-2-3">
 <ul class="org-ul">
 <li>Consider the example \[15x \equiv 7\mod(32)\]</li>
@@ -5479,8 +5641,8 @@ find the pairs of numbers which are multiplicative inverses of each other.
 </li>
 </ol>
 </div>
-<div id="outline-container-orga8e663f" class="outline-4">
-<h4 id="orga8e663f"><span class="section-number-4">8.3.11.</span> Equivalence Class</h4>
+<div id="outline-container-org2a0979c" class="outline-4">
+<h4 id="org2a0979c"><span class="section-number-4">8.3.11.</span> Equivalence Class</h4>
 <div class="outline-text-4" id="text-8-3-11">
 <ul class="org-ul">
 <li><p>
@@ -5515,8 +5677,8 @@ others modulo \(n\).
 </div>
 </div>
 </div>
-<div id="outline-container-org890684e" class="outline-3">
-<h3 id="org890684e"><span class="section-number-3">8.4.</span> Euler&rsquo;s Totient/Phi Function</h3>
+<div id="outline-container-orge029b1c" class="outline-3">
+<h3 id="orge029b1c"><span class="section-number-3">8.4.</span> Euler&rsquo;s Totient/Phi Function</h3>
 <div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li>\(Z_{m}^{*}\) is the set of numbers, that are relatively prime or coprime with \(m\) in
@@ -5532,8 +5694,8 @@ elements in \(Z_{m}^{*}\).
 \[\phi(n) = |Z_{m}^{*}|\]</li>
 </ul>
 </div>
-<div id="outline-container-org2a96f7c" class="outline-4">
-<h4 id="org2a96f7c"><span class="section-number-4">8.4.1.</span> Conditions for \(\phi(P)\)</h4>
+<div id="outline-container-org90a9ede" class="outline-4">
+<h4 id="org90a9ede"><span class="section-number-4">8.4.1.</span> Conditions for \(\phi(P)\)</h4>
 <div class="outline-text-4" id="text-8-4-1">
 <ol class="org-ol">
 <li>\(\phi(p) = p-1\), if \(p\) is a prime number.</li>
@@ -5542,19 +5704,19 @@ elements in \(Z_{m}^{*}\).
 </ol>
 </div>
 </div>
-<div id="outline-container-org969fa92" class="outline-4">
-<h4 id="org969fa92"><span class="section-number-4">8.4.2.</span> Examples</h4>
+<div id="outline-container-org562746f" class="outline-4">
+<h4 id="org562746f"><span class="section-number-4">8.4.2.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="org0c68ac6"></a>\(\phi(27)\)<br />
+<li><a id="org578c911"></a>\(\phi(27)\)<br />
 <div class="outline-text-5" id="text-8-4-2-1">
 <ul class="org-ul">
 <li>\(\phi(3^{3}) = 3^{3} - 3^{2} = 18\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgb116105"></a>\(\phi(630)\)<br />
+<li><a id="org588378c"></a>\(\phi(630)\)<br />
 <div class="outline-text-5" id="text-8-4-2-2">
 <ul class="org-ul">
 <li>\(\phi(630) = \phi(63 \times 10)\)</li>
@@ -5567,8 +5729,8 @@ elements in \(Z_{m}^{*}\).
 </ol>
 </div>
 </div>
-<div id="outline-container-org22d925a" class="outline-3">
-<h3 id="org22d925a"><span class="section-number-3">8.5.</span> Fast Exponentiation Algorithm</h3>
+<div id="outline-container-org3c0c829" class="outline-3">
+<h3 id="org3c0c829"><span class="section-number-3">8.5.</span> Fast Exponentiation Algorithm</h3>
 <div class="outline-text-3" id="text-8-5">
 <blockquote>
 <p>
@@ -5576,12 +5738,12 @@ Squaring and selective multiplication method.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org1cff1db" class="outline-4">
-<h4 id="org1cff1db"><span class="section-number-4">8.5.1.</span> Steps</h4>
+<div id="outline-container-orgcff1d61" class="outline-4">
+<h4 id="orgcff1d61"><span class="section-number-4">8.5.1.</span> Steps</h4>
 <div class="outline-text-4" id="text-8-5-1">
 </div>
 <ol class="org-ol">
-<li><a id="orga53a9d4"></a>Convert the number \(B\) into binary. Represent \(B\) as a sum of unique powers of 2.<br />
+<li><a id="org3c1694f"></a>Convert the number \(B\) into binary. Represent \(B\) as a sum of unique powers of 2.<br />
 <div class="outline-text-5" id="text-8-5-1-1">
 <p>
 Eg. \(B = 11\)
@@ -5592,18 +5754,18 @@ Eg. \(B = 11\)
 </ul>
 </div>
 </li>
-<li><a id="orgeb14371"></a>\(A^{i}\mod(C)\) such that \(i \le B\)<br /></li>
+<li><a id="orgccc91c8"></a>\(A^{i}\mod(C)\) such that \(i \le B\)<br /></li>
 
 
-<li><a id="org66db1ef"></a>Find \(A^{C}\mod(C)\),<br /></li>
+<li><a id="orgdebe262"></a>Find \(A^{C}\mod(C)\),<br /></li>
 </ol>
 </div>
-<div id="outline-container-org3fe391e" class="outline-4">
-<h4 id="org3fe391e"><span class="section-number-4">8.5.2.</span> Examples</h4>
+<div id="outline-container-org3147020" class="outline-4">
+<h4 id="org3147020"><span class="section-number-4">8.5.2.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-5-2">
 </div>
 <ol class="org-ol">
-<li><a id="org9b0133b"></a>\(11^{13}\mod(53)\)<br />
+<li><a id="orga5a5d27"></a>\(11^{13}\mod(53)\)<br />
 <div class="outline-text-5" id="text-8-5-2-1">
 <ul class="org-ul">
 <li>Step 1:
@@ -5630,8 +5792,8 @@ Eg. \(B = 11\)
 </li>
 </ol>
 </div>
-<div id="outline-container-org01266ea" class="outline-4">
-<h4 id="org01266ea"><span class="section-number-4">8.5.3.</span> Code</h4>
+<div id="outline-container-orgc61c259" class="outline-4">
+<h4 id="orgc61c259"><span class="section-number-4">8.5.3.</span> Code</h4>
 <div class="outline-text-4" id="text-8-5-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -5670,8 +5832,8 @@ main()
 </div>
 </div>
 </div>
-<div id="outline-container-org1ff2116" class="outline-3">
-<h3 id="org1ff2116"><span class="section-number-3">8.6.</span> Fermat&rsquo;s Little Theorem</h3>
+<div id="outline-container-org8a2d6cc" class="outline-3">
+<h3 id="org8a2d6cc"><span class="section-number-3">8.6.</span> Fermat&rsquo;s Little Theorem</h3>
 <div class="outline-text-3" id="text-8-6">
 <blockquote>
 <p>
@@ -5694,12 +5856,12 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 <li>\(3^{(31-1)}\mod(31)\)</li>
 </ul>
 </div>
-<div id="outline-container-org07fac7f" class="outline-4">
-<h4 id="org07fac7f"><span class="section-number-4">8.6.1.</span> Examples</h4>
+<div id="outline-container-org6f87022" class="outline-4">
+<h4 id="org6f87022"><span class="section-number-4">8.6.1.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-6-1">
 </div>
 <ol class="org-ol">
-<li><a id="org308bd48"></a>Find \(3^{-1}\mod(31)\) using Fermat&rsquo;s Little Theorem<br />
+<li><a id="orgf379b23"></a>Find \(3^{-1}\mod(31)\) using Fermat&rsquo;s Little Theorem<br />
 <div class="outline-text-5" id="text-8-6-1-1">
 <ul class="org-ul">
 <li>By Fermat&rsquo;s little theorem, \(3^{30} \equiv 1\mod(31)\)</li>
@@ -5710,11 +5872,11 @@ For example, verifying Fermat&rsquo;s little theorem for \(p = 31\) and \(a = 3\
 </ul>
 </div>
 </li>
-<li><a id="org302b122"></a><span class="todo TODO">TODO</span> Compute  \(3^{-592} \mod(1831)\) using Fermat&rsquo;s Little Theorem<br /></li>
+<li><a id="org90b7504"></a><span class="todo TODO">TODO</span> Compute  \(3^{-592} \mod(1831)\) using Fermat&rsquo;s Little Theorem<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgc019f6e" class="outline-4">
-<h4 id="orgc019f6e"><span class="section-number-4">8.6.2.</span> Code</h4>
+<div id="outline-container-org5f54631" class="outline-4">
+<h4 id="org5f54631"><span class="section-number-4">8.6.2.</span> Code</h4>
 <div class="outline-text-4" id="text-8-6-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #51afef;">def</span> <span style="color: #c678dd;">main</span>():
@@ -5738,8 +5900,8 @@ main()
 </div>
 </div>
 </div>
-<div id="outline-container-org3e2af84" class="outline-3">
-<h3 id="org3e2af84"><span class="section-number-3">8.7.</span> Euler&rsquo;s Theorem</h3>
+<div id="outline-container-org69deeeb" class="outline-3">
+<h3 id="org69deeeb"><span class="section-number-3">8.7.</span> Euler&rsquo;s Theorem</h3>
 <div class="outline-text-3" id="text-8-7">
 <blockquote>
 <p>
@@ -5751,12 +5913,12 @@ main()
 </ul>
 </blockquote>
 </div>
-<div id="outline-container-org9a8190a" class="outline-4">
-<h4 id="org9a8190a"><span class="section-number-4">8.7.1.</span> Examples</h4>
+<div id="outline-container-org4d5a1d3" class="outline-4">
+<h4 id="org4d5a1d3"><span class="section-number-4">8.7.1.</span> Examples</h4>
 <div class="outline-text-4" id="text-8-7-1">
 </div>
 <ol class="org-ol">
-<li><a id="org07cb76c"></a>Find \(6^{24} \mod(35)\) using Euler&rsquo;s Theorem<br />
+<li><a id="org5f60ff3"></a>Find \(6^{24} \mod(35)\) using Euler&rsquo;s Theorem<br />
 <div class="outline-text-5" id="text-8-7-1-1">
 <ul class="org-ul">
 <li>gcd(6,35) = 1, hence they are coprime</li>
@@ -5765,7 +5927,7 @@ main()
 </ul>
 </div>
 </li>
-<li><a id="org38e9ab1"></a>Find \(37^{103}\mod(40)\) using Euler&rsquo;s theorem<br />
+<li><a id="org8d908f7"></a>Find \(37^{103}\mod(40)\) using Euler&rsquo;s theorem<br />
 <div class="outline-text-5" id="text-8-7-1-2">
 <ul class="org-ul">
 <li>\(37^{\phi(40)}\mod(40) = 37^{\phi(2^{3}) \times \phi(5)}\mod(40) = 37^{16}\mod(40)\)</li>
@@ -5781,7 +5943,7 @@ directly too, but this is better).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgfba9267"></a>Find \(71^{-1}\mod(100)\) using Euler&rsquo;s Theorem<br />
+<li><a id="org34b6396"></a>Find \(71^{-1}\mod(100)\) using Euler&rsquo;s Theorem<br />
 <div class="outline-text-5" id="text-8-7-1-3">
 <ul class="org-ul">
 <li>gcd(71, 100) = 1, hence they are coprime</li>
@@ -5798,12 +5960,12 @@ directly too, but this is better).</li>
 </ul>
 </div>
 </li>
-<li><a id="org4f4db43"></a>Find \(8^{-1} \mod(77)\)<br /></li>
+<li><a id="org789ef8b"></a>Find \(8^{-1} \mod(77)\)<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org1e32fb8" class="outline-3">
-<h3 id="org1e32fb8"><span class="section-number-3">8.8.</span> Discrete Logarithm</h3>
+<div id="outline-container-orgbdeb79a" class="outline-3">
+<h3 id="orgbdeb79a"><span class="section-number-3">8.8.</span> Discrete Logarithm</h3>
 </div>
 </div>
 </div>

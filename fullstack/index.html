@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-10-26 Mon 17:14 -->
+<!-- 2026-10-29 Thu 10:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Notes on Full-Stack</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,470 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
+h1.title::after {
+content: "";
+display: block;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
+}
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-/* ─── Block Quotes ─────────────────────────────────────── */
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
+text-decoration: none;
+transition: opacity .15s;
+}
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
+
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
+
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
+}
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
+
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
+}
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
 blockquote {
 margin: 1.8rem 0;
-padding: 1rem 1.5rem;
-background: #f8f8fc;
-border-left: 4px solid #4444cc;
-border-radius: 8px;
-color: #444;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
 font-style: italic;
-position: relative;
+border-left: 3px solid var(--accent);
 }
-blockquote::before {
-content: "❝";
-position: absolute;
-top: -8px;
-left: 12px;
-font-size: 2.8rem;
-color: #d6d6f5;
-font-family: Georgia, serif;
-line-height: 1;
-}
-blockquote p:last-child {
-margin-bottom: 0;
-}
-blockquote cite,
-blockquote footer {
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
 display: block;
-margin-top: 0.8rem;
-color: #777;
-font-size: 0.9em;
+margin-top: .6rem;
+font-size: .88em;
 font-style: normal;
 text-align: right;
 }
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
 
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
 }
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
-content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
 }
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
-text-decoration: none;
-}
-
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
-
-#table-of-contents li.hidden {
-display: none;
-}
-
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
-
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
-}
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -709,210 +871,210 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge197946">1. Version Control</a>
+<li><a href="#org8b12a06">1. Version Control</a>
 <ul>
-<li><a href="#org8e42496">1.1. Types</a></li>
-<li><a href="#org1bbdafd">1.2. Branches</a>
+<li><a href="#orgf4d5c6d">1.1. Types</a></li>
+<li><a href="#org16f69e4">1.2. Branches</a>
 <ul>
-<li><a href="#org04c7122">1.2.1. Creating New Branch</a></li>
-<li><a href="#org4500cb6">1.2.2. Switching to a Branch Already Created</a></li>
-<li><a href="#orga7c24d9">1.2.3. Merging</a></li>
+<li><a href="#org38274d9">1.2.1. Creating New Branch</a></li>
+<li><a href="#org184f57c">1.2.2. Switching to a Branch Already Created</a></li>
+<li><a href="#orgebfb70d">1.2.3. Merging</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc27bc0c">2. API</a>
+<li><a href="#org4a3f8ba">2. API</a>
 <ul>
-<li><a href="#org24ba050">2.1. Understanding the URL</a></li>
-<li><a href="#org51d2257">2.2. DNS</a></li>
-<li><a href="#orgf095537">2.3. TCP</a></li>
+<li><a href="#org23cd42c">2.1. Understanding the URL</a></li>
+<li><a href="#org5b3dfe6">2.2. DNS</a></li>
+<li><a href="#orga4ec8e7">2.3. TCP</a></li>
 </ul>
 </li>
-<li><a href="#orgce1ed5d">3. HTML Refresher</a>
+<li><a href="#org245b823">3. HTML Refresher</a>
 <ul>
-<li><a href="#org24e1aa4">3.1. Forms</a></li>
+<li><a href="#org29bfb38">3.1. Forms</a></li>
 </ul>
 </li>
-<li><a href="#orgeca8825">4. CSS Refresher</a>
+<li><a href="#orgdbf16b1">4. CSS Refresher</a>
 <ul>
-<li><a href="#org94ccab3">4.1. Box Model</a></li>
-<li><a href="#org834691a">4.2. Flexbox</a></li>
-<li><a href="#org95b7256">4.3. CSS Grid</a></li>
-<li><a href="#org0ee0934">4.4. Positioning</a></li>
-<li><a href="#orga64a982">4.5. CSS Variables</a></li>
-<li><a href="#orga9e0433">4.6. Psuedoclasses</a></li>
-<li><a href="#org1c2939a">4.7. Pseudo-elements</a></li>
-<li><a href="#orge42f0dd">4.8. Media Queries</a></li>
+<li><a href="#orgf7e90bd">4.1. Box Model</a></li>
+<li><a href="#orga0f2f94">4.2. Flexbox</a></li>
+<li><a href="#org4fc80f8">4.3. CSS Grid</a></li>
+<li><a href="#org1df0455">4.4. Positioning</a></li>
+<li><a href="#org2aa6f4f">4.5. CSS Variables</a></li>
+<li><a href="#org9bfba01">4.6. Psuedoclasses</a></li>
+<li><a href="#org452e673">4.7. Pseudo-elements</a></li>
+<li><a href="#orgec2d318">4.8. Media Queries</a></li>
 </ul>
 </li>
-<li><a href="#orgfbd62ef">5. Tailwind CSS</a>
+<li><a href="#orgc95292e">5. Tailwind CSS</a>
 <ul>
-<li><a href="#org289b0d3">5.1. Margin and Padding</a></li>
-<li><a href="#org885a76b">5.2. Colors</a></li>
-<li><a href="#org100841f">5.3. Fonts</a></li>
-<li><a href="#org75df4e6">5.4. Layouts</a>
+<li><a href="#orgbbbe91a">5.1. Margin and Padding</a></li>
+<li><a href="#org63cec7e">5.2. Colors</a></li>
+<li><a href="#org1e4a1d8">5.3. Fonts</a></li>
+<li><a href="#org7e1c4b8">5.4. Layouts</a>
 <ul>
-<li><a href="#orgc3eb196">5.4.1. Flexbox</a></li>
-<li><a href="#orgbd5ba0b">5.4.2. Grid</a></li>
-<li><a href="#org8519d2f">5.4.3. Real-World Constructs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org475908c">6. Fundamentals of JavaScript</a>
-<ul>
-<li><a href="#org72bf02e">6.1. Document Object Model</a></li>
-<li><a href="#org369edea">6.2. Variables</a></li>
-<li><a href="#orge1b2ed0">6.3. Unary Plus</a></li>
-<li><a href="#orga834e53">6.4. Template Literals</a></li>
-<li><a href="#org80b5d24">6.5. Date</a></li>
-<li><a href="#org2c37a57">6.6. Functions</a>
-<ul>
-<li><a href="#orgd34d24c">6.6.1. Normal Functions</a></li>
-<li><a href="#orgda8f866">6.6.2. Arrow Functions</a></li>
-<li><a href="#orgacb5f46">6.6.3. Callback functions</a></li>
-<li><a href="#org96b5565">6.6.4. Generator</a></li>
-</ul>
-</li>
-<li><a href="#orgc6849dd">6.7. Events</a>
-<ul>
-<li><a href="#orgfcc3da9">6.7.1. Debounce</a></li>
-<li><a href="#org9b86189">6.7.2. Throttle</a></li>
-</ul>
-</li>
-<li><a href="#org43d6959">6.8. Modules</a>
-<ul>
-<li><a href="#org0e5d0ca">6.8.1. Exporting</a></li>
-<li><a href="#org1048dbf">6.8.2. Importing</a></li>
-<li><a href="#org6983ad0">6.8.3. Default Export and Import</a></li>
-<li><a href="#orgee628d4">6.8.4. CommonJS</a></li>
-</ul>
-</li>
-<li><a href="#orgd04d803">6.9. NodeJS</a></li>
-<li><a href="#org0c36ad8">6.10. Working with Files</a></li>
-<li><a href="#orgabc667f">6.11. Working with Paths</a></li>
-<li><a href="#org258f5d4">6.12. Objects</a>
-<ul>
-<li><a href="#org74b4925">6.12.1. Instance Variables</a></li>
-<li><a href="#org526b116">6.12.2. Object Destructuring</a></li>
-<li><a href="#org8298b3a">6.12.3. Methods</a></li>
-<li><a href="#org299fc75">6.12.4. Object References</a></li>
-<li><a href="#org684e3c6">6.12.5. Classes</a></li>
-<li><a href="#org14a7adc">6.12.6. Keys and Values as Array</a></li>
-</ul>
-</li>
-<li><a href="#orge76c44c">6.13. Arrays</a>
-<ul>
-<li><a href="#orge7d5094">6.13.1. Extending Arrays</a></li>
-<li><a href="#org580e968">6.13.2. map()</a></li>
-<li><a href="#orgacce435">6.13.3. filter()</a></li>
-<li><a href="#org142fab8">6.13.4. Sort</a></li>
-<li><a href="#orgbf59272">6.13.5. Destructuring</a></li>
-<li><a href="#orgf82db2f">6.13.6. Common Array Methods</a></li>
-</ul>
-</li>
-<li><a href="#org5278827">6.14. Strings</a>
-<ul>
-<li><a href="#org94d40a3">6.14.1. Substring</a></li>
-<li><a href="#org421274d">6.14.2. charAt</a></li>
-<li><a href="#orga67528a">6.14.3. Palindrome Checker</a></li>
-</ul>
-</li>
-<li><a href="#org214c8fe">6.15. Asynchronous JavaScript</a>
-<ul>
-<li><a href="#orgd9f9eaa">6.15.1. Promise</a></li>
-<li><a href="#org0b37340">6.15.2. Async and Await</a></li>
-<li><a href="#org993f277">6.15.3. JavaScript Runtime Explained</a></li>
+<li><a href="#orgcd46a29">5.4.1. Flexbox</a></li>
+<li><a href="#org1bf53f8">5.4.2. Grid</a></li>
+<li><a href="#orgcd2ba63">5.4.3. Real-World Constructs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org6e3e5df">7. TypeScript</a>
+<li><a href="#org3217fde">6. Fundamentals of JavaScript</a>
 <ul>
-<li><a href="#org98db8bb">7.1. Brief Introduction to how Types work</a>
+<li><a href="#orgd500bde">6.1. Document Object Model</a></li>
+<li><a href="#org528c361">6.2. Variables</a></li>
+<li><a href="#org5f8d9be">6.3. Unary Plus</a></li>
+<li><a href="#org293de82">6.4. Template Literals</a></li>
+<li><a href="#org5bdc802">6.5. Date</a></li>
+<li><a href="#orgabbbde1">6.6. Functions</a>
 <ul>
-<li><a href="#org38c9c6c">7.1.1. Union Types</a></li>
-<li><a href="#org977790b">7.1.2. Any</a></li>
+<li><a href="#org04fbbb1">6.6.1. Normal Functions</a></li>
+<li><a href="#org42ab207">6.6.2. Arrow Functions</a></li>
+<li><a href="#org7f67545">6.6.3. Callback functions</a></li>
+<li><a href="#org1f20f66">6.6.4. Generator</a></li>
 </ul>
 </li>
-<li><a href="#orgb5f7f65">7.2. How to run TypeScript</a>
+<li><a href="#orga346f9b">6.7. Events</a>
 <ul>
-<li><a href="#org4a30463">7.2.1. The Traditional Way</a></li>
-<li><a href="#orgb65775f">7.2.2. Using tsx</a></li>
+<li><a href="#orgaee9ff8">6.7.1. Debounce</a></li>
+<li><a href="#org9965965">6.7.2. Throttle</a></li>
 </ul>
 </li>
-<li><a href="#orga226cfe">7.3. Classes and Objects</a>
+<li><a href="#org831c804">6.8. Modules</a>
 <ul>
-<li><a href="#org9a678ad">7.3.1. Types</a></li>
-<li><a href="#org76e3c83">7.3.2. Interfaces and how they&rsquo;re different from Types</a></li>
-<li><a href="#org3b95b04">7.3.3. Optional Properties</a></li>
-<li><a href="#orgeece170">7.3.4. Syntax to be noted in Interfaces and Types</a></li>
-<li><a href="#org9f7a35f">7.3.5. keyof Operator</a></li>
-<li><a href="#org076e04e">7.3.6. Indexing Types</a></li>
+<li><a href="#orgc295e63">6.8.1. Exporting</a></li>
+<li><a href="#org46519fe">6.8.2. Importing</a></li>
+<li><a href="#org5913bc6">6.8.3. Default Export and Import</a></li>
+<li><a href="#orgf6ef809">6.8.4. CommonJS</a></li>
 </ul>
 </li>
-<li><a href="#org6e1eee4">7.4. Array</a>
+<li><a href="#org77a9069">6.9. NodeJS</a></li>
+<li><a href="#orgf3dbbc0">6.10. Working with Files</a></li>
+<li><a href="#org2f775af">6.11. Working with Paths</a></li>
+<li><a href="#org41b015c">6.12. Objects</a>
 <ul>
-<li><a href="#org712a946">7.4.1. Array of Primitives</a></li>
-<li><a href="#orgb0aec29">7.4.2. Array of Objects</a></li>
+<li><a href="#orgc4314b2">6.12.1. Instance Variables</a></li>
+<li><a href="#org87252e9">6.12.2. Object Destructuring</a></li>
+<li><a href="#org722411b">6.12.3. Methods</a></li>
+<li><a href="#orgafc37e4">6.12.4. Object References</a></li>
+<li><a href="#org0949d44">6.12.5. Classes</a></li>
+<li><a href="#orgd0834b4">6.12.6. Keys and Values as Array</a></li>
 </ul>
 </li>
-<li><a href="#orgdc01457">7.5. Generics</a></li>
+<li><a href="#org8391d4a">6.13. Arrays</a>
+<ul>
+<li><a href="#orge36a713">6.13.1. Extending Arrays</a></li>
+<li><a href="#org11fcb91">6.13.2. map()</a></li>
+<li><a href="#orgebdcff1">6.13.3. filter()</a></li>
+<li><a href="#org07e3b7b">6.13.4. Sort</a></li>
+<li><a href="#org9cfb501">6.13.5. Destructuring</a></li>
+<li><a href="#org3627f43">6.13.6. Common Array Methods</a></li>
 </ul>
 </li>
-<li><a href="#orgb2a4b1a">8. ExpressJS</a>
+<li><a href="#org585b113">6.14. Strings</a>
 <ul>
-<li><a href="#orgaea4589">8.1. Networking</a></li>
-<li><a href="#org15f1bc3">8.2. What Express.js is</a></li>
-<li><a href="#orgfe9a2d0">8.3. Static Files</a></li>
-<li><a href="#org92dcba1">8.4. HTTP Requests</a>
-<ul>
-<li><a href="#orgd9b9877">8.4.1. GET Requests</a></li>
-<li><a href="#org338239a">8.4.2. POST Requests</a></li>
-<li><a href="#org94b2acb">8.4.3. PUT, DELETE</a></li>
-<li><a href="#orgb8418d1">8.4.4. Why these different HTTP methods matter:</a></li>
+<li><a href="#orga684071">6.14.1. Substring</a></li>
+<li><a href="#orga12b389">6.14.2. charAt</a></li>
+<li><a href="#org35743fe">6.14.3. Palindrome Checker</a></li>
 </ul>
 </li>
-<li><a href="#org02cf059">8.5. Variables in URLS</a>
+<li><a href="#org8bc5bf8">6.15. Asynchronous JavaScript</a>
 <ul>
-<li><a href="#org95e85e7">8.5.1. Slug</a></li>
-<li><a href="#orgd4ea98c">8.5.2. Query Parameters</a></li>
+<li><a href="#org38037f5">6.15.1. Promise</a></li>
+<li><a href="#orgc67fa9d">6.15.2. Async and Await</a></li>
+<li><a href="#org460d10a">6.15.3. JavaScript Runtime Explained</a></li>
 </ul>
 </li>
-<li><a href="#org0f248ab">8.6. Extras</a></li>
-<li><a href="#org1dd4d63">8.7. Routing</a></li>
-<li><a href="#orgde45044">8.8. Middleware</a></li>
-<li><a href="#orge709d0f">8.9. Template Engine</a></li>
 </ul>
 </li>
-<li><a href="#orge238ff4">9. React</a>
+<li><a href="#orgcba27ba">7. TypeScript</a>
 <ul>
-<li><a href="#org39a7468">9.1. What is it</a></li>
-<li><a href="#orgf0ebdbe">9.2. Making a React Project</a></li>
-<li><a href="#org438a1a2">9.3. React Components</a></li>
-<li><a href="#org40e8a89">9.4. More on JavaScript/TypeScript XML</a></li>
-<li><a href="#org88b1b7d">9.5. Props</a></li>
-<li><a href="#org65cfbab">9.6. States and Hooks</a>
+<li><a href="#org87ab11e">7.1. Brief Introduction to how Types work</a>
 <ul>
-<li><a href="#org4d047f9">9.6.1. useEffect Hook</a></li>
-<li><a href="#org3bec1a9">9.6.2. useRef</a></li>
+<li><a href="#org9fafbce">7.1.1. Union Types</a></li>
+<li><a href="#org0e6f086">7.1.2. Any</a></li>
 </ul>
 </li>
-<li><a href="#orga54bd41">9.7. Conditional Rendering</a></li>
+<li><a href="#org8452621">7.2. How to run TypeScript</a>
+<ul>
+<li><a href="#orgc44c4de">7.2.1. The Traditional Way</a></li>
+<li><a href="#org88cb330">7.2.2. Using tsx</a></li>
 </ul>
 </li>
-<li><a href="#orgcbcb5fb">10. Web Graphics</a>
+<li><a href="#orge1f247c">7.3. Classes and Objects</a>
 <ul>
-<li><a href="#org5e5c2eb">10.1. Coordinates and Vector Space</a></li>
-<li><a href="#orgda58e76">10.2. Canvas 2D</a></li>
-<li><a href="#orgea7ae4e">10.3. WebGL</a>
+<li><a href="#org55861de">7.3.1. Types</a></li>
+<li><a href="#org1382413">7.3.2. Interfaces and how they&rsquo;re different from Types</a></li>
+<li><a href="#org10eb1f6">7.3.3. Optional Properties</a></li>
+<li><a href="#orgd78890d">7.3.4. Syntax to be noted in Interfaces and Types</a></li>
+<li><a href="#org0ed0532">7.3.5. keyof Operator</a></li>
+<li><a href="#orgcbf8d99">7.3.6. Indexing Types</a></li>
+</ul>
+</li>
+<li><a href="#org6561654">7.4. Array</a>
 <ul>
-<li><a href="#org35ba769">10.3.1. Getting Context</a></li>
-<li><a href="#org2c32440">10.3.2. Vertices</a></li>
-<li><a href="#orgc3703f9">10.3.3. Create and Use Buffer</a></li>
-<li><a href="#orgd58f2c5">10.3.4. Sending Vertices to GPU</a></li>
-<li><a href="#orgb383d06">10.3.5. Shader</a></li>
-<li><a href="#org872fcb7">10.3.6. Full Program</a></li>
+<li><a href="#org6d6098e">7.4.1. Array of Primitives</a></li>
+<li><a href="#org2185fbc">7.4.2. Array of Objects</a></li>
+</ul>
+</li>
+<li><a href="#orgff29e61">7.5. Generics</a></li>
+</ul>
+</li>
+<li><a href="#org0b87768">8. ExpressJS</a>
+<ul>
+<li><a href="#org11ee547">8.1. Networking</a></li>
+<li><a href="#orgc0e5cfc">8.2. What Express.js is</a></li>
+<li><a href="#org3c7497e">8.3. Static Files</a></li>
+<li><a href="#org854fad6">8.4. HTTP Requests</a>
+<ul>
+<li><a href="#org738e606">8.4.1. GET Requests</a></li>
+<li><a href="#org43f1891">8.4.2. POST Requests</a></li>
+<li><a href="#org946c073">8.4.3. PUT, DELETE</a></li>
+<li><a href="#org491c19a">8.4.4. Why these different HTTP methods matter:</a></li>
+</ul>
+</li>
+<li><a href="#orgabd8343">8.5. Variables in URLS</a>
+<ul>
+<li><a href="#orgaf0f957">8.5.1. Slug</a></li>
+<li><a href="#orgc9a4b64">8.5.2. Query Parameters</a></li>
+</ul>
+</li>
+<li><a href="#org285c53e">8.6. Extras</a></li>
+<li><a href="#orgddcd547">8.7. Routing</a></li>
+<li><a href="#org6bff63b">8.8. Middleware</a></li>
+<li><a href="#orgc93acc9">8.9. Template Engine</a></li>
+</ul>
+</li>
+<li><a href="#org1ce7d9e">9. React</a>
+<ul>
+<li><a href="#org37a3e42">9.1. What is it</a></li>
+<li><a href="#orgb2a8404">9.2. Making a React Project</a></li>
+<li><a href="#org1430e85">9.3. React Components</a></li>
+<li><a href="#org06283a8">9.4. More on JavaScript/TypeScript XML</a></li>
+<li><a href="#org855c6c8">9.5. Props</a></li>
+<li><a href="#org78a4f0e">9.6. States and Hooks</a>
+<ul>
+<li><a href="#org2cb17b2">9.6.1. useEffect Hook</a></li>
+<li><a href="#org2f7bb60">9.6.2. useRef</a></li>
+</ul>
+</li>
+<li><a href="#org14281a8">9.7. Conditional Rendering</a></li>
+</ul>
+</li>
+<li><a href="#orgf327494">10. Web Graphics</a>
+<ul>
+<li><a href="#org97d4818">10.1. Coordinates and Vector Space</a></li>
+<li><a href="#orgf82f609">10.2. Canvas 2D</a></li>
+<li><a href="#orge58a34f">10.3. WebGL</a>
+<ul>
+<li><a href="#org943307e">10.3.1. Getting Context</a></li>
+<li><a href="#orgad297fe">10.3.2. Vertices</a></li>
+<li><a href="#orgbbf4cce">10.3.3. Create and Use Buffer</a></li>
+<li><a href="#orgae6846d">10.3.4. Sending Vertices to GPU</a></li>
+<li><a href="#org934cf8a">10.3.5. Shader</a></li>
+<li><a href="#org610830c">10.3.6. Full Program</a></li>
 </ul>
 </li>
 </ul>
@@ -920,12 +1082,12 @@ updateActiveLink();
 </ul>
 </div>
 </div>
-<div id="outline-container-orge197946" class="outline-2">
-<h2 id="orge197946"><span class="section-number-2">1.</span> Version Control</h2>
+<div id="outline-container-org8b12a06" class="outline-2">
+<h2 id="org8b12a06"><span class="section-number-2">1.</span> Version Control</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org8e42496" class="outline-3">
-<h3 id="org8e42496"><span class="section-number-3">1.1.</span> Types</h3>
+<div id="outline-container-orgf4d5c6d" class="outline-3">
+<h3 id="orgf4d5c6d"><span class="section-number-3">1.1.</span> Types</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -973,12 +1135,12 @@ updateActiveLink();
 </table>
 </div>
 </div>
-<div id="outline-container-org1bbdafd" class="outline-3">
-<h3 id="org1bbdafd"><span class="section-number-3">1.2.</span> Branches</h3>
+<div id="outline-container-org16f69e4" class="outline-3">
+<h3 id="org16f69e4"><span class="section-number-3">1.2.</span> Branches</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org04c7122" class="outline-4">
-<h4 id="org04c7122"><span class="section-number-4">1.2.1.</span> Creating New Branch</h4>
+<div id="outline-container-org38274d9" class="outline-4">
+<h4 id="org38274d9"><span class="section-number-4">1.2.1.</span> Creating New Branch</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #ECBE7B;">git</span> checkout -b <span style="color: #98be65;">"new-branch"</span>
@@ -986,8 +1148,8 @@ updateActiveLink();
 </div>
 </div>
 </div>
-<div id="outline-container-org4500cb6" class="outline-4">
-<h4 id="org4500cb6"><span class="section-number-4">1.2.2.</span> Switching to a Branch Already Created</h4>
+<div id="outline-container-org184f57c" class="outline-4">
+<h4 id="org184f57c"><span class="section-number-4">1.2.2.</span> Switching to a Branch Already Created</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #ECBE7B;">git</span> checkout <span style="color: #98be65;">"main"</span>
@@ -995,8 +1157,8 @@ updateActiveLink();
 </div>
 </div>
 </div>
-<div id="outline-container-orga7c24d9" class="outline-4">
-<h4 id="orga7c24d9"><span class="section-number-4">1.2.3.</span> Merging</h4>
+<div id="outline-container-orgebfb70d" class="outline-4">
+<h4 id="orgebfb70d"><span class="section-number-4">1.2.3.</span> Merging</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 If you&rsquo;re in <code>main</code> branch, and you want to include the changes of <code>new-branch</code>, you
@@ -1011,15 +1173,15 @@ do:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc27bc0c" class="outline-2">
-<h2 id="orgc27bc0c"><span class="section-number-2">2.</span> API</h2>
+<div id="outline-container-org4a3f8ba" class="outline-2">
+<h2 id="org4a3f8ba"><span class="section-number-2">2.</span> API</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>API stands for Application Programming Interface.</li>
 </ul>
 </div>
-<div id="outline-container-org24ba050" class="outline-3">
-<h3 id="org24ba050"><span class="section-number-3">2.1.</span> Understanding the URL</h3>
+<div id="outline-container-org23cd42c" class="outline-3">
+<h3 id="org23cd42c"><span class="section-number-3">2.1.</span> Understanding the URL</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 \[\underbrace{\texttt{https://}}_{\text{Scheme}} \underbrace{\texttt{api.example.com}}_{\text{Hostname}} \underbrace{\texttt{:443}}_{\text{Port}} \underbrace{\texttt{/profile}}_{\text{Path}} \]
@@ -1030,8 +1192,8 @@ do:
 </ul>
 </div>
 </div>
-<div id="outline-container-org51d2257" class="outline-3">
-<h3 id="org51d2257"><span class="section-number-3">2.2.</span> DNS</h3>
+<div id="outline-container-org5b3dfe6" class="outline-3">
+<h3 id="org5b3dfe6"><span class="section-number-3">2.2.</span> DNS</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>When you type <code>https://api.example.com/profile</code>, a computer only understands the
@@ -1048,8 +1210,8 @@ then provides it to the browser.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf095537" class="outline-3">
-<h3 id="orgf095537"><span class="section-number-3">2.3.</span> TCP</h3>
+<div id="outline-container-orga4ec8e7" class="outline-3">
+<h3 id="orga4ec8e7"><span class="section-number-3">2.3.</span> TCP</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>TCP meaning Transmission Control Protocol, is a communications standard for
@@ -1085,12 +1247,12 @@ ACK
 </div>
 </div>
 </div>
-<div id="outline-container-orgce1ed5d" class="outline-2">
-<h2 id="orgce1ed5d"><span class="section-number-2">3.</span> HTML Refresher</h2>
+<div id="outline-container-org245b823" class="outline-2">
+<h2 id="org245b823"><span class="section-number-2">3.</span> HTML Refresher</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org24e1aa4" class="outline-3">
-<h3 id="org24e1aa4"><span class="section-number-3">3.1.</span> Forms</h3>
+<div id="outline-container-org29bfb38" class="outline-3">
+<h3 id="org29bfb38"><span class="section-number-3">3.1.</span> Forms</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><p>
@@ -1141,12 +1303,12 @@ You can also use buttons as checkboxes:
 </div>
 </div>
 </div>
-<div id="outline-container-orgeca8825" class="outline-2">
-<h2 id="orgeca8825"><span class="section-number-2">4.</span> CSS Refresher</h2>
+<div id="outline-container-orgdbf16b1" class="outline-2">
+<h2 id="orgdbf16b1"><span class="section-number-2">4.</span> CSS Refresher</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org94ccab3" class="outline-3">
-<h3 id="org94ccab3"><span class="section-number-3">4.1.</span> Box Model</h3>
+<div id="outline-container-orgf7e90bd" class="outline-3">
+<h3 id="orgf7e90bd"><span class="section-number-3">4.1.</span> Box Model</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Your content is the inner-most box, and you have a border around it.
@@ -1172,8 +1334,8 @@ content, you use:
 </ul>
 </div>
 </div>
-<div id="outline-container-org834691a" class="outline-3">
-<h3 id="org834691a"><span class="section-number-3">4.2.</span> Flexbox</h3>
+<div id="outline-container-orga0f2f94" class="outline-3">
+<h3 id="orga0f2f94"><span class="section-number-3">4.2.</span> Flexbox</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><p>
@@ -1359,8 +1521,8 @@ by the parent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org95b7256" class="outline-3">
-<h3 id="org95b7256"><span class="section-number-3">4.3.</span> CSS Grid</h3>
+<div id="outline-container-org4fc80f8" class="outline-3">
+<h3 id="org4fc80f8"><span class="section-number-3">4.3.</span> CSS Grid</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><p>
@@ -1412,8 +1574,8 @@ You can also use fractional units:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0ee0934" class="outline-3">
-<h3 id="org0ee0934"><span class="section-number-3">4.4.</span> Positioning</h3>
+<div id="outline-container-org1df0455" class="outline-3">
+<h3 id="org1df0455"><span class="section-number-3">4.4.</span> Positioning</h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li><p>
@@ -1492,8 +1654,8 @@ forward it is in z-axis.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga64a982" class="outline-3">
-<h3 id="orga64a982"><span class="section-number-3">4.5.</span> CSS Variables</h3>
+<div id="outline-container-org2aa6f4f" class="outline-3">
+<h3 id="org2aa6f4f"><span class="section-number-3">4.5.</span> CSS Variables</h3>
 <div class="outline-text-3" id="text-4-5">
 <div class="org-src-container">
 <pre class="src src-css"><span style="color: #5B6268;">/* </span><span style="color: #5B6268;">This is how you declare variables</span><span style="color: #5B6268;"> */</span>
@@ -1511,8 +1673,8 @@ forward it is in z-axis.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga9e0433" class="outline-3">
-<h3 id="orga9e0433"><span class="section-number-3">4.6.</span> Psuedoclasses</h3>
+<div id="outline-container-org9bfba01" class="outline-3">
+<h3 id="org9bfba01"><span class="section-number-3">4.6.</span> Psuedoclasses</h3>
 <div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
 <li><p>
@@ -1628,8 +1790,8 @@ The nth-child(n) selector also supports patterns:
 </ul>
 </div>
 </div>
-<div id="outline-container-org1c2939a" class="outline-3">
-<h3 id="org1c2939a"><span class="section-number-3">4.7.</span> Pseudo-elements</h3>
+<div id="outline-container-org452e673" class="outline-3">
+<h3 id="org452e673"><span class="section-number-3">4.7.</span> Pseudo-elements</h3>
 <div class="outline-text-3" id="text-4-7">
 <ul class="org-ul">
 <li><p>
@@ -1684,8 +1846,8 @@ Here are some common psuedo-elements:
 </ul>
 </div>
 </div>
-<div id="outline-container-orge42f0dd" class="outline-3">
-<h3 id="orge42f0dd"><span class="section-number-3">4.8.</span> Media Queries</h3>
+<div id="outline-container-orgec2d318" class="outline-3">
+<h3 id="orgec2d318"><span class="section-number-3">4.8.</span> Media Queries</h3>
 <div class="outline-text-3" id="text-4-8">
 <ul class="org-ul">
 <li><p>
@@ -1715,8 +1877,8 @@ For mobile screens:
 </div>
 </div>
 </div>
-<div id="outline-container-orgfbd62ef" class="outline-2">
-<h2 id="orgfbd62ef"><span class="section-number-2">5.</span> Tailwind CSS</h2>
+<div id="outline-container-orgc95292e" class="outline-2">
+<h2 id="orgc95292e"><span class="section-number-2">5.</span> Tailwind CSS</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Tailwind allows you to use a combination of predefined styles, together as the
@@ -1724,8 +1886,8 @@ name of a HTML class. So the name of the class itself will contain all of the
 styles.
 </p>
 </div>
-<div id="outline-container-org289b0d3" class="outline-3">
-<h3 id="org289b0d3"><span class="section-number-3">5.1.</span> Margin and Padding</h3>
+<div id="outline-container-orgbbbe91a" class="outline-3">
+<h3 id="orgbbbe91a"><span class="section-number-3">5.1.</span> Margin and Padding</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li><p>
@@ -1840,8 +2002,8 @@ You can limit the padding to different sides, by adding a letter to &rsquo;p&rsq
 </ul>
 </div>
 </div>
-<div id="outline-container-org885a76b" class="outline-3">
-<h3 id="org885a76b"><span class="section-number-3">5.2.</span> Colors</h3>
+<div id="outline-container-org63cec7e" class="outline-3">
+<h3 id="org63cec7e"><span class="section-number-3">5.2.</span> Colors</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Colors are generally in the form <b>entity-color-intensity</b>, where:
@@ -1858,8 +2020,8 @@ text-[#0000ac]</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org100841f" class="outline-3">
-<h3 id="org100841f"><span class="section-number-3">5.3.</span> Fonts</h3>
+<div id="outline-container-org1e4a1d8" class="outline-3">
+<h3 id="org1e4a1d8"><span class="section-number-3">5.3.</span> Fonts</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li><p>
@@ -1958,12 +2120,12 @@ from Tailwind.
 </ul>
 </div>
 </div>
-<div id="outline-container-org75df4e6" class="outline-3">
-<h3 id="org75df4e6"><span class="section-number-3">5.4.</span> Layouts</h3>
+<div id="outline-container-org7e1c4b8" class="outline-3">
+<h3 id="org7e1c4b8"><span class="section-number-3">5.4.</span> Layouts</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-orgc3eb196" class="outline-4">
-<h4 id="orgc3eb196"><span class="section-number-4">5.4.1.</span> Flexbox</h4>
+<div id="outline-container-orgcd46a29" class="outline-4">
+<h4 id="orgcd46a29"><span class="section-number-4">5.4.1.</span> Flexbox</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <ul class="org-ul">
 <li><p>
@@ -2017,8 +2179,8 @@ To space out children, use gap in the container:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbd5ba0b" class="outline-4">
-<h4 id="orgbd5ba0b"><span class="section-number-4">5.4.2.</span> Grid</h4>
+<div id="outline-container-org1bf53f8" class="outline-4">
+<h4 id="org1bf53f8"><span class="section-number-4">5.4.2.</span> Grid</h4>
 <div class="outline-text-4" id="text-5-4-2">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #c678dd;">div</span> <span style="color: #dcaeea;">class</span>=<span style="color: #98be65;">"grid grid-cols-2"</span>&gt; <span style="color: #5B6268;">&lt;!-- </span><span style="color: #5B6268;">grid-rows-2 for rows layout</span><span style="color: #5B6268;">--&gt;</span>
@@ -2029,8 +2191,8 @@ To space out children, use gap in the container:
 </div>
 </div>
 </div>
-<div id="outline-container-org8519d2f" class="outline-4">
-<h4 id="org8519d2f"><span class="section-number-4">5.4.3.</span> Real-World Constructs</h4>
+<div id="outline-container-orgcd2ba63" class="outline-4">
+<h4 id="orgcd2ba63"><span class="section-number-4">5.4.3.</span> Real-World Constructs</h4>
 <div class="outline-text-4" id="text-5-4-3">
 <ul class="org-ul">
 <li><p>
@@ -2173,12 +2335,12 @@ Aligning items:
 </div>
 </div>
 </div>
-<div id="outline-container-org475908c" class="outline-2">
-<h2 id="org475908c"><span class="section-number-2">6.</span> Fundamentals of JavaScript</h2>
+<div id="outline-container-org3217fde" class="outline-2">
+<h2 id="org3217fde"><span class="section-number-2">6.</span> Fundamentals of JavaScript</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org72bf02e" class="outline-3">
-<h3 id="org72bf02e"><span class="section-number-3">6.1.</span> Document Object Model</h3>
+<div id="outline-container-orgd500bde" class="outline-3">
+<h3 id="orgd500bde"><span class="section-number-3">6.1.</span> Document Object Model</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 It&rsquo;s a programming interface for web documents, that arranges all the elements
@@ -2188,8 +2350,8 @@ page.
 </p>
 </div>
 </div>
-<div id="outline-container-org369edea" class="outline-3">
-<h3 id="org369edea"><span class="section-number-3">6.2.</span> Variables</h3>
+<div id="outline-container-org528c361" class="outline-3">
+<h3 id="org528c361"><span class="section-number-3">6.2.</span> Variables</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>var is global while let and const are limited to the scope of the block.</li>
@@ -2230,8 +2392,8 @@ sayHi();
 </ul>
 </div>
 </div>
-<div id="outline-container-orge1b2ed0" class="outline-3">
-<h3 id="orge1b2ed0"><span class="section-number-3">6.3.</span> Unary Plus</h3>
+<div id="outline-container-org5f8d9be" class="outline-3">
+<h3 id="org5f8d9be"><span class="section-number-3">6.3.</span> Unary Plus</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li><p>
@@ -2246,8 +2408,8 @@ This converts any primitive that&rsquo;s not a string, into a number. For instan
 </ul>
 </div>
 </div>
-<div id="outline-container-orga834e53" class="outline-3">
-<h3 id="orga834e53"><span class="section-number-3">6.4.</span> Template Literals</h3>
+<div id="outline-container-org293de82" class="outline-3">
+<h3 id="org293de82"><span class="section-number-3">6.4.</span> Template Literals</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li><p>
@@ -2302,8 +2464,8 @@ avoid precision loss.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org80b5d24" class="outline-3">
-<h3 id="org80b5d24"><span class="section-number-3">6.5.</span> Date</h3>
+<div id="outline-container-org5bdc802" class="outline-3">
+<h3 id="org5bdc802"><span class="section-number-3">6.5.</span> Date</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li><p>
@@ -2352,12 +2514,12 @@ etc.
 </p>
 </div>
 </div>
-<div id="outline-container-org2c37a57" class="outline-3">
-<h3 id="org2c37a57"><span class="section-number-3">6.6.</span> Functions</h3>
+<div id="outline-container-orgabbbde1" class="outline-3">
+<h3 id="orgabbbde1"><span class="section-number-3">6.6.</span> Functions</h3>
 <div class="outline-text-3" id="text-6-6">
 </div>
-<div id="outline-container-orgd34d24c" class="outline-4">
-<h4 id="orgd34d24c"><span class="section-number-4">6.6.1.</span> Normal Functions</h4>
+<div id="outline-container-org04fbbb1" class="outline-4">
+<h4 id="org04fbbb1"><span class="section-number-4">6.6.1.</span> Normal Functions</h4>
 <div class="outline-text-4" id="text-6-6-1">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #c678dd;">html</span>&gt;
@@ -2377,8 +2539,8 @@ etc.
 </div>
 </div>
 </div>
-<div id="outline-container-orgda8f866" class="outline-4">
-<h4 id="orgda8f866"><span class="section-number-4">6.6.2.</span> Arrow Functions</h4>
+<div id="outline-container-org42ab207" class="outline-4">
+<h4 id="org42ab207"><span class="section-number-4">6.6.2.</span> Arrow Functions</h4>
 <div class="outline-text-4" id="text-6-6-2">
 <ul class="org-ul">
 <li>The code below does the exact same thing as the code above. They&rsquo;re just two different representations of the same thing.</li>
@@ -2468,8 +2630,8 @@ of code, you can also do this:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgacb5f46" class="outline-4">
-<h4 id="orgacb5f46"><span class="section-number-4">6.6.3.</span> Callback functions</h4>
+<div id="outline-container-org7f67545" class="outline-4">
+<h4 id="org7f67545"><span class="section-number-4">6.6.3.</span> Callback functions</h4>
 <div class="outline-text-4" id="text-6-6-3">
 <ul class="org-ul">
 <li>You can pass a function <i>a</i> as an argument to another function <i>b</i>, and in <i>b</i> you
@@ -2510,8 +2672,8 @@ console.log(<span style="color: #98be65;">"End"</span>);
 </ul>
 </div>
 </div>
-<div id="outline-container-org96b5565" class="outline-4">
-<h4 id="org96b5565"><span class="section-number-4">6.6.4.</span> Generator</h4>
+<div id="outline-container-org1f20f66" class="outline-4">
+<h4 id="org1f20f66"><span class="section-number-4">6.6.4.</span> Generator</h4>
 <div class="outline-text-4" id="text-6-6-4">
 <p>
 JavaScript generator functions are a special type of function that can pause and
@@ -2574,15 +2736,15 @@ console.log(count.next().value); <span style="color: #5B6268;">// </span><span s
 </div>
 </div>
 </div>
-<div id="outline-container-orgc6849dd" class="outline-3">
-<h3 id="orgc6849dd"><span class="section-number-3">6.7.</span> Events</h3>
+<div id="outline-container-orga346f9b" class="outline-3">
+<h3 id="orga346f9b"><span class="section-number-3">6.7.</span> Events</h3>
 <div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>An event is a signal given by the browser indicating something has happened.</li>
 </ul>
 </div>
-<div id="outline-container-orgfcc3da9" class="outline-4">
-<h4 id="orgfcc3da9"><span class="section-number-4">6.7.1.</span> Debounce</h4>
+<div id="outline-container-orgaee9ff8" class="outline-4">
+<h4 id="orgaee9ff8"><span class="section-number-4">6.7.1.</span> Debounce</h4>
 <div class="outline-text-4" id="text-6-7-1">
 <ul class="org-ul">
 <li><p>
@@ -2618,12 +2780,12 @@ does the intended code run.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b86189" class="outline-4">
-<h4 id="org9b86189"><span class="section-number-4">6.7.2.</span> Throttle</h4>
+<div id="outline-container-org9965965" class="outline-4">
+<h4 id="org9965965"><span class="section-number-4">6.7.2.</span> Throttle</h4>
 </div>
 </div>
-<div id="outline-container-org43d6959" class="outline-3">
-<h3 id="org43d6959"><span class="section-number-3">6.8.</span> Modules</h3>
+<div id="outline-container-org831c804" class="outline-3">
+<h3 id="org831c804"><span class="section-number-3">6.8.</span> Modules</h3>
 <div class="outline-text-3" id="text-6-8">
 <ul class="org-ul">
 <li>Instead of putting all of the JavaScript code into one big file, you can split
@@ -2632,8 +2794,8 @@ the code into seperate JavaScript files called modules.</li>
 somewhere else), you should &ldquo;export&rdquo; the code.</li>
 </ul>
 </div>
-<div id="outline-container-org0e5d0ca" class="outline-4">
-<h4 id="org0e5d0ca"><span class="section-number-4">6.8.1.</span> Exporting</h4>
+<div id="outline-container-orgc295e63" class="outline-4">
+<h4 id="orgc295e63"><span class="section-number-4">6.8.1.</span> Exporting</h4>
 <div class="outline-text-4" id="text-6-8-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #5B6268;">/*     </span><span style="color: #5B6268;">math.js</span><span style="color: #5B6268;">     */</span>
@@ -2670,8 +2832,8 @@ individually, you can export everything all at once in a single line.
 </div>
 </div>
 </div>
-<div id="outline-container-org1048dbf" class="outline-4">
-<h4 id="org1048dbf"><span class="section-number-4">6.8.2.</span> Importing</h4>
+<div id="outline-container-org46519fe" class="outline-4">
+<h4 id="org46519fe"><span class="section-number-4">6.8.2.</span> Importing</h4>
 <div class="outline-text-4" id="text-6-8-2">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #5B6268;">/*     </span><span style="color: #5B6268;">script.js</span><span style="color: #5B6268;">    */</span>
@@ -2685,8 +2847,8 @@ console.log(add(2, 3));  <span style="color: #5B6268;">// </span><span style="co
 </div>
 </div>
 </div>
-<div id="outline-container-org6983ad0" class="outline-4">
-<h4 id="org6983ad0"><span class="section-number-4">6.8.3.</span> Default Export and Import</h4>
+<div id="outline-container-org5913bc6" class="outline-4">
+<h4 id="org5913bc6"><span class="section-number-4">6.8.3.</span> Default Export and Import</h4>
 <div class="outline-text-4" id="text-6-8-3">
 <ul class="org-ul">
 <li>In a module, you can have a &ldquo;default export&rdquo;. This export is imported by
@@ -2718,8 +2880,8 @@ And in another file:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee628d4" class="outline-4">
-<h4 id="orgee628d4"><span class="section-number-4">6.8.4.</span> CommonJS</h4>
+<div id="outline-container-orgf6ef809" class="outline-4">
+<h4 id="orgf6ef809"><span class="section-number-4">6.8.4.</span> CommonJS</h4>
 <div class="outline-text-4" id="text-6-8-4">
 <p>
 In older versions of JavaScript, you&rsquo;d had to export like this:
@@ -2751,8 +2913,8 @@ Modules.
 </div>
 </div>
 </div>
-<div id="outline-container-orgd04d803" class="outline-3">
-<h3 id="orgd04d803"><span class="section-number-3">6.9.</span> NodeJS</h3>
+<div id="outline-container-org77a9069" class="outline-3">
+<h3 id="org77a9069"><span class="section-number-3">6.9.</span> NodeJS</h3>
 <div class="outline-text-3" id="text-6-9">
 <ul class="org-ul">
 <li><p>
@@ -2776,8 +2938,8 @@ where you pick between commonJS and ES modules:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0c36ad8" class="outline-3">
-<h3 id="org0c36ad8"><span class="section-number-3">6.10.</span> Working with Files</h3>
+<div id="outline-container-orgf3dbbc0" class="outline-3">
+<h3 id="orgf3dbbc0"><span class="section-number-3">6.10.</span> Working with Files</h3>
 <div class="outline-text-3" id="text-6-10">
 <ul class="org-ul">
 <li><p>
@@ -2851,8 +3013,8 @@ console.log(content.toString());
 </ul>
 </div>
 </div>
-<div id="outline-container-orgabc667f" class="outline-3">
-<h3 id="orgabc667f"><span class="section-number-3">6.11.</span> Working with Paths</h3>
+<div id="outline-container-org2f775af" class="outline-3">
+<h3 id="org2f775af"><span class="section-number-3">6.11.</span> Working with Paths</h3>
 <div class="outline-text-3" id="text-6-11">
 <p>
 For this, we use the path module:
@@ -2870,8 +3032,8 @@ console.log(myPath); <span style="color: #5B6268;">// </span><span style="color:
 </div>
 </div>
 </div>
-<div id="outline-container-org258f5d4" class="outline-3">
-<h3 id="org258f5d4"><span class="section-number-3">6.12.</span> Objects</h3>
+<div id="outline-container-org41b015c" class="outline-3">
+<h3 id="org41b015c"><span class="section-number-3">6.12.</span> Objects</h3>
 <div class="outline-text-3" id="text-6-12">
 <ul class="org-ul">
 <li>Objects are the equivalents of dictionaries in Python. They&rsquo;re enclosed in curly braces and are comma separated.</li>
@@ -2880,8 +3042,8 @@ across multiple lines; It&rsquo;s not really a block of code. (So this means tha
 after the curly braces are closed, it ends with a comma)</li>
 </ul>
 </div>
-<div id="outline-container-org74b4925" class="outline-4">
-<h4 id="org74b4925"><span class="section-number-4">6.12.1.</span> Instance Variables</h4>
+<div id="outline-container-orgc4314b2" class="outline-4">
+<h4 id="orgc4314b2"><span class="section-number-4">6.12.1.</span> Instance Variables</h4>
 <div class="outline-text-4" id="text-6-12-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span> = {
@@ -2934,8 +3096,8 @@ tagy.innerHTML = man.name + <span style="color: #98be65;">"&lt;br&gt; and "</spa
 </ul>
 </div>
 </div>
-<div id="outline-container-org526b116" class="outline-4">
-<h4 id="org526b116"><span class="section-number-4">6.12.2.</span> Object Destructuring</h4>
+<div id="outline-container-org87252e9" class="outline-4">
+<h4 id="org87252e9"><span class="section-number-4">6.12.2.</span> Object Destructuring</h4>
 <div class="outline-text-4" id="text-6-12-2">
 <ul class="org-ul">
 <li>You can directly access the object in two ways:
@@ -2972,8 +3134,8 @@ different value:
 </ul>
 </div>
 </div>
-<div id="outline-container-org8298b3a" class="outline-4">
-<h4 id="org8298b3a"><span class="section-number-4">6.12.3.</span> Methods</h4>
+<div id="outline-container-org722411b" class="outline-4">
+<h4 id="org722411b"><span class="section-number-4">6.12.3.</span> Methods</h4>
 <div class="outline-text-4" id="text-6-12-3">
 <p>
 You can use regular functions like this:
@@ -3023,8 +3185,8 @@ is the newer standard and is preferred.
 </p>
 </div>
 </div>
-<div id="outline-container-org299fc75" class="outline-4">
-<h4 id="org299fc75"><span class="section-number-4">6.12.4.</span> Object References</h4>
+<div id="outline-container-orgafc37e4" class="outline-4">
+<h4 id="orgafc37e4"><span class="section-number-4">6.12.4.</span> Object References</h4>
 <div class="outline-text-4" id="text-6-12-4">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">c</span> = { greeting: <span style="color: #98be65;">'initial for d and c'</span> };
@@ -3056,8 +3218,8 @@ console.log(d.greeting);
 </div>
 </div>
 </div>
-<div id="outline-container-org684e3c6" class="outline-4">
-<h4 id="org684e3c6"><span class="section-number-4">6.12.5.</span> Classes</h4>
+<div id="outline-container-org0949d44" class="outline-4">
+<h4 id="org0949d44"><span class="section-number-4">6.12.5.</span> Classes</h4>
 <div class="outline-text-4" id="text-6-12-5">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">class</span> Praanesh {
@@ -3078,8 +3240,8 @@ console.log(y.hi());
 </div>
 </div>
 </div>
-<div id="outline-container-org14a7adc" class="outline-4">
-<h4 id="org14a7adc"><span class="section-number-4">6.12.6.</span> Keys and Values as Array</h4>
+<div id="outline-container-orgd0834b4" class="outline-4">
+<h4 id="orgd0834b4"><span class="section-number-4">6.12.6.</span> Keys and Values as Array</h4>
 <div class="outline-text-4" id="text-6-12-6">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">x</span> = {
@@ -3098,8 +3260,8 @@ console.log(Object.values(x));
 </div>
 </div>
 </div>
-<div id="outline-container-orge76c44c" class="outline-3">
-<h3 id="orge76c44c"><span class="section-number-3">6.13.</span> Arrays</h3>
+<div id="outline-container-org8391d4a" class="outline-3">
+<h3 id="org8391d4a"><span class="section-number-3">6.13.</span> Arrays</h3>
 <div class="outline-text-3" id="text-6-13">
 <ul class="org-ul">
 <li><p>
@@ -3112,8 +3274,8 @@ let, const or var too)
 </div></li>
 </ul>
 </div>
-<div id="outline-container-orge7d5094" class="outline-4">
-<h4 id="orge7d5094"><span class="section-number-4">6.13.1.</span> Extending Arrays</h4>
+<div id="outline-container-orge36a713" class="outline-4">
+<h4 id="orge36a713"><span class="section-number-4">6.13.1.</span> Extending Arrays</h4>
 <div class="outline-text-4" id="text-6-13-1">
 <div class="org-src-container">
 <pre class="src src-javascript">
@@ -3139,8 +3301,8 @@ anotherElement.innerHTML = food + [<span style="color: #98be65;">'bajji'</span>,
 </div>
 </div>
 </div>
-<div id="outline-container-org580e968" class="outline-4">
-<h4 id="org580e968"><span class="section-number-4">6.13.2.</span> map()</h4>
+<div id="outline-container-org11fcb91" class="outline-4">
+<h4 id="org11fcb91"><span class="section-number-4">6.13.2.</span> map()</h4>
 <div class="outline-text-4" id="text-6-13-2">
 <ul class="org-ul">
 <li>The return value of map() is an array.</li>
@@ -3170,8 +3332,8 @@ plural.innerHTML = <span style="color: #98be65;">"plurals = "</span> + food;
 </div>
 </div>
 </div>
-<div id="outline-container-orgacce435" class="outline-4">
-<h4 id="orgacce435"><span class="section-number-4">6.13.3.</span> filter()</h4>
+<div id="outline-container-orgebdcff1" class="outline-4">
+<h4 id="orgebdcff1"><span class="section-number-4">6.13.3.</span> filter()</h4>
 <div class="outline-text-4" id="text-6-13-3">
 <ul class="org-ul">
 <li>The return value of filter() is an array.</li>
@@ -3196,8 +3358,8 @@ haha.innerHTML = names;
 </div>
 </div>
 </div>
-<div id="outline-container-org142fab8" class="outline-4">
-<h4 id="org142fab8"><span class="section-number-4">6.13.4.</span> Sort</h4>
+<div id="outline-container-org07e3b7b" class="outline-4">
+<h4 id="org07e3b7b"><span class="section-number-4">6.13.4.</span> Sort</h4>
 <div class="outline-text-4" id="text-6-13-4">
 <p>
 Sort works only for strings. For integers, you&rsquo;d have to do:
@@ -3316,8 +3478,8 @@ For example:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbf59272" class="outline-4">
-<h4 id="orgbf59272"><span class="section-number-4">6.13.5.</span> Destructuring</h4>
+<div id="outline-container-org9cfb501" class="outline-4">
+<h4 id="org9cfb501"><span class="section-number-4">6.13.5.</span> Destructuring</h4>
 <div class="outline-text-4" id="text-6-13-5">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arr</span> = [1, 2, 3];
@@ -3326,8 +3488,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf82db2f" class="outline-4">
-<h4 id="orgf82db2f"><span class="section-number-4">6.13.6.</span> Common Array Methods</h4>
+<div id="outline-container-org3627f43" class="outline-4">
+<h4 id="org3627f43"><span class="section-number-4">6.13.6.</span> Common Array Methods</h4>
 <div class="outline-text-4" id="text-6-13-6">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">a</span> = [];
@@ -3349,12 +3511,12 @@ console.log(a.pop()); <span style="color: #5B6268;">// </span><span style="color
 </div>
 </div>
 </div>
-<div id="outline-container-org5278827" class="outline-3">
-<h3 id="org5278827"><span class="section-number-3">6.14.</span> Strings</h3>
+<div id="outline-container-org585b113" class="outline-3">
+<h3 id="org585b113"><span class="section-number-3">6.14.</span> Strings</h3>
 <div class="outline-text-3" id="text-6-14">
 </div>
-<div id="outline-container-org94d40a3" class="outline-4">
-<h4 id="org94d40a3"><span class="section-number-4">6.14.1.</span> Substring</h4>
+<div id="outline-container-orga684071" class="outline-4">
+<h4 id="orga684071"><span class="section-number-4">6.14.1.</span> Substring</h4>
 <div class="outline-text-4" id="text-6-14-1">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">s</span> = <span style="color: #98be65;">"Connie Client"</span>;
@@ -3366,8 +3528,8 @@ console.log(a.pop()); <span style="color: #5B6268;">// </span><span style="color
 </div>
 </div>
 </div>
-<div id="outline-container-org421274d" class="outline-4">
-<h4 id="org421274d"><span class="section-number-4">6.14.2.</span> charAt</h4>
+<div id="outline-container-orga12b389" class="outline-4">
+<h4 id="orga12b389"><span class="section-number-4">6.14.2.</span> charAt</h4>
 <div class="outline-text-4" id="text-6-14-2">
 <div class="org-src-container">
 <pre class="src src-javascript"><span style="color: #51afef;">var</span> <span style="color: #dcaeea;">s</span> = <span style="color: #98be65;">"Connie Client"</span>;
@@ -3394,8 +3556,8 @@ However in JavaScript for <b>both strings and arrays</b>, it&rsquo;s a <b>proper
 </ul>
 </div>
 </div>
-<div id="outline-container-orga67528a" class="outline-4">
-<h4 id="orga67528a"><span class="section-number-4">6.14.3.</span> Palindrome Checker</h4>
+<div id="outline-container-org35743fe" class="outline-4">
+<h4 id="org35743fe"><span class="section-number-4">6.14.3.</span> Palindrome Checker</h4>
 <div class="outline-text-4" id="text-6-14-3">
 <ul class="org-ul">
 <li>We <code>split("")</code> the string into an array of characters.</li>
@@ -3418,8 +3580,8 @@ console.log(isPalindrome(<span style="color: #98be65;">"madam"</span>)); <span s
 </div>
 </div>
 </div>
-<div id="outline-container-org214c8fe" class="outline-3">
-<h3 id="org214c8fe"><span class="section-number-3">6.15.</span> Asynchronous JavaScript</h3>
+<div id="outline-container-org8bc5bf8" class="outline-3">
+<h3 id="org8bc5bf8"><span class="section-number-3">6.15.</span> Asynchronous JavaScript</h3>
 <div class="outline-text-3" id="text-6-15">
 <p>
 Generally in single-threaded models there are two types of programming
@@ -3434,8 +3596,8 @@ it&rsquo;d freeze the entire page because of some demanding instruction.</li>
 instructions, and then moves on to the next line.</li>
 </ul>
 </div>
-<div id="outline-container-orgd9f9eaa" class="outline-4">
-<h4 id="orgd9f9eaa"><span class="section-number-4">6.15.1.</span> Promise</h4>
+<div id="outline-container-org38037f5" class="outline-4">
+<h4 id="org38037f5"><span class="section-number-4">6.15.1.</span> Promise</h4>
 <div class="outline-text-4" id="text-6-15-1">
 <ul class="org-ul">
 <li><p>
@@ -3518,8 +3680,8 @@ To sum up, you retrieve data using a Promise like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b37340" class="outline-4">
-<h4 id="org0b37340"><span class="section-number-4">6.15.2.</span> Async and Await</h4>
+<div id="outline-container-orgc67fa9d" class="outline-4">
+<h4 id="orgc67fa9d"><span class="section-number-4">6.15.2.</span> Async and Await</h4>
 <div class="outline-text-4" id="text-6-15-2">
 <ul class="org-ul">
 <li><p>
@@ -3563,15 +3725,15 @@ conventional try-catch block.
 </p>
 </div>
 </div>
-<div id="outline-container-org993f277" class="outline-4">
-<h4 id="org993f277"><span class="section-number-4">6.15.3.</span> JavaScript Runtime Explained</h4>
+<div id="outline-container-org460d10a" class="outline-4">
+<h4 id="org460d10a"><span class="section-number-4">6.15.3.</span> JavaScript Runtime Explained</h4>
 <div class="outline-text-4" id="text-6-15-3">
 <p>
 The runtime consists of all the components needed to run JavaScript code.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org5cdf556"></a>JavaScript Engine<br />
+<li><a id="org71bfbf6"></a>JavaScript Engine<br />
 <div class="outline-text-5" id="text-6-15-3-1">
 <ul class="org-ul">
 <li>The JavaScript Engine consists of two components: the <b>Call Stack</b> and the <b>Heap</b>
@@ -3592,7 +3754,7 @@ SpiderMonkey (Firefox uses this).</li>
 </ul>
 </div>
 </li>
-<li><a id="orge740fcd"></a>Web APIs<br />
+<li><a id="org58efa17"></a>Web APIs<br />
 <div class="outline-text-5" id="text-6-15-3-2">
 <ul class="org-ul">
 <li>These are interfaces to control various features of the browser. For Example:
@@ -3614,7 +3776,7 @@ removeItem(key).</li>
 </ul>
 </div>
 </li>
-<li><a id="org11dbe68"></a>Callback/ Task Queue<br />
+<li><a id="orgfcb8e60"></a>Callback/ Task Queue<br />
 <div class="outline-text-5" id="text-6-15-3-3">
 <ul class="org-ul">
 <li>After an asynchronous operation (like setTimeOut()) finishes, the callback
@@ -3669,7 +3831,7 @@ particular iteration.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4caf5a0"></a>Microtask Queue<br />
+<li><a id="org838b6bd"></a>Microtask Queue<br />
 <div class="outline-text-5" id="text-6-15-3-4">
 <ul class="org-ul">
 <li>This is a special Queue dedicated to .then(), .catch(), and .finally()
@@ -3680,7 +3842,7 @@ microtask independently.</li>
 </ul>
 </div>
 </li>
-<li><a id="org41e635c"></a>Event Loop<br />
+<li><a id="org8013f82"></a>Event Loop<br />
 <div class="outline-text-5" id="text-6-15-3-5">
 <ul class="org-ul">
 <li>The Event Loop is a loop (for, while, whatever it is internally) that
@@ -3698,12 +3860,12 @@ indefinitely.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6e3e5df" class="outline-2">
-<h2 id="org6e3e5df"><span class="section-number-2">7.</span> TypeScript</h2>
+<div id="outline-container-orgcba27ba" class="outline-2">
+<h2 id="orgcba27ba"><span class="section-number-2">7.</span> TypeScript</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org98db8bb" class="outline-3">
-<h3 id="org98db8bb"><span class="section-number-3">7.1.</span> Brief Introduction to how Types work</h3>
+<div id="outline-container-org87ab11e" class="outline-3">
+<h3 id="org87ab11e"><span class="section-number-3">7.1.</span> Brief Introduction to how Types work</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li><p>
@@ -3732,8 +3894,8 @@ You can implicitly assign a type:
 </div></li>
 </ul>
 </div>
-<div id="outline-container-org38c9c6c" class="outline-4">
-<h4 id="org38c9c6c"><span class="section-number-4">7.1.1.</span> Union Types</h4>
+<div id="outline-container-org9fafbce" class="outline-4">
+<h4 id="org9fafbce"><span class="section-number-4">7.1.1.</span> Union Types</h4>
 <div class="outline-text-4" id="text-7-1-1">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">id</span>: <span style="color: #51afef;">number</span> | <span style="color: #51afef;">string</span>;
@@ -3741,8 +3903,8 @@ You can implicitly assign a type:
 </div>
 </div>
 </div>
-<div id="outline-container-org977790b" class="outline-4">
-<h4 id="org977790b"><span class="section-number-4">7.1.2.</span> Any</h4>
+<div id="outline-container-org0e6f086" class="outline-4">
+<h4 id="org0e6f086"><span class="section-number-4">7.1.2.</span> Any</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">value</span>: <span style="color: #51afef;">any</span> = 10;
@@ -3761,16 +3923,16 @@ value = { x: 10 };
 </div>
 </div>
 </div>
-<div id="outline-container-orgb5f7f65" class="outline-3">
-<h3 id="orgb5f7f65"><span class="section-number-3">7.2.</span> How to run TypeScript</h3>
+<div id="outline-container-org8452621" class="outline-3">
+<h3 id="org8452621"><span class="section-number-3">7.2.</span> How to run TypeScript</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Basically, you have to turn strip types off of the TypeScript code to turn it
 into JavaScript, and then use node to run the JavaScript file.</li>
 </ul>
 </div>
-<div id="outline-container-org4a30463" class="outline-4">
-<h4 id="org4a30463"><span class="section-number-4">7.2.1.</span> The Traditional Way</h4>
+<div id="outline-container-orgc44c4de" class="outline-4">
+<h4 id="orgc44c4de"><span class="section-number-4">7.2.1.</span> The Traditional Way</h4>
 <div class="outline-text-4" id="text-7-2-1">
 <ul class="org-ul">
 <li><p>
@@ -3797,8 +3959,8 @@ Run the generated JavaScript file using node:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb65775f" class="outline-4">
-<h4 id="orgb65775f"><span class="section-number-4">7.2.2.</span> Using tsx</h4>
+<div id="outline-container-org88cb330" class="outline-4">
+<h4 id="org88cb330"><span class="section-number-4">7.2.2.</span> Using tsx</h4>
 <div class="outline-text-4" id="text-7-2-2">
 <ul class="org-ul">
 <li>esbuild is a very fast JavaScript/TypeScript build tool that is written in Go.</li>
@@ -3829,8 +3991,8 @@ whenever you save changes to that file:
 </div>
 </div>
 </div>
-<div id="outline-container-orga226cfe" class="outline-3">
-<h3 id="orga226cfe"><span class="section-number-3">7.3.</span> Classes and Objects</h3>
+<div id="outline-container-orge1f247c" class="outline-3">
+<h3 id="orge1f247c"><span class="section-number-3">7.3.</span> Classes and Objects</h3>
 <div class="outline-text-3" id="text-7-3">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> {
@@ -3847,8 +4009,8 @@ p.y = 20;
 These are JavaScript Objects (but with types), hence they&rsquo;re TypeScript.
 </p>
 </div>
-<div id="outline-container-org9a678ad" class="outline-4">
-<h4 id="org9a678ad"><span class="section-number-4">7.3.1.</span> Types</h4>
+<div id="outline-container-org55861de" class="outline-4">
+<h4 id="org55861de"><span class="section-number-4">7.3.1.</span> Types</h4>
 <div class="outline-text-4" id="text-7-3-1">
 <p>
 A plain JavaScript Object with assignment then and there itself would look like:
@@ -3892,8 +4054,8 @@ Instead you can do:
 </div>
 </div>
 </div>
-<div id="outline-container-org76e3c83" class="outline-4">
-<h4 id="org76e3c83"><span class="section-number-4">7.3.2.</span> Interfaces and how they&rsquo;re different from Types</h4>
+<div id="outline-container-org1382413" class="outline-4">
+<h4 id="org1382413"><span class="section-number-4">7.3.2.</span> Interfaces and how they&rsquo;re different from Types</h4>
 <div class="outline-text-4" id="text-7-3-2">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">interface</span> <span style="color: #ECBE7B;">Point</span> {
@@ -3946,8 +4108,8 @@ role = <span style="color: #98be65;">"primary"</span>;    <span style="color: #5
 </div>
 </div>
 </div>
-<div id="outline-container-org3b95b04" class="outline-4">
-<h4 id="org3b95b04"><span class="section-number-4">7.3.3.</span> Optional Properties</h4>
+<div id="outline-container-org10eb1f6" class="outline-4">
+<h4 id="org10eb1f6"><span class="section-number-4">7.3.3.</span> Optional Properties</h4>
 <div class="outline-text-4" id="text-7-3-3">
 <p>
 Both type and interfaces support optional properties:
@@ -3981,8 +4143,8 @@ So you can do this:
 </div>
 </div>
 </div>
-<div id="outline-container-orgeece170" class="outline-4">
-<h4 id="orgeece170"><span class="section-number-4">7.3.4.</span> Syntax to be noted in Interfaces and Types</h4>
+<div id="outline-container-orgd78890d" class="outline-4">
+<h4 id="orgd78890d"><span class="section-number-4">7.3.4.</span> Syntax to be noted in Interfaces and Types</h4>
 <div class="outline-text-4" id="text-7-3-4">
 <ul class="org-ul">
 <li><p>
@@ -4007,8 +4169,8 @@ here too), but the actual object creation involves commas:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9f7a35f" class="outline-4">
-<h4 id="org9f7a35f"><span class="section-number-4">7.3.5.</span> keyof Operator</h4>
+<div id="outline-container-org0ed0532" class="outline-4">
+<h4 id="org0ed0532"><span class="section-number-4">7.3.5.</span> keyof Operator</h4>
 <div class="outline-text-4" id="text-7-3-5">
 <ul class="org-ul">
 <li><code>keyof</code> operator takes an object type and produces a union type of its keys
@@ -4037,8 +4199,8 @@ For instance:
 </ul>
 </div>
 </div>
-<div id="outline-container-org076e04e" class="outline-4">
-<h4 id="org076e04e"><span class="section-number-4">7.3.6.</span> Indexing Types</h4>
+<div id="outline-container-orgcbf8d99" class="outline-4">
+<h4 id="orgcbf8d99"><span class="section-number-4">7.3.6.</span> Indexing Types</h4>
 <div class="outline-text-4" id="text-7-3-6">
 <ul class="org-ul">
 <li><p>
@@ -4062,12 +4224,12 @@ You can index a type like you&rsquo;re indexing a dictionary:
 </div>
 </div>
 </div>
-<div id="outline-container-org6e1eee4" class="outline-3">
-<h3 id="org6e1eee4"><span class="section-number-3">7.4.</span> Array</h3>
+<div id="outline-container-org6561654" class="outline-3">
+<h3 id="org6561654"><span class="section-number-3">7.4.</span> Array</h3>
 <div class="outline-text-3" id="text-7-4">
 </div>
-<div id="outline-container-org712a946" class="outline-4">
-<h4 id="org712a946"><span class="section-number-4">7.4.1.</span> Array of Primitives</h4>
+<div id="outline-container-org6d6098e" class="outline-4">
+<h4 id="org6d6098e"><span class="section-number-4">7.4.1.</span> Array of Primitives</h4>
 <div class="outline-text-4" id="text-7-4-1">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">names</span>: <span style="color: #51afef;">string</span>[] = [<span style="color: #98be65;">"Alice"</span>, <span style="color: #98be65;">"Bob"</span>, <span style="color: #98be65;">"Charlie"</span>];
@@ -4105,8 +4267,8 @@ You can also declare the type as:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb0aec29" class="outline-4">
-<h4 id="orgb0aec29"><span class="section-number-4">7.4.2.</span> Array of Objects</h4>
+<div id="outline-container-org2185fbc" class="outline-4">
+<h4 id="org2185fbc"><span class="section-number-4">7.4.2.</span> Array of Objects</h4>
 <div class="outline-text-4" id="text-7-4-2">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">interface</span> <span style="color: #ECBE7B;">Point</span> {
@@ -4124,8 +4286,8 @@ You can also declare the type as:
 </div>
 </div>
 </div>
-<div id="outline-container-orgdc01457" class="outline-3">
-<h3 id="orgdc01457"><span class="section-number-3">7.5.</span> Generics</h3>
+<div id="outline-container-orgff29e61" class="outline-3">
+<h3 id="orgff29e61"><span class="section-number-3">7.5.</span> Generics</h3>
 <div class="outline-text-3" id="text-7-5">
 <ul class="org-ul">
 <li>These are how to make the datatype itself parameterized.</li>
@@ -4175,12 +4337,12 @@ But usually TypeScript can infer it too:
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2a4b1a" class="outline-2">
-<h2 id="orgb2a4b1a"><span class="section-number-2">8.</span> ExpressJS</h2>
+<div id="outline-container-org0b87768" class="outline-2">
+<h2 id="org0b87768"><span class="section-number-2">8.</span> ExpressJS</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgaea4589" class="outline-3">
-<h3 id="orgaea4589"><span class="section-number-3">8.1.</span> Networking</h3>
+<div id="outline-container-org11ee547" class="outline-3">
+<h3 id="org11ee547"><span class="section-number-3">8.1.</span> Networking</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><p>
@@ -4299,8 +4461,8 @@ these response.end() statements happen in the client side.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org15f1bc3" class="outline-3">
-<h3 id="org15f1bc3"><span class="section-number-3">8.2.</span> What Express.js is</h3>
+<div id="outline-container-orgc0e5cfc" class="outline-3">
+<h3 id="orgc0e5cfc"><span class="section-number-3">8.2.</span> What Express.js is</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>Express.js is a JavaScript Framework that provides a robust set of features
@@ -4350,8 +4512,8 @@ app.listen(port, <span style="color: #98be65;">'127.0.0.1'</span>, () =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfe9a2d0" class="outline-3">
-<h3 id="orgfe9a2d0"><span class="section-number-3">8.3.</span> Static Files</h3>
+<div id="outline-container-org3c7497e" class="outline-3">
+<h3 id="org3c7497e"><span class="section-number-3">8.3.</span> Static Files</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li><p>
@@ -4370,12 +4532,12 @@ Middleware functions will be covered later on
 </p>
 </div>
 </div>
-<div id="outline-container-org92dcba1" class="outline-3">
-<h3 id="org92dcba1"><span class="section-number-3">8.4.</span> HTTP Requests</h3>
+<div id="outline-container-org854fad6" class="outline-3">
+<h3 id="org854fad6"><span class="section-number-3">8.4.</span> HTTP Requests</h3>
 <div class="outline-text-3" id="text-8-4">
 </div>
-<div id="outline-container-orgd9b9877" class="outline-4">
-<h4 id="orgd9b9877"><span class="section-number-4">8.4.1.</span> GET Requests</h4>
+<div id="outline-container-org738e606" class="outline-4">
+<h4 id="org738e606"><span class="section-number-4">8.4.1.</span> GET Requests</h4>
 <div class="outline-text-4" id="text-8-4-1">
 <ul class="org-ul">
 <li>GET Requests are used when the client wants data from the server without
@@ -4448,8 +4610,8 @@ are cached by the browser.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org338239a" class="outline-4">
-<h4 id="org338239a"><span class="section-number-4">8.4.2.</span> POST Requests</h4>
+<div id="outline-container-org43f1891" class="outline-4">
+<h4 id="org43f1891"><span class="section-number-4">8.4.2.</span> POST Requests</h4>
 <div class="outline-text-4" id="text-8-4-2">
 <ul class="org-ul">
 <li>POST Requests are used to send data to the server.</li>
@@ -4526,8 +4688,8 @@ app.post(<span style="color: #98be65;">"/"</span>, (request, response) =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-org94b2acb" class="outline-4">
-<h4 id="org94b2acb"><span class="section-number-4">8.4.3.</span> PUT, DELETE</h4>
+<div id="outline-container-org946c073" class="outline-4">
+<h4 id="org946c073"><span class="section-number-4">8.4.3.</span> PUT, DELETE</h4>
 <div class="outline-text-4" id="text-8-4-3">
 <ul class="org-ul">
 <li>PUT requests are used to replace an entity completely, while delete deletes
@@ -4536,8 +4698,8 @@ the entity.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb8418d1" class="outline-4">
-<h4 id="orgb8418d1"><span class="section-number-4">8.4.4.</span> Why these different HTTP methods matter:</h4>
+<div id="outline-container-org491c19a" class="outline-4">
+<h4 id="org491c19a"><span class="section-number-4">8.4.4.</span> Why these different HTTP methods matter:</h4>
 <div class="outline-text-4" id="text-8-4-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -4599,12 +4761,12 @@ the entity.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org02cf059" class="outline-3">
-<h3 id="org02cf059"><span class="section-number-3">8.5.</span> Variables in URLS</h3>
+<div id="outline-container-orgabd8343" class="outline-3">
+<h3 id="orgabd8343"><span class="section-number-3">8.5.</span> Variables in URLS</h3>
 <div class="outline-text-3" id="text-8-5">
 </div>
-<div id="outline-container-org95e85e7" class="outline-4">
-<h4 id="org95e85e7"><span class="section-number-4">8.5.1.</span> Slug</h4>
+<div id="outline-container-orgaf0f957" class="outline-4">
+<h4 id="orgaf0f957"><span class="section-number-4">8.5.1.</span> Slug</h4>
 <div class="outline-text-4" id="text-8-5-1">
 <ul class="org-ul">
 <li><p>
@@ -4630,8 +4792,8 @@ seperated by hyphens.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd4ea98c" class="outline-4">
-<h4 id="orgd4ea98c"><span class="section-number-4">8.5.2.</span> Query Parameters</h4>
+<div id="outline-container-orgc9a4b64" class="outline-4">
+<h4 id="orgc9a4b64"><span class="section-number-4">8.5.2.</span> Query Parameters</h4>
 <div class="outline-text-4" id="text-8-5-2">
 <ul class="org-ul">
 <li><p>
@@ -4661,8 +4823,8 @@ for get requests.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0f248ab" class="outline-3">
-<h3 id="org0f248ab"><span class="section-number-3">8.6.</span> Extras</h3>
+<div id="outline-container-org285c53e" class="outline-3">
+<h3 id="org285c53e"><span class="section-number-3">8.6.</span> Extras</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li><p>
@@ -4691,8 +4853,8 @@ object/router.
 </ul>
 </div>
 </div>
-<div id="outline-container-org1dd4d63" class="outline-3">
-<h3 id="org1dd4d63"><span class="section-number-3">8.7.</span> Routing</h3>
+<div id="outline-container-orgddcd547" class="outline-3">
+<h3 id="orgddcd547"><span class="section-number-3">8.7.</span> Routing</h3>
 <div class="outline-text-3" id="text-8-7">
 <ul class="org-ul">
 <li><p>
@@ -4736,8 +4898,8 @@ app.listen(3000, <span style="color: #98be65;">"0.0.0.0"</span>, () =&gt; {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgde45044" class="outline-3">
-<h3 id="orgde45044"><span class="section-number-3">8.8.</span> Middleware</h3>
+<div id="outline-container-org6bff63b" class="outline-3">
+<h3 id="org6bff63b"><span class="section-number-3">8.8.</span> Middleware</h3>
 <div class="outline-text-3" id="text-8-8">
 <ul class="org-ul">
 <li>In case of method routes (aka. route handlers) like app.get(), app.post(),
@@ -4781,16 +4943,16 @@ router.use()).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge709d0f" class="outline-3">
-<h3 id="orge709d0f"><span class="section-number-3">8.9.</span> Template Engine</h3>
+<div id="outline-container-orgc93acc9" class="outline-3">
+<h3 id="orgc93acc9"><span class="section-number-3">8.9.</span> Template Engine</h3>
 </div>
 </div>
-<div id="outline-container-orge238ff4" class="outline-2">
-<h2 id="orge238ff4"><span class="section-number-2">9.</span> React</h2>
+<div id="outline-container-org1ce7d9e" class="outline-2">
+<h2 id="org1ce7d9e"><span class="section-number-2">9.</span> React</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org39a7468" class="outline-3">
-<h3 id="org39a7468"><span class="section-number-3">9.1.</span> What is it</h3>
+<div id="outline-container-org37a3e42" class="outline-3">
+<h3 id="org37a3e42"><span class="section-number-3">9.1.</span> What is it</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>As we know, JavaScript/TypeScript can create, access or modify nodes from the
@@ -4818,8 +4980,8 @@ The overall skeletal file structure looks like this:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf0ebdbe" class="outline-3">
-<h3 id="orgf0ebdbe"><span class="section-number-3">9.2.</span> Making a React Project</h3>
+<div id="outline-container-orgb2a8404" class="outline-3">
+<h3 id="orgb2a8404"><span class="section-number-3">9.2.</span> Making a React Project</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li><b>Package Managers</b>: npm stands for Node Package Manager and it&rsquo;s used to install
@@ -4914,8 +5076,8 @@ And to run the production site you just built, you&rsquo;d use:
 </ul>
 </div>
 </div>
-<div id="outline-container-org438a1a2" class="outline-3">
-<h3 id="org438a1a2"><span class="section-number-3">9.3.</span> React Components</h3>
+<div id="outline-container-org1430e85" class="outline-3">
+<h3 id="org1430e85"><span class="section-number-3">9.3.</span> React Components</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>A React Component is essentially a TypeScript-XML module with a function as
@@ -4975,8 +5137,8 @@ createRoot(document.getElementById(<span style="color: #98be65;">"root"</span>)!
 </ul>
 </div>
 </div>
-<div id="outline-container-org40e8a89" class="outline-3">
-<h3 id="org40e8a89"><span class="section-number-3">9.4.</span> More on JavaScript/TypeScript XML</h3>
+<div id="outline-container-org06283a8" class="outline-3">
+<h3 id="org06283a8"><span class="section-number-3">9.4.</span> More on JavaScript/TypeScript XML</h3>
 <div class="outline-text-3" id="text-9-4">
 <ul class="org-ul">
 <li><p>
@@ -5011,8 +5173,8 @@ curly braces. Here&rsquo;s an example:
 </ul>
 </div>
 </div>
-<div id="outline-container-org88b1b7d" class="outline-3">
-<h3 id="org88b1b7d"><span class="section-number-3">9.5.</span> Props</h3>
+<div id="outline-container-org855c6c8" class="outline-3">
+<h3 id="org855c6c8"><span class="section-number-3">9.5.</span> Props</h3>
 <div class="outline-text-3" id="text-9-5">
 <ul class="org-ul">
 <li><p>
@@ -5042,8 +5204,8 @@ component. This is how the component would look like:
 </ul>
 </div>
 </div>
-<div id="outline-container-org65cfbab" class="outline-3">
-<h3 id="org65cfbab"><span class="section-number-3">9.6.</span> States and Hooks</h3>
+<div id="outline-container-org78a4f0e" class="outline-3">
+<h3 id="org78a4f0e"><span class="section-number-3">9.6.</span> States and Hooks</h3>
 <div class="outline-text-3" id="text-9-6">
 <ul class="org-ul">
 <li>A state is some information belonging to a component, that can change from
@@ -5089,8 +5251,8 @@ this {count} times) will change too.</li>
 <li>States help component <b>remember</b> information</li>
 </ul>
 </div>
-<div id="outline-container-org4d047f9" class="outline-4">
-<h4 id="org4d047f9"><span class="section-number-4">9.6.1.</span> useEffect Hook</h4>
+<div id="outline-container-org2cb17b2" class="outline-4">
+<h4 id="org2cb17b2"><span class="section-number-4">9.6.1.</span> useEffect Hook</h4>
 <div class="outline-text-4" id="text-9-6-1">
 <ul class="org-ul">
 <li><p>
@@ -5207,8 +5369,8 @@ a component is unmounted.
 </ul>
 </div>
 </div>
-<div id="outline-container-org3bec1a9" class="outline-4">
-<h4 id="org3bec1a9"><span class="section-number-4">9.6.2.</span> useRef</h4>
+<div id="outline-container-org2f7bb60" class="outline-4">
+<h4 id="org2f7bb60"><span class="section-number-4">9.6.2.</span> useRef</h4>
 <div class="outline-text-4" id="text-9-6-2">
 <ul class="org-ul">
 <li><p>
@@ -5289,21 +5451,21 @@ not needed for rendering.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga54bd41" class="outline-3">
-<h3 id="orga54bd41"><span class="section-number-3">9.7.</span> Conditional Rendering</h3>
+<div id="outline-container-org14281a8" class="outline-3">
+<h3 id="org14281a8"><span class="section-number-3">9.7.</span> Conditional Rendering</h3>
 </div>
 </div>
-<div id="outline-container-orgcbcb5fb" class="outline-2">
-<h2 id="orgcbcb5fb"><span class="section-number-2">10.</span> Web Graphics</h2>
+<div id="outline-container-orgf327494" class="outline-2">
+<h2 id="orgf327494"><span class="section-number-2">10.</span> Web Graphics</h2>
 <div class="outline-text-2" id="text-10">
 
-<div id="org83de837" class="figure">
+<div id="org7daa68a" class="figure">
 <p><img src="big_picture_webgraphics.png" alt="big_picture_webgraphics.png" />
 </p>
 </div>
 </div>
-<div id="outline-container-org5e5c2eb" class="outline-3">
-<h3 id="org5e5c2eb"><span class="section-number-3">10.1.</span> Coordinates and Vector Space</h3>
+<div id="outline-container-org97d4818" class="outline-3">
+<h3 id="org97d4818"><span class="section-number-3">10.1.</span> Coordinates and Vector Space</h3>
 <div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>Pixels start from the top-left, Y grows downward. This is how Canvas 2D and
@@ -5317,8 +5479,8 @@ point is (1, 1, 1).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgda58e76" class="outline-3">
-<h3 id="orgda58e76"><span class="section-number-3">10.2.</span> Canvas 2D</h3>
+<div id="outline-container-orgf82f609" class="outline-3">
+<h3 id="orgf82f609"><span class="section-number-3">10.2.</span> Canvas 2D</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>Canvas 2D is a web feature that lets you draw shapes, text, and images on a
@@ -5375,8 +5537,8 @@ This makes something like:
 </script>
 </div>
 </div>
-<div id="outline-container-orgea7ae4e" class="outline-3">
-<h3 id="orgea7ae4e"><span class="section-number-3">10.3.</span> WebGL</h3>
+<div id="outline-container-orge58a34f" class="outline-3">
+<h3 id="orge58a34f"><span class="section-number-3">10.3.</span> WebGL</h3>
 <div class="outline-text-3" id="text-10-3">
 <ul class="org-ul">
 <li><p>
@@ -5384,14 +5546,14 @@ While Canvas2D is a high-level drawing API, WebGL is a low-level GPU
 programming API.
 </p>
 
-<div id="orgde25d39" class="figure">
+<div id="orgc3c1c0b" class="figure">
 <p><img src="webgl.png" alt="webgl.png" />
 </p>
 </div></li>
 </ul>
 </div>
-<div id="outline-container-org35ba769" class="outline-4">
-<h4 id="org35ba769"><span class="section-number-4">10.3.1.</span> Getting Context</h4>
+<div id="outline-container-org943307e" class="outline-4">
+<h4 id="org943307e"><span class="section-number-4">10.3.1.</span> Getting Context</h4>
 <div class="outline-text-4" id="text-10-3-1">
 <p>
 WebGL context is the specialized toolkit that connects your JavaScript code
@@ -5404,8 +5566,8 @@ directly to the computer&rsquo;s GPU.
 </div>
 </div>
 </div>
-<div id="outline-container-org2c32440" class="outline-4">
-<h4 id="org2c32440"><span class="section-number-4">10.3.2.</span> Vertices</h4>
+<div id="outline-container-orgad297fe" class="outline-4">
+<h4 id="orgad297fe"><span class="section-number-4">10.3.2.</span> Vertices</h4>
 <div class="outline-text-4" id="text-10-3-2">
 <ul class="org-ul">
 <li>WebGL uses triangles as its core building block because they are always flat,
@@ -5427,8 +5589,8 @@ Note that these coordinates are normalized device coordinates.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc3703f9" class="outline-4">
-<h4 id="orgc3703f9"><span class="section-number-4">10.3.3.</span> Create and Use Buffer</h4>
+<div id="outline-container-orgbbf4cce" class="outline-4">
+<h4 id="orgbbf4cce"><span class="section-number-4">10.3.3.</span> Create and Use Buffer</h4>
 <div class="outline-text-4" id="text-10-3-3">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">buffer</span> = gl.<span style="color: #c678dd;">createBuffer</span>();
@@ -5437,8 +5599,8 @@ gl.<span style="color: #c678dd;">bindBuffer</span>(gl.ARRAY_BUFFER, buffer);
 </div>
 </div>
 </div>
-<div id="outline-container-orgd58f2c5" class="outline-4">
-<h4 id="orgd58f2c5"><span class="section-number-4">10.3.4.</span> Sending Vertices to GPU</h4>
+<div id="outline-container-orgae6846d" class="outline-4">
+<h4 id="orgae6846d"><span class="section-number-4">10.3.4.</span> Sending Vertices to GPU</h4>
 <div class="outline-text-4" id="text-10-3-4">
 <div class="org-src-container">
 <pre class="src src-typescript">gl.<span style="color: #c678dd;">bufferData</span>(
@@ -5450,8 +5612,8 @@ gl.<span style="color: #c678dd;">bindBuffer</span>(gl.ARRAY_BUFFER, buffer);
 </div>
 </div>
 </div>
-<div id="outline-container-orgb383d06" class="outline-4">
-<h4 id="orgb383d06"><span class="section-number-4">10.3.5.</span> Shader</h4>
+<div id="outline-container-org934cf8a" class="outline-4">
+<h4 id="org934cf8a"><span class="section-number-4">10.3.5.</span> Shader</h4>
 <div class="outline-text-4" id="text-10-3-5">
 <ul class="org-ul">
 <li><p>
@@ -5486,7 +5648,7 @@ vertices/fragments in parallel.
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org0b3c5ca"></a>Vertex Shader<br />
+<li><a id="orgd575ffa"></a>Vertex Shader<br />
 <div class="outline-text-5" id="text-10-3-5-1">
 <div class="org-src-container">
 <pre class="src src-glsl">attribute vec2 position;
@@ -5505,7 +5667,7 @@ variables <code>x y z w</code> (w is the <b>homogeneous coordinate</b>).</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc0b4fbe"></a>Fragment Shader<br />
+<li><a id="org1a8ff1f"></a>Fragment Shader<br />
 <div class="outline-text-5" id="text-10-3-5-2">
 <div class="org-src-container">
 <pre class="src src-glsl">precision mediump float;
@@ -5520,7 +5682,7 @@ Here <code>gl_FragColor</code> is a built-in GLSL variable that stores <code>R G
 </p>
 </div>
 </li>
-<li><a id="org8718231"></a>Sourcing the Shader in JavaScript<br />
+<li><a id="org8c8aef2"></a>Sourcing the Shader in JavaScript<br />
 <div class="outline-text-5" id="text-10-3-5-3">
 <ul class="org-ul">
 <li><p>
@@ -5541,8 +5703,8 @@ We store the GLSL code as multiline JavaScript strings (template literals):
 </li>
 </ol>
 </div>
-<div id="outline-container-org872fcb7" class="outline-4">
-<h4 id="org872fcb7"><span class="section-number-4">10.3.6.</span> Full Program</h4>
+<div id="outline-container-org610830c" class="outline-4">
+<h4 id="org610830c"><span class="section-number-4">10.3.6.</span> Full Program</h4>
 <div class="outline-text-4" id="text-10-3-6">
 <div class="org-src-container">
 <pre class="src src-html">

@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-07-28 Tue 00:09 -->
+<!-- 2026-10-29 Thu 10:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Database Management Systems</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,470 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
+h1.title::after {
+content: "";
+display: block;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
+}
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-/* ─── Block Quotes ─────────────────────────────────────── */
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
+text-decoration: none;
+transition: opacity .15s;
+}
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
+
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
+
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
+}
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
+
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
+}
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
 blockquote {
 margin: 1.8rem 0;
-padding: 1rem 1.5rem;
-background: #f8f8fc;
-border-left: 4px solid #4444cc;
-border-radius: 8px;
-color: #444;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
 font-style: italic;
-position: relative;
+border-left: 3px solid var(--accent);
 }
-blockquote::before {
-content: "❝";
-position: absolute;
-top: -8px;
-left: 12px;
-font-size: 2.8rem;
-color: #d6d6f5;
-font-family: Georgia, serif;
-line-height: 1;
-}
-blockquote p:last-child {
-margin-bottom: 0;
-}
-blockquote cite,
-blockquote footer {
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
 display: block;
-margin-top: 0.8rem;
-color: #777;
-font-size: 0.9em;
+margin-top: .6rem;
+font-size: .88em;
 font-style: normal;
 text-align: right;
 }
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
 
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
 }
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
-content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
 }
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
-text-decoration: none;
-}
-
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
-
-#table-of-contents li.hidden {
-display: none;
-}
-
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
-
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
-}
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -709,200 +871,200 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgba3764a">1. Introduction</a></li>
-<li><a href="#orgb6051cc">2. Levels of Abstraction</a>
+<li><a href="#orgde579ea">1. Introduction</a></li>
+<li><a href="#orga2817d3">2. Levels of Abstraction</a>
 <ul>
-<li><a href="#orgf13f666">2.1. View/External Level</a></li>
-<li><a href="#org5cea2ef">2.2. Logical/Conceptual Level</a></li>
-<li><a href="#orgbcb77dd">2.3. Physical/Internal Level</a></li>
+<li><a href="#org161796e">2.1. View/External Level</a></li>
+<li><a href="#orge29d7a9">2.2. Logical/Conceptual Level</a></li>
+<li><a href="#org0bd5e5e">2.3. Physical/Internal Level</a></li>
 </ul>
 </li>
-<li><a href="#orgaf13b4c">3. Schema</a>
+<li><a href="#org795ee39">3. Schema</a>
 <ul>
-<li><a href="#orgb51fd7d">3.1. What it describes</a>
+<li><a href="#org9b92e77">3.1. What it describes</a>
 <ul>
-<li><a href="#org90cad22">3.1.1. Entities</a></li>
-<li><a href="#org2652ce5">3.1.2. Attributes</a></li>
-<li><a href="#orgb2f52e7">3.1.3. Relationships</a></li>
-<li><a href="#org7cf0a88">3.1.4. Data Independence</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org27dbc52">4. Types of SQL Commands</a>
-<ul>
-<li><a href="#orgc55d543">4.1. DDL</a>
-<ul>
-<li><a href="#org74c4f6c">4.1.1. CREATE TABLE</a></li>
-<li><a href="#org3fe501f">4.1.2. ALTER TABLE</a></li>
-<li><a href="#orgef890c7">4.1.3. DROP TABLE</a></li>
-<li><a href="#org23b88d1">4.1.4. TRUNCATE</a></li>
-<li><a href="#org760bcc1">4.1.5. RENAME</a></li>
-</ul>
-</li>
-<li><a href="#orgba92380">4.2. DML</a>
-<ul>
-<li><a href="#orgbc0ea4d">4.2.1. INSERT</a></li>
-<li><a href="#org531d119">4.2.2. UPDATE</a></li>
-<li><a href="#org91cd471">4.2.3. DELETE</a></li>
-<li><a href="#org7b9f62e">4.2.4. SELECT</a></li>
-<li><a href="#orga6ed851">4.2.5. Correlated Subqueries</a></li>
-</ul>
-</li>
-<li><a href="#orgcf6793b">4.3. DCL</a>
-<ul>
-<li><a href="#orge56cc56">4.3.1. GRANT</a></li>
-<li><a href="#org5eeb8ff">4.3.2. REVOKE</a></li>
+<li><a href="#orgfa23deb">3.1.1. Entities</a></li>
+<li><a href="#orgd6b1d52">3.1.2. Attributes</a></li>
+<li><a href="#org52ef26e">3.1.3. Relationships</a></li>
+<li><a href="#org917b9a6">3.1.4. Data Independence</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgab410ce">5. Relational Algebra</a>
+<li><a href="#orgb911a48">4. Types of SQL Commands</a>
 <ul>
-<li><a href="#org07aefe4">5.1. Union Compatability Rule Between Two Tables</a></li>
-<li><a href="#org72ba132">5.2. Types of Operators</a></li>
-<li><a href="#org0558caf">5.3. SELECT (&sigma; )</a></li>
-<li><a href="#orgfb76af3">5.4. PROJECT (&Pi; )</a></li>
+<li><a href="#org3a963f3">4.1. DDL</a>
+<ul>
+<li><a href="#orgfac8e88">4.1.1. CREATE TABLE</a></li>
+<li><a href="#orgf328ada">4.1.2. ALTER TABLE</a></li>
+<li><a href="#org9b036cb">4.1.3. DROP TABLE</a></li>
+<li><a href="#orgffb3f04">4.1.4. TRUNCATE</a></li>
+<li><a href="#orge304784">4.1.5. RENAME</a></li>
 </ul>
 </li>
-<li><a href="#orgff645c6">6. Joins</a>
+<li><a href="#org747d03b">4.2. DML</a>
 <ul>
-<li><a href="#org4434f9f">6.1. Inner Join</a></li>
-<li><a href="#org9bb7e0a">6.2. Left Join (or Left Outer Join)</a></li>
-<li><a href="#org2a77f13">6.3. Right Join (Right Outer Join)</a></li>
-<li><a href="#orgcbfc82c">6.4. Full Outer Join</a></li>
-<li><a href="#org84714f4">6.5. Self Join</a></li>
+<li><a href="#orgc6d876f">4.2.1. INSERT</a></li>
+<li><a href="#org0f7806b">4.2.2. UPDATE</a></li>
+<li><a href="#org08f3784">4.2.3. DELETE</a></li>
+<li><a href="#orgdaeee91">4.2.4. SELECT</a></li>
+<li><a href="#orgf047347">4.2.5. Correlated Subqueries</a></li>
 </ul>
 </li>
-<li><a href="#orgf8c53b0">7. Functional Dependencies</a>
+<li><a href="#orgaac9e27">4.3. DCL</a>
 <ul>
-<li><a href="#orgb06f8dd">7.1. Armstrong&rsquo;s Axioms</a>
-<ul>
-<li><a href="#org26308c9">7.1.1. Reflexivity</a></li>
-<li><a href="#orgac64de0">7.1.2. Augmentation</a></li>
-<li><a href="#orgb78e9e9">7.1.3. Union and Decomposition</a></li>
-<li><a href="#orgbd04f09">7.1.4. Transitivity</a></li>
-<li><a href="#orgeb03021">7.1.5. Psuedotransitivity</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org49707a9">8. Normalization</a>
-<ul>
-<li><a href="#orgeeaeb52">8.1. Database Anomalies</a>
-<ul>
-<li><a href="#orgfe14bc2">8.1.1. Insertion Anomaly</a></li>
-<li><a href="#org631b1fd">8.1.2. Update Anomaly</a></li>
-<li><a href="#orga2733b9">8.1.3. Deletion Anomaly</a></li>
-</ul>
-</li>
-<li><a href="#orga738260">8.2. What Normalization is</a></li>
-<li><a href="#org742b832">8.3. Types</a>
-<ul>
-<li><a href="#org846c2d1">8.3.1. 1NF</a></li>
-<li><a href="#org81e980a">8.3.2. 2NF</a></li>
-<li><a href="#org4185d9d">8.3.3. 3NF</a></li>
-<li><a href="#org58485ba">8.3.4. BCNF</a></li>
+<li><a href="#org16a777c">4.3.1. GRANT</a></li>
+<li><a href="#org5324d3f">4.3.2. REVOKE</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga85a14e">9. Transactions</a>
+<li><a href="#org7f61fc8">5. Relational Algebra</a>
 <ul>
-<li><a href="#orgbfb99a7">9.1. Transaction Processing (ACID)</a>
-<ul>
-<li><a href="#org06d0b8d">9.1.1. Atomicity</a></li>
-<li><a href="#orgeb3c8ef">9.1.2. Consistency</a></li>
-<li><a href="#org2a444df">9.1.3. Isolation</a></li>
-<li><a href="#orgf3104e2">9.1.4. Durability</a></li>
+<li><a href="#org15ea142">5.1. Union Compatability Rule Between Two Tables</a></li>
+<li><a href="#org830ff64">5.2. Types of Operators</a></li>
+<li><a href="#org039d23c">5.3. SELECT (&sigma; )</a></li>
+<li><a href="#org5de4ec9">5.4. PROJECT (&Pi; )</a></li>
 </ul>
 </li>
-<li><a href="#org744d277">9.2. How to manage Transactions</a>
+<li><a href="#orgcbb6267">6. Joins</a>
 <ul>
-<li><a href="#orgf175d2a">9.2.1. Logging and Recovery</a></li>
-<li><a href="#org7fc68bb">9.2.2. Concurrency Control</a></li>
-<li><a href="#orgd5984b2">9.2.3. Transaction Boundaries</a></li>
+<li><a href="#orgace12e9">6.1. Inner Join</a></li>
+<li><a href="#org011207d">6.2. Left Join (or Left Outer Join)</a></li>
+<li><a href="#orgdaa976b">6.3. Right Join (Right Outer Join)</a></li>
+<li><a href="#org6d043b1">6.4. Full Outer Join</a></li>
+<li><a href="#org040f206">6.5. Self Join</a></li>
 </ul>
 </li>
-<li><a href="#orgd54b062">9.3. Simple Model of a Database</a></li>
-<li><a href="#org188afd0">9.4. Read and Write Operations</a>
+<li><a href="#org98047a8">7. Functional Dependencies</a>
 <ul>
-<li><a href="#org939b424">9.4.1. Read</a></li>
-<li><a href="#org51d6ca5">9.4.2. Write</a></li>
-</ul>
-</li>
-<li><a href="#org965db52">9.5. Recovery Manager</a>
+<li><a href="#orgce9fe60">7.1. Armstrong&rsquo;s Axioms</a>
 <ul>
-<li><a href="#org16f7f75">9.5.1. begin<sub>transaction</sub></a></li>
-<li><a href="#org7582a31">9.5.2. read/write</a></li>
-<li><a href="#org1d35536">9.5.3. commit</a></li>
-<li><a href="#org329016b">9.5.4. rollback</a></li>
-<li><a href="#org952b9a6">9.5.5. redo</a></li>
-<li><a href="#org7140634">9.5.6. end<sub>transaction</sub></a></li>
-</ul>
-</li>
-<li><a href="#orgdb13bab">9.6. Why Concurrent Executions</a></li>
-<li><a href="#orga6644fa">9.7. Concurrency Control Schemes</a></li>
-<li><a href="#org01fab70">9.8. Issues</a>
-<ul>
-<li><a href="#orgfe95539">9.8.1. Lost Update (write-write)</a></li>
-<li><a href="#orged3012d">9.8.2. Dirty Read (write-read on uncommitted data)</a></li>
-<li><a href="#orga0c46df">9.8.3. Unrepeatable Read (write-read on committed data)</a></li>
-<li><a href="#org113ee06">9.8.4. Blind Write</a></li>
-<li><a href="#org1eee8e2">9.8.5. Phantom Read</a></li>
+<li><a href="#orgbaa0e27">7.1.1. Reflexivity</a></li>
+<li><a href="#org9e772bd">7.1.2. Augmentation</a></li>
+<li><a href="#orgb0109ab">7.1.3. Union and Decomposition</a></li>
+<li><a href="#orgf547de5">7.1.4. Transitivity</a></li>
+<li><a href="#org2dd18b8">7.1.5. Psuedotransitivity</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd5f17b2">10. Schedule</a>
+<li><a href="#org8737016">8. Normalization</a>
 <ul>
-<li><a href="#orga278bcb">10.1. Why are Schedules Important</a>
+<li><a href="#org549feb9">8.1. Database Anomalies</a>
 <ul>
-<li><a href="#org518eb10">10.1.1. Concurrency</a></li>
-<li><a href="#orgfe7048e">10.1.2. Consistency</a></li>
-<li><a href="#orgf18feb9">10.1.3. Integrity</a></li>
+<li><a href="#org2a913b8">8.1.1. Insertion Anomaly</a></li>
+<li><a href="#org417d007">8.1.2. Update Anomaly</a></li>
+<li><a href="#orgf050003">8.1.3. Deletion Anomaly</a></li>
 </ul>
 </li>
-<li><a href="#org0fb14f4">10.2. Number of Schedules you can make, given a certain number of transactions</a>
+<li><a href="#org95abde0">8.2. What Normalization is</a></li>
+<li><a href="#org1ac825f">8.3. Types</a>
 <ul>
-<li><a href="#org575428b">10.2.1. If there are 2 transactions</a></li>
-<li><a href="#orgdfa48f4">10.2.2. For more than 2 transactions</a></li>
-</ul>
-</li>
-<li><a href="#orgefcc6f5">10.3. Types of Schedules</a>
-<ul>
-<li><a href="#orgd8f1c13">10.3.1. Serial Schedules</a></li>
-<li><a href="#org85c1c4b">10.3.2. Non Serial Schedules</a></li>
-<li><a href="#orgbccf5f7">10.3.3. Serializable Schedule</a></li>
-<li><a href="#org57e09c0">10.3.4. Non-Serializable Schedules</a></li>
-<li><a href="#orgd1c57ef">10.3.5. Equivalence of Schedules</a></li>
-</ul>
-</li>
-<li><a href="#orgf9cd2e2">10.4. Concurrency Control</a>
-<ul>
-<li><a href="#org0c15ca0">10.4.1. Lock Based Concurrency Control</a></li>
+<li><a href="#org4de7e49">8.3.1. 1NF</a></li>
+<li><a href="#org1d83df8">8.3.2. 2NF</a></li>
+<li><a href="#org0c91e68">8.3.3. 3NF</a></li>
+<li><a href="#orgd279ba0">8.3.4. BCNF</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc79d489">11. Storage Structure</a>
+<li><a href="#orgaa641f4">9. Transactions</a>
 <ul>
-<li><a href="#org109bacf">11.1. Sequential</a></li>
-<li><a href="#orgb5a3799">11.2. Heap</a></li>
-<li><a href="#org297b411">11.3. Clustered</a></li>
-<li><a href="#orgfd8b665">11.4. B+ Trees</a>
+<li><a href="#org1766d0f">9.1. Transaction Processing (ACID)</a>
 <ul>
-<li><a href="#org1f9fae4">11.4.1. Order of B+ tree</a></li>
+<li><a href="#org8425514">9.1.1. Atomicity</a></li>
+<li><a href="#orgeba1ab0">9.1.2. Consistency</a></li>
+<li><a href="#org6381e91">9.1.3. Isolation</a></li>
+<li><a href="#org1c18a16">9.1.4. Durability</a></li>
 </ul>
 </li>
-<li><a href="#org7072abb">11.5. Hashing</a></li>
+<li><a href="#org06478ba">9.2. How to manage Transactions</a>
+<ul>
+<li><a href="#org092170b">9.2.1. Logging and Recovery</a></li>
+<li><a href="#orgc35fa2a">9.2.2. Concurrency Control</a></li>
+<li><a href="#org6dd9fce">9.2.3. Transaction Boundaries</a></li>
+</ul>
+</li>
+<li><a href="#orgb041461">9.3. Simple Model of a Database</a></li>
+<li><a href="#org54ffc11">9.4. Read and Write Operations</a>
+<ul>
+<li><a href="#orgaa7b8ee">9.4.1. Read</a></li>
+<li><a href="#orga81721e">9.4.2. Write</a></li>
+</ul>
+</li>
+<li><a href="#orgbef2142">9.5. Recovery Manager</a>
+<ul>
+<li><a href="#org2cfae04">9.5.1. begin<sub>transaction</sub></a></li>
+<li><a href="#org4a1d288">9.5.2. read/write</a></li>
+<li><a href="#org690aa71">9.5.3. commit</a></li>
+<li><a href="#orgebfabdc">9.5.4. rollback</a></li>
+<li><a href="#org7a01178">9.5.5. redo</a></li>
+<li><a href="#orgbad1971">9.5.6. end<sub>transaction</sub></a></li>
+</ul>
+</li>
+<li><a href="#org07a70ef">9.6. Why Concurrent Executions</a></li>
+<li><a href="#orgd54a2ec">9.7. Concurrency Control Schemes</a></li>
+<li><a href="#org2679acd">9.8. Issues</a>
+<ul>
+<li><a href="#orgdd83b7c">9.8.1. Lost Update (write-write)</a></li>
+<li><a href="#orgd9d7a7a">9.8.2. Dirty Read (write-read on uncommitted data)</a></li>
+<li><a href="#org1bf2098">9.8.3. Unrepeatable Read (write-read on committed data)</a></li>
+<li><a href="#org7c33411">9.8.4. Blind Write</a></li>
+<li><a href="#org92d6fb0">9.8.5. Phantom Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org15689f8">10. Schedule</a>
+<ul>
+<li><a href="#org288ebd5">10.1. Why are Schedules Important</a>
+<ul>
+<li><a href="#orge1e13a2">10.1.1. Concurrency</a></li>
+<li><a href="#org524aeb2">10.1.2. Consistency</a></li>
+<li><a href="#org6e76f89">10.1.3. Integrity</a></li>
+</ul>
+</li>
+<li><a href="#orga4b1ad8">10.2. Number of Schedules you can make, given a certain number of transactions</a>
+<ul>
+<li><a href="#orgc7954cc">10.2.1. If there are 2 transactions</a></li>
+<li><a href="#org9e53109">10.2.2. For more than 2 transactions</a></li>
+</ul>
+</li>
+<li><a href="#orgb84e1c6">10.3. Types of Schedules</a>
+<ul>
+<li><a href="#orgba9ae44">10.3.1. Serial Schedules</a></li>
+<li><a href="#org3249efd">10.3.2. Non Serial Schedules</a></li>
+<li><a href="#org9dbd4c8">10.3.3. Serializable Schedule</a></li>
+<li><a href="#org224f4ca">10.3.4. Non-Serializable Schedules</a></li>
+<li><a href="#orgecb8050">10.3.5. Equivalence of Schedules</a></li>
+</ul>
+</li>
+<li><a href="#org352b563">10.4. Concurrency Control</a>
+<ul>
+<li><a href="#orga59173e">10.4.1. Lock Based Concurrency Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5a49d77">11. Storage Structure</a>
+<ul>
+<li><a href="#orge340cb4">11.1. Sequential</a></li>
+<li><a href="#orgf564f18">11.2. Heap</a></li>
+<li><a href="#org11731cf">11.3. Clustered</a></li>
+<li><a href="#orgd3f2e15">11.4. B+ Trees</a>
+<ul>
+<li><a href="#org1117d33">11.4.1. Order of B+ tree</a></li>
+</ul>
+</li>
+<li><a href="#orgdfa85a9">11.5. Hashing</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgba3764a" class="outline-2">
-<h2 id="orgba3764a"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgde579ea" class="outline-2">
+<h2 id="orgde579ea"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>A file system arranges files into directories in a storage device.</li>
@@ -922,20 +1084,20 @@ data in structured tables.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb6051cc" class="outline-2">
-<h2 id="orgb6051cc"><span class="section-number-2">2.</span> Levels of Abstraction</h2>
+<div id="outline-container-orga2817d3" class="outline-2">
+<h2 id="orga2817d3"><span class="section-number-2">2.</span> Levels of Abstraction</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf13f666" class="outline-3">
-<h3 id="orgf13f666"><span class="section-number-3">2.1.</span> View/External Level</h3>
+<div id="outline-container-org161796e" class="outline-3">
+<h3 id="org161796e"><span class="section-number-3">2.1.</span> View/External Level</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Users and applications can access only the data relevant to them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5cea2ef" class="outline-3">
-<h3 id="org5cea2ef"><span class="section-number-3">2.2.</span> Logical/Conceptual Level</h3>
+<div id="outline-container-orge29d7a9" class="outline-3">
+<h3 id="orge29d7a9"><span class="section-number-3">2.2.</span> Logical/Conceptual Level</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Handles what data is stored in the database and all the relationships between
@@ -943,8 +1105,8 @@ them.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbcb77dd" class="outline-3">
-<h3 id="orgbcb77dd"><span class="section-number-3">2.3.</span> Physical/Internal Level</h3>
+<div id="outline-container-org0bd5e5e" class="outline-3">
+<h3 id="org0bd5e5e"><span class="section-number-3">2.3.</span> Physical/Internal Level</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Describes how the data is stored on the disk.</li>
@@ -952,20 +1114,20 @@ them.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf13b4c" class="outline-2">
-<h2 id="orgaf13b4c"><span class="section-number-2">3.</span> Schema</h2>
+<div id="outline-container-org795ee39" class="outline-2">
+<h2 id="org795ee39"><span class="section-number-2">3.</span> Schema</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>A <b>schema</b> is a logical structure that describes how data is stored and used in
 a database.</li>
 </ul>
 </div>
-<div id="outline-container-orgb51fd7d" class="outline-3">
-<h3 id="orgb51fd7d"><span class="section-number-3">3.1.</span> What it describes</h3>
+<div id="outline-container-org9b92e77" class="outline-3">
+<h3 id="org9b92e77"><span class="section-number-3">3.1.</span> What it describes</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org90cad22" class="outline-4">
-<h4 id="org90cad22"><span class="section-number-4">3.1.1.</span> Entities</h4>
+<div id="outline-container-orgfa23deb" class="outline-4">
+<h4 id="orgfa23deb"><span class="section-number-4">3.1.1.</span> Entities</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li>An entity is any real world object with well defined property.</li>
@@ -976,8 +1138,8 @@ These are essentially tables in a database.
 <img src="entity.png" alt="entity">
 </div>
 </div>
-<div id="outline-container-org2652ce5" class="outline-4">
-<h4 id="org2652ce5"><span class="section-number-4">3.1.2.</span> Attributes</h4>
+<div id="outline-container-orgd6b1d52" class="outline-4">
+<h4 id="orgd6b1d52"><span class="section-number-4">3.1.2.</span> Attributes</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li>Attributes are columns in a database and they include what datatype they hold.</li>
@@ -988,14 +1150,14 @@ These are essentially tables in a database.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org3eec58a"></a>Super Key<br />
+<li><a id="org915ddbf"></a>Super Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-1">
 <ul class="org-ul">
 <li><b>Any</b> set of columns that can uniquely identify a row.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0055deb"></a>Candidate Key<br />
+<li><a id="org716a38e"></a>Candidate Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-2">
 <ul class="org-ul">
 <li>A super key with no unecessary columns.</li>
@@ -1003,21 +1165,21 @@ These are essentially tables in a database.
 </ul>
 </div>
 </li>
-<li><a id="org90333cc"></a>Primary Key<br />
+<li><a id="orge078e2f"></a>Primary Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-3">
 <ul class="org-ul">
 <li>The candidate key chosen to be the unique identifier for any row.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7e8044d"></a>Alternate Key<br />
+<li><a id="org91c172a"></a>Alternate Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-4">
 <ul class="org-ul">
 <li>Every candidate key that wasn&rsquo;t chosen as the primary key.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4fc5b60"></a>Foreign Key<br />
+<li><a id="org8232bc3"></a>Foreign Key<br />
 <div class="outline-text-6" id="text-3-1-2-0-5">
 <ul class="org-ul">
 <li>A set of columns in one table, pointing towards the primary key of the
@@ -1027,8 +1189,8 @@ same/different table.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgb2f52e7" class="outline-4">
-<h4 id="orgb2f52e7"><span class="section-number-4">3.1.3.</span> Relationships</h4>
+<div id="outline-container-org52ef26e" class="outline-4">
+<h4 id="org52ef26e"><span class="section-number-4">3.1.3.</span> Relationships</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <ul class="org-ul">
 <li>Relationships describe how exactly two tables and their instances are related
@@ -1037,7 +1199,7 @@ to each other.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8b272ae"></a>Cardinality<br />
+<li><a id="org6a0320e"></a>Cardinality<br />
 <div class="outline-text-5" id="text-3-1-3-1">
 <img src="1to1.png" alt="">
 <img src="1toM.png" alt="">
@@ -1045,7 +1207,7 @@ to each other.</li>
 <img src="MtoM.png" alt="">
 </div>
 </li>
-<li><a id="org6c9794b"></a>Participation Constraints<br />
+<li><a id="org021ccae"></a>Participation Constraints<br />
 <div class="outline-text-5" id="text-3-1-3-2">
 <ul class="org-ul">
 <li><p>
@@ -1094,8 +1256,8 @@ These are of two types: Total Participation and Partial Participation
 </li>
 </ol>
 </div>
-<div id="outline-container-org7cf0a88" class="outline-4">
-<h4 id="org7cf0a88"><span class="section-number-4">3.1.4.</span> Data Independence</h4>
+<div id="outline-container-org917b9a6" class="outline-4">
+<h4 id="org917b9a6"><span class="section-number-4">3.1.4.</span> Data Independence</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>It&rsquo;s a property of DBMS that allows you to change schema (structure of a
@@ -1111,20 +1273,20 @@ level is called <b>logical independence</b>.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org27dbc52" class="outline-2">
-<h2 id="org27dbc52"><span class="section-number-2">4.</span> Types of SQL Commands</h2>
+<div id="outline-container-orgb911a48" class="outline-2">
+<h2 id="orgb911a48"><span class="section-number-2">4.</span> Types of SQL Commands</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgc55d543" class="outline-3">
-<h3 id="orgc55d543"><span class="section-number-3">4.1.</span> DDL</h3>
+<div id="outline-container-org3a963f3" class="outline-3">
+<h3 id="org3a963f3"><span class="section-number-3">4.1.</span> DDL</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><b>Data Definition Language</b> comprises of the languages used to create the
 <b>database schema</b> (the structure).</li>
 </ul>
 </div>
-<div id="outline-container-org74c4f6c" class="outline-4">
-<h4 id="org74c4f6c"><span class="section-number-4">4.1.1.</span> CREATE TABLE</h4>
+<div id="outline-container-orgfac8e88" class="outline-4">
+<h4 id="orgfac8e88"><span class="section-number-4">4.1.1.</span> CREATE TABLE</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <ul class="org-ul">
 <li><p>
@@ -1295,8 +1457,8 @@ Here is a complete example:
 </ul>
 </div>
 </div>
-<div id="outline-container-org3fe501f" class="outline-4">
-<h4 id="org3fe501f"><span class="section-number-4">4.1.2.</span> ALTER TABLE</h4>
+<div id="outline-container-orgf328ada" class="outline-4">
+<h4 id="orgf328ada"><span class="section-number-4">4.1.2.</span> ALTER TABLE</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">ALTER</span> <span style="color: #51afef;">TABLE</span> <span style="color: #51afef;">table_name</span>
@@ -1325,8 +1487,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgef890c7" class="outline-4">
-<h4 id="orgef890c7"><span class="section-number-4">4.1.3.</span> DROP TABLE</h4>
+<div id="outline-container-org9b036cb" class="outline-4">
+<h4 id="org9b036cb"><span class="section-number-4">4.1.3.</span> DROP TABLE</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 Deletes table and its data altogether.
@@ -1337,8 +1499,8 @@ Deletes table and its data altogether.
 </div>
 </div>
 </div>
-<div id="outline-container-org23b88d1" class="outline-4">
-<h4 id="org23b88d1"><span class="section-number-4">4.1.4.</span> TRUNCATE</h4>
+<div id="outline-container-orgffb3f04" class="outline-4">
+<h4 id="orgffb3f04"><span class="section-number-4">4.1.4.</span> TRUNCATE</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 Deletes all rows, but keeps structure intact.
@@ -1349,8 +1511,8 @@ Deletes all rows, but keeps structure intact.
 </div>
 </div>
 </div>
-<div id="outline-container-org760bcc1" class="outline-4">
-<h4 id="org760bcc1"><span class="section-number-4">4.1.5.</span> RENAME</h4>
+<div id="outline-container-orge304784" class="outline-4">
+<h4 id="orge304784"><span class="section-number-4">4.1.5.</span> RENAME</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 Renames an entire table.
@@ -1362,15 +1524,15 @@ Renames an entire table.
 </div>
 </div>
 </div>
-<div id="outline-container-orgba92380" class="outline-3">
-<h3 id="orgba92380"><span class="section-number-3">4.2.</span> DML</h3>
+<div id="outline-container-org747d03b" class="outline-3">
+<h3 id="org747d03b"><span class="section-number-3">4.2.</span> DML</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><b>Data Manipulation Language</b> is what we used to read/write on instances of data.</li>
 </ul>
 </div>
-<div id="outline-container-orgbc0ea4d" class="outline-4">
-<h4 id="orgbc0ea4d"><span class="section-number-4">4.2.1.</span> INSERT</h4>
+<div id="outline-container-orgc6d876f" class="outline-4">
+<h4 id="orgc6d876f"><span class="section-number-4">4.2.1.</span> INSERT</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">INSERT</span> <span style="color: #51afef;">INTO</span> employees (emp_id, <span style="color: #51afef;">name</span>, salary, dept_id)
@@ -1380,8 +1542,8 @@ Renames an entire table.
 </div>
 </div>
 </div>
-<div id="outline-container-org531d119" class="outline-4">
-<h4 id="org531d119"><span class="section-number-4">4.2.2.</span> UPDATE</h4>
+<div id="outline-container-org0f7806b" class="outline-4">
+<h4 id="org0f7806b"><span class="section-number-4">4.2.2.</span> UPDATE</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">UPDATE</span> <span style="color: #51afef;">table_name</span>
@@ -1402,8 +1564,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-org91cd471" class="outline-4">
-<h4 id="org91cd471"><span class="section-number-4">4.2.3.</span> DELETE</h4>
+<div id="outline-container-org08f3784" class="outline-4">
+<h4 id="org08f3784"><span class="section-number-4">4.2.3.</span> DELETE</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">DELETE</span> <span style="color: #51afef;">FROM</span> <span style="color: #51afef;">table_name</span>
@@ -1429,12 +1591,12 @@ irreversible.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7b9f62e" class="outline-4">
-<h4 id="org7b9f62e"><span class="section-number-4">4.2.4.</span> SELECT</h4>
+<div id="outline-container-orgdaeee91" class="outline-4">
+<h4 id="orgdaeee91"><span class="section-number-4">4.2.4.</span> SELECT</h4>
 <div class="outline-text-4" id="text-4-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="org3fdfdfa"></a>Syntax<br />
+<li><a id="org460fde8"></a>Syntax<br />
 <div class="outline-text-5" id="text-4-2-4-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> column1, column2 <span style="color: #51afef;">as</span> new_name, ...
@@ -1568,7 +1730,7 @@ The output is:
 </ul>
 </div>
 </li>
-<li><a id="org9e4aa86"></a>Regex<br />
+<li><a id="org0bfcc65"></a>Regex<br />
 <div class="outline-text-5" id="text-4-2-4-2">
 <ul class="org-ul">
 <li><p>
@@ -1586,7 +1748,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </ul>
 </div>
 </li>
-<li><a id="org4e1a658"></a>Between<br />
+<li><a id="orgf5817c4"></a>Between<br />
 <div class="outline-text-5" id="text-4-2-4-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> * <span style="color: #51afef;">FROM</span> student <span style="color: #51afef;">WHERE</span> age <span style="color: #51afef;">BETWEEN</span> 17 <span style="color: #51afef;">AND</span> 23;
@@ -1594,7 +1756,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="orga1d0239"></a>Adding Columns<br />
+<li><a id="org022d802"></a>Adding Columns<br />
 <div class="outline-text-5" id="text-4-2-4-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> subject1_marks + subject2_marks + subject3_marks <span style="color: #51afef;">AS</span> tot_marks <span style="color: #51afef;">FROM</span> student;
@@ -1602,7 +1764,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="org5141796"></a>Aggregate Functions<br />
+<li><a id="orgb21e486"></a>Aggregate Functions<br />
 <div class="outline-text-5" id="text-4-2-4-5">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">Number of rows
@@ -1622,7 +1784,7 @@ There also exists the <code>LIKE</code> operator for regex:
 </div>
 </div>
 </li>
-<li><a id="org56c6ffa"></a>Group By<br />
+<li><a id="orge649d37"></a>Group By<br />
 <div class="outline-text-5" id="text-4-2-4-6">
 <ul class="org-ul">
 <li><p>
@@ -1713,7 +1875,7 @@ And you get:
 </ul>
 </div>
 </li>
-<li><a id="org56de828"></a>Having<br />
+<li><a id="org1170e47"></a>Having<br />
 <div class="outline-text-5" id="text-4-2-4-7">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #5B6268;">-- </span><span style="color: #5B6268;">WHERE filters before grouping
@@ -1734,12 +1896,12 @@ And you get:
 </li>
 </ol>
 </div>
-<div id="outline-container-orga6ed851" class="outline-4">
-<h4 id="orga6ed851"><span class="section-number-4">4.2.5.</span> Correlated Subqueries</h4>
+<div id="outline-container-orgf047347" class="outline-4">
+<h4 id="orgf047347"><span class="section-number-4">4.2.5.</span> Correlated Subqueries</h4>
 <div class="outline-text-4" id="text-4-2-5">
 </div>
 <ol class="org-ol">
-<li><a id="org3c47315"></a>Where<br />
+<li><a id="org074d634"></a>Where<br />
 <div class="outline-text-5" id="text-4-2-5-1">
 <p>
 Find students whose age is above the average age of their class.
@@ -1757,7 +1919,7 @@ Find students whose age is above the average age of their class.
 </div>
 </div>
 </li>
-<li><a id="org818e86f"></a>From<br />
+<li><a id="orga5aee06"></a>From<br />
 <div class="outline-text-5" id="text-4-2-5-2">
 <p>
 Get Class wise average and then filter it
@@ -1777,15 +1939,15 @@ Get Class wise average and then filter it
 </ol>
 </div>
 </div>
-<div id="outline-container-orgcf6793b" class="outline-3">
-<h3 id="orgcf6793b"><span class="section-number-3">4.3.</span> DCL</h3>
+<div id="outline-container-orgaac9e27" class="outline-3">
+<h3 id="orgaac9e27"><span class="section-number-3">4.3.</span> DCL</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><b>Data Control Language</b> manages rights and permissions.</li>
 </ul>
 </div>
-<div id="outline-container-orge56cc56" class="outline-4">
-<h4 id="orge56cc56"><span class="section-number-4">4.3.1.</span> GRANT</h4>
+<div id="outline-container-org16a777c" class="outline-4">
+<h4 id="org16a777c"><span class="section-number-4">4.3.1.</span> GRANT</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">GRANT</span> privilege
@@ -1806,8 +1968,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-org5eeb8ff" class="outline-4">
-<h4 id="org5eeb8ff"><span class="section-number-4">4.3.2.</span> REVOKE</h4>
+<div id="outline-container-org5324d3f" class="outline-4">
+<h4 id="org5324d3f"><span class="section-number-4">4.3.2.</span> REVOKE</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">REVOKE</span> privilege
@@ -1830,8 +1992,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgab410ce" class="outline-2">
-<h2 id="orgab410ce"><span class="section-number-2">5.</span> Relational Algebra</h2>
+<div id="outline-container-org7f61fc8" class="outline-2">
+<h2 id="org7f61fc8"><span class="section-number-2">5.</span> Relational Algebra</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><b>Arity</b>: Number of columns in a row</li>
@@ -1839,8 +2001,8 @@ For example:
 operations on tables.</li>
 </ul>
 </div>
-<div id="outline-container-org07aefe4" class="outline-3">
-<h3 id="org07aefe4"><span class="section-number-3">5.1.</span> Union Compatability Rule Between Two Tables</h3>
+<div id="outline-container-org15ea142" class="outline-3">
+<h3 id="org15ea142"><span class="section-number-3">5.1.</span> Union Compatability Rule Between Two Tables</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li>Arity of both tables should be the same.</li>
@@ -1848,8 +2010,8 @@ operations on tables.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org72ba132" class="outline-3">
-<h3 id="org72ba132"><span class="section-number-3">5.2.</span> Types of Operators</h3>
+<div id="outline-container-org830ff64" class="outline-3">
+<h3 id="org830ff64"><span class="section-number-3">5.2.</span> Types of Operators</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1901,8 +2063,8 @@ operations on tables.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org0558caf" class="outline-3">
-<h3 id="org0558caf"><span class="section-number-3">5.3.</span> SELECT (&sigma; )</h3>
+<div id="outline-container-org039d23c" class="outline-3">
+<h3 id="org039d23c"><span class="section-number-3">5.3.</span> SELECT (&sigma; )</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 SQL:
@@ -1920,8 +2082,8 @@ Relational Algebra:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb76af3" class="outline-3">
-<h3 id="orgfb76af3"><span class="section-number-3">5.4.</span> PROJECT (&Pi; )</h3>
+<div id="outline-container-org5de4ec9" class="outline-3">
+<h3 id="org5de4ec9"><span class="section-number-3">5.4.</span> PROJECT (&Pi; )</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 SQL:
@@ -1941,8 +2103,8 @@ Relational Algebra:
 </div>
 </div>
 </div>
-<div id="outline-container-orgff645c6" class="outline-2">
-<h2 id="orgff645c6"><span class="section-number-2">6.</span> Joins</h2>
+<div id="outline-container-orgcbb6267" class="outline-2">
+<h2 id="orgcbb6267"><span class="section-number-2">6.</span> Joins</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>To combine two databases, you could use a normal cartesian product, but the
@@ -2074,8 +2236,8 @@ And the table <code>Departments</code>:
 </table></li>
 </ul>
 </div>
-<div id="outline-container-org4434f9f" class="outline-3">
-<h3 id="org4434f9f"><span class="section-number-3">6.1.</span> Inner Join</h3>
+<div id="outline-container-orgace12e9" class="outline-3">
+<h3 id="orgace12e9"><span class="section-number-3">6.1.</span> Inner Join</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Selects only common elements in both tables.
@@ -2136,8 +2298,8 @@ Output:
 </table>
 </div>
 </div>
-<div id="outline-container-org9bb7e0a" class="outline-3">
-<h3 id="org9bb7e0a"><span class="section-number-3">6.2.</span> Left Join (or Left Outer Join)</h3>
+<div id="outline-container-org011207d" class="outline-3">
+<h3 id="org011207d"><span class="section-number-3">6.2.</span> Left Join (or Left Outer Join)</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Everything from the left table, and only common elements from the right table.
@@ -2206,8 +2368,8 @@ Everything from the left table, and only common elements from the right table.
 </table>
 </div>
 </div>
-<div id="outline-container-org2a77f13" class="outline-3">
-<h3 id="org2a77f13"><span class="section-number-3">6.3.</span> Right Join (Right Outer Join)</h3>
+<div id="outline-container-orgdaa976b" class="outline-3">
+<h3 id="orgdaa976b"><span class="section-number-3">6.3.</span> Right Join (Right Outer Join)</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Everything from the right table, and only common elements from the left table.
@@ -2270,8 +2432,8 @@ Everything from the right table, and only common elements from the left table.
 </table>
 </div>
 </div>
-<div id="outline-container-orgcbfc82c" class="outline-3">
-<h3 id="orgcbfc82c"><span class="section-number-3">6.4.</span> Full Outer Join</h3>
+<div id="outline-container-org6d043b1" class="outline-3">
+<h3 id="org6d043b1"><span class="section-number-3">6.4.</span> Full Outer Join</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #51afef;">SELECT</span> e.EmpName, e.DeptID, d.DeptName
@@ -2343,8 +2505,8 @@ Everything from the right table, and only common elements from the left table.
 </table>
 </div>
 </div>
-<div id="outline-container-org84714f4" class="outline-3">
-<h3 id="org84714f4"><span class="section-number-3">6.5.</span> Self Join</h3>
+<div id="outline-container-org040f206" class="outline-3">
+<h3 id="org040f206"><span class="section-number-3">6.5.</span> Self Join</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li><p>
@@ -2364,8 +2526,8 @@ For example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf8c53b0" class="outline-2">
-<h2 id="orgf8c53b0"><span class="section-number-2">7.</span> Functional Dependencies</h2>
+<div id="outline-container-org98047a8" class="outline-2">
+<h2 id="org98047a8"><span class="section-number-2">7.</span> Functional Dependencies</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Functional dependencies tell us how attributes relate to each other.</li>
@@ -2414,12 +2576,12 @@ determines State</b>.
 are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
-<div id="outline-container-orgb06f8dd" class="outline-3">
-<h3 id="orgb06f8dd"><span class="section-number-3">7.1.</span> Armstrong&rsquo;s Axioms</h3>
+<div id="outline-container-orgce9fe60" class="outline-3">
+<h3 id="orgce9fe60"><span class="section-number-3">7.1.</span> Armstrong&rsquo;s Axioms</h3>
 <div class="outline-text-3" id="text-7-1">
 </div>
-<div id="outline-container-org26308c9" class="outline-4">
-<h4 id="org26308c9"><span class="section-number-4">7.1.1.</span> Reflexivity</h4>
+<div id="outline-container-orgbaa0e27" class="outline-4">
+<h4 id="orgbaa0e27"><span class="section-number-4">7.1.1.</span> Reflexivity</h4>
 <div class="outline-text-4" id="text-7-1-1">
 <ul class="org-ul">
 <li>It&rsquo;s always a larger set that determines a smaller set.</li>
@@ -2428,16 +2590,16 @@ are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac64de0" class="outline-4">
-<h4 id="orgac64de0"><span class="section-number-4">7.1.2.</span> Augmentation</h4>
+<div id="outline-container-org9e772bd" class="outline-4">
+<h4 id="org9e772bd"><span class="section-number-4">7.1.2.</span> Augmentation</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\), then \(XZ \rightarrow YZ\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb78e9e9" class="outline-4">
-<h4 id="orgb78e9e9"><span class="section-number-4">7.1.3.</span> Union and Decomposition</h4>
+<div id="outline-container-orgb0109ab" class="outline-4">
+<h4 id="orgb0109ab"><span class="section-number-4">7.1.3.</span> Union and Decomposition</h4>
 <div class="outline-text-4" id="text-7-1-3">
 <ul class="org-ul">
 <li>Union: If \(X \rightarrow YZ\), then \(X \rightarrow Y\) and \(X \rightarrow Z\).</li>
@@ -2445,16 +2607,16 @@ are given the state, but you can tell the state given the city.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbd04f09" class="outline-4">
-<h4 id="orgbd04f09"><span class="section-number-4">7.1.4.</span> Transitivity</h4>
+<div id="outline-container-orgf547de5" class="outline-4">
+<h4 id="orgf547de5"><span class="section-number-4">7.1.4.</span> Transitivity</h4>
 <div class="outline-text-4" id="text-7-1-4">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\) and \(Y \rightarrow Z\), then \(X \rightarrow Z\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeb03021" class="outline-4">
-<h4 id="orgeb03021"><span class="section-number-4">7.1.5.</span> Psuedotransitivity</h4>
+<div id="outline-container-org2dd18b8" class="outline-4">
+<h4 id="org2dd18b8"><span class="section-number-4">7.1.5.</span> Psuedotransitivity</h4>
 <div class="outline-text-4" id="text-7-1-5">
 <ul class="org-ul">
 <li>If \(X \rightarrow Y\) and \(YA \rightarrow Z\), then \(XA \rightarrow Z\).</li>
@@ -2463,12 +2625,12 @@ are given the state, but you can tell the state given the city.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org49707a9" class="outline-2">
-<h2 id="org49707a9"><span class="section-number-2">8.</span> Normalization</h2>
+<div id="outline-container-org8737016" class="outline-2">
+<h2 id="org8737016"><span class="section-number-2">8.</span> Normalization</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgeeaeb52" class="outline-3">
-<h3 id="orgeeaeb52"><span class="section-number-3">8.1.</span> Database Anomalies</h3>
+<div id="outline-container-org549feb9" class="outline-3">
+<h3 id="org549feb9"><span class="section-number-3">8.1.</span> Database Anomalies</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 Consider the below table with duplicate values:
@@ -2532,8 +2694,8 @@ Consider the below table with duplicate values:
 </tbody>
 </table>
 </div>
-<div id="outline-container-orgfe14bc2" class="outline-4">
-<h4 id="orgfe14bc2"><span class="section-number-4">8.1.1.</span> Insertion Anomaly</h4>
+<div id="outline-container-org2a913b8" class="outline-4">
+<h4 id="org2a913b8"><span class="section-number-4">8.1.1.</span> Insertion Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-1">
 <ul class="org-ul">
 <li>This is when you can&rsquo;t insert data without inserting unrelated data.</li>
@@ -2579,8 +2741,8 @@ But in the table, you also need a <code>studentID</code> and a <code>StudentName
 </p>
 </div>
 </div>
-<div id="outline-container-org631b1fd" class="outline-4">
-<h4 id="org631b1fd"><span class="section-number-4">8.1.2.</span> Update Anomaly</h4>
+<div id="outline-container-org417d007" class="outline-4">
+<h4 id="org417d007"><span class="section-number-4">8.1.2.</span> Update Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-2">
 <ul class="org-ul">
 <li>This is when the same data is stored in many places, and you don&rsquo;t update them
@@ -2624,8 +2786,8 @@ inconsistent information:
 </ul>
 </div>
 </div>
-<div id="outline-container-orga2733b9" class="outline-4">
-<h4 id="orga2733b9"><span class="section-number-4">8.1.3.</span> Deletion Anomaly</h4>
+<div id="outline-container-orgf050003" class="outline-4">
+<h4 id="orgf050003"><span class="section-number-4">8.1.3.</span> Deletion Anomaly</h4>
 <div class="outline-text-4" id="text-8-1-3">
 <ul class="org-ul">
 <li>This is when deleting a specific record causes the unintentional loss of other
@@ -2672,8 +2834,8 @@ course and the instructor <code>Dr. Wilson</code>.
 </div>
 </div>
 </div>
-<div id="outline-container-orga738260" class="outline-3">
-<h3 id="orga738260"><span class="section-number-3">8.2.</span> What Normalization is</h3>
+<div id="outline-container-org95abde0" class="outline-3">
+<h3 id="org95abde0"><span class="section-number-3">8.2.</span> What Normalization is</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Normalization is the process of splitting a table into smaller linked tables to
@@ -2681,12 +2843,12 @@ fix database anomalies.
 </p>
 </div>
 </div>
-<div id="outline-container-org742b832" class="outline-3">
-<h3 id="org742b832"><span class="section-number-3">8.3.</span> Types</h3>
+<div id="outline-container-org1ac825f" class="outline-3">
+<h3 id="org1ac825f"><span class="section-number-3">8.3.</span> Types</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
-<div id="outline-container-org846c2d1" class="outline-4">
-<h4 id="org846c2d1"><span class="section-number-4">8.3.1.</span> 1NF</h4>
+<div id="outline-container-org4de7e49" class="outline-4">
+<h4 id="org4de7e49"><span class="section-number-4">8.3.1.</span> 1NF</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <ul class="org-ul">
 <li>It stands for <b>first normal form</b>.</li>
@@ -2766,8 +2928,8 @@ becomes
 </ul>
 </div>
 </div>
-<div id="outline-container-org81e980a" class="outline-4">
-<h4 id="org81e980a"><span class="section-number-4">8.3.2.</span> 2NF</h4>
+<div id="outline-container-org1d83df8" class="outline-4">
+<h4 id="org1d83df8"><span class="section-number-4">8.3.2.</span> 2NF</h4>
 <div class="outline-text-4" id="text-8-3-2">
 <ul class="org-ul">
 <li>The rule of 2nd normal form is that it must already be in <b>1NF</b>, and <b>every
@@ -2860,8 +3022,8 @@ the name of the student doesn&rsquo;t depend on what course he/she takes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4185d9d" class="outline-4">
-<h4 id="org4185d9d"><span class="section-number-4">8.3.3.</span> 3NF</h4>
+<div id="outline-container-org0c91e68" class="outline-4">
+<h4 id="org0c91e68"><span class="section-number-4">8.3.3.</span> 3NF</h4>
 <div class="outline-text-4" id="text-8-3-3">
 <ul class="org-ul">
 <li>It must already be in <b>2NF</b>, and there should be no <b>transitive dependency</b>.</li>
@@ -2927,8 +3089,8 @@ dependencies exist.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org58485ba" class="outline-4">
-<h4 id="org58485ba"><span class="section-number-4">8.3.4.</span> BCNF</h4>
+<div id="outline-container-orgd279ba0" class="outline-4">
+<h4 id="orgd279ba0"><span class="section-number-4">8.3.4.</span> BCNF</h4>
 <div class="outline-text-4" id="text-8-3-4">
 <ul class="org-ul">
 <li>It must be in <b>3NF</b>, and for every functional dependency \(X \rightarrow Y\), \(X\) must be a
@@ -2938,24 +3100,24 @@ superkey.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orga85a14e" class="outline-2">
-<h2 id="orga85a14e"><span class="section-number-2">9.</span> Transactions</h2>
+<div id="outline-container-orgaa641f4" class="outline-2">
+<h2 id="orgaa641f4"><span class="section-number-2">9.</span> Transactions</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>A transaction is a logical unit of work that involves one or more database
 operations.</li>
 </ul>
 </div>
-<div id="outline-container-orgbfb99a7" class="outline-3">
-<h3 id="orgbfb99a7"><span class="section-number-3">9.1.</span> Transaction Processing (ACID)</h3>
+<div id="outline-container-org1766d0f" class="outline-3">
+<h3 id="org1766d0f"><span class="section-number-3">9.1.</span> Transaction Processing (ACID)</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Ensures that DBMS operations happen as one single indivisible unit with the
 help of ACID properties</li>
 </ul>
 </div>
-<div id="outline-container-org06d0b8d" class="outline-4">
-<h4 id="org06d0b8d"><span class="section-number-4">9.1.1.</span> Atomicity</h4>
+<div id="outline-container-org8425514" class="outline-4">
+<h4 id="org8425514"><span class="section-number-4">9.1.1.</span> Atomicity</h4>
 <div class="outline-text-4" id="text-9-1-1">
 <ul class="org-ul">
 <li>Transaction either completely finishes, or doesn&rsquo;t happen at all. There&rsquo;s no
@@ -2963,8 +3125,8 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeb3c8ef" class="outline-4">
-<h4 id="orgeb3c8ef"><span class="section-number-4">9.1.2.</span> Consistency</h4>
+<div id="outline-container-orgeba1ab0" class="outline-4">
+<h4 id="orgeba1ab0"><span class="section-number-4">9.1.2.</span> Consistency</h4>
 <div class="outline-text-4" id="text-9-1-2">
 <ul class="org-ul">
 <li>Changes must reflect everywhere.</li>
@@ -2972,16 +3134,16 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2a444df" class="outline-4">
-<h4 id="org2a444df"><span class="section-number-4">9.1.3.</span> Isolation</h4>
+<div id="outline-container-org6381e91" class="outline-4">
+<h4 id="org6381e91"><span class="section-number-4">9.1.3.</span> Isolation</h4>
 <div class="outline-text-4" id="text-9-1-3">
 <ul class="org-ul">
 <li>Two transactions shouldn&rsquo;t interfere with each other</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf3104e2" class="outline-4">
-<h4 id="orgf3104e2"><span class="section-number-4">9.1.4.</span> Durability</h4>
+<div id="outline-container-org1c18a16" class="outline-4">
+<h4 id="org1c18a16"><span class="section-number-4">9.1.4.</span> Durability</h4>
 <div class="outline-text-4" id="text-9-1-4">
 <ul class="org-ul">
 <li>Transactions must be permanent.</li>
@@ -2989,23 +3151,23 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org744d277" class="outline-3">
-<h3 id="org744d277"><span class="section-number-3">9.2.</span> How to manage Transactions</h3>
+<div id="outline-container-org06478ba" class="outline-3">
+<h3 id="org06478ba"><span class="section-number-3">9.2.</span> How to manage Transactions</h3>
 <div class="outline-text-3" id="text-9-2">
 </div>
-<div id="outline-container-orgf175d2a" class="outline-4">
-<h4 id="orgf175d2a"><span class="section-number-4">9.2.1.</span> Logging and Recovery</h4>
+<div id="outline-container-org092170b" class="outline-4">
+<h4 id="org092170b"><span class="section-number-4">9.2.1.</span> Logging and Recovery</h4>
 </div>
-<div id="outline-container-org7fc68bb" class="outline-4">
-<h4 id="org7fc68bb"><span class="section-number-4">9.2.2.</span> Concurrency Control</h4>
+<div id="outline-container-orgc35fa2a" class="outline-4">
+<h4 id="orgc35fa2a"><span class="section-number-4">9.2.2.</span> Concurrency Control</h4>
 <div class="outline-text-4" id="text-9-2-2">
 <ul class="org-ul">
 <li>Locking</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd5984b2" class="outline-4">
-<h4 id="orgd5984b2"><span class="section-number-4">9.2.3.</span> Transaction Boundaries</h4>
+<div id="outline-container-org6dd9fce" class="outline-4">
+<h4 id="org6dd9fce"><span class="section-number-4">9.2.3.</span> Transaction Boundaries</h4>
 <div class="outline-text-4" id="text-9-2-3">
 <ul class="org-ul">
 <li>Where it started</li>
@@ -3015,8 +3177,8 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd54b062" class="outline-3">
-<h3 id="orgd54b062"><span class="section-number-3">9.3.</span> Simple Model of a Database</h3>
+<div id="outline-container-orgb041461" class="outline-3">
+<h3 id="orgb041461"><span class="section-number-3">9.3.</span> Simple Model of a Database</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>A database is a collection of named data items</li>
@@ -3029,12 +3191,12 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </ul>
 </div>
 </div>
-<div id="outline-container-org188afd0" class="outline-3">
-<h3 id="org188afd0"><span class="section-number-3">9.4.</span> Read and Write Operations</h3>
+<div id="outline-container-org54ffc11" class="outline-3">
+<h3 id="org54ffc11"><span class="section-number-3">9.4.</span> Read and Write Operations</h3>
 <div class="outline-text-3" id="text-9-4">
 </div>
-<div id="outline-container-org939b424" class="outline-4">
-<h4 id="org939b424"><span class="section-number-4">9.4.1.</span> Read</h4>
+<div id="outline-container-orgaa7b8ee" class="outline-4">
+<h4 id="orgaa7b8ee"><span class="section-number-4">9.4.1.</span> Read</h4>
 <div class="outline-text-4" id="text-9-4-1">
 <ul class="org-ul">
 <li>locate in disk</li>
@@ -3043,8 +3205,8 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </ul>
 </div>
 </div>
-<div id="outline-container-org51d6ca5" class="outline-4">
-<h4 id="org51d6ca5"><span class="section-number-4">9.4.2.</span> Write</h4>
+<div id="outline-container-orga81721e" class="outline-4">
+<h4 id="orga81721e"><span class="section-number-4">9.4.2.</span> Write</h4>
 <div class="outline-text-4" id="text-9-4-2">
 <ul class="org-ul">
 <li>locate in disk</li>
@@ -3055,8 +3217,8 @@ granular the data is (how much of the database you&rsquo;re operating on)
 </div>
 </div>
 </div>
-<div id="outline-container-org965db52" class="outline-3">
-<h3 id="org965db52"><span class="section-number-3">9.5.</span> Recovery Manager</h3>
+<div id="outline-container-orgbef2142" class="outline-3">
+<h3 id="orgbef2142"><span class="section-number-3">9.5.</span> Recovery Manager</h3>
 <div class="outline-text-3" id="text-9-5">
 <ul class="org-ul">
 <li>It takes care of the below transactions by logging. The syntax given, is
@@ -3078,16 +3240,16 @@ disk, should be written to the disk.</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org16f7f75" class="outline-4">
-<h4 id="org16f7f75"><span class="section-number-4">9.5.1.</span> begin<sub>transaction</sub></h4>
+<div id="outline-container-org2cfae04" class="outline-4">
+<h4 id="org2cfae04"><span class="section-number-4">9.5.1.</span> begin<sub>transaction</sub></h4>
 <div class="outline-text-4" id="text-9-5-1">
 <ul class="org-ul">
 <li><code>[start_transaction, T]</code>: Transaction <code>T</code> started.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7582a31" class="outline-4">
-<h4 id="org7582a31"><span class="section-number-4">9.5.2.</span> read/write</h4>
+<div id="outline-container-org4a1d288" class="outline-4">
+<h4 id="org4a1d288"><span class="section-number-4">9.5.2.</span> read/write</h4>
 <div class="outline-text-4" id="text-9-5-2">
 <ul class="org-ul">
 <li><code>[read_item, T, x]</code>: Transaction <code>T</code> read the value of variable <code>x</code></li>
@@ -3096,8 +3258,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1d35536" class="outline-4">
-<h4 id="org1d35536"><span class="section-number-4">9.5.3.</span> commit</h4>
+<div id="outline-container-org690aa71" class="outline-4">
+<h4 id="org690aa71"><span class="section-number-4">9.5.3.</span> commit</h4>
 <div class="outline-text-4" id="text-9-5-3">
 <ul class="org-ul">
 <li><code>[commit, T]</code>: Transaction <code>T</code> has committed.</li>
@@ -3109,8 +3271,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org329016b" class="outline-4">
-<h4 id="org329016b"><span class="section-number-4">9.5.4.</span> rollback</h4>
+<div id="outline-container-orgebfabdc" class="outline-4">
+<h4 id="orgebfabdc"><span class="section-number-4">9.5.4.</span> rollback</h4>
 <div class="outline-text-4" id="text-9-5-4">
 <ul class="org-ul">
 <li>Undo is for single operation, rollback is for all operations</li>
@@ -3118,8 +3280,8 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org952b9a6" class="outline-4">
-<h4 id="org952b9a6"><span class="section-number-4">9.5.5.</span> redo</h4>
+<div id="outline-container-org7a01178" class="outline-4">
+<h4 id="org7a01178"><span class="section-number-4">9.5.5.</span> redo</h4>
 <div class="outline-text-4" id="text-9-5-5">
 <ul class="org-ul">
 <li>Repeat if you&rsquo;re not sure something has happened</li>
@@ -3127,12 +3289,12 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7140634" class="outline-4">
-<h4 id="org7140634"><span class="section-number-4">9.5.6.</span> end<sub>transaction</sub></h4>
+<div id="outline-container-orgbad1971" class="outline-4">
+<h4 id="orgbad1971"><span class="section-number-4">9.5.6.</span> end<sub>transaction</sub></h4>
 </div>
 </div>
-<div id="outline-container-orgdb13bab" class="outline-3">
-<h3 id="orgdb13bab"><span class="section-number-3">9.6.</span> Why Concurrent Executions</h3>
+<div id="outline-container-org07a70ef" class="outline-3">
+<h3 id="org07a70ef"><span class="section-number-3">9.6.</span> Why Concurrent Executions</h3>
 <div class="outline-text-3" id="text-9-6">
 <ul class="org-ul">
 <li>Better use of processor and disk</li>
@@ -3140,20 +3302,20 @@ disk, should be written to the disk.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga6644fa" class="outline-3">
-<h3 id="orga6644fa"><span class="section-number-3">9.7.</span> Concurrency Control Schemes</h3>
+<div id="outline-container-orgd54a2ec" class="outline-3">
+<h3 id="orgd54a2ec"><span class="section-number-3">9.7.</span> Concurrency Control Schemes</h3>
 <div class="outline-text-3" id="text-9-7">
 <p>
 Mechanisms to achieve isolation.
 </p>
 </div>
 </div>
-<div id="outline-container-org01fab70" class="outline-3">
-<h3 id="org01fab70"><span class="section-number-3">9.8.</span> Issues</h3>
+<div id="outline-container-org2679acd" class="outline-3">
+<h3 id="org2679acd"><span class="section-number-3">9.8.</span> Issues</h3>
 <div class="outline-text-3" id="text-9-8">
 </div>
-<div id="outline-container-orgfe95539" class="outline-4">
-<h4 id="orgfe95539"><span class="section-number-4">9.8.1.</span> Lost Update (write-write)</h4>
+<div id="outline-container-orgdd83b7c" class="outline-4">
+<h4 id="orgdd83b7c"><span class="section-number-4">9.8.1.</span> Lost Update (write-write)</h4>
 <div class="outline-text-4" id="text-9-8-1">
 <ul class="org-ul">
 <li>Transactions are typically read &rarr; update &rarr; write</li>
@@ -3222,8 +3384,8 @@ Mechanisms to achieve isolation.
 </ul>
 </div>
 </div>
-<div id="outline-container-orged3012d" class="outline-4">
-<h4 id="orged3012d"><span class="section-number-4">9.8.2.</span> Dirty Read (write-read on uncommitted data)</h4>
+<div id="outline-container-orgd9d7a7a" class="outline-4">
+<h4 id="orgd9d7a7a"><span class="section-number-4">9.8.2.</span> Dirty Read (write-read on uncommitted data)</h4>
 <div class="outline-text-4" id="text-9-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3288,8 +3450,8 @@ Mechanisms to achieve isolation.
 </ul>
 </div>
 </div>
-<div id="outline-container-orga0c46df" class="outline-4">
-<h4 id="orga0c46df"><span class="section-number-4">9.8.3.</span> Unrepeatable Read (write-read on committed data)</h4>
+<div id="outline-container-org1bf2098" class="outline-4">
+<h4 id="org1bf2098"><span class="section-number-4">9.8.3.</span> Unrepeatable Read (write-read on committed data)</h4>
 <div class="outline-text-4" id="text-9-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3355,8 +3517,8 @@ its value in between.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org113ee06" class="outline-4">
-<h4 id="org113ee06"><span class="section-number-4">9.8.4.</span> Blind Write</h4>
+<div id="outline-container-org7c33411" class="outline-4">
+<h4 id="org7c33411"><span class="section-number-4">9.8.4.</span> Blind Write</h4>
 <div class="outline-text-4" id="text-9-8-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3422,8 +3584,8 @@ its value in between.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1eee8e2" class="outline-4">
-<h4 id="org1eee8e2"><span class="section-number-4">9.8.5.</span> Phantom Read</h4>
+<div id="outline-container-org92d6fb0" class="outline-4">
+<h4 id="org92d6fb0"><span class="section-number-4">9.8.5.</span> Phantom Read</h4>
 <div class="outline-text-4" id="text-9-8-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3472,8 +3634,8 @@ its value in between.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd5f17b2" class="outline-2">
-<h2 id="orgd5f17b2"><span class="section-number-2">10.</span> Schedule</h2>
+<div id="outline-container-org15689f8" class="outline-2">
+<h2 id="org15689f8"><span class="section-number-2">10.</span> Schedule</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Transactions can happen interleavingly, or parallely.</li>
@@ -3481,12 +3643,12 @@ its value in between.</li>
 happening is called a <b>transaction schedule</b>.</li>
 </ul>
 </div>
-<div id="outline-container-orga278bcb" class="outline-3">
-<h3 id="orga278bcb"><span class="section-number-3">10.1.</span> Why are Schedules Important</h3>
+<div id="outline-container-org288ebd5" class="outline-3">
+<h3 id="org288ebd5"><span class="section-number-3">10.1.</span> Why are Schedules Important</h3>
 <div class="outline-text-3" id="text-10-1">
 </div>
-<div id="outline-container-org518eb10" class="outline-4">
-<h4 id="org518eb10"><span class="section-number-4">10.1.1.</span> Concurrency</h4>
+<div id="outline-container-orge1e13a2" class="outline-4">
+<h4 id="orge1e13a2"><span class="section-number-4">10.1.1.</span> Concurrency</h4>
 <div class="outline-text-4" id="text-10-1-1">
 <ul class="org-ul">
 <li>This is the property in which transactions happen interleavingly, giving the
@@ -3494,8 +3656,8 @@ illusion of simultaneous execution.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfe7048e" class="outline-4">
-<h4 id="orgfe7048e"><span class="section-number-4">10.1.2.</span> Consistency</h4>
+<div id="outline-container-org524aeb2" class="outline-4">
+<h4 id="org524aeb2"><span class="section-number-4">10.1.2.</span> Consistency</h4>
 <div class="outline-text-4" id="text-10-1-2">
 <ul class="org-ul">
 <li>When the chronological order of operations is well-defined, there is no scope
@@ -3503,8 +3665,8 @@ for data loss or inconsistency.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf18feb9" class="outline-4">
-<h4 id="orgf18feb9"><span class="section-number-4">10.1.3.</span> Integrity</h4>
+<div id="outline-container-org6e76f89" class="outline-4">
+<h4 id="org6e76f89"><span class="section-number-4">10.1.3.</span> Integrity</h4>
 <div class="outline-text-4" id="text-10-1-3">
 <ul class="org-ul">
 <li>Transactions should happen reliably.</li>
@@ -3512,8 +3674,8 @@ for data loss or inconsistency.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0fb14f4" class="outline-3">
-<h3 id="org0fb14f4"><span class="section-number-3">10.2.</span> Number of Schedules you can make, given a certain number of transactions</h3>
+<div id="outline-container-orga4b1ad8" class="outline-3">
+<h3 id="orga4b1ad8"><span class="section-number-3">10.2.</span> Number of Schedules you can make, given a certain number of transactions</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>A transaction is a logical unit of work that involves one or more database
@@ -3523,8 +3685,8 @@ database operations.</li>
 <li>Each arrangement of those database operations, is one schedule.</li>
 </ul>
 </div>
-<div id="outline-container-org575428b" class="outline-4">
-<h4 id="org575428b"><span class="section-number-4">10.2.1.</span> If there are 2 transactions</h4>
+<div id="outline-container-orgc7954cc" class="outline-4">
+<h4 id="orgc7954cc"><span class="section-number-4">10.2.1.</span> If there are 2 transactions</h4>
 <div class="outline-text-4" id="text-10-2-1">
 <ul class="org-ul">
 <li>Say T1 has \(m\) operations and T2 has \(n\) operations.</li>
@@ -3535,8 +3697,8 @@ positions of other transactions are automatically there for you.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfa48f4" class="outline-4">
-<h4 id="orgdfa48f4"><span class="section-number-4">10.2.2.</span> For more than 2 transactions</h4>
+<div id="outline-container-org9e53109" class="outline-4">
+<h4 id="org9e53109"><span class="section-number-4">10.2.2.</span> For more than 2 transactions</h4>
 <div class="outline-text-4" id="text-10-2-2">
 <p>
 \[\frac{(m+n+o+p+q+..)!}{m!n!o!p!q!...}\]
@@ -3545,12 +3707,12 @@ This is the multinomial coefficient.
 </div>
 </div>
 </div>
-<div id="outline-container-orgefcc6f5" class="outline-3">
-<h3 id="orgefcc6f5"><span class="section-number-3">10.3.</span> Types of Schedules</h3>
+<div id="outline-container-orgb84e1c6" class="outline-3">
+<h3 id="orgb84e1c6"><span class="section-number-3">10.3.</span> Types of Schedules</h3>
 <div class="outline-text-3" id="text-10-3">
 </div>
-<div id="outline-container-orgd8f1c13" class="outline-4">
-<h4 id="orgd8f1c13"><span class="section-number-4">10.3.1.</span> Serial Schedules</h4>
+<div id="outline-container-orgba9ae44" class="outline-4">
+<h4 id="orgba9ae44"><span class="section-number-4">10.3.1.</span> Serial Schedules</h4>
 <div class="outline-text-4" id="text-10-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3629,8 +3791,8 @@ happening is \(N!\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org85c1c4b" class="outline-4">
-<h4 id="org85c1c4b"><span class="section-number-4">10.3.2.</span> Non Serial Schedules</h4>
+<div id="outline-container-org3249efd" class="outline-4">
+<h4 id="org3249efd"><span class="section-number-4">10.3.2.</span> Non Serial Schedules</h4>
 <div class="outline-text-4" id="text-10-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3707,8 +3869,8 @@ happening is \(N!\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbccf5f7" class="outline-4">
-<h4 id="orgbccf5f7"><span class="section-number-4">10.3.3.</span> Serializable Schedule</h4>
+<div id="outline-container-org9dbd4c8" class="outline-4">
+<h4 id="org9dbd4c8"><span class="section-number-4">10.3.3.</span> Serializable Schedule</h4>
 <div class="outline-text-4" id="text-10-3-3">
 <ul class="org-ul">
 <li>If a non-serial schedule can be converted into a serial schedule, then it&rsquo;s
@@ -3716,7 +3878,7 @@ called a serializable schedule.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org6353328"></a>Conflicting Operations<br />
+<li><a id="orge3adeca"></a>Conflicting Operations<br />
 <div class="outline-text-5" id="text-10-3-3-1">
 <ul class="org-ul">
 <li>Two operations from different transactions, conflict when
@@ -3729,7 +3891,7 @@ they both just read.</li>
 </ul>
 </div>
 </li>
-<li><a id="org6ab2597"></a>How to Check Conflict Serializability<br />
+<li><a id="orgb0d4f7a"></a>How to Check Conflict Serializability<br />
 <div class="outline-text-5" id="text-10-3-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3822,7 +3984,7 @@ at <code>(6,1)</code>.</li>
 </ul>
 </div>
 </li>
-<li><a id="org9ffdf6a"></a>Finding Serialized Schedules<br />
+<li><a id="org3020206"></a>Finding Serialized Schedules<br />
 <div class="outline-text-5" id="text-10-3-3-3">
 <ul class="org-ul">
 <li>The edges (ordering constraints), tell us which transaction should come first.</li>
@@ -3838,7 +4000,7 @@ nodes (preferably the nodes with more outgoing edges).</li>
 </ul>
 </div>
 </li>
-<li><a id="org3279f9c"></a>View Serializability<br />
+<li><a id="orgd8872fe"></a>View Serializability<br />
 <div class="outline-text-5" id="text-10-3-3-4">
 <ul class="org-ul">
 <li>This means that even if transactions run concurrently, the results will be the
@@ -3846,10 +4008,10 @@ same as if they ran serially.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgf4e414b"></a>Method 1 for checking view serializability of a schedule<br />
+<li><a id="orgc02d735"></a>Method 1 for checking view serializability of a schedule<br />
 <ol class="org-ol">
-<li><a id="org11cf0ba"></a>First make a serial version of the schedule T1, called T2<br /></li>
-<li><a id="orge847464"></a>Now check for the following rules for view equivalent<br />
+<li><a id="orgfe0e2b5"></a>First make a serial version of the schedule T1, called T2<br /></li>
+<li><a id="org60d257f"></a>Now check for the following rules for view equivalent<br />
 <div class="outline-text-7" id="text-10-3-3-4-1-2">
 <ol class="org-ol">
 <li><b>Initial Read:</b> In both the schedules, it must be the same transaction making the first read.</li>
@@ -3863,9 +4025,9 @@ write.</li>
 </li>
 </ol>
 </li>
-<li><a id="org66ddde0"></a>Method 2 for checking view serializability of a schedule<br />
+<li><a id="orga065952"></a>Method 2 for checking view serializability of a schedule<br />
 <ol class="org-ol">
-<li><a id="org289cccf"></a>Check for Conflict Serializability<br />
+<li><a id="org21c7518"></a>Check for Conflict Serializability<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-1">
 <ul class="org-ul">
 <li>If two schedules are conflict serializable, then they&rsquo;re view serializable for sure.</li>
@@ -3875,7 +4037,7 @@ You&rsquo;ll have to use other ways to find out.</li>
 </ul>
 </div>
 </li>
-<li><a id="org4471cc8"></a>Check for the lack of blind write (to eliminate)<br />
+<li><a id="org7fdb698"></a>Check for the lack of blind write (to eliminate)<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-2">
 <ul class="org-ul">
 <li>The <b>lack of blind write</b> means <b>no view serializability</b>.</li>
@@ -3885,7 +4047,7 @@ for sure.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgc83e797"></a>Make a dependency graph and check for a cycle (to eliminate)<br />
+<li><a id="org6d60a06"></a>Make a dependency graph and check for a cycle (to eliminate)<br />
 <div class="outline-text-7" id="text-10-3-3-4-2-3">
 <ul class="org-ul">
 <li>If transaction T1 reads a value, and transaction T2 writes that value, then
@@ -3903,12 +4065,12 @@ make an edge T1 &rarr; T2 (T1 should happen before T2).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org57e09c0" class="outline-4">
-<h4 id="org57e09c0"><span class="section-number-4">10.3.4.</span> Non-Serializable Schedules</h4>
+<div id="outline-container-org224f4ca" class="outline-4">
+<h4 id="org224f4ca"><span class="section-number-4">10.3.4.</span> Non-Serializable Schedules</h4>
 <div class="outline-text-4" id="text-10-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org4f18101"></a>Recoverable Schedule<br />
+<li><a id="org79bd058"></a>Recoverable Schedule<br />
 <div class="outline-text-5" id="text-10-3-4-1">
 <ul class="org-ul">
 <li><p>
@@ -3959,7 +4121,7 @@ have to use other ways.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0ec353c"></a>Irrecoverable Schedule<br />
+<li><a id="orgdf80182"></a>Irrecoverable Schedule<br />
 <div class="outline-text-5" id="text-10-3-4-2">
 <ul class="org-ul">
 <li><p>
@@ -4006,9 +4168,9 @@ commits, then it&rsquo;s a irrecoverable schedule.
 </ul>
 </div>
 </li>
-<li><a id="org2d52bab"></a>Types of Recoverable Schedules<br />
+<li><a id="orgccec303"></a>Types of Recoverable Schedules<br />
 <ol class="org-ol">
-<li><a id="org75c7623"></a>Cascadeless Schedule<br />
+<li><a id="org8d3c3cc"></a>Cascadeless Schedule<br />
 <div class="outline-text-6" id="text-10-3-4-3-1">
 <ul class="org-ul">
 <li>Before understanding what cascadeless schedules are, we must know what a
@@ -4075,7 +4237,7 @@ happen after a commit.</li>
 </ul>
 </div>
 </li>
-<li><a id="org0a34bce"></a>Strict Schedule<br />
+<li><a id="org115b2a7"></a>Strict Schedule<br />
 <div class="outline-text-6" id="text-10-3-4-3-2">
 <ul class="org-ul">
 <li><p>
@@ -4123,12 +4285,12 @@ write too.
 </li>
 </ol>
 </div>
-<div id="outline-container-orgd1c57ef" class="outline-4">
-<h4 id="orgd1c57ef"><span class="section-number-4">10.3.5.</span> Equivalence of Schedules</h4>
+<div id="outline-container-orgecb8050" class="outline-4">
+<h4 id="orgecb8050"><span class="section-number-4">10.3.5.</span> Equivalence of Schedules</h4>
 <div class="outline-text-4" id="text-10-3-5">
 </div>
 <ol class="org-ol">
-<li><a id="org4c64f5a"></a>Result Equivalence<br />
+<li><a id="orgb20e820"></a>Result Equivalence<br />
 <div class="outline-text-5" id="text-10-3-5-1">
 <ul class="org-ul">
 <li>If two schedules generate the same result after execution, they&rsquo;re result
@@ -4136,7 +4298,7 @@ equivalent.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgcba1836"></a>Conflict Equivalence<br />
+<li><a id="orgca2aa9d"></a>Conflict Equivalence<br />
 <div class="outline-text-5" id="text-10-3-5-2">
 <ul class="org-ul">
 <li>Two schedules are conflict equivalent if:
@@ -4150,12 +4312,12 @@ equivalent.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf9cd2e2" class="outline-3">
-<h3 id="orgf9cd2e2"><span class="section-number-3">10.4.</span> Concurrency Control</h3>
+<div id="outline-container-org352b563" class="outline-3">
+<h3 id="org352b563"><span class="section-number-3">10.4.</span> Concurrency Control</h3>
 <div class="outline-text-3" id="text-10-4">
 </div>
-<div id="outline-container-org0c15ca0" class="outline-4">
-<h4 id="org0c15ca0"><span class="section-number-4">10.4.1.</span> Lock Based Concurrency Control</h4>
+<div id="outline-container-orga59173e" class="outline-4">
+<h4 id="orga59173e"><span class="section-number-4">10.4.1.</span> Lock Based Concurrency Control</h4>
 <div class="outline-text-4" id="text-10-4-1">
 <p>
 A lock is a variable that is assigned to a data item, to ensure <b>isolation</b> and
@@ -4163,7 +4325,7 @@ A lock is a variable that is assigned to a data item, to ensure <b>isolation</b>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org53e405c"></a>Binary Locks<br />
+<li><a id="org2b0c1d8"></a>Binary Locks<br />
 <div class="outline-text-5" id="text-10-4-1-1">
 <ul class="org-ul">
 <li>The lock variable has only two values: 1 for locked, 0 for unlocked.</li>
@@ -4173,7 +4335,7 @@ operations are reads. This is a disadvantage.</li>
 </ul>
 </div>
 </li>
-<li><a id="orge0d40b3"></a>Shared/Exclusive Locks<br />
+<li><a id="orgf9aaa88"></a>Shared/Exclusive Locks<br />
 <div class="outline-text-5" id="text-10-4-1-2">
 <ul class="org-ul">
 <li>This lock recognizes that read-read is no conflict, and introduces the concept
@@ -4182,7 +4344,7 @@ of multi-mode locking.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga0f1027"></a>S-Lock<br />
+<li><a id="orgdbc6ae3"></a>S-Lock<br />
 <div class="outline-text-6" id="text-10-4-1-2-1">
 <ul class="org-ul">
 <li>This is the read-lock/shared lock.</li>
@@ -4219,7 +4381,7 @@ Algorithm for locking:
 </ul>
 </div>
 </li>
-<li><a id="orgb2861bc"></a>X-Lock<br />
+<li><a id="orgc560438"></a>X-Lock<br />
 <div class="outline-text-6" id="text-10-4-1-2-2">
 <ul class="org-ul">
 <li>This is the write-lock/exclusive lock.</li>
@@ -4250,7 +4412,7 @@ Algorithm:
 </ul>
 </div>
 </li>
-<li><a id="orgcd4145f"></a>Unlocked<br />
+<li><a id="org95a449b"></a>Unlocked<br />
 <div class="outline-text-6" id="text-10-4-1-2-3">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #c678dd;">U</span>(A)  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Transaction releases lock on A
@@ -4277,7 +4439,7 @@ Algorithm:
 </li>
 </ol>
 </li>
-<li><a id="org5de65d9"></a>2 Phase Locks<br />
+<li><a id="orgf033675"></a>2 Phase Locks<br />
 <div class="outline-text-5" id="text-10-4-1-3">
 <ul class="org-ul">
 <li>Traditional locks don&rsquo;t guarantee serializability.</li>
@@ -4518,14 +4680,14 @@ Without 2PL:
 </table>
 </div>
 </li>
-<li><a id="orgeb47a71"></a>Strict 2PL<br />
+<li><a id="orga9187bb"></a>Strict 2PL<br />
 <div class="outline-text-5" id="text-10-4-1-4">
 <p>
 Exclusive locks are not released until a commit or abort happens.
 </p>
 </div>
 </li>
-<li><a id="orgc03436f"></a>Rigorous 2PM<br />
+<li><a id="orgdedf520"></a>Rigorous 2PM<br />
 <div class="outline-text-5" id="text-10-4-1-5">
 <ul class="org-ul">
 <li>ALL locks are not released until a commit or abort happens.</li>
@@ -4533,7 +4695,7 @@ Exclusive locks are not released until a commit or abort happens.
 </ul>
 </div>
 </li>
-<li><a id="orgc1a2265"></a>Timestamp Ordering Protocol<br />
+<li><a id="org3e6159c"></a>Timestamp Ordering Protocol<br />
 <div class="outline-text-5" id="text-10-4-1-6">
 <ul class="org-ul">
 <li>Prioritize based on arrival time. A smaller time stamp means that the
@@ -4547,7 +4709,7 @@ operation is older, and hence it gets more priority.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org565d903"></a>Transaction Ti reading X<br />
+<li><a id="orgf018034"></a>Transaction Ti reading X<br />
 <div class="outline-text-6" id="text-10-4-1-6-1">
 <p>
 First a value should be written. Then a later transaction should be allowed to read it.
@@ -4567,7 +4729,7 @@ First a value should be written. Then a later transaction should be allowed to r
 </div>
 </div>
 </li>
-<li><a id="org37985c5"></a>Transaction Ti writing X<br />
+<li><a id="orgb69b216"></a>Transaction Ti writing X<br />
 <div class="outline-text-6" id="text-10-4-1-6-2">
 <p>
 Older transactions can&rsquo;t write on values being read/written in the future.
@@ -4594,9 +4756,9 @@ Older transactions can&rsquo;t write on values being read/written in the future.
 </li>
 </ol>
 </li>
-<li><a id="orgd77f6ce"></a>Deadlocks<br />
+<li><a id="org5b35e90"></a>Deadlocks<br />
 <ol class="org-ol">
-<li><a id="orgdc11c83"></a>Wait-Die<br />
+<li><a id="org83a669d"></a>Wait-Die<br />
 <div class="outline-text-6" id="text-10-4-1-7-1">
 <ul class="org-ul">
 <li>If the older transaction requests a lock held by the younger one, the older
@@ -4607,7 +4769,7 @@ it&rsquo;s just being teleported into the future).</li>
 </ul>
 </div>
 </li>
-<li><a id="org81ef551"></a>Wound-Wait<br />
+<li><a id="org16bc845"></a>Wound-Wait<br />
 <div class="outline-text-6" id="text-10-4-1-7-2">
 <ul class="org-ul">
 <li>If the older transaction requests a lock held by the younger one, the younger
@@ -4624,12 +4786,12 @@ one waits (it keeps aging).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc79d489" class="outline-2">
-<h2 id="orgc79d489"><span class="section-number-2">11.</span> Storage Structure</h2>
+<div id="outline-container-org5a49d77" class="outline-2">
+<h2 id="org5a49d77"><span class="section-number-2">11.</span> Storage Structure</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-org109bacf" class="outline-3">
-<h3 id="org109bacf"><span class="section-number-3">11.1.</span> Sequential</h3>
+<div id="outline-container-orge340cb4" class="outline-3">
+<h3 id="orge340cb4"><span class="section-number-3">11.1.</span> Sequential</h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li>Like Linked List</li>
@@ -4638,8 +4800,8 @@ one waits (it keeps aging).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb5a3799" class="outline-3">
-<h3 id="orgb5a3799"><span class="section-number-3">11.2.</span> Heap</h3>
+<div id="outline-container-orgf564f18" class="outline-3">
+<h3 id="orgf564f18"><span class="section-number-3">11.2.</span> Heap</h3>
 <div class="outline-text-3" id="text-11-2">
 <ul class="org-ul">
 <li>Random but fast insertion</li>
@@ -4647,8 +4809,8 @@ one waits (it keeps aging).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org297b411" class="outline-3">
-<h3 id="org297b411"><span class="section-number-3">11.3.</span> Clustered</h3>
+<div id="outline-container-org11731cf" class="outline-3">
+<h3 id="org11731cf"><span class="section-number-3">11.3.</span> Clustered</h3>
 <div class="outline-text-3" id="text-11-3">
 <ul class="org-ul">
 <li>Related things are grouped together</li>
@@ -4661,8 +4823,8 @@ attributes</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfd8b665" class="outline-3">
-<h3 id="orgfd8b665"><span class="section-number-3">11.4.</span> B+ Trees</h3>
+<div id="outline-container-orgd3f2e15" class="outline-3">
+<h3 id="orgd3f2e15"><span class="section-number-3">11.4.</span> B+ Trees</h3>
 <div class="outline-text-3" id="text-11-4">
 <ul class="org-ul">
 <li>It&rsquo;s a self-balancing tree</li>
@@ -4672,8 +4834,8 @@ attributes</li>
 supported.</li>
 </ul>
 </div>
-<div id="outline-container-org1f9fae4" class="outline-4">
-<h4 id="org1f9fae4"><span class="section-number-4">11.4.1.</span> Order of B+ tree</h4>
+<div id="outline-container-org1117d33" class="outline-4">
+<h4 id="org1117d33"><span class="section-number-4">11.4.1.</span> Order of B+ tree</h4>
 <div class="outline-text-4" id="text-11-4-1">
 <ul class="org-ul">
 <li>Order is the Max number of children</li>
@@ -4685,8 +4847,8 @@ child. A copy of the smallest element of the right child becomes the parent.</li
 </div>
 </div>
 </div>
-<div id="outline-container-org7072abb" class="outline-3">
-<h3 id="org7072abb"><span class="section-number-3">11.5.</span> Hashing</h3>
+<div id="outline-container-orgdfa85a9" class="outline-3">
+<h3 id="orgdfa85a9"><span class="section-number-3">11.5.</span> Hashing</h3>
 <div class="outline-text-3" id="text-11-5">
 <ul class="org-ul">
 <li>Concept of Buckets</li>

@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-06-12 Fri 21:23 -->
+<!-- 2026-10-29 Thu 10:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Big Data Analytics</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,437 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
-
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
-
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
-}
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
+h1.title::after {
 content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
 }
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
 text-decoration: none;
+transition: opacity .15s;
 }
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
 
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
 
-#table-of-contents li.hidden {
-display: none;
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
 }
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
 
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
 
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
 }
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
+blockquote {
+margin: 1.8rem 0;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
+font-style: italic;
+border-left: 3px solid var(--accent);
+}
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
+display: block;
+margin-top: .6rem;
+font-size: .88em;
+font-style: normal;
+text-align: right;
+}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
+
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
+}
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
+display: block;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
+}
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
+
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -676,130 +871,130 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5d6ea27">1. Introduction</a>
+<li><a href="#orgf0daf90">1. Introduction</a>
 <ul>
-<li><a href="#org826dcab">1.1. What is Big Data?</a></li>
-<li><a href="#org8c79c68">1.2. What is Big Data Analytics?</a></li>
-<li><a href="#orga6aa7e3">1.3. Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</a>
+<li><a href="#org02d6863">1.1. What is Big Data?</a></li>
+<li><a href="#orgbd59b19">1.2. What is Big Data Analytics?</a></li>
+<li><a href="#orga93e244">1.3. Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</a>
 <ul>
-<li><a href="#org2a7880f">1.3.1. Volume</a></li>
-<li><a href="#orgcc1c1e7">1.3.2. Velocity</a></li>
-<li><a href="#org0398e37">1.3.3. Variety</a></li>
-<li><a href="#orgaf4652d">1.3.4. Newer V&rsquo;s introduced in recent times</a></li>
+<li><a href="#org1b50638">1.3.1. Volume</a></li>
+<li><a href="#org030334e">1.3.2. Velocity</a></li>
+<li><a href="#org8fdfbd1">1.3.3. Variety</a></li>
+<li><a href="#org32fe890">1.3.4. Newer V&rsquo;s introduced in recent times</a></li>
 </ul>
 </li>
-<li><a href="#org42bf622">1.4. Human-Generated Data vs Machine-Generated Data</a></li>
-<li><a href="#org4eb827d">1.5. Issues with Terminology related to Structure</a></li>
+<li><a href="#orgd5b1fd3">1.4. Human-Generated Data vs Machine-Generated Data</a></li>
+<li><a href="#org31796b9">1.5. Issues with Terminology related to Structure</a></li>
 </ul>
 </li>
-<li><a href="#orgd2d67c5">2. Definition of Big Data</a></li>
-<li><a href="#orgcbad58b">3. Types of Data Analytics</a>
+<li><a href="#orgf4cd007">2. Definition of Big Data</a></li>
+<li><a href="#org1f71ad9">3. Types of Data Analytics</a>
 <ul>
-<li><a href="#orga2f1b9c">3.1. Descriptive Analytics</a></li>
-<li><a href="#org7852a1d">3.2. Diagnostic Analytics</a></li>
-<li><a href="#org7490d7a">3.3. Predictive Analytics</a></li>
-<li><a href="#orgb1522c8">3.4. Prescriptive Analytics</a></li>
+<li><a href="#org5183d7a">3.1. Descriptive Analytics</a></li>
+<li><a href="#org46f20b1">3.2. Diagnostic Analytics</a></li>
+<li><a href="#orgc18f25f">3.3. Predictive Analytics</a></li>
+<li><a href="#org1be8e49">3.4. Prescriptive Analytics</a></li>
 </ul>
 </li>
-<li><a href="#org85bfadf">4. Database Architectures</a>
+<li><a href="#orgce4d808">4. Database Architectures</a>
 <ul>
-<li><a href="#orgc590c05">4.1. OLTP</a></li>
-<li><a href="#org06b95be">4.2. OLAP</a></li>
-<li><a href="#org92762d0">4.3. RTAP</a></li>
+<li><a href="#org9a9e0e8">4.1. OLTP</a></li>
+<li><a href="#org141a6c2">4.2. OLAP</a></li>
+<li><a href="#orgede15f8">4.3. RTAP</a></li>
 </ul>
 </li>
-<li><a href="#org473dda9">5. Change in Trend</a></li>
-<li><a href="#orge642a65">6. Size Matters</a>
+<li><a href="#org1b58b21">5. Change in Trend</a></li>
+<li><a href="#org9aabdc8">6. Size Matters</a>
 <ul>
-<li><a href="#org030cdc4">6.1. In Bits</a></li>
-<li><a href="#orga8a5318">6.2. In General</a></li>
-<li><a href="#orga4c2463">6.3. Traditional Business Intelligence vs Big Data</a></li>
-<li><a href="#org9848a7d">6.4. What is a Data lake</a></li>
+<li><a href="#org5353898">6.1. In Bits</a></li>
+<li><a href="#org779e24f">6.2. In General</a></li>
+<li><a href="#orgac06c5d">6.3. Traditional Business Intelligence vs Big Data</a></li>
+<li><a href="#orgf1632cb">6.4. What is a Data lake</a></li>
 </ul>
 </li>
-<li><a href="#org357bf92">7. Transaction Processing</a>
+<li><a href="#org2f80a40">7. Transaction Processing</a>
 <ul>
-<li><a href="#org72c05e4">7.1. Atomicity</a></li>
-<li><a href="#org52ed883">7.2. Consistency</a></li>
-<li><a href="#orge444ce1">7.3. Isolation</a></li>
-<li><a href="#orgb258995">7.4. Durability</a></li>
+<li><a href="#orgf06de46">7.1. Atomicity</a></li>
+<li><a href="#orgfb89f28">7.2. Consistency</a></li>
+<li><a href="#orgc4dffa5">7.3. Isolation</a></li>
+<li><a href="#orgf496253">7.4. Durability</a></li>
 </ul>
 </li>
-<li><a href="#orge1f3170">8. Challenges</a>
+<li><a href="#org6e8c63a">8. Challenges</a>
 <ul>
-<li><a href="#org37ae414">8.1. Vertical and Horizontal Scaling</a></li>
-<li><a href="#org40f4a7e">8.2. Security</a></li>
-<li><a href="#orga4e3cac">8.3. Schema</a></li>
-<li><a href="#orgecea18b">8.4. Consistency</a></li>
-<li><a href="#org94f203d">8.5. Continuous Availability</a></li>
-<li><a href="#org7d50fba">8.6. Partition Tolerent</a></li>
-<li><a href="#org9dd5b0c">8.7. Data Quality</a>
+<li><a href="#org1c0d893">8.1. Vertical and Horizontal Scaling</a></li>
+<li><a href="#org6b96ec6">8.2. Security</a></li>
+<li><a href="#org966f60f">8.3. Schema</a></li>
+<li><a href="#org6b110d0">8.4. Consistency</a></li>
+<li><a href="#orgada05e8">8.5. Continuous Availability</a></li>
+<li><a href="#orged980bf">8.6. Partition Tolerent</a></li>
+<li><a href="#org473afe3">8.7. Data Quality</a>
 <ul>
-<li><a href="#orgc8fb1c2">8.7.1. 3Cs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgff8e199">9. Brewer&rsquo;s CAP Theorem</a>
-<ul>
-<li><a href="#orgb98579a">9.1. What CAP is</a>
-<ul>
-<li><a href="#orgcb93fce">9.1.1. Consistency</a></li>
-<li><a href="#org889f0ee">9.1.2. Availability</a></li>
-<li><a href="#org14606ca">9.1.3. Partition Tolerance</a></li>
-</ul>
-</li>
-<li><a href="#org7207ff3">9.2. CAP Theorem</a></li>
-<li><a href="#org22c57dc">9.3. Examples of Different Systems</a>
-<ul>
-<li><a href="#org4188bf6">9.3.1. CP</a></li>
-<li><a href="#org7766f18">9.3.2. AP</a></li>
-<li><a href="#org155d471">9.3.3. CA</a></li>
+<li><a href="#orgc941851">8.7.1. 3Cs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2567913">10. BASE Theorem</a>
+<li><a href="#org712e204">9. Brewer&rsquo;s CAP Theorem</a>
 <ul>
-<li><a href="#org6c00a9a">10.1. Basically Available</a></li>
-<li><a href="#org0829665">10.2. Soft-state</a></li>
-<li><a href="#org414fad6">10.3. Eventually Consistent</a></li>
+<li><a href="#org1385d9f">9.1. What CAP is</a>
+<ul>
+<li><a href="#orgc7edd00">9.1.1. Consistency</a></li>
+<li><a href="#org33418c0">9.1.2. Availability</a></li>
+<li><a href="#orga2968a3">9.1.3. Partition Tolerance</a></li>
 </ul>
 </li>
-<li><a href="#orge885133">11. NoSQL</a>
+<li><a href="#orgaa03161">9.2. CAP Theorem</a></li>
+<li><a href="#org5c6d1e0">9.3. Examples of Different Systems</a>
 <ul>
-<li><a href="#org77e8a1f">11.1. Sharding</a></li>
-<li><a href="#orgb367278">11.2. Types of NoSQL</a></li>
-<li><a href="#org05dd0fa">11.3. Difference between SQL, NoSQL and NewSQL</a></li>
+<li><a href="#orgfed40e1">9.3.1. CP</a></li>
+<li><a href="#orgdc338ca">9.3.2. AP</a></li>
+<li><a href="#orgaa735fd">9.3.3. CA</a></li>
 </ul>
 </li>
-<li><a href="#org8c30fdc">12. Hadoop</a>
-<ul>
-<li><a href="#orgf152de0">12.1. Hadoop Cluster</a></li>
-<li><a href="#orgd0f34c7">12.2. Hadoop Versions</a>
-<ul>
-<li><a href="#org05d8d69">12.2.1. Hadoop 1.x</a></li>
-<li><a href="#org4b67bbe">12.2.2. Hadoop 2.x</a></li>
 </ul>
 </li>
-<li><a href="#org8b8abd0">12.3. HBase</a></li>
+<li><a href="#org6e4fe75">10. BASE Theorem</a>
+<ul>
+<li><a href="#org265455e">10.1. Basically Available</a></li>
+<li><a href="#org9816878">10.2. Soft-state</a></li>
+<li><a href="#org6f5e5ae">10.3. Eventually Consistent</a></li>
 </ul>
 </li>
-<li><a href="#org55177b1">13. Apache Spark</a>
+<li><a href="#orga8aad2c">11. NoSQL</a>
 <ul>
-<li><a href="#org6c69201">13.1. What it is</a></li>
-<li><a href="#orgbce118f">13.2. Resilient Distributed Dataset</a></li>
+<li><a href="#org669553a">11.1. Sharding</a></li>
+<li><a href="#org51a7815">11.2. Types of NoSQL</a></li>
+<li><a href="#org07f8bf8">11.3. Difference between SQL, NoSQL and NewSQL</a></li>
+</ul>
+</li>
+<li><a href="#org31f2b88">12. Hadoop</a>
+<ul>
+<li><a href="#orgcf6d49a">12.1. Hadoop Cluster</a></li>
+<li><a href="#org67e50e6">12.2. Hadoop Versions</a>
+<ul>
+<li><a href="#orgfbada94">12.2.1. Hadoop 1.x</a></li>
+<li><a href="#org8022a08">12.2.2. Hadoop 2.x</a></li>
+</ul>
+</li>
+<li><a href="#org55085e4">12.3. HBase</a></li>
+</ul>
+</li>
+<li><a href="#orgfe46051">13. Apache Spark</a>
+<ul>
+<li><a href="#org097bbfd">13.1. What it is</a></li>
+<li><a href="#org8bc3a80">13.2. Resilient Distributed Dataset</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5d6ea27" class="outline-2">
-<h2 id="org5d6ea27"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgf0daf90" class="outline-2">
+<h2 id="orgf0daf90"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org826dcab" class="outline-3">
-<h3 id="org826dcab"><span class="section-number-3">1.1.</span> What is Big Data?</h3>
+<div id="outline-container-org02d6863" class="outline-3">
+<h3 id="org02d6863"><span class="section-number-3">1.1.</span> What is Big Data?</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Big Data involves datasets that are too large or complex for traditional data
@@ -811,8 +1006,8 @@ maybe even Exabytes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8c79c68" class="outline-3">
-<h3 id="org8c79c68"><span class="section-number-3">1.2.</span> What is Big Data Analytics?</h3>
+<div id="outline-container-orgbd59b19" class="outline-3">
+<h3 id="orgbd59b19"><span class="section-number-3">1.2.</span> What is Big Data Analytics?</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Process of uncovering <b>trends</b>, <b>patterns</b> and <b>correlations</b> in large datasets.</li>
@@ -820,39 +1015,39 @@ maybe even Exabytes.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga6aa7e3" class="outline-3">
-<h3 id="orga6aa7e3"><span class="section-number-3">1.3.</span> Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</h3>
+<div id="outline-container-orga93e244" class="outline-3">
+<h3 id="orga93e244"><span class="section-number-3">1.3.</span> Three V&rsquo;s (Currently there are a lot more V&rsquo;s)</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>These are core challenges involved with big data.</li>
 <li>These were coined by <b>Doug Laney</b> in 2001, in a report for <a href="https://www.gartner.com/en/documents/2057415">Gartner</a>.</li>
 </ul>
 </div>
-<div id="outline-container-org2a7880f" class="outline-4">
-<h4 id="org2a7880f"><span class="section-number-4">1.3.1.</span> Volume</h4>
+<div id="outline-container-org1b50638" class="outline-4">
+<h4 id="org1b50638"><span class="section-number-4">1.3.1.</span> Volume</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>The data itself is in larger units.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcc1c1e7" class="outline-4">
-<h4 id="orgcc1c1e7"><span class="section-number-4">1.3.2.</span> Velocity</h4>
+<div id="outline-container-org030334e" class="outline-4">
+<h4 id="org030334e"><span class="section-number-4">1.3.2.</span> Velocity</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>This is the rate at which data is being generated.</li>
 <li>As of 2022, 2.5 quintillion bytes of data is created every day. In 2026, that
-number is 3.5 quintillion. Refer to <a href="#orga8a5318">the common sizes</a>.</li>
+number is 3.5 quintillion. Refer to <a href="#org779e24f">the common sizes</a>.</li>
 <li>This emphasizes on how close we are to real time processing of data.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0398e37" class="outline-4">
-<h4 id="org0398e37"><span class="section-number-4">1.3.3.</span> Variety</h4>
+<div id="outline-container-org8fdfbd1" class="outline-4">
+<h4 id="org8fdfbd1"><span class="section-number-4">1.3.3.</span> Variety</h4>
 <div class="outline-text-4" id="text-1-3-3">
 </div>
 <ol class="org-ol">
-<li><a id="org04e1214"></a>Structured<br />
+<li><a id="orge99b3d1"></a>Structured<br />
 <div class="outline-text-5" id="text-1-3-3-1">
 <ul class="org-ul">
 <li>Data with a fixed format.</li>
@@ -861,7 +1056,7 @@ number is 3.5 quintillion. Refer to <a href="#orga8a5318">the common sizes</a>.<
 </ul>
 </div>
 </li>
-<li><a id="org25882a5"></a>Unstructured<br />
+<li><a id="org5b3a4f6"></a>Unstructured<br />
 <div class="outline-text-5" id="text-1-3-3-2">
 <ul class="org-ul">
 <li>Data with no fixed format.</li>
@@ -877,7 +1072,7 @@ number is 3.5 quintillion. Refer to <a href="#orga8a5318">the common sizes</a>.<
 </ul>
 </div>
 </li>
-<li><a id="org67d6475"></a>Semi-Structured<br />
+<li><a id="orgf227f24"></a>Semi-Structured<br />
 <div class="outline-text-5" id="text-1-3-3-3">
 <ul class="org-ul">
 <li>It might have a fixed format, but might contain unstructured data.</li>
@@ -890,61 +1085,61 @@ structure, but the content can be anything).</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgaf4652d" class="outline-4">
-<h4 id="orgaf4652d"><span class="section-number-4">1.3.4.</span> Newer V&rsquo;s introduced in recent times</h4>
+<div id="outline-container-org32fe890" class="outline-4">
+<h4 id="org32fe890"><span class="section-number-4">1.3.4.</span> Newer V&rsquo;s introduced in recent times</h4>
 <div class="outline-text-4" id="text-1-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org5826297"></a>Veracity<br />
+<li><a id="org84899bb"></a>Veracity<br />
 <div class="outline-text-5" id="text-1-3-4-1">
 <ul class="org-ul">
 <li>Trustworthiness/credibility of data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org2a7e3e1"></a>Value<br />
+<li><a id="org5f5fe45"></a>Value<br />
 <div class="outline-text-5" id="text-1-3-4-2">
 <ul class="org-ul">
 <li>The ability to extract meaningful data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org53cc72a"></a>Validity<br />
+<li><a id="org59f6a78"></a>Validity<br />
 <div class="outline-text-5" id="text-1-3-4-3">
 <ul class="org-ul">
 <li>Is the data correct or appropriate for its intended use?</li>
 </ul>
 </div>
 </li>
-<li><a id="org2f8d1c3"></a>Visualization<br />
+<li><a id="org58ac38b"></a>Visualization<br />
 <div class="outline-text-5" id="text-1-3-4-4">
 <ul class="org-ul">
 <li>Putting data in a human-interpretable form.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgf5f054e"></a>Variability<br />
+<li><a id="orgd8de886"></a>Variability<br />
 <div class="outline-text-5" id="text-1-3-4-5">
 <ul class="org-ul">
 <li>Changes in the nature of the data.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgeb1d24b"></a>Vulnerability<br />
+<li><a id="orgd60e130"></a>Vulnerability<br />
 <div class="outline-text-5" id="text-1-3-4-6">
 <ul class="org-ul">
 <li>Compromises in system security.</li>
 </ul>
 </div>
 </li>
-<li><a id="orga717587"></a>Viscosity<br />
+<li><a id="org4413f94"></a>Viscosity<br />
 <div class="outline-text-5" id="text-1-3-4-7">
 <ul class="org-ul">
 <li>How easy/difficult it is to combine/transfer data.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3a7d73d"></a>Volatility<br />
+<li><a id="org0a0302e"></a>Volatility<br />
 <div class="outline-text-5" id="text-1-3-4-8">
 <ul class="org-ul">
 <li>How long data is valid for, and how long it should be stored.</li>
@@ -952,7 +1147,7 @@ structure, but the content can be anything).</li>
 </ul>
 </div>
 </li>
-<li><a id="org9cbd4b7"></a>Virality<br />
+<li><a id="org9009d49"></a>Virality<br />
 <div class="outline-text-5" id="text-1-3-4-9">
 <ul class="org-ul">
 <li>How far the existing data spreads around.</li>
@@ -962,8 +1157,8 @@ structure, but the content can be anything).</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org42bf622" class="outline-3">
-<h3 id="org42bf622"><span class="section-number-3">1.4.</span> Human-Generated Data vs Machine-Generated Data</h3>
+<div id="outline-container-orgd5b1fd3" class="outline-3">
+<h3 id="orgd5b1fd3"><span class="section-number-3">1.4.</span> Human-Generated Data vs Machine-Generated Data</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Examples of human-generated data are text messages, emails, documents.</li>
@@ -971,8 +1166,8 @@ structure, but the content can be anything).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4eb827d" class="outline-3">
-<h3 id="org4eb827d"><span class="section-number-3">1.5.</span> Issues with Terminology related to Structure</h3>
+<div id="outline-container-org31796b9" class="outline-3">
+<h3 id="org31796b9"><span class="section-number-3">1.5.</span> Issues with Terminology related to Structure</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>HTML is often debated between considered unstructured or semi-structured.</li>
@@ -982,8 +1177,8 @@ actually helping analytics or not.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2d67c5" class="outline-2">
-<h2 id="orgd2d67c5"><span class="section-number-2">2.</span> Definition of Big Data</h2>
+<div id="outline-container-orgf4cd007" class="outline-2">
+<h2 id="orgf4cd007"><span class="section-number-2">2.</span> Definition of Big Data</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -994,12 +1189,12 @@ insight</b> and <b>decision making</b>.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgcbad58b" class="outline-2">
-<h2 id="orgcbad58b"><span class="section-number-2">3.</span> Types of Data Analytics</h2>
+<div id="outline-container-org1f71ad9" class="outline-2">
+<h2 id="org1f71ad9"><span class="section-number-2">3.</span> Types of Data Analytics</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga2f1b9c" class="outline-3">
-<h3 id="orga2f1b9c"><span class="section-number-3">3.1.</span> Descriptive Analytics</h3>
+<div id="outline-container-org5183d7a" class="outline-3">
+<h3 id="org5183d7a"><span class="section-number-3">3.1.</span> Descriptive Analytics</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Describe the data i.e. tell you <b>what</b> happened in the past.</li>
@@ -1008,8 +1203,8 @@ charts, graphs, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7852a1d" class="outline-3">
-<h3 id="org7852a1d"><span class="section-number-3">3.2.</span> Diagnostic Analytics</h3>
+<div id="outline-container-org46f20b1" class="outline-3">
+<h3 id="org46f20b1"><span class="section-number-3">3.2.</span> Diagnostic Analytics</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Understand <b>why</b> something happened in the past.</li>
@@ -1017,16 +1212,16 @@ charts, graphs, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7490d7a" class="outline-3">
-<h3 id="org7490d7a"><span class="section-number-3">3.3.</span> Predictive Analytics</h3>
+<div id="outline-container-orgc18f25f" class="outline-3">
+<h3 id="orgc18f25f"><span class="section-number-3">3.3.</span> Predictive Analytics</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Predicts what&rsquo;s most likely to happen in the <b>future</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb1522c8" class="outline-3">
-<h3 id="orgb1522c8"><span class="section-number-3">3.4.</span> Prescriptive Analytics</h3>
+<div id="outline-container-org1be8e49" class="outline-3">
+<h3 id="org1be8e49"><span class="section-number-3">3.4.</span> Prescriptive Analytics</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>What <b>actions</b> to take to affect those outcomes.</li>
@@ -1034,15 +1229,15 @@ charts, graphs, etc).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org85bfadf" class="outline-2">
-<h2 id="org85bfadf"><span class="section-number-2">4.</span> Database Architectures</h2>
+<div id="outline-container-orgce4d808" class="outline-2">
+<h2 id="orgce4d808"><span class="section-number-2">4.</span> Database Architectures</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Refer to <a href="https://www.tinybird.co/blog/oltp-vs-olap">OLTP vs OLAP: key differences, use cases, and architectures</a>.
 </p>
 </div>
-<div id="outline-container-orgc590c05" class="outline-3">
-<h3 id="orgc590c05"><span class="section-number-3">4.1.</span> OLTP</h3>
+<div id="outline-container-org9a9e0e8" class="outline-3">
+<h3 id="org9a9e0e8"><span class="section-number-3">4.1.</span> OLTP</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Stands for Online Transaction Processing.</li>
@@ -1050,8 +1245,8 @@ Refer to <a href="https://www.tinybird.co/blog/oltp-vs-olap">OLTP vs OLAP: key d
 </ul>
 </div>
 </div>
-<div id="outline-container-org06b95be" class="outline-3">
-<h3 id="org06b95be"><span class="section-number-3">4.2.</span> OLAP</h3>
+<div id="outline-container-org141a6c2" class="outline-3">
+<h3 id="org141a6c2"><span class="section-number-3">4.2.</span> OLAP</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Online Analytical Processing.</li>
@@ -1060,8 +1255,8 @@ of OLTP.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org92762d0" class="outline-3">
-<h3 id="org92762d0"><span class="section-number-3">4.3.</span> RTAP</h3>
+<div id="outline-container-orgede15f8" class="outline-3">
+<h3 id="orgede15f8"><span class="section-number-3">4.3.</span> RTAP</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Real-time Analytics Processing.</li>
@@ -1070,8 +1265,8 @@ of OLTP.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org473dda9" class="outline-2">
-<h2 id="org473dda9"><span class="section-number-2">5.</span> Change in Trend</h2>
+<div id="outline-container-org1b58b21" class="outline-2">
+<h2 id="org1b58b21"><span class="section-number-2">5.</span> Change in Trend</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Models have changed: previously the amount of people generating big-data was
@@ -1080,12 +1275,12 @@ less, and the consumers were high in number.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge642a65" class="outline-2">
-<h2 id="orge642a65"><span class="section-number-2">6.</span> Size Matters</h2>
+<div id="outline-container-org9aabdc8" class="outline-2">
+<h2 id="org9aabdc8"><span class="section-number-2">6.</span> Size Matters</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org030cdc4" class="outline-3">
-<h3 id="org030cdc4"><span class="section-number-3">6.1.</span> In Bits</h3>
+<div id="outline-container-org5353898" class="outline-3">
+<h3 id="org5353898"><span class="section-number-3">6.1.</span> In Bits</h3>
 <div class="outline-text-3" id="text-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1155,8 +1350,8 @@ less, and the consumers were high in number.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-orga8a5318" class="outline-3">
-<h3 id="orga8a5318"><span class="section-number-3">6.2.</span> In General</h3>
+<div id="outline-container-org779e24f" class="outline-3">
+<h3 id="org779e24f"><span class="section-number-3">6.2.</span> In General</h3>
 <div class="outline-text-3" id="text-6-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1217,8 +1412,8 @@ As a function of time:
 </ul>
 </div>
 </div>
-<div id="outline-container-orga4c2463" class="outline-3">
-<h3 id="orga4c2463"><span class="section-number-3">6.3.</span> Traditional Business Intelligence vs Big Data</h3>
+<div id="outline-container-orgac06c5d" class="outline-3">
+<h3 id="orgac06c5d"><span class="section-number-3">6.3.</span> Traditional Business Intelligence vs Big Data</h3>
 <div class="outline-text-3" id="text-6-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1258,8 +1453,8 @@ As a function of time:
 </table>
 </div>
 </div>
-<div id="outline-container-org9848a7d" class="outline-3">
-<h3 id="org9848a7d"><span class="section-number-3">6.4.</span> What is a Data lake</h3>
+<div id="outline-container-orgf1632cb" class="outline-3">
+<h3 id="orgf1632cb"><span class="section-number-3">6.4.</span> What is a Data lake</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>A data lake is a data repository that stores data in its native/original
@@ -1272,16 +1467,16 @@ warehouses.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org357bf92" class="outline-2">
-<h2 id="org357bf92"><span class="section-number-2">7.</span> Transaction Processing</h2>
+<div id="outline-container-org2f80a40" class="outline-2">
+<h2 id="org2f80a40"><span class="section-number-2">7.</span> Transaction Processing</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Ensures that DBMS operations happen as one single indivisible unit with the
 help of ACID properties</li>
 </ul>
 </div>
-<div id="outline-container-org72c05e4" class="outline-3">
-<h3 id="org72c05e4"><span class="section-number-3">7.1.</span> Atomicity</h3>
+<div id="outline-container-orgf06de46" class="outline-3">
+<h3 id="orgf06de46"><span class="section-number-3">7.1.</span> Atomicity</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Transaction either completely finishes, or doesn&rsquo;t happen at all. There&rsquo;s no
@@ -1289,8 +1484,8 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org52ed883" class="outline-3">
-<h3 id="org52ed883"><span class="section-number-3">7.2.</span> Consistency</h3>
+<div id="outline-container-orgfb89f28" class="outline-3">
+<h3 id="orgfb89f28"><span class="section-number-3">7.2.</span> Consistency</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Changes must reflect everywhere.</li>
@@ -1298,16 +1493,16 @@ partially completed state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge444ce1" class="outline-3">
-<h3 id="orge444ce1"><span class="section-number-3">7.3.</span> Isolation</h3>
+<div id="outline-container-orgc4dffa5" class="outline-3">
+<h3 id="orgc4dffa5"><span class="section-number-3">7.3.</span> Isolation</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Two transactions shouldn&rsquo;t interfere with each other</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb258995" class="outline-3">
-<h3 id="orgb258995"><span class="section-number-3">7.4.</span> Durability</h3>
+<div id="outline-container-orgf496253" class="outline-3">
+<h3 id="orgf496253"><span class="section-number-3">7.4.</span> Durability</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>Transactions must be permanent.</li>
@@ -1315,12 +1510,12 @@ partially completed state.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge1f3170" class="outline-2">
-<h2 id="orge1f3170"><span class="section-number-2">8.</span> Challenges</h2>
+<div id="outline-container-org6e8c63a" class="outline-2">
+<h2 id="org6e8c63a"><span class="section-number-2">8.</span> Challenges</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org37ae414" class="outline-3">
-<h3 id="org37ae414"><span class="section-number-3">8.1.</span> Vertical and Horizontal Scaling</h3>
+<div id="outline-container-org1c0d893" class="outline-3">
+<h3 id="org1c0d893"><span class="section-number-3">8.1.</span> Vertical and Horizontal Scaling</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Vertical Scaling (scaling-up) is adding more CPUs, RAM to a single server.</li>
@@ -1329,32 +1524,32 @@ distribute the work load.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org40f4a7e" class="outline-3">
-<h3 id="org40f4a7e"><span class="section-number-3">8.2.</span> Security</h3>
+<div id="outline-container-org6b96ec6" class="outline-3">
+<h3 id="org6b96ec6"><span class="section-number-3">8.2.</span> Security</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>Lack of proper authentication and authorization mechanisms.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga4e3cac" class="outline-3">
-<h3 id="orga4e3cac"><span class="section-number-3">8.3.</span> Schema</h3>
+<div id="outline-container-org966f60f" class="outline-3">
+<h3 id="org966f60f"><span class="section-number-3">8.3.</span> Schema</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>Has to be dynamic.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgecea18b" class="outline-3">
-<h3 id="orgecea18b"><span class="section-number-3">8.4.</span> Consistency</h3>
+<div id="outline-container-org6b110d0" class="outline-3">
+<h3 id="org6b110d0"><span class="section-number-3">8.4.</span> Consistency</h3>
 </div>
 
-<div id="outline-container-org94f203d" class="outline-3">
-<h3 id="org94f203d"><span class="section-number-3">8.5.</span> Continuous Availability</h3>
+<div id="outline-container-orgada05e8" class="outline-3">
+<h3 id="orgada05e8"><span class="section-number-3">8.5.</span> Continuous Availability</h3>
 </div>
 
-<div id="outline-container-org7d50fba" class="outline-3">
-<h3 id="org7d50fba"><span class="section-number-3">8.6.</span> Partition Tolerent</h3>
+<div id="outline-container-orged980bf" class="outline-3">
+<h3 id="orged980bf"><span class="section-number-3">8.6.</span> Partition Tolerent</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>This is regarding the partitions in a network.</li>
@@ -1363,12 +1558,12 @@ failures involved in a Network.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9dd5b0c" class="outline-3">
-<h3 id="org9dd5b0c"><span class="section-number-3">8.7.</span> Data Quality</h3>
+<div id="outline-container-org473afe3" class="outline-3">
+<h3 id="org473afe3"><span class="section-number-3">8.7.</span> Data Quality</h3>
 <div class="outline-text-3" id="text-8-7">
 </div>
-<div id="outline-container-orgc8fb1c2" class="outline-4">
-<h4 id="orgc8fb1c2"><span class="section-number-4">8.7.1.</span> 3Cs</h4>
+<div id="outline-container-orgc941851" class="outline-4">
+<h4 id="orgc941851"><span class="section-number-4">8.7.1.</span> 3Cs</h4>
 <div class="outline-text-4" id="text-8-7-1">
 <ul class="org-ul">
 <li>Completeness</li>
@@ -1379,16 +1574,16 @@ failures involved in a Network.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgff8e199" class="outline-2">
-<h2 id="orgff8e199"><span class="section-number-2">9.</span> Brewer&rsquo;s CAP Theorem</h2>
+<div id="outline-container-org712e204" class="outline-2">
+<h2 id="org712e204"><span class="section-number-2">9.</span> Brewer&rsquo;s CAP Theorem</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-orgb98579a" class="outline-3">
-<h3 id="orgb98579a"><span class="section-number-3">9.1.</span> What CAP is</h3>
+<div id="outline-container-org1385d9f" class="outline-3">
+<h3 id="org1385d9f"><span class="section-number-3">9.1.</span> What CAP is</h3>
 <div class="outline-text-3" id="text-9-1">
 </div>
-<div id="outline-container-orgcb93fce" class="outline-4">
-<h4 id="orgcb93fce"><span class="section-number-4">9.1.1.</span> Consistency</h4>
+<div id="outline-container-orgc7edd00" class="outline-4">
+<h4 id="orgc7edd00"><span class="section-number-4">9.1.1.</span> Consistency</h4>
 <div class="outline-text-4" id="text-9-1-1">
 <ul class="org-ul">
 <li>All reads receive the most recent write or an error.</li>
@@ -1396,8 +1591,8 @@ failures involved in a Network.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org889f0ee" class="outline-4">
-<h4 id="org889f0ee"><span class="section-number-4">9.1.2.</span> Availability</h4>
+<div id="outline-container-org33418c0" class="outline-4">
+<h4 id="org33418c0"><span class="section-number-4">9.1.2.</span> Availability</h4>
 <div class="outline-text-4" id="text-9-1-2">
 <ul class="org-ul">
 <li>All reads contain data, but it might not be the most recent.</li>
@@ -1406,8 +1601,8 @@ too.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org14606ca" class="outline-4">
-<h4 id="org14606ca"><span class="section-number-4">9.1.3.</span> Partition Tolerance</h4>
+<div id="outline-container-orga2968a3" class="outline-4">
+<h4 id="orga2968a3"><span class="section-number-4">9.1.3.</span> Partition Tolerance</h4>
 <div class="outline-text-4" id="text-9-1-3">
 <ul class="org-ul">
 <li>The system continues to be operate despite network failure.</li>
@@ -1415,8 +1610,8 @@ too.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7207ff3" class="outline-3">
-<h3 id="org7207ff3"><span class="section-number-3">9.2.</span> CAP Theorem</h3>
+<div id="outline-container-orgaa03161" class="outline-3">
+<h3 id="orgaa03161"><span class="section-number-3">9.2.</span> CAP Theorem</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>A system that has consistency and partition tolerance, but compromises
@@ -1433,12 +1628,12 @@ There&rsquo;s no network involved and hence we&rsquo;re talking about your local
 </ul>
 </div>
 </div>
-<div id="outline-container-org22c57dc" class="outline-3">
-<h3 id="org22c57dc"><span class="section-number-3">9.3.</span> Examples of Different Systems</h3>
+<div id="outline-container-org5c6d1e0" class="outline-3">
+<h3 id="org5c6d1e0"><span class="section-number-3">9.3.</span> Examples of Different Systems</h3>
 <div class="outline-text-3" id="text-9-3">
 </div>
-<div id="outline-container-org4188bf6" class="outline-4">
-<h4 id="org4188bf6"><span class="section-number-4">9.3.1.</span> CP</h4>
+<div id="outline-container-orgfed40e1" class="outline-4">
+<h4 id="orgfed40e1"><span class="section-number-4">9.3.1.</span> CP</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <ul class="org-ul">
 <li>Availability meant there will always be a response (despite being outdated).</li>
@@ -1450,8 +1645,8 @@ replica. If it can&rsquo;t reach the primary server, the write won&rsquo;t happe
 </ul>
 </div>
 </div>
-<div id="outline-container-org7766f18" class="outline-4">
-<h4 id="org7766f18"><span class="section-number-4">9.3.2.</span> AP</h4>
+<div id="outline-container-orgdc338ca" class="outline-4">
+<h4 id="orgdc338ca"><span class="section-number-4">9.3.2.</span> AP</h4>
 <div class="outline-text-4" id="text-9-3-2">
 <ul class="org-ul">
 <li>Consistency meant all reads from any server, either always show the most
@@ -1463,8 +1658,8 @@ instead of just failing, it&rsquo;s okay to be a little inconsistent.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org155d471" class="outline-4">
-<h4 id="org155d471"><span class="section-number-4">9.3.3.</span> CA</h4>
+<div id="outline-container-orgaa735fd" class="outline-4">
+<h4 id="orgaa735fd"><span class="section-number-4">9.3.3.</span> CA</h4>
 <div class="outline-text-4" id="text-9-3-3">
 <ul class="org-ul">
 <li>Like previously mentioned, the lack of partition tolerance means there&rsquo;s no
@@ -1475,8 +1670,8 @@ distributed network to partition.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org2567913" class="outline-2">
-<h2 id="org2567913"><span class="section-number-2">10.</span> BASE Theorem</h2>
+<div id="outline-container-org6e4fe75" class="outline-2">
+<h2 id="org6e4fe75"><span class="section-number-2">10.</span> BASE Theorem</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>BASE stands for Basically Available Soft-state Eventually-Consistent.</li>
@@ -1484,8 +1679,8 @@ distributed network to partition.</li>
 the lack of consistency.</li>
 </ul>
 </div>
-<div id="outline-container-org6c00a9a" class="outline-3">
-<h3 id="org6c00a9a"><span class="section-number-3">10.1.</span> Basically Available</h3>
+<div id="outline-container-org265455e" class="outline-3">
+<h3 id="org265455e"><span class="section-number-3">10.1.</span> Basically Available</h3>
 <div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>If a particular node fails in a network, data on that will not be available.
@@ -1494,8 +1689,8 @@ But the entire data layer is still operational.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0829665" class="outline-3">
-<h3 id="org0829665"><span class="section-number-3">10.2.</span> Soft-state</h3>
+<div id="outline-container-org9816878" class="outline-3">
+<h3 id="org9816878"><span class="section-number-3">10.2.</span> Soft-state</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>The design principle in which the state of the system may change over a period
@@ -1505,8 +1700,8 @@ times. This is when soft-state is preferred.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org414fad6" class="outline-3">
-<h3 id="org414fad6"><span class="section-number-3">10.3.</span> Eventually Consistent</h3>
+<div id="outline-container-org6f5e5ae" class="outline-3">
+<h3 id="org6f5e5ae"><span class="section-number-3">10.3.</span> Eventually Consistent</h3>
 <div class="outline-text-3" id="text-10-3">
 <ul class="org-ul">
 <li>It&rsquo;s a guarantee that the system will have consistent values applied at a
@@ -1515,15 +1710,15 @@ certain point of time, if not immediately.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orge885133" class="outline-2">
-<h2 id="orge885133"><span class="section-number-2">11.</span> NoSQL</h2>
+<div id="outline-container-orga8aad2c" class="outline-2">
+<h2 id="orga8aad2c"><span class="section-number-2">11.</span> NoSQL</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>It stands for <b>Not Only SQL</b>, and it was coined by <b>Carlo Strozzi</b> in 1998.</li>
 </ul>
 </div>
-<div id="outline-container-org77e8a1f" class="outline-3">
-<h3 id="org77e8a1f"><span class="section-number-3">11.1.</span> Sharding</h3>
+<div id="outline-container-org669553a" class="outline-3">
+<h3 id="org669553a"><span class="section-number-3">11.1.</span> Sharding</h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li>Splitting a large dataset into smaller, more manageable pieces called &ldquo;shards&rdquo;
@@ -1533,8 +1728,8 @@ and performance. (because this paves way for parallel processing).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb367278" class="outline-3">
-<h3 id="orgb367278"><span class="section-number-3">11.2.</span> Types of NoSQL</h3>
+<div id="outline-container-org51a7815" class="outline-3">
+<h3 id="org51a7815"><span class="section-number-3">11.2.</span> Types of NoSQL</h3>
 <div class="outline-text-3" id="text-11-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1574,8 +1769,8 @@ and performance. (because this paves way for parallel processing).</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org05dd0fa" class="outline-3">
-<h3 id="org05dd0fa"><span class="section-number-3">11.3.</span> Difference between SQL, NoSQL and NewSQL</h3>
+<div id="outline-container-org07f8bf8" class="outline-3">
+<h3 id="org07f8bf8"><span class="section-number-3">11.3.</span> Difference between SQL, NoSQL and NewSQL</h3>
 <div class="outline-text-3" id="text-11-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1644,8 +1839,8 @@ and performance. (because this paves way for parallel processing).</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8c30fdc" class="outline-2">
-<h2 id="org8c30fdc"><span class="section-number-2">12.</span> Hadoop</h2>
+<div id="outline-container-org31f2b88" class="outline-2">
+<h2 id="org31f2b88"><span class="section-number-2">12.</span> Hadoop</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>It&rsquo;s an open-source framework written in Java used to process enormous data
@@ -1658,8 +1853,8 @@ sets.</li>
 Hadoop defeated supercomputers.</li>
 </ul>
 </div>
-<div id="outline-container-orgf152de0" class="outline-3">
-<h3 id="orgf152de0"><span class="section-number-3">12.1.</span> Hadoop Cluster</h3>
+<div id="outline-container-orgcf6d49a" class="outline-3">
+<h3 id="orgcf6d49a"><span class="section-number-3">12.1.</span> Hadoop Cluster</h3>
 <div class="outline-text-3" id="text-12-1">
 <ul class="org-ul">
 <li>A Hadoop Cluster is a collection of computers (which are broadly of two types)
@@ -1674,19 +1869,19 @@ and perform computation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd0f34c7" class="outline-3">
-<h3 id="orgd0f34c7"><span class="section-number-3">12.2.</span> Hadoop Versions</h3>
+<div id="outline-container-org67e50e6" class="outline-3">
+<h3 id="org67e50e6"><span class="section-number-3">12.2.</span> Hadoop Versions</h3>
 <div class="outline-text-3" id="text-12-2">
 </div>
-<div id="outline-container-org05d8d69" class="outline-4">
-<h4 id="org05d8d69"><span class="section-number-4">12.2.1.</span> Hadoop 1.x</h4>
+<div id="outline-container-orgfbada94" class="outline-4">
+<h4 id="orgfbada94"><span class="section-number-4">12.2.1.</span> Hadoop 1.x</h4>
 <div class="outline-text-4" id="text-12-2-1">
 <p>
 These are the components of a node using Hadoop 1.x.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org6a8f3bb"></a>HDFS<br />
+<li><a id="org4ea6604"></a>HDFS<br />
 <div class="outline-text-5" id="text-12-2-1-1">
 <ul class="org-ul">
 <li>This is for reliable storage.</li>
@@ -1716,7 +1911,7 @@ Node4 → Block4
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org4a5ba89"></a>Blocks<br />
+<li><a id="org84a0da4"></a>Blocks<br />
 <div class="outline-text-6" id="text-12-2-1-1-1">
 <ul class="org-ul">
 <li>This is the minimum amount of data that can be read or written. (64 MB or 128 MB).</li>
@@ -1731,7 +1926,7 @@ pipeline.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5bd42da"></a>Rack<br />
+<li><a id="org7b374af"></a>Rack<br />
 <div class="outline-text-6" id="text-12-2-1-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a collection of 40-50 data nodes using the same network switch.</li>
@@ -1782,7 +1977,7 @@ pipeline.</li>
 </table>
 </div>
 </li>
-<li><a id="orgaa8cd9a"></a>Rack Awareness<br />
+<li><a id="orga9f6b9f"></a>Rack Awareness<br />
 <div class="outline-text-6" id="text-12-2-1-1-3">
 <ul class="org-ul">
 <li>Choosing data node racks that are closest to each other is called rack
@@ -1792,9 +1987,9 @@ awareness.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5539d01"></a>Master/Slave Architecture - Node<br />
+<li><a id="org706e79b"></a>Master/Slave Architecture - Node<br />
 <ol class="org-ol">
-<li><a id="org53ed682"></a>NameNode<br />
+<li><a id="orgd6aa7e5"></a>NameNode<br />
 <div class="outline-text-7" id="text-12-2-1-1-4-1">
 <ul class="org-ul">
 <li>Master of the system</li>
@@ -1832,7 +2027,7 @@ There are two components of a NameNode:
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org4ee5412"></a>Secondary NameNode<br />
+<li><a id="orgc50f57f"></a>Secondary NameNode<br />
 <div class="outline-text-8" id="text-12-2-1-1-4-1-1">
 <ul class="org-ul">
 <li>NameNode only stores metadata (FSImage) and logs. So incase it restarts, it
@@ -1848,7 +2043,7 @@ cleared</li>
 </li>
 </ol>
 </li>
-<li><a id="org30f2010"></a>DataNode<br />
+<li><a id="org429f634"></a>DataNode<br />
 <div class="outline-text-7" id="text-12-2-1-1-4-2">
 <ul class="org-ul">
 <li>These are the machines that actually store data and serve it to the client.</li>
@@ -1862,7 +2057,7 @@ health.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgfc11ca0"></a>MapReduce<br />
+<li><a id="org5ac356d"></a>MapReduce<br />
 <div class="outline-text-5" id="text-12-2-1-2">
 <ul class="org-ul">
 <li>MapReduce is a programming model for cluster resource management and data
@@ -1874,7 +2069,7 @@ processing.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orga5a119e"></a>Record Reader<br />
+<li><a id="orgdfae82e"></a>Record Reader<br />
 <div class="outline-text-6" id="text-12-2-1-2-1">
 <ul class="org-ul">
 <li>You read documents, where the key is the name of the file and the value is the
@@ -1883,7 +2078,7 @@ contents of the file.</li>
 </ul>
 </div>
 </li>
-<li><a id="org769298d"></a>Mapper<br />
+<li><a id="orge871ed6"></a>Mapper<br />
 <div class="outline-text-6" id="text-12-2-1-2-2">
 <ul class="org-ul">
 <li>Mapper splits each word from the value, and now each word will be the key and
@@ -1906,7 +2101,7 @@ and each key will have value 1.
 </ul>
 </div>
 </li>
-<li><a id="org3170d02"></a>Combiner<br />
+<li><a id="orgc62da97"></a>Combiner<br />
 <div class="outline-text-6" id="text-12-2-1-2-3">
 <ul class="org-ul">
 <li>This reads each key-value pair and for common keys, it combines the values as
@@ -1924,7 +2119,7 @@ So the output of Combiner would be:
 </ul>
 </div>
 </li>
-<li><a id="org0929f30"></a>Reducer<br />
+<li><a id="org6e7d21f"></a>Reducer<br />
 <div class="outline-text-6" id="text-12-2-1-2-4">
 <ul class="org-ul">
 <li>This reduces a set of intermediate values (the values are now a collection),
@@ -1942,7 +2137,7 @@ So the output of Reducer would be:
 </ul>
 </div>
 </li>
-<li><a id="org6136659"></a>Some Map-Reduce Terminology<br />
+<li><a id="org076d5d5"></a>Some Map-Reduce Terminology<br />
 <div class="outline-text-6" id="text-12-2-1-2-5">
 <div class="org-src-container">
 <pre class="src src-txt">Job
@@ -1959,14 +2154,14 @@ So the output of Reducer would be:
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org8aacc72"></a>Job<br />
+<li><a id="org2d3d709"></a>Job<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-1">
 <ul class="org-ul">
 <li>The problem statement i.e. what you want to run Map-Reduce on.</li>
 </ul>
 </div>
 </li>
-<li><a id="org7a74af1"></a>Task<br />
+<li><a id="orgfa1332f"></a>Task<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-2">
 <ul class="org-ul">
 <li>Smaller piece of a job</li>
@@ -1974,7 +2169,7 @@ So the output of Reducer would be:
 </ul>
 </div>
 </li>
-<li><a id="org02032fa"></a>Task Attempt<br />
+<li><a id="org937793b"></a>Task Attempt<br />
 <div class="outline-text-7" id="text-12-2-1-2-5-3">
 <ul class="org-ul">
 <li>It&rsquo;s an execution attempt of a task.</li>
@@ -1985,9 +2180,9 @@ task crashes.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgd71499a"></a>Some applications of MapReduce<br />
+<li><a id="orgf0a6673"></a>Some applications of MapReduce<br />
 <ol class="org-ol">
-<li><a id="orgead6f27"></a>Reverse Web-Link Graph<br />
+<li><a id="org43498b8"></a>Reverse Web-Link Graph<br />
 <div class="outline-text-7" id="text-12-2-1-2-6-1">
 <ul class="org-ul">
 <li>You have a bunch of tuples <code>(a,b)</code> where there&rsquo;s a link from page <code>a</code> to <code>b</code>.</li>
@@ -2027,7 +2222,7 @@ The reduce phase would simply output the list.
 </li>
 </ol>
 </li>
-<li><a id="org1d8c294"></a>Some things you CAN&rsquo;T use Map-Reduce for<br />
+<li><a id="orgdf276c0"></a>Some things you CAN&rsquo;T use Map-Reduce for<br />
 <div class="outline-text-6" id="text-12-2-1-2-7">
 <ul class="org-ul">
 <li>Real-time analytics because of high latency. MapReduce was designed for
@@ -2043,7 +2238,7 @@ from the disk for every subsequent job.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgaa92603"></a>Daemons in Hadoop 1.x<br />
+<li><a id="org1adf0fa"></a>Daemons in Hadoop 1.x<br />
 <div class="outline-text-6" id="text-12-2-1-2-8">
 <ul class="org-ul">
 <li>NameNode (Master Node in HDFS)</li>
@@ -2058,15 +2253,15 @@ from the disk for every subsequent job.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org4b67bbe" class="outline-4">
-<h4 id="org4b67bbe"><span class="section-number-4">12.2.2.</span> Hadoop 2.x</h4>
+<div id="outline-container-org8022a08" class="outline-4">
+<h4 id="org8022a08"><span class="section-number-4">12.2.2.</span> Hadoop 2.x</h4>
 <div class="outline-text-4" id="text-12-2-2">
 <p>
 These are the components of a node using Hadoop 2.x.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org89b8a15"></a>HDFS<br />
+<li><a id="orga9a5eee"></a>HDFS<br />
 <div class="outline-text-5" id="text-12-2-2-1">
 <ul class="org-ul">
 <li>Reliable Storage.</li>
@@ -2074,7 +2269,7 @@ These are the components of a node using Hadoop 2.x.
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org3f520df"></a>Standby NameNode<br />
+<li><a id="orge80a9f9"></a>Standby NameNode<br />
 <div class="outline-text-6" id="text-12-2-2-1-1">
 <ul class="org-ul">
 <li>Along with primary and secondary NameNode, there also exists a Standby
@@ -2083,7 +2278,7 @@ NameNode.</li>
 </ul>
 </div>
 </li>
-<li><a id="org42748ca"></a>Data Pipelining<br />
+<li><a id="orgd39d283"></a>Data Pipelining<br />
 <div class="outline-text-6" id="text-12-2-2-1-2">
 <ul class="org-ul">
 <li>It&rsquo;s a multistep processing of moving large volumes of data across a
@@ -2093,7 +2288,7 @@ distributed computing cluster.</li>
 </li>
 </ol>
 </li>
-<li><a id="orgaf316f7"></a>MapReduce<br />
+<li><a id="orgb7067d7"></a>MapReduce<br />
 <div class="outline-text-5" id="text-12-2-2-2">
 <ul class="org-ul">
 <li>Data processing.</li>
@@ -2101,7 +2296,7 @@ distributed computing cluster.</li>
 </ul>
 </div>
 </li>
-<li><a id="org86b92af"></a>Yarn<br />
+<li><a id="org65ff01b"></a>Yarn<br />
 <div class="outline-text-5" id="text-12-2-2-3">
 <ul class="org-ul">
 <li>Cluster Resource Managment</li>
@@ -2115,7 +2310,7 @@ distributed computing cluster.</li>
 </ul>
 </div>
 </li>
-<li><a id="org5956262"></a>Daemons in Hadoop 2.x<br />
+<li><a id="org223eb6d"></a>Daemons in Hadoop 2.x<br />
 <div class="outline-text-5" id="text-12-2-2-4">
 <ul class="org-ul">
 <li>NameNode (Master node in HDFS)</li>
@@ -2138,7 +2333,7 @@ entire lifecycle of a job.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd7b8176"></a>How Yarn works<br />
+<li><a id="orga2a3a9f"></a>How Yarn works<br />
 <div class="outline-text-5" id="text-12-2-2-5">
 <ul class="org-ul">
 <li>First the application talks to the ResourceManager for the cluster</li>
@@ -2150,12 +2345,12 @@ de-allocated.</li>
 </ul>
 </div>
 </li>
-<li><a id="org434f52c"></a>Key Features<br />
+<li><a id="orgbdecf42"></a>Key Features<br />
 <ol class="org-ol">
-<li><a id="orgdad5811"></a>Scalability<br /></li>
+<li><a id="org0bcef72"></a>Scalability<br /></li>
 
 
-<li><a id="org74503a7"></a>Flexibility<br />
+<li><a id="orgf5e46e1"></a>Flexibility<br />
 <div class="outline-text-6" id="text-12-2-2-6-2">
 <ul class="org-ul">
 <li>Supports way more processing models than just MapReduce, including interactive
@@ -2163,14 +2358,14 @@ SQL, real-time streaming.</li>
 </ul>
 </div>
 </li>
-<li><a id="org8dda9e0"></a>Improved Utilization<br /></li>
+<li><a id="org43a406f"></a>Improved Utilization<br /></li>
 </ol>
 </li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8b8abd0" class="outline-3">
-<h3 id="org8b8abd0"><span class="section-number-3">12.3.</span> HBase</h3>
+<div id="outline-container-org55085e4" class="outline-3">
+<h3 id="org55085e4"><span class="section-number-3">12.3.</span> HBase</h3>
 <div class="outline-text-3" id="text-12-3">
 <ul class="org-ul">
 <li>HBase is an open-source, non-relational distributed database.</li>
@@ -2211,12 +2406,12 @@ SQL, real-time streaming.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org55177b1" class="outline-2">
-<h2 id="org55177b1"><span class="section-number-2">13.</span> Apache Spark</h2>
+<div id="outline-container-orgfe46051" class="outline-2">
+<h2 id="orgfe46051"><span class="section-number-2">13.</span> Apache Spark</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-org6c69201" class="outline-3">
-<h3 id="org6c69201"><span class="section-number-3">13.1.</span> What it is</h3>
+<div id="outline-container-org097bbfd" class="outline-3">
+<h3 id="org097bbfd"><span class="section-number-3">13.1.</span> What it is</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>Instead of just &ldquo;map&rdquo; and &ldquo;reduce&rdquo;, you define a large set of operations
@@ -2227,8 +2422,8 @@ processing on computer clusters.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbce118f" class="outline-3">
-<h3 id="orgbce118f"><span class="section-number-3">13.2.</span> Resilient Distributed Dataset</h3>
+<div id="outline-container-org8bc3a80" class="outline-3">
+<h3 id="org8bc3a80"><span class="section-number-3">13.2.</span> Resilient Distributed Dataset</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>All of the data is in the form of <b>immutable</b>, <b>fault-tolerant</b>, <b>distributed</b>

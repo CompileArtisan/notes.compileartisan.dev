@@ -3,197 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-10-27 Tue 10:14 -->
+<!-- 2026-10-29 Thu 10:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Deep Learning using Images and Signals</title>
 <meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1a2e">
 <meta property="og:image" content="https://notes.compileartisan.dev/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -203,470 +21,814 @@
 <meta property="og:url" content="https://notes.compileartisan.dev">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://notes.compileartisan.dev/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,650;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function () {
+try {
+var t = localStorage.getItem('ca-theme');
+if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+})();
+</script>
 <style>
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════
+CompileArtisan Notes — theme (minimal edition)
+Flat page · serif text · light/dark
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+font-family: 'DOSVGA';
+src: url('https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+font-display: swap;
 }
 
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+color-scheme: light;
+--header-h: 48px;
+--toc-w: 272px;
+--measure: 700px;
+
+--bg: #ffffff;
+--surface: #ffffff;
+--surface-2: #f6f6f8;
+--text: #1b1b22;
+--text-soft: #2c2c37;
+--muted: #6f6f7c;
+--border: #e6e6ea;
+--border-strong: #d4d4dc;
+--accent: #3d3dbf;
+--accent-hover: #2a2a9a;
+--accent-soft: #f0f0fb;
+--header-bg: #1a1a2e;
+
+--code-bg: #17171f;
+--code-fg: #d8d8e6;
+--inline-code-bg: #f1f1f5;
+--inline-code-fg: #2c2c3a;
+
+--font-serif: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+}
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #121217;
+--surface: #121217;
+--surface-2: #18181f;
+--text: #e6e6ec;
+--text-soft: #d0d0d9;
+--muted: #8e8e9c;
+--border: #26262f;
+--border-strong: #353540;
+--accent: #9c9cff;
+--accent-hover: #bcbcff;
+--accent-soft: #1d1d30;
+--header-bg: #0d0d18;
+--code-bg: #0c0c12;
+--inline-code-bg: #20202b;
+--inline-code-fg: #dedeea;
+}
+
+/* ─── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+html { scroll-behavior: smooth; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-font-size: 15px;
-line-height: 1.7;
 margin: 0;
+padding: var(--header-h) 0 0;
+font-family: var(--font-serif);
+font-size: 18px;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+body:has(#table-of-contents) { padding-left: var(--toc-w); }
+body.has-toc { padding-left: var(--toc-w); }
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.site-header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1200;
+height: var(--header-h);
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 20px;
+background: var(--header-bg);
+}
+.site-header .brand {
+font-family: 'DOSVGA', var(--font-mono);
+font-size: 1.1rem;
+letter-spacing: .03em;
+line-height: 1;
+text-decoration: none;
+white-space: nowrap;
+}
+.site-header .brand:hover { text-decoration: none; }
+.brand .dim { color: #7b7bad; }
+.brand .bright { color: #dcdcff; }
+.brand .cursor {
+display: inline-block;
+width: .55em; height: 1em;
+margin-left: 5px;
+vertical-align: -.14em;
+background: #b8b8ff;
+animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .cursor { animation: none; } }
+.site-header .spacer { flex: 1; }
+
+.icon-btn {
+display: inline-flex; align-items: center; justify-content: center;
+width: 32px; height: 32px;
 padding: 0;
-background-color: #f5f5f7;
-color: #1a1a1a;
+color: #a8a8cc;
+background: transparent;
+border: 0;
+border-radius: 4px;
+cursor: pointer;
+transition: color .15s;
+}
+.icon-btn:hover { color: #fff; }
+.icon-btn:focus-visible { outline-color: #b8b8ff; }
+.menu-btn { display: none; margin-left: -8px; }
+
+.site-header .progress {
+position: absolute;
+left: 0; bottom: 0;
+width: 100%; height: 2px;
+background: #8c8cff;
+transform: scaleX(0);
+transform-origin: 0 50%;
+pointer-events: none;
+}
+
+/* ─── Sidebar / table of contents ───────────────────────── */
+#table-of-contents {
+position: fixed;
+top: var(--header-h); left: 0;
+z-index: 900;
+width: var(--toc-w);
+height: calc(100vh - var(--header-h));
+overflow-y: auto;
+padding: 22px 12px 40px;
+font-family: var(--font-sans);
+background: var(--surface-2);
+border-right: 1px solid var(--border);
+scrollbar-width: thin;
+scrollbar-color: var(--border-strong) transparent;
+overscroll-behavior: contain;
+}
+#table-of-contents::-webkit-scrollbar { width: 5px; }
+#table-of-contents::-webkit-scrollbar-thumb { background: var(--border-strong); }
+
+#table-of-contents h2 {
+margin: 0 8px 12px;
+padding: 0;
+border: 0;
+font: 600 11px/1 var(--font-sans);
+letter-spacing: .12em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.toc-search-wrap { position: relative; margin: 0 0 12px; }
+.toc-search-wrap::before {
+content: "";
+position: absolute; left: 10px; top: 50%;
+width: 14px; height: 14px;
+transform: translateY(-50%);
+background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
+pointer-events: none;
+}
+.toc-search-wrap kbd {
+position: absolute; right: 8px; top: 50%;
+transform: translateY(-50%);
+padding: 0 6px;
+font: 11px/17px var(--font-mono);
+color: var(--muted);
+border: 1px solid var(--border-strong);
+border-radius: 3px;
+pointer-events: none;
+}
+.toc-search-wrap:focus-within kbd { display: none; }
+#toc-search {
+width: 100%;
+padding: 7px 32px 7px 30px;
+font: 13.5px var(--font-sans);
+color: var(--text);
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+outline: none;
+transition: border-color .15s;
+}
+#toc-search:focus { border-color: var(--accent); }
+#toc-search::placeholder { color: var(--muted); opacity: .7; }
+.toc-empty { margin: 8px 10px; font-size: 13px; color: var(--muted); }
+
+#table-of-contents ul { list-style: none; margin: 0; padding: 0; }
+#table-of-contents ul ul { padding-left: 12px; margin-left: 10px; border-left: 1px solid var(--border-strong); }
+#table-of-contents li { margin: 0; }
+#table-of-contents li.hidden { display: none; }
+#table-of-contents a {
+display: block;
+padding: 4px 10px;
+font-size: 13.5px;
+line-height: 1.45;
+color: var(--muted);
+border-radius: 3px;
+text-decoration: none;
+transition: color .12s;
+}
+#table-of-contents a:hover { color: var(--text); text-decoration: none; }
+#table-of-contents a.active {
+color: var(--accent);
+font-weight: 600;
+box-shadow: inset 2px 0 0 var(--accent);
+}
+#table-of-contents [class^="section-number-"] { opacity: .55; margin-right: 2px; }
+
+.toc-overlay { display: none; }
+
+/* ─── Main content (flat, no card) ──────────────────────── */
+#content {
+max-width: var(--measure);
+margin: 0 auto;
+padding: 56px 32px 112px;
+}
+#content > :first-child { margin-top: 0; }
+
+#postamble, #preamble {
+max-width: var(--measure);
+margin: 0 auto 40px;
+padding: 0 32px;
+font: 13px var(--font-sans);
+color: var(--muted);
 }
 
 /* ─── Typography ────────────────────────────────────────── */
-h1, h2, h3, h4 {
-font-weight: 500;
-line-height: 1.3;
-color: #111;
-margin: 2rem 0 0.75rem;
+h1, h2, h3, h4, h5, h6 {
+margin: 2.4rem 0 .7rem;
+font-weight: 600;
+line-height: 1.25;
+color: var(--text);
+scroll-margin-top: calc(var(--header-h) + 20px);
 }
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem;  }
-
-p {
-margin: 0 0 1rem;
-color: #2a2a2a;
+h1.title {
+margin: 0 0 2.2rem;
+font-size: 2.35rem;
+font-weight: 650;
+line-height: 1.15;
+letter-spacing: -.015em;
+text-align: left;
 }
+h1.title::after {
+content: "";
+display: block;
+width: 36px; height: 3px;
+margin-top: 18px;
+background: var(--accent);
+}
+.subtitle { margin: -1.5rem 0 2rem; color: var(--muted); font-style: italic; }
+h2 { font-size: 1.6rem; margin-top: 3rem; }
+h3 { font-size: 1.28rem; margin-top: 2.2rem; }
+h4 { font-size: 1.08rem; font-style: italic; }
+h5, h6 { font: 600 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-/* ─── Block Quotes ─────────────────────────────────────── */
+[class^="section-number-"] { color: var(--muted); font-weight: 400; margin-right: .4em; }
+
+.hd-anchor {
+margin-left: .45em;
+font-weight: 400;
+color: var(--muted);
+opacity: 0;
+text-decoration: none;
+transition: opacity .15s;
+}
+:is(h2, h3, h4):hover .hd-anchor, .hd-anchor:focus-visible { opacity: .6; }
+.hd-anchor:hover { color: var(--accent); text-decoration: none; opacity: 1; }
+
+p { margin: 0 0 1.1rem; color: var(--text-soft); }
+strong, b { font-weight: 650; color: var(--text); }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border); }
+
+#content a {
+color: var(--accent);
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 3px;
+text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+transition: color .15s, text-decoration-color .15s;
+}
+#content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hd-anchor, sup a { text-decoration: none !important; }
+
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.5rem; color: var(--text-soft); }
+li { margin: .3rem 0; }
+li::marker { color: var(--muted); }
+li > ul, li > ol { margin: .3rem 0 .4rem; }
+dt { font-weight: 650; color: var(--text); margin-top: .8rem; }
+dd { margin: .2rem 0 .6rem 1.4rem; }
+
+mark { background: color-mix(in srgb, #ffc400 35%, transparent); color: inherit; padding: 0 2px; }
+kbd {
+padding: 1px 5px;
+font: .8em var(--font-mono);
+color: var(--text);
+border: 1px solid var(--border-strong);
+border-bottom-width: 2px;
+border-radius: 3px;
+}
+.underline { text-decoration: underline; }
+
+/* ─── Org specifics: TODO, tags, timestamps ─────────────── */
+.todo, .done {
+display: inline-block;
+margin-right: .5em;
+font: 600 .6em/1.6 var(--font-mono);
+letter-spacing: .04em;
+vertical-align: .22em;
+}
+.todo { color: #c0343b; }
+.done { color: #2b8a5a; }
+.tag { margin-left: .8em; float: right; }
+.tag span {
+margin-left: .5em;
+font: .72rem var(--font-mono);
+color: var(--muted);
+}
+.tag span::before { content: "#"; opacity: .6; }
+.timestamp-wrapper, .timestamp { font: .85em var(--font-mono); color: var(--muted); }
+
+/* ─── Block quotes ──────────────────────────────────────── */
 blockquote {
 margin: 1.8rem 0;
-padding: 1rem 1.5rem;
-background: #f8f8fc;
-border-left: 4px solid #4444cc;
-border-radius: 8px;
-color: #444;
+padding: .1rem 0 .1rem 1.3rem;
+color: var(--muted);
 font-style: italic;
-position: relative;
+border-left: 3px solid var(--accent);
 }
-blockquote::before {
-content: "❝";
-position: absolute;
-top: -8px;
-left: 12px;
-font-size: 2.8rem;
-color: #d6d6f5;
-font-family: Georgia, serif;
-line-height: 1;
-}
-blockquote p:last-child {
-margin-bottom: 0;
-}
-blockquote cite,
-blockquote footer {
+blockquote p { color: inherit; }
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite, blockquote footer {
 display: block;
-margin-top: 0.8rem;
-color: #777;
-font-size: 0.9em;
+margin-top: .6rem;
+font-size: .88em;
 font-style: normal;
 text-align: right;
 }
-a {
-color: #2222cc;
-text-decoration: none;
-}
-a:hover {
-text-decoration: underline;
-text-underline-offset: 3px;
-}
+.verse { margin: 1.5rem 0; padding-left: 1.2rem; border-left: 2px solid var(--border-strong); font-style: italic; }
 
-/* ─── Header Bar ────────────────────────────────────────── */
-@font-face {
-font-family: 'DOSVGA';
-src: url('http://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf') format('truetype');
+/* ─── Callouts ──────────────────────────────────────────── */
+.note, .tip, .important, .warning, .caution {
+--c: #4a6fd0;
+margin: 1.6rem 0;
+padding: .9rem 1.2rem;
+font-size: .95em;
+background: var(--surface-2);
+border-left: 3px solid var(--c);
 }
-
-.header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 1000;
-height: 48px;
-background: #1a1a2e;
-display: flex;
-align-items: center;
-padding: 0 24px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.header a {
-font-family: 'DOSVGA', 'Courier New', monospace;
-font-size: 1rem;
-letter-spacing: 0.03em;
-text-decoration: none;
-line-height: 1;
-}
-
-.header a .dim   { color: #7878aa; }
-.header a .bright { color: #d8d8ff; }
-/* ─── Sidebar ───────────────────────────────────────────── */
-#table-of-contents {
-position: fixed;
-top: 48px;
-left: 0;
-width: 260px;
-height: calc(100vh - 48px);
-overflow-y: auto;
-background: #ffffff;
-border-right: 0.5px solid #e0e0e6;
-padding: 20px 12px;
-scrollbar-width: thin;
-scrollbar-color: #d0d0d8 transparent;
-}
-
-#table-of-contents::-webkit-scrollbar {
-width: 4px;
-}
-#table-of-contents::-webkit-scrollbar-thumb {
-background: #d0d0d8;
-border-radius: 4px;
-}
-
-#table-of-contents h2 {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #999;
-margin: 0 8px 12px;
-padding-bottom: 10px;
-border-bottom: 0.5px solid #e8e8ee;
-}
-
-/* Search box */
-.toc-search-wrap {
-position: relative;
-margin: 0 0 12px;
-}
-
-.toc-search-wrap::before {
-content: "";
-position: absolute;
-left: 10px;
-top: 50%;
-transform: translateY(-50%);
-width: 14px;
-height: 14px;
-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center;
-}
-
-#toc-search {
-width: 100%;
-padding: 7px 10px 7px 30px;
-font-size: 13px;
-border: 0.5px solid #e0e0e6;
-border-radius: 8px;
-background: #f8f8fc;
-color: #1a1a1a;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-}
-
-#toc-search:focus {
-border-color: #4444cc;
-background: #ffffff;
-}
-
-#toc-search::placeholder {
-color: #bbb;
-}
-
-/* TOC links */
-#table-of-contents ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-#table-of-contents ul ul {
-padding-left: 14px;
-}
-
-#table-of-contents li {
-margin: 2px 0;
-}
-
-#table-of-contents a {
+.tip { --c: #2b8a5a; }
+.important { --c: #7a56d6; }
+.warning { --c: #c58a0a; }
+.caution { --c: #c0343b; }
+:is(.note, .tip, .important, .warning, .caution)::before {
 display: block;
-padding: 5px 10px;
-font-size: 13px;
-color: #555;
-border-radius: 6px;
-transition: background 0.12s, color 0.12s;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+margin-bottom: .3rem;
+font: 700 .68rem/1 var(--font-sans);
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(--c);
 }
+.note::before { content: "Note"; }
+.tip::before { content: "Tip"; }
+.important::before { content: "Important"; }
+.warning::before { content: "Warning"; }
+.caution::before { content: "Caution"; }
+:is(.note, .tip, .important, .warning, .caution) > :last-child { margin-bottom: 0; }
 
-#table-of-contents a:hover {
-background: #f0f0fa;
-color: #2222cc;
-text-decoration: none;
-}
-
-#table-of-contents a.active {
-background: #ededff;
-color: #2222aa;
-font-weight: 500;
-border-left: 2.5px solid #2222aa;
-padding-left: 8px;
-}
-
-#table-of-contents li.hidden {
-display: none;
-}
-
-/* ─── Main Content ──────────────────────────────────────── */
-#content {
-margin-left: 260px;
-margin-top: 48px;
-padding: 40px 48px;
-max-width: 900px;
-min-height: calc(100vh - 48px);
-background: #ffffff;
-}
-
-#postamble, #preamble {
-margin-left: 260px;
-padding: 20px 48px;
-font-size: 13px;
-color: #999;
-border-top: 0.5px solid #e8e8ee;
-}
+details { margin: 1.2rem 0; padding: .1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+summary { padding: .5rem 0; cursor: pointer; font-weight: 600; color: var(--text); }
+details[open] > summary { margin-bottom: .4rem; }
 
 /* ─── Code ──────────────────────────────────────────────── */
-code {
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.88em;
-background: #f2f2f8;
-border: 0.5px solid #e0e0ec;
-border-radius: 4px;
-padding: 1px 5px;
-color: #1a1a1a;
+code, kbd, samp, tt { font-family: var(--font-mono); }
+code, tt {
+padding: .1em .35em;
+font-size: .82em;
+color: var(--inline-code-fg);
+background: var(--inline-code-bg);
+border-radius: 3px;
 }
 
 pre {
-background: #16161e;
-color: #d0d0e0;
-border-radius: 10px;
+margin: 1.5rem 0;
 padding: 16px 20px;
 overflow-x: auto;
-font-size: 13.5px;
-line-height: 1.6;
-border: 0.5px solid rgba(255,255,255,0.06);
-margin: 1.5rem 0;
+font: 13.5px/1.65 var(--font-mono);
+tab-size: 4;
+color: var(--code-fg);
+background: var(--code-bg);
+border-radius: 6px;
+scrollbar-width: thin;
+scrollbar-color: #3a3a52 transparent;
 }
+pre code { all: unset; font: inherit; }
 
-pre code {
-font-size: inherit;
-background: none;
-border: none;
-padding: 0;
-color: inherit;
-border-radius: 0;
-}
-
-pre.src {
+/* wrapper added by JS around each <pre> */
+.code-block {
 position: relative;
+margin: 1.6rem 0;
+overflow: hidden;
+background: var(--code-bg);
+border-radius: 6px;
 }
+.code-block pre { margin: 0; border-radius: 0; background: transparent; }
+.code-block[data-lang]::before {
+content: attr(data-lang);
+display: block;
+padding: 8px 16px;
+font: 500 11px/1 var(--font-mono);
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #85859f;
+border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.copy-btn {
+position: absolute; top: 4px; right: 8px;
+padding: 3px 8px;
+font: 500 11px/1.4 var(--font-sans);
+color: #9c9cbc;
+background: transparent;
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 3px;
+cursor: pointer;
+opacity: 0;
+transition: opacity .15s, color .15s;
+}
+.code-block:not([data-lang]) .copy-btn { top: 8px; }
+.code-block:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.copied { color: #7ee2a8; opacity: 1; }
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* syntax colours (org-html-htmlize-output-type = 'css) */
+pre .org-keyword, pre .org-preprocessor { color: #c6a8ff; }
+pre .org-function-name { color: #7cc4ff; }
+pre .org-string { color: #93e6ab; }
+pre .org-comment, pre .org-comment-delimiter { color: #6d6d8c; font-style: italic; }
+pre .org-doc { color: #8bb69b; }
+pre .org-type { color: #ffd083; }
+pre .org-constant { color: #ff9f7f; }
+pre .org-variable-name { color: #a2d6ff; }
+pre .org-builtin { color: #ff92bd; }
+pre .org-warning { color: #ff7b7b; }
+pre .org-negation-char, pre .org-regexp-grouping-construct { color: #ffb86c; }
 
 /* ─── Tables ────────────────────────────────────────────── */
+.table-wrap { margin: 1.6rem 0; overflow-x: auto; }
 table {
 width: 100%;
+margin: 1.6rem 0;
 border-collapse: collapse;
-font-size: 14px;
-margin: 1.5rem 0;
-border: 0.5px solid #e0e0e8;
-border-radius: 10px;
-overflow: hidden;
+font: 15px/1.5 var(--font-sans);
+border: 0 !important;
+border-top: 1px solid var(--border-strong) !important;
+border-bottom: 1px solid var(--border-strong) !important;
 }
-
+.table-wrap table { margin: 0; }
+caption.t-above { caption-side: top; padding: 0 0 .6rem; color: var(--muted); text-align: left; }
 th {
-background: #f5f5fa;
-font-weight: 500;
-font-size: 12px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: #666;
-padding: 10px 16px;
+padding: 9px 14px;
+font-weight: 600;
 text-align: left;
-border-bottom: 0.5px solid #e0e0e8;
+color: var(--text);
+border-bottom: 1px solid var(--border-strong);
 }
-
 td {
-padding: 10px 16px;
-border-bottom: 0.5px solid #f0f0f4;
-color: #1a1a1a;
-font-weight: 400;
+padding: 8px 14px;
+color: var(--text-soft);
+border-bottom: 1px solid var(--border);
+vertical-align: top;
 }
+td.org-left, th.org-left { text-align: left; }
+td.org-right, th.org-right { text-align: right; }
+td.org-center, th.org-center { text-align: center; }
+tbody tr:last-child td { border-bottom: 0; }
+table[rules], table[frame] { border: 0; }
 
-td.org-left { text-align: left; }
-td.org-right { text-align: right; }
-td.org-center { text-align: center; }
+/* ─── Images & figures ──────────────────────────────────── */
+img, svg.org-svg { max-width: 100%; height: auto; }
+#content img { display: block; margin: 1.6rem auto; }
+.figure { margin: 1.6rem 0; text-align: center; }
+.figure p { color: var(--muted); font-size: .9rem; }
+figure { margin: 1.6rem 0; }
+figcaption, .figure-number { color: var(--muted); font-size: .9rem; text-align: center; }
 
-tbody tr:last-child td { border-bottom: none; }
-
-tbody tr:hover { background: #f7f7fd; }
-
-/* ─── Images ────────────────────────────────────────────── */
-img {
-max-width: 100%;
-height: auto;
-display: block;
-margin: 1.5rem auto;
-border-radius: 8px;
-}
+/* ─── Footnotes ─────────────────────────────────────────── */
+#footnotes { margin-top: 3rem; }
+.footdef { margin-bottom: .6rem; font-size: .92rem; color: var(--text-soft); }
+.footnum { font-size: .75em; font-weight: 600; vertical-align: super; }
 
 /* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+body, body:has(#table-of-contents), body.has-toc { padding-left: 0; }
+.menu-btn { display: inline-flex; }
+body:not(.has-toc) .menu-btn { display: none; }
+
 #table-of-contents {
-position: static;
-width: 100%;
-height: auto;
-border-right: none;
-border-bottom: 1px solid #e0e0e8;
-padding: 16px;
+z-index: 1100;
+width: min(86vw, 320px);
+transform: translateX(-102%);
+transition: transform .25s cubic-bezier(.3,.7,.2,1);
 }
-
-#content {
-margin-left: 0;
-margin-top: 48px;
-padding: 24px 20px;
+body.toc-open #table-of-contents { transform: none; }
+.toc-overlay {
+display: block;
+position: fixed; inset: var(--header-h) 0 0 0;
+z-index: 1050;
+background: rgba(8,8,20,.45);
+opacity: 0; pointer-events: none;
+transition: opacity .25s;
 }
+body.toc-open .toc-overlay { opacity: 1; pointer-events: auto; }
 
-#postamble, #preamble {
-margin-left: 0;
-padding: 16px 20px;
+#content { padding: 36px 20px 80px; }
+#postamble, #preamble { padding: 0 20px; }
+.code-block { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+h1.title { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
 }
-
-pre {
-border-radius: 0;
-margin-left: -20px;
-margin-right: -20px;
-}
-
-h1 { font-size: 1.4rem; }
-h2 { font-size: 1.2rem; }
-}
-
 @media (max-width: 480px) {
-body { font-size: 14px; }
-#content { padding: 20px 16px; }
-h1 { font-size: 1.25rem; }
+body { font-size: 17px; }
+.site-header { padding: 0 14px; }
+.site-header .brand { font-size: 1rem; }
+h1.title { font-size: 1.7rem; }
+}
+
+/* ─── Print ─────────────────────────────────────────────── */
+@media print {
+.site-header, #table-of-contents, .toc-overlay, .copy-btn, .hd-anchor { display: none !important; }
+body, body.has-toc, body:has(#table-of-contents) { padding: 0; background: #fff; color: #000; }
+#content { max-width: none; padding: 0; }
+pre, .code-block { white-space: pre-wrap; page-break-inside: avoid; }
 }
 </style>
-<div class="header">
-<a href="https://notes.compileartisan.dev">
-<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>
-</a>
-</div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Add search box to TOC
-const toc = document.getElementById('table-of-contents');
+document.addEventListener('DOMContentLoaded', function () {
+'use strict';
+
+var body = document.body;
+var toc = document.getElementById('table-of-contents');
+var content = document.getElementById('content') || body;
+var root = document.documentElement;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (toc) body.classList.add('has-toc');
+
+/* ── Header (injected so the markup stays valid) ─────────── */
+var ICON = {
+menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+};
+function svg(inner) {
+return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" ' +
+'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
+
+var header = document.createElement('header');
+header.className = 'site-header';
+header.innerHTML =
+'<button class="icon-btn menu-btn" type="button" aria-label="Toggle contents" aria-expanded="false">' + svg(ICON.menu) + '</button>' +
+'<a class="brand" href="https://notes.compileartisan.dev">' +
+'<span class="dim">notes.</span><span class="bright">CompileArtisan</span><span class="dim">.dev</span>' +
+'<span class="cursor" aria-hidden="true"></span></a>' +
+'<span class="spacer"></span>' +
+'<button class="icon-btn theme-btn" type="button"></button>' +
+'<div class="progress" aria-hidden="true"></div>';
+body.insertBefore(header, body.firstChild);
+
+/* ── Theme toggle ────────────────────────────────────────── */
+var themeBtn = header.querySelector('.theme-btn');
+var mq = window.matchMedia('(prefers-color-scheme: dark)');
+function effectiveTheme() {
+return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+}
+function paintThemeBtn() {
+var dark = effectiveTheme() === 'dark';
+themeBtn.innerHTML = svg(dark ? ICON.sun : ICON.moon);
+themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+themeBtn.title = themeBtn.getAttribute('aria-label');
+}
+themeBtn.addEventListener('click', function () {
+var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+root.setAttribute('data-theme', next);
+try { localStorage.setItem('ca-theme', next); } catch (e) {}
+paintThemeBtn();
+});
+if (mq.addEventListener) mq.addEventListener('change', paintThemeBtn);
+paintThemeBtn();
+
+/* ── Mobile drawer ───────────────────────────────────────── */
+var menuBtn = header.querySelector('.menu-btn');
+var overlay = document.createElement('div');
+overlay.className = 'toc-overlay';
+body.appendChild(overlay);
+function setDrawer(open) {
+body.classList.toggle('toc-open', open);
+menuBtn.setAttribute('aria-expanded', String(open));
+}
+menuBtn.addEventListener('click', function () { setDrawer(!body.classList.contains('toc-open')); });
+overlay.addEventListener('click', function () { setDrawer(false); });
+
+/* ── TOC: search + scroll spy ────────────────────────────── */
 if (toc) {
-const h2 = toc.querySelector('h2');
-if (h2) {
-const searchBox = document.createElement('input');
-searchBox.type = 'text';
-searchBox.id = 'toc-search';
-searchBox.placeholder = 'Search headings...';
-h2.insertAdjacentElement('afterend', searchBox);
+var h2 = toc.querySelector('h2');
+var wrap = document.createElement('div');
+wrap.className = 'toc-search-wrap';
+wrap.innerHTML = '<input type="text" id="toc-search" placeholder="Search headings…" ' +
+'autocomplete="off" spellcheck="false" aria-label="Search headings"><kbd>/</kbd>';
+var empty = document.createElement('p');
+empty.className = 'toc-empty';
+empty.textContent = 'No matching headings.';
+empty.hidden = true;
+(h2 || toc).insertAdjacentElement(h2 ? 'afterend' : 'afterbegin', wrap);
+wrap.insertAdjacentElement('afterend', empty);
 
-// Search functionality
-searchBox.addEventListener('input', function(e) {
-const searchTerm = e.target.value.toLowerCase();
-const tocLinks = toc.querySelectorAll('li');
+var search = wrap.querySelector('input');
+var items = Array.prototype.slice.call(toc.querySelectorAll('li'));
 
-tocLinks.forEach(li => {
-const text = li.textContent.toLowerCase();
-if (text.includes(searchTerm)) {
-li.classList.remove('hidden');
+function ownText(li) {
+var a = li.querySelector(':scope > a');
+return a ? a.textContent.toLowerCase() : '';
+}
+function filter() {
+var q = search.value.trim().toLowerCase();
+var shown = 0;
+items.forEach(function (li) {
+var visible = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+// if an ancestor heading matches, keep its whole subtree visible
+for (var p = li.parentElement && li.parentElement.closest('li'); !visible && p; p = p.parentElement && p.parentElement.closest('li')) {
+if (ownText(p).indexOf(q) !== -1) visible = true;
+}
+li.classList.toggle('hidden', !visible);
+if (visible) shown++;
+});
+empty.hidden = !q || shown > 0;
+}
+search.addEventListener('input', filter);
+search.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') { search.value = ''; filter(); search.blur(); }
+if (e.key === 'Enter') {
+var first = toc.querySelector('li:not(.hidden) > a');
+if (first) first.click();
+}
+});
+document.addEventListener('keydown', function (e) {
+var tag = (document.activeElement && document.activeElement.tagName) || '';
+if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(tag) && !e.metaKey && !e.ctrlKey) {
+e.preventDefault();
+setDrawer(true);
+search.focus();
+}
+});
+toc.addEventListener('click', function (e) {
+if (e.target.closest('a')) setDrawer(false);
+});
+}
+
+/* ── Heading anchors ─────────────────────────────────────── */
+content.querySelectorAll('h2[id], h3[id], h4[id]').forEach(function (h) {
+var a = document.createElement('a');
+a.className = 'hd-anchor';
+a.href = '#' + h.id;
+a.setAttribute('aria-label', 'Link to this section');
+a.textContent = '#';
+h.appendChild(a);
+});
+
+/* ── Code blocks: wrapper, language label, copy button ───── */
+content.querySelectorAll('pre').forEach(function (pre) {
+var box = pre.parentElement;
+if (!box || !box.classList.contains('org-src-container')) {
+box = document.createElement('div');
+pre.parentNode.insertBefore(box, pre);
+box.appendChild(pre);
+}
+box.classList.add('code-block');
+var m = /(?:^|\s)src-([^\s]+)/.exec(pre.className);
+if (m && m[1]) box.setAttribute('data-lang', m[1]);
+
+var btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'copy-btn';
+btn.textContent = 'Copy';
+btn.addEventListener('click', function () {
+var text = pre.textContent;
+function done() {
+btn.textContent = 'Copied';
+btn.classList.add('copied');
+setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+}
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, function () {});
 } else {
-li.classList.add('hidden');
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
 }
 });
-});
-}
-}
-
-// Scroll spy functionality
-const sections = [];
-const tocLinks = document.querySelectorAll('#table-of-contents a');
-
-// Build sections array
-tocLinks.forEach(link => {
-const href = link.getAttribute('href');
-if (href && href.startsWith('#')) {
-const target = document.querySelector(href);
-if (target) {
-sections.push({
-id: href,
-element: target,
-link: link
-});
-}
-}
+box.appendChild(btn);
 });
 
-function updateActiveLink() {
-const scrollPos = window.scrollY + 100; // Offset for header
-
-let currentSection = null;
-
-// Find the current section
-for (let i = sections.length - 1; i >= 0; i--) {
-const section = sections[i];
-if (section.element.offsetTop <= scrollPos) {
-currentSection = section;
-break;
-}
-}
-
-// Remove all active classes
-tocLinks.forEach(link => link.classList.remove('active'));
-
-// Add active class to current section
-if (currentSection) {
-currentSection.link.classList.add('active');
-
-// Scroll TOC to show active link
-const tocContainer = document.getElementById('table-of-contents');
-if (tocContainer) {
-const linkTop = currentSection.link.offsetTop;
-const linkHeight = currentSection.link.offsetHeight;
-const containerHeight = tocContainer.clientHeight;
-const containerScroll = tocContainer.scrollTop;
-
-// Check if link is out of view
-if (linkTop < containerScroll || linkTop + linkHeight > containerScroll + containerHeight) {
-// Smooth scroll the TOC to center the active link
-tocContainer.scrollTo({
-top: linkTop - containerHeight / 2,
-behavior: 'smooth'
-});
-}
-}
-}
-}
-
-// Throttle scroll events for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-if (scrollTimeout) {
-window.cancelAnimationFrame(scrollTimeout);
-}
-scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+/* ── Tables: horizontal scroll container ─────────────────── */
+content.querySelectorAll('table').forEach(function (t) {
+if (t.parentElement.classList.contains('table-wrap')) return;
+var w = document.createElement('div');
+w.className = 'table-wrap';
+t.parentNode.insertBefore(w, t);
+w.appendChild(t);
 });
 
-// Initial call
-updateActiveLink();
+/* ── Scroll: progress bar + scroll spy ───────────────────── */
+var bar = header.querySelector('.progress');
+var links = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
+var sections = links.map(function (a) {
+var el = null;
+try { el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); } catch (e) {}
+return el ? { el: el, link: a } : null;
+}).filter(Boolean);
+var current = null;
+
+function keepInView(link) {
+var top = link.getBoundingClientRect().top - toc.getBoundingClientRect().top + toc.scrollTop;
+var view = toc.clientHeight;
+if (top < toc.scrollTop + 60 || top > toc.scrollTop + view - 60) {
+toc.scrollTo({ top: top - view / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+}
+
+function update() {
+var max = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+
+if (!sections.length) return;
+var active = null, line = 120;
+for (var i = 0; i < sections.length; i++) {
+if (sections[i].el.getBoundingClientRect().top <= line) active = sections[i]; else break;
+}
+if (active === current) return;
+current = active;
+links.forEach(function (l) { l.classList.remove('active'); });
+if (active) { active.link.classList.add('active'); keepInView(active.link); }
+}
+
+var ticking = false;
+window.addEventListener('scroll', function () {
+if (ticking) return;
+ticking = true;
+requestAnimationFrame(function () { ticking = false; update(); });
+}, { passive: true });
+window.addEventListener('resize', update);
+update();
 });
 </script>
 <script>
@@ -709,185 +871,185 @@ updateActiveLink();
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org954bcbe">1. Introduction</a>
+<li><a href="#org7b1814c">1. Introduction</a>
 <ul>
-<li><a href="#orgbc5118a">1.1. How to choose data</a></li>
-<li><a href="#orga42d4b5">1.2. General Terminologies</a>
+<li><a href="#orgfbe6ee6">1.1. How to choose data</a></li>
+<li><a href="#orgc035ab0">1.2. General Terminologies</a>
 <ul>
-<li><a href="#org1f60a39">1.2.1. Epoch</a></li>
-<li><a href="#orgaecef37">1.2.2. Confusion Matrix</a></li>
+<li><a href="#org7611db7">1.2.1. Epoch</a></li>
+<li><a href="#org1946c9d">1.2.2. Confusion Matrix</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org29ca034">2. McCulloch Pitts Neuron</a>
+<li><a href="#orgcb5233c">2. McCulloch Pitts Neuron</a>
 <ul>
-<li><a href="#org7ea4bb7">2.1. Types of Inputs</a></li>
+<li><a href="#org0cbe6dc">2.1. Types of Inputs</a></li>
 </ul>
 </li>
-<li><a href="#org4b300c0">3. Perceptron</a>
+<li><a href="#orgb230a16">3. Perceptron</a>
 <ul>
-<li><a href="#org6c2a58c">3.1. Perceptron Learning</a></li>
-<li><a href="#org866687b">3.2. AND gate</a></li>
-<li><a href="#org25c2a62">3.3. Hebbian Rule</a></li>
-<li><a href="#orgfa6bdca">3.4. Perceptron Learning Rule or Delta Rule</a></li>
-<li><a href="#org9fe4cad">3.5. Number of Parameters in a Neural Network</a></li>
+<li><a href="#orgd7b7030">3.1. Perceptron Learning</a></li>
+<li><a href="#org40f885a">3.2. AND gate</a></li>
+<li><a href="#orgf4d71bf">3.3. Hebbian Rule</a></li>
+<li><a href="#orgfead02a">3.4. Perceptron Learning Rule or Delta Rule</a></li>
+<li><a href="#org1c48353">3.5. Number of Parameters in a Neural Network</a></li>
 </ul>
 </li>
-<li><a href="#org5aefd56">4. Non-Linear Regions</a>
+<li><a href="#org8c992e5">4. Non-Linear Regions</a>
 <ul>
-<li><a href="#orga699e7b">4.1. Activation Function</a>
+<li><a href="#org8249930">4.1. Activation Function</a>
 <ul>
-<li><a href="#org26be726">4.1.1. Sigmoidal Function</a></li>
-<li><a href="#orgb75e72b">4.1.2. Tanh</a></li>
-<li><a href="#org714a213">4.1.3. ReLU</a></li>
-<li><a href="#orgbc17c7b">4.1.4. Leaky ReLU</a></li>
-<li><a href="#org77ab544">4.1.5. Swish/ SeLU</a></li>
-<li><a href="#orgc6d23a0">4.1.6. Softmax function</a></li>
+<li><a href="#orgc4ee4eb">4.1.1. Sigmoidal Function</a></li>
+<li><a href="#orgdcfa4c5">4.1.2. Tanh</a></li>
+<li><a href="#org50ce3db">4.1.3. ReLU</a></li>
+<li><a href="#org5e45c03">4.1.4. Leaky ReLU</a></li>
+<li><a href="#org804d5b4">4.1.5. Swish/ SeLU</a></li>
+<li><a href="#orgb4a924a">4.1.6. Softmax function</a></li>
 </ul>
 </li>
-<li><a href="#orgdee1a94">4.2. Hidden Layers</a></li>
+<li><a href="#orga7869ff">4.2. Hidden Layers</a></li>
 </ul>
 </li>
-<li><a href="#org0c5cbd6">5. Gradient Descent</a>
+<li><a href="#org802f8ad">5. Gradient Descent</a>
 <ul>
-<li><a href="#org1f119a6">5.1. Weight Initialization</a></li>
-<li><a href="#orgb825706">5.2. Loss</a>
+<li><a href="#org06f9c9f">5.1. Weight Initialization</a></li>
+<li><a href="#org6e8bee0">5.2. Loss</a>
 <ul>
-<li><a href="#orge1e8bcd">5.2.1. <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</a></li>
-<li><a href="#org64cfd27">5.2.2. Mean Square Error</a></li>
-<li><a href="#org191d392">5.2.3. Learning Rate vs Loss</a></li>
+<li><a href="#org144d747">5.2.1. <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</a></li>
+<li><a href="#org71a4ec2">5.2.2. Mean Square Error</a></li>
+<li><a href="#org880f220">5.2.3. Learning Rate vs Loss</a></li>
 </ul>
 </li>
-<li><a href="#orge81e14a">5.3. Working of Gradient Descent</a>
+<li><a href="#orgec65bb6">5.3. Working of Gradient Descent</a>
 <ul>
-<li><a href="#orga4bc2a6">5.3.1. Feedforward</a></li>
-<li><a href="#org6ca40de">5.3.2. Find Loss or Error</a></li>
-<li><a href="#org2f358a0">5.3.3. Backpropagation</a></li>
+<li><a href="#orgd04cf42">5.3.1. Feedforward</a></li>
+<li><a href="#orge8ddb4a">5.3.2. Find Loss or Error</a></li>
+<li><a href="#org4d19e76">5.3.3. Backpropagation</a></li>
 </ul>
 </li>
-<li><a href="#org0842713">5.4. Vanishing Gradient</a></li>
+<li><a href="#org4add3e2">5.4. Vanishing Gradient</a></li>
 </ul>
 </li>
-<li><a href="#org1c26cd3">6. Overfitting Techniques</a>
+<li><a href="#orgeb5215f">6. Overfitting Techniques</a>
 <ul>
-<li><a href="#org01ba8a4">6.1. Early Stopping</a></li>
-<li><a href="#org6aea9c6">6.2. Drop Out</a></li>
-<li><a href="#org9344732">6.3. Regularization</a>
+<li><a href="#org84c98f2">6.1. Early Stopping</a></li>
+<li><a href="#orgcfed707">6.2. Drop Out</a></li>
+<li><a href="#org6d40981">6.3. Regularization</a>
 <ul>
-<li><a href="#orgf8cf7e7">6.3.1. L-2 Regularization</a></li>
-<li><a href="#orga7e5abe">6.3.2. L-1 Regularization</a></li>
+<li><a href="#orgdc208e1">6.3.1. L-2 Regularization</a></li>
+<li><a href="#org59cd95b">6.3.2. L-1 Regularization</a></li>
 </ul>
 </li>
-<li><a href="#org6381e06">6.4. Adding Noise to the inputs</a></li>
-<li><a href="#org70bc8db">6.5. Ensembling</a></li>
-<li><a href="#org9ca178d">6.6. Batch Normalization</a></li>
+<li><a href="#org84956f3">6.4. Adding Noise to the inputs</a></li>
+<li><a href="#orga14ea98">6.5. Ensembling</a></li>
+<li><a href="#orgf8343b8">6.6. Batch Normalization</a></li>
 </ul>
 </li>
-<li><a href="#org5af37f3">7. Optimization</a>
+<li><a href="#orgdf769ce">7. Optimization</a>
 <ul>
-<li><a href="#org3161b85">7.1. Unconstrained Optimizations</a></li>
-<li><a href="#org51647a1">7.2. Constrained Optimization</a></li>
+<li><a href="#orge1328ec">7.1. Unconstrained Optimizations</a></li>
+<li><a href="#org4a9a9a7">7.2. Constrained Optimization</a></li>
 </ul>
 </li>
-<li><a href="#org28e884b">8. Convolutional Neural Networks</a>
+<li><a href="#orge8a85b5">8. Convolutional Neural Networks</a>
 <ul>
-<li><a href="#org2f4ada8">8.1. Issue of ANN (Artificial Neural Network)</a></li>
-<li><a href="#orgba77466">8.2. Sliding Window Technique</a>
+<li><a href="#orgeb545e8">8.1. Issue of ANN (Artificial Neural Network)</a></li>
+<li><a href="#org4f1ab9f">8.2. Sliding Window Technique</a>
 <ul>
-<li><a href="#org5009416">8.2.1. Kernel</a></li>
-<li><a href="#org7213549">8.2.2. How CNN is viewed as an ANN</a></li>
+<li><a href="#org7741560">8.2.1. Kernel</a></li>
+<li><a href="#org4a2205b">8.2.2. How CNN is viewed as an ANN</a></li>
 </ul>
 </li>
-<li><a href="#org863dff7">8.3. Types of Convolution based on Padding</a>
+<li><a href="#orgb9a0c6c">8.3. Types of Convolution based on Padding</a>
 <ul>
-<li><a href="#org6a45b7c">8.3.1. Zero Padding / Valid Convolution</a></li>
-<li><a href="#org8e88179">8.3.2. Just Enough Zero Padding / Same Convolution</a></li>
-<li><a href="#org0bdce3e">8.3.3. Full Convolution</a></li>
+<li><a href="#org112e212">8.3.1. Zero Padding / Valid Convolution</a></li>
+<li><a href="#org76435c5">8.3.2. Just Enough Zero Padding / Same Convolution</a></li>
+<li><a href="#org0aa0e45">8.3.3. Full Convolution</a></li>
 </ul>
 </li>
-<li><a href="#org734c66a">8.4. Striding</a></li>
-<li><a href="#org8aaf60a">8.5. Grand Formula for Feature Map</a></li>
-<li><a href="#org084c125">8.6. Pooling</a>
+<li><a href="#orgd0d9c17">8.4. Striding</a></li>
+<li><a href="#org7440735">8.5. Grand Formula for Feature Map</a></li>
+<li><a href="#org3654afc">8.6. Pooling</a>
 <ul>
-<li><a href="#org4b8bcfa">8.6.1. Max-Pooling</a></li>
-<li><a href="#orga02b378">8.6.2. Global Average Pooling</a></li>
+<li><a href="#org4d30144">8.6.1. Max-Pooling</a></li>
+<li><a href="#org1a613fd">8.6.2. Global Average Pooling</a></li>
 </ul>
 </li>
-<li><a href="#org0dd2dc1">8.7. Flattening Layer</a></li>
-<li><a href="#orgfcaa0cb">8.8. LeNet</a>
+<li><a href="#org5216e33">8.7. Flattening Layer</a></li>
+<li><a href="#org26b1408">8.8. LeNet</a>
 <ul>
-<li><a href="#org5efcf3f">8.8.1. Architecture</a></li>
-<li><a href="#org658367f">8.8.2. Convolution Layer 1</a></li>
+<li><a href="#org02af41f">8.8.1. Architecture</a></li>
+<li><a href="#orgd5a5c91">8.8.2. Convolution Layer 1</a></li>
 </ul>
 </li>
-<li><a href="#orgbde8449">8.9. AlexNet</a>
+<li><a href="#org8fc24a0">8.9. AlexNet</a>
 <ul>
-<li><a href="#org66e849a">8.9.1. Dataset</a></li>
-<li><a href="#org28e5063">8.9.2. Structure</a></li>
+<li><a href="#org95bb0b7">8.9.1. Dataset</a></li>
+<li><a href="#org5bd3d4e">8.9.2. Structure</a></li>
 </ul>
 </li>
-<li><a href="#org6eae7d5">8.10. YOLO NAS (Neural Architectural Search)</a></li>
-<li><a href="#org9238045">8.11. VGGNet</a></li>
-<li><a href="#org1a4fa04">8.12. ResNet</a></li>
-<li><a href="#org80401c5">8.13. GoogleNet</a></li>
-<li><a href="#org8ae48a3">8.14. Applications</a></li>
-<li><a href="#org6437198">8.15. UNet</a>
+<li><a href="#orgc49bc66">8.10. YOLO NAS (Neural Architectural Search)</a></li>
+<li><a href="#orga51ffc8">8.11. VGGNet</a></li>
+<li><a href="#org1a0a5d0">8.12. ResNet</a></li>
+<li><a href="#org28a490c">8.13. GoogleNet</a></li>
+<li><a href="#org358057d">8.14. Applications</a></li>
+<li><a href="#orgeebebc2">8.15. UNet</a>
 <ul>
-<li><a href="#org001d1ec">8.15.1. VGGNet used as an encoder</a></li>
+<li><a href="#org5a42f11">8.15.1. VGGNet used as an encoder</a></li>
 </ul>
 </li>
-<li><a href="#org40af811">8.16. YOLO</a>
+<li><a href="#org5229847">8.16. YOLO</a>
 <ul>
-<li><a href="#org486c40c">8.16.1. What it is</a></li>
-<li><a href="#orgff17ace">8.16.2. Code</a></li>
+<li><a href="#org2f56212">8.16.1. What it is</a></li>
+<li><a href="#orgc4843e8">8.16.2. Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf474d74">9. Recurrent Neural Network</a>
+<li><a href="#orga2e70f0">9. Recurrent Neural Network</a>
 <ul>
-<li><a href="#org257bd49">9.1. Introduction</a></li>
-<li><a href="#org775c775">9.2. Issue of ANNs</a></li>
-<li><a href="#org271cc0c">9.3. What RNNs do</a>
+<li><a href="#org2cfb26b">9.1. Introduction</a></li>
+<li><a href="#org38d22c0">9.2. Issue of ANNs</a></li>
+<li><a href="#org07d8f72">9.3. What RNNs do</a>
 <ul>
-<li><a href="#orge728b5e">9.3.1. Working:</a></li>
-<li><a href="#org87bf6ee">9.3.2. Full Workflow, explained with the case of a word predictor</a></li>
-<li><a href="#org355a2b8">9.3.3. A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</a></li>
-<li><a href="#orgfc6459c">9.3.4. Given the following architecture, find the number of trainable parameters.</a></li>
+<li><a href="#orgabcf19e">9.3.1. Working:</a></li>
+<li><a href="#org05938e1">9.3.2. Full Workflow, explained with the case of a word predictor</a></li>
+<li><a href="#orgabc02c4">9.3.3. A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</a></li>
+<li><a href="#org18bb2e9">9.3.4. Given the following architecture, find the number of trainable parameters.</a></li>
 </ul>
 </li>
-<li><a href="#orgb5c3b60">9.4. Calculating Loss</a></li>
-<li><a href="#org116fb17">9.5. Backpropagation through Time (BTT)</a></li>
-<li><a href="#orgda6c8a2">9.6. Input to RNN</a></li>
-<li><a href="#org7d71aa4">9.7. Layer Normalization</a></li>
-<li><a href="#org06160be">9.8. Issues</a></li>
+<li><a href="#orgeb1a8d5">9.4. Calculating Loss</a></li>
+<li><a href="#org69de9f2">9.5. Backpropagation through Time (BTT)</a></li>
+<li><a href="#org72dab2f">9.6. Input to RNN</a></li>
+<li><a href="#org7649e76">9.7. Layer Normalization</a></li>
+<li><a href="#org276c8f6">9.8. Issues</a></li>
 </ul>
 </li>
-<li><a href="#org4716da2">10. Long Short Term Memory (LSTM)</a>
+<li><a href="#org1d25dda">10. Long Short Term Memory (LSTM)</a>
 <ul>
-<li><a href="#org0de25c3">10.1. How Previous Hidden State is Modified</a></li>
-<li><a href="#org151327f">10.2. How Current Hidden State is Modified</a></li>
-<li><a href="#orgc9c3c96">10.3. Gates</a></li>
+<li><a href="#org7055d86">10.1. How Previous Hidden State is Modified</a></li>
+<li><a href="#org76a7b19">10.2. How Current Hidden State is Modified</a></li>
+<li><a href="#org940e18e">10.3. Gates</a></li>
 </ul>
 </li>
-<li><a href="#orgc32059a">11. Gated Recurrent Unit (GRU)</a></li>
-<li><a href="#org31d585d">12. Encoders and Decoders</a></li>
-<li><a href="#org5b26df8">13. Transformer</a>
+<li><a href="#org099eb48">11. Gated Recurrent Unit (GRU)</a></li>
+<li><a href="#org81b7591">12. Encoders and Decoders</a></li>
+<li><a href="#org19e5c3a">13. Transformer</a>
 <ul>
-<li><a href="#orgd65ade9">13.1. Embedding</a></li>
-<li><a href="#orga3f6895">13.2. Query</a></li>
-<li><a href="#org43ad926">13.3. Key</a></li>
-<li><a href="#orgb067941">13.4. Value</a></li>
-<li><a href="#org40eacb7">13.5. Attention</a></li>
-<li><a href="#orge599c6b">13.6. CLIP</a></li>
+<li><a href="#orgf019d70">13.1. Embedding</a></li>
+<li><a href="#org59df2ff">13.2. Query</a></li>
+<li><a href="#org55a522a">13.3. Key</a></li>
+<li><a href="#orgd2824c5">13.4. Value</a></li>
+<li><a href="#org0fabfd9">13.5. Attention</a></li>
+<li><a href="#orgc2d5003">13.6. CLIP</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org954bcbe" class="outline-2">
-<h2 id="org954bcbe"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org7b1814c" class="outline-2">
+<h2 id="org7b1814c"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>ML is a subset of AI, and DL is a subset of ML.</li>
@@ -950,8 +1112,8 @@ Here are the general differences:
 </table></li>
 </ul>
 </div>
-<div id="outline-container-orgbc5118a" class="outline-3">
-<h3 id="orgbc5118a"><span class="section-number-3">1.1.</span> How to choose data</h3>
+<div id="outline-container-orgfbe6ee6" class="outline-3">
+<h3 id="orgfbe6ee6"><span class="section-number-3">1.1.</span> How to choose data</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>When the inter-class distance is too high, the accuracy of the model will be
@@ -964,20 +1126,20 @@ models).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga42d4b5" class="outline-3">
-<h3 id="orga42d4b5"><span class="section-number-3">1.2.</span> General Terminologies</h3>
+<div id="outline-container-orgc035ab0" class="outline-3">
+<h3 id="orgc035ab0"><span class="section-number-3">1.2.</span> General Terminologies</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org1f60a39" class="outline-4">
-<h4 id="org1f60a39"><span class="section-number-4">1.2.1.</span> Epoch</h4>
+<div id="outline-container-org7611db7" class="outline-4">
+<h4 id="org7611db7"><span class="section-number-4">1.2.1.</span> Epoch</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>One iteration over the entire dataset.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaecef37" class="outline-4">
-<h4 id="orgaecef37"><span class="section-number-4">1.2.2.</span> Confusion Matrix</h4>
+<div id="outline-container-org1946c9d" class="outline-4">
+<h4 id="org1946c9d"><span class="section-number-4">1.2.2.</span> Confusion Matrix</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>Matrix where:
@@ -1097,8 +1259,8 @@ Here are things you can derive from the confusion matrix:
 </div>
 </div>
 </div>
-<div id="outline-container-org29ca034" class="outline-2">
-<h2 id="org29ca034"><span class="section-number-2">2.</span> McCulloch Pitts Neuron</h2>
+<div id="outline-container-orgcb5233c" class="outline-2">
+<h2 id="orgcb5233c"><span class="section-number-2">2.</span> McCulloch Pitts Neuron</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>An artifial neuron passes a linear combination of inputs to an activation function, and
@@ -1243,8 +1405,8 @@ use a single line to make a decision boundary.
 </p></li>
 </ul>
 </div>
-<div id="outline-container-org7ea4bb7" class="outline-3">
-<h3 id="org7ea4bb7"><span class="section-number-3">2.1.</span> Types of Inputs</h3>
+<div id="outline-container-org0cbe6dc" class="outline-3">
+<h3 id="org0cbe6dc"><span class="section-number-3">2.1.</span> Types of Inputs</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><b>Inhibitory Input</b>: It&rsquo;s an input which can independently change the decision</li>
@@ -1361,8 +1523,8 @@ this case, both \(x_{1}\) and \(x_{2}\) are inhibitory.
 </div>
 </div>
 </div>
-<div id="outline-container-org4b300c0" class="outline-2">
-<h2 id="org4b300c0"><span class="section-number-2">3.</span> Perceptron</h2>
+<div id="outline-container-orgb230a16" class="outline-2">
+<h2 id="orgb230a16"><span class="section-number-2">3.</span> Perceptron</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>This is for non-boolean classification, where now each input have weights.</li>
@@ -1443,8 +1605,8 @@ Take a simple example where \(f(x) = x_{1} \land x_{2} \)
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org6c2a58c" class="outline-3">
-<h3 id="org6c2a58c"><span class="section-number-3">3.1.</span> Perceptron Learning</h3>
+<div id="outline-container-orgd7b7030" class="outline-3">
+<h3 id="orgd7b7030"><span class="section-number-3">3.1.</span> Perceptron Learning</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>\(g(x) = W^{T}X = 0 \). \(W\) is perpendicular to any point X lying on the
@@ -1470,8 +1632,8 @@ where &eta; is called the <b>learning rate</b>.
 </ul>
 </div>
 </div>
-<div id="outline-container-org866687b" class="outline-3">
-<h3 id="org866687b"><span class="section-number-3">3.2.</span> AND gate</h3>
+<div id="outline-container-org40f885a" class="outline-3">
+<h3 id="org40f885a"><span class="section-number-3">3.2.</span> AND gate</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Given Bipolar data (only -1 and 1)</li>
@@ -1605,8 +1767,8 @@ Assume all weights to be 1 and bias to be -1 for this example.
 </table>
 </div>
 </div>
-<div id="outline-container-org25c2a62" class="outline-3">
-<h3 id="org25c2a62"><span class="section-number-3">3.3.</span> Hebbian Rule</h3>
+<div id="outline-container-orgf4d71bf" class="outline-3">
+<h3 id="orgf4d71bf"><span class="section-number-3">3.3.</span> Hebbian Rule</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 \[w_{new} = w_{old} + \Delta w\]
@@ -1619,8 +1781,8 @@ where \( \Delta w =  \eta t x  \)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa6bdca" class="outline-3">
-<h3 id="orgfa6bdca"><span class="section-number-3">3.4.</span> Perceptron Learning Rule or Delta Rule</h3>
+<div id="outline-container-orgfead02a" class="outline-3">
+<h3 id="orgfead02a"><span class="section-number-3">3.4.</span> Perceptron Learning Rule or Delta Rule</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 \[w_{new} = w_{old} + \Delta w\]
@@ -1722,8 +1884,8 @@ approach in the traditional hebbian rule.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9fe4cad" class="outline-3">
-<h3 id="org9fe4cad"><span class="section-number-3">3.5.</span> Number of Parameters in a Neural Network</h3>
+<div id="outline-container-org1c48353" class="outline-3">
+<h3 id="org1c48353"><span class="section-number-3">3.5.</span> Number of Parameters in a Neural Network</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>Let N<sub>i</sub> be the number of neurons in layer \(i\), and \(n\) is the number of layers
@@ -1735,8 +1897,8 @@ approach in the traditional hebbian rule.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5aefd56" class="outline-2">
-<h2 id="org5aefd56"><span class="section-number-2">4.</span> Non-Linear Regions</h2>
+<div id="outline-container-org8c992e5" class="outline-2">
+<h2 id="org8c992e5"><span class="section-number-2">4.</span> Non-Linear Regions</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Generally, one line (decision boundary) is formed by one neuron.</li>
@@ -1747,16 +1909,16 @@ hence neuron).</li>
 <li>These neurons are just inputs to the next neuron.</li>
 </ul>
 </div>
-<div id="outline-container-orga699e7b" class="outline-3">
-<h3 id="orga699e7b"><span class="section-number-3">4.1.</span> Activation Function</h3>
+<div id="outline-container-org8249930" class="outline-3">
+<h3 id="org8249930"><span class="section-number-3">4.1.</span> Activation Function</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>The error function must be <b>continuous</b> and <b>differentiable</b>, so that you&rsquo;re not
 taking sudden and high jumps.</li>
 </ul>
 </div>
-<div id="outline-container-org26be726" class="outline-4">
-<h4 id="org26be726"><span class="section-number-4">4.1.1.</span> Sigmoidal Function</h4>
+<div id="outline-container-orgc4ee4eb" class="outline-4">
+<h4 id="orgc4ee4eb"><span class="section-number-4">4.1.1.</span> Sigmoidal Function</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 \[ f(x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{1+e^{x}} \]
@@ -1777,8 +1939,8 @@ classification.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb75e72b" class="outline-4">
-<h4 id="orgb75e72b"><span class="section-number-4">4.1.2.</span> Tanh</h4>
+<div id="outline-container-orgdcfa4c5" class="outline-4">
+<h4 id="orgdcfa4c5"><span class="section-number-4">4.1.2.</span> Tanh</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 \[ f(x) = \frac{e^{x} - e^{-x} }{e^{x} + e^{-x}} \]
@@ -1790,8 +1952,8 @@ expensive because of so many \(e^{x}\).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org714a213" class="outline-4">
-<h4 id="org714a213"><span class="section-number-4">4.1.3.</span> ReLU</h4>
+<div id="outline-container-org50ce3db" class="outline-4">
+<h4 id="org50ce3db"><span class="section-number-4">4.1.3.</span> ReLU</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 \[ f(x) = max(0,x)  \]
@@ -1809,24 +1971,24 @@ using ReLU only in hidden layers.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbc17c7b" class="outline-4">
-<h4 id="orgbc17c7b"><span class="section-number-4">4.1.4.</span> Leaky ReLU</h4>
+<div id="outline-container-org5e45c03" class="outline-4">
+<h4 id="org5e45c03"><span class="section-number-4">4.1.4.</span> Leaky ReLU</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 \[f(x) = \begin{cases} x & \text{if } x \geq 0, \\ \alpha x & \text{if } x < 0, \end{cases}\]
 </p>
 </div>
 </div>
-<div id="outline-container-org77ab544" class="outline-4">
-<h4 id="org77ab544"><span class="section-number-4">4.1.5.</span> Swish/ SeLU</h4>
+<div id="outline-container-org804d5b4" class="outline-4">
+<h4 id="org804d5b4"><span class="section-number-4">4.1.5.</span> Swish/ SeLU</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 \[f(x) = x * Sigmoid(x)\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgc6d23a0" class="outline-4">
-<h4 id="orgc6d23a0"><span class="section-number-4">4.1.6.</span> Softmax function</h4>
+<div id="outline-container-orgb4a924a" class="outline-4">
+<h4 id="orgb4a924a"><span class="section-number-4">4.1.6.</span> Softmax function</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 \[ P(class_{i}) = \frac{e^{Z_{i}}}{\Sigma_{1}^{n}e^{Z_{i}}}\]
@@ -1843,8 +2005,8 @@ time.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdee1a94" class="outline-3">
-<h3 id="orgdee1a94"><span class="section-number-3">4.2.</span> Hidden Layers</h3>
+<div id="outline-container-orga7869ff" class="outline-3">
+<h3 id="orga7869ff"><span class="section-number-3">4.2.</span> Hidden Layers</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>A general trick is that, the number of neurons in a hidden layer is
@@ -1855,12 +2017,12 @@ and N<sub>o</sub> is the number of neurons in the output layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0c5cbd6" class="outline-2">
-<h2 id="org0c5cbd6"><span class="section-number-2">5.</span> Gradient Descent</h2>
+<div id="outline-container-org802f8ad" class="outline-2">
+<h2 id="org802f8ad"><span class="section-number-2">5.</span> Gradient Descent</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org1f119a6" class="outline-3">
-<h3 id="org1f119a6"><span class="section-number-3">5.1.</span> Weight Initialization</h3>
+<div id="outline-container-org06f9c9f" class="outline-3">
+<h3 id="org06f9c9f"><span class="section-number-3">5.1.</span> Weight Initialization</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>In a neural network, you have to initialize weights with random values.</li>
@@ -1875,12 +2037,12 @@ only one neuron present in each layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb825706" class="outline-3">
-<h3 id="orgb825706"><span class="section-number-3">5.2.</span> Loss</h3>
+<div id="outline-container-org6e8bee0" class="outline-3">
+<h3 id="org6e8bee0"><span class="section-number-3">5.2.</span> Loss</h3>
 <div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-orge1e8bcd" class="outline-4">
-<h4 id="orge1e8bcd"><span class="section-number-4">5.2.1.</span> <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</h4>
+<div id="outline-container-org144d747" class="outline-4">
+<h4 id="org144d747"><span class="section-number-4">5.2.1.</span> <b>0/1 Loss</b> aka <b>log loss</b> aka <b>binary cross entropy loss</b>.</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 \[ Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \]
@@ -1894,9 +2056,9 @@ very negative. Log of max probability (1) is 0.</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org5c55c00"></a>Given a binary inputs {0,1}, compute binary cross entropy loss<br />
+<li><a id="org2e96e50"></a>Given a binary inputs {0,1}, compute binary cross entropy loss<br />
 <ol class="org-ol">
-<li><a id="org41cebeb"></a>For X, actual class = 1, predicted probability = 0.8<br />
+<li><a id="org69f98e7"></a>For X, actual class = 1, predicted probability = 0.8<br />
 <div class="outline-text-6" id="text-5-2-1-1-1">
 <ul class="org-ul">
 <li>\( Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \)</li>
@@ -1905,7 +2067,7 @@ very negative. Log of max probability (1) is 0.</li>
 </ul>
 </div>
 </li>
-<li><a id="org00c93d3"></a>For Y, actual class = 0, predicted probability = 0.2<br />
+<li><a id="org3f45ed7"></a>For Y, actual class = 0, predicted probability = 0.2<br />
 <div class="outline-text-6" id="text-5-2-1-1-2">
 <ul class="org-ul">
 <li>\( Loss(y,p) = -[y*log(p) + (1-y)*log(1-p)] \)</li>
@@ -1916,7 +2078,7 @@ very negative. Log of max probability (1) is 0.</li>
 </li>
 </ol>
 </li>
-<li><a id="org335438c"></a>Loss Function for an entire Layer<br />
+<li><a id="orgf7d9c52"></a>Loss Function for an entire Layer<br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <p>
 \[-\frac{1}{n} \sum_{i=1}^{n} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)})\]
@@ -1925,8 +2087,8 @@ very negative. Log of max probability (1) is 0.</li>
 </li>
 </ol>
 </div>
-<div id="outline-container-org64cfd27" class="outline-4">
-<h4 id="org64cfd27"><span class="section-number-4">5.2.2.</span> Mean Square Error</h4>
+<div id="outline-container-org71a4ec2" class="outline-4">
+<h4 id="org71a4ec2"><span class="section-number-4">5.2.2.</span> Mean Square Error</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 \[Loss = \frac{(t-y)^{2}}{2}\]
@@ -1935,8 +2097,8 @@ predicted value.
 </p>
 </div>
 </div>
-<div id="outline-container-org191d392" class="outline-4">
-<h4 id="org191d392"><span class="section-number-4">5.2.3.</span> Learning Rate vs Loss</h4>
+<div id="outline-container-org880f220" class="outline-4">
+<h4 id="org880f220"><span class="section-number-4">5.2.3.</span> Learning Rate vs Loss</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <ul class="org-ul">
 <li><p>
@@ -1946,31 +2108,31 @@ This is what happens with different learning rates:
 </div>
 </div>
 </div>
-<div id="outline-container-orge81e14a" class="outline-3">
-<h3 id="orge81e14a"><span class="section-number-3">5.3.</span> Working of Gradient Descent</h3>
+<div id="outline-container-orgec65bb6" class="outline-3">
+<h3 id="orgec65bb6"><span class="section-number-3">5.3.</span> Working of Gradient Descent</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>There are mainly 3 steps:</li>
 </ul>
 </div>
-<div id="outline-container-orga4bc2a6" class="outline-4">
-<h4 id="orga4bc2a6"><span class="section-number-4">5.3.1.</span> Feedforward</h4>
+<div id="outline-container-orgd04cf42" class="outline-4">
+<h4 id="orgd04cf42"><span class="section-number-4">5.3.1.</span> Feedforward</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Find aggregate and activations throughout the network till you reach the end.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6ca40de" class="outline-4">
-<h4 id="org6ca40de"><span class="section-number-4">5.3.2.</span> Find Loss or Error</h4>
+<div id="outline-container-orge8ddb4a" class="outline-4">
+<h4 id="orge8ddb4a"><span class="section-number-4">5.3.2.</span> Find Loss or Error</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Calculate Mean Square Error or 0/1 loss (or whatever loss you need).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2f358a0" class="outline-4">
-<h4 id="org2f358a0"><span class="section-number-4">5.3.3.</span> Backpropagation</h4>
+<div id="outline-container-org4d19e76" class="outline-4">
+<h4 id="org4d19e76"><span class="section-number-4">5.3.3.</span> Backpropagation</h4>
 <div class="outline-text-4" id="text-5-3-3">
 <ul class="org-ul">
 <li>Essentially, you have to update weights as:
@@ -2065,8 +2227,8 @@ derivative of aggregation of previous layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0842713" class="outline-3">
-<h3 id="org0842713"><span class="section-number-3">5.4.</span> Vanishing Gradient</h3>
+<div id="outline-container-org4add3e2" class="outline-3">
+<h3 id="org4add3e2"><span class="section-number-3">5.4.</span> Vanishing Gradient</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>During gradient descent, as errors are propagated backward through the layers,
@@ -2082,12 +2244,12 @@ suffer the most from vanishing gradient.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org1c26cd3" class="outline-2">
-<h2 id="org1c26cd3"><span class="section-number-2">6.</span> Overfitting Techniques</h2>
+<div id="outline-container-orgeb5215f" class="outline-2">
+<h2 id="orgeb5215f"><span class="section-number-2">6.</span> Overfitting Techniques</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org01ba8a4" class="outline-3">
-<h3 id="org01ba8a4"><span class="section-number-3">6.1.</span> Early Stopping</h3>
+<div id="outline-container-org84c98f2" class="outline-3">
+<h3 id="org84c98f2"><span class="section-number-3">6.1.</span> Early Stopping</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>You allocate some data for <b>training</b>.</li>
@@ -2113,23 +2275,23 @@ loss starts increasing. This is called <b>early stopping</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6aea9c6" class="outline-3">
-<h3 id="org6aea9c6"><span class="section-number-3">6.2.</span> Drop Out</h3>
+<div id="outline-container-orgcfed707" class="outline-3">
+<h3 id="orgcfed707"><span class="section-number-3">6.2.</span> Drop Out</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9344732" class="outline-3">
-<h3 id="org9344732"><span class="section-number-3">6.3.</span> Regularization</h3>
+<div id="outline-container-org6d40981" class="outline-3">
+<h3 id="org6d40981"><span class="section-number-3">6.3.</span> Regularization</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>This helps in combating overfitting.</li>
 </ul>
 </div>
-<div id="outline-container-orgf8cf7e7" class="outline-4">
-<h4 id="orgf8cf7e7"><span class="section-number-4">6.3.1.</span> L-2 Regularization</h4>
+<div id="outline-container-orgdc208e1" class="outline-4">
+<h4 id="orgdc208e1"><span class="section-number-4">6.3.1.</span> L-2 Regularization</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <ul class="org-ul">
 <li>Instead of directly backpropagating on the loss, you add a penalty. This
@@ -2145,8 +2307,8 @@ slightly reducing the weights will shrink the penalty.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga7e5abe" class="outline-4">
-<h4 id="orga7e5abe"><span class="section-number-4">6.3.2.</span> L-1 Regularization</h4>
+<div id="outline-container-org59cd95b" class="outline-4">
+<h4 id="org59cd95b"><span class="section-number-4">6.3.2.</span> L-1 Regularization</h4>
 <div class="outline-text-4" id="text-6-3-2">
 <ul class="org-ul">
 <li>You still add a penalty, but this time the weights aren&rsquo;t squared.
@@ -2163,8 +2325,8 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org6381e06" class="outline-3">
-<h3 id="org6381e06"><span class="section-number-3">6.4.</span> Adding Noise to the inputs</h3>
+<div id="outline-container-org84956f3" class="outline-3">
+<h3 id="org84956f3"><span class="section-number-3">6.4.</span> Adding Noise to the inputs</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>x + Noise &rArr; \(\bar{x}\)</li>
@@ -2173,13 +2335,13 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org70bc8db" class="outline-3">
-<h3 id="org70bc8db"><span class="section-number-3">6.5.</span> Ensembling</h3>
+<div id="outline-container-orga14ea98" class="outline-3">
+<h3 id="orga14ea98"><span class="section-number-3">6.5.</span> Ensembling</h3>
 </div>
 
 
-<div id="outline-container-org9ca178d" class="outline-3">
-<h3 id="org9ca178d"><span class="section-number-3">6.6.</span> Batch Normalization</h3>
+<div id="outline-container-orgf8343b8" class="outline-3">
+<h3 id="orgf8343b8"><span class="section-number-3">6.6.</span> Batch Normalization</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>Activations</li>
@@ -2190,20 +2352,20 @@ being used. Hence, this helps in dimensionality reduction.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org5af37f3" class="outline-2">
-<h2 id="org5af37f3"><span class="section-number-2">7.</span> Optimization</h2>
+<div id="outline-container-orgdf769ce" class="outline-2">
+<h2 id="orgdf769ce"><span class="section-number-2">7.</span> Optimization</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org3161b85" class="outline-3">
-<h3 id="org3161b85"><span class="section-number-3">7.1.</span> Unconstrained Optimizations</h3>
+<div id="outline-container-orge1328ec" class="outline-3">
+<h3 id="orge1328ec"><span class="section-number-3">7.1.</span> Unconstrained Optimizations</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Only concerned with the objective function.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org51647a1" class="outline-3">
-<h3 id="org51647a1"><span class="section-number-3">7.2.</span> Constrained Optimization</h3>
+<div id="outline-container-org4a9a9a7" class="outline-3">
+<h3 id="org4a9a9a7"><span class="section-number-3">7.2.</span> Constrained Optimization</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Do something with the objective function, but at the same time, you have some
@@ -2212,12 +2374,12 @@ contraints.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org28e884b" class="outline-2">
-<h2 id="org28e884b"><span class="section-number-2">8.</span> Convolutional Neural Networks</h2>
+<div id="outline-container-orge8a85b5" class="outline-2">
+<h2 id="orge8a85b5"><span class="section-number-2">8.</span> Convolutional Neural Networks</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org2f4ada8" class="outline-3">
-<h3 id="org2f4ada8"><span class="section-number-3">8.1.</span> Issue of ANN (Artificial Neural Network)</h3>
+<div id="outline-container-orgeb545e8" class="outline-3">
+<h3 id="orgeb545e8"><span class="section-number-3">8.1.</span> Issue of ANN (Artificial Neural Network)</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><b>Dense/ Fully Connected Neural Networks</b>: Every neuron in 1 layer is connected
@@ -2237,8 +2399,8 @@ smaller in size, and is located on the top-left corner of the image.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgba77466" class="outline-3">
-<h3 id="orgba77466"><span class="section-number-3">8.2.</span> Sliding Window Technique</h3>
+<div id="outline-container-org4f1ab9f" class="outline-3">
+<h3 id="org4f1ab9f"><span class="section-number-3">8.2.</span> Sliding Window Technique</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><b>Convolution</b> is a linear mathematical operation
@@ -2246,8 +2408,8 @@ smaller in size, and is located on the top-left corner of the image.</li>
 <li>The output is called the <b>feature map</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org5009416" class="outline-4">
-<h4 id="org5009416"><span class="section-number-4">8.2.1.</span> Kernel</h4>
+<div id="outline-container-org7741560" class="outline-4">
+<h4 id="org7741560"><span class="section-number-4">8.2.1.</span> Kernel</h4>
 <div class="outline-text-4" id="text-8-2-1">
 <ul class="org-ul">
 <li>Sliding window (w) is called the <b>kernel</b> and it&rsquo;s also called a <b>filter</b>.</li>
@@ -2274,12 +2436,12 @@ pixels at the edge.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7213549" class="outline-4">
-<h4 id="org7213549"><span class="section-number-4">8.2.2.</span> How CNN is viewed as an ANN</h4>
+<div id="outline-container-org4a2205b" class="outline-4">
+<h4 id="org4a2205b"><span class="section-number-4">8.2.2.</span> How CNN is viewed as an ANN</h4>
 <div class="outline-text-4" id="text-8-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org35adad6"></a>Sparse Connections<br />
+<li><a id="orgaa1ef5a"></a>Sparse Connections<br />
 <div class="outline-text-5" id="text-8-2-2-1">
 <ul class="org-ul">
 <li>In an ANN, you vectorize the image, and every pixel (every neuron in the input
@@ -2293,7 +2455,7 @@ goes to 1 neuron in the next layer (the feature map).</li>
 </ul>
 </div>
 </li>
-<li><a id="org597fa87"></a>Receptive Field<br />
+<li><a id="orge96fec7"></a>Receptive Field<br />
 <div class="outline-text-5" id="text-8-2-2-2">
 <ul class="org-ul">
 <li>Receptive Field is the information a neuron gets from a previous layer.
@@ -2308,7 +2470,7 @@ the image.</li>
 </ul>
 </div>
 </li>
-<li><a id="org3790e11"></a>Weight Sharing<br />
+<li><a id="org74c9104"></a>Weight Sharing<br />
 <div class="outline-text-5" id="text-8-2-2-3">
 <ul class="org-ul">
 <li>Kernels only change layer by layer. So when a kernel moves through an image,
@@ -2320,12 +2482,12 @@ image. This is called <b>weight sharing</b>.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org863dff7" class="outline-3">
-<h3 id="org863dff7"><span class="section-number-3">8.3.</span> Types of Convolution based on Padding</h3>
+<div id="outline-container-orgb9a0c6c" class="outline-3">
+<h3 id="orgb9a0c6c"><span class="section-number-3">8.3.</span> Types of Convolution based on Padding</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
-<div id="outline-container-org6a45b7c" class="outline-4">
-<h4 id="org6a45b7c"><span class="section-number-4">8.3.1.</span> Zero Padding / Valid Convolution</h4>
+<div id="outline-container-org112e212" class="outline-4">
+<h4 id="org112e212"><span class="section-number-4">8.3.1.</span> Zero Padding / Valid Convolution</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <ul class="org-ul">
 <li>Essentially, what we&rsquo;ve been doing is <b>zero padding convolution</b>.</li>
@@ -2335,8 +2497,8 @@ image. This is called <b>weight sharing</b>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8e88179" class="outline-4">
-<h4 id="org8e88179"><span class="section-number-4">8.3.2.</span> Just Enough Zero Padding / Same Convolution</h4>
+<div id="outline-container-org76435c5" class="outline-4">
+<h4 id="org76435c5"><span class="section-number-4">8.3.2.</span> Just Enough Zero Padding / Same Convolution</h4>
 <div class="outline-text-4" id="text-8-3-2">
 <ul class="org-ul">
 <li>Instead of just losing information, we pad the image with \(\frac{n-1}{2} \)
@@ -2345,8 +2507,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0bdce3e" class="outline-4">
-<h4 id="org0bdce3e"><span class="section-number-4">8.3.3.</span> Full Convolution</h4>
+<div id="outline-container-org0aa0e45" class="outline-4">
+<h4 id="org0aa0e45"><span class="section-number-4">8.3.3.</span> Full Convolution</h4>
 <div class="outline-text-4" id="text-8-3-3">
 <ul class="org-ul">
 <li>Now, we pad the image with \(n-1\) number of 0s on each side.</li>
@@ -2354,8 +2516,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org734c66a" class="outline-3">
-<h3 id="org734c66a"><span class="section-number-3">8.4.</span> Striding</h3>
+<div id="outline-container-orgd0d9c17" class="outline-3">
+<h3 id="orgd0d9c17"><span class="section-number-3">8.4.</span> Striding</h3>
 <div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li>When S=1, you move the kernel 1 pixel at a time (regardless of direction).</li>
@@ -2364,8 +2526,8 @@ number of 0s on each side. So now you won&rsquo;t have out-of-bound</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8aaf60a" class="outline-3">
-<h3 id="org8aaf60a"><span class="section-number-3">8.5.</span> Grand Formula for Feature Map</h3>
+<div id="outline-container-org7440735" class="outline-3">
+<h3 id="org7440735"><span class="section-number-3">8.5.</span> Grand Formula for Feature Map</h3>
 <div class="outline-text-3" id="text-8-5">
 <p>
 \[ W_{featureMap} = \frac{W - F + 2P}{S} + 1 \]
@@ -2380,8 +2542,8 @@ where
 </ul>
 </div>
 </div>
-<div id="outline-container-org084c125" class="outline-3">
-<h3 id="org084c125"><span class="section-number-3">8.6.</span> Pooling</h3>
+<div id="outline-container-org3654afc" class="outline-3">
+<h3 id="org3654afc"><span class="section-number-3">8.6.</span> Pooling</h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>Pooling is a dynamic kernel of sorts. You&rsquo;re not aggregating, but you&rsquo;re doing
@@ -2393,8 +2555,8 @@ overfitting.</li>
 <li>The number of parameters involved in pooling is <b>0</b>.</li>
 </ul>
 </div>
-<div id="outline-container-org4b8bcfa" class="outline-4">
-<h4 id="org4b8bcfa"><span class="section-number-4">8.6.1.</span> Max-Pooling</h4>
+<div id="outline-container-org4d30144" class="outline-4">
+<h4 id="org4d30144"><span class="section-number-4">8.6.1.</span> Max-Pooling</h4>
 <div class="outline-text-4" id="text-8-6-1">
 <ul class="org-ul">
 <li>In the kernel, instead of giving aggregate to the neuron in the next layer,
@@ -2405,8 +2567,8 @@ mostly similar to the information of its neighbours.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga02b378" class="outline-4">
-<h4 id="orga02b378"><span class="section-number-4">8.6.2.</span> Global Average Pooling</h4>
+<div id="outline-container-org1a613fd" class="outline-4">
+<h4 id="org1a613fd"><span class="section-number-4">8.6.2.</span> Global Average Pooling</h4>
 <div class="outline-text-4" id="text-8-6-2">
 <ul class="org-ul">
 <li>One layer that performs global average pooling, is used to seperate the layers
@@ -2420,8 +2582,8 @@ details.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org0dd2dc1" class="outline-3">
-<h3 id="org0dd2dc1"><span class="section-number-3">8.7.</span> Flattening Layer</h3>
+<div id="outline-container-org5216e33" class="outline-3">
+<h3 id="org5216e33"><span class="section-number-3">8.7.</span> Flattening Layer</h3>
 <div class="outline-text-3" id="text-8-7">
 <ul class="org-ul">
 <li>When a convolutional layer is connected to a dense layer, a flattening layer
@@ -2432,15 +2594,15 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfcaa0cb" class="outline-3">
-<h3 id="orgfcaa0cb"><span class="section-number-3">8.8.</span> LeNet</h3>
+<div id="outline-container-org26b1408" class="outline-3">
+<h3 id="org26b1408"><span class="section-number-3">8.8.</span> LeNet</h3>
 <div class="outline-text-3" id="text-8-8">
 <ul class="org-ul">
 <li>Proposed to recognize handwritten postal zip codes.</li>
 </ul>
 </div>
-<div id="outline-container-org5efcf3f" class="outline-4">
-<h4 id="org5efcf3f"><span class="section-number-4">8.8.1.</span> Architecture</h4>
+<div id="outline-container-org02af41f" class="outline-4">
+<h4 id="org02af41f"><span class="section-number-4">8.8.1.</span> Architecture</h4>
 <div class="outline-text-4" id="text-8-8-1">
 <ul class="org-ul">
 <li>Each input image is a 32x32 image of a handwritten character.</li>
@@ -2452,8 +2614,8 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org658367f" class="outline-4">
-<h4 id="org658367f"><span class="section-number-4">8.8.2.</span> Convolution Layer 1</h4>
+<div id="outline-container-orgd5a5c91" class="outline-4">
+<h4 id="orgd5a5c91"><span class="section-number-4">8.8.2.</span> Convolution Layer 1</h4>
 <div class="outline-text-4" id="text-8-8-2">
 <ul class="org-ul">
 <li>Size of Feature Map = \(\frac{32-5+0}{1} + 1\) = 28x28</li>
@@ -2462,12 +2624,12 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbde8449" class="outline-3">
-<h3 id="orgbde8449"><span class="section-number-3">8.9.</span> AlexNet</h3>
+<div id="outline-container-org8fc24a0" class="outline-3">
+<h3 id="org8fc24a0"><span class="section-number-3">8.9.</span> AlexNet</h3>
 <div class="outline-text-3" id="text-8-9">
 </div>
-<div id="outline-container-org66e849a" class="outline-4">
-<h4 id="org66e849a"><span class="section-number-4">8.9.1.</span> Dataset</h4>
+<div id="outline-container-org95bb0b7" class="outline-4">
+<h4 id="org95bb0b7"><span class="section-number-4">8.9.1.</span> Dataset</h4>
 <div class="outline-text-4" id="text-8-9-1">
 <ul class="org-ul">
 <li>Trained on ImageNet-1k
@@ -2478,8 +2640,8 @@ Basically, it becomes a <code>290400 x 1</code> layer.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org28e5063" class="outline-4">
-<h4 id="org28e5063"><span class="section-number-4">8.9.2.</span> Structure</h4>
+<div id="outline-container-org5bd3d4e" class="outline-4">
+<h4 id="org5bd3d4e"><span class="section-number-4">8.9.2.</span> Structure</h4>
 <div class="outline-text-4" id="text-8-9-2">
 <ul class="org-ul">
 <li><p>
@@ -2515,8 +2677,8 @@ Layers
 </div>
 </div>
 </div>
-<div id="outline-container-org6eae7d5" class="outline-3">
-<h3 id="org6eae7d5"><span class="section-number-3">8.10.</span> YOLO NAS (Neural Architectural Search)</h3>
+<div id="outline-container-orgc49bc66" class="outline-3">
+<h3 id="orgc49bc66"><span class="section-number-3">8.10.</span> YOLO NAS (Neural Architectural Search)</h3>
 <div class="outline-text-3" id="text-8-10">
 <ul class="org-ul">
 <li>Instead of relying on manual design by human beings, the model automates the
@@ -2525,8 +2687,8 @@ activations, pooling, etc).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9238045" class="outline-3">
-<h3 id="org9238045"><span class="section-number-3">8.11.</span> VGGNet</h3>
+<div id="outline-container-orga51ffc8" class="outline-3">
+<h3 id="orga51ffc8"><span class="section-number-3">8.11.</span> VGGNet</h3>
 <div class="outline-text-3" id="text-8-11">
 <ul class="org-ul">
 <li>VGG introduced the fact that there&rsquo;s no need of larger kernels.</li>
@@ -2547,8 +2709,8 @@ amount of depth.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1a4fa04" class="outline-3">
-<h3 id="org1a4fa04"><span class="section-number-3">8.12.</span> ResNet</h3>
+<div id="outline-container-org1a0a5d0" class="outline-3">
+<h3 id="org1a0a5d0"><span class="section-number-3">8.12.</span> ResNet</h3>
 <div class="outline-text-3" id="text-8-12">
 <ul class="org-ul">
 <li>Early layers learn fine details and edges, while later layers learn complex
@@ -2572,8 +2734,8 @@ where
 </ul>
 </div>
 </div>
-<div id="outline-container-org80401c5" class="outline-3">
-<h3 id="org80401c5"><span class="section-number-3">8.13.</span> GoogleNet</h3>
+<div id="outline-container-org28a490c" class="outline-3">
+<h3 id="org28a490c"><span class="section-number-3">8.13.</span> GoogleNet</h3>
 <div class="outline-text-3" id="text-8-13">
 <ul class="org-ul">
 <li>This introduced the concept of <b>parallel convolutions</b>.</li>
@@ -2583,8 +2745,8 @@ kernel moving across the depth.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8ae48a3" class="outline-3">
-<h3 id="org8ae48a3"><span class="section-number-3">8.14.</span> Applications</h3>
+<div id="outline-container-org358057d" class="outline-3">
+<h3 id="org358057d"><span class="section-number-3">8.14.</span> Applications</h3>
 <div class="outline-text-3" id="text-8-14">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2724,8 +2886,8 @@ kernel moving across the depth.</li>
 </table>
 </div>
 </div>
-<div id="outline-container-org6437198" class="outline-3">
-<h3 id="org6437198"><span class="section-number-3">8.15.</span> UNet</h3>
+<div id="outline-container-orgeebebc2" class="outline-3">
+<h3 id="orgeebebc2"><span class="section-number-3">8.15.</span> UNet</h3>
 <div class="outline-text-3" id="text-8-15">
 <ul class="org-ul">
 <li>This is a type of <b>segmentation</b>.</li>
@@ -2745,8 +2907,8 @@ the <b>bottleneck</b>, and it has the smallest feature map, but the most amount 
 features.</li>
 </ul>
 </div>
-<div id="outline-container-org001d1ec" class="outline-4">
-<h4 id="org001d1ec"><span class="section-number-4">8.15.1.</span> VGGNet used as an encoder</h4>
+<div id="outline-container-org5a42f11" class="outline-4">
+<h4 id="org5a42f11"><span class="section-number-4">8.15.1.</span> VGGNet used as an encoder</h4>
 <div class="outline-text-4" id="text-8-15-1">
 <ul class="org-ul">
 <li>In UNet, LHS is one big encoder, and the RHS is one big decoder.</li>
@@ -2758,12 +2920,12 @@ map is directly given to the bottleneck</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org40af811" class="outline-3">
-<h3 id="org40af811"><span class="section-number-3">8.16.</span> YOLO</h3>
+<div id="outline-container-org5229847" class="outline-3">
+<h3 id="org5229847"><span class="section-number-3">8.16.</span> YOLO</h3>
 <div class="outline-text-3" id="text-8-16">
 </div>
-<div id="outline-container-org486c40c" class="outline-4">
-<h4 id="org486c40c"><span class="section-number-4">8.16.1.</span> What it is</h4>
+<div id="outline-container-org2f56212" class="outline-4">
+<h4 id="org2f56212"><span class="section-number-4">8.16.1.</span> What it is</h4>
 <div class="outline-text-4" id="text-8-16-1">
 <ul class="org-ul">
 <li>Essentially, it&rsquo;s a complex model that does <b>parallel convolutions</b>, to work on
@@ -2778,8 +2940,8 @@ map is directly given to the bottleneck</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff17ace" class="outline-4">
-<h4 id="orgff17ace"><span class="section-number-4">8.16.2.</span> Code</h4>
+<div id="outline-container-orgc4843e8" class="outline-4">
+<h4 id="orgc4843e8"><span class="section-number-4">8.16.2.</span> Code</h4>
 <div class="outline-text-4" id="text-8-16-2">
 <ul class="org-ul">
 <li>There are about 13 types of YOLO, and each type has different sizes, L, S, XL,
@@ -2892,12 +3054,12 @@ layers), so the <code>from</code> number should be changed accordingly.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf474d74" class="outline-2">
-<h2 id="orgf474d74"><span class="section-number-2">9.</span> Recurrent Neural Network</h2>
+<div id="outline-container-orga2e70f0" class="outline-2">
+<h2 id="orga2e70f0"><span class="section-number-2">9.</span> Recurrent Neural Network</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org257bd49" class="outline-3">
-<h3 id="org257bd49"><span class="section-number-3">9.1.</span> Introduction</h3>
+<div id="outline-container-org2cfb26b" class="outline-3">
+<h3 id="org2cfb26b"><span class="section-number-3">9.1.</span> Introduction</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Up until now:
@@ -2912,8 +3074,8 @@ images, and RNNs are used to relate the sequence of these images.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org775c775" class="outline-3">
-<h3 id="org775c775"><span class="section-number-3">9.2.</span> Issue of ANNs</h3>
+<div id="outline-container-org38d22c0" class="outline-3">
+<h3 id="org38d22c0"><span class="section-number-3">9.2.</span> Issue of ANNs</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>Sentences like &ldquo;I ate a pizza&rdquo; and &ldquo;A pizza was ate by me&rdquo; use almost the same
@@ -2999,8 +3161,8 @@ where &ldquo;how&rdquo; is the 5th word.
 </ul>
 </div>
 </div>
-<div id="outline-container-org271cc0c" class="outline-3">
-<h3 id="org271cc0c"><span class="section-number-3">9.3.</span> What RNNs do</h3>
+<div id="outline-container-org07d8f72" class="outline-3">
+<h3 id="org07d8f72"><span class="section-number-3">9.3.</span> What RNNs do</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>RNNs process the sentence word-by-word, and for each word, it computes a
@@ -3056,8 +3218,8 @@ x3 → [RNN Cell] → h3 → y3
 <li>One thing to note is that RNNs can&rsquo;t handle spatial data.</li>
 </ul>
 </div>
-<div id="outline-container-orge728b5e" class="outline-4">
-<h4 id="orge728b5e"><span class="section-number-4">9.3.1.</span> Working:</h4>
+<div id="outline-container-orgabcf19e" class="outline-4">
+<h4 id="orgabcf19e"><span class="section-number-4">9.3.1.</span> Working:</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <ul class="org-ul">
 <li>Given Data:
@@ -3141,8 +3303,8 @@ Note that \(tanh(\begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix})
 </ul>
 </div>
 </div>
-<div id="outline-container-org87bf6ee" class="outline-4">
-<h4 id="org87bf6ee"><span class="section-number-4">9.3.2.</span> Full Workflow, explained with the case of a word predictor</h4>
+<div id="outline-container-org05938e1" class="outline-4">
+<h4 id="org05938e1"><span class="section-number-4">9.3.2.</span> Full Workflow, explained with the case of a word predictor</h4>
 <div class="outline-text-4" id="text-9-3-2">
 <ul class="org-ul">
 <li>Iteration 1:
@@ -3173,8 +3335,8 @@ answer should be a probability.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org355a2b8" class="outline-4">
-<h4 id="org355a2b8"><span class="section-number-4">9.3.3.</span> A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</h4>
+<div id="outline-container-orgabc02c4" class="outline-4">
+<h4 id="orgabc02c4"><span class="section-number-4">9.3.3.</span> A Simple RNN layer has input size of 10 and hidden size of 20. Calculate the total number of trainable parameters, given that there are 10 RNN cells.</h4>
 <div class="outline-text-4" id="text-9-3-3">
 <ul class="org-ul">
 <li>\(W_{xh}\) is of size <code>10 x 20</code>, so we have 200 parameters here.</li>
@@ -3204,8 +3366,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfc6459c" class="outline-4">
-<h4 id="orgfc6459c"><span class="section-number-4">9.3.4.</span> Given the following architecture, find the number of trainable parameters.</h4>
+<div id="outline-container-org18bb2e9" class="outline-4">
+<h4 id="org18bb2e9"><span class="section-number-4">9.3.4.</span> Given the following architecture, find the number of trainable parameters.</h4>
 <div class="outline-text-4" id="text-9-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3274,8 +3436,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb5c3b60" class="outline-3">
-<h3 id="orgb5c3b60"><span class="section-number-3">9.4.</span> Calculating Loss</h3>
+<div id="outline-container-orgeb1a8d5" class="outline-3">
+<h3 id="orgeb1a8d5"><span class="section-number-3">9.4.</span> Calculating Loss</h3>
 <div class="outline-text-3" id="text-9-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3328,8 +3490,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </table>
 </div>
 </div>
-<div id="outline-container-org116fb17" class="outline-3">
-<h3 id="org116fb17"><span class="section-number-3">9.5.</span> Backpropagation through Time (BTT)</h3>
+<div id="outline-container-org69de9f2" class="outline-3">
+<h3 id="org69de9f2"><span class="section-number-3">9.5.</span> Backpropagation through Time (BTT)</h3>
 <div class="outline-text-3" id="text-9-5">
 <ul class="org-ul">
 <li>Each step essentially learns how much it contributed to the future steps&rsquo; error.</li>
@@ -3339,8 +3501,8 @@ So in this example, it&rsquo;s the same cell used for 10 time-steps.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgda6c8a2" class="outline-3">
-<h3 id="orgda6c8a2"><span class="section-number-3">9.6.</span> Input to RNN</h3>
+<div id="outline-container-org72dab2f" class="outline-3">
+<h3 id="org72dab2f"><span class="section-number-3">9.6.</span> Input to RNN</h3>
 <div class="outline-text-3" id="text-9-6">
 <ul class="org-ul">
 <li>Batch Size: Number of sequences of words. This doesn&rsquo;t affect the number of
@@ -3350,8 +3512,8 @@ trainable.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7d71aa4" class="outline-3">
-<h3 id="org7d71aa4"><span class="section-number-3">9.7.</span> Layer Normalization</h3>
+<div id="outline-container-org7649e76" class="outline-3">
+<h3 id="org7649e76"><span class="section-number-3">9.7.</span> Layer Normalization</h3>
 <div class="outline-text-3" id="text-9-7">
 <ul class="org-ul">
 <li>In Batch normalizations, activations for a single feature across all
@@ -3363,8 +3525,8 @@ now independent of batch size and sequence size.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org06160be" class="outline-3">
-<h3 id="org06160be"><span class="section-number-3">9.8.</span> Issues</h3>
+<div id="outline-container-org276c8f6" class="outline-3">
+<h3 id="org276c8f6"><span class="section-number-3">9.8.</span> Issues</h3>
 <div class="outline-text-3" id="text-9-8">
 <ul class="org-ul">
 <li>Vanishing or Exploding Gradients</li>
@@ -3377,8 +3539,8 @@ each cell is, because each cell just uses the same weights.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org4716da2" class="outline-2">
-<h2 id="org4716da2"><span class="section-number-2">10.</span> Long Short Term Memory (LSTM)</h2>
+<div id="outline-container-org1d25dda" class="outline-2">
+<h2 id="org1d25dda"><span class="section-number-2">10.</span> Long Short Term Memory (LSTM)</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>LSTM is a type of RNN, which uses &ldquo;gates&rdquo;. While a vanilla RNN has only hidden
@@ -3392,8 +3554,8 @@ away” — hard to keep long-term info (vanishing gradients).</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org0de25c3" class="outline-3">
-<h3 id="org0de25c3"><span class="section-number-3">10.1.</span> How Previous Hidden State is Modified</h3>
+<div id="outline-container-org7055d86" class="outline-3">
+<h3 id="org7055d86"><span class="section-number-3">10.1.</span> How Previous Hidden State is Modified</h3>
 <div class="outline-text-3" id="text-10-1">
 <ul class="org-ul">
 <li>Now, the previous hidden state \(h_{t-1} = s_{t-1} 0 o_{t-1}\).
@@ -3406,8 +3568,8 @@ the previous output, actually becomes the previous hidden state.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org151327f" class="outline-3">
-<h3 id="org151327f"><span class="section-number-3">10.2.</span> How Current Hidden State is Modified</h3>
+<div id="outline-container-org76a7b19" class="outline-3">
+<h3 id="org76a7b19"><span class="section-number-3">10.2.</span> How Current Hidden State is Modified</h3>
 <div class="outline-text-3" id="text-10-2">
 <ul class="org-ul">
 <li>Since \(s_{t-1}\) is the same as \(h_{t-1}\) in RNN, \(s_{t}\) is the new hidden state calculated and that is given as:
@@ -3422,8 +3584,8 @@ state is forgotten.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc9c3c96" class="outline-3">
-<h3 id="orgc9c3c96"><span class="section-number-3">10.3.</span> Gates</h3>
+<div id="outline-container-org940e18e" class="outline-3">
+<h3 id="org940e18e"><span class="section-number-3">10.3.</span> Gates</h3>
 <div class="outline-text-3" id="text-10-3">
 <p>
 \[o_{t} = tanh(U_{o}x_{t} + W_{o}h_{t-1} + b_{o})\]
@@ -3437,8 +3599,8 @@ state is forgotten.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc32059a" class="outline-2">
-<h2 id="orgc32059a"><span class="section-number-2">11.</span> Gated Recurrent Unit (GRU)</h2>
+<div id="outline-container-org099eb48" class="outline-2">
+<h2 id="org099eb48"><span class="section-number-2">11.</span> Gated Recurrent Unit (GRU)</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>They came later, but it focuses on speed and efficiency, not accuracy and
@@ -3447,8 +3609,8 @@ performance.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org31d585d" class="outline-2">
-<h2 id="org31d585d"><span class="section-number-2">12.</span> Encoders and Decoders</h2>
+<div id="outline-container-org81b7591" class="outline-2">
+<h2 id="org81b7591"><span class="section-number-2">12.</span> Encoders and Decoders</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>If your RNN had to understand both text and images, there are two ways:
@@ -3461,8 +3623,8 @@ performance.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5b26df8" class="outline-2">
-<h2 id="org5b26df8"><span class="section-number-2">13.</span> Transformer</h2>
+<div id="outline-container-org19e5c3a" class="outline-2">
+<h2 id="org19e5c3a"><span class="section-number-2">13.</span> Transformer</h2>
 <div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>A transformer is a DL architecture that analyzes an entire sequence of data
@@ -3476,8 +3638,8 @@ tired&rdquo;, only a transformer would know that the word &ldquo;it&rdquo; refer
 and not the road.</li>
 </ul>
 </div>
-<div id="outline-container-orgd65ade9" class="outline-3">
-<h3 id="orgd65ade9"><span class="section-number-3">13.1.</span> Embedding</h3>
+<div id="outline-container-orgf019d70" class="outline-3">
+<h3 id="orgf019d70"><span class="section-number-3">13.1.</span> Embedding</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>First each word is converted into an embedding, which is basically a vector
@@ -3493,8 +3655,8 @@ this is the gist of it.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga3f6895" class="outline-3">
-<h3 id="orga3f6895"><span class="section-number-3">13.2.</span> Query</h3>
+<div id="outline-container-org59df2ff" class="outline-3">
+<h3 id="org59df2ff"><span class="section-number-3">13.2.</span> Query</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>A query is a vector that a token uses to decide which other tokens are
@@ -3521,8 +3683,8 @@ tired&rdquo;, you could think of the query vector for the word &ldquo;it&rdquo; 
 </ul>
 </div>
 </div>
-<div id="outline-container-org43ad926" class="outline-3">
-<h3 id="org43ad926"><span class="section-number-3">13.3.</span> Key</h3>
+<div id="outline-container-org55a522a" class="outline-3">
+<h3 id="org55a522a"><span class="section-number-3">13.3.</span> Key</h3>
 <div class="outline-text-3" id="text-13-3">
 <ul class="org-ul">
 <li>A key is a vector that a token uses to answer the queries, by actually telling
@@ -3541,8 +3703,8 @@ of road does.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb067941" class="outline-3">
-<h3 id="orgb067941"><span class="section-number-3">13.4.</span> Value</h3>
+<div id="outline-container-orgd2824c5" class="outline-3">
+<h3 id="orgd2824c5"><span class="section-number-3">13.4.</span> Value</h3>
 <div class="outline-text-3" id="text-13-4">
 <ul class="org-ul">
 <li>A value is a vector that represents the amount of information a token can
@@ -3570,8 +3732,8 @@ and this is how it incoorporates contextual information.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org40eacb7" class="outline-3">
-<h3 id="org40eacb7"><span class="section-number-3">13.5.</span> Attention</h3>
+<div id="outline-container-org0fabfd9" class="outline-3">
+<h3 id="org0fabfd9"><span class="section-number-3">13.5.</span> Attention</h3>
 <div class="outline-text-3" id="text-13-5">
 <ul class="org-ul">
 <li>The <b>attention pattern matrix</b> is a square matrix that tells you how much each
@@ -3603,8 +3765,8 @@ is additionally divided by \(\sqrt{d_{k}}\) to keep the values tamed.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge599c6b" class="outline-3">
-<h3 id="orge599c6b"><span class="section-number-3">13.6.</span> CLIP</h3>
+<div id="outline-container-orgc2d5003" class="outline-3">
+<h3 id="orgc2d5003"><span class="section-number-3">13.6.</span> CLIP</h3>
 <div class="outline-text-3" id="text-13-6">
 <ul class="org-ul">
 <li>CLIP stands for Contrastive Language Image Pairs.</li>
