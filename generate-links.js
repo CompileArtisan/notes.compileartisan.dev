@@ -26,6 +26,12 @@ const OUTPUT = join(ROOT, "index.html");
 const WORDS_PER_MINUTE = 200;
 const MAX_TOPIC_PILLS = 7;
 
+// The big page title: only the linked part is a hyperlink.  -> "Praanesh’s Notes"
+const TITLE = {
+  link: { text: "Praanesh", href: "https://compileartisan.dev/" },
+  rest: "’s Notes",
+};
+
 // Used when ./assets has no font file (same URL the exported notes use).
 const REMOTE_BRAND_FONT = "https://compileartisan.dev/Perfect%20DOS%20VGA%20437%20Win.ttf";
 
@@ -318,7 +324,7 @@ const summary = courses.length
     }`
   : "No courses have been exported yet.";
 
-const pageTitle = siteHeading;
+const pageTitle = TITLE.link.text + TITLE.rest;
 const ogDescription = siteIntro || summary;
 
 const brandHtml =
@@ -560,12 +566,19 @@ main {
 
 h1.title {
   margin: 0 0 1.2rem;
-  font-size: 2.35rem;
-  font-weight: 650;
-  line-height: 1.15;
-  letter-spacing: -.015em;
+  font-family: 'DOSVGA', var(--font-mono);
+  font-size: clamp(2.6rem, 8vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .02em;
   overflow-wrap: anywhere;
 }
+h1.title a {
+  color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+h1.title a:hover { color: var(--accent-hover); }
 h1.title::after {
   content: "";
   display: block;
@@ -702,13 +715,11 @@ footer p { margin: 0; padding-top: 20px; border-top: 1px solid var(--border); }
   footer { padding: 0 20px 48px; }
   .course-link { grid-template-columns: 1fr; gap: 14px; }
   .facts { grid-template-columns: 1fr 1fr; column-gap: 20px; }
-  h1.title { font-size: 2rem; }
 }
 @media (max-width: 480px) {
   body { font-size: 17px; }
   .site-header { padding: 0 14px; }
   .site-header .brand { font-size: 1rem; }
-  h1.title { font-size: 1.7rem; }
 }
 
 /* ─── Print ─────────────────────────────────────────────── */
@@ -721,7 +732,7 @@ footer p { margin: 0; padding-top: 20px; border-top: 1px solid var(--border); }
 <body>
 
 <main>
-  <h1 class="title">${esc(siteHeading)}</h1>
+  <h1 class="title"><a href="${esc(TITLE.link.href)}">${esc(TITLE.link.text)}</a>${esc(TITLE.rest)}</h1>
   ${siteIntro ? `<p class="lede">${esc(siteIntro)}</p>` : ""}
   <p class="summary">${esc(summary)}</p>
 
