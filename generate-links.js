@@ -732,7 +732,7 @@ footer p { margin: 0; padding-top: 20px; border-top: 1px solid var(--border); }
 <body>
 
 <main>
-  <h1 class="title"><a href="${esc(TITLE.link.href)}">${esc(TITLE.link.text)}</a>${esc(TITLE.rest)}</h1>
+  <h1 class="title"><b><a href="${esc(TITLE.link.href)}">${esc(TITLE.link.text)}</a>${esc(TITLE.rest)}</b></h1>
   ${siteIntro ? `<p class="lede">${esc(siteIntro)}</p>` : ""}
   <p class="summary">${esc(summary)}</p>
 
