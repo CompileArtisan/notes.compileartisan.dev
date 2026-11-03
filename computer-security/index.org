@@ -1158,8 +1158,7 @@ print(sbox(S1, "101010"))
 ******* Rules
 - Plaintext $M < n$
 - Ciphertext $C = M^{d}\mod(n)$
-******* Examples
-******** Example 1
+******* Example
 - $p=3$, $q=11$
 - $n=p \times q = 3 \times 11 = 33$
 - $\phi(n) = \phi(33) = \phi(3 \times 11) = 2 \times 10 = 20$
@@ -1169,11 +1168,11 @@ print(sbox(S1, "101010"))
 - $d = e^{-1} \mod(20)$
   - $d = 7^{-1} \mod(20)$
   
- | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
- |-----+-----+-----+-----+------+------+-----|
- |   0 |   7 |  20 |   6 |    1 |    0 |   1 |
+  | $q$ | $a$ | $m$ | $r$ | $u_{0}$ | $u_{1}$ | $u$ |
+  |-----+-----+-----+-----+------+------+-----|
+  |   0 |   7 |  20 |   6 |    1 |    0 |   1 |
+- $\text{Cipher Text} = C = M^{e} \mod(n)$
  
-******** Example 2
 
 ****** Decryption
 - Ciphertext = $C$
