@@ -822,8 +822,85 @@ $$\text{Activity Span} = \text{LF} - \text{ES}$$
 Both float and span belongs to one activity.
 
 
-** Risk Assessment
-- It's the process of identifying potential risks in a software project.
+** Dealing with Risks
+
+*** Types of Risk
+**** Market Risk
+- The product isn't good enough for the market because of its usefulness.
+  
+**** Technology Risk
+- The project is using older technology.
+
+**** Project Risk
+- These are risks that could prevent the objectives given to the *project
+  manager*.
+- These could include less time, bad deadlines or people leaving the project.
+
+
+*** Lyytinen-Mathiassen-Ropponen Risk Framework
+- Risks could arise from 4 areas.
+
+  | Risk Area  | What it is                                                  | Example                          |
+  |------------+-------------------------------------------------------------+----------------------------------|
+  | Actors     | People involved                                             | Experienced Developer leaves     |
+  | Structure  | Communication systems, management structure, workflows, etc | Poor Communication between teams |
+  | Technology | Techniques, tools to be used                                | Database server fails            |
+  | Task       | All work to be done                                         | Testing is underestimated        |
+
+*** Steps of Risk Assessment
+- Risk assessment is the process of identifying potential risks in a software
+  project.
+- Risk assessment is done by:
+  - Project Planner
+  - Project Manager
+  - Technical Staff
+
+**** Identification
+- Use a *checklist* of risks that have commonly occurred in previous projects.
+- Make a *causal mapping*. It's a flowchart of one problem causes another, and
+  that problem causes another and so on.
+
+**** Analysis
+- There are three factors that affect risk impact.
+
+***** Nature
+- Identifies the type of problem that may arise if the risk occurs.
+  
+***** Scope
+- It considers the severity of the risk and how much of the project will be
+  affected.
+  
+***** Timing
+- When and for how long will the impact be felt.
+
+**** Planning 
+***** 5 ways of Handling Risks
+
+| Planning Methods            | What it is                                                                |
+|-----------------------------+---------------------------------------------------------------------------|
+| Risk Acceptance             | Don't take action coz it's either too minor, or it's too expensive to act |
+| Risk Avoidance              | Eliminate all risks that could occur in the first place                   |
+| Risk Reduction              | Reduce the probability of risk                                            |
+| Risk Transfer               | Transfer risks to another party/dependency through a contact              |
+| Risk Mitigation/Contingency | Prepare to respond to the risk if it happens                              |
+
+***** Measuring the countermeasure
+****** Risk Exposure
+Risk Exposure is the expected financial loss associated with a risk.
+$$\text{Risk Exposure} = \text{Cost / Potential Damage} \times \text{Probability of Occurance}$$
+- An example of potential damage could be the *cost of redeveloping a software*. 
+  
+****** Risk Reduction Leverage
+$$\text{Risk Reduction Leverage} = \frac{RE_{\text{before}} - RE_{\text{after}}}{\text{Cost of Risk Reduction}}$$
+
+- It tells you how much the risk exposure reduces, relative to how much money
+  you're putting in for this to happen.
+- Higher the $RRL$, the more attractive the countermeasure is.
+- The interpretation would be for every rupee you spend on implementing the
+  risk-reduction measure (denominator), the risk reduces by whatever you get in
+  the numerator.
+
+**** Monitoring
 
 *** Risk Projection or Estimation
 - Risk projection evaluates each identified risk in two ways.
@@ -834,10 +911,6 @@ Both float and span belongs to one activity.
 **** Consequence
 - What would happen to the project if the risk occurs
 
-*** Who performs Risk Assessment
-- Project Planner
-- Project Manager
-- Technical Staff
 
 *** Risk Prioritization
 - It's done using a table where rows are the events, and the columns are the
@@ -849,25 +922,26 @@ Both float and span belongs to one activity.
   | Key Programmer leaves |             |        |          |
   | UI Glitch             |             |        |          |
 
-*** Impact of a risk 
-- There are three factors that affect risk impact.
-  
-**** Nature
-- Identifies the type of problem that may arise if the risk occurs.
 
-**** Scope
-- It considers the severity of the risk and how much of the project will be
-  affected.
-
-**** Timing
-- When and for how long will the impact be felt
-
-*** Risk Exposure
-$$\text{Risk Exposure} = \text{Cost / Potential Damage} \times \text{Probability of Occurance}$$
 
 *** Probability Impact Matrix
 - A probability-impact-matrix is a risk asssessment tool used in software
   project management to classify and prioritze risks based on two factors:
   - *probability of occurance* (x-axis)
   - *impact* (y-axis)
-- Shaded region represents risks that require greater attention because t
+- Shaded region represents risks that require greater attention because their
+  probability or impact or both are high
+
+*** Uncertainty in Project Duration
+**** Probability Chart
+- x-axis is duration and y-axis is probability
+  
+**** PERT
+$$\text{Time Estimate} = \frac{O + 4M + P}{6}$$
+- $O$ is the *optimistic time*, i.e. the shortest reasonable time for the activity.
+- $M$ is the *most likely time*.
+- $P$ is the *pessimistic time*, i.e. the longest reasonable time for the activity.
+
+**** Monte Carlo Simulation
+- You define *ranges* i.e. possible durations for each activity,
+
