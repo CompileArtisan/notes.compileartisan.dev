@@ -936,12 +936,37 @@ $$\text{Risk Reduction Leverage} = \frac{RE_{\text{before}} - RE_{\text{after}}}
 **** Probability Chart
 - x-axis is duration and y-axis is probability
   
-**** PERT
+**** Program Evaluation and Review Technique (PERT)
+***** Time Estimate
 $$\text{Time Estimate} = \frac{O + 4M + P}{6}$$
-- $O$ is the *optimistic time*, i.e. the shortest reasonable time for the activity.
+$$\text{Standard Deviation} = \frac{P-O}{6}$$
+- $O$ or $a$ is the *optimistic time*, i.e. the shortest reasonable time for the activity.
 - $M$ is the *most likely time*.
-- $P$ is the *pessimistic time*, i.e. the longest reasonable time for the activity.
+- $P$ or $b$ is the *pessimistic time*, i.e. the longest reasonable time for the activity.
+  
+  
+- You calculate time estimate for each activity in a project. The project's
+  duration will be the sum of all time estimates.
+  
+***** Assessing probability of meeting a target
+- Given that 
+  - $T$ is *target duration*
+  - $te$ is *expected duration*
+  - $s$ is *project standard deviation*
+    
+
+****** Step 1: Calculate Z-Value
+$$z = \frac{\text{Target Duration} - \text{Expected Duration}}{\text{Standard Deviation}} = \frac{T - te}{s}$$
+
+****** Step 2: Look up Z in a standard normal distribution table 
 
 **** Monte Carlo Simulation
 - You define *ranges* i.e. possible durations for each activity,
 
+** Types of Schedules
+
+| Type              | What it indicates                                                   |
+|-------------------+---------------------------------------------------------------------|
+| Activity Schedule | Start and Completion Dates for each Activity                        |
+| Resource Schedule | Start and Completion Dates and level of resources for each Activity |
+| Cost Schedule     | Shows accumulative expenditure                                      |
